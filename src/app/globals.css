@@ -1,26 +1,448 @@
 @import "tailwindcss";
 
+/* ================================================================
+   GRUPO ENJOY  --  Design System Tokens
+   ================================================================
+   Dark-luxury foundation for a nightlife/hospitality group.
+   Three business themes: Enjoy Lounge, Outxide Club, Hiru Restaurant.
+   Tailwind 4 -- tokens surfaced via @theme inline.
+   ================================================================ */
+
+/* ─── 1. Root Design Tokens ──────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Surface palette --- */
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1a1;
+  --border: #262626;
+  --input: #262626;
+  --ring: #ec4899;
+
+  /* --- Semantic roles --- */
+  --primary: #ec4899;
+  --primary-foreground: #0a0a0a;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f5f5f5;
+  --accent: #1a1a1a;
+  --accent-foreground: #f5f5f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #f5f5f5;
+
+  /* --- Card / Popover --- */
+  --card: #111111;
+  --card-foreground: #f5f5f5;
+  --popover: #111111;
+  --popover-foreground: #f5f5f5;
+
+  /* --- Surface elevation layers --- */
+  --surface-0: #0a0a0a;
+  --surface-1: #111111;
+  --surface-2: #1a1a1a;
+  --surface-3: #262626;
+  --surface-4: #333333;
+
+  /* --- Business accent colors --- */
+  --enjoy-primary: #ec4899;
+  --enjoy-light: #f472b6;
+  --enjoy-dark: #db2777;
+  --enjoy-glow: rgba(236, 72, 153, 0.3);
+
+  --outxide-primary: #06b6d4;
+  --outxide-secondary: #7c3aed;
+  --outxide-light: #22d3ee;
+  --outxide-glow: rgba(6, 182, 212, 0.3);
+  --outxide-violet-glow: rgba(124, 58, 237, 0.25);
+
+  --hiru-primary: #b87333;
+  --hiru-secondary: #8b5e3c;
+  --hiru-light: #d4a574;
+  --hiru-glow: rgba(184, 115, 51, 0.3);
+
+  /* --- Border radius --- */
+  --radius: 0.75rem;
+
+  /* --- Spacing scale (4px grid) --- */
+  --space-0: 0px;
+  --space-px: 1px;
+  --space-0-5: 0.125rem;  /*  2px */
+  --space-1: 0.25rem;     /*  4px */
+  --space-1-5: 0.375rem;  /*  6px */
+  --space-2: 0.5rem;      /*  8px */
+  --space-3: 0.75rem;     /* 12px */
+  --space-4: 1rem;        /* 16px */
+  --space-5: 1.25rem;     /* 20px */
+  --space-6: 1.5rem;      /* 24px */
+  --space-8: 2rem;        /* 32px */
+  --space-10: 2.5rem;     /* 40px */
+  --space-12: 3rem;       /* 48px */
+  --space-16: 4rem;       /* 64px */
+  --space-20: 5rem;       /* 80px */
+  --space-24: 6rem;       /* 96px */
+
+  /* --- Shadow tokens --- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.7);
+
+  /* Business glow shadows -- for hover / focus states */
+  --shadow-enjoy: 0 4px 24px rgba(236, 72, 153, 0.25);
+  --shadow-outxide: 0 4px 24px rgba(6, 182, 212, 0.25);
+  --shadow-outxide-violet: 0 4px 24px rgba(124, 58, 237, 0.2);
+  --shadow-hiru: 0 4px 24px rgba(184, 115, 51, 0.25);
+
+  /* Glass shadows */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+  --shadow-glass-strong: 0 12px 48px rgba(0, 0, 0, 0.4), inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
+
+  /* --- Transition tokens --- */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  --transition-colors: color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default);
+  --transition-transform: transform var(--duration-normal) var(--ease-out);
+  --transition-opacity: opacity var(--duration-normal) var(--ease-default);
+  --transition-shadow: box-shadow var(--duration-normal) var(--ease-default);
+  --transition-all: all var(--duration-normal) var(--ease-default);
 }
 
+/* ─── 2. Tailwind 4 @theme inline ────────────────────────────── */
 @theme inline {
+  /* Colors -- semantic */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Colors -- surfaces */
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+
+  /* Colors -- business brands */
+  --color-enjoy: var(--enjoy-primary);
+  --color-enjoy-light: var(--enjoy-light);
+  --color-enjoy-dark: var(--enjoy-dark);
+  --color-outxide: var(--outxide-primary);
+  --color-outxide-violet: var(--outxide-secondary);
+  --color-outxide-light: var(--outxide-light);
+  --color-hiru: var(--hiru-primary);
+  --color-hiru-light: var(--hiru-light);
+  --color-hiru-dark: var(--hiru-secondary);
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+
+  /* Border radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Shadows -- mapped for Tailwind utility classes */
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  /* Animations -- exposed for animate-* classes */
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in: fade-in var(--duration-slow) var(--ease-out);
+  --animate-slide-up: slide-up var(--duration-slow) var(--ease-out);
+  --animate-slide-down: slide-down var(--duration-normal) var(--ease-out);
+  --animate-scale-in: scale-in var(--duration-normal) var(--ease-bounce);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── 3. Base Resets ─────────────────────────────────────────── */
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ─── 4. Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* ─── 5. Keyframe Animations ────────────────────────────────── */
+@keyframes moveBackground {
+  from { background-position: 0% 0%; }
+  to { background-position: 0% -1000%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Legacy animation classes (keep for existing usage) */
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ─── 6. Glass Morphism Utilities ────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-glass-strong);
+}
+
+.glass-card {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-glass);
+}
+
+/* ─── 7. Business Section Themes ─────────────────────────────── */
+.theme-enjoy {
+  --primary: var(--enjoy-primary);
+  --ring: var(--enjoy-primary);
+}
+
+.theme-outxide {
+  --primary: var(--outxide-primary);
+  --ring: var(--outxide-primary);
+}
+
+.theme-hiru {
+  --primary: var(--hiru-primary);
+  --ring: var(--hiru-primary);
+}
+
+/* ─── 8. Gradient Utilities ──────────────────────────────────── */
+
+/* --- Enjoy Terrace: hot pink neon gradients --- */
+.gradient-enjoy {
+  background: linear-gradient(135deg, var(--enjoy-dark), var(--enjoy-primary), var(--enjoy-light));
+}
+
+.gradient-enjoy-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(236, 72, 153, 0.15),
+    rgba(236, 72, 153, 0.05)
+  );
+}
+
+.gradient-enjoy-text {
+  background: linear-gradient(to right, var(--enjoy-primary), #fff, var(--enjoy-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-enjoy-border {
+  border-image: linear-gradient(135deg, var(--enjoy-primary), transparent) 1;
+}
+
+/* --- Outxide Club: cyan-to-violet electric gradients --- */
+.gradient-outxide {
+  background: linear-gradient(135deg, var(--outxide-primary), var(--outxide-secondary));
+}
+
+.gradient-outxide-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.15),
+    rgba(124, 58, 237, 0.1)
+  );
+}
+
+.gradient-outxide-text {
+  background: linear-gradient(to right, var(--outxide-primary), var(--outxide-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-outxide-border {
+  border-image: linear-gradient(135deg, var(--outxide-primary), var(--outxide-secondary)) 1;
+}
+
+/* --- Hiru Restaurant: warm copper/terracotta gradients --- */
+.gradient-hiru {
+  background: linear-gradient(135deg, var(--hiru-secondary), var(--hiru-primary), var(--hiru-light));
+}
+
+.gradient-hiru-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(184, 115, 51, 0.15),
+    rgba(184, 115, 51, 0.05)
+  );
+}
+
+.gradient-hiru-text {
+  background: linear-gradient(to right, var(--hiru-primary), var(--hiru-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-hiru-border {
+  border-image: linear-gradient(135deg, var(--hiru-primary), var(--hiru-light)) 1;
+}
+
+/* --- Shared gradient utilities --- */
+.gradient-dark-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5), var(--background));
+}
+
+.gradient-radial-glow {
+  background: radial-gradient(ellipse at center, var(--enjoy-glow), transparent 70%);
+}
+
+/* --- Outxide Tailwind color alias (keep backward compat) --- */
+.text-outxide-cyan {
+  color: var(--outxide-secondary);
+}
+
+/* ─── 9. Interactive State Utilities ─────────────────────────── */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-default);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-glow-enjoy {
+  transition: box-shadow var(--duration-normal) var(--ease-default);
+}
+.hover-glow-enjoy:hover {
+  box-shadow: var(--shadow-enjoy);
+}
+
+.hover-glow-outxide {
+  transition: box-shadow var(--duration-normal) var(--ease-default);
+}
+.hover-glow-outxide:hover {
+  box-shadow: var(--shadow-outxide);
+}
+
+.hover-glow-hiru {
+  transition: box-shadow var(--duration-normal) var(--ease-default);
+}
+.hover-glow-hiru:hover {
+  box-shadow: var(--shadow-hiru);
+}
+
+/* ─── 10. Focus Ring ─────────────────────────────────────────── */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ─── 11. Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
