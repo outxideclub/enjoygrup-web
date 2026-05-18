@@ -1,0 +1,52 @@
+{
+  "slug": "privacidad",
+  "title": "Privacy Policy",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>In compliance with Regulation (EU) 2016/679 General Data Protection Regulation (GDPR) and Organic Law 3/2018 of 5 December on the Protection of Personal Data and Guarantee of Digital Rights (LOPDGDD), we inform you about the processing of your personal data.</p>"
+    },
+    {
+      "id": "responsable",
+      "heading": "1. Data controller",
+      "content": "<ul><li><strong>Identity:</strong> Enjoy Club 78 S.L. (CIF: B75300376) — Av. Tucán, 1, 07400 Port d'Alcúdia, Illes Balears</li><li><strong>Identity:</strong> Hiru Food and Drinks S.L. (CIF: E56919921) — Carretera d'Artà, 40, 07400 Port d'Alcúdia, Illes Balears</li><li><strong>Email:</strong> privacidad@grupoenjoy.com</li><li><strong>Data Protection Officer (DPO):</strong> Not applicable per Art. 37 GDPR</li></ul>"
+    },
+    {
+      "id": "datos-recogidos",
+      "heading": "2. Data we collect",
+      "content": "<p>We collect personal data depending on the user's interaction with our services:</p><h3>2.1. Data provided directly</h3><table><thead><tr><th>Context</th><th>Data collected</th></tr></thead><tbody><tr><td>Reservation at Hiru (restaurant)</td><td>Name, email, phone, date, time, number of guests, occasion, allergies, special requests</td></tr><tr><td>Reservation at Enjoy (lounge)</td><td>Name, email, phone, date, time, number of guests, area type, occasion</td></tr><tr><td>Ticket purchase / VIP booking at Outxide</td><td>Name, email, phone, payment data (processed by external gateway), date of birth (age verification)</td></tr><tr><td>Group newsletter</td><td>Email, name (optional), preferred venue</td></tr><tr><td>Contact form</td><td>Name, email, subject, message</td></tr></tbody></table><h3>2.2. Data collected automatically</h3><p>Only after explicit acceptance via the cookie banner may we collect browsing data through analytics and marketing cookies (see <a href=\"/legal/cookies\">Cookie Policy</a>):</p><ul><li>IP address (anonymised in GA4)</li><li>Browser type and device</li><li>Pages visited and time spent</li><li>Traffic source and referral URL</li></ul>"
+    },
+    {
+      "id": "finalidades",
+      "heading": "3. Purposes and legal bases for processing",
+      "content": "<table><thead><tr><th>Purpose</th><th>Legal basis</th><th>Retention period</th></tr></thead><tbody><tr><td>Reservation management (Hiru / Enjoy)</td><td>Performance of a contract (Art. 6.1.b GDPR)</td><td>Duration of the reservation + 1 year</td></tr><tr><td>Ticket sales and VIP bookings (Outxide)</td><td>Performance of a contract (Art. 6.1.b GDPR)</td><td>Duration of the event + 5 years (tax obligation)</td></tr><tr><td>Newsletter</td><td>Explicit consent (Art. 6.1.a GDPR)</td><td>Until consent is withdrawn</td></tr><tr><td>Web analytics (GA4)</td><td>Explicit consent (Art. 6.1.a GDPR)</td><td>14 months (GA4 setting)</td></tr><tr><td>Marketing and remarketing (Meta Pixel, TikTok Pixel)</td><td>Explicit consent (Art. 6.1.a GDPR)</td><td>Until consent is withdrawn</td></tr><tr><td>Handling enquiries / contact</td><td>Legitimate interest (Art. 6.1.f GDPR)</td><td>Resolution of the enquiry + 1 year</td></tr><tr><td>Compliance with legal obligations</td><td>Legal obligation (Art. 6.1.c GDPR)</td><td>Applicable legal periods (tax: 5 years)</td></tr></tbody></table>"
+    },
+    {
+      "id": "destinatarios",
+      "heading": "4. Data recipients",
+      "content": "<p>Your personal data may be shared with the following recipients:</p><table><thead><tr><th>Recipient</th><th>Purpose</th><th>Location</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Web hosting and edge functions</td><td>USA (Data Processing Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Web analytics (consent only)</td><td>USA (Data Processing Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing and remarketing (consent only)</td><td>USA (Data Processing Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing and remarketing (consent only)</td><td>USA/Singapore (Standard Contractual Clauses)</td></tr><tr><td>Resend Inc.</td><td>Transactional email delivery</td><td>USA (Data Processing Framework)</td></tr><tr><td>Cookiebot (Usercentrics)</td><td>Cookie consent management</td><td>EU (Germany)</td></tr><tr><td>FourVenues S.L.</td><td>Ticketing and reservation system (Outxide)</td><td>Spain (EU)</td></tr><tr><td>Stripe Inc.</td><td>Payment processing</td><td>USA (Data Processing Framework)</td></tr></tbody></table><p>All international data transfers are carried out under the EU-US Data Privacy Framework or through Standard Contractual Clauses approved by the European Commission, ensuring a level of protection equivalent to the GDPR.</p>"
+    },
+    {
+      "id": "derechos",
+      "heading": "5. Data subject rights",
+      "content": "<p>In accordance with Articles 15 to 22 of the GDPR, you have the right to:</p><ul><li><strong>Access:</strong> know what personal data we process about you.</li><li><strong>Rectification:</strong> request the correction of inaccurate or incomplete data.</li><li><strong>Erasure:</strong> request the deletion of your data when it is no longer necessary.</li><li><strong>Objection:</strong> object to the processing of your data in certain circumstances.</li><li><strong>Restriction:</strong> request restriction of processing in certain cases.</li><li><strong>Portability:</strong> receive your data in a structured, commonly used format.</li><li><strong>Withdrawal of consent:</strong> withdraw your consent at any time.</li></ul><p>To exercise these rights, you may send a request to <a href=\"mailto:privacidad@grupoenjoy.com\">privacidad@grupoenjoy.com</a>, stating your full name and attaching a copy of your identity document. We will respond within a maximum of 30 days.</p><p>If you believe your data is not being processed in accordance with the regulations, you have the right to lodge a complaint with the <strong>Spanish Data Protection Agency (AEPD)</strong> — <a href=\"https://www.aepd.es\" target=\"_blank\" rel=\"noopener noreferrer\">www.aepd.es</a>.</p>"
+    },
+    {
+      "id": "seguridad",
+      "heading": "6. Security measures",
+      "content": "<p>We apply appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including:</p><ul><li>TLS/SSL encryption on all Website communications.</li><li>Restricted access to personal data by authorised personnel only.</li><li>Regular backups and secure storage.</li><li>Payment processing delegated to PCI-DSS certified gateways (Stripe).</li><li>IP anonymisation in analytics tools.</li></ul>"
+    },
+    {
+      "id": "menores",
+      "heading": "7. Minors",
+      "content": "<p>Our services are not aimed at persons under 16 years of age. We do not intentionally collect data from persons under 16. Access to the Outxide Club microsite requires age verification (18 years) in compliance with nightlife venue regulations.</p>"
+    },
+    {
+      "id": "actualizaciones",
+      "heading": "8. Updates to this policy",
+      "content": "<p>We reserve the right to amend this Privacy Policy to adapt to legislative changes or changes in our practices. Any material changes will be notified through the Website. We recommend reviewing this page periodically.</p>"
+    }
+  ]
+}

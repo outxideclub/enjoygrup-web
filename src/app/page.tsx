@@ -1,183 +1,262 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Wine, Music, Flame } from "lucide-react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Wine, Music, Flame, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
+import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
+import { OrganizationJsonLd } from "@/components/seo/json-ld";
+import { useT } from "@/i18n";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const businesses = [
   {
     name: "Enjoy",
+    id: "enjoy",
+    logo: EnjoyLogo,
     subtitle: "Terrace · Cocktails & Shisha",
     description:
-      "Where nights begin. Cócteles de autor, shisha premium y la mejor terraza para empezar la noche en Alcúdia.",
+      "Where nights begin. Los mejores cócteles de Alcúdia, shisha premium y la terraza con más ambiente para empezar la noche.",
     href: "/enjoy",
     icon: Wine,
-    color: "from-pink-500/20 to-pink-900/10",
+    color: "from-pink-500/40 to-pink-900/20",
     accent: "text-enjoy",
     borderColor: "hover:border-enjoy/30",
-    image:
-      "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop",
+    image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
+    video: "/videos/enjoy-hero.mp4",
+    poster: "/videos/enjoy-hero-poster.jpg",
+    cta: "Enjoy Terrace"
   },
   {
     name: "Outxide",
+    id: "outxide",
+    logo: OutxideLogo,
     subtitle: "Club",
     description:
-      "The night continues. Discoteca y club nocturno con los mejores DJs y una energía que no encontrarás en otro sitio.",
+      "The night continues. Club nocturno con los mejores DJs, producción de primer nivel y una energía que no encontrarás en otro sitio.",
     href: "/outxide",
     icon: Music,
-    color: "from-cyan-500/20 to-violet-500/10",
+    color: "from-cyan-500/40 to-violet-500/20",
     accent: "text-outxide",
     borderColor: "hover:border-outxide/30",
-    image:
-      "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=800&h=600&fit=crop",
+    image: "/images/outxide/DSCF8103-9.jpg",
+    video: "/videos/outxide-hero.mp4",
+    poster: "/videos/outxide-hero-poster.jpg",
+    cta: "Outxide Club"
   },
   {
     name: "Hiru",
+    id: "hiru",
+    logo: HiruLogo,
     subtitle: "Food & Drinks",
     description:
-      "Cocina mallorquina a la brasa. Producto, tradición y sabor. Carnes maduradas, arroces de lonja y pescados del Mediterráneo.",
+      "Brasa, cocktails y buen ambiente. Cocina de autor con las mejores carnes, arroces y cócteles hasta altas horas de la noche.",
     href: "/hiru",
     icon: Flame,
-    color: "from-amber-800/20 to-amber-950/10",
+    color: "from-amber-800/40 to-amber-950/20",
     accent: "text-hiru",
     borderColor: "hover:border-hiru/30",
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop",
+    image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
+    video: "/videos/hiru-hero.mp4",
+    poster: "/videos/hiru-hero-poster.jpg",
+    cta: "Hiru Food & Drinks"
   },
 ];
 
 export default function HomePage() {
+  const t = useT();
+  const [index, setIndex] = useState(0);
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoReady = useCallback(() => {
+    setVideoReady(true);
+  }, []);
+
+  useEffect(() => {
+    setVideoReady(false);
+  }, [index]);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v && v.readyState >= 3) handleVideoReady();
+  }, [handleVideoReady, index]);
+
+  const next = () => setIndex((prev) => (prev + 1) % businesses.length);
+  const prev = () => setIndex((prev) => (prev - 1 + businesses.length) % businesses.length);
+
+  useEffect(() => {
+    const timer = setInterval(next, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const activeBiz = businesses[index];
+
   return (
     <>
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-black">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.06),transparent_70%)]" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-enjoy/5 blur-[120px]" />
+      {/* Hero with Immersive Slider */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeBiz.id}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0"
+          >
+            {activeBiz.video ? (
+              <>
+                <img
+                  src={activeBiz.poster}
+                  alt=""
+                  aria-hidden
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-60"}`}
+                />
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  onCanPlayThrough={handleVideoReady}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-60" : "opacity-0"}`}
+                >
+                  <source src={activeBiz.video} type="video/mp4" />
+                </video>
+              </>
+            ) : (
+              <Image
+                src={activeBiz.image}
+                alt={activeBiz.name}
+                fill
+                className="object-cover opacity-60"
+                priority
+              />
+            )}
+            <div className={`absolute inset-0 bg-gradient-to-b ${activeBiz.color} to-black`} />
+            <div className="absolute inset-0 bg-black/40" />
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="relative z-10 mx-auto max-w-6xl px-6 w-full pt-20">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeBiz.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            >
+              <div>
+                <p className="text-sm font-bold tracking-[0.2em] text-white/60 uppercase mb-4">
+                  {t("common.location")}
+                </p>
+                <div className="mb-6 h-28 md:h-40 flex items-center">
+                  <activeBiz.logo className="h-full w-auto max-w-[400px]" />
+                </div>
+                <p className={`text-xl font-medium ${activeBiz.accent} mb-6 tracking-wide`}>
+                  {t(`home.${activeBiz.id}Subtitle`)}
+                </p>
+                <p className="text-lg text-white/80 leading-relaxed max-w-lg mb-10">
+                  {t(`home.${activeBiz.id}Description`)}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button asChild size="lg" className="rounded-full px-8 bg-white text-black hover:bg-white/90">
+                    <Link href={activeBiz.href}>
+                      {t("common.explore")} {activeBiz.name}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Visual element */}
+              <div className="hidden lg:block relative">
+                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                  <Image
+                    src={activeBiz.image}
+                    alt={activeBiz.name}
+                    fill
+                    className="object-cover transition-transform duration-[2s] group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                </div>
+                <div className={`absolute -top-6 -right-6 w-24 h-24 rounded-full ${activeBiz.accent.replace('text-', 'bg-')}/20 blur-2xl`} />
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
+        {/* Navigation */}
+        <div className="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 z-20">
+          <button
+            onClick={prev}
+            className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
           >
-            <p className="text-sm tracking-[0.4em] text-enjoy/80 uppercase mb-6">
-              Alcúdia, Mallorca
-            </p>
-            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight">
-              Grupo
-              <br />
-              <span className="bg-gradient-to-r from-enjoy via-white to-enjoy bg-clip-text text-transparent">
-                Enjoy
-              </span>
-            </h1>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mt-8 max-w-xl mx-auto text-lg text-muted-foreground leading-relaxed"
+            <ChevronLeft className="h-6 w-6 text-white" />
+          </button>
+          <button
+            onClick={next}
+            className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
           >
-            Terraza, club y restaurante. Tres espacios diseñados para
-            crear momentos inolvidables en Alcúdia.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button asChild size="lg" className="rounded-full px-8">
-              <Link href="#spaces">
-                Descubre nuestros espacios
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </motion.div>
+            <ChevronRight className="h-6 w-6 text-white" />
+          </button>
+          <div className="ml-4 flex gap-2">
+            {businesses.map((_, i) => (
+              <div
+                key={i}
+                className={`h-1 transition-all duration-500 ${i === index ? 'w-8 bg-white' : 'w-2 bg-white/20'}`}
+              />
+            ))}
+          </div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-          >
-            <div className="w-1 h-2 rounded-full bg-white/40" />
-          </motion.div>
-        </motion.div>
       </section>
 
-      {/* Business Cards */}
-      <section id="spaces" className="py-24 md:py-32">
+      {/* Featured Spaces Section */}
+      <section id="spaces" className="py-32 bg-black relative">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
-            <div className="text-center mb-20">
-              <p className="text-sm tracking-[0.3em] text-enjoy/60 uppercase mb-4">
-                Nuestros espacios
+            <div className="text-center mb-24">
+              <p className="text-sm font-bold tracking-[0.2em] text-white/40 uppercase mb-4">
+                {t("home.grupoEnjoy")}
               </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
-                Tres mundos, una filosofía
+              <h2 className="font-display text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase">
+                {t("home.threeSpaces")}
               </h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {businesses.map((biz, i) => (
               <ScrollReveal key={biz.name} delay={i * 0.15}>
-                <Link href={biz.href} className="group block">
-                  <div
-                    className={`relative overflow-hidden rounded-2xl border border-white/5 bg-card transition-all duration-500 ${biz.borderColor}`}
-                  >
-                    {/* Image */}
-                    <div className="relative h-64 overflow-hidden">
-                      <img
-                        src={biz.image}
-                        alt={biz.name}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-t ${biz.color} to-transparent`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                <Link href={biz.href} className="group block h-full">
+                  <div className="relative h-full overflow-hidden rounded-3xl border border-white/5 bg-zinc-950 p-8 transition-all duration-500 hover:border-white/20 flex flex-col">
+                    <div className="mb-8">
+                      <biz.logo className="h-28 w-auto mb-6" />
+                      <p className="text-sm text-white/50 leading-relaxed">
+                        {t(`home.${biz.id}Description`)}
+                      </p>
+                    </div>
+                    <div className="mt-auto pt-8 flex items-center justify-between border-t border-white/5">
+                      <span className="text-sm font-medium text-white group-hover:text-white/70 transition-colors">
+                        {t("common.visit")} {biz.name}
+                      </span>
+                      <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center transition-transform group-hover:translate-x-1">
+                        <ArrowRight className="h-4 w-4 text-white" />
+                      </div>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <biz.icon className={`h-5 w-5 ${biz.accent}`} />
-                        <div>
-                          <h3 className="text-xl font-bold text-white">
-                            {biz.name}
-                          </h3>
-                          <p className={`text-xs tracking-wider ${biz.accent}`}>
-                            {biz.subtitle}
-                          </p>
-                        </div>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {biz.description}
-                      </p>
-                      <div className="mt-4 flex items-center gap-2 text-sm text-white/60 group-hover:text-white transition-colors">
-                        <span>Explorar</span>
-                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </div>
+                    {/* Background glow on hover */}
+                    <div className={`absolute -bottom-24 -right-24 w-48 h-48 rounded-full ${biz.accent.replace('text-', 'bg-')}/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
                   </div>
                 </Link>
               </ScrollReveal>
@@ -186,44 +265,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(236,72,153,0.06),transparent_70%)]" />
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
-          <ScrollReveal>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-              ¿Preparado para vivir la experiencia?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-10">
-              Empieza en la terraza, sigue en el club, o disfruta de la mejor
-              cocina mallorquina.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="rounded-full px-8">
-                <Link href="/enjoy">Enjoy Terrace</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-full px-8"
-              >
-                <Link href="/outxide">Outxide Club</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-full px-8"
-              >
-                <Link href="/hiru">Hiru Food & Drinks</Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <Footer />
+      <OrganizationJsonLd />
     </>
   );
 }

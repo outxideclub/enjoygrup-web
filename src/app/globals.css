@@ -1,10 +1,11 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ================================================================
    GRUPO ENJOY  --  Design System Tokens
    ================================================================
    Dark-luxury foundation for a nightlife/hospitality group.
-   Three business themes: Enjoy Lounge, Outxide Club, Hiru Restaurant.
+   Three business themes: Enjoy Terrace, Outxide Club, Hiru Food & Drinks.
    Tailwind 4 -- tokens surfaced via @theme inline.
    ================================================================ */
 
@@ -160,8 +161,8 @@
   --color-hiru-dark: var(--hiru-secondary);
 
   /* Typography */
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-playfair);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-oswald);
 
   /* Border radius */
   --radius-lg: var(--radius);
@@ -186,6 +187,12 @@
   --animate-slide-up: slide-up var(--duration-slow) var(--ease-out);
   --animate-slide-down: slide-down var(--duration-normal) var(--ease-out);
   --animate-scale-in: scale-in var(--duration-normal) var(--ease-bounce);
+  --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
 }
 
 /* ─── 3. Base Resets ─────────────────────────────────────────── */

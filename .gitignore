@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local logs and tests
+*.log
+test-results/
+screenshots/
+verify_v2.spec.ts
+
+# large media files (exceed GitHub 100MB limit)
+*.RAF
+*.raf
+public/images/outxide/FX3_20260403_1330.MP4

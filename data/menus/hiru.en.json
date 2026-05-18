@@ -1,0 +1,153 @@
+[
+  {
+    "id": "aperitivos",
+    "category": "Appetizers",
+    "icon": "Utensils",
+    "items": [
+      { "name": "Cristal bread", "description": "With tomato", "price": "5€" },
+      { "name": "Bread, alioli and olives", "description": "", "price": "2.50€ p.p." }
+    ]
+  },
+  {
+    "id": "para-empezar",
+    "category": "To Share",
+    "icon": "UtensilsCrossed",
+    "items": [
+      { "name": "Causa limeña", "description": "Tuna, avocado and yellow chilli", "price": "9.9€" },
+      { "name": "Steak tartar", "description": "Hand-cut, classic seasoning", "price": "23€" },
+      { "name": "Garlic prawns", "description": "", "price": "15€" },
+      { "name": "Grilled scallops", "description": "Garlic and parsley", "price": "18€" },
+      { "name": "Ham croquettes", "description": "", "price": "12.50€" },
+      { "name": "Mushroom croquettes", "description": "", "price": "13.9€" },
+      { "name": "Fried calamari", "description": "", "price": "18.50€" },
+      { "name": "Baby squid", "description": "", "price": "18.5€" },
+      { "name": "Broken eggs with ham", "description": "", "price": "19.8€" },
+      { "name": "Broken eggs with prawns", "description": "", "price": "20.5€" },
+      { "name": "Iberian ham", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "verde-y-fresco",
+    "category": "Green & Fresh",
+    "icon": "Leaf",
+    "items": [
+      { "name": "Grilled Caesar salad", "description": "Chicken, parmesan and anchovies", "price": "15.9€" },
+      { "name": "Burrata & pink tomato", "description": "Pesto and olive oil", "price": "16.9€" },
+      { "name": "Pink tomato & tuna", "description": "Red onion & olive oil", "price": "14.9€" }
+    ]
+  },
+  {
+    "id": "pasta",
+    "category": "Pasta",
+    "icon": "Wheat",
+    "items": [
+      { "name": "Spaghetti bolognese", "description": "", "price": "14.5€" },
+      { "name": "Ravioli vegetal", "description": "Pesto or tomato", "price": "16.2€" }
+    ]
+  },
+  {
+    "id": "street",
+    "category": "Street",
+    "icon": "Flame",
+    "items": [
+      { "name": "Bravas", "description": "", "price": "9.8€" },
+      { "name": "Gyoza & wakame", "description": "", "price": "9.7€" },
+      { "name": "Japanese crispy chicken", "description": "", "price": "8.70€" },
+      { "name": "Nachos", "description": "", "price": "12.5€" },
+      { "name": "Fish taco", "description": "", "price": "11.8€" },
+      { "name": "Veggie wok", "description": "", "price": "14.8€" },
+      { "name": "Beef burger", "description": "Cheddar & crispy onion", "price": "20.5€" },
+      { "name": "Dry-aged burger", "description": "", "price": "22.80€" },
+      { "name": "Classic burger", "description": "", "price": "18€" }
+    ]
+  },
+  {
+    "id": "entre-panes",
+    "category": "Sandwiches",
+    "icon": "Sandwich",
+    "items": [
+      { "name": "Chicken club", "description": "", "price": "15€" },
+      { "name": "Salmon club (sriracha)", "description": "", "price": "16.8€" },
+      { "name": "Beef brioche", "description": "Slow cooked", "price": "22.8€" }
+    ]
+  },
+  {
+    "id": "brasa",
+    "category": "Grilled",
+    "icon": "Beef",
+    "items": [
+      { "name": "Iberian pluma (pork cut)", "description": "", "price": "24€" },
+      { "name": "Lamb chops", "description": "", "price": "28€" },
+      { "name": "House steak", "description": "", "price": "34€" },
+      { "name": "Chicken breast", "description": "", "price": "20.5€" },
+      { "name": "Entrecot", "description": "", "price": "24€" },
+      { "name": "Beef sirloin", "description": "", "price": "29€" },
+      { "name": "T-Bone", "description": "", "price": "32.5€" },
+      { "name": "Angus rib", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "origen",
+    "category": "Origen",
+    "icon": "Crown",
+    "items": [
+      { "name": "Galician blond steak", "description": "", "price": "108.5€" },
+      { "name": "Simmental steak", "description": "", "price": "98.5€" },
+      { "name": "Frizona steak", "description": "", "price": "96.8€" },
+      { "name": "Cebon steak", "description": "", "price": "89€" }
+    ]
+  },
+  {
+    "id": "mar",
+    "category": "From the Sea",
+    "icon": "Fish",
+    "items": [
+      { "name": "Grilled salmon", "description": "Dill and parmentier", "price": "22.5€" },
+      { "name": "Grilled squid", "description": "", "price": "24.8€" },
+      { "name": "Sea bass", "description": "", "price": "38.5€" },
+      { "name": "Baked cod", "description": "With alioli and sobrasada", "price": "22.6€" },
+      { "name": "Baby squid", "description": "With apple & pistachio", "price": "26.6€" }
+    ]
+  },
+  {
+    "id": "arroces",
+    "category": "Rices",
+    "icon": "Soup",
+    "items": [
+      { "name": "Rice with dry-aged steak", "description": "", "price": "39€" },
+      { "name": "Rice with scarlet prawns", "description": "", "price": "26.8€" },
+      { "name": "Black rice with cuttlefish & prawns", "description": "", "price": "25€" }
+    ]
+  },
+  {
+    "id": "para-los-peques",
+    "category": "For Kids",
+    "icon": "Baby",
+    "items": [
+      { "name": "Burger con queso", "description": "", "price": "12.5€" },
+      { "name": "Nuggets de pollo", "description": "", "price": "12.5€" },
+      { "name": "Pescado rebozado", "description": "", "price": "12.5€" }
+    ]
+  },
+  {
+    "id": "guarniciones",
+    "category": "Sides",
+    "icon": "CirclePlus",
+    "items": [
+      { "name": "Patatas fritas", "description": "", "price": "5.8€" },
+      { "name": "Patata asada", "description": "", "price": "5.8€" }
+    ]
+  },
+  {
+    "id": "dulce-final",
+    "category": "Desserts",
+    "icon": "Cake",
+    "items": [
+      { "name": "Tarta de queso", "description": "", "price": "8€" },
+      { "name": "Brownie", "description": "", "price": "8€" },
+      { "name": "Mousse de maracuyá", "description": "", "price": "6.9€" },
+      { "name": "Piña a la brasa", "description": "", "price": "6€" },
+      { "name": "Postre del día", "description": "", "price": "" }
+    ]
+  }
+]

@@ -1,0 +1,203 @@
+[
+  {
+    "id": "ron",
+    "category": "Cócteles de Ron",
+    "icon": "Wine",
+    "type": "cocktails",
+    "items": [
+      { "name": "Mojito", "description": "Ron, lima, hierbabuena, azúcar moreno y soda" },
+      { "name": "Mojito Fresa", "description": "Ron, lima, fresa, hierbabuena, azúcar moreno y soda" },
+      { "name": "Mojito Mango", "description": "Ron, lima, mango, hierbabuena, azúcar moreno y soda" },
+      { "name": "Mojito Pasión", "description": "Ron, lima, fruta de la pasión, hierbabuena, azúcar moreno y soda" },
+      { "name": "Mojito Palo", "description": "Ron, lima, hierbabuena, azúcar moreno, soda y licor de palo" },
+      { "name": "Mojito Hierbas Túnel", "description": "Hierbas mixtas, hierbabuena, lima, azúcar moreno y soda" },
+      { "name": "Mojito Jägermeister", "description": "Jägermeister, lima, hierbabuena, azúcar moreno, soda y licor de hierbas" },
+      { "name": "Daiquiri Fresa", "description": "Ron, lima, fresas y azúcar" },
+      { "name": "Daiquiri Fruta de la Pasión", "description": "Ron, lima, fruta de la pasión y azúcar" },
+      { "name": "Daiquiri Frambuesa", "description": "Ron, lima, frambuesa y azúcar" },
+      { "name": "Daiquiri Mango", "description": "Ron, lima, mango y azúcar" },
+      { "name": "Piña Colada", "description": "Ron, leche de coco y zumo de piña" },
+      { "name": "Coco Loco", "description": "Ron, leche de coco y leche" },
+      { "name": "Banana Mama", "description": "Ron, licor de coco, zumo de naranja, zumo de piña, zumo de limón y granadina" },
+      { "name": "Blue Hawaiian", "description": "Ron, licor de coco, leche de coco, zumo de piña y blue curaçao" },
+      { "name": "Zombie", "description": "Ron blanco, ron negro, ron añejo, licor de cereza, zumo de naranja, zumo de limón y granadina" },
+      { "name": "Mai Tai", "description": "Ron, cointreau, brandy de albaricoque, jarabe de almendra, piña, lima, naranja y azúcar" },
+      { "name": "Kiwi Wiki", "description": "Ron, kiwi, cointreau y zumo de piña" },
+      { "name": "Pink Paradise", "description": "Ron, licor de coco, Amaretto, arándanos y piña" }
+    ]
+  },
+  {
+    "id": "vodka",
+    "category": "Cócteles de Vodka",
+    "icon": "Martini",
+    "type": "cocktails",
+    "items": [
+      { "name": "Caipiroska", "description": "Vodka, lima y azúcar" },
+      { "name": "Caipiroska Fresa", "description": "Vodka, lima, fresa y azúcar" },
+      { "name": "Caipiroska Frambuesa", "description": "Vodka, lima, frambuesa y azúcar" },
+      { "name": "Caipiroska Mango", "description": "Vodka, lima, mango y azúcar" },
+      { "name": "Caipiroska Fruta de la Pasión", "description": "Vodka, lima, fruta de la pasión y azúcar" },
+      { "name": "Cosmopolitan", "description": "Vodka limón, cointreau, zumo de arándanos y lima" },
+      { "name": "Moscow Mule", "description": "Vodka, zumo de lima y cerveza de jengibre" },
+      { "name": "Sex on the Beach", "description": "Vodka, licor de melocotón, naranja y granadina" },
+      { "name": "Blue Lagoon", "description": "Vodka, blue curaçao y fanta limón" },
+      { "name": "Screwdriver", "description": "Vodka y zumo de naranja natural" },
+      { "name": "White Russian", "description": "Vodka, licor de café y nata" }
+    ]
+  },
+  {
+    "id": "clasicos",
+    "category": "Otros Clásicos",
+    "icon": "Cherry",
+    "type": "cocktails",
+    "items": [
+      { "name": "Pornstar Martini", "description": "Vodka vainilla, maracuyá fresca, lima, passoa y prosecco" },
+      { "name": "Espresso Martini", "description": "Vodka, Kahlúa, espresso y granos de café" },
+      { "name": "Negroni", "description": "Tanqueray, Martini Rosso y Campari" },
+      { "name": "Amaretto Sour", "description": "Amaretto, zumo de limón natural, clara de huevo y azúcar" },
+      { "name": "Long Island Ice Tea", "description": "Ginebra, vodka, ron, tequila, cointreau, limón y cola" },
+      { "name": "Caipirinha", "description": "Cachaça, lima y azúcar moreno" },
+      { "name": "Tom Collins", "description": "Ginebra, zumo de limón, soda y azúcar" },
+      { "name": "Whisky Sour", "description": "Whisky, zumo de limón, azúcar y clara de huevo" },
+      { "name": "Southern Belle", "description": "Whisky, cointreau, zumo de piña, zumo de naranja y granadina" },
+      { "name": "Tequila Sunrise", "description": "Tequila, zumo de naranja y granadina" },
+      { "name": "Strawberry Margarita", "description": "Tequila, cointreau, fresas y zumo de lima" }
+    ]
+  },
+  {
+    "id": "sparkling",
+    "category": "Sparkling Cocktails",
+    "icon": "Sparkles",
+    "type": "cocktails",
+    "items": [
+      { "name": "Mimosa", "description": "Champagne, zumo de naranja y Grand Marnier" },
+      { "name": "Aperol Spritz", "description": "Champagne, Aperol y soda" }
+    ]
+  },
+  {
+    "id": "tiki",
+    "category": "Tiki Tiki Specials",
+    "icon": "CupSoda",
+    "type": "cocktails",
+    "items": [
+      { "name": "Crazy Tree", "description": "Ron Km1, Ron Kraken, licor de cacao negro, zumo de limón, puré de mango y zumo de piña" },
+      { "name": "Tulum", "description": "Tequila clandestina, Ancho Reyes verde, zumo de lima, orgeat y puré de piña" },
+      { "name": "Tiki Love", "description": "Ron Km1, Ron Kraken, Falernum, puré de maracuyá, zumo de lima, zumo de mango y angostura" },
+      { "name": "White Totem", "description": "Ron Km1, licor de café, zumo de mango, puré de coco, zumo de limón y hielo picado" },
+      { "name": "Fidgi", "description": "Ron Km1, Cachaça, Amaretto, zumo de limón y zumo de maracuyá" },
+      { "name": "Moana Beach", "description": "Ron Km1, Ron Santísima Trinidad 7 años, licor de cacao blanco, puré de maracuyá, zumo de limón, ginger beer y angostura" },
+      { "name": "Tiki Mai Tai", "description": "Ron ahumado, Ron Km1, Ron Brugal, Amaretto, Brandy, zumo de piña, lima, zumo de naranja y azúcar" },
+      { "name": "Tiki Sex", "description": "Vodka Km1, licor de melocotón, zumo de naranja, zumo de arándanos y azúcar" },
+      { "name": "Devil Moon", "description": "Tequila clandestina, Canonita, orgeat, zumo de lima, zumo y puré de maracuyá y angostura" },
+      { "name": "Pineapple Coco Loco", "description": "Ron Km1, Batida de coco, Malibu, sirope de coco, piña natural, zumo y puré de piña" }
+    ]
+  },
+  {
+    "id": "mega",
+    "category": "Megacocktails · Para compartir",
+    "icon": "PartyPopper",
+    "type": "cocktails",
+    "items": [
+      { "name": "Enjoy", "description": "Ron, licor de plátano, Cointreau, zumo de naranja y granadina" },
+      { "name": "Piña Colada", "description": "Ron, licor de coco, leche de coco y zumo de piña" },
+      { "name": "Tequila Sunrise", "description": "Tequila, zumo de naranja y granadina" },
+      { "name": "Sex on the Beach", "description": "Vodka, licor de melocotón, naranja y granadina" },
+      { "name": "San Francisco", "description": "Vodka, zumos variados y granadina" },
+      { "name": "Daiquiri Fresa", "description": "Ron, lima, fresa y azúcar" },
+      { "name": "Long Island Ice Tea", "description": "Ginebra, vodka, ron, tequila, Cointreau, zumo de limón y cola" }
+    ]
+  },
+  {
+    "id": "sin-alcohol",
+    "category": "Sin Alcohol",
+    "icon": "BanIcon",
+    "type": "cocktails",
+    "items": [
+      { "name": "San Paco", "description": "Zumos varios y granadina" },
+      { "name": "Piña Baby", "description": "Leche de coco y zumo de piña" },
+      { "name": "Mojito Baby", "description": "Sprite, lima, hierbabuena y azúcar moreno" },
+      { "name": "Daiquiri Baby", "description": "Fresa, zumo de limón y azúcar" },
+      { "name": "Mojito de Fresa Baby", "description": "Lima, hierbabuena, azúcar moreno, fresas y Sprite" }
+    ]
+  },
+  {
+    "id": "gins",
+    "category": "Gins Premium",
+    "icon": "GlassWater",
+    "type": "drinks",
+    "items": [
+      "Km1 Tramuntana Gin Lemon", "Tanqueray Nº10", "Hendrick's", "Gin Mare", "Monkey 47",
+      "Nordes", "Citadelle", "Citadelle Reserve", "Martin Miller's", "Fifty Pounds",
+      "G'Vine", "Bulldog", "Junípero", "The London Nº1", "Nº 209", "Nº 3 London Dry",
+      "William Chase Elegant", "Mombasa Club", "Sipsmith", "Brockmans",
+      "June Gin Pera", "June Gin Melocotón", "Amuerte Coca Leaf Black",
+      "Gin Dos Perellons", "Tanqueray Rangpur Lime",
+      "Puerto de Indias Blackberry", "Puerto de Indias Strawberry",
+      "Puerto de Indias Lemonberry", "Puerto de Indias Sweet Melon"
+    ]
+  },
+  {
+    "id": "vodka-premium",
+    "category": "Vodka Premium",
+    "icon": "Martini",
+    "type": "drinks",
+    "items": [
+      "Belvedere", "Grey Goose", "Cristal Head Onyx",
+      "Ciroc", "Ciroc Mango", "Ciroc Manzana", "Ciroc Melocotón",
+      "Ciroc Piña", "Ciroc Frutos Rojos"
+    ]
+  },
+  {
+    "id": "ron-premium",
+    "category": "Ron",
+    "icon": "Wine",
+    "type": "drinks",
+    "items": [
+      "Bacardí", "Havana 3 años", "Morgan Spiced", "Cacique", "Brugal", "Barceló",
+      "Santa Teresa", "Legendario", "Havana 7 años", "Botran", "Ron Kraken",
+      "Matusalén 15 años", "Barceló Imperial", "Ron Diplomático",
+      "Zacapa 23 años", "Ron Zacapa XO", "Brugal 1888", "Santísima Trinidad"
+    ]
+  },
+  {
+    "id": "whisky",
+    "category": "Whisky",
+    "icon": "GlassWater",
+    "type": "drinks",
+    "items": [
+      "JB", "Ballantine's", "Johnnie Walker Red", "Jameson", "Four Roses",
+      "Jack Daniel's", "Johnnie Walker Black", "Buchanan 12 años",
+      "Glenfiddich 12 años", "Chivas 12 años", "Cardhu 12 años",
+      "Glenmorangie 10 años", "Bulleit 95 Rye", "The Glenrothes 12 años",
+      "Glenkinchie 12 años", "Togouchi 9 años", "Macallan 12 años",
+      "Hibiki Japanese", "Johnnie Walker Blue",
+      "Bushmills Original", "Bushmills Black Bush", "Bushmills 10 años",
+      "Lagavulin 16 años", "Laphroaig Select",
+      "Glenlivet", "Glenlivet 15 años"
+    ]
+  },
+  {
+    "id": "cervezas",
+    "category": "Cervezas",
+    "icon": "Beer",
+    "type": "drinks",
+    "items": [
+      "Caña pequeña", "Caña grande", "Estrella Galicia", "Estrella Damm",
+      "Budweiser", "Cerveza Sin Gluten", "Coronita", "Franziskaner",
+      "Rosa Blanca", "Mahou", "Alhambra Reserva",
+      "Kopparberg (Sidra)", "Magners (Sidra)"
+    ]
+  },
+  {
+    "id": "vinos",
+    "category": "Vinos, Sangría & Cavas",
+    "icon": "Grape",
+    "type": "drinks",
+    "items": [
+      "Vino blanco (copa)", "Vino tinto (copa)", "Vino rosado (copa)",
+      "Sangría", "Champagne Sangría",
+      "Anna de Codorníu", "Moët Chandon", "Moët Ice",
+      "Veuve Clicquot Ponsardin", "Dom Pérignon"
+    ]
+  }
+]

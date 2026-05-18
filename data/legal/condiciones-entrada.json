@@ -1,0 +1,57 @@
+{
+  "slug": "condiciones-entrada",
+  "title": "Condiciones de Entrada y Normativa de Acceso",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introducción",
+      "content": "<p>Las presentes condiciones regulan el acceso y la permanencia en los establecimientos del Grupo Enjoy, especialmente en <strong>Outxide Club</strong>. Al acceder a cualquiera de nuestros locales, el cliente acepta y se compromete a respetar las siguientes normas.</p>"
+    },
+    {
+      "id": "mayoria-edad",
+      "heading": "1. Requisito de mayoría de edad",
+      "content": "<p>El acceso a <strong>Outxide Club</strong> está restringido a personas mayores de 18 años. Se solicitará documento de identidad oficial vigente (DNI, pasaporte, NIE o permiso de conducir) en el control de acceso. No se admitirán documentos caducados ni fotocopias.</p><p>El acceso a <strong>Enjoy Terrace</strong> como bar de copas está restringido a mayores de 18 años a partir de las 00:00h. En horario de terraza diurno, se permite el acceso a menores acompañados de un adulto responsable.</p><p>El acceso a <strong>Hiru Food & Drinks</strong> no tiene restricción de edad al tratarse de un establecimiento de restauración.</p>"
+    },
+    {
+      "id": "dress-code",
+      "heading": "2. Código de vestimenta (Dress Code)",
+      "content": "<h3>Outxide Club</h3><p>Outxide Club aplica un código de vestimenta cuyo objetivo es mantener un ambiente acorde con el concepto del establecimiento. Se recomienda vestimenta <strong>smart casual</strong> o superior. A título orientativo:</p><ul><li><strong>Caballeros:</strong> Se recomienda pantalón largo, camisa o polo, calzado cerrado. Se desaconsejan chanclas, bañadores, camisetas sin mangas o de deporte, y gorras.</li><li><strong>Señoras:</strong> Sin restricciones específicas. Se recomienda vestimenta acorde al ambiente.</li></ul><p>La decisión final sobre la admisión corresponde al personal de puerta, que valorará la adecuación de la vestimenta al concepto del evento concreto. Esta valoración se aplica de forma no discriminatoria y basada exclusivamente en criterios de vestimenta.</p><h3>Enjoy Terrace y Hiru</h3><p>No se aplica dress code formal. Se requiere vestimenta adecuada para un establecimiento de hostelería (calzado obligatorio, ropa que cubra las zonas íntimas).</p>"
+    },
+    {
+      "id": "no-discriminacion",
+      "heading": "3. Política de no discriminación",
+      "content": "<p>Grupo Enjoy está comprometido con el principio de igualdad y no discriminación. El acceso a nuestros establecimientos no será denegado por razones de:</p><ul><li>Raza, etnia u origen nacional.</li><li>Sexo, orientación sexual o identidad de género.</li><li>Religión o creencias.</li><li>Discapacidad (se facilitará la accesibilidad en la medida de las posibilidades del local).</li><li>Edad, salvo el requisito legal de mayoría de edad para locales de ocio nocturno.</li></ul><p>Los únicos motivos legítimos para denegar o revocar el acceso son:</p><ul><li>No acreditar la mayoría de edad requerida.</li><li>Incumplimiento del código de vestimenta del establecimiento.</li><li>Estado evidente de intoxicación por alcohol u otras sustancias.</li><li>Comportamiento agresivo, violento o que atente contra la convivencia.</li><li>Portar objetos peligrosos o sustancias ilegales.</li><li>Haber alcanzado el aforo máximo del establecimiento.</li><li>Incumplimiento de las condiciones de la entrada adquirida.</li></ul>"
+    },
+    {
+      "id": "normas-convivencia",
+      "heading": "4. Normas de convivencia y seguridad",
+      "content": "<p>Durante su estancia en nuestros establecimientos, el cliente se compromete a:</p><ul><li>Respetar al personal del establecimiento y a otros clientes.</li><li>No introducir ni consumir drogas o sustancias ilegales de ningún tipo.</li><li>No introducir bebidas o alimentos del exterior.</li><li>No fumar en zonas no habilitadas (la legislación balear vigente se aplica en su totalidad).</li><li>No causar daños intencionados a las instalaciones, mobiliario o equipamiento.</li><li>Seguir las indicaciones del personal de seguridad y del establecimiento.</li><li>No realizar grabaciones de vídeo o audio no autorizadas del espectáculo o actuaciones.</li></ul><p>El incumplimiento de cualquiera de estas normas faculta al personal del establecimiento a solicitar el abandono del local, sin derecho a reembolso de la entrada o consumiciones.</p>"
+    },
+    {
+      "id": "aforo",
+      "heading": "5. Aforo y control de acceso",
+      "content": "<p>Nuestros establecimientos operan dentro de los límites de aforo autorizados por las autoridades competentes. Cuando se alcance el aforo máximo, se cerrará temporalmente el acceso hasta que el nivel de ocupación lo permita, independientemente de que el cliente disponga de entrada o reserva.</p><p>Los clientes con reserva VIP tienen acceso prioritario, sujeto a las condiciones específicas de su reserva.</p>"
+    },
+    {
+      "id": "responsabilidad",
+      "heading": "6. Responsabilidad",
+      "content": "<p>Grupo Enjoy no se responsabiliza de la pérdida, robo o deterioro de objetos personales en el interior de sus establecimientos. Se recomienda no portar objetos de valor innecesarios. Si el establecimiento dispone de servicio de guardarropa, las condiciones de responsabilidad se indicarán en el punto de entrega.</p>"
+    },
+    {
+      "id": "derecho-admision",
+      "heading": "7. Derecho de admisión",
+      "content": "<p>De conformidad con la normativa autonómica aplicable (Ley 7/2013, de 26 de noviembre, de régimen jurídico de instalación, acceso y ejercicio de actividades en las Illes Balears, y normativa de desarrollo), el establecimiento se reserva el derecho de admisión.</p><p>Este derecho se ejercerá siempre de forma motivada, no discriminatoria y conforme a las causas objetivas establecidas en la sección 3 de este documento. En caso de denegación de acceso, el cliente tiene derecho a solicitar una explicación verbal del motivo.</p>"
+    },
+    {
+      "id": "captacion-imagenes",
+      "heading": "8. Captación de imágenes",
+      "content": "<p>En nuestros establecimientos se realizan fotografías y grabaciones de vídeo con fines promocionales. Consulte nuestra <a href=\"/legal/imagenes\">Política de Captación de Imágenes</a> para más información sobre sus derechos y el procedimiento de retirada.</p>"
+    },
+    {
+      "id": "contacto-reclamaciones",
+      "heading": "9. Contacto y reclamaciones",
+      "content": "<p>Para cualquier consulta, sugerencia o reclamación relativa al acceso o servicio en nuestros establecimientos:</p><ul><li><strong>Email:</strong> <a href=\"mailto:info@grupoenjoy.com\">info@grupoenjoy.com</a></li><li><strong>Hojas de reclamaciones:</strong> Disponibles en cada establecimiento conforme a la normativa balear.</li></ul><p>Todos nuestros establecimientos disponen de hojas de reclamaciones oficiales a disposición del cliente, conforme al Decreto 55/2011 del Govern de les Illes Balears.</p>"
+    }
+  ]
+}

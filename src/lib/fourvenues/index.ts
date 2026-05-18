@@ -3,13 +3,18 @@
 // ---------------------------------------------------------------------------
 
 export { FourVenuesClient, FourVenuesError } from "./client";
-export { MOCK_EVENTS, MOCK_VENUE } from "./mock-data";
 export type {
-  EventStatus,
-  FourVenuesErrorResponse,
-  FourVenuesEvent,
-  FourVenuesListResponse,
-  FourVenuesSingleResponse,
-  TicketType,
-  Venue,
+  FVEvent,
+  FVLocation,
+  FVArtist,
+  FVTicketRate,
+  FVTicketPrice,
+  FVSupplement,
+  FVField,
+  FVListRate,
+  FVCheckoutTicket,
+  FVCheckoutRequest,
+  FVCheckoutResponse,
+  FVListResponse,
+  FVSingleResponse,
 } from "./types";

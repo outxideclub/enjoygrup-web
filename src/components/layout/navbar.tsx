@@ -5,16 +5,20 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { GroupLogo } from "@/components/ui/logos";
+import { LanguageSelector } from "@/components/layout/language-selector";
+import { useT } from "@/i18n";
 
 const navItems = [
-  { name: "Enjoy Terrace", href: "/enjoy" },
-  { name: "Outxide Club", href: "/outxide" },
-  { name: "Hiru", href: "/hiru" },
+  { name: "Enjoy Terrace", href: "/enjoy", ariaKey: "nav.goToEnjoy" },
+  { name: "Outxide Club", href: "/outxide", ariaKey: "nav.goToOutxide" },
+  { name: "Hiru", href: "/hiru", ariaKey: "nav.goToHiru" },
 ];
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const t = useT();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -33,13 +37,12 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-display text-2xl font-bold tracking-tight text-white">
-              ENJOY
-            </span>
-            <span className="text-xs font-light tracking-[0.3em] text-muted-foreground uppercase">
-              Group
-            </span>
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            aria-label="Volver al inicio de Grupo Enjoy"
+          >
+            <GroupLogo />
           </Link>
 
           {/* Desktop nav */}
@@ -49,20 +52,25 @@ export function Navbar() {
                 key={item.name}
                 href={item.href}
                 className="text-sm text-muted-foreground hover:text-white transition-colors duration-300"
+                aria-label={t(item.ariaKey)}
               >
                 {item.name}
               </Link>
             ))}
+            <LanguageSelector />
           </div>
 
           {/* Mobile toggle */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden relative z-50 p-2 text-white"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="relative z-50 p-2 text-white"
+              aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
 

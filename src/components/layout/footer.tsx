@@ -1,21 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { Globe, Mail, MapPin } from "lucide-react";
+import { GroupLogo } from "@/components/ui/logos";
+import { CookieSettingsButton } from "@/components/layout/cookie-settings-button";
+import { useT } from "@/i18n";
 
 export function Footer() {
+  const t = useT();
   return (
     <footer className="border-t border-white/5 bg-black">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-5">
           {/* Brand */}
           <div className="md:col-span-1">
-            <span className="font-display text-2xl font-bold text-white">
-              ENJOY
-            </span>
-            <span className="ml-2 text-xs tracking-[0.3em] text-muted-foreground uppercase">
-              Group
-            </span>
+            <GroupLogo />
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Tres experiencias únicas en Alcúdia, Mallorca.
+              {t("footer.tagline")}
             </p>
           </div>
 
@@ -30,7 +31,7 @@ export function Footer() {
                   href="/enjoy"
                   className="text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  Descubrir
+                  {t("common.discover")}
                 </Link>
               </li>
               <li>
@@ -55,7 +56,7 @@ export function Footer() {
                   href="/outxide"
                   className="text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  Descubrir
+                  {t("common.discover")}
                 </Link>
               </li>
               <li>
@@ -63,7 +64,7 @@ export function Footer() {
                   href="/outxide#eventos"
                   className="text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  Eventos
+                  {t("common.events")}
                 </Link>
               </li>
             </ul>
@@ -80,7 +81,7 @@ export function Footer() {
                   href="/hiru"
                   className="text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  Descubrir
+                  {t("common.discover")}
                 </Link>
               </li>
               <li>
@@ -88,37 +89,93 @@ export function Footer() {
                   href="/hiru#menu"
                   className="text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  Carta
+                  {t("common.menu")}
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider">
+              {t("footer.legal")}
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <Link
+                  href="/legal/aviso-legal"
+                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.avisoLegal")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/legal/privacidad"
+                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/legal/cookies"
+                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.cookies")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/legal/condiciones-venta"
+                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.salesConditions")}
+                </Link>
+              </li>
+              <li>
+                <CookieSettingsButton />
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
-          <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Grupo Enjoy · Alcúdia, Mallorca.
-            Todos los derechos reservados.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p className="text-xs text-muted-foreground">
+              &copy; {new Date().getFullYear()} Grupo Enjoy · Alcúdia, Mallorca.
+            </p>
+            <span className="hidden sm:inline text-xs text-white/10">|</span>
+            <a
+              href="mailto:privacidad@grupoenjoy.com"
+              className="text-xs text-muted-foreground hover:text-white transition-colors"
+            >
+              privacidad@grupoenjoy.com
+            </a>
+          </div>
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://www.instagram.com/enjoy.club.alcudia"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-white transition-colors"
-              aria-label="Redes sociales"
+              aria-label="Instagram Enjoy"
             >
               <Globe size={18} />
             </a>
             <a
-              href="#"
+              href="mailto:info@grupoenjoy.com"
               className="text-muted-foreground hover:text-white transition-colors"
-              aria-label="Email"
+              aria-label={t("footer.email")}
             >
               <Mail size={18} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/hirufoodanddrinks"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-white transition-colors"
-              aria-label="Ubicación"
+              aria-label="Instagram Hiru"
             >
               <MapPin size={18} />
             </a>

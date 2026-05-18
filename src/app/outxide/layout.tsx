@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { OutxideJsonLd } from "@/components/seo/json-ld";
+import { AgeVerification } from "@/components/legal/age-verification";
 
 export const metadata: Metadata = {
   title: "Outxide Club | Discoteca en Alcúdia, Mallorca",
@@ -14,12 +16,18 @@ export const metadata: Metadata = {
     "nightlife alcudia",
     "fourvenues",
   ],
+  alternates: {
+    canonical: "https://www.grupoenjoy.es/outxide",
+  },
   openGraph: {
     title: "Outxide Club | Discoteca en Alcúdia, Mallorca",
     description:
       "The night continues. Discoteca y club nocturno en Alcúdia. Entradas online via FourVenues.",
     type: "website",
     locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
@@ -28,5 +36,11 @@ export default function OutxideLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="theme-outxide">{children}</div>;
+  return (
+    <div className="theme-outxide">
+      <AgeVerification />
+      {children}
+      <OutxideJsonLd />
+    </div>
+  );
 }

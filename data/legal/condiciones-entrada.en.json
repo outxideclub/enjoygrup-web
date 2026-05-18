@@ -1,0 +1,57 @@
+{
+  "slug": "condiciones-entrada",
+  "title": "Entry Conditions and Access Rules",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>These conditions govern access to and attendance at Grupo Enjoy venues, especially <strong>Outxide Club</strong>. By entering any of our premises, the customer accepts and undertakes to comply with the following rules.</p>"
+    },
+    {
+      "id": "mayoria-edad",
+      "heading": "1. Age requirement",
+      "content": "<p>Access to <strong>Outxide Club</strong> is restricted to persons aged 18 and over. A valid official identity document (national ID, passport, residence permit or driving licence) will be required at the entrance. Expired documents or photocopies will not be accepted.</p><p>Access to <strong>Enjoy Terrace</strong> as a cocktail bar is restricted to persons aged 18 and over from 00:00h onwards. During daytime terrace hours, minors accompanied by a responsible adult are permitted.</p><p>Access to <strong>Hiru Food & Drinks</strong> has no age restriction as it is a restaurant.</p>"
+    },
+    {
+      "id": "dress-code",
+      "heading": "2. Dress code",
+      "content": "<h3>Outxide Club</h3><p>Outxide Club applies a dress code to maintain an atmosphere in keeping with the venue's concept. <strong>Smart casual</strong> attire or above is recommended. As a guide:</p><ul><li><strong>Gentlemen:</strong> Long trousers, a shirt or polo, and closed-toe shoes are recommended. Flip-flops, swimming trunks, sleeveless or sports vests, and caps are not advised.</li><li><strong>Ladies:</strong> No specific restrictions. Attire in keeping with the atmosphere is recommended.</li></ul><p>The final admission decision rests with the door staff, who will assess the suitability of attire for the specific event. This assessment is applied in a non-discriminatory manner and based solely on dress criteria.</p><h3>Enjoy Terrace and Hiru</h3><p>No formal dress code applies. Appropriate attire for a hospitality venue is required (footwear mandatory, clothing covering intimate areas).</p>"
+    },
+    {
+      "id": "no-discriminacion",
+      "heading": "3. Non-discrimination policy",
+      "content": "<p>Grupo Enjoy is committed to the principle of equality and non-discrimination. Access to our venues will not be refused on the grounds of:</p><ul><li>Race, ethnicity or national origin.</li><li>Sex, sexual orientation or gender identity.</li><li>Religion or beliefs.</li><li>Disability (accessibility will be facilitated to the extent possible).</li><li>Age, except for the legal age requirement for nightlife venues.</li></ul><p>The only legitimate grounds for refusing or revoking access are:</p><ul><li>Failure to prove the required legal age.</li><li>Non-compliance with the venue's dress code.</li><li>Obvious state of intoxication from alcohol or other substances.</li><li>Aggressive, violent behaviour or behaviour that disturbs the peace.</li><li>Carrying dangerous objects or illegal substances.</li><li>The venue has reached maximum capacity.</li><li>Non-compliance with the conditions of the purchased ticket.</li></ul>"
+    },
+    {
+      "id": "normas-convivencia",
+      "heading": "4. Conduct and safety rules",
+      "content": "<p>During their stay at our venues, the customer undertakes to:</p><ul><li>Respect venue staff and other customers.</li><li>Not bring in or consume drugs or illegal substances of any kind.</li><li>Not bring in outside drinks or food.</li><li>Not smoke in non-designated areas (current Balearic legislation applies in full).</li><li>Not intentionally damage the premises, furniture or equipment.</li><li>Follow the instructions of security and venue staff.</li><li>Not make unauthorised video or audio recordings of the show or performances.</li></ul><p>Breach of any of these rules entitles venue staff to request the customer to leave the premises, with no right to a refund for the ticket or drinks purchased.</p>"
+    },
+    {
+      "id": "aforo",
+      "heading": "5. Capacity and access control",
+      "content": "<p>Our venues operate within the capacity limits authorised by the competent authorities. When maximum capacity is reached, access will be temporarily closed until occupancy levels allow, regardless of whether the customer holds a ticket or reservation.</p><p>VIP reservation holders have priority access, subject to the specific conditions of their booking.</p>"
+    },
+    {
+      "id": "responsabilidad",
+      "heading": "6. Liability",
+      "content": "<p>Grupo Enjoy is not responsible for the loss, theft or damage of personal belongings inside its venues. We recommend not carrying unnecessary valuables. If the venue offers a cloakroom service, liability conditions will be indicated at the point of delivery.</p>"
+    },
+    {
+      "id": "derecho-admision",
+      "heading": "7. Right of admission",
+      "content": "<p>In accordance with applicable regional regulations (Law 7/2013 of 26 November on the Legal Regime for the Installation, Access and Operation of Activities in the Balearic Islands, and implementing regulations), the venue reserves the right of admission.</p><p>This right will always be exercised in a reasoned, non-discriminatory manner and in accordance with the objective grounds set out in section 3 of this document. In the event of refusal of entry, the customer is entitled to request a verbal explanation of the reason.</p>"
+    },
+    {
+      "id": "captacion-imagenes",
+      "heading": "8. Image capture",
+      "content": "<p>Photographs and video recordings are taken at our venues for promotional purposes. Please see our <a href=\"/legal/imagenes\">Image Capture Policy</a> for more information about your rights and the removal procedure.</p>"
+    },
+    {
+      "id": "contacto-reclamaciones",
+      "heading": "9. Contact and complaints",
+      "content": "<p>For any enquiry, suggestion or complaint regarding access to or service at our venues:</p><ul><li><strong>Email:</strong> <a href=\"mailto:info@grupoenjoy.com\">info@grupoenjoy.com</a></li><li><strong>Complaint forms:</strong> Available at each venue in accordance with Balearic regulations.</li></ul><p>All our venues have official complaint forms available to customers, in accordance with Decree 55/2011 of the Government of the Balearic Islands.</p>"
+    }
+  ]
+}

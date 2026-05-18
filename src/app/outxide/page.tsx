@@ -1,72 +1,174 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
-  Music,
+  ArrowRight,
   Calendar,
   Ticket,
   Clock,
   MapPin,
   ExternalLink,
   Users,
+  X,
+  Loader2,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { MOCK_EVENTS, MOCK_VENUE } from "@/lib/fourvenues";
-import type { FourVenuesEvent } from "@/lib/fourvenues";
+import { OutxideLogo } from "@/components/ui/logos";
+import { LaserBeams } from "@/components/ui/laser-beams";
+import { ParticleBackground } from "@/components/ui/particle-background";
+import { EventTicketTabs } from "@/components/outxide/event-ticket-tabs";
+import type { FVEvent } from "@/lib/fourvenues";
+import { useT, useLocale } from "@/i18n";
+import { useRef, useState, useEffect, useCallback } from "react";
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("es-ES", {
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+const localeMap = { es: "es-ES", en: "en-GB" } as const;
+
+function formatDate(isoDate: string, locale: string) {
+  return new Date(isoDate).toLocaleDateString(localeMap[locale as keyof typeof localeMap] ?? "es-ES", {
     weekday: "short",
     day: "numeric",
     month: "short",
   });
 }
 
-function getLowestAvailablePrice(event: FourVenuesEvent): string {
-  if (!event.tickets || event.tickets.length === 0) return `${event.price}€`;
-  const available = event.tickets.filter((t) => t.available > 0);
-  if (available.length === 0) return "Agotado";
-  const lowest = Math.min(...available.map((t) => t.price));
-  return lowest === 0 ? "Gratis" : `Desde ${lowest}€`;
+function formatTime(isoDate: string, locale: string) {
+  return new Date(isoDate).toLocaleTimeString(localeMap[locale as keyof typeof localeMap] ?? "es-ES", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Madrid",
+  });
 }
 
-function getTotalAvailable(event: FourVenuesEvent): number {
-  if (!event.tickets) return 0;
-  return event.tickets.reduce((sum, t) => sum + t.available, 0);
+function extractGenres(event: FVEvent): string {
+  if (event.music_genres.length > 0) {
+    return event.music_genres
+      .map((g) => g.charAt(0).toUpperCase() + g.slice(1))
+      .join(" / ");
+  }
+  return "";
 }
 
-const galleryImages = [
-  "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=400&h=400&fit=crop",
-];
+function extractArtists(event: FVEvent): string {
+  if (event.artists.length > 0) {
+    return event.artists.map((a) => (typeof a === "string" ? a : a.name)).join(", ");
+  }
+  return "";
+}
+
+// ---------------------------------------------------------------------------
+// Page
+// ---------------------------------------------------------------------------
+
+interface GalleryImage { src: string; alt: string; }
 
 export default function OutxidePage() {
-  const events = MOCK_EVENTS;
+  const t = useT();
+  const locale = useLocale();
+  const [events, setEvents] = useState<FVEvent[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedEvent, setSelectedEvent] = useState<FVEvent | null>(null);
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoReady = useCallback(() => {
+    setVideoReady(true);
+  }, []);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v && v.readyState >= 3) handleVideoReady();
+  }, [handleVideoReady]);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const ticketSectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  // Fetch events + gallery
+  useEffect(() => {
+    async function load() {
+      try {
+        const res = await fetch("/api/fourvenues/events");
+        if (!res.ok) throw new Error();
+        const json = await res.json();
+        const now = new Date();
+        const visible = (json.data ?? []).filter(
+          (e: FVEvent) =>
+            e.image_url && new Date(e.end_date) >= now,
+        );
+        setEvents(visible);
+      } catch {
+        setEvents([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+    fetch("/api/gallery/outxide").then(r => r.json()).then(setGalleryImages).catch(() => {});
+  }, []);
+
+  // Scroll to ticket section
+  useEffect(() => {
+    if (selectedEvent && ticketSectionRef.current) {
+      ticketSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [selectedEvent]);
 
   return (
     <>
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+      <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden perspective-1000">
+        <motion.div style={{ y, rotateX }} className="absolute inset-0">
+          {/* Poster — visible instantly, fades out when video is ready */}
           <img
-            src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=1920&h=1080&fit=crop"
-            alt="Outxide Club"
-            className="h-full w-full object-cover"
+            src="/videos/outxide-hero-poster.jpg"
+            alt=""
+            aria-hidden
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-background" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.15),transparent_70%)]" />
-        </div>
+          {/* Video — loads in background, fades in when canplaythrough */}
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onCanPlayThrough={handleVideoReady}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
+          >
+            <source src="/videos/outxide-hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.25),transparent_60%)]" />
+          <LaserBeams />
+          <ParticleBackground color="#06b6d4" count={80} className="opacity-30" />
+        </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+        <motion.div
+          style={{ opacity }}
+          className="relative z-10 mx-auto max-w-4xl px-6 text-center"
+        >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,170 +179,140 @@ export default function OutxidePage() {
               className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
-              Grupo Enjoy
+              {t("common.backToGroup")}
             </Link>
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Music className="h-6 w-6 text-outxide" />
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                initial={{ scale: 0.5, rotateY: 180, opacity: 0 }}
+                animate={{ scale: 1, rotateY: 0, opacity: 1 }}
+                transition={{ duration: 1.5, type: "spring", stiffness: 50 }}
+              >
+                <OutxideLogo className="h-64 md:h-80 w-auto" />
+              </motion.div>
             </div>
-            <h1 className="font-display text-6xl md:text-8xl font-bold text-white tracking-tight">
-              Outxide
-            </h1>
-            <p className="mt-2 text-lg tracking-[0.3em] text-outxide/80 uppercase">
-              Club
-            </p>
-            <p className="mt-6 max-w-lg mx-auto text-muted-foreground text-lg italic">
-              The night continues
+            <h1 className="sr-only">Outxide Club</h1>
+            <p className="mt-2 text-lg tracking-[0.2em] text-outxide/80 uppercase font-bold drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
+              {t("outxide.tagline")}
             </p>
             <p className="mt-3 max-w-lg mx-auto text-muted-foreground">
-              Discoteca y club nocturno. La nueva referencia en vida nocturna de
-              Alcúdia. Música, energía y noches que no olvidarás.
+              {t("outxide.description")}
             </p>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Info bar */}
-      <section className="border-y border-white/5 bg-card/50">
+      <section className="relative z-20 border-y border-white/5 bg-background/80 backdrop-blur-md">
         <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-outxide" />
-            <span>Abierto diario: 17:00 – 05:30</span>
+            <span>{t("outxide.hours")}</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-outxide" />
-            <span>{MOCK_VENUE.address}</span>
+            <span>{t("outxide.address")}</span>
           </div>
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-outxide" />
-            <span>Aforo: {MOCK_VENUE.capacity}</span>
+            <span>+21</span>
           </div>
+          <Link
+            href="/hiru"
+            className="flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>{t("outxide.dinnerHiru")}</span>
+          </Link>
         </div>
       </section>
 
-      {/* Events Calendar */}
-      <section id="eventos" className="py-24 md:py-32">
+      {/* Events */}
+      <section id="eventos" className="relative z-20 py-24 md:py-32 bg-background">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-sm tracking-[0.3em] text-outxide/60 uppercase mb-4">
-                Calendario
+              <p className="text-sm font-bold tracking-[0.2em] text-outxide/60 uppercase mb-4">
+                {t("outxide.eventsCalendar")}
               </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
-                Próximos eventos
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white uppercase">
+                {t("outxide.eventsTitle")}
               </h2>
-              <p className="mt-4 text-muted-foreground">
-                Reserva tu entrada y asegura tu sitio
-              </p>
             </div>
           </ScrollReveal>
 
+          {loading && (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="h-8 w-8 text-outxide animate-spin" />
+            </div>
+          )}
+
+          {!loading && events.length === 0 && (
+            <div className="text-center py-20">
+              <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+              <p className="text-muted-foreground text-lg">
+                {t("outxide.noEvents")}
+              </p>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((event, i) => {
-              const priceLabel = getLowestAvailablePrice(event);
-              const totalAvailable = getTotalAvailable(event);
-              const isSoldOut = priceLabel === "Agotado";
+              const isSelected = selectedEvent?._id === event._id;
+              const genres = extractGenres(event);
+              const artists = extractArtists(event);
 
               return (
-                <ScrollReveal key={event.id} delay={i * 0.1}>
-                  <div className="group relative overflow-hidden rounded-2xl border border-white/5 bg-card transition-all duration-500 hover:border-outxide/30 flex flex-col">
-                    {/* Event image */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={`https://images.unsplash.com/photo-${
-                          [
-                            "1571266028243-e4733b0f0bb0",
-                            "1516450360452-9312f5e86fc7",
-                            "1493225457124-a3eb161ffa5f",
-                            "1574391884720-bbc3740c59d1",
-                            "1470225620780-dba8ba36b745",
-                            "1459749411175-04bf5292ceea",
-                          ][i % 6]
-                        }?w=600&h=400&fit=crop`}
-                        alt={event.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                <ScrollReveal key={event._id} delay={i * 0.05} className="h-full">
+                  <div className={`group relative overflow-hidden rounded-2xl border glass transition-all duration-500 flex flex-col h-full ${
+                    isSelected
+                      ? "border-outxide/50 shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+                      : "border-white/5 hover:border-outxide/30"
+                  }`}>
+                    {/* Flyer */}
+                    <div className="relative aspect-[4/5] overflow-hidden">
+                      <Image
+                        src={event.image_url}
+                        alt={event.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-
-                      {/* Date badge */}
                       <div className="absolute top-4 left-4 glass rounded-lg px-3 py-1.5">
                         <span className="text-xs font-semibold text-white">
-                          {formatDate(event.date)}
-                        </span>
-                      </div>
-
-                      {/* Price badge */}
-                      <div
-                        className={`absolute top-4 right-4 rounded-lg px-3 py-1.5 ${
-                          isSoldOut
-                            ? "bg-destructive/90"
-                            : "bg-outxide/90"
-                        }`}
-                      >
-                        <span className="text-xs font-bold text-white">
-                          {priceLabel}
+                          {formatDate(event.display_date, locale)}
                         </span>
                       </div>
                     </div>
 
-                    {/* Event info */}
+                    {/* Info */}
                     <div className="p-6 flex flex-col flex-1">
                       <h3 className="text-lg font-bold text-white mb-1 line-clamp-2">
-                        {event.title}
+                        {event.name}
                       </h3>
-                      <p className="text-sm text-outxide mb-1">{event.dj}</p>
-                      <p className="text-xs text-muted-foreground mb-2">
-                        {event.genre} · {event.time}h
-                      </p>
-                      <p className="text-xs text-muted-foreground mb-4 line-clamp-2 flex-1">
-                        {event.description}
-                      </p>
-
-                      {/* Ticket tiers summary */}
-                      {event.tickets && event.tickets.length > 0 && (
-                        <div className="mb-4 space-y-1.5">
-                          {event.tickets.map((tier) => (
-                            <div
-                              key={tier.id}
-                              className="flex items-center justify-between text-xs"
-                            >
-                              <span className="text-muted-foreground">
-                                {tier.name}
-                              </span>
-                              <span
-                                className={
-                                  tier.available === 0
-                                    ? "text-destructive line-through"
-                                    : "text-white"
-                                }
-                              >
-                                {tier.price === 0
-                                  ? "Gratis"
-                                  : `${tier.price}€`}
-                                {tier.available === 0 && " Agotado"}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
+                      {artists && (
+                        <p className="text-sm text-outxide mb-1 line-clamp-1">
+                          {artists}
+                        </p>
                       )}
+                      <p className="text-xs text-muted-foreground mb-4">
+                        {genres && `${genres} · `}
+                        {formatTime(event.start_date, locale)}h
+                      </p>
 
                       <Button
-                        asChild
                         size="sm"
-                        className={`w-full rounded-lg text-white ${
-                          isSoldOut
-                            ? "bg-muted cursor-not-allowed"
+                        className={`w-full rounded-lg text-white mt-auto ${
+                          isSelected
+                            ? "bg-outxide/60"
                             : "bg-outxide hover:bg-outxide/80"
                         }`}
-                        disabled={isSoldOut}
+                        onClick={() =>
+                          setSelectedEvent(isSelected ? null : event)
+                        }
                       >
-                        <a
-                          href={event.ticketUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Ticket className="h-4 w-4 mr-2" />
-                          {isSoldOut ? "Sold Out" : "Comprar entrada"}
-                        </a>
+                        <Ticket className="h-4 w-4 mr-2" />
+                        {isSelected ? t("common.close") : t("outxide.buyTicket")}
                       </Button>
                     </div>
                   </div>
@@ -249,7 +321,42 @@ export default function OutxidePage() {
             })}
           </div>
 
-          {/* FourVenues integration badge */}
+          {/* Inline Ticket Purchase Section */}
+          <AnimatePresence>
+            {selectedEvent && (
+              <motion.div
+                ref={ticketSectionRef}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="mt-12 rounded-3xl border border-outxide/20 bg-zinc-950/50 backdrop-blur-xl p-6 md:p-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">
+                        {selectedEvent.name}
+                      </h3>
+                      <p className="text-sm text-outxide mt-1">
+                        {formatDate(selectedEvent.display_date, locale)} · {formatTime(selectedEvent.start_date, locale)}h
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setSelectedEvent(null)}
+                      className="p-2 rounded-full hover:bg-white/10 transition-colors"
+                      aria-label="Cerrar sección de entradas"
+                    >
+                      <X className="h-6 w-6 text-white" />
+                    </button>
+                  </div>
+
+                  <EventTicketTabs eventId={selectedEvent._id} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <ScrollReveal>
             <div className="mt-12 text-center">
               <a
@@ -260,7 +367,7 @@ export default function OutxidePage() {
               >
                 <Calendar className="h-4 w-4 text-outxide" />
                 <span className="text-sm text-muted-foreground">
-                  Eventos y entradas via{" "}
+                  {t("outxide.eventsVia")}{" "}
                   <span className="text-white font-medium">FourVenues</span>
                 </span>
                 <ExternalLink className="h-3 w-3 text-muted-foreground" />
@@ -271,34 +378,41 @@ export default function OutxidePage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-24 md:py-32 bg-card/30">
-        <div className="mx-auto max-w-6xl px-6">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <p className="text-sm tracking-[0.3em] text-outxide/60 uppercase mb-4">
-                El club
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
-                Vive la experiencia
-              </h2>
-            </div>
-          </ScrollReveal>
+      {galleryImages.length > 0 && (
+        <section className="py-24 md:py-32 relative z-20 bg-background">
+          <div className="mx-auto max-w-6xl px-6">
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <p className="text-sm font-bold tracking-[0.2em] text-outxide/60 uppercase mb-4">
+                  {t("common.gallery")}
+                </p>
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-white uppercase">
+                  {t("outxide.galleryTitle")}
+                </h2>
+              </div>
+            </ScrollReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {galleryImages.map((src, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="group relative overflow-hidden rounded-xl aspect-square">
-                  <img
-                    src={src}
-                    alt={`Outxide Club ${i + 1}`}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-              </ScrollReveal>
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {galleryImages.map((img, i) => (
+                <ScrollReveal key={i} delay={i * 0.05}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="group relative overflow-hidden rounded-xl aspect-[3/2]"
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <Footer />
     </>

@@ -1,0 +1,153 @@
+[
+  {
+    "id": "aperitivos",
+    "category": "Aperitivos",
+    "icon": "Utensils",
+    "items": [
+      { "name": "Pan de cristal", "description": "Tomate y AOVE", "price": "5€" },
+      { "name": "Pan, alioli y aceitunas", "description": "", "price": "2,5€ p.p." }
+    ]
+  },
+  {
+    "id": "para-empezar",
+    "category": "Para Empezar",
+    "icon": "UtensilsCrossed",
+    "items": [
+      { "name": "Causa limeña", "description": "Atún, aguacate y ají amarillo", "price": "9,9€" },
+      { "name": "Steak tartar", "description": "Corte a cuchillo, aliño clásico", "price": "23€" },
+      { "name": "Gambas al ajillo", "description": "", "price": "15€" },
+      { "name": "Zamburiñas a la brasa", "description": "Ajo y perejil", "price": "18€" },
+      { "name": "Croquetas de jamón", "description": "", "price": "12,5€" },
+      { "name": "Croquetas de boletus", "description": "", "price": "13,9€" },
+      { "name": "Calamar andaluza", "description": "", "price": "18,5€" },
+      { "name": "Chipirones", "description": "", "price": "18,5€" },
+      { "name": "Huevos rotos con jamón", "description": "", "price": "19,8€" },
+      { "name": "Huevos rotos con gambas", "description": "", "price": "20,5€" },
+      { "name": "Jamón ibérico seleccionado", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "verde-y-fresco",
+    "category": "Verde y Fresco",
+    "icon": "Leaf",
+    "items": [
+      { "name": "César a la brasa", "description": "Pollo, parmesano y anchoa", "price": "15,9€" },
+      { "name": "Burrata & tomate rosa", "description": "Pesto y AOVE", "price": "16,9€" },
+      { "name": "Tomate rosa & atún", "description": "Cebolla rosa y AOVE", "price": "14,9€" }
+    ]
+  },
+  {
+    "id": "pasta",
+    "category": "Pasta",
+    "icon": "Wheat",
+    "items": [
+      { "name": "Tagliatelli bolognesa", "description": "", "price": "14,5€" },
+      { "name": "Ravioli vegetal", "description": "Pesto o tomate", "price": "16,2€" }
+    ]
+  },
+  {
+    "id": "street",
+    "category": "Street",
+    "icon": "Flame",
+    "items": [
+      { "name": "Bravas", "description": "", "price": "9,8€" },
+      { "name": "Gyoza & wakame", "description": "", "price": "9,7€" },
+      { "name": "Pollo crujiente japonés", "description": "", "price": "8,70€" },
+      { "name": "Nachos", "description": "", "price": "12,5€" },
+      { "name": "Taco de pescado", "description": "", "price": "11,8€" },
+      { "name": "Wok de verduras", "description": "", "price": "14,8€" },
+      { "name": "Burger de ternera", "description": "Cheddar y cebolla crujiente", "price": "20,5€" },
+      { "name": "Burger de vaca madurada", "description": "", "price": "22,80€" },
+      { "name": "Burger clásica", "description": "", "price": "18€" }
+    ]
+  },
+  {
+    "id": "entre-panes",
+    "category": "Entre Panes",
+    "icon": "Sandwich",
+    "items": [
+      { "name": "Club de pollo", "description": "", "price": "15€" },
+      { "name": "Club de salmón (sriracha)", "description": "", "price": "16,8€" },
+      { "name": "Brioche de ternera", "description": "Cocción lenta", "price": "22,8€" }
+    ]
+  },
+  {
+    "id": "brasa",
+    "category": "Brasa",
+    "icon": "Beef",
+    "items": [
+      { "name": "Pluma ibérica", "description": "", "price": "24€" },
+      { "name": "Costillas de cordero a la brasa", "description": "", "price": "28€" },
+      { "name": "Chuletón de la casa", "description": "", "price": "34€" },
+      { "name": "Pollo al fuego", "description": "", "price": "20,5€" },
+      { "name": "Entrecot", "description": "", "price": "24€" },
+      { "name": "Solomillo de ternera", "description": "", "price": "29€" },
+      { "name": "T-Bone", "description": "", "price": "32,5€" },
+      { "name": "Costilla de angus", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "origen",
+    "category": "Origen",
+    "icon": "Crown",
+    "items": [
+      { "name": "Rubia gallega", "description": "", "price": "108,5€/kg" },
+      { "name": "Simmental", "description": "", "price": "98,50€/kg" },
+      { "name": "Frisona", "description": "", "price": "96,8€/kg" },
+      { "name": "Cebón", "description": "", "price": "89€/kg" }
+    ]
+  },
+  {
+    "id": "mar",
+    "category": "Mar",
+    "icon": "Fish",
+    "items": [
+      { "name": "Salmón a la brasa", "description": "Eneldo y parmentier", "price": "22,5€" },
+      { "name": "Calamar al fuego", "description": "", "price": "24,8€" },
+      { "name": "Lubina", "description": "", "price": "38,50€" },
+      { "name": "Bacalao gratinado", "description": "Alioli y sobrasada", "price": "22,6€" },
+      { "name": "Chipirones con manzana y pistacho", "description": "", "price": "26,6€" }
+    ]
+  },
+  {
+    "id": "arroces",
+    "category": "Arroces",
+    "icon": "Soup",
+    "items": [
+      { "name": "Arroz de chuletón madurado", "description": "", "price": "39€" },
+      { "name": "Carabinero", "description": "", "price": "26,8€" },
+      { "name": "Negro de sepia y gamba", "description": "", "price": "25€" }
+    ]
+  },
+  {
+    "id": "para-los-peques",
+    "category": "Para los Peques",
+    "icon": "Baby",
+    "items": [
+      { "name": "Burger con queso", "description": "", "price": "12,5€" },
+      { "name": "Nuggets de pollo", "description": "", "price": "12,5€" },
+      { "name": "Pescado rebozado", "description": "", "price": "12,5€" }
+    ]
+  },
+  {
+    "id": "guarniciones",
+    "category": "Guarniciones",
+    "icon": "CirclePlus",
+    "items": [
+      { "name": "Patatas fritas", "description": "", "price": "5,8€" },
+      { "name": "Patata asada", "description": "", "price": "5,8€" }
+    ]
+  },
+  {
+    "id": "dulce-final",
+    "category": "Dulce Final",
+    "icon": "Cake",
+    "items": [
+      { "name": "Tarta de queso", "description": "", "price": "8€" },
+      { "name": "Brownie", "description": "", "price": "8€" },
+      { "name": "Mousse de maracuyá", "description": "", "price": "6,9€" },
+      { "name": "Piña a la brasa", "description": "", "price": "6€" },
+      { "name": "Postre del día", "description": "", "price": "" }
+    ]
+  }
+]

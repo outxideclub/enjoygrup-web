@@ -1,0 +1,42 @@
+{
+  "slug": "cookies",
+  "title": "Política de Cookies",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introducción",
+      "content": "<p>En cumplimiento del artículo 22.2 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), y del Reglamento (UE) 2016/679 (RGPD), le informamos sobre el uso de cookies en www.grupoenjoy.es.</p>"
+    },
+    {
+      "id": "que-son",
+      "heading": "1. ¿Qué son las cookies?",
+      "content": "<p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten reconocer al usuario, recordar sus preferencias y mejorar la experiencia de navegación. Pueden ser propias (establecidas por nuestro dominio) o de terceros (establecidas por otros dominios).</p>"
+    },
+    {
+      "id": "tipos",
+      "heading": "2. Tipos de cookies que utilizamos",
+      "content": "<h3>2.1. Cookies estrictamente necesarias</h3><p>Estas cookies son esenciales para el funcionamiento del sitio web. No requieren consentimiento y no pueden desactivarse.</p><table><thead><tr><th>Cookie</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr></thead><tbody><tr><td>CookieConsent</td><td>Cookiebot</td><td>Almacena el estado de consentimiento del usuario</td><td>12 meses</td></tr><tr><td>ge_age_verified</td><td>grupoenjoy.com</td><td>Confirmación de mayoría de edad para Outxide</td><td>Sesión</td></tr><tr><td>__Host-next-auth*</td><td>grupoenjoy.com</td><td>Seguridad y autenticación de sesión</td><td>Sesión</td></tr></tbody></table><h3>2.2. Cookies analíticas</h3><p>Estas cookies nos permiten medir y analizar el tráfico del sitio web de forma agregada. <strong>Solo se activan tras su consentimiento explícito.</strong></p><table><thead><tr><th>Cookie</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr></thead><tbody><tr><td>_ga</td><td>Google Analytics 4</td><td>Distingue usuarios únicos mediante un ID aleatorio</td><td>14 meses</td></tr><tr><td>_ga_*</td><td>Google Analytics 4</td><td>Mantiene el estado de la sesión</td><td>14 meses</td></tr></tbody></table><h3>2.3. Cookies de marketing</h3><p>Estas cookies se utilizan para mostrar publicidad relevante y medir la eficacia de campañas. <strong>Solo se activan tras su consentimiento explícito.</strong></p><table><thead><tr><th>Cookie</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr></thead><tbody><tr><td>_fbp</td><td>Meta (Facebook/Instagram)</td><td>Seguimiento de conversiones y remarketing</td><td>3 meses</td></tr><tr><td>_fbc</td><td>Meta (Facebook/Instagram)</td><td>Seguimiento de clics desde anuncios de Facebook</td><td>3 meses</td></tr><tr><td>_ttp</td><td>TikTok</td><td>Seguimiento de conversiones y remarketing</td><td>13 meses</td></tr><tr><td>tt_*</td><td>TikTok</td><td>Identificación de usuario para publicidad</td><td>13 meses</td></tr></tbody></table><h3>2.4. Cookies de terceros (funcionales)</h3><table><thead><tr><th>Cookie</th><th>Proveedor</th><th>Finalidad</th><th>Duración</th></tr></thead><tbody><tr><td>NID / CONSENT</td><td>Google Maps</td><td>Visualización del mapa de ubicación de los locales</td><td>6 meses</td></tr><tr><td>__stripe_*</td><td>Stripe</td><td>Procesamiento seguro de pagos y prevención de fraude</td><td>Sesión / 1 año</td></tr><tr><td>fv_*</td><td>FourVenues</td><td>Sistema de entradas y reservas de Outxide</td><td>Sesión</td></tr></tbody></table>"
+    },
+    {
+      "id": "consent-mode",
+      "heading": "3. Consent Mode v2",
+      "content": "<p>Utilizamos Google Consent Mode v2 para gestionar el comportamiento de las etiquetas de analítica y marketing. Por defecto, todos los parámetros de consentimiento están configurados como <strong>denegados</strong> (<code>denied</code>):</p><ul><li><code>analytics_storage</code>: denied</li><li><code>ad_storage</code>: denied</li><li><code>ad_user_data</code>: denied</li><li><code>ad_personalization</code>: denied</li></ul><p>Los scripts de Google Analytics 4, Meta Pixel y TikTok Pixel solo se cargan y activan cuando el usuario otorga su consentimiento explícito a través del banner de cookies. Mientras el consentimiento no sea otorgado, no se almacena ninguna cookie analítica ni de marketing y los datos de navegación no se recogen.</p>"
+    },
+    {
+      "id": "gestion",
+      "heading": "4. Gestión de cookies",
+      "content": "<p>Puede gestionar sus preferencias de cookies en cualquier momento a través del panel de configuración de cookies accesible desde el enlace \"Configurar Cookies\" en el pie de página de nuestro sitio web.</p><p>También puede configurar su navegador para rechazar cookies o para ser avisado antes de que se almacene una cookie. Tenga en cuenta que el bloqueo de cookies esenciales puede afectar al funcionamiento del sitio web.</p><p>Instrucciones por navegador:</p><ul><li><a href=\"https://support.google.com/chrome/answer/95647\" target=\"_blank\" rel=\"noopener noreferrer\">Google Chrome</a></li><li><a href=\"https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-\" target=\"_blank\" rel=\"noopener noreferrer\">Mozilla Firefox</a></li><li><a href=\"https://support.apple.com/es-es/guide/safari/sfri11471/mac\" target=\"_blank\" rel=\"noopener noreferrer\">Safari</a></li><li><a href=\"https://support.microsoft.com/es-es/microsoft-edge/eliminar-cookies-en-microsoft-edge\" target=\"_blank\" rel=\"noopener noreferrer\">Microsoft Edge</a></li></ul>"
+    },
+    {
+      "id": "actualizaciones",
+      "heading": "5. Actualizaciones",
+      "content": "<p>Podemos actualizar esta Política de Cookies para reflejar cambios en las cookies que utilizamos o por motivos legales. Le recomendamos revisarla periódicamente.</p>"
+    },
+    {
+      "id": "contacto",
+      "heading": "6. Contacto",
+      "content": "<p>Para cualquier consulta relacionada con el uso de cookies, puede escribirnos a <a href=\"mailto:privacidad@grupoenjoy.com\">privacidad@grupoenjoy.com</a>.</p>"
+    }
+  ]
+}

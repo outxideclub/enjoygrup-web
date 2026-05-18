@@ -1,0 +1,42 @@
+{
+  "slug": "cookies",
+  "title": "Cookie Policy",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>In compliance with Article 22.2 of Law 34/2002 of 11 July on Information Society Services and Electronic Commerce (LSSI-CE), and Regulation (EU) 2016/679 (GDPR), we inform you about the use of cookies on www.grupoenjoy.es.</p>"
+    },
+    {
+      "id": "que-son",
+      "heading": "1. What are cookies?",
+      "content": "<p>Cookies are small text files stored on your device when you visit a website. They allow the site to recognise the user, remember preferences and improve the browsing experience. They may be first-party (set by our domain) or third-party (set by other domains).</p>"
+    },
+    {
+      "id": "tipos",
+      "heading": "2. Types of cookies we use",
+      "content": "<h3>2.1. Strictly necessary cookies</h3><p>These cookies are essential for the website to function. They do not require consent and cannot be disabled.</p><table><thead><tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr></thead><tbody><tr><td>CookieConsent</td><td>Cookiebot</td><td>Stores the user's consent state</td><td>12 months</td></tr><tr><td>ge_age_verified</td><td>grupoenjoy.com</td><td>Age verification for Outxide</td><td>Session</td></tr><tr><td>__Host-next-auth*</td><td>grupoenjoy.com</td><td>Session security and authentication</td><td>Session</td></tr></tbody></table><h3>2.2. Analytics cookies</h3><p>These cookies allow us to measure and analyse website traffic in aggregate. <strong>They are only activated after your explicit consent.</strong></p><table><thead><tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr></thead><tbody><tr><td>_ga</td><td>Google Analytics 4</td><td>Distinguishes unique users via a random ID</td><td>14 months</td></tr><tr><td>_ga_*</td><td>Google Analytics 4</td><td>Maintains session state</td><td>14 months</td></tr></tbody></table><h3>2.3. Marketing cookies</h3><p>These cookies are used to display relevant advertising and measure campaign effectiveness. <strong>They are only activated after your explicit consent.</strong></p><table><thead><tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr></thead><tbody><tr><td>_fbp</td><td>Meta (Facebook/Instagram)</td><td>Conversion tracking and remarketing</td><td>3 months</td></tr><tr><td>_fbc</td><td>Meta (Facebook/Instagram)</td><td>Click tracking from Facebook ads</td><td>3 months</td></tr><tr><td>_ttp</td><td>TikTok</td><td>Conversion tracking and remarketing</td><td>13 months</td></tr><tr><td>tt_*</td><td>TikTok</td><td>User identification for advertising</td><td>13 months</td></tr></tbody></table><h3>2.4. Third-party cookies (functional)</h3><table><thead><tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr></thead><tbody><tr><td>NID / CONSENT</td><td>Google Maps</td><td>Display of venue location map</td><td>6 months</td></tr><tr><td>__stripe_*</td><td>Stripe</td><td>Secure payment processing and fraud prevention</td><td>Session / 1 year</td></tr><tr><td>fv_*</td><td>FourVenues</td><td>Outxide ticketing and reservation system</td><td>Session</td></tr></tbody></table>"
+    },
+    {
+      "id": "consent-mode",
+      "heading": "3. Consent Mode v2",
+      "content": "<p>We use Google Consent Mode v2 to manage the behaviour of analytics and marketing tags. By default, all consent parameters are set to <strong>denied</strong>:</p><ul><li><code>analytics_storage</code>: denied</li><li><code>ad_storage</code>: denied</li><li><code>ad_user_data</code>: denied</li><li><code>ad_personalization</code>: denied</li></ul><p>Google Analytics 4, Meta Pixel and TikTok Pixel scripts are only loaded and activated when the user grants explicit consent through the cookie banner. Until consent is given, no analytics or marketing cookies are stored and no browsing data is collected.</p>"
+    },
+    {
+      "id": "gestion",
+      "heading": "4. Managing cookies",
+      "content": "<p>You can manage your cookie preferences at any time through the cookie settings panel, accessible via the \"Cookie Settings\" link in the footer of our website.</p><p>You can also configure your browser to reject cookies or to be notified before a cookie is stored. Please note that blocking essential cookies may affect the website's functionality.</p><p>Browser instructions:</p><ul><li><a href=\"https://support.google.com/chrome/answer/95647\" target=\"_blank\" rel=\"noopener noreferrer\">Google Chrome</a></li><li><a href=\"https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer\" target=\"_blank\" rel=\"noopener noreferrer\">Mozilla Firefox</a></li><li><a href=\"https://support.apple.com/en-gb/guide/safari/sfri11471/mac\" target=\"_blank\" rel=\"noopener noreferrer\">Safari</a></li><li><a href=\"https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge\" target=\"_blank\" rel=\"noopener noreferrer\">Microsoft Edge</a></li></ul>"
+    },
+    {
+      "id": "actualizaciones",
+      "heading": "5. Updates",
+      "content": "<p>We may update this Cookie Policy to reflect changes in the cookies we use or for legal reasons. We recommend reviewing it periodically.</p>"
+    },
+    {
+      "id": "contacto",
+      "heading": "6. Contact",
+      "content": "<p>For any enquiry regarding the use of cookies, please write to <a href=\"mailto:privacidad@grupoenjoy.com\">privacidad@grupoenjoy.com</a>.</p>"
+    }
+  ]
+}

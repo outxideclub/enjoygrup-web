@@ -1,17 +1,17 @@
 // ---------------------------------------------------------------------------
-// FourVenues API - HTTP client
+// FourVenues Channel Manager API - HTTP client
 // ---------------------------------------------------------------------------
 
 import type {
-  FourVenuesEvent,
-  FourVenuesListResponse,
-  FourVenuesSingleResponse,
-  Venue,
+  FVEvent,
+  FVTicketRate,
+  FVListRate,
+  FVListResponse,
+  FVCheckoutRequest,
+  FVCheckoutResponse,
 } from "./types";
 
-// ---------------------------------------------------------------------------
-// Error class
-// ---------------------------------------------------------------------------
+const DEFAULT_BASE_URL = "https://channels-service.fourvenues.com";
 
 export class FourVenuesError extends Error {
   constructor(
@@ -23,12 +23,6 @@ export class FourVenuesError extends Error {
     this.name = "FourVenuesError";
   }
 }
-
-// ---------------------------------------------------------------------------
-// Client
-// ---------------------------------------------------------------------------
-
-const DEFAULT_BASE_URL = "https://api.fourvenues.com";
 
 export class FourVenuesClient {
   private readonly baseUrl: string;
@@ -44,33 +38,42 @@ export class FourVenuesClient {
       );
     }
 
-    this.apiKey = apiKey;
-    // Strip trailing slash so we can safely append paths.
+    this.apiKey = apiKey.trim();
     this.baseUrl = (baseUrl ?? DEFAULT_BASE_URL).replace(/\/+$/, "");
   }
 
-  // -----------------------------------------------------------------------
-  // Private helpers
-  // -----------------------------------------------------------------------
-
-  private async request<T>(endpoint: string): Promise<T> {
+  private async request<T>(
+    endpoint: string,
+    options?: { method?: string; body?: unknown; revalidate?: number },
+  ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
+    const method = options?.method ?? "GET";
+
+    const headers: Record<string, string> = {
+      "X-Api-Key": this.apiKey,
+      Accept: "application/json",
+    };
+
+    const init: RequestInit & { next?: { revalidate: number } } = {
+      method,
+      headers,
+    };
+
+    if (options?.body) {
+      headers["Content-Type"] = "application/json";
+      init.body = JSON.stringify(options.body);
+    }
+
+    if (method === "GET") {
+      init.next = { revalidate: options?.revalidate ?? 60 };
+    }
 
     let response: Response;
-
     try {
-      response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-          Accept: "application/json",
-        },
-        // Next.js fetch extensions -- revalidate every 5 minutes.
-        next: { revalidate: 300 },
-      } as RequestInit);
+      response = await fetch(url, init as RequestInit);
     } catch (error) {
       throw new FourVenuesError(
-        `Network error while calling FourVenues API: ${error instanceof Error ? error.message : String(error)}`,
+        `Network error: ${error instanceof Error ? error.message : String(error)}`,
         0,
         endpoint,
       );
@@ -78,16 +81,13 @@ export class FourVenuesClient {
 
     if (!response.ok) {
       let errorMessage = `FourVenues API responded with ${response.status}`;
-
       try {
-        const body = (await response.json()) as { message?: string };
-        if (body.message) {
-          errorMessage = body.message;
-        }
+        const body = (await response.json()) as { error?: string; message?: string };
+        if (body.error) errorMessage = body.error;
+        else if (body.message) errorMessage = body.message;
       } catch {
-        // Response body is not JSON -- keep the generic message.
+        // not JSON
       }
-
       throw new FourVenuesError(errorMessage, response.status, endpoint);
     }
 
@@ -95,48 +95,55 @@ export class FourVenuesClient {
   }
 
   // -----------------------------------------------------------------------
-  // Public API
+  // Events
   // -----------------------------------------------------------------------
 
-  /**
-   * Fetch all published events for the configured venue.
-   *
-   * The API returns events sorted by date ascending.
-   */
-  async getEvents(): Promise<FourVenuesEvent[]> {
-    const res = await this.request<FourVenuesListResponse<FourVenuesEvent>>(
-      "/v1/events",
+  async getEvents(startDate: string, endDate: string): Promise<FVEvent[]> {
+    const res = await this.request<FVListResponse<FVEvent>>(
+      `/events?start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}`,
     );
     return res.data;
   }
 
-  /**
-   * Fetch a single event by its unique identifier.
-   *
-   * The response includes the full ticket tiers list.
-   */
-  async getEvent(id: string): Promise<FourVenuesEvent> {
-    if (!id) {
-      throw new Error("Event ID is required.");
-    }
-
-    const res = await this.request<FourVenuesSingleResponse<FourVenuesEvent>>(
-      `/v1/events/${encodeURIComponent(id)}`,
+  async getEvent(id: string): Promise<FVEvent> {
+    const res = await this.request<{ data: FVEvent; success: boolean }>(
+      `/events/${encodeURIComponent(id)}`,
     );
     return res.data;
   }
 
-  /**
-   * Fetch venue details by its unique identifier.
-   */
-  async getVenue(id: string): Promise<Venue> {
-    if (!id) {
-      throw new Error("Venue ID is required.");
-    }
+  // -----------------------------------------------------------------------
+  // Ticket Rates
+  // -----------------------------------------------------------------------
 
-    const res = await this.request<FourVenuesSingleResponse<Venue>>(
-      `/v1/venues/${encodeURIComponent(id)}`,
+  async getTicketRates(eventId: string): Promise<FVTicketRate[]> {
+    const res = await this.request<FVListResponse<FVTicketRate>>(
+      `/ticket-rates?event_id=${encodeURIComponent(eventId)}`,
+      { revalidate: 30 },
     );
     return res.data;
+  }
+
+  // -----------------------------------------------------------------------
+  // List Rates
+  // -----------------------------------------------------------------------
+
+  async getListRates(eventId: string): Promise<FVListRate[]> {
+    const res = await this.request<FVListResponse<FVListRate>>(
+      `/list-rates?event_id=${encodeURIComponent(eventId)}`,
+      { revalidate: 30 },
+    );
+    return res.data;
+  }
+
+  // -----------------------------------------------------------------------
+  // Checkout
+  // -----------------------------------------------------------------------
+
+  async createCheckout(data: FVCheckoutRequest): Promise<FVCheckoutResponse> {
+    return this.request<FVCheckoutResponse>("/tickets/checkout", {
+      method: "POST",
+      body: data,
+    });
   }
 }

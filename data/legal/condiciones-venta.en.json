@@ -1,0 +1,62 @@
+{
+  "slug": "condiciones-venta",
+  "title": "General Sales Conditions",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>These conditions govern the purchase of tickets, VIP table reservations and restaurant/lounge bookings made through www.grupoenjoy.es, operated by Enjoy Club 78 S.L. and Hiru Food and Drinks S.L. (hereinafter \"Grupo Enjoy\").</p>"
+    },
+    {
+      "id": "objeto",
+      "heading": "1. Purpose",
+      "content": "<p>These conditions apply to the following transactions carried out through the Website:</p><ul><li><strong>Ticket purchases</strong> for events at Outxide Club (processed through FourVenues / Stripe).</li><li><strong>VIP table reservations</strong> at Outxide Club (with minimum spend or prior deposit).</li><li><strong>Table reservations</strong> at Hiru Food & Drinks (deposit may be required for groups).</li><li><strong>Area reservations</strong> at Enjoy Terrace (deposit may be required for groups).</li></ul>"
+    },
+    {
+      "id": "proceso-compra",
+      "heading": "2. Purchase process",
+      "content": "<ol><li>The user selects the event, date, ticket type or table.</li><li>Completes the form with their personal details.</li><li>Reviews the order summary, including total price with taxes.</li><li>Accepts these Sales Conditions and the Privacy Policy.</li><li>Proceeds to payment through the secure gateway (Stripe / FourVenues).</li><li>Receives a confirmation email with details and, where applicable, the QR code for the ticket.</li></ol><p>The contract is concluded when the user receives the confirmation email. All displayed prices include VAT unless expressly stated otherwise.</p>"
+    },
+    {
+      "id": "precios",
+      "heading": "3. Prices and taxes",
+      "content": "<p>Ticket and service prices are displayed in euros (EUR) and include applicable taxes. Grupo Enjoy reserves the right to modify prices at any time, without affecting purchases already confirmed.</p>"
+    },
+    {
+      "id": "metodos-pago",
+      "heading": "4. Payment methods",
+      "content": "<p>We accept the following payment methods through our secure Stripe gateway:</p><ul><li>Credit and debit cards (Visa, Mastercard, American Express).</li><li>Apple Pay and Google Pay.</li></ul><p>Payment data is processed directly by Stripe Inc., PCI-DSS Level 1 certified. Grupo Enjoy does not store, process or have access to your full card details.</p>"
+    },
+    {
+      "id": "cancelaciones",
+      "heading": "5. Cancellation and refund policy",
+      "content": "<h3>5.1. Event tickets (Outxide Club)</h3><ul><li><strong>Cancellation by buyer:</strong> Event tickets are non-refundable once the purchase is confirmed, except in the case of event cancellation by the organiser.</li><li><strong>Event cancellation:</strong> If Grupo Enjoy cancels an event, a full refund will be issued within a maximum of 14 calendar days via the original payment method.</li><li><strong>Date change:</strong> If the event is postponed, tickets will be valid for the new date. If the buyer cannot attend the new date, a refund may be requested within 7 days of the date change notification.</li><li><strong>Transfer:</strong> Tickets are nominative but transferable. The holder may request a name change by emailing info@grupoenjoy.com up to 24 hours before the event.</li></ul><h3>5.2. VIP reservations (Outxide Club)</h3><ul><li>VIP reservations require a prior deposit equal to the established minimum spend.</li><li><strong>Cancellation more than 48h in advance:</strong> 100% deposit refund.</li><li><strong>Cancellation less than 48h in advance:</strong> 50% of the deposit will be retained as a penalty.</li><li><strong>No-show:</strong> 100% of the deposit will be retained.</li></ul><h3>5.3. Restaurant bookings (Hiru) and lounge bookings (Enjoy)</h3><ul><li>Standard bookings do not require a deposit and may be cancelled free of charge up to 4 hours before the reserved time.</li><li>For groups of 6 or more guests, a deposit of [XX] EUR per guest may be required. In case of no-show, the deposit will be retained.</li><li>For special events (themed dinners, tasting menus, private dining), the specific cancellation conditions will be communicated at the time of booking.</li></ul>"
+    },
+    {
+      "id": "mayoria-edad",
+      "heading": "6. Age requirement",
+      "content": "<p>Ticket purchases for Outxide Club and reservations at Enjoy Terrace are restricted to persons aged 18 and over. Grupo Enjoy reserves the right to request identification at the venue entrance. Refusal of entry for failing to prove legal age does not entitle the holder to a refund.</p>"
+    },
+    {
+      "id": "desistimiento",
+      "heading": "7. Right of withdrawal",
+      "content": "<p>In accordance with Article 103(l) of Royal Legislative Decree 1/2007 (Consolidated Text of the General Law for the Defence of Consumers and Users), tickets for shows and events on a specific date are excluded from the right of withdrawal.</p><p>Likewise, restaurant and lounge bookings for a specific date and time are excluded from the right of withdrawal under Article 103(l), as they are services relating to accommodation (non-residential), catering or leisure activities with a specific date or period of performance.</p>"
+    },
+    {
+      "id": "responsabilidad",
+      "heading": "8. Liability",
+      "content": "<p>Grupo Enjoy shall not be liable for the buyer's inability to access the event due to causes beyond the organiser's control, including but not limited to: loss of ticket, failure to comply with the dress code, state of intoxication or inappropriate behaviour, force majeure, or restrictions imposed by the authorities.</p>"
+    },
+    {
+      "id": "atencion-cliente",
+      "heading": "9. Customer service",
+      "content": "<p>For any issue related to purchases or reservations, you may contact us at <a href=\"mailto:info@grupoenjoy.com\">info@grupoenjoy.com</a> or by phone at +34 971 546 789. We commit to responding within a maximum of 48 business hours.</p>"
+    },
+    {
+      "id": "legislacion",
+      "heading": "10. Applicable law",
+      "content": "<p>These conditions are governed by Spanish law, in particular Royal Legislative Decree 1/2007, the Civil Code and the LSSI-CE. For the resolution of disputes, the Courts of Palma de Mallorca shall have jurisdiction, without prejudice to the consumer's right to their local jurisdiction where applicable.</p>"
+    }
+  ]
+}

@@ -1,67 +1,165 @@
 // ---------------------------------------------------------------------------
-// FourVenues API - Type definitions
+// FourVenues Channel Manager API - Type definitions
 // ---------------------------------------------------------------------------
 
-/** Status of an event within the FourVenues platform. */
-export type EventStatus = "draft" | "published" | "cancelled" | "soldout";
+// --- Events ----------------------------------------------------------------
 
-/** A physical venue managed through FourVenues. */
-export interface Venue {
-  id: string;
+export interface FVLocation {
+  location_id: string;
   name: string;
   address: string;
-  capacity: number;
+  city: string;
+  country: string;
+  full_address: string;
+  latitude: number;
+  longitude: number;
+  timezone: string;
 }
 
-/** A ticket tier available for purchase on an event. */
-export interface TicketType {
-  id: string;
+export interface FVArtist {
+  name: string;
+  image_url?: string;
+}
+
+export interface FVEvent {
+  _id: string;
+  name: string;
+  slug: string;
+  description: string;
+  display_date: string;
+  start_date: string;
+  end_date: string;
+  code: string;
+  age: number;
+  image_url: string;
+  outfit: string;
+  ambiences: string[];
+  music_genres: string[];
+  artists: FVArtist[];
+  organization_id: string;
+  location_id: string;
+  location: FVLocation;
+  currency: string;
+  iframe?: {
+    tag_url: string;
+    script_url: string;
+  };
+}
+
+// --- Ticket Rates ----------------------------------------------------------
+
+export interface FVTicketPrice {
+  _id: string;
   name: string;
   price: number;
-  /** Number of tickets still available for this tier. */
-  available: number;
-  /** Maximum number of tickets a single buyer can purchase. */
-  maxPerPurchase: number;
+  valid_until: string;
+  fee_type: "percentage" | "fixed";
+  fee_quantity: number;
+  includes: string;
+  additional_info: string;
+  quantity: number;
+  used: number;
 }
 
-/** A nightclub / club event returned by the FourVenues API. */
-export interface FourVenuesEvent {
-  id: string;
-  title: string;
-  /** ISO-8601 date string (YYYY-MM-DD). */
-  date: string;
-  /** 24h time string (HH:mm). */
-  time: string;
-  description: string;
-  /** Absolute URL to the event cover image. */
-  image: string;
-  genre: string;
-  dj: string;
-  /** URL where customers can purchase tickets. */
-  ticketUrl: string;
-  /** Starting price in EUR (lowest tier). */
+export interface FVSupplement {
+  _id: string;
+  label: string;
   price: number;
-  venue: Venue;
-  status: EventStatus;
-  /** Optional list of ticket tiers when fetching a single event. */
-  tickets?: TicketType[];
+  has_fake_price: boolean;
+  fake_price: number;
 }
 
-// ---------------------------------------------------------------------------
-// API response wrappers
-// ---------------------------------------------------------------------------
+export interface FVField {
+  type: "text" | "email" | "tel" | "date" | "dropdown";
+  required: boolean;
+  label: string;
+  slug: string;
+  items?: string[];
+}
 
-export interface FourVenuesListResponse<T> {
+export interface FVTicketRate {
+  _id: string;
+  organization_id: string;
+  event_id: string;
+  name: string;
+  slug: string;
+  valid_from: string;
+  complete: boolean;
+  type: "limited" | "public";
+  show_all_prices: boolean;
+  available: boolean;
+  has_discount_codes_enabled: boolean;
+  min: number;
+  max: number;
+  nominative: boolean;
+  prices: FVTicketPrice[];
+  current_price: FVTicketPrice;
+  supplements: FVSupplement[];
+  availability: { sold: number; available: number };
+  warranty: { enabled: boolean; percentage?: number; hours?: number };
+  fields: FVField[];
+  questions: FVField[];
+}
+
+// --- List Rates ------------------------------------------------------------
+
+export interface FVListRate {
+  _id: string;
+  organization_id: string;
+  event_id: string;
+  name: string;
+  slug: string;
+  valid_from: string;
+  complete: boolean;
+  type: "limited" | "public";
+  available: boolean;
+  min: number;
+  max: number;
+  prices: FVTicketPrice[];
+  current_price: FVTicketPrice;
+  availability: { sold: number; available: number };
+  fields: FVField[];
+}
+
+// --- Checkout --------------------------------------------------------------
+
+export interface FVCheckoutTicket {
+  email: string;
+  full_name: string;
+  price_id: string;
+  phone?: string;
+  birthday?: string;
+  supplements?: { supplement_id: string }[];
+  warranty?: boolean;
+}
+
+export interface FVCheckoutRequest {
+  ticket_rate_id: string;
+  tickets: FVCheckoutTicket[];
+  redirect_url: string;
+  error_url: string;
+  send_resources?: boolean;
+  metadata?: Record<string, string>;
+  discount_code?: string;
+}
+
+export interface FVCheckoutResponse {
+  success: boolean;
+  data: {
+    payment_url: string;
+    payment_id: string;
+    conditions_changed: boolean;
+  };
+}
+
+// --- API response wrappers -------------------------------------------------
+
+export interface FVListResponse<T> {
   data: T[];
-  total: number;
+  success: boolean;
 }
 
-export interface FourVenuesSingleResponse<T> {
+export interface FVSingleResponse<T> {
   data: T;
-}
-
-export interface FourVenuesErrorResponse {
-  error: string;
-  statusCode: number;
-  message: string;
+  success: boolean;
 }

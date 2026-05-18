@@ -1,34 +1,43 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Poppins, Oswald } from "next/font/google";
+import { CookieBanner } from "@/components/legal/cookie-banner";
+import { AnalyticsScripts } from "@/components/seo/analytics";
+import { MotionConfig } from "framer-motion";
+import { LocaleProvider } from "@/i18n/context";
+import { getServerLocale } from "@/i18n/server";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
+  weight: ["700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.grupoenjoy.es"),
   title: {
-    default: "Grupo Enjoy | Coctelería, Club & Restaurante",
+    default: "Grupo Enjoy | Cocteleria, Club & Restaurante",
     template: "%s | Grupo Enjoy",
   },
   description:
-    "Tres experiencias únicas bajo un mismo grupo. Enjoy Lounge, Outxide Club y Hiru Restaurante. Descubre la mejor gastronomía, coctelería y vida nocturna.",
+    "Tres experiencias unicas bajo un mismo grupo. Enjoy Terrace, Outxide Club y Hiru Food & Drinks en Alcudia, Mallorca.",
   keywords: [
     "grupo enjoy",
-    "coctelería premium",
-    "discoteca",
-    "restaurante",
-    "enjoy lounge",
+    "cocteleria alcudia",
+    "discoteca alcudia",
+    "restaurante alcudia",
+    "enjoy terrace",
     "outxide club",
-    "hiru restaurante",
+    "hiru food drinks",
+    "nightlife mallorca",
   ],
   openGraph: {
     type: "website",
@@ -37,15 +46,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
+
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
-        {children}
+    <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased" suppressHydrationWarning>
+        <MotionConfig reducedMotion="user">
+          <LocaleProvider initialLocale={locale}>
+            {children}
+            <CookieBanner />
+            <AnalyticsScripts />
+          </LocaleProvider>
+        </MotionConfig>
       </body>
     </html>
   );

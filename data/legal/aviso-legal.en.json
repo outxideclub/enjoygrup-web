@@ -1,0 +1,47 @@
+{
+  "slug": "aviso-legal",
+  "title": "Legal Notice",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "datos-identificativos",
+      "heading": "1. Identity of the responsible party",
+      "content": "<p>In compliance with Article 10 of Law 34/2002 of 11 July on Information Society Services and Electronic Commerce (LSSI-CE), the user is hereby informed of the details of the owner of this website:</p><ul><li><strong>Company name:</strong> Enjoy Club 78 S.L. (CIF: B75300376) — Av. Tucán, 1, 07400 Port d'Alcúdia, Illes Balears</li><li><strong>Company name:</strong> Hiru Food and Drinks S.L. (CIF: E56919921) — Carretera d'Artà, 40, 07400 Port d'Alcúdia, Illes Balears</li><li><strong>Registration:</strong> Commercial Registry of Palma de Mallorca</li><li><strong>Phone:</strong> +34 971 546 789</li><li><strong>Contact email:</strong> info@grupoenjoy.com</li><li><strong>Privacy email:</strong> privacidad@grupoenjoy.com</li><li><strong>Website:</strong> www.grupoenjoy.es</li></ul><p>The company owns and operates the commercial venues Hiru Food & Drinks, Enjoy Terrace and Outxide Club, all located in Alcudia, Mallorca.</p>"
+    },
+    {
+      "id": "objeto-ambito",
+      "heading": "2. Purpose and scope",
+      "content": "<p>This legal notice governs access to and use of the website www.grupoenjoy.es (hereinafter the \"Website\"), including all its subdomains, venue microsites (Hiru, Enjoy, Outxide) and any content, service or functionality offered through it.</p><p>Accessing the Website grants the condition of user and implies full and unreserved acceptance of all provisions included in this Legal Notice, the Privacy Policy and the Cookie Policy, as in force at the time of access.</p>"
+    },
+    {
+      "id": "condiciones-acceso",
+      "heading": "3. Terms of access and use",
+      "content": "<p>The user undertakes to use the Website, its content and services in accordance with the law, morality, public order and these terms. The following is prohibited:</p><ul><li>Using the Website for unlawful, fraudulent purposes or purposes contrary to this Legal Notice.</li><li>Performing any action that causes or may cause damage to or alteration of the content.</li><li>Introducing computer viruses, worms, trojans or any harmful software.</li><li>Attempting to access, use or manipulate data of other users or management systems.</li><li>Reproducing, copying, distributing or modifying content without written authorisation from the owner.</li><li>Removing, circumventing or tampering with protection measures or informational notices on the Website.</li></ul>"
+    },
+    {
+      "id": "propiedad-intelectual",
+      "heading": "4. Intellectual and industrial property",
+      "content": "<p>All content on the Website, including but not limited to texts, photographs, graphics, images, videos, icons, logos, trademarks, trade names, designs, software, source code, and any other material, is protected by intellectual and industrial property rights belonging to Enjoy Club 78 S.L. and Hiru Food and Drinks S.L. or to third parties who have authorised its inclusion.</p><p>The trademarks <strong>Grupo Enjoy</strong>, <strong>Enjoy Terrace</strong>, <strong>Outxide Club</strong> and <strong>Hiru Food & Drinks</strong>, together with their logos and associated graphic elements, are registered trademarks or trademarks pending registration by Enjoy Club 78 S.L. and Hiru Food and Drinks S.L.</p><p>Total or partial reproduction of the Website and any of its content without the express written permission of Enjoy Club 78 S.L. and Hiru Food and Drinks S.L. is strictly prohibited.</p>"
+    },
+    {
+      "id": "exclusion-garantias",
+      "heading": "5. Disclaimer of warranties and liability",
+      "content": "<p>Enjoy Club 78 S.L. and Hiru Food and Drinks S.L. shall not be liable, under any circumstances, for damages of any nature that may arise from:</p><ul><li>Unavailability, maintenance or effective operation of the Website.</li><li>The existence of viruses, malware or harmful programs in the content.</li><li>Unlawful, negligent, fraudulent use or use contrary to these terms by the user.</li><li>Lack of truthfulness, accuracy, completeness or timeliness of the content.</li><li>Information provided by third parties through external links. Links to third-party sites are provided for informational purposes only and do not imply endorsement of their content by Enjoy Club 78 S.L. and Hiru Food and Drinks S.L..</li></ul>"
+    },
+    {
+      "id": "modificaciones",
+      "heading": "6. Modifications",
+      "content": "<p>Enjoy Club 78 S.L. and Hiru Food and Drinks S.L. reserves the right to modify, at any time and without prior notice, the presentation, configuration and content of the Website, as well as the conditions required for its access and use. The user is responsible for periodically reviewing these terms.</p>"
+    },
+    {
+      "id": "legislacion",
+      "heading": "7. Applicable law and jurisdiction",
+      "content": "<p>These terms are governed by Spanish law. For the resolution of any dispute arising from access to or use of the Website, the parties submit to the Courts of Palma de Mallorca, expressly waiving any other jurisdiction that may correspond to them, unless applicable regulations establish a different mandatory jurisdiction.</p>"
+    },
+    {
+      "id": "contacto",
+      "heading": "8. Contact",
+      "content": "<p>For any enquiry regarding this Legal Notice, you may contact us at <a href=\"mailto:info@grupoenjoy.com\">info@grupoenjoy.com</a> or at the postal address indicated above.</p>"
+    }
+  ]
+}
