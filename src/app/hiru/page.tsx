@@ -151,7 +151,7 @@ export default function HiruPage() {
       </section>
 
       {/* Info bar */}
-      <section className="relative z-20 border-y border-white/5">
+      <section className="relative z-20 border-y border-white/5 bg-background/60 backdrop-blur-md">
         <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-hiru" />
@@ -176,7 +176,7 @@ export default function HiruPage() {
       </section>
 
       {/* Product Highlights */}
-      <section className="relative z-20 py-24">
+      <section className="grain-overlay relative z-20 py-24 bg-[radial-gradient(ellipse_at_50%_50%,rgba(184,115,51,0.15)_0%,transparent_65%)]">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
@@ -201,7 +201,7 @@ export default function HiruPage() {
       </section>
 
       {/* Gallery */}
-      <section className="relative z-20 py-24 md:py-32 bg-card/20">
+      <section className="grain-overlay relative z-20 py-24 md:py-32 bg-[radial-gradient(ellipse_at_30%_50%,rgba(184,115,51,0.18)_0%,transparent_65%)]">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -219,7 +219,7 @@ export default function HiruPage() {
       </section>
 
       {/* Menu */}
-      <section id="menu" ref={menuSectionRef} className="relative z-20 py-24 md:py-32 overflow-hidden">
+      <section id="menu" ref={menuSectionRef} className="grain-overlay relative z-20 py-24 md:py-32 overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,rgba(184,115,51,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_20%_80%,rgba(139,94,60,0.10)_0%,transparent_60%)]">
         <div className="mx-auto max-w-4xl px-6 relative">
           <ScrollReveal>
             <div className="text-center mb-16">

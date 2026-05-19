@@ -224,7 +224,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Spaces Section */}
-      <section id="spaces" className="py-32 relative">
+      <section id="spaces" className="grain-overlay py-32 relative bg-[radial-gradient(ellipse_at_50%_0%,rgba(236,72,153,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_80%_80%,rgba(6,182,212,0.12)_0%,transparent_60%)]">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-24">

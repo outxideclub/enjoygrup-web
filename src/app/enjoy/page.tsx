@@ -163,7 +163,7 @@ export default function EnjoyPage() {
       </section>
 
       {/* Info bar */}
-      <section className="relative z-20 border-y border-white/5">
+      <section className="relative z-20 border-y border-white/5 bg-background/60 backdrop-blur-md">
         <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-enjoy" />
@@ -184,7 +184,7 @@ export default function EnjoyPage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-24 md:py-32 relative z-20">
+      <section className="grain-overlay py-24 md:py-32 relative z-20 bg-[radial-gradient(ellipse_at_30%_50%,rgba(236,72,153,0.18)_0%,transparent_65%)]">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -202,31 +202,11 @@ export default function EnjoyPage() {
       </section>
 
       {/* Carta — Shisha + Cocktails & Bebidas */}
-      <section id="carta" ref={cartaSectionRef} className="py-24 md:py-32 bg-card/30 relative z-20 overflow-hidden">
+      <section id="carta" ref={cartaSectionRef} className="grain-overlay py-24 md:py-32 relative z-20 overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,rgba(236,72,153,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_20%_80%,rgba(219,39,119,0.10)_0%,transparent_60%)]">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-10 w-64 h-64 rounded-full bg-enjoy/[0.03] blur-3xl" />
           <div className="absolute top-1/3 -right-20 w-80 h-80 rounded-full bg-enjoy/[0.02] blur-3xl" />
           <div className="absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full bg-enjoy/[0.03] blur-3xl" />
-          <img
-            src="/images/enjoy/deco/fresh-drink.png"
-            alt=""
-            className="absolute top-16 right-[5%] h-[320px] w-auto opacity-[0.13]"
-          />
-          <img
-            src="/images/enjoy/deco/margarita.png"
-            alt=""
-            className="absolute top-[32%] left-[3%] h-[350px] w-auto opacity-[0.12]"
-          />
-          <img
-            src="/images/enjoy/deco/martini-gold.png"
-            alt=""
-            className="absolute top-[58%] right-[4%] h-[300px] w-auto opacity-[0.12]"
-          />
-          <img
-            src="/images/enjoy/deco/margarita-ice.png"
-            alt=""
-            className="absolute bottom-[8%] left-[5%] h-[340px] w-auto opacity-[0.13]"
-          />
         </div>
 
         <div className="mx-auto max-w-5xl px-6 relative">

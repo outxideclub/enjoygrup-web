@@ -126,6 +126,7 @@ export default function OutxidePage() {
   return (
     <div className="noise-texture relative">
       <AmbientGlow venue="outxide" />
+      <LaserBeams />
       <Navbar />
 
       {/* Hero */}
@@ -153,7 +154,6 @@ export default function OutxidePage() {
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.25),transparent_60%)]" />
-          <LaserBeams />
           <ParticleBackground color="#06b6d4" count={80} className="opacity-30" />
         </motion.div>
 
@@ -219,7 +219,7 @@ export default function OutxidePage() {
       </section>
 
       {/* Events */}
-      <section id="eventos" className="relative z-20 py-24 md:py-32">
+      <section id="eventos" className="grain-overlay relative z-20 py-24 md:py-32 bg-[radial-gradient(ellipse_at_60%_30%,rgba(6,182,212,0.18)_0%,transparent_65%),radial-gradient(ellipse_at_20%_70%,rgba(124,58,237,0.12)_0%,transparent_60%)]">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -326,7 +326,7 @@ export default function OutxidePage() {
 
       {/* Gallery */}
       {galleryImages.length > 0 && (
-        <section className="py-24 md:py-32 relative z-20">
+        <section className="grain-overlay py-24 md:py-32 relative z-20 bg-[radial-gradient(ellipse_at_40%_50%,rgba(124,58,237,0.15)_0%,transparent_65%)]">
           <div className="mx-auto max-w-6xl px-6">
             <ScrollReveal>
               <div className="text-center mb-16">
