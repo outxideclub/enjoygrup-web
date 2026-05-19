@@ -352,7 +352,8 @@ export default function OutxidePage() {
 
                   <iframe
                     src={selectedEvent.iframe.tag_url}
-                    className="w-full min-h-[600px] rounded-2xl border-0"
+                    className="w-full rounded-2xl border-0"
+                    style={{ minHeight: "1200px" }}
                     allow="payment"
                     title={`Entradas ${selectedEvent.name}`}
                   />
