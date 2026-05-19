@@ -168,8 +168,8 @@ export function EventTicketTabs({ eventId }: { eventId: string }) {
 
       const body: FVCheckoutRequest = {
         ticket_rate_id: item.rate._id,
-        redirect_url: `${origin}/outxide?checkout=success`,
-        error_url: `${origin}/outxide?checkout=error`,
+        redirect_url: `${origin}/outxide/checkout/success`,
+        error_url: `${origin}/outxide/checkout/cancel`,
         send_resources: true,
         tickets: Array.from({ length: item.quantity }, () => ({
           email: checkoutForm.email,

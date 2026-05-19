@@ -63,6 +63,16 @@ export const es = {
     hours: "Abierto: 23:00 - 05:30",
     address: "Av. Tucán, 1, 07400 Alcúdia, Mallorca",
     dinnerHiru: "Cena en Hiru",
+    checkoutSuccess: "Compra completada",
+    checkoutSuccessDesc:
+      "Tu compra se ha procesado correctamente. En breve recibiras la confirmacion con tus entradas.",
+    checkoutSuccessEmail:
+      "Revisa tu email (incluida la carpeta de spam) para encontrar tus entradas y el codigo QR de acceso.",
+    checkoutCancel: "Pago cancelado",
+    checkoutCancelDesc:
+      "El proceso de pago ha sido cancelado. No se ha realizado ningun cargo. Puedes volver a intentarlo cuando quieras.",
+    backToEvents: "Ver eventos",
+    tryAgain: "Intentar de nuevo",
   },
   hiru: {
     subtitle: "Brasa - Cocktails - Good vibes",

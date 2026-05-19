@@ -65,6 +65,16 @@ export const en: Dictionary = {
     hours: "Open: 23:00 - 05:30",
     address: "Av. Tucán, 1, 07400 Alcúdia, Mallorca",
     dinnerHiru: "Dinner at Hiru",
+    checkoutSuccess: "Purchase completed",
+    checkoutSuccessDesc:
+      "Your purchase has been processed successfully. You will receive a confirmation with your tickets shortly.",
+    checkoutSuccessEmail:
+      "Check your email (including spam folder) to find your tickets and QR access code.",
+    checkoutCancel: "Payment cancelled",
+    checkoutCancelDesc:
+      "The payment process has been cancelled. No charges were made. You can try again whenever you like.",
+    backToEvents: "View events",
+    tryAgain: "Try again",
   },
   hiru: {
     subtitle: "Grill - Cocktails - Good vibes",
