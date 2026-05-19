@@ -257,6 +257,43 @@ body {
   100% { transform: rotate(var(--sweep-from)); }
 }
 
+@keyframes moving-head-sweep {
+  0%   { transform: rotate(var(--sweep-from)); }
+  45%  { transform: rotate(var(--sweep-to)); }
+  55%  { transform: rotate(var(--sweep-to)); }
+  100% { transform: rotate(var(--sweep-from)); }
+}
+
+@keyframes moving-head-breathe {
+  0%, 100% { opacity: 0.58; }
+  45%      { opacity: 0.82; }
+  65%      { opacity: 0.66; }
+}
+
+@keyframes mosaic-reflection {
+  0%, 10%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--reflection-rotation, 0deg)) scale(0.9);
+  }
+  14% {
+    opacity: 0.18;
+  }
+  18% {
+    opacity: 0.48;
+    transform: translate(-50%, -50%) rotate(var(--reflection-rotation, 0deg)) scale(1.1);
+  }
+  22% {
+    opacity: 0.22;
+  }
+  28% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--reflection-rotation, 0deg)) scale(1.2);
+  }
+  28.1%, 100% {
+    opacity: 0;
+  }
+}
+
 @keyframes laser-flicker {
   0%, 100% { opacity: 1; }
   30%      { opacity: 0.85; }

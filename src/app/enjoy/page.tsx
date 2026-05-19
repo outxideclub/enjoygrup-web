@@ -8,9 +8,16 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { EnjoyLogo } from "@/components/ui/logos";
-import { ParticleBackground } from "@/components/ui/particle-background";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
-import { AmbientGlow } from "@/components/ui/ambient-glow";
+import dynamic from "next/dynamic";
+import enjoyGallery from "../../../data/gallery/enjoy.json";
+import enjoyDrinksEs from "../../../data/menus/enjoy-drinks.json";
+import enjoyDrinksEn from "../../../data/menus/enjoy-drinks.en.json";
+import enjoyShishaEs from "../../../data/menus/enjoy-shisha.json";
+import enjoyShishaEn from "../../../data/menus/enjoy-shisha.en.json";
+
+const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
+const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import { getIcon } from "@/lib/icons";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -24,33 +31,42 @@ interface MenuSection {
 }
 interface GalleryImage { src: string; alt: string; }
 
+const galleryImages = enjoyGallery as GalleryImage[];
+const drinkMenus = {
+  es: enjoyDrinksEs,
+  en: enjoyDrinksEn,
+} as const;
+const shishaMenus = {
+  es: enjoyShishaEs,
+  en: enjoyShishaEn,
+} as const;
+
 export default function EnjoyPage() {
   const t = useT();
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
-  const [drinkSections, setDrinkSections] = useState<MenuSection[]>([]);
-  const [shishaSections, setShishaSections] = useState<MenuSection[]>([]);
+  const drinkSections = drinkMenus[locale] as unknown as MenuSection[];
+  const shishaSections = shishaMenus[locale] as unknown as MenuSection[];
   const menuNavRef = useRef<HTMLDivElement>(null);
   const cartaSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);
-
-  useEffect(() => {
-    fetch(`/api/menus/enjoy-drinks?locale=${locale}`).then(r => r.json()).then(setDrinkSections).catch(() => {});
-    fetch(`/api/menus/enjoy-shisha?locale=${locale}`).then(r => r.json()).then(setShishaSections).catch(() => {});
-    fetch("/api/gallery/enjoy").then(r => r.json()).then(setGalleryImages).catch(() => {});
-  }, [locale]);
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
   }, []);
 
   useEffect(() => {
+    const id = window.setTimeout(() => setLoadVideo(true), 800);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
     const v = videoRef.current;
     if (v && v.readyState >= 3) handleVideoReady();
-  }, [handleVideoReady]);
+  }, [handleVideoReady, loadVideo]);
 
   useEffect(() => {
     const nav = menuNavRef.current;
@@ -91,23 +107,28 @@ export default function EnjoyPage() {
       {/* Hero with Immersive Reveal */}
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ y, scale }} className="absolute inset-0">
-          <img
+          <Image
             src="/videos/enjoy-hero-poster.jpg"
             alt=""
             aria-hidden
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
+            fill
+            preload
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
           <video
+            key={loadVideo ? "enjoy-video" : "enjoy-poster"}
             ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
-            onCanPlayThrough={handleVideoReady}
+            poster="/videos/enjoy-hero-poster.jpg"
+            preload="none"
+            onLoadedData={handleVideoReady}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
           >
-            <source src="/videos/enjoy-hero.mp4" type="video/mp4" />
+            {loadVideo && <source src="/videos/enjoy-hero.mp4" type="video/mp4" />}
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.2),transparent_60%)]" />

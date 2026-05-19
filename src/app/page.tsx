@@ -10,7 +10,9 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
-import { AmbientGlow } from "@/components/ui/ambient-glow";
+import dynamic from "next/dynamic";
+
+const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import { useT } from "@/i18n";
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -44,7 +46,7 @@ const businesses = [
     color: "from-cyan-500/40 to-violet-500/20",
     accent: "text-outxide",
     borderColor: "hover:border-outxide/30",
-    image: "/images/outxide/DSCF8103-9.jpg",
+    image: "/images/outxide/DSCF8103-9.webp",
     video: "/videos/outxide-hero.mp4",
     poster: "/videos/outxide-hero-poster.jpg",
     cta: "Outxide Club"
@@ -72,20 +74,24 @@ export default function HomePage() {
   const t = useT();
   const [index, setIndex] = useState(0);
   const [videoReady, setVideoReady] = useState(false);
+  const [deferredVideoId, setDeferredVideoId] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const activeBiz = businesses[index];
+  const loadVideo = deferredVideoId === activeBiz.id;
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
   }, []);
 
   useEffect(() => {
-    setVideoReady(false);
-  }, [index]);
+    const id = window.setTimeout(() => setDeferredVideoId(activeBiz.id), 800);
+    return () => window.clearTimeout(id);
+  }, [activeBiz.id]);
 
   useEffect(() => {
     const v = videoRef.current;
     if (v && v.readyState >= 3) handleVideoReady();
-  }, [handleVideoReady, index]);
+  }, [handleVideoReady, index, loadVideo]);
 
   const next = () => setIndex((prev) => (prev + 1) % businesses.length);
   const prev = () => setIndex((prev) => (prev - 1 + businesses.length) % businesses.length);
@@ -94,8 +100,6 @@ export default function HomePage() {
     const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
   }, []);
-
-  const activeBiz = businesses[index];
 
   return (
     <div className="noise-texture relative">
@@ -107,6 +111,7 @@ export default function HomePage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeBiz.id}
+            onAnimationStart={() => setVideoReady(false)}
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
@@ -115,23 +120,28 @@ export default function HomePage() {
           >
             {activeBiz.video ? (
               <>
-                <img
+                <Image
                   src={activeBiz.poster}
                   alt=""
                   aria-hidden
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-60"}`}
+                  fill
+                  preload
+                  sizes="100vw"
+                  className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-60"}`}
                 />
                 <video
+                  key={loadVideo ? activeBiz.video : activeBiz.poster}
                   ref={videoRef}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="auto"
-                  onCanPlayThrough={handleVideoReady}
+                  poster={activeBiz.poster}
+                  preload="none"
+                  onLoadedData={handleVideoReady}
                   className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-60" : "opacity-0"}`}
                 >
-                  <source src={activeBiz.video} type="video/mp4" />
+                  {loadVideo && <source src={activeBiz.video} type="video/mp4" />}
                 </video>
               </>
             ) : (
@@ -140,7 +150,8 @@ export default function HomePage() {
                 alt={activeBiz.name}
                 fill
                 className="object-cover opacity-60"
-                priority
+                preload
+                sizes="100vw"
               />
             )}
             <div className={`absolute inset-0 bg-gradient-to-b ${activeBiz.color} to-black`} />

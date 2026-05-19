@@ -178,7 +178,7 @@ export function OutxideJsonLd() {
         "@id": "https://www.grupoenjoy.es/outxide#nightclub",
         name: "Outxide Club",
         url: "https://www.grupoenjoy.es/outxide",
-        image: "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.jpg",
+        image: "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.webp",
         description:
           "Club nocturno premium en Alcúdia, Mallorca. Los mejores DJs, eventos exclusivos, mesas VIP y la mejor vida nocturna de la isla.",
         priceRange: "€€€",

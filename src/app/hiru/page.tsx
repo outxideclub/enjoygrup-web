@@ -19,9 +19,14 @@ import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { HiruLogo } from "@/components/ui/logos";
-import { ParticleBackground } from "@/components/ui/particle-background";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
-import { AmbientGlow } from "@/components/ui/ambient-glow";
+import dynamic from "next/dynamic";
+import hiruGallery from "../../../data/gallery/hiru.json";
+import hiruMenuEs from "../../../data/menus/hiru.json";
+import hiruMenuEn from "../../../data/menus/hiru.en.json";
+
+const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
+const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import { getIcon } from "@/lib/icons";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -30,31 +35,37 @@ interface MenuItem { name: string; description: string; price?: string; }
 interface MenuSection { id: string; category: string; icon: string; subtitle?: string; items: MenuItem[]; }
 interface GalleryImage { src: string; alt: string; }
 
+const galleryImages = hiruGallery as GalleryImage[];
+const menus = {
+  es: hiruMenuEs,
+  en: hiruMenuEn,
+} as const;
+
 export default function HiruPage() {
   const t = useT();
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
-  const [menuSections, setMenuSections] = useState<MenuSection[]>([]);
+  const menuSections = menus[locale] as unknown as MenuSection[];
   const menuNavRef = useRef<HTMLElement>(null);
   const menuSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);
-
-  useEffect(() => {
-    fetch(`/api/menus/hiru?locale=${locale}`).then(r => r.json()).then(setMenuSections).catch(() => {});
-    fetch("/api/gallery/hiru").then(r => r.json()).then(setGalleryImages).catch(() => {});
-  }, [locale]);
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
   }, []);
 
   useEffect(() => {
+    const id = window.setTimeout(() => setLoadVideo(true), 800);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
     const v = videoRef.current;
     if (v && v.readyState >= 3) handleVideoReady();
-  }, [handleVideoReady]);
+  }, [handleVideoReady, loadVideo]);
 
   useEffect(() => {
     const nav = menuNavRef.current;
@@ -94,23 +105,28 @@ export default function HiruPage() {
       {/* Hero with Immersive Reveal */}
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ scale, borderRadius }} className="absolute inset-0 z-0 origin-center overflow-hidden will-change-transform">
-          <img
+          <Image
             src="/videos/hiru-hero-poster.jpg"
             alt=""
             aria-hidden
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
+            fill
+            preload
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
           <video
+            key={loadVideo ? "hiru-video" : "hiru-poster"}
             ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
-            onCanPlayThrough={handleVideoReady}
+            poster="/videos/hiru-hero-poster.jpg"
+            preload="none"
+            onLoadedData={handleVideoReady}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
           >
-            <source src="/videos/hiru-hero.mp4" type="video/mp4" />
+            {loadVideo && <source src="/videos/hiru-hero.mp4" type="video/mp4" />}
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(184,115,51,0.15),transparent_60%)]" />

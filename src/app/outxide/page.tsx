@@ -18,10 +18,13 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { OutxideLogo } from "@/components/ui/logos";
-import { LaserBeams } from "@/components/ui/laser-beams";
-import { ParticleBackground } from "@/components/ui/particle-background";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
-import { AmbientGlow } from "@/components/ui/ambient-glow";
+import dynamic from "next/dynamic";
+import outxideGallery from "../../../data/gallery/outxide.json";
+
+const LaserBeams = dynamic(() => import("@/components/ui/laser-beams").then(m => ({ default: m.LaserBeams })), { ssr: false });
+const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
+const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import type { FVEvent } from "@/lib/fourvenues";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -70,14 +73,16 @@ function extractArtists(event: FVEvent): string {
 
 interface GalleryImage { src: string; alt: string; }
 
+const galleryImages = outxideGallery as GalleryImage[];
+
 export default function OutxidePage() {
   const t = useT();
   const locale = useLocale();
   const [events, setEvents] = useState<FVEvent[]>([]);
   const [loading, setLoading] = useState(true);
-  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
 
   const [videoReady, setVideoReady] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleVideoReady = useCallback(() => {
@@ -85,9 +90,14 @@ export default function OutxidePage() {
   }, []);
 
   useEffect(() => {
+    const id = window.setTimeout(() => setLoadVideo(true), 800);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
     const v = videoRef.current;
     if (v && v.readyState >= 3) handleVideoReady();
-  }, [handleVideoReady]);
+  }, [handleVideoReady, loadVideo]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -99,7 +109,7 @@ export default function OutxidePage() {
   const rotateX = useTransform(scrollYProgress, [0, 1], [0, 15]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Fetch events + gallery
+  // Events stay live; gallery is bundled so it renders immediately.
   useEffect(() => {
     async function load() {
       try {
@@ -119,7 +129,6 @@ export default function OutxidePage() {
       }
     }
     load();
-    fetch("/api/gallery/outxide").then(r => r.json()).then(setGalleryImages).catch(() => {});
   }, []);
 
 
@@ -133,24 +142,29 @@ export default function OutxidePage() {
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden perspective-1000">
         <motion.div style={{ y, rotateX }} className="absolute inset-0">
           {/* Poster — visible instantly, fades out when video is ready */}
-          <img
+          <Image
             src="/videos/outxide-hero-poster.jpg"
             alt=""
             aria-hidden
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
+            fill
+            preload
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
           {/* Video — loads in background, fades in when canplaythrough */}
           <video
+            key={loadVideo ? "outxide-video" : "outxide-poster"}
             ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
-            onCanPlayThrough={handleVideoReady}
+            poster="/videos/outxide-hero-poster.jpg"
+            preload="none"
+            onLoadedData={handleVideoReady}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
           >
-            <source src="/videos/outxide-hero.mp4" type="video/mp4" />
+            {loadVideo && <source src="/videos/outxide-hero.mp4" type="video/mp4" />}
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.25),transparent_60%)]" />

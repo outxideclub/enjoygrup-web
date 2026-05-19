@@ -4,7 +4,7 @@ import { CookieBanner } from "@/components/legal/cookie-banner";
 import { AnalyticsScripts } from "@/components/seo/analytics";
 import { MotionConfig } from "framer-motion";
 import { LocaleProvider } from "@/i18n/context";
-import { getServerLocale } from "@/i18n/server";
+import { defaultLocale } from "@/i18n/config";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -46,18 +46,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getServerLocale();
-
   return (
-    <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} suppressHydrationWarning>
+    <html lang={defaultLocale} className={`${poppins.variable} ${oswald.variable}`} suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fourvenues.com" />
+        <link rel="dns-prefetch" href="https://fourvenues.com" />
+      </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased" suppressHydrationWarning>
         <MotionConfig reducedMotion="user">
-          <LocaleProvider initialLocale={locale}>
+          <LocaleProvider initialLocale={defaultLocale}>
             {children}
             <CookieBanner />
             <AnalyticsScripts />

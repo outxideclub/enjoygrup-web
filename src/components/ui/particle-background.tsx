@@ -35,6 +35,7 @@ export function ParticleBackground({
 
     let animationFrameId: number;
     let particles: Particle[] = [];
+    let visible = true;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -57,6 +58,11 @@ export function ParticleBackground({
     };
 
     const animate = () => {
+      if (!visible || document.hidden) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
@@ -78,11 +84,18 @@ export function ParticleBackground({
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => { visible = entry.isIntersecting; },
+      { threshold: 0 },
+    );
+    observer.observe(canvas);
+
     window.addEventListener("resize", resize);
     resize();
     animate();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationFrameId);
     };

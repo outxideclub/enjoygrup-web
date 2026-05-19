@@ -5,9 +5,10 @@ import {
   useContext,
   useState,
   useCallback,
+  useEffect,
   type ReactNode,
 } from "react";
-import { type Locale, defaultLocale, COOKIE_NAME } from "./config";
+import { type Locale, defaultLocale, COOKIE_NAME, locales } from "./config";
 import { es, type Dictionary } from "./dictionaries/es";
 import { en } from "./dictionaries/en";
 
@@ -20,6 +21,26 @@ interface LocaleContextValue {
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
+
+function readCookieLocale(): Locale | null {
+  if (typeof document === "undefined") return null;
+  const value = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${COOKIE_NAME}=`))
+    ?.split("=")[1];
+  return value && locales.includes(value as Locale) ? (value as Locale) : null;
+}
+
+function detectBrowserLocale(): Locale {
+  if (typeof navigator === "undefined") return defaultLocale;
+  const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const lang of languages) {
+    const normalized = lang.toLowerCase();
+    if (normalized.startsWith("es")) return "es";
+    if (normalized.startsWith("en")) return "en";
+  }
+  return "en";
+}
 
 function getNestedValue(obj: unknown, path: string): string | undefined {
   const keys = path.split(".");
@@ -41,10 +62,22 @@ interface LocaleProviderProps {
 export function LocaleProvider({ children, initialLocale }: LocaleProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale ?? defaultLocale);
 
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      const nextLocale = readCookieLocale() ?? detectBrowserLocale();
+      if (nextLocale !== locale) {
+        setLocaleState(nextLocale);
+      }
+      if (!readCookieLocale()) {
+        document.cookie = `${COOKIE_NAME}=${nextLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
+      }
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [locale]);
+
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
     document.cookie = `${COOKIE_NAME}=${newLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
-    window.location.href = window.location.pathname + window.location.search;
   }, []);
 
   const t = useCallback(

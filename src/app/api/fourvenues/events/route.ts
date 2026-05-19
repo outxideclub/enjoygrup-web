@@ -12,7 +12,14 @@ export async function GET(request: NextRequest) {
   try {
     const client = new FourVenuesClient();
     const events = await client.getEvents(startDate, endDate);
-    return NextResponse.json({ data: events, success: true });
+    return NextResponse.json(
+      { data: events, success: true },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+        },
+      },
+    );
   } catch (error) {
     if (error instanceof FourVenuesError) {
       return NextResponse.json(

@@ -1,0 +1,15 @@
+.next
+node_modules
+.claude
+.cursor
+.vercel
+test-results
+screenshots
+*.log
+*.tsbuildinfo
+
+# Raw/source media must not be uploaded to Vercel.
+*.RAF
+*.raf
+public/images/**/*.MP4
+public/images/**/*.mp4
