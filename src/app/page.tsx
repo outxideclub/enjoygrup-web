@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
+import { AmbientGlow } from "@/components/ui/ambient-glow";
 import { useT } from "@/i18n";
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -97,7 +98,8 @@ export default function HomePage() {
   const activeBiz = businesses[index];
 
   return (
-    <>
+    <div className="noise-texture relative">
+      <AmbientGlow venue="home" />
       <Navbar />
 
       {/* Hero with Immersive Slider */}
@@ -222,7 +224,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Spaces Section */}
-      <section id="spaces" className="py-32 bg-black relative">
+      <section id="spaces" className="py-32 relative">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-24">
@@ -267,6 +269,6 @@ export default function HomePage() {
 
       <Footer />
       <OrganizationJsonLd />
-    </>
+    </div>
   );
 }

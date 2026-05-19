@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { EnjoyLogo } from "@/components/ui/logos";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
+import { AmbientGlow } from "@/components/ui/ambient-glow";
 import { getIcon } from "@/lib/icons";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -83,7 +84,8 @@ export default function EnjoyPage() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <>
+    <div className="noise-texture relative">
+      <AmbientGlow venue="enjoy" />
       <Navbar />
 
       {/* Hero with Immersive Reveal */}
@@ -161,7 +163,7 @@ export default function EnjoyPage() {
       </section>
 
       {/* Info bar */}
-      <section className="relative z-20 border-y border-white/5 bg-background">
+      <section className="relative z-20 border-y border-white/5">
         <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-enjoy" />
@@ -182,7 +184,7 @@ export default function EnjoyPage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-24 md:py-32 relative z-20 bg-background">
+      <section className="py-24 md:py-32 relative z-20">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -374,6 +376,6 @@ export default function EnjoyPage() {
       </AnimatePresence>
 
       <Footer />
-    </>
+    </div>
   );
 }

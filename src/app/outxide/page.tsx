@@ -21,6 +21,7 @@ import { OutxideLogo } from "@/components/ui/logos";
 import { LaserBeams } from "@/components/ui/laser-beams";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
+import { AmbientGlow } from "@/components/ui/ambient-glow";
 import type { FVEvent } from "@/lib/fourvenues";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -123,7 +124,8 @@ export default function OutxidePage() {
 
 
   return (
-    <>
+    <div className="noise-texture relative">
+      <AmbientGlow venue="outxide" />
       <Navbar />
 
       {/* Hero */}
@@ -217,7 +219,7 @@ export default function OutxidePage() {
       </section>
 
       {/* Events */}
-      <section id="eventos" className="relative z-20 py-24 md:py-32 bg-background">
+      <section id="eventos" className="relative z-20 py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -324,7 +326,7 @@ export default function OutxidePage() {
 
       {/* Gallery */}
       {galleryImages.length > 0 && (
-        <section className="py-24 md:py-32 relative z-20 bg-background">
+        <section className="py-24 md:py-32 relative z-20">
           <div className="mx-auto max-w-6xl px-6">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -343,6 +345,6 @@ export default function OutxidePage() {
       )}
 
       <Footer />
-    </>
+    </div>
   );
 }

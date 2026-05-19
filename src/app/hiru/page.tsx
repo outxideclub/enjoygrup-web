@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { HiruLogo } from "@/components/ui/logos";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
+import { AmbientGlow } from "@/components/ui/ambient-glow";
 import { getIcon } from "@/lib/icons";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -86,7 +87,8 @@ export default function HiruPage() {
   }, []);
 
   return (
-    <>
+    <div className="noise-texture relative">
+      <AmbientGlow venue="hiru" />
       <Navbar />
 
       {/* Hero with Immersive Reveal */}
@@ -149,7 +151,7 @@ export default function HiruPage() {
       </section>
 
       {/* Info bar */}
-      <section className="relative z-20 border-y border-white/5 bg-background">
+      <section className="relative z-20 border-y border-white/5">
         <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-hiru" />
@@ -174,7 +176,7 @@ export default function HiruPage() {
       </section>
 
       {/* Product Highlights */}
-      <section className="relative z-20 py-24 bg-background">
+      <section className="relative z-20 py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
@@ -217,7 +219,7 @@ export default function HiruPage() {
       </section>
 
       {/* Menu */}
-      <section id="menu" ref={menuSectionRef} className="relative z-20 py-24 md:py-32 bg-background overflow-hidden">
+      <section id="menu" ref={menuSectionRef} className="relative z-20 py-24 md:py-32 overflow-hidden">
         <div className="mx-auto max-w-4xl px-6 relative">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -332,6 +334,6 @@ export default function HiruPage() {
       </AnimatePresence>
 
       <Footer />
-    </>
+    </div>
   );
 }

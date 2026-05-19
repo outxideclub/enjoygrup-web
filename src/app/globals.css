@@ -238,6 +238,18 @@ body {
   50% { transform: translateY(-10px); }
 }
 
+@keyframes ambient-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(3%, -4%) scale(1.05); }
+  50%  { transform: translate(-2%, 3%) scale(0.95); }
+  75%  { transform: translate(4%, 2%) scale(1.03); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-ambient-drift {
+  animation: ambient-drift 24s ease-in-out infinite;
+}
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -295,6 +307,26 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: var(--shadow-glass);
+}
+
+.glass-panel {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── 6b. Noise Texture Overlay ─────────────────────────────── */
+.noise-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.045;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 /* ─── 7. Business Section Themes ─────────────────────────────── */
