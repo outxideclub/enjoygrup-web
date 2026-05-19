@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { OutxideLogo } from "@/components/ui/logos";
 import { LaserBeams } from "@/components/ui/laser-beams";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { EventTicketTabs } from "@/components/outxide/event-ticket-tabs";
 import type { FVEvent } from "@/lib/fourvenues";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -320,9 +321,9 @@ export default function OutxidePage() {
             })}
           </div>
 
-          {/* Inline Ticket Purchase Section (FourVenues iframe) */}
+          {/* Ticket Purchase Section */}
           <AnimatePresence>
-            {selectedEvent && selectedEvent.iframe && (
+            {selectedEvent && (
               <motion.div
                 ref={ticketSectionRef}
                 initial={{ opacity: 0, height: 0 }}
@@ -350,13 +351,7 @@ export default function OutxidePage() {
                     </button>
                   </div>
 
-                  <iframe
-                    src={selectedEvent.iframe.tag_url}
-                    className="w-full rounded-2xl border-0"
-                    style={{ minHeight: "1200px" }}
-                    allow="payment"
-                    title={`Entradas ${selectedEvent.name}`}
-                  />
+                  <EventTicketTabs eventId={selectedEvent._id} />
                 </div>
               </motion.div>
             )}
