@@ -63,6 +63,7 @@ export function TicketDialog({ isOpen, onClose, eventUrl, eventTitle }: TicketDi
                 className="w-full h-full border-none"
                 title={`Comprar entradas para ${eventTitle}`}
                 allow="payment"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
               />
             </div>
             <div className="p-4 bg-card text-center">

@@ -356,6 +356,7 @@ export default function OutxidePage() {
                     className="w-full rounded-2xl border-0"
                     style={{ minHeight: "1200px" }}
                     allow="payment"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
                     title={`Entradas ${selectedEvent.name}`}
                   />
                 </div>
