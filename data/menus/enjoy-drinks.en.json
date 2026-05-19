@@ -126,14 +126,35 @@
     "icon": "GlassWater",
     "type": "drinks",
     "items": [
-      "Km1 Tramuntana Gin Lemon", "Tanqueray Nº10", "Hendrick's", "Gin Mare", "Monkey 47",
-      "Nordes", "Citadelle", "Citadelle Reserve", "Martin Miller's", "Fifty Pounds",
-      "G'Vine", "Bulldog", "Junípero", "The London Nº1", "Nº 209", "Nº 3 London Dry",
-      "William Chase Elegant", "Mombasa Club", "Sipsmith", "Brockmans",
-      "June Gin Pear", "June Gin Peach", "Amuerte Coca Leaf Black",
-      "Gin Dos Perellons", "Tanqueray Rangpur Lime",
-      "Puerto de Indias Blackberry", "Puerto de Indias Strawberry",
-      "Puerto de Indias Lemonberry", "Puerto de Indias Sweet Melon"
+      { "name": "Km1 Tramuntana Gin Lemon", "description": "Mallorcan botanical gin with Soller lemon" },
+      { "name": "Tanqueray Nº10", "description": "London Dry, fresh citrus and chamomile" },
+      { "name": "Hendrick's", "description": "Scottish, cucumber and rose petals" },
+      { "name": "Gin Mare", "description": "Mediterranean with basil, thyme and rosemary" },
+      { "name": "Monkey 47", "description": "Black Forest, 47 botanicals" },
+      { "name": "Nordes", "description": "Galician, Albarino grape base" },
+      { "name": "Citadelle", "description": "French, 19 botanicals, pot still distilled" },
+      { "name": "Citadelle Reserve", "description": "Oak barrel aged" },
+      { "name": "Martin Miller's", "description": "English, blended with Icelandic water" },
+      { "name": "Fifty Pounds", "description": "Classic balanced London Dry" },
+      { "name": "G'Vine", "description": "French, grape spirit base with vine flower" },
+      { "name": "Bulldog", "description": "London Dry, lotus and poppy" },
+      { "name": "Junípero", "description": "San Francisco, bold juniper forward" },
+      { "name": "The London Nº1", "description": "London Dry, blue-tinted with gardenia" },
+      { "name": "Nº 209", "description": "San Francisco, citrus and spice" },
+      { "name": "Nº 3 London Dry", "description": "Berry Bros, juniper, cardamom and grapefruit" },
+      { "name": "William Chase Elegant", "description": "English, apple and floral botanicals" },
+      { "name": "Mombasa Club", "description": "London Dry with cumin and coriander" },
+      { "name": "Sipsmith", "description": "Artisan London Dry, lemon and orange" },
+      { "name": "Brockmans", "description": "Smooth, blueberries and blackberries" },
+      { "name": "June Gin Pear", "description": "French fruity gin with pear" },
+      { "name": "June Gin Peach", "description": "French fruity gin with peach" },
+      { "name": "Amuerte Coca Leaf Black", "description": "Belgian, coca leaf and exotic botanicals" },
+      { "name": "Gin Dos Perellons", "description": "Artisan Mallorcan gin" },
+      { "name": "Tanqueray Rangpur Lime", "description": "London Dry with rangpur lime" },
+      { "name": "Puerto de Indias Blackberry", "description": "Sevillian with blackberries" },
+      { "name": "Puerto de Indias Strawberry", "description": "Sevillian with strawberries" },
+      { "name": "Puerto de Indias Lemonberry", "description": "Sevillian with lemon and berries" },
+      { "name": "Puerto de Indias Sweet Melon", "description": "Sevillian with melon" }
     ]
   },
   {
@@ -142,9 +163,15 @@
     "icon": "Martini",
     "type": "drinks",
     "items": [
-      "Belvedere", "Grey Goose", "Cristal Head Onyx",
-      "Ciroc", "Ciroc Mango", "Ciroc Apple", "Ciroc Peach",
-      "Ciroc Pineapple", "Ciroc Red Berries"
+      { "name": "Belvedere", "description": "Polish, rye grain, quadruple distilled" },
+      { "name": "Grey Goose", "description": "French, Picardy wheat" },
+      { "name": "Cristal Head Onyx", "description": "Canadian, blue agave and Newfoundland water" },
+      { "name": "Ciroc", "description": "French, Mauzac Blanc grapes" },
+      { "name": "Ciroc Mango", "description": "Grape vodka with tropical mango" },
+      { "name": "Ciroc Apple", "description": "Grape vodka with green apple" },
+      { "name": "Ciroc Peach", "description": "Grape vodka with peach" },
+      { "name": "Ciroc Pineapple", "description": "Grape vodka with tropical pineapple" },
+      { "name": "Ciroc Red Berries", "description": "Grape vodka with red berries" }
     ]
   },
   {
@@ -153,10 +180,24 @@
     "icon": "Wine",
     "type": "drinks",
     "items": [
-      "Bacardí", "Havana 3yr", "Morgan Spiced", "Cacique", "Brugal", "Barceló",
-      "Santa Teresa", "Legendario", "Havana 7yr", "Botran", "Kraken Rum",
-      "Matusalén 15yr", "Barceló Imperial", "Diplomático Rum",
-      "Zacapa 23yr", "Zacapa XO", "Brugal 1888", "Santísima Trinidad"
+      { "name": "Bacardí", "description": "Cuban origin, white and light" },
+      { "name": "Havana 3yr", "description": "Cuban, 3 years aged" },
+      { "name": "Morgan Spiced", "description": "Caribbean, vanilla spiced" },
+      { "name": "Cacique", "description": "Venezuelan, smooth aged" },
+      { "name": "Brugal", "description": "Dominican, dry and clean" },
+      { "name": "Barceló", "description": "Dominican, aged and smooth" },
+      { "name": "Santa Teresa", "description": "Venezuelan, solera with cacao and coffee" },
+      { "name": "Legendario", "description": "Cuban, honey and tropical notes" },
+      { "name": "Havana 7yr", "description": "Cuban, 7 years, cacao and sweet tobacco" },
+      { "name": "Botran", "description": "Guatemalan, solera with vanilla and caramel" },
+      { "name": "Kraken Rum", "description": "Caribbean, black and spiced" },
+      { "name": "Matusalén 15yr", "description": "Dominican, Gran Reserva, vanilla and oak" },
+      { "name": "Barceló Imperial", "description": "Dominican, honey, cacao and dried fruits" },
+      { "name": "Diplomático Rum", "description": "Venezuelan, Reserva Exclusiva, caramel and orange" },
+      { "name": "Zacapa 23yr", "description": "Guatemalan, solera 23, honey and chocolate" },
+      { "name": "Zacapa XO", "description": "Guatemalan, Gran Reserva, ginger and cacao" },
+      { "name": "Brugal 1888", "description": "Dominican, double oak aged" },
+      { "name": "Santísima Trinidad", "description": "Cuban, 7 years, balanced and aromatic" }
     ]
   },
   {
@@ -165,15 +206,32 @@
     "icon": "GlassWater",
     "type": "drinks",
     "items": [
-      "JB", "Ballantine's", "Johnnie Walker Red", "Jameson", "Four Roses",
-      "Jack Daniel's", "Johnnie Walker Black", "Buchanan's 12yr",
-      "Glenfiddich 12yr", "Chivas 12yr", "Cardhu 12yr",
-      "Glenmorangie 10yr", "Bulleit 95 Rye", "The Glenrothes 12yr",
-      "Glenkinchie 12yr", "Togouchi 9yr", "Macallan 12yr",
-      "Hibiki Japanese", "Johnnie Walker Blue",
-      "Bushmills Original", "Bushmills Black Bush", "Bushmills 10yr",
-      "Lagavulin 16yr", "Laphroaig Select",
-      "Glenlivet", "Glenlivet 15yr"
+      { "name": "JB", "description": "Blended Scotch, smooth and accessible" },
+      { "name": "Ballantine's", "description": "Blended Scotch, balanced and floral" },
+      { "name": "Johnnie Walker Red", "description": "Blended Scotch, vibrant and spicy" },
+      { "name": "Jameson", "description": "Irish Whiskey, triple distilled, smooth" },
+      { "name": "Four Roses", "description": "Kentucky Bourbon, floral and fruity" },
+      { "name": "Jack Daniel's", "description": "Tennessee Whiskey, charcoal mellowed" },
+      { "name": "Johnnie Walker Black", "description": "Blended Scotch 12yr, smoky and fruity" },
+      { "name": "Buchanan's 12yr", "description": "Blended Scotch, honey and citrus" },
+      { "name": "Glenfiddich 12yr", "description": "Single Malt Speyside, pear and oak" },
+      { "name": "Chivas 12yr", "description": "Blended Scotch, creamy and fruity" },
+      { "name": "Cardhu 12yr", "description": "Single Malt Speyside, sweet malt and honey" },
+      { "name": "Glenmorangie 10yr", "description": "Single Malt Highland, citrus and vanilla" },
+      { "name": "Bulleit 95 Rye", "description": "Rye Whiskey, rye grain, cherry and spice" },
+      { "name": "The Glenrothes 12yr", "description": "Single Malt Speyside, fruit and sherry" },
+      { "name": "Glenkinchie 12yr", "description": "Single Malt Lowland, light and floral" },
+      { "name": "Togouchi 9yr", "description": "Japanese, tunnel aged, smooth and clean" },
+      { "name": "Macallan 12yr", "description": "Single Malt Speyside, sherry and dried fruits" },
+      { "name": "Hibiki Japanese", "description": "Japanese, harmony of malts and grain" },
+      { "name": "Johnnie Walker Blue", "description": "Premium Blended Scotch, silky and complex" },
+      { "name": "Bushmills Original", "description": "Irish Whiskey, light and fruity" },
+      { "name": "Bushmills Black Bush", "description": "Irish Whiskey, sherry and dark fruit" },
+      { "name": "Bushmills 10yr", "description": "Single Malt Irish, honey and vanilla" },
+      { "name": "Lagavulin 16yr", "description": "Single Malt Islay, intense peat and maritime" },
+      { "name": "Laphroaig Select", "description": "Single Malt Islay, smoky and medicinal" },
+      { "name": "Glenlivet", "description": "Single Malt Speyside, tropical and smooth" },
+      { "name": "Glenlivet 15yr", "description": "Single Malt Speyside, spiced and silky" }
     ]
   },
   {
@@ -182,10 +240,19 @@
     "icon": "Beer",
     "type": "drinks",
     "items": [
-      "Draught beer (small)", "Draught beer (large)", "Estrella Galicia", "Estrella Damm",
-      "Budweiser", "Gluten-free beer", "Coronita", "Franziskaner",
-      "Rosa Blanca", "Mahou", "Alhambra Reserva",
-      "Kopparberg (Cider)", "Magners (Cider)"
+      { "name": "Draught beer (small)", "description": "Draft beer, 20cl" },
+      { "name": "Draught beer (large)", "description": "Draft beer, 40cl" },
+      { "name": "Estrella Galicia", "description": "Galician lager, hops and malt" },
+      { "name": "Estrella Damm", "description": "Mediterranean lager" },
+      { "name": "Budweiser", "description": "American lager" },
+      { "name": "Gluten-free beer", "description": "Suitable for coeliacs" },
+      { "name": "Coronita", "description": "Mexican lager, light and refreshing" },
+      { "name": "Franziskaner", "description": "German wheat beer" },
+      { "name": "Rosa Blanca", "description": "Mallorcan craft wheat beer" },
+      { "name": "Mahou", "description": "Classic Spanish lager" },
+      { "name": "Alhambra Reserva", "description": "Extra hopped lager from Granada" },
+      { "name": "Kopparberg", "description": "Swedish fruit cider" },
+      { "name": "Magners", "description": "Irish apple cider" }
     ]
   },
   {
@@ -194,10 +261,16 @@
     "icon": "Grape",
     "type": "drinks",
     "items": [
-      "White wine (glass)", "Red wine (glass)", "Rosé wine (glass)",
-      "Sangria", "Champagne Sangria",
-      "Anna de Codorníu", "Moët Chandon", "Moët Ice",
-      "Veuve Clicquot Ponsardin", "Dom Pérignon"
+      { "name": "White wine (glass)", "description": "House selection" },
+      { "name": "Red wine (glass)", "description": "House selection" },
+      { "name": "Rosé wine (glass)", "description": "House selection" },
+      { "name": "Sangria", "description": "Red wine, seasonal fruits and spices" },
+      { "name": "Champagne Sangria", "description": "Champagne with fresh fruits" },
+      { "name": "Anna de Codorníu", "description": "Cava Brut, Chardonnay and Parellada" },
+      { "name": "Moët Chandon", "description": "Champagne Imperial, Pinot Noir and Chardonnay" },
+      { "name": "Moët Ice", "description": "Champagne designed to be served on ice" },
+      { "name": "Veuve Clicquot Ponsardin", "description": "Champagne Brut, structure and finesse" },
+      { "name": "Dom Pérignon", "description": "Vintage Champagne, precision and complexity" }
     ]
   }
 ]

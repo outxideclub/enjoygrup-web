@@ -49,6 +49,7 @@ export interface MenuSection {
 export interface GalleryImage {
   src: string;
   alt: string;
+  description?: string;
 }
 
 export interface VenueInfo {

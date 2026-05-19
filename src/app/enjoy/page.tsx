@@ -9,6 +9,7 @@ import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { EnjoyLogo } from "@/components/ui/logos";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { getIcon } from "@/lib/icons";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -194,24 +195,7 @@ export default function EnjoyPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((img, i) => (
-              <ScrollReveal key={i} delay={i * 0.05}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="group relative overflow-hidden rounded-xl aspect-[3/2]"
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <GalleryLightbox images={galleryImages} />
         </div>
       </section>
 
@@ -344,31 +328,25 @@ export default function EnjoyPage() {
                     {section.category}
                   </h3>
 
-                  {section.type === "cocktails" ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
-                      {(section.items as { name: string; description: string }[]).map((item) => (
-                        <div key={item.name}>
-                          <h4 className="text-white font-medium">
-                            {item.name}
-                          </h4>
-                          <p className="text-sm text-muted-foreground mt-1">
-                            {item.description}
-                          </p>
+                  <div className={`grid gap-x-8 gap-y-5 ${
+                    section.type === "cocktails"
+                      ? "grid-cols-1 sm:grid-cols-2"
+                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  }`}>
+                    {section.items.map((item) => {
+                      const obj = typeof item === "string" ? { name: item, description: "" } : item;
+                      return (
+                        <div key={obj.name}>
+                          <h4 className="text-white font-medium">{obj.name}</h4>
+                          {obj.description && (
+                            <p className="text-sm text-muted-foreground mt-1">
+                              {obj.description}
+                            </p>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="flex flex-wrap gap-2">
-                      {(section.items as string[]).map((item) => (
-                        <span
-                          key={item}
-                          className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-sm text-white/80 transition-colors hover:border-enjoy/30 hover:text-white"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                      );
+                    })}
+                  </div>
                 </div>
               </ScrollReveal>
               );

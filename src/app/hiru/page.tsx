@@ -20,6 +20,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { HiruLogo } from "@/components/ui/logos";
 import { ParticleBackground } from "@/components/ui/particle-background";
+import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { getIcon } from "@/lib/icons";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
@@ -211,24 +212,7 @@ export default function HiruPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((img, i) => (
-              <ScrollReveal key={i} delay={i * 0.05}>
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="group relative overflow-hidden rounded-2xl aspect-[3/2] shadow-2xl shadow-black/50"
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <GalleryLightbox images={galleryImages} />
         </div>
       </section>
 

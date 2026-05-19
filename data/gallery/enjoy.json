@@ -1,26 +1,32 @@
 [
   {
     "src": "/images/enjoy/490779000_1404590464277290_104140296793100193_n.jpg",
-    "alt": "Terraza Enjoy con ambiente nocturno y shisha"
+    "alt": "Terraza Enjoy con ambiente nocturno y shisha",
+    "description": "Noches en la terraza con shisha premium y la mejor musica"
   },
   {
     "src": "/images/enjoy/489010280_1394995051903498_5622223247596751330_n.jpg",
-    "alt": "Cócteles tropicales en la barra"
+    "alt": "Cócteles tropicales en la barra",
+    "description": "Cocteles tropicales preparados con fruta fresca y ron premium"
   },
   {
     "src": "/images/enjoy/685136809_1720431142693219_2609199875887532991_n.jpg",
-    "alt": "Gin tonic premium preparado por barman"
+    "alt": "Gin tonic premium preparado por barman",
+    "description": "Gin tonics premium con botanicos seleccionados"
   },
   {
     "src": "/images/enjoy/488565922_1396963685039968_558701844099232207_n.jpg",
-    "alt": "Barra iluminada con botellas premium"
+    "alt": "Barra iluminada con botellas premium",
+    "description": "Nuestra barra con la seleccion mas exclusiva de destilados"
   },
   {
     "src": "/images/enjoy/485137976_1380894666646870_3045391752692578411_n.jpg",
-    "alt": "Moscow Mule en copa de cobre"
+    "alt": "Moscow Mule en copa de cobre",
+    "description": "Moscow Mule clasico servido en copa de cobre"
   },
   {
     "src": "/images/enjoy/682416359_1718652649537735_505515031469180330_n.jpg",
-    "alt": "Piña colada artesanal"
+    "alt": "Piña colada artesanal",
+    "description": "Pina colada artesanal con coco natural y ron anejo"
   }
 ]

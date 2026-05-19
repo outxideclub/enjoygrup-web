@@ -188,6 +188,12 @@ export default function GaleriaAdminPage() {
                     className="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs text-zinc-300 focus:border-sky-500 focus:outline-none"
                     placeholder="Texto alternativo"
                   />
+                  <input
+                    value={(img as Record<string, string>).description ?? ""}
+                    onChange={(e) => updateImage(idx, "description", e.target.value)}
+                    className="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs text-zinc-300 focus:border-sky-500 focus:outline-none"
+                    placeholder="Descripcion (se muestra en lightbox)"
+                  />
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1">
                       <button
