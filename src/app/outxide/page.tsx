@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -12,13 +12,11 @@ import {
   MapPin,
   ExternalLink,
   Users,
-  X,
   Loader2,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { Button } from "@/components/ui/button";
 import { OutxideLogo } from "@/components/ui/logos";
 import { LaserBeams } from "@/components/ui/laser-beams";
 import { ParticleBackground } from "@/components/ui/particle-background";
@@ -76,7 +74,6 @@ export default function OutxidePage() {
   const locale = useLocale();
   const [events, setEvents] = useState<FVEvent[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedEvent, setSelectedEvent] = useState<FVEvent | null>(null);
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
 
   const [videoReady, setVideoReady] = useState(false);
@@ -92,7 +89,6 @@ export default function OutxidePage() {
   }, [handleVideoReady]);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const ticketSectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -125,12 +121,6 @@ export default function OutxidePage() {
     fetch("/api/gallery/outxide").then(r => r.json()).then(setGalleryImages).catch(() => {});
   }, []);
 
-  // Scroll to ticket section
-  useEffect(() => {
-    if (selectedEvent && ticketSectionRef.current) {
-      ticketSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [selectedEvent]);
 
   return (
     <>
@@ -257,17 +247,12 @@ export default function OutxidePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((event, i) => {
-              const isSelected = selectedEvent?._id === event._id;
               const genres = extractGenres(event);
               const artists = extractArtists(event);
 
               return (
                 <ScrollReveal key={event._id} delay={i * 0.05} className="h-full">
-                  <div className={`group relative overflow-hidden rounded-2xl border glass transition-all duration-500 flex flex-col h-full ${
-                    isSelected
-                      ? "border-outxide/50 shadow-[0_0_30px_rgba(6,182,212,0.15)]"
-                      : "border-white/5 hover:border-outxide/30"
-                  }`}>
+                  <div className="group relative overflow-hidden rounded-2xl border border-white/5 hover:border-outxide/30 glass transition-all duration-500 flex flex-col h-full">
                     {/* Flyer */}
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <Image
@@ -300,69 +285,22 @@ export default function OutxidePage() {
                         {formatTime(event.start_date, locale)}h
                       </p>
 
-                      <Button
-                        size="sm"
-                        className={`w-full rounded-lg text-white mt-auto ${
-                          isSelected
-                            ? "bg-outxide/60"
-                            : "bg-outxide hover:bg-outxide/80"
-                        }`}
-                        onClick={() =>
-                          setSelectedEvent(isSelected ? null : event)
-                        }
+                      <a
+                        href={event.iframe?.tag_url ?? `https://web.fourvenues.com/es/outxide-club`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}
                       >
                         <Ticket className="h-4 w-4 mr-2" />
-                        {isSelected ? t("common.close") : t("outxide.buyTicket")}
-                      </Button>
+                        {t("outxide.buyTicket")}
+                        <ExternalLink className="h-3.5 w-3.5 ml-2 opacity-60" />
+                      </a>
                     </div>
                   </div>
                 </ScrollReveal>
               );
             })}
           </div>
-
-          {/* Ticket Purchase Section (FourVenues iframe) */}
-          <AnimatePresence>
-            {selectedEvent && selectedEvent.iframe && (
-              <motion.div
-                ref={ticketSectionRef}
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden"
-              >
-                <div className="mt-12 rounded-3xl border border-outxide/20 bg-zinc-950/50 backdrop-blur-xl p-6 md:p-10">
-                  <div className="flex items-center justify-between mb-8">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">
-                        {selectedEvent.name}
-                      </h3>
-                      <p className="text-sm text-outxide mt-1">
-                        {formatDate(selectedEvent.display_date, locale)} · {formatTime(selectedEvent.start_date, locale)}h
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => setSelectedEvent(null)}
-                      className="p-2 rounded-full hover:bg-white/10 transition-colors"
-                      aria-label="Cerrar sección de entradas"
-                    >
-                      <X className="h-6 w-6 text-white" />
-                    </button>
-                  </div>
-
-                  <iframe
-                    src={selectedEvent.iframe.tag_url}
-                    className="w-full rounded-2xl border-0"
-                    style={{ minHeight: "1200px" }}
-                    allow="payment"
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
-                    title={`Entradas ${selectedEvent.name}`}
-                  />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
 
           <ScrollReveal>
             <div className="mt-12 text-center">
