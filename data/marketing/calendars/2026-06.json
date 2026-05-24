@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "month": "junio",
+    "year": 2026,
+    "season": "temporada_alta",
+    "generated": "2026-05-24",
+    "notes": "Inicio temporada alta. Sant Joan el 24. Público turista + local. Días largos, ambiente nocturno."
+  },
+  "brands": {
+    "hiru": {
+      "voice": "Producto, brasa, autenticidad mallorquina. Tono cercano y gastronómico.",
+      "reservas_url": "https://hirufoodanddrinks.myrestoo.net",
+      "instagram": "hirufoodanddrinks",
+      "frequency": {
+        "posts_per_week": 3,
+        "stories_per_week": 3
+      },
+      "color": "#b87333",
+      "monthly_theme": "El sabor del verano mallorquín — brasa, producto fresco de lonja y cócteles hasta tarde"
+    },
+    "outxide": {
+      "voice": "Energía, noche, música. Tono aspiracional y urbano.",
+      "instagram": "outxide.club",
+      "frequency": {
+        "posts_per_week": 3,
+        "stories_per_week": 3
+      },
+      "color": "#06b6d4",
+      "monthly_theme": "La noche de Alcúdia empieza aquí — lineup de verano, energía sin filtro"
+    },
+    "enjoy": {
+      "voice": "Terraza, cócteles, shisha, tardeo. Tono relajado y aspiracional.",
+      "instagram": "enjoy.club.alcudia",
+      "frequency": {
+        "posts_per_week": 1,
+        "stories_per_week": 2
+      },
+      "color": "#ec4899",
+      "monthly_theme": "La terraza donde empieza todo — cócteles al atardecer, shisha y ambiente"
+    }
+  },
+  "posts": [
+    {
+      "id": "hiru-jun-01",
+      "brand": "hiru",
+      "date": "2026-06-02",
+      "day": "Martes",
+      "type": "feed_post",
+      "format": "foto_producto",
+      "caption_es": "El verano tiene sabor a brasa. 🔥 Producto fresco, fuego de encina y las manos del equipo que lo hace único cada noche. Te esperamos en Hiru.\n\n📍 Av. Tucà 1, Port d'Alcúdia\n🔗 Reservas en bio",
+      "hashtags": [
+        "#HiruAlcudia",
+        "#BrasaMallorquina",
+        "#RestauranteMallorca",
+        "#AlcudiaGastronomia",
+        "#ProductoFresco",
+        "#MallorcaFood",
+        "#PuertoAlcudia",
+        "#VisitMallorca"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "Apertura temporada. Hero shot plato estrella de junio. Copy enfocado en producto fresco y brasa."
+    },
+    {
+      "id": "hiru-jun-02",
+      "brand": "hiru",
+      "date": "2026-06-04",
+      "day": "Jueves",
+      "type": "feed_post",
+      "format": "cocktail",
+      "caption_es": "No solo cocinamos fuego. También lo servimos en copa. 🍹 Cócteles de temporada, ingredientes locales y una barra que no cierra antes de que tú quieras.\n\n¿Esta semana en Alcúdia? Pásate por Hiru.",
+      "hashtags": [
+        "#HiruCocktails",
+        "#CoctelesAlcudia",
+        "#CocktailMallorca",
+        "#HiruFoodDrinks",
+        "#BarAlcudia",
+        "#MallorcaNight",
+        "#AlcudiaMallorca"
+      ],
+      "cta": "visita",
+      "story_companion": true,
+      "content_brief": "Firma cocktail de temporada. Hiru es brasa Y coctelería hasta tarde."
+    },
+    {
+      "id": "hiru-jun-03",
+      "brand": "hiru",
+      "date": "2026-06-06",
+      "day": "Sábado",
+      "type": "feed_post",
+      "format": "ambiente",
+      "caption_es": "Los sábados en Hiru tienen su propio ritmo. 🌙 Buena cocina, mejores cócteles y una noche que se alarga sola.\n\nReserva ya — los fines de semana vuelan 👇",
+      "hashtags": [
+        "#HiruAlcudia",
+        "#SábadoEnHiru",
+        "#NightOutMallorca",
+        "#AlcudiaRestaurant",
+        "#MallorcaSummer",
+        "#PuertoAlcudia"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "Ambiente sábado. Gente disfrutando, terraza animada. Reel si hay video."
+    },
+    {
+      "id": "enjoy-jun-01",
+      "brand": "enjoy",
+      "date": "2026-06-03",
+      "day": "Miércoles",
+      "type": "feed_post",
+      "format": "terraza_atardecer",
+      "caption_es": "Where nights begin. ✨ La terraza ha despertado y la temporada acaba de empezar. Cócteles premium, shisha y el mejor ambiente para empezar bien la noche.\n\n📍 Av. Tucà 1, Alcúdia\n☀️ Abierto desde las 17:00",
+      "hashtags": [
+        "#EnjoyTerrace",
+        "#EnjoyAlcudia",
+        "#TerrazaMallorca",
+        "#ShishaAlcudia",
+        "#CoctelesAlcudia",
+        "#SummerMallorca",
+        "#WhereNightsBegin",
+        "#NightlifeAlcudia"
+      ],
+      "cta": "visita",
+      "story_companion": true,
+      "content_brief": "Primer post del mes. Hero shot terraza al atardecer con cócteles y shisha."
+    },
+    {
+      "id": "outxide-jun-01",
+      "brand": "outxide",
+      "date": "2026-06-05",
+      "day": "Viernes",
+      "type": "feed_post",
+      "format": "opening_weekend",
+      "caption_es": "La temporada se pone seria. 🎧 Alcúdia tiene una nueva noche y se llama Outxide.\n\nEsta semana: música sin filtro, energía real y la pista que no para.\n\n📍 Av. Tucà 1 · Puertas: 23:00",
+      "hashtags": [
+        "#OutxideClub",
+        "#OutxideAlcudia",
+        "#ClubMallorca",
+        "#NightlifeMallorca",
+        "#ElectronicMallorca",
+        "#DJMallorca",
+        "#AlcudiaNight",
+        "#SummerClub"
+      ],
+      "cta": "tickets",
+      "story_companion": true,
+      "content_brief": "Primer fin de semana fuerte. Preview DJ/evento si hay. Reel si hay material."
+    },
+    {
+      "id": "outxide-jun-02",
+      "brand": "outxide",
+      "date": "2026-06-07",
+      "day": "Domingo",
+      "type": "feed_post",
+      "format": "recap_weekend",
+      "caption_es": "Así fue el fin de semana. Y lo que viene es mejor. 👁️\n\nSiguiente parada: el próximo viernes. ¿Estás dentro?\n\n#Outxide",
+      "hashtags": [
+        "#OutxideClub",
+        "#WeekendVibes",
+        "#ClubNight",
+        "#MallorcaNightlife",
+        "#AlcudiaClub",
+        "#TheNightContinues"
+      ],
+      "cta": "tickets",
+      "story_companion": false,
+      "content_brief": "Recap primer fin de semana. Fotos de ambiente, pista llena."
+    },
+    {
+      "id": "hiru-jun-04",
+      "brand": "hiru",
+      "date": "2026-06-09",
+      "day": "Martes",
+      "type": "feed_post",
+      "format": "producto_lonja",
+      "caption_es": "Directo de la lonja a la brasa. 🐟 En junio, el mar manda. Pescado del día, preparación sencilla, sabor que no necesita más.\n\nCarta del día — reservas en bio 👇",
+      "hashtags": [
+        "#PescadoDelDia",
+        "#LonjaAlcudia",
+        "#BrasaMallorquina",
+        "#HiruAlcudia",
+        "#MariscoMallorca",
+        "#RestauranteMallorca",
+        "#KmCero"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "Pescado/marisco de lonja. Storytelling de producto: origen, preparación, resultado."
+    },
+    {
+      "id": "hiru-jun-05",
+      "brand": "hiru",
+      "date": "2026-06-12",
+      "day": "Viernes",
+      "type": "reel",
+      "format": "cocina_brasa",
+      "caption_es": "No hay filtros cuando el fuego es el ingrediente. 🔥\n\nVen esta semana — reserva en bio.",
+      "hashtags": [
+        "#BrasaReal",
+        "#HiruAlcudia",
+        "#CocinaAlcudia",
+        "#RestauranteMallorca",
+        "#FoodReels",
+        "#GastronomyMallorca"
+      ],
+      "cta": "reservas",
+      "story_companion": false,
+      "content_brief": "Reel 15-30s. Plano fuego, manos cocinero, emplatado. Sin texto, música ambiente."
+    },
+    {
+      "id": "outxide-jun-03",
+      "brand": "outxide",
+      "date": "2026-06-12",
+      "day": "Viernes",
+      "type": "feed_post",
+      "format": "evento_preview",
+      "caption_es": "Esta semana en Outxide 🎚️\n\n[NOMBRE DEL DJ]\n[FECHA] · Puertas 23:00\n\nEntradas disponibles — link en bio.",
+      "hashtags": [
+        "#OutxideClub",
+        "#DJSet",
+        "#ClubMallorca",
+        "#ElectronicMusic",
+        "#NightlifeMallorca",
+        "#AlcudiaNight"
+      ],
+      "cta": "tickets",
+      "story_companion": true,
+      "content_brief": "Preview evento fin de semana. Actualizar con datos FourVenues antes de publicar."
+    },
+    {
+      "id": "enjoy-jun-02",
+      "brand": "enjoy",
+      "date": "2026-06-10",
+      "day": "Miércoles",
+      "type": "feed_post",
+      "format": "cocktail_signature",
+      "caption_es": "El verano sabe así. 🌅 Cóctel de la temporada, terraza con vistas y una tarde que no tiene prisa.\n\nEnjoy Terrace — abierto desde las 17:00 todos los días.",
+      "hashtags": [
+        "#EnjoyTerrace",
+        "#CocktailTime",
+        "#TerrazaAlcudia",
+        "#SummerCocktails",
+        "#MallorcaVibes",
+        "#EnjoyAlcudia",
+        "#ShishaLounge"
+      ],
+      "cta": "visita",
+      "story_companion": false,
+      "content_brief": "Cóctel estrella temporada. Shot limpio con fondo terraza."
+    },
+    {
+      "id": "hiru-jun-06",
+      "brand": "hiru",
+      "date": "2026-06-16",
+      "day": "Martes",
+      "type": "feed_post",
+      "format": "arroz_lonja",
+      "caption_es": "El arroz que pide volver. 🫕 Lonja del día, caldo de 4 horas y un punto que solo se consigue con paciencia y buen fuego.\n\n¿Lo pides esta semana? → Reserva en bio.",
+      "hashtags": [
+        "#ArrozDeLonja",
+        "#HiruAlcudia",
+        "#ArrozMallorca",
+        "#BrasaMallorquina",
+        "#RestauranteMallorca",
+        "#RiceLovers",
+        "#MallorcaGastronomia"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "El arroz de lonja — shot con caldero o emplatado. Muy aspiracional en verano."
+    },
+    {
+      "id": "outxide-jun-04",
+      "brand": "outxide",
+      "date": "2026-06-14",
+      "day": "Domingo",
+      "type": "feed_post",
+      "format": "lifestyle_noche",
+      "caption_es": "La noche que no se puede explicar, solo vivir. 🌑\n\nOutxide · Alcúdia · 23:00",
+      "hashtags": [
+        "#OutxideClub",
+        "#NightLife",
+        "#ClubVibes",
+        "#MallorcaNight",
+        "#AlcudiaClub",
+        "#TheNightContinues",
+        "#ElectronicMallorca"
+      ],
+      "cta": "visita",
+      "story_companion": false,
+      "content_brief": "Contenido aspiracional noche — pista, luces, gente. Sin texto en pantalla."
+    },
+    {
+      "id": "hiru-jun-07",
+      "brand": "hiru",
+      "date": "2026-06-19",
+      "day": "Viernes",
+      "type": "feed_post",
+      "format": "hiru_noche",
+      "caption_es": "Los viernes en Hiru se alargan. 🌙 Empezamos con brasa y terminamos con cócteles — sin prisa y con buenas personas.\n\nViernes y sábados hasta tarde. Reserva tu mesa 👇",
+      "hashtags": [
+        "#HiruNight",
+        "#RestauranteNocturno",
+        "#HiruAlcudia",
+        "#NightDining",
+        "#MallorcaNight",
+        "#CoctelesAlcudia",
+        "#AlcudiaNight"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "Hiru de noche — diferenciador clave. No cierra cuando cierran otros."
+    },
+    {
+      "id": "enjoy-jun-03",
+      "brand": "enjoy",
+      "date": "2026-06-17",
+      "day": "Miércoles",
+      "type": "feed_post",
+      "format": "shisha",
+      "caption_es": "Shisha premium y el atardecer de Alcúdia. No hace falta más para una tarde perfecta. ✨\n\n📍 Enjoy Terrace · Av. Tucà 1 · Abierto 17:00",
+      "hashtags": [
+        "#ShishaAlcudia",
+        "#EnjoyTerrace",
+        "#ShishaLounge",
+        "#TerrazaMallorca",
+        "#HookahLounge",
+        "#AtardecerMallorca",
+        "#EnjoyAlcudia"
+      ],
+      "cta": "visita",
+      "story_companion": false,
+      "content_brief": "Shisha premium. Humo, ambiente, atardecer. Estético y relajado."
+    },
+    {
+      "id": "hiru-jun-08",
+      "brand": "hiru",
+      "date": "2026-06-23",
+      "day": "Martes",
+      "type": "feed_post",
+      "format": "sant_joan",
+      "caption_es": "Feliç Sant Joan, Mallorca. 🔥 La noche más mágica del año y nosotros estaremos aquí, con el fuego encendido y las puertas abiertas.\n\nEsta noche en Hiru — reserva o pásate.",
+      "hashtags": [
+        "#SantJoan",
+        "#SanJuan2026",
+        "#Mallorca",
+        "#HiruAlcudia",
+        "#FiestasMallorca",
+        "#AlcudiaMallorca",
+        "#TradicioMallorquina"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "Sant Joan — FECHA CLAVE. Activar Meta Ads ese día radio 20km."
+    },
+    {
+      "id": "outxide-jun-05",
+      "brand": "outxide",
+      "date": "2026-06-19",
+      "day": "Viernes",
+      "type": "feed_post",
+      "format": "evento_especial",
+      "caption_es": "El fin de semana que estabas esperando. 🎧\n\n[EVENTO / DJ]\nViernes 19 · Sábado 20 · Outxide Club · 23:00\n\nEntradas en bio.",
+      "hashtags": [
+        "#OutxideClub",
+        "#WeekendEvent",
+        "#ClubMallorca",
+        "#NightlifeMallorca",
+        "#DJSet",
+        "#AlcudiaParty"
+      ],
+      "cta": "tickets",
+      "story_companion": true,
+      "content_brief": "Preview fin de semana 19-20. Actualizar con evento real FourVenues."
+    },
+    {
+      "id": "outxide-jun-06",
+      "brand": "outxide",
+      "date": "2026-06-24",
+      "day": "Miércoles",
+      "type": "feed_post",
+      "format": "sant_joan_noche",
+      "caption_es": "La noche más larga del año merece la mejor fiesta. 🔥\n\nSant Joan en Outxide — puertas 23:00, el resto ya lo sabes.\n\n🎟️ Entradas en bio.",
+      "hashtags": [
+        "#SantJoan",
+        "#SanJuan2026",
+        "#NocheDeVerano",
+        "#OutxideClub",
+        "#FiestaMallorca",
+        "#AlcudiaNight",
+        "#SummerParty"
+      ],
+      "cta": "tickets",
+      "story_companion": true,
+      "content_brief": "FECHA CLAVE. Campaña Meta Ads Sant Joan obligatoria."
+    },
+    {
+      "id": "enjoy-jun-04",
+      "brand": "enjoy",
+      "date": "2026-06-24",
+      "day": "Miércoles",
+      "type": "feed_post",
+      "format": "sant_joan_terraza",
+      "caption_es": "Sant Joan empieza en la terraza. ✨ La noche más especial del año y Enjoy abre con todo — cócteles, shisha y el ambiente que te pone en modo fiesta.\n\n📍 Av. Tucà 1 · Desde las 17:00",
+      "hashtags": [
+        "#SantJoan",
+        "#EnjoyTerrace",
+        "#FiestaMallorca",
+        "#TerrazaAlcudia",
+        "#SanJuanMallorca",
+        "#NocheDeVerano"
+      ],
+      "cta": "visita",
+      "story_companion": true,
+      "content_brief": "Sant Joan en terraza — inicio del festejo antes de la noche."
+    },
+    {
+      "id": "hiru-jun-09",
+      "brand": "hiru",
+      "date": "2026-06-26",
+      "day": "Viernes",
+      "type": "feed_post",
+      "format": "carne_brasa",
+      "caption_es": "Fuego. Producto. Punto exacto. 🥩 Las carnes a la brasa de Hiru son lo que te piden volver antes de irte de Alcúdia.\n\nReserva esta semana 👇",
+      "hashtags": [
+        "#CarneALaBrasa",
+        "#HiruAlcudia",
+        "#EntrecotMallorca",
+        "#BrasaReal",
+        "#MeatLovers",
+        "#RestauranteMallorca",
+        "#SteakMallorca"
+      ],
+      "cta": "reservas",
+      "story_companion": true,
+      "content_brief": "Entrecot, secreto ibérico o costilla. Shot con punto de carne y brasa de fondo."
+    },
+    {
+      "id": "outxide-jun-07",
+      "brand": "outxide",
+      "date": "2026-06-26",
+      "day": "Viernes",
+      "type": "feed_post",
+      "format": "cierre_mes",
+      "caption_es": "Junio fue solo el calentamiento. 🔥\n\nEl verano en Outxide no ha hecho más que empezar — julio llega con todo.\n\nSiguiente parada: este sábado. 🎧",
+      "hashtags": [
+        "#OutxideClub",
+        "#SummerMallorca",
+        "#ClubMallorca",
+        "#NightlifeMallorca",
+        "#AlcudiaNight",
+        "#JulioEstaAqui"
+      ],
+      "cta": "tickets",
+      "story_companion": false,
+      "content_brief": "Cierre junio. Preview verano completo. Mensaje de temporada."
+    },
+    {
+      "id": "enjoy-jun-05",
+      "brand": "enjoy",
+      "date": "2026-06-28",
+      "day": "Domingo",
+      "type": "feed_post",
+      "format": "cierre_mes",
+      "caption_es": "Junio desde la terraza más bonita de Alcúdia. ☀️ Gracias por empezar la noche con nosotros este mes — julio viene con más.\n\n📍 Enjoy Terrace · Abierto cada tarde",
+      "hashtags": [
+        "#EnjoyTerrace",
+        "#JunioEnAlcudia",
+        "#TerrazaAlcudia",
+        "#SummerMallorca",
+        "#EnjoyAlcudia",
+        "#WhereNightsBegin"
+      ],
+      "cta": "visita",
+      "story_companion": false,
+      "content_brief": "Cierre junio. Ambiente grupal, gente disfrutando. Mensaje temporada + julio."
+    }
+  ],
+  "key_dates": [
+    {
+      "date": "2026-06-01",
+      "event": "Inicio temporada alta Mallorca",
+      "brands": [
+        "hiru",
+        "outxide",
+        "enjoy"
+      ],
+      "action": "Stories apertura en todas las marcas"
+    },
+    {
+      "date": "2026-06-21",
+      "event": "Solsticio de verano",
+      "brands": [
+        "enjoy",
+        "hiru"
+      ],
+      "action": "Contenido verano oficial"
+    },
+    {
+      "date": "2026-06-24",
+      "event": "Sant Joan — Noche de San Juan",
+      "brands": [
+        "hiru",
+        "outxide",
+        "enjoy"
+      ],
+      "action": "META ADS boost ese día. Posts especiales todas las marcas. FECHA CLAVE del calendario."
+    }
+  ],
+  "ads_recommendations": {
+    "meta_ads": [
+      {
+        "period": "01-07 Jun",
+        "brand": "hiru",
+        "objective": "reservas",
+        "audience": "turistas UK+DE+FR Alcúdia radio 15km",
+        "budget_day_eur": 18
+      },
+      {
+        "period": "01-07 Jun",
+        "brand": "outxide",
+        "objective": "tickets",
+        "audience": "18-35 nightlife Mallorca + turistas",
+        "budget_day_eur": 22
+      },
+      {
+        "period": "22-25 Jun",
+        "brand": "all",
+        "objective": "sant_joan",
+        "audience": "radio 30km Alcúdia + turistas activos",
+        "budget_day_eur": 35
+      }
+    ]
+  },
+  "instagram_handles": {
+    "hiru": "hirufoodanddrinks",
+    "outxide": "outxide.club",
+    "enjoy": "enjoy.club.alcudia"
+  }
+}
