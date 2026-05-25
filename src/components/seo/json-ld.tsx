@@ -108,10 +108,22 @@ export function HiruJsonLd() {
           {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: [
-              "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+              "Monday", "Wednesday", "Thursday",
             ],
-            opens: "13:00",
+            opens: "12:00",
+            closes: "23:30",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Friday", "Saturday"],
+            opens: "12:00",
             closes: "01:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Sunday"],
+            opens: "12:00",
+            closes: "23:30",
           },
         ],
         acceptsReservations: true,
@@ -152,7 +164,7 @@ export function EnjoyJsonLd() {
               "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
             ],
             opens: "17:00",
-            closes: "04:00",
+            closes: "05:30",
           },
         ],
         acceptsReservations: true,
@@ -189,8 +201,8 @@ export function OutxideJsonLd() {
           {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Thursday", "Friday", "Saturday"],
-            opens: "23:30",
-            closes: "06:00",
+            opens: "23:00",
+            closes: "05:30",
           },
         ],
         amenityFeature: [
