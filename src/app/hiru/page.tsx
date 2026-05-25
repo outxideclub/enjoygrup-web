@@ -177,10 +177,10 @@ export default function HiruPage() {
             <MapPin className="h-4 w-4 text-hiru" />
             <span>{t("hiru.address")}</span>
           </div>
-          <div className="flex items-center gap-2 text-hiru font-medium">
+          <a href="tel:+34971853932" className="flex items-center gap-2 text-hiru font-medium hover:text-hiru/80 transition-colors">
             <Phone className="h-4 w-4" />
-            <span>{t("common.reserveTable")}</span>
-          </div>
+            <span>971 853 932</span>
+          </a>
           <Link
             href="/enjoy"
             className="flex items-center gap-2 text-hiru hover:text-hiru/80 transition-colors"
@@ -322,7 +322,7 @@ export default function HiruPage() {
                 size="lg"
                 className="rounded-full px-10 bg-hiru hover:bg-hiru/80 text-white shadow-xl shadow-hiru/20"
               >
-                <a href="https://www.instagram.com/hirufoodanddrinks/">
+                <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
                   <Phone className="h-4 w-4 mr-2" />
                   {t("common.reserveTable")}
                 </a>

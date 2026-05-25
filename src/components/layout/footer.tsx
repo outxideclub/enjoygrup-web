@@ -1,7 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Globe, Mail, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+
+function InstagramIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
 import { GroupLogo } from "@/components/ui/logos";
 import { CookieSettingsButton } from "@/components/layout/cookie-settings-button";
 import { useT } from "@/i18n";
@@ -155,29 +165,45 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://www.instagram.com/enjoy.club.alcudia"
+              href="https://www.instagram.com/enjoy.terrace.alcudia"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-enjoy transition-colors"
               aria-label="Instagram Enjoy"
             >
-              <Globe size={18} />
+              <InstagramIcon />
             </a>
             <a
-              href="mailto:info@grupoenjoy.com"
+              href="https://www.instagram.com/outxide.club"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-outxide transition-colors"
+              aria-label="Instagram Outxide"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href="https://www.instagram.com/hirufoodanddrinks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-hiru transition-colors"
+              aria-label="Instagram Hiru"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href="mailto:outxide.club@gmail.com"
               className="text-muted-foreground hover:text-white transition-colors"
               aria-label={t("footer.email")}
             >
               <Mail size={18} />
             </a>
             <a
-              href="https://www.instagram.com/hirufoodanddrinks"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tel:+34971853932"
               className="text-muted-foreground hover:text-white transition-colors"
-              aria-label="Instagram Hiru"
+              aria-label="Teléfono"
             >
-              <MapPin size={18} />
+              <Phone size={18} />
             </a>
           </div>
         </div>

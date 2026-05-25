@@ -56,7 +56,7 @@ export function OrganizationJsonLd() {
         address: ENJOY_ADDRESS,
         contactPoint: {
           "@type": "ContactPoint",
-          email: "info@grupoenjoy.com",
+          email: "outxide.club@gmail.com",
           contactType: "customer service",
           availableLanguage: ["Spanish", "English"],
         },
@@ -78,9 +78,9 @@ export function OrganizationJsonLd() {
           },
         ],
         sameAs: [
-          "https://www.instagram.com/grupoenjoy",
-          "https://www.tiktok.com/@grupoenjoy",
-          "https://www.facebook.com/grupoenjoy",
+          "https://www.instagram.com/enjoy.terrace.alcudia",
+          "https://www.instagram.com/outxide.club",
+          "https://www.instagram.com/hirufoodanddrinks",
         ],
       }}
     />
@@ -103,7 +103,7 @@ export function HiruJsonLd() {
         priceRange: "€€€",
         address: HIRU_ADDRESS,
         geo: HIRU_GEO,
-        telephone: "+34 971 546 789",
+        telephone: "+34 971 853 932",
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -144,7 +144,7 @@ export function EnjoyJsonLd() {
         priceRange: "€€€",
         address: ENJOY_ADDRESS,
         geo: ENJOY_GEO,
-        telephone: "+34 971 546 789",
+        telephone: "+34 971 853 932",
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -184,7 +184,7 @@ export function OutxideJsonLd() {
         priceRange: "€€€",
         address: ENJOY_ADDRESS,
         geo: ENJOY_GEO,
-        telephone: "+34 971 546 789",
+        telephone: "+34 971 853 932",
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
