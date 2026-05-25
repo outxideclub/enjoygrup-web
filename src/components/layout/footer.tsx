@@ -157,10 +157,10 @@ export function Footer() {
             </p>
             <span className="hidden sm:inline text-xs text-white/10">|</span>
             <a
-              href="mailto:privacidad@grupoenjoy.com"
+              href="mailto:privacidad@grupoenjoy.es"
               className="text-xs text-muted-foreground hover:text-white transition-colors"
             >
-              privacidad@grupoenjoy.com
+              privacidad@grupoenjoy.es
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -192,7 +192,7 @@ export function Footer() {
               <InstagramIcon />
             </a>
             <a
-              href="mailto:outxide.club@gmail.com"
+              href="mailto:info@grupoenjoy.es"
               className="text-muted-foreground hover:text-white transition-colors"
               aria-label={t("footer.email")}
             >

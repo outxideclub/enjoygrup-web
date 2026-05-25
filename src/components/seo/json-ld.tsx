@@ -56,7 +56,7 @@ export function OrganizationJsonLd() {
         address: ENJOY_ADDRESS,
         contactPoint: {
           "@type": "ContactPoint",
-          email: "outxide.club@gmail.com",
+          email: "info@grupoenjoy.es",
           contactType: "customer service",
           availableLanguage: ["Spanish", "English"],
         },

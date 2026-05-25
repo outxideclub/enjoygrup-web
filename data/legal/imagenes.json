@@ -21,7 +21,7 @@
     {
       "id": "informacion-previa",
       "heading": "3. Información previa al cliente",
-      "content": "<p>En la entrada de cada establecimiento donde se realice captación de imágenes, se colocará un aviso visible con el siguiente contenido mínimo:</p><blockquote>\"Aviso: Este establecimiento realiza captación de imágenes fotográficas y de vídeo con fines promocionales. Al acceder al local, acepta la posibilidad de aparecer en dichas imágenes. Si no desea ser fotografiado, informe al personal. Puede solicitar la retirada de imágenes publicadas en privacidad@grupoenjoy.com.\"</blockquote>"
+      "content": "<p>En la entrada de cada establecimiento donde se realice captación de imágenes, se colocará un aviso visible con el siguiente contenido mínimo:</p><blockquote>\"Aviso: Este establecimiento realiza captación de imágenes fotográficas y de vídeo con fines promocionales. Al acceder al local, acepta la posibilidad de aparecer en dichas imágenes. Si no desea ser fotografiado, informe al personal. Puede solicitar la retirada de imágenes publicadas en privacidad@grupoenjoy.es.\"</blockquote>"
     },
     {
       "id": "base-juridica",
@@ -31,7 +31,7 @@
     {
       "id": "derecho-oposicion",
       "heading": "5. Derecho de oposición y retirada de imágenes",
-      "content": "<p>Cualquier persona que aparezca en imágenes publicadas por el Grupo Enjoy tiene derecho a solicitar su retirada. Para ello, puede:</p><ol><li>Enviar un email a <a href=\"mailto:privacidad@grupoenjoy.com\">privacidad@grupoenjoy.com</a> indicando:<ul><li>Su nombre completo.</li><li>Enlace o descripción de la imagen/publicación en cuestión.</li><li>Una foto de referencia o indicación que permita identificarle en la imagen.</li></ul></li><li>Comunicarlo presencialmente al personal del establecimiento durante el evento, quien tomará nota y trasladará la solicitud.</li></ol><p>Nos comprometemos a procesar las solicitudes de retirada en un plazo máximo de <strong>72 horas hábiles</strong> desde su recepción, eliminando la imagen de nuestras redes sociales y sitio web. No podemos garantizar la eliminación de copias realizadas por terceros antes de la retirada.</p>"
+      "content": "<p>Cualquier persona que aparezca en imágenes publicadas por el Grupo Enjoy tiene derecho a solicitar su retirada. Para ello, puede:</p><ol><li>Enviar un email a <a href=\"mailto:privacidad@grupoenjoy.es\">privacidad@grupoenjoy.es</a> indicando:<ul><li>Su nombre completo.</li><li>Enlace o descripción de la imagen/publicación en cuestión.</li><li>Una foto de referencia o indicación que permita identificarle en la imagen.</li></ul></li><li>Comunicarlo presencialmente al personal del establecimiento durante el evento, quien tomará nota y trasladará la solicitud.</li></ol><p>Nos comprometemos a procesar las solicitudes de retirada en un plazo máximo de <strong>72 horas hábiles</strong> desde su recepción, eliminando la imagen de nuestras redes sociales y sitio web. No podemos garantizar la eliminación de copias realizadas por terceros antes de la retirada.</p>"
     },
     {
       "id": "videovigilancia",
@@ -46,7 +46,7 @@
     {
       "id": "contacto",
       "heading": "8. Contacto",
-      "content": "<p>Para cualquier cuestión relativa a esta política, contacte con nosotros en <a href=\"mailto:privacidad@grupoenjoy.com\">privacidad@grupoenjoy.com</a>.</p>"
+      "content": "<p>Para cualquier cuestión relativa a esta política, contacte con nosotros en <a href=\"mailto:privacidad@grupoenjoy.es\">privacidad@grupoenjoy.es</a>.</p>"
     }
   ]
 }
