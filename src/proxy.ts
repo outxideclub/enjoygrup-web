@@ -68,6 +68,19 @@ function denyAdmin(req: NextRequest, pathname: string): NextResponse {
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  // ── Inject x-pathname header for HreflangTags component ──
+  // Needed because Next.js metadata API deduplicates identical
+  // alternate URLs (cookie-based i18n = same URL for all locales).
+  const isAdminRoute =
+    pathname.startsWith("/admin") || pathname.startsWith("/api/admin");
+
+  if (!isAdminRoute) {
+    const requestHeaders = new Headers(req.headers);
+    requestHeaders.set("x-pathname", pathname);
+    return NextResponse.next({ request: { headers: requestHeaders } });
+  }
+
+  // ── Admin auth guard ──
   if (pathname === "/admin/login" || pathname === "/api/admin/auth") {
     return NextResponse.next();
   }
@@ -88,5 +101,8 @@ export async function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*"],
+  matcher: [
+    // All pages (for hreflang injection) + admin routes (for auth)
+    "/((?!_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|manifest.webmanifest|robots.txt|sitemap.xml|images|videos).*)",
+  ],
 };

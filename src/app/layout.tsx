@@ -5,6 +5,7 @@ import { AnalyticsScripts } from "@/components/seo/analytics";
 import { LocaleProvider } from "@/i18n/context";
 import MotionConfigProvider from "@/components/ui/motion-config-provider";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { HreflangTags } from "@/components/seo/hreflang-tags";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -85,6 +86,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} style={{ scrollBehavior: "smooth" }} suppressHydrationWarning>
       <head>
+        <HreflangTags />
         <link rel="preconnect" href="https://fourvenues.com" />
         <link rel="dns-prefetch" href="https://fourvenues.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
