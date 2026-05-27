@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -10,14 +11,15 @@ import { LanguageSelector } from "@/components/layout/language-selector";
 import { useT } from "@/i18n";
 
 const navItems = [
-  { name: "Enjoy Terrace", href: "/enjoy", ariaKey: "nav.goToEnjoy" },
-  { name: "Outxide Club", href: "/outxide", ariaKey: "nav.goToOutxide" },
-  { name: "Hiru", href: "/hiru", ariaKey: "nav.goToHiru" },
+  { name: "Enjoy Terrace", href: "/enjoy", ariaKey: "nav.goToEnjoy", activeClass: "text-enjoy border-enjoy" },
+  { name: "Outxide Club", href: "/outxide", ariaKey: "nav.goToOutxide", activeClass: "text-outxide border-outxide" },
+  { name: "Hiru", href: "/hiru", ariaKey: "nav.goToHiru", activeClass: "text-hiru border-hiru" },
 ];
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const pathname = usePathname();
   const t = useT();
 
   React.useEffect(() => {
@@ -56,16 +58,25 @@ export function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm text-muted-foreground hover:text-white transition-colors duration-300"
-                aria-label={t(item.ariaKey)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "text-sm pb-1 border-b-2 transition-colors duration-300",
+                    isActive
+                      ? item.activeClass
+                      : "text-muted-foreground border-transparent hover:text-white"
+                  )}
+                  aria-label={t(item.ariaKey)}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
             <LanguageSelector />
           </div>
 
@@ -93,22 +104,29 @@ export function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
           >
-            {navItems.map((item, i) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-display font-bold text-white hover:text-primary transition-colors"
+            {navItems.map((item, i) => {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={cn(
+                      "text-3xl font-display font-bold transition-colors",
+                      isActive ? item.activeClass : "text-white hover:text-primary"
+                    )}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>

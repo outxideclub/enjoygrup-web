@@ -1,6 +1,31 @@
 import type { Dictionary } from "./es";
 
 export const en: Dictionary = {
+  meta: {
+    title: "Grupo Enjoy | Cocktail Bar, Club & Restaurant in Alcudia",
+    description:
+      "Three unique experiences in Alcudia, Mallorca: Enjoy Terrace (cocktails & shisha), Outxide Club (nightclub) and Hiru Food & Drinks (grill restaurant).",
+    keywords:
+      "grupo enjoy, cocktail bar alcudia, nightclub alcudia, restaurant alcudia, enjoy terrace, outxide club, hiru food drinks, nightlife mallorca, things to do alcudia",
+    ogTitle: "Grupo Enjoy | Cocktail Bar, Club & Restaurant in Alcudia",
+    ogDescription:
+      "Enjoy Terrace, Outxide Club and Hiru Food & Drinks — three unique venues in Alcudia, Mallorca.",
+    enjoyTitle: "Enjoy Terrace | Cocktails & Shisha in Alcudia",
+    enjoyDescription:
+      "Enjoy Terrace: signature cocktails, premium shisha and the best night terrace in Alcudia, Mallorca. Where nights begin. Open daily from 17:00.",
+    enjoyOgDescription:
+      "Where nights begin. Signature cocktails and premium shisha on the best terrace in Alcudia.",
+    outxideTitle: "Outxide Club | Nightclub in Alcudia, Mallorca",
+    outxideDescription:
+      "Outxide Club: nightclub in Alcudia. The night continues. Exclusive events, DJs and the best nightlife. Tickets via FourVenues.",
+    outxideOgDescription:
+      "The night continues. Nightclub in Alcudia. Online tickets via FourVenues.",
+    hiruTitle: "Hiru Food & Drinks | Grill Restaurant in Alcudia",
+    hiruDescription:
+      "Hiru: Mallorcan charcoal grill cuisine in Alcudia. Aged meats, fresh-catch rice dishes and Mediterranean fish. Produce, tradition and flavour.",
+    hiruOgDescription:
+      "Produce, tradition and flavour. Mallorcan charcoal grill cuisine in Alcudia.",
+  },
   common: {
     location: "Alcudia, Mallorca",
     explore: "Explore",
@@ -51,6 +76,8 @@ export const en: Dictionary = {
     hours: "Open daily: 17:00 - 05:30",
     address: "Av. Tucán, 1, Port d'Alcúdia",
     continueOutxide: "Continue at Outxide Club",
+    reserve: "Reserve",
+    viewMenu: "View menu",
   },
   outxide: {
     tagline: "The night continues",
@@ -65,6 +92,8 @@ export const en: Dictionary = {
     hours: "Open: 23:00 - 05:30",
     address: "Av. Tucán, 1, 07400 Alcúdia, Mallorca",
     dinnerHiru: "Dinner at Hiru",
+    buyTickets: "Buy tickets",
+    reserveVip: "Reserve VIP table",
     checkoutSuccess: "Purchase completed",
     checkoutSuccessDesc:
       "Your purchase has been processed successfully. You will receive a confirmation with your tickets shortly.",
@@ -94,9 +123,28 @@ export const en: Dictionary = {
     hours: "12:00-23:30 - Fri-Sat until 1:00 - Tue closed",
     address: "Ctra. d'Artà, 40, Port d'Alcúdia",
     continueEnjoy: "Continue at Enjoy Terrace",
+    callToReserve: "Call to reserve",
+    reserveOnline: "Reserve online",
+    allergenLegend: "Allergen information",
+    allergenCeliac: "Celiac-friendly",
+    allergenGluten: "Contains gluten",
+    allergenLactose: "Contains lactose",
+    allergenNuts: "Contains nuts",
+    allergenShellfish: "Contains shellfish",
+    allergenEggs: "Contains eggs",
+    allergenSoy: "Contains soy",
+    allergenFish: "Contains fish",
+    allergenNote: "Please inform staff of any allergies or intolerances.",
+  },
+  socialProof: {
+    reviewsOn: "reviews on",
+    viewOnTripAdvisor: "View on TripAdvisor",
+    viewOnGoogle: "View on Google",
   },
   footer: {
     tagline: "Three unique experiences in Alcudia, Mallorca.",
+    enjoyTerrace: "Terrace",
+    enjoyCocktails: "Cocktails & Shisha",
     legal: "Legal",
     avisoLegal: "Legal Notice",
     privacy: "Privacy",
@@ -106,6 +154,11 @@ export const en: Dictionary = {
     email: "Email",
     location: "Location",
     cookieSettings: "Cookie Settings",
+    newsletterTagline: "Get exclusive news and offers",
+    newsletterPlaceholder: "Your email",
+    newsletterSubmit: "Subscribe",
+    newsletterSuccess: "Thanks! We'll keep you updated.",
+    newsletterError: "Please enter a valid email.",
   },
   legal: {
     title: "Legal",
@@ -139,5 +192,15 @@ export const en: Dictionary = {
     and: "and",
     privacyPolicy: "Privacy Policy",
     settingsButton: "Cookie Settings",
+  },
+  ageVerification: {
+    title: "Age verification",
+    description:
+      "Access to Outxide Club is restricted to persons aged 18 and over. Do you confirm you are of legal age?",
+    confirm: "Yes, I am over 18",
+    deny: "No, I am under 18",
+    legal1: "By confirming, you accept our",
+    entryConditions: "entry conditions",
+    privacyPolicy: "privacy policy",
   },
 } as const;

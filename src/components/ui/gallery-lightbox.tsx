@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -24,6 +25,12 @@ export function GalleryLightbox({
   accentColor = "white",
 }: GalleryLightboxProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+
+  // Resolve the portal target on mount (client-only)
+  useEffect(() => {
+    setPortalRoot(document.body);
+  }, []);
 
   const close = useCallback(() => setActiveIndex(null), []);
 
@@ -65,6 +72,95 @@ export function GalleryLightbox({
       ? "grid-cols-1 sm:grid-cols-2"
       : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
 
+  // Lightbox rendered via portal so it escapes any parent stacking contexts
+  // created by transforms, filters, or will-change on ancestor elements.
+  const lightbox =
+    activeIndex !== null && images[activeIndex] ? (
+      <AnimatePresence>
+        <motion.div
+          key="lightbox-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={close}
+        >
+          {/* Close */}
+          <button
+            onClick={close}
+            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            aria-label="Cerrar"
+          >
+            <X className="h-6 w-6 text-white" />
+          </button>
+
+          {/* Prev */}
+          {images.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
+              className="absolute left-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="h-6 w-6 text-white" />
+            </button>
+          )}
+
+          {/* Next */}
+          {images.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
+              className="absolute right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label="Siguiente"
+            >
+              <ChevronRight className="h-6 w-6 text-white" />
+            </button>
+          )}
+
+          {/* Image + description */}
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="relative max-w-5xl w-full mx-4 sm:mx-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden">
+              <Image
+                src={images[activeIndex].src}
+                alt={images[activeIndex].alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                priority
+              />
+            </div>
+            {(images[activeIndex].description ||
+              images[activeIndex].alt) && (
+              <div className="mt-4 text-center px-4">
+                {images[activeIndex].description && (
+                  <p className="text-white/90 text-base">
+                    {images[activeIndex].description}
+                  </p>
+                )}
+                <p className="text-white/40 text-sm mt-1">
+                  {activeIndex + 1} / {images.length}
+                </p>
+              </div>
+            )}
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
+    ) : null;
+
   return (
     <>
       <div className={`grid ${gridCols} gap-4`}>
@@ -97,91 +193,8 @@ export function GalleryLightbox({
         ))}
       </div>
 
-      {/* Lightbox overlay */}
-      <AnimatePresence>
-        {activeIndex !== null && images[activeIndex] && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
-            onClick={close}
-          >
-            {/* Close */}
-            <button
-              onClick={close}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Cerrar"
-            >
-              <X className="h-6 w-6 text-white" />
-            </button>
-
-            {/* Prev */}
-            {images.length > 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prev();
-                }}
-                className="absolute left-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                aria-label="Anterior"
-              >
-                <ChevronLeft className="h-6 w-6 text-white" />
-              </button>
-            )}
-
-            {/* Next */}
-            {images.length > 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  next();
-                }}
-                className="absolute right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                aria-label="Siguiente"
-              >
-                <ChevronRight className="h-6 w-6 text-white" />
-              </button>
-            )}
-
-            {/* Image + description */}
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              className="relative max-w-5xl w-full mx-4 sm:mx-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden">
-                <Image
-                  src={images[activeIndex].src}
-                  alt={images[activeIndex].alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1280px) 100vw, 1280px"
-                  priority
-                />
-              </div>
-              {(images[activeIndex].description ||
-                images[activeIndex].alt) && (
-                <div className="mt-4 text-center px-4">
-                  {images[activeIndex].description && (
-                    <p className="text-white/90 text-base">
-                      {images[activeIndex].description}
-                    </p>
-                  )}
-                  <p className="text-white/40 text-sm mt-1">
-                    {activeIndex + 1} / {images.length}
-                  </p>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Lightbox — portalled to body to escape parent stacking contexts */}
+      {portalRoot && createPortal(lightbox, portalRoot)}
     </>
   );
 }

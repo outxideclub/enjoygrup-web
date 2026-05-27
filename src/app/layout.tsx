@@ -4,7 +4,7 @@ import { CookieBanner } from "@/components/legal/cookie-banner";
 import { AnalyticsScripts } from "@/components/seo/analytics";
 import { MotionConfig } from "framer-motion";
 import { LocaleProvider } from "@/i18n/context";
-import { defaultLocale } from "@/i18n/config";
+import { getServerLocale, getServerT } from "@/i18n/server";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -21,45 +21,46 @@ const oswald = Oswald({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.grupoenjoy.es"),
-  title: {
-    default: "Grupo Enjoy | Cocteleria, Club & Restaurante",
-    template: "%s | Grupo Enjoy",
-  },
-  description:
-    "Tres experiencias unicas bajo un mismo grupo. Enjoy Terrace, Outxide Club y Hiru Food & Drinks en Alcudia, Mallorca.",
-  keywords: [
-    "grupo enjoy",
-    "cocteleria alcudia",
-    "discoteca alcudia",
-    "restaurante alcudia",
-    "enjoy terrace",
-    "outxide club",
-    "hiru food drinks",
-    "nightlife mallorca",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "es_ES",
-    siteName: "Grupo Enjoy",
-  },
-};
+const ogLocaleMap = { es: "es_ES", en: "en_GB" } as const;
 
-export default function RootLayout({
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
+
+  return {
+    metadataBase: new URL("https://www.grupoenjoy.es"),
+    title: {
+      default: t("meta.title"),
+      template: "%s | Grupo Enjoy",
+    },
+    description: t("meta.description"),
+    keywords: t("meta.keywords").split(", "),
+    openGraph: {
+      title: t("meta.ogTitle"),
+      description: t("meta.ogDescription"),
+      type: "website",
+      locale: ogLocaleMap[locale],
+      siteName: "Grupo Enjoy",
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
+
   return (
-    <html lang={defaultLocale} className={`${poppins.variable} ${oswald.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fourvenues.com" />
         <link rel="dns-prefetch" href="https://fourvenues.com" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased" suppressHydrationWarning>
         <MotionConfig reducedMotion="user">
-          <LocaleProvider initialLocale={defaultLocale}>
+          <LocaleProvider initialLocale={locale}>
             {children}
             <CookieBanner />
             <AnalyticsScripts />

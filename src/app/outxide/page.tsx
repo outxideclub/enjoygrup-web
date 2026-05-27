@@ -13,10 +13,12 @@ import {
   ExternalLink,
   Users,
   Loader2,
+  Crown,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Button } from "@/components/ui/button";
 import { OutxideLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import dynamic from "next/dynamic";
@@ -203,6 +205,29 @@ export default function OutxidePage() {
             <p className="mt-3 max-w-lg mx-auto text-muted-foreground">
               {t("outxide.description")}
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full px-8 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
+              >
+                <a href="#eventos">
+                  <Ticket className="h-4 w-4 mr-2" />
+                  {t("outxide.buyTickets")}
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8 border-outxide/40 text-outxide hover:bg-outxide/10"
+              >
+                <a href="https://web.fourvenues.com/es/outxide-club" target="_blank" rel="noopener noreferrer">
+                  <Crown className="h-4 w-4 mr-2" />
+                  {t("outxide.reserveVip")}
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -214,10 +239,15 @@ export default function OutxidePage() {
             <Clock className="h-4 w-4 text-outxide" />
             <span>{t("outxide.hours")}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <a
+            href="https://maps.google.com/?q=Outxide+Club+Av+Tucan+1+Port+Alcudia+Mallorca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <MapPin className="h-4 w-4 text-outxide" />
             <span>{t("outxide.address")}</span>
-          </div>
+          </a>
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-outxide" />
             <span>+21</span>

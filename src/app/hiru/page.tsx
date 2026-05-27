@@ -8,8 +8,10 @@ import {
   ArrowRight,
   ArrowUp,
   Clock,
+  ExternalLink,
   MapPin,
   Phone,
+  Star,
   Leaf,
   Anchor,
   Waves,
@@ -173,12 +175,17 @@ export default function HiruPage() {
             <Clock className="h-4 w-4 text-hiru" />
             <span>{t("hiru.hours")}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <a
+            href="https://maps.google.com/?q=Hiru+Food+Drinks+Ctra+Arta+40+Port+Alcudia+Mallorca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <MapPin className="h-4 w-4 text-hiru" />
             <span>{t("hiru.address")}</span>
-          </div>
-          <a href="tel:+34971853932" className="flex items-center gap-2 text-hiru font-medium hover:text-hiru/80 transition-colors">
-            <Phone className="h-4 w-4" />
+          </a>
+          <a href="tel:+34971853932" className="flex items-center gap-2 text-hiru font-medium hover:text-hiru/80 transition-colors whitespace-nowrap">
+            <Phone className="h-4 w-4 shrink-0" />
             <span>971 853 932</span>
           </a>
           <Link
@@ -188,6 +195,53 @@ export default function HiruPage() {
             <ArrowRight className="h-4 w-4" />
             <span>{t("hiru.continueEnjoy")}</span>
           </Link>
+        </div>
+      </section>
+
+      {/* Social proof */}
+      <div className="relative z-20 flex items-center justify-center gap-6 py-3 text-xs text-muted-foreground">
+        <a
+          href="https://www.tripadvisor.com/Restaurant_Review-g1233772-d27740707-Reviews-Hiru_Food_Drinks-Alcudia_Majorca_Balearic_Islands.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 hover:text-white transition-colors"
+        >
+          <Star className="h-3.5 w-3.5 text-hiru fill-hiru" />
+          <span className="font-medium text-white">4.8</span>
+          <span>TripAdvisor</span>
+        </a>
+        <span className="text-white/10">|</span>
+        <div className="flex items-center gap-1.5">
+          <Star className="h-3.5 w-3.5 text-hiru fill-hiru" />
+          <span className="font-medium text-white">4.9</span>
+          <span>Google</span>
+        </div>
+      </div>
+
+      {/* Reservation buttons */}
+      <section className="relative z-20 py-6 bg-background/40">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
+          >
+            <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4 mr-2" />
+              {t("hiru.reserveOnline")}
+            </a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
+          >
+            <a href="tel:+34971853932">
+              <Phone className="h-4 w-4 mr-2" />
+              {t("hiru.callToReserve")}
+            </a>
+          </Button>
         </div>
       </section>
 
@@ -315,20 +369,29 @@ export default function HiruPage() {
             })}
           </div>
 
-          <ScrollReveal>
-            <div className="mt-20 text-center">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full px-10 bg-hiru hover:bg-hiru/80 text-white shadow-xl shadow-hiru/20"
-              >
-                <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
-                  <Phone className="h-4 w-4 mr-2" />
-                  {t("common.reserveTable")}
-                </a>
-              </Button>
-            </div>
-          </ScrollReveal>
+          <div className="mt-20 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
+            >
+              <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4 mr-2" />
+                {t("hiru.reserveOnline")}
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
+            >
+              <a href="tel:+34971853932">
+                <Phone className="h-4 w-4 mr-2" />
+                {t("hiru.callToReserve")}
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 

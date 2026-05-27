@@ -3,10 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Button } from "@/components/ui/button";
 import { EnjoyLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import dynamic from "next/dynamic";
@@ -167,6 +168,29 @@ export default function EnjoyPage() {
             <p className="mt-6 max-w-lg mx-auto text-muted-foreground text-lg italic drop-shadow-md">
               {t("enjoy.tagline")}
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full px-8 bg-enjoy hover:bg-enjoy/80 text-white shadow-lg shadow-enjoy/20"
+              >
+                <a href="tel:+34971853932">
+                  <Phone className="h-4 w-4 mr-2" />
+                  {t("enjoy.reserve")}
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8 border-enjoy/40 text-enjoy hover:bg-enjoy/10"
+              >
+                <a href="#carta">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  {t("enjoy.viewMenu")}
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -190,10 +214,15 @@ export default function EnjoyPage() {
             <Clock className="h-4 w-4 text-enjoy" />
             <span>{t("enjoy.hours")}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <a
+            href="https://maps.google.com/?q=Enjoy+Terrace+Av+Tucan+1+Port+Alcudia+Mallorca"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
             <MapPin className="h-4 w-4 text-enjoy" />
             <span>{t("enjoy.address")}</span>
-          </div>
+          </a>
           <Link
             href="/outxide"
             className="flex items-center gap-2 text-enjoy hover:text-enjoy-light transition-colors"
@@ -203,6 +232,20 @@ export default function EnjoyPage() {
           </Link>
         </div>
       </section>
+
+      {/* Social proof */}
+      <div className="relative z-20 flex items-center justify-center gap-6 py-3 text-xs text-muted-foreground">
+        <a
+          href="https://www.tripadvisor.com/Attraction_Review-g580312-d4478448-Reviews-Enjoy_Club-Port_d_Alcudia_Alcudia_Majorca_Balearic_Islands.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 hover:text-white transition-colors"
+        >
+          <Star className="h-3.5 w-3.5 text-enjoy fill-enjoy" />
+          <span className="font-medium text-white">318</span>
+          <span>{locale === "es" ? "opiniones en" : "reviews on"} TripAdvisor</span>
+        </a>
+      </div>
 
       {/* Gallery */}
       <section className="grain-overlay py-24 md:py-32 relative z-20 bg-[radial-gradient(ellipse_at_30%_50%,rgba(236,72,153,0.18)_0%,transparent_65%)]">

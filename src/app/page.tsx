@@ -30,6 +30,7 @@ const businesses = [
     accent: "text-enjoy",
     borderColor: "hover:border-enjoy/30",
     image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
+    cardImage: "/images/enjoy/485765269_1384374992965504_5931564430169011113_n.jpg",
     video: "/videos/enjoy-hero.mp4",
     poster: "/videos/enjoy-hero-poster.jpg",
     cta: "Enjoy Terrace"
@@ -47,6 +48,7 @@ const businesses = [
     accent: "text-outxide",
     borderColor: "hover:border-outxide/30",
     image: "/images/outxide/DSCF8103-9.webp",
+    cardImage: "/images/outxide/DSCF8103-9.webp",
     video: "/videos/outxide-hero.mp4",
     poster: "/videos/outxide-hero-poster.jpg",
     cta: "Outxide Club"
@@ -64,6 +66,7 @@ const businesses = [
     accent: "text-hiru",
     borderColor: "hover:border-hiru/30",
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
+    cardImage: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     video: "/videos/hiru-hero.mp4",
     poster: "/videos/hiru-hero-poster.jpg",
     cta: "Hiru Food & Drinks"
@@ -127,7 +130,7 @@ export default function HomePage() {
                   fill
                   preload
                   sizes="100vw"
-                  className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-60"}`}
+                  className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-80"}`}
                 />
                 <video
                   key={loadVideo ? activeBiz.video : activeBiz.poster}
@@ -139,7 +142,7 @@ export default function HomePage() {
                   poster={activeBiz.poster}
                   preload="none"
                   onLoadedData={handleVideoReady}
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-60" : "opacity-0"}`}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-70" : "opacity-0"}`}
                 >
                   {loadVideo && <source src={activeBiz.video} type="video/mp4" />}
                 </video>
@@ -155,7 +158,7 @@ export default function HomePage() {
               />
             )}
             <div className={`absolute inset-0 bg-gradient-to-b ${activeBiz.color} to-black`} />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/25" />
           </motion.div>
         </AnimatePresence>
 
@@ -248,28 +251,47 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {businesses.map((biz, i) => (
               <ScrollReveal key={biz.name} delay={i * 0.15}>
                 <Link href={biz.href} className="group block h-full">
-                  <div className="relative h-full overflow-hidden rounded-3xl border border-white/5 bg-zinc-950 p-8 transition-all duration-500 hover:border-white/20 flex flex-col">
-                    <div className="mb-8">
-                      <biz.logo className="h-28 w-auto mb-6" />
-                      <p className="text-sm text-white/50 leading-relaxed">
-                        {t(`home.${biz.id}Description`)}
-                      </p>
-                    </div>
-                    <div className="mt-auto pt-8 flex items-center justify-between border-t border-white/5">
-                      <span className="text-sm font-medium text-white group-hover:text-white/70 transition-colors">
-                        {t("common.visit")} {biz.name}
-                      </span>
-                      <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center transition-transform group-hover:translate-x-1">
-                        <ArrowRight className="h-4 w-4 text-white" />
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-3xl transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.02]">
+                    {/* Background photo */}
+                    <Image
+                      src={biz.cardImage}
+                      alt={biz.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-all duration-700 ease-out group-hover:brightness-110 group-hover:scale-105"
+                    />
+
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/80" />
+
+                    {/* Colored accent glow on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${biz.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+
+                    {/* Card content */}
+                    <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+                      {/* Top: Logo */}
+                      <div>
+                        <biz.logo className="h-16 sm:h-20 w-auto drop-shadow-lg" />
+                      </div>
+
+                      {/* Bottom: Text + CTA */}
+                      <div>
+                        <p className={`text-sm font-semibold tracking-wide ${biz.accent} mb-2`}>
+                          {t(`home.${biz.id}Subtitle`)}
+                        </p>
+                        <p className="text-sm text-white/70 leading-relaxed mb-5 line-clamp-2">
+                          {t(`home.${biz.id}Description`)}
+                        </p>
+                        <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
+                          {t("common.visit")} {biz.name}
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
                       </div>
                     </div>
-
-                    {/* Background glow on hover */}
-                    <div className={`absolute -bottom-24 -right-24 w-48 h-48 rounded-full ${biz.accent.replace('text-', 'bg-')}/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
                   </div>
                 </Link>
               </ScrollReveal>

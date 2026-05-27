@@ -104,7 +104,7 @@ export function ParticleBackground({
   return (
     <canvas
       ref={canvasRef}
-      className={cn("pointer-events-none absolute inset-0 h-full w-full", className)}
+      className={cn("pointer-events-none fixed inset-0 h-full w-full", className)}
     />
   );
 }
