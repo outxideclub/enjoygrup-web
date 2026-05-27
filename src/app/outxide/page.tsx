@@ -14,6 +14,9 @@ import {
   Users,
   Loader2,
   Crown,
+  Wine,
+  Sofa,
+  Star,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -363,6 +366,59 @@ export default function OutxidePage() {
                 </span>
                 <ExternalLink className="h-3 w-3 text-muted-foreground" />
               </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* VIP Experience */}
+      <section className="grain-overlay relative z-20 py-24 md:py-32 overflow-hidden bg-[radial-gradient(ellipse_at_50%_50%,rgba(124,58,237,0.2)_0%,transparent_65%)]">
+        <div className="mx-auto max-w-4xl px-6">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <p className="text-sm font-bold tracking-[0.2em] text-outxide/60 uppercase mb-4">
+                {t("outxide.vipSubtitle")}
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-6">
+                {t("outxide.vipTitle")}
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+                {t("outxide.vipDescription")}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+              {[
+                { icon: Wine, label: t("outxide.vipBottleService") },
+                { icon: Sofa, label: t("outxide.vipPrivateArea") },
+                { icon: Star, label: t("outxide.vipPersonalHost") },
+              ].map((perk, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.03] p-6 text-center transition-all hover:border-outxide/20 hover:bg-outxide/[0.04]"
+                >
+                  <perk.icon className="h-6 w-6 text-outxide" />
+                  <span className="text-sm font-medium text-white/80">{perk.label}</span>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <div className="text-center">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full px-10 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
+              >
+                <a href="https://web.fourvenues.com/es/outxide-club" target="_blank" rel="noopener noreferrer">
+                  <Crown className="h-4 w-4 mr-2" />
+                  {t("outxide.vipReserve")}
+                  <ExternalLink className="h-3.5 w-3.5 ml-2 opacity-60" />
+                </a>
+              </Button>
             </div>
           </ScrollReveal>
         </div>

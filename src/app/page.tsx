@@ -226,11 +226,13 @@ export default function HomePage() {
           >
             <ChevronRight className="h-6 w-6 text-white" />
           </button>
-          <div className="ml-4 flex gap-2">
+          <div className="ml-4 flex gap-1.5">
             {businesses.map((_, i) => (
-              <div
+              <button
                 key={i}
-                className={`h-1 transition-all duration-500 ${i === index ? 'w-8 bg-white' : 'w-2 bg-white/20'}`}
+                onClick={() => setIndex(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-white' : 'w-3 bg-white/25 hover:bg-white/40'}`}
               />
             ))}
           </div>

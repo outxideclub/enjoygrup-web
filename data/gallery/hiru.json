@@ -1,32 +1,100 @@
-[
-  {
-    "src": "/images/hiru/562670095_17922705096168067_538433746831408588_n.jpg",
-    "alt": "Croquetas caseras de jamón ibérico",
-    "description": "Croquetas caseras de jamon iberico, crujientes por fuera y cremosas por dentro"
-  },
-  {
-    "src": "/images/hiru/483126770_17896998534168067_192713367724853344_n.jpg",
-    "alt": "Pulpo a la brasa con pimentón",
-    "description": "Pulpo a la brasa con pimenton de la Vera y patata confitada"
-  },
-  {
-    "src": "/images/hiru/561985811_17922705114168067_7759468155282027217_n.jpg",
-    "alt": "Jamón ibérico con pan tumaca",
-    "description": "Jamon iberico de bellota cortado a cuchillo con pan tumaca"
-  },
-  {
-    "src": "/images/hiru/692122357_122298526610201104_3037346814293072640_n.jpg",
-    "alt": "Steak tartare cortado a cuchillo",
-    "description": "Steak tartare de solomillo cortado a cuchillo con yema curada"
-  },
-  {
-    "src": "/images/hiru/482801153_17896889463168067_1689101766204329963_n.jpg",
-    "alt": "Interior restaurante Hiru",
-    "description": "Interior del restaurante con ambiente calido y diseno contemporaneo"
-  },
-  {
-    "src": "/images/hiru/689490512_122297652590201104_2174807540291244064_n.jpg",
-    "alt": "Terraza Hiru preparada para cenar",
-    "description": "Terraza preparada para una cena bajo las estrellas de Alcudia"
-  }
-]
+{
+  "categories": ["all", "gastronomia", "espacio"],
+  "images": [
+    {
+      "src": "/images/hiru/562670095_17922705096168067_538433746831408588_n.jpg",
+      "alt": "Croquetas caseras de jamón ibérico",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/483126770_17896998534168067_192713367724853344_n.jpg",
+      "alt": "Pulpo a la brasa con pimentón",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/561985811_17922705114168067_7759468155282027217_n.jpg",
+      "alt": "Jamón ibérico con pan tumaca",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/692122357_122298526610201104_3037346814293072640_n.jpg",
+      "alt": "Steak tartare cortado a cuchillo",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/677343610_122295454376201104_6995092575868054731_n.jpg",
+      "alt": "Carne madurada sobre madera de olivo",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/680591989_122296608722201104_4494139569567112933_n.jpg",
+      "alt": "Chuletón a la brasa sobre carbón",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/493354205_122229099188201104_3242778805126633840_n.jpg",
+      "alt": "Entrecot a la brasa con verduras",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/562533699_17922705087168067_8031846525458491399_n.jpg",
+      "alt": "Burrata con jamón y tostadas",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/565081301_17922705105168067_7211879157282024966_n.jpg",
+      "alt": "Steak tartare con pan crujiente",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/667757919_122293639154201104_7376217363999155599_n.jpg",
+      "alt": "Chef preparando cortes de carne",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/671119165_122294830352201104_8283524073295182200_n.jpg",
+      "alt": "Parrillada de carnes a la brasa",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/489278271_122224698272201104_2709257958875125484_n.jpg",
+      "alt": "Carne madurada en cámara de maduración",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/482801153_17896889463168067_1689101766204329963_n.jpg",
+      "alt": "Interior del restaurante Hiru",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/689490512_122297652590201104_2174807540291244064_n.jpg",
+      "alt": "Terraza preparada para cenar",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/475426584_122217376988201104_7624273276245682480_n.jpg",
+      "alt": "Zona lounge de la terraza",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/476864545_122218990460201104_8345858149750135207_n.jpg",
+      "alt": "Salón interior con pared de ladrillo",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/690599151_122297652584201104_7558221336541313381_n.jpg",
+      "alt": "Barra de cócteles con estanterías",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/496393587_122233779992201104_2951764048642673054_n.jpg",
+      "alt": "Detalle del interior con plantas",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/487956094_122223380948201104_7357494056939042885_n.jpg",
+      "alt": "Carta del restaurante Hiru",
+      "category": "espacio"
+    }
+  ]
+}

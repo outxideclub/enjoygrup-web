@@ -15,6 +15,7 @@ import {
   Leaf,
   Anchor,
   Waves,
+  Info,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -35,9 +36,10 @@ import { useRef, useCallback, useState, useEffect } from "react";
 
 interface MenuItem { name: string; description: string; price?: string; }
 interface MenuSection { id: string; category: string; icon: string; subtitle?: string; items: MenuItem[]; }
-interface GalleryImage { src: string; alt: string; }
+interface GalleryImage { src: string; alt: string; category?: string; }
+interface GalleryData { categories: string[]; images: GalleryImage[]; }
 
-const galleryImages = hiruGallery as GalleryImage[];
+const galleryData = hiruGallery as GalleryData;
 const menus = {
   es: hiruMenuEs,
   en: hiruMenuEn,
@@ -73,12 +75,15 @@ export default function HiruPage() {
     const nav = menuNavRef.current;
     const section = menuSectionRef.current;
     if (!nav || !section) return;
+    let navVisible = true;
+    let sectionVisible = false;
+    const update = () => setShowFloatingNav(!navVisible && sectionVisible);
     const navObs = new IntersectionObserver(
-      ([entry]) => setShowFloatingNav(!entry.isIntersecting),
+      ([entry]) => { navVisible = entry.isIntersecting; update(); },
       { threshold: 0 },
     );
     const sectionObs = new IntersectionObserver(
-      ([entry]) => { if (!entry.isIntersecting) setShowFloatingNav(false); },
+      ([entry]) => { sectionVisible = entry.isIntersecting; update(); },
       { threshold: 0 },
     );
     navObs.observe(nav);
@@ -284,7 +289,14 @@ export default function HiruPage() {
             </div>
           </ScrollReveal>
 
-          <GalleryLightbox images={galleryImages} />
+          <GalleryLightbox
+            images={galleryData.images}
+            categories={[
+              { key: "all", label: t("hiru.galleryAll") },
+              { key: "gastronomia", label: t("hiru.galleryFood") },
+              { key: "espacio", label: t("hiru.gallerySpace") },
+            ]}
+          />
         </div>
       </section>
 
@@ -367,6 +379,31 @@ export default function HiruPage() {
                 </ScrollReveal>
               );
             })}
+          </div>
+
+          <div className="mt-16 rounded-xl border border-hiru/10 bg-hiru/5 p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Info className="h-4 w-4 text-hiru" />
+              <h4 className="text-sm font-semibold text-white">{t("hiru.allergenLegend")}</h4>
+            </div>
+            <div className="flex flex-wrap gap-2 mb-3">
+              {[
+                { key: "allergenGluten", emoji: "🌾" },
+                { key: "allergenCeliac", emoji: "✓" },
+                { key: "allergenLactose", emoji: "🥛" },
+                { key: "allergenNuts", emoji: "🥜" },
+                { key: "allergenShellfish", emoji: "🦐" },
+                { key: "allergenEggs", emoji: "🥚" },
+                { key: "allergenSoy", emoji: "🫘" },
+                { key: "allergenFish", emoji: "🐟" },
+              ].map(({ key, emoji }) => (
+                <span key={key} className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-muted-foreground">
+                  <span>{emoji}</span>
+                  {t(`hiru.${key}` as Parameters<typeof t>[0])}
+                </span>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground italic">{t("hiru.allergenNote")}</p>
           </div>
 
           <div className="mt-20 text-center flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -73,12 +73,15 @@ export default function EnjoyPage() {
     const nav = menuNavRef.current;
     const section = cartaSectionRef.current;
     if (!nav || !section) return;
+    let navVisible = true;
+    let sectionVisible = false;
+    const update = () => setShowFloatingNav(!navVisible && sectionVisible);
     const navObs = new IntersectionObserver(
-      ([entry]) => setShowFloatingNav(!entry.isIntersecting),
+      ([entry]) => { navVisible = entry.isIntersecting; update(); },
       { threshold: 0 },
     );
     const sectionObs = new IntersectionObserver(
-      ([entry]) => { if (!entry.isIntersecting) setShowFloatingNav(false); },
+      ([entry]) => { sectionVisible = entry.isIntersecting; update(); },
       { threshold: 0 },
     );
     navObs.observe(nav);

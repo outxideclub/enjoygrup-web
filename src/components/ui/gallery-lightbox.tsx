@@ -11,19 +11,33 @@ interface GalleryImage {
   src: string;
   alt: string;
   description?: string;
+  category?: string;
+}
+
+interface CategoryLabel {
+  key: string;
+  label: string;
 }
 
 interface GalleryLightboxProps {
   images: GalleryImage[];
   columns?: 2 | 3;
   accentColor?: string;
+  categories?: CategoryLabel[];
 }
 
 export function GalleryLightbox({
   images,
   columns = 3,
   accentColor = "white",
+  categories,
 }: GalleryLightboxProps) {
+  const [activeCategory, setActiveCategory] = useState("all");
+  const filtered = categories
+    ? activeCategory === "all"
+      ? images
+      : images.filter((img) => img.category === activeCategory)
+    : images;
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
 
@@ -37,17 +51,17 @@ export function GalleryLightbox({
   const prev = useCallback(
     () =>
       setActiveIndex((i) =>
-        i !== null ? (i - 1 + images.length) % images.length : null,
+        i !== null ? (i - 1 + filtered.length) % filtered.length : null,
       ),
-    [images.length],
+    [filtered.length],
   );
 
   const next = useCallback(
     () =>
       setActiveIndex((i) =>
-        i !== null ? (i + 1) % images.length : null,
+        i !== null ? (i + 1) % filtered.length : null,
       ),
-    [images.length],
+    [filtered.length],
   );
 
   useEffect(() => {
@@ -75,7 +89,7 @@ export function GalleryLightbox({
   // Lightbox rendered via portal so it escapes any parent stacking contexts
   // created by transforms, filters, or will-change on ancestor elements.
   const lightbox =
-    activeIndex !== null && images[activeIndex] ? (
+    activeIndex !== null && filtered[activeIndex] ? (
       <AnimatePresence>
         <motion.div
           key="lightbox-overlay"
@@ -96,7 +110,7 @@ export function GalleryLightbox({
           </button>
 
           {/* Prev */}
-          {images.length > 1 && (
+          {filtered.length > 1 && (
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -110,7 +124,7 @@ export function GalleryLightbox({
           )}
 
           {/* Next */}
-          {images.length > 1 && (
+          {filtered.length > 1 && (
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -135,24 +149,24 @@ export function GalleryLightbox({
           >
             <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden">
               <Image
-                src={images[activeIndex].src}
-                alt={images[activeIndex].alt}
+                src={filtered[activeIndex].src}
+                alt={filtered[activeIndex].alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1280px) 100vw, 1280px"
                 priority
               />
             </div>
-            {(images[activeIndex].description ||
-              images[activeIndex].alt) && (
+            {(filtered[activeIndex].description ||
+              filtered[activeIndex].alt) && (
               <div className="mt-4 text-center px-4">
-                {images[activeIndex].description && (
+                {filtered[activeIndex].description && (
                   <p className="text-white/90 text-base">
-                    {images[activeIndex].description}
+                    {filtered[activeIndex].description}
                   </p>
                 )}
                 <p className="text-white/40 text-sm mt-1">
-                  {activeIndex + 1} / {images.length}
+                  {activeIndex + 1} / {filtered.length}
                 </p>
               </div>
             )}
@@ -163,8 +177,25 @@ export function GalleryLightbox({
 
   return (
     <>
+      {categories && categories.length > 1 && (
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {categories.map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => { setActiveCategory(cat.key); setActiveIndex(null); }}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
+                activeCategory === cat.key
+                  ? "bg-white text-black"
+                  : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10 hover:text-white"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      )}
       <div className={`grid ${gridCols} gap-4`}>
-        {images.map((img, i) => (
+        {filtered.map((img, i) => (
           <ScrollReveal key={i} delay={i * 0.05}>
             <button
               type="button"

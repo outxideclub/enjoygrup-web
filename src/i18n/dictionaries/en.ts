@@ -94,6 +94,14 @@ export const en: Dictionary = {
     dinnerHiru: "Dinner at Hiru",
     buyTickets: "Buy tickets",
     reserveVip: "Reserve VIP table",
+    vipTitle: "VIP Experience",
+    vipSubtitle: "Reserve your table",
+    vipDescription:
+      "Experience the night from a whole new level. Reserve your VIP table at Outxide and enjoy exclusive attention, bottle service and the best views of the club.",
+    vipBottleService: "Premium bottle service",
+    vipPrivateArea: "Reserved seating area",
+    vipPersonalHost: "Personal host service",
+    vipReserve: "Reserve VIP table",
     checkoutSuccess: "Purchase completed",
     checkoutSuccessDesc:
       "Your purchase has been processed successfully. You will receive a confirmation with your tickets shortly.",
@@ -110,6 +118,9 @@ export const en: Dictionary = {
     description:
       "Signature cuisine where charcoal grill and fresh produce take centre stage. Meats, fresh-catch rice dishes and the finest cocktails into the late hours.",
     galleryTitle: "Produce - Tradition - Flavour",
+    galleryAll: "All",
+    galleryFood: "Food",
+    gallerySpace: "Space",
     menuTitle: "The Menu",
     freshProduct: "Fresh produce",
     freshProductDesc:

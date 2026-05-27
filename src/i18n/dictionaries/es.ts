@@ -92,6 +92,14 @@ export const es = {
     dinnerHiru: "Cena en Hiru",
     buyTickets: "Comprar entradas",
     reserveVip: "Reservar mesa VIP",
+    vipTitle: "Experiencia VIP",
+    vipSubtitle: "Reserva tu mesa",
+    vipDescription:
+      "Vive la noche desde otro nivel. Reserva tu mesa VIP en Outxide y disfruta de atención exclusiva, servicio de botellas y las mejores vistas del club.",
+    vipBottleService: "Servicio de botellas premium",
+    vipPrivateArea: "Zona reservada con sofás",
+    vipPersonalHost: "Atención personalizada",
+    vipReserve: "Reservar mesa VIP",
     checkoutSuccess: "Compra completada",
     checkoutSuccessDesc:
       "Tu compra se ha procesado correctamente. En breve recibirás la confirmación con tus entradas.",
@@ -108,6 +116,9 @@ export const es = {
     description:
       "Cocina de autor donde la brasa y el producto fresco son los protagonistas. Carnes, arroces de lonja y los mejores cócteles hasta altas horas.",
     galleryTitle: "Producto · Tradición · Sabor",
+    galleryAll: "Todo",
+    galleryFood: "Gastronomía",
+    gallerySpace: "Espacio",
     menuTitle: "La Carta",
     freshProduct: "Producto fresco",
     freshProductDesc:
