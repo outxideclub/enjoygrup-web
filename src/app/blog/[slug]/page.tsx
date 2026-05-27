@@ -105,6 +105,8 @@ export default async function BlogPostPage({ params }: Props) {
         url: `${BASE_URL}/images/logos/enjoy.png`,
       },
     },
+    dateModified: post.date,
+    inLanguage: locale,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${BASE_URL}/blog/${post.slug}`,

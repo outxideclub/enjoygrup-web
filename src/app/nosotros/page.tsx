@@ -86,7 +86,7 @@ const venues = [
     glow: "hover-glow-outxide",
     gradient: "from-cyan-500/20 to-violet-500/10",
     cardKey: "about.outxideCard" as const,
-    image: "/images/outxide/DSCF8103-9.webp",
+    image: "/images/outxide/DSCF8103-9.jpg",
   },
   {
     id: "hiru",

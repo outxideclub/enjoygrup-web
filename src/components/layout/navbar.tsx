@@ -16,6 +16,12 @@ const navItems = [
   { name: "Hiru", href: "/hiru", ariaKey: "nav.goToHiru", activeClass: "text-hiru border-hiru" },
 ];
 
+const secondaryItems = [
+  { labelKey: "footer.blog", href: "/blog" },
+  { labelKey: "footer.aboutUs", href: "/nosotros" },
+  { labelKey: "footer.contactUs", href: "/contacto" },
+];
+
 export function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
@@ -77,6 +83,25 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <span className="h-3 w-px bg-white/20" aria-hidden="true" />
+            {secondaryItems.map((item) => {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-xs transition-colors duration-300",
+                    isActive
+                      ? "text-white"
+                      : "text-muted-foreground hover:text-white"
+                  )}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {t(item.labelKey)}
+                </Link>
+              );
+            })}
             <LanguageSelector />
           </div>
 
@@ -123,6 +148,38 @@ export function Navbar() {
                     aria-current={isActive ? "page" : undefined}
                   >
                     {item.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: navItems.length * 0.1 }}
+              className="w-12 border-t border-white/10"
+              aria-hidden="true"
+            />
+            {secondaryItems.map((item, i) => {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (navItems.length + 1 + i) * 0.1 }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={cn(
+                      "text-xl transition-colors",
+                      isActive
+                        ? "text-white"
+                        : "text-muted-foreground hover:text-white"
+                    )}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {t(item.labelKey)}
                   </Link>
                 </motion.div>
               );

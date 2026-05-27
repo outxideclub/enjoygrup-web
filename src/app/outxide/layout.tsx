@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: ogLocaleMap[locale] || "es_ES",
       images: [
         {
-          url: "/images/outxide/DSCF8103-9.webp",
+          url: "/images/outxide/DSCF8103-9.jpg",
           width: 1200,
           height: 630,
           alt: "Outxide Club — Alcudia, Mallorca",
@@ -45,16 +45,18 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function OutxideLayout({
+export default async function OutxideLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
   return (
     <div className="theme-outxide">
       <AgeVerification />
       {children}
-      <OutxideJsonLd />
+      <OutxideJsonLd description={t("meta.outxideDescription")} />
     </div>
   );
 }

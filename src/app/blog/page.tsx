@@ -6,6 +6,7 @@ import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { JsonLd } from "@/components/seo/json-ld";
 import { getAllPosts, toBlogLocale, getPostText, type BlogPost } from "../../../data/blog/posts";
 import { useT, useLocale } from "@/i18n";
 
@@ -118,11 +119,37 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
 
 export default function BlogPage() {
   const t = useT();
+  const locale = useLocale();
   const posts = getAllPosts();
+  const bl = toBlogLocale(locale);
+
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blog | Grupo Enjoy",
+    description: t("meta.blogDescription"),
+    url: "https://www.grupoenjoy.es/blog",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Grupo Enjoy",
+      url: "https://www.grupoenjoy.es",
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: posts.length,
+      itemListElement: posts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: getPostText(post.title, bl),
+        url: `https://www.grupoenjoy.es/blog/${post.slug}`,
+      })),
+    },
+  };
 
   return (
     <div className="noise-texture relative">
       <Navbar />
+      <JsonLd data={collectionJsonLd} />
       <main>
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(236,72,153,0.1)_0%,transparent_50%),radial-gradient(ellipse_at_80%_80%,rgba(6,182,212,0.08)_0%,transparent_50%)]" />

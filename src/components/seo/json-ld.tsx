@@ -58,7 +58,7 @@ const HIRU_GEO = {
   longitude: 3.1222,
 };
 
-export function OrganizationJsonLd() {
+export function OrganizationJsonLd({ description }: { description?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -69,7 +69,7 @@ export function OrganizationJsonLd() {
         url: "https://www.grupoenjoy.es",
         logo: "https://www.grupoenjoy.es/images/logos/enjoy.png",
         description:
-          "Grupo de hostelería y ocio premium en Alcúdia, Mallorca. Tres experiencias únicas: Hiru Food & Drinks, Enjoy Terrace y Outxide Club.",
+          description ?? "Grupo de hostelería y ocio premium en Alcúdia, Mallorca. Tres experiencias únicas: Hiru Food & Drinks, Enjoy Terrace y Outxide Club.",
         telephone: "+34 971 853 932",
         address: ENJOY_ADDRESS,
         contactPoint: {
@@ -108,7 +108,7 @@ export function OrganizationJsonLd() {
   );
 }
 
-export function HiruJsonLd() {
+export function HiruJsonLd({ description }: { description?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -119,7 +119,7 @@ export function HiruJsonLd() {
         url: "https://www.grupoenjoy.es/hiru",
         image: "https://www.grupoenjoy.es/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
         description:
-          "Cocina mallorquina a la brasa en Alcúdia. Carnes maduradas, arroces de lonja y pescados del Mediterráneo.",
+          description ?? "Cocina mallorquina a la brasa en Alcúdia. Carnes maduradas, arroces de lonja y pescados del Mediterráneo.",
         servesCuisine: ["Mediterranean", "Spanish", "Seafood", "Grill"],
         priceRange: "€€-€€€",
         address: HIRU_ADDRESS,
@@ -170,7 +170,7 @@ export function HiruJsonLd() {
   );
 }
 
-export function EnjoyJsonLd() {
+export function EnjoyJsonLd({ description }: { description?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -181,7 +181,7 @@ export function EnjoyJsonLd() {
         url: "https://www.grupoenjoy.es/enjoy",
         image: "https://www.grupoenjoy.es/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
         description:
-          "Cocktail lounge y terraza premium en Alcúdia. Cócteles de autor, shisha premium y la mejor terraza nocturna de Mallorca.",
+          description ?? "Cocktail lounge y terraza premium en Alcúdia. Cócteles de autor, shisha premium y la mejor terraza nocturna de Mallorca.",
         servesCuisine: ["Cocktails", "Shisha", "Premium Drinks"],
         priceRange: "€€",
         address: ENJOY_ADDRESS,
@@ -204,7 +204,7 @@ export function EnjoyJsonLd() {
           reviewCount: "1283",
         },
         sameAs: [
-          "https://www.instagram.com/enjoy.club.alcudia/",
+          "https://www.instagram.com/enjoy.terrace.alcudia/",
           "https://www.facebook.com/EnjoyAlcudia/",
           "https://www.tripadvisor.com/Attraction_Review-g580312-d4478448-Reviews-Enjoy_Club-Port_d_Alcudia_Alcudia_Majorca_Balearic_Islands.html",
         ],
@@ -217,7 +217,7 @@ export function EnjoyJsonLd() {
   );
 }
 
-export function OutxideJsonLd() {
+export function OutxideJsonLd({ description }: { description?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -226,9 +226,9 @@ export function OutxideJsonLd() {
         "@id": "https://www.grupoenjoy.es/outxide#nightclub",
         name: "Outxide Club",
         url: "https://www.grupoenjoy.es/outxide",
-        image: "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.webp",
+        image: "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.jpg",
         description:
-          "Club nocturno premium en Alcúdia, Mallorca. Los mejores DJs, eventos exclusivos, mesas VIP y la mejor vida nocturna de la isla.",
+          description ?? "Club nocturno premium en Alcúdia, Mallorca. Los mejores DJs, eventos exclusivos, mesas VIP y la mejor vida nocturna de la isla.",
         priceRange: "€€",
         address: ENJOY_ADDRESS,
         geo: ENJOY_GEO,
@@ -256,7 +256,7 @@ export function OutxideJsonLd() {
   );
 }
 
-export function WebSiteJsonLd() {
+export function WebSiteJsonLd({ description }: { description?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -264,7 +264,7 @@ export function WebSiteJsonLd() {
         "@type": "WebSite",
         url: "https://www.grupoenjoy.es",
         name: "Grupo Enjoy",
-        description: "Cocktail lounge, nightclub & restaurant in Port d'Alcúdia, Mallorca",
+        description: description ?? "Cocktail lounge, nightclub & restaurant in Port d'Alcúdia, Mallorca",
         inLanguage: ["es", "en", "de", "fr", "it"],
         publisher: {
           "@type": "Organization",

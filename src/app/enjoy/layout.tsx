@@ -44,15 +44,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function EnjoyLayout({
+export default async function EnjoyLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
   return (
     <div className="theme-enjoy">
       {children}
-      <EnjoyJsonLd />
+      <EnjoyJsonLd description={t("meta.enjoyDescription")} />
     </div>
   );
 }

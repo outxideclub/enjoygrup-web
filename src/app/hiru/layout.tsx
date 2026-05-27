@@ -44,15 +44,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function HiruLayout({
+export default async function HiruLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
   return (
     <div className="theme-hiru">
       {children}
-      <HiruJsonLd />
+      <HiruJsonLd description={t("meta.hiruDescription")} />
     </div>
   );
 }

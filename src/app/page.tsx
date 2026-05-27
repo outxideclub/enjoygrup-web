@@ -47,8 +47,8 @@ const businesses = [
     color: "from-cyan-500/40 to-violet-500/20",
     accent: "text-outxide",
     borderColor: "hover:border-outxide/30",
-    image: "/images/outxide/DSCF8103-9.webp",
-    cardImage: "/images/outxide/DSCF8103-9.webp",
+    image: "/images/outxide/DSCF8103-9.jpg",
+    cardImage: "/images/outxide/DSCF8103-9.jpg",
     video: "/videos/outxide-hero.mp4",
     poster: "/videos/outxide-hero-poster.jpg",
     cta: "Outxide Club"
