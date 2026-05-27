@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Oswald } from "next/font/google";
 import { CookieBanner } from "@/components/legal/cookie-banner";
 import { AnalyticsScripts } from "@/components/seo/analytics";
-import { MotionConfig } from "framer-motion";
 import { LocaleProvider } from "@/i18n/context";
+import MotionConfigProvider from "@/components/ui/motion-config-provider";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import "./globals.css";
 
@@ -21,7 +21,13 @@ const oswald = Oswald({
   display: "swap",
 });
 
-const ogLocaleMap = { es: "es_ES", en: "en_GB" } as const;
+const ogLocaleMap: Record<string, string> = {
+  es: "es_ES",
+  en: "en_GB",
+  de: "de_DE",
+  fr: "fr_FR",
+  it: "it_IT",
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getServerLocale();
@@ -35,11 +41,22 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: t("meta.description"),
     keywords: t("meta.keywords").split(", "),
+    alternates: {
+      canonical: "https://www.grupoenjoy.es",
+      languages: {
+        "x-default": "https://www.grupoenjoy.es",
+        es: "https://www.grupoenjoy.es",
+        en: "https://www.grupoenjoy.es",
+        de: "https://www.grupoenjoy.es",
+        fr: "https://www.grupoenjoy.es",
+        it: "https://www.grupoenjoy.es",
+      },
+    },
     openGraph: {
       title: t("meta.ogTitle"),
       description: t("meta.ogDescription"),
       type: "website",
-      locale: ogLocaleMap[locale],
+      locale: ogLocaleMap[locale] || "es_ES",
       siteName: "Grupo Enjoy",
       images: [
         {
@@ -52,6 +69,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
+      title: t("meta.ogTitle"),
+      description: t("meta.ogDescription"),
     },
   };
 }
@@ -64,19 +83,21 @@ export default async function RootLayout({
   const locale = await getServerLocale();
 
   return (
-    <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} style={{ scrollBehavior: "smooth" }} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fourvenues.com" />
         <link rel="dns-prefetch" href="https://fourvenues.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://hirufoodanddrinks.myrestoo.net" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased" suppressHydrationWarning>
-        <MotionConfig reducedMotion="user">
+        <MotionConfigProvider>
           <LocaleProvider initialLocale={locale}>
             {children}
             <CookieBanner />
             <AnalyticsScripts />
           </LocaleProvider>
-        </MotionConfig>
+        </MotionConfigProvider>
       </body>
     </html>
   );

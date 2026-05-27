@@ -51,7 +51,7 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2"
-            aria-label="Volver al inicio de Grupo Enjoy"
+            aria-label="Grupo Enjoy - Home"
           >
             <GroupLogo />
           </Link>
@@ -68,7 +68,7 @@ export function Navbar() {
                     "text-sm pb-1 border-b-2 transition-colors duration-300",
                     isActive
                       ? item.activeClass
-                      : "text-muted-foreground border-transparent hover:text-white"
+                      : "link-underline text-muted-foreground border-transparent hover:text-white"
                   )}
                   aria-label={t(item.ariaKey)}
                   aria-current={isActive ? "page" : undefined}

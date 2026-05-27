@@ -12,10 +12,10 @@ interface ScrollRevealProps {
 }
 
 const directionOffset = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
+  up: { y: 24 },
+  down: { y: -24 },
+  left: { x: 24 },
+  right: { x: -24 },
 };
 
 export function ScrollReveal({
@@ -46,7 +46,7 @@ export function ScrollReveal({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-50px" }}
       variants={variants}
       className={cn(className)}
     >

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -38,7 +38,13 @@ import { useRef, useState, useEffect, useCallback } from "react";
 // Helpers
 // ---------------------------------------------------------------------------
 
-const localeMap = { es: "es-ES", en: "en-GB" } as const;
+const localeMap: Record<string, string> = {
+  es: "es-ES",
+  en: "en-GB",
+  de: "de-DE",
+  fr: "fr-FR",
+  it: "it-IT",
+};
 
 function formatDate(isoDate: string, locale: string) {
   return new Date(isoDate).toLocaleDateString(localeMap[locale as keyof typeof localeMap] ?? "es-ES", {
@@ -104,15 +110,19 @@ export default function OutxidePage() {
     if (v && v.readyState >= 3) handleVideoReady();
   }, [handleVideoReady, loadVideo]);
 
+  const prefersReduced = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 15]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const yRaw = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const rotateXRaw = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  const opacityRaw = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = prefersReduced ? "0%" : yRaw;
+  const rotateX = prefersReduced ? 0 : rotateXRaw;
+  const opacity = prefersReduced ? 1 : opacityRaw;
 
   // Events stay live; gallery is bundled so it renders immediately.
   useEffect(() => {
@@ -142,8 +152,7 @@ export default function OutxidePage() {
       <AmbientGlow venue="outxide" />
       <LaserBeams />
       <Navbar />
-
-      {/* Hero */}
+      <main>
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden perspective-1000">
         <motion.div style={{ y, rotateX }} className="absolute inset-0">
           {/* Poster — visible instantly, fades out when video is ready */}
@@ -152,7 +161,7 @@ export default function OutxidePage() {
             alt=""
             aria-hidden
             fill
-            preload
+            priority
             sizes="100vw"
             className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
@@ -187,7 +196,7 @@ export default function OutxidePage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
+              className="link-underline inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
               {t("common.backToGroup")}
@@ -212,7 +221,7 @@ export default function OutxidePage() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full px-8 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
+                className="btn-magnetic rounded-full px-8 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
               >
                 <a href="#eventos">
                   <Ticket className="h-4 w-4 mr-2" />
@@ -223,7 +232,7 @@ export default function OutxidePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8 border-outxide/40 text-outxide hover:bg-outxide/10"
+                className="btn-magnetic rounded-full px-8 border-outxide/40 text-outxide hover:bg-outxide/10"
               >
                 <a href="https://web.fourvenues.com/es/outxide-club" target="_blank" rel="noopener noreferrer">
                   <Crown className="h-4 w-4 mr-2" />
@@ -257,7 +266,7 @@ export default function OutxidePage() {
           </div>
           <Link
             href="/hiru"
-            className="flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
+            className="link-underline flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
           >
             <ArrowRight className="h-4 w-4" />
             <span>{t("outxide.dinnerHiru")}</span>
@@ -301,7 +310,7 @@ export default function OutxidePage() {
 
               return (
                 <ScrollReveal key={event._id} delay={i * 0.05} className="h-full">
-                  <div className="group relative overflow-hidden rounded-2xl border border-white/5 hover:border-outxide/30 glass transition-all duration-500 flex flex-col h-full">
+                  <div className="card-hover group relative overflow-hidden rounded-2xl border border-white/5 hover:border-outxide/30 glass flex flex-col h-full">
                     {/* Flyer */}
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <Image
@@ -338,7 +347,7 @@ export default function OutxidePage() {
                         href={event.iframe?.tag_url ?? `https://web.fourvenues.com/es/outxide-club`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}
+                        className={`btn-magnetic inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}
                       >
                         <Ticket className="h-4 w-4 mr-2" />
                         {t("outxide.buyTicket")}
@@ -397,7 +406,7 @@ export default function OutxidePage() {
               ].map((perk, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.03] p-6 text-center transition-all hover:border-outxide/20 hover:bg-outxide/[0.04]"
+                  className="card-hover flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.03] p-6 text-center hover:border-outxide/20 hover:bg-outxide/[0.04]"
                 >
                   <perk.icon className="h-6 w-6 text-outxide" />
                   <span className="text-sm font-medium text-white/80">{perk.label}</span>
@@ -411,7 +420,7 @@ export default function OutxidePage() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full px-10 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
+                className="btn-magnetic rounded-full px-10 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
               >
                 <a href="https://web.fourvenues.com/es/outxide-club" target="_blank" rel="noopener noreferrer">
                   <Crown className="h-4 w-4 mr-2" />
@@ -444,6 +453,7 @@ export default function OutxidePage() {
         </section>
       )}
 
+      </main>
       <Footer />
     </div>
   );

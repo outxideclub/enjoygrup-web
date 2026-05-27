@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface MovingHeadEmitter {
@@ -353,6 +354,18 @@ function buildBeamAngles(count: number, spread: number): number[] {
 }
 
 export function LaserBeams({ className }: { className?: string }) {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  if (reduced) return null;
+
   return (
     <div
       className={cn("pointer-events-none fixed inset-0 z-[5] overflow-hidden", className)}

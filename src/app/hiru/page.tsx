@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -40,10 +40,10 @@ interface GalleryImage { src: string; alt: string; category?: string; }
 interface GalleryData { categories: string[]; images: GalleryImage[]; }
 
 const galleryData = hiruGallery as GalleryData;
-const menus = {
+const menus: Record<string, typeof hiruMenuEs> = {
   es: hiruMenuEs,
   en: hiruMenuEn,
-} as const;
+};
 
 export default function HiruPage() {
   const t = useT();
@@ -52,7 +52,7 @@ export default function HiruPage() {
   const [loadVideo, setLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const menuSections = menus[locale] as unknown as MenuSection[];
+  const menuSections = (menus[locale] ?? menus.en) as unknown as MenuSection[];
   const menuNavRef = useRef<HTMLElement>(null);
   const menuSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);
@@ -91,13 +91,17 @@ export default function HiruPage() {
     return () => { navObs.disconnect(); sectionObs.disconnect(); };
   }, []);
 
+  const prefersReduced = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], [0, 32]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const borderRadiusRaw = useTransform(scrollYProgress, [0, 1], [0, 32]);
+  const scale = prefersReduced ? 1 : scaleRaw;
+  const borderRadius = prefersReduced ? 0 : borderRadiusRaw;
 
   const scrollToSection = useCallback((id: string) => {
     const el = document.getElementById(id);
@@ -108,8 +112,7 @@ export default function HiruPage() {
     <div className="noise-texture relative">
       <AmbientGlow venue="hiru" />
       <Navbar />
-
-      {/* Hero with Immersive Reveal */}
+      <main>
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ scale, borderRadius }} className="absolute inset-0 z-0 origin-center overflow-hidden will-change-transform">
           <Image
@@ -117,7 +120,7 @@ export default function HiruPage() {
             alt=""
             aria-hidden
             fill
-            preload
+            priority
             sizes="100vw"
             className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
@@ -148,7 +151,7 @@ export default function HiruPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
+              className="link-underline inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
               {t("common.backToGroup")}
@@ -195,7 +198,7 @@ export default function HiruPage() {
           </a>
           <Link
             href="/enjoy"
-            className="flex items-center gap-2 text-hiru hover:text-hiru/80 transition-colors"
+            className="link-underline flex items-center gap-2 text-hiru hover:text-hiru/80 transition-colors"
           >
             <ArrowRight className="h-4 w-4" />
             <span>{t("hiru.continueEnjoy")}</span>
@@ -229,7 +232,7 @@ export default function HiruPage() {
           <Button
             asChild
             size="lg"
-            className="rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
+            className="btn-magnetic rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
           >
             <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-4 w-4 mr-2" />
@@ -240,7 +243,7 @@ export default function HiruPage() {
             asChild
             size="lg"
             variant="outline"
-            className="rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
+            className="btn-magnetic rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
           >
             <a href="tel:+34971853932">
               <Phone className="h-4 w-4 mr-2" />
@@ -260,7 +263,7 @@ export default function HiruPage() {
               { icon: Waves, title: t("hiru.openLate"), desc: t("hiru.openLateDesc") }
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="text-center group">
+                <div className="card-hover text-center group rounded-2xl p-6">
                   <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-hiru/5 text-hiru mb-6 transition-colors group-hover:bg-hiru/10">
                     <item.icon className="h-8 w-8" />
                   </div>
@@ -410,7 +413,7 @@ export default function HiruPage() {
             <Button
               asChild
               size="lg"
-              className="rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
+              className="btn-magnetic rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
             >
               <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4 mr-2" />
@@ -421,7 +424,7 @@ export default function HiruPage() {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
+              className="btn-magnetic rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
             >
               <a href="tel:+34971853932">
                 <Phone className="h-4 w-4 mr-2" />
@@ -449,6 +452,7 @@ export default function HiruPage() {
         )}
       </AnimatePresence>
 
+      </main>
       <Footer />
     </div>
   );

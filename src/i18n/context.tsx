@@ -11,8 +11,11 @@ import {
 import { type Locale, defaultLocale, COOKIE_NAME, locales } from "./config";
 import { es, type Dictionary } from "./dictionaries/es";
 import { en } from "./dictionaries/en";
+import { de } from "./dictionaries/de";
+import { fr } from "./dictionaries/fr";
+import { it } from "./dictionaries/it";
 
-const dictionaries: Record<Locale, Dictionary> = { es, en };
+const dictionaries: Record<Locale, Dictionary> = { es, en, de, fr, it };
 
 interface LocaleContextValue {
   locale: Locale;
@@ -38,6 +41,9 @@ function detectBrowserLocale(): Locale {
     const normalized = lang.toLowerCase();
     if (normalized.startsWith("es")) return "es";
     if (normalized.startsWith("en")) return "en";
+    if (normalized.startsWith("de")) return "de";
+    if (normalized.startsWith("fr")) return "fr";
+    if (normalized.startsWith("it")) return "it";
   }
   return "en";
 }

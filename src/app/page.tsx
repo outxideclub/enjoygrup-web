@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ArrowRight, Wine, Music, Flame, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
-import { OrganizationJsonLd } from "@/components/seo/json-ld";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
 import dynamic from "next/dynamic";
 
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
@@ -79,6 +79,7 @@ export default function HomePage() {
   const [videoReady, setVideoReady] = useState(false);
   const [deferredVideoId, setDeferredVideoId] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const prefersReduced = useReducedMotion();
   const activeBiz = businesses[index];
   const loadVideo = deferredVideoId === activeBiz.id;
 
@@ -100,16 +101,16 @@ export default function HomePage() {
   const prev = () => setIndex((prev) => (prev - 1 + businesses.length) % businesses.length);
 
   useEffect(() => {
+    if (prefersReduced) return;
     const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [prefersReduced]);
 
   return (
     <div className="noise-texture relative">
       <AmbientGlow venue="home" />
       <Navbar />
-
-      {/* Hero with Immersive Slider */}
+      <main>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <AnimatePresence mode="wait">
           <motion.div
@@ -128,7 +129,7 @@ export default function HomePage() {
                   alt=""
                   aria-hidden
                   fill
-                  preload
+                  priority
                   sizes="100vw"
                   className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-80"}`}
                 />
@@ -153,7 +154,7 @@ export default function HomePage() {
                 alt={activeBiz.name}
                 fill
                 className="object-cover opacity-60"
-                preload
+                priority
                 sizes="100vw"
               />
             )}
@@ -163,6 +164,7 @@ export default function HomePage() {
         </AnimatePresence>
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 w-full pt-20">
+          <h1 className="sr-only">Grupo Enjoy — Alcúdia, Mallorca</h1>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeBiz.id}
@@ -186,7 +188,7 @@ export default function HomePage() {
                   {t(`home.${activeBiz.id}Description`)}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button asChild size="lg" className="rounded-full px-8 bg-white text-black hover:bg-white/90">
+                  <Button asChild size="lg" className="btn-magnetic rounded-full px-8 bg-white text-black hover:bg-white/90">
                     <Link href={activeBiz.href}>
                       {t("common.explore")} {activeBiz.name}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -216,13 +218,15 @@ export default function HomePage() {
         <div className="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 z-20">
           <button
             onClick={prev}
-            className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
+            aria-label="Previous slide"
+            className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
           >
             <ChevronLeft className="h-6 w-6 text-white" />
           </button>
           <button
             onClick={next}
-            className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
+            aria-label="Next slide"
+            className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
           >
             <ChevronRight className="h-6 w-6 text-white" />
           </button>
@@ -247,7 +251,7 @@ export default function HomePage() {
               <p className="text-sm font-bold tracking-[0.2em] text-white/40 uppercase mb-4">
                 {t("home.grupoEnjoy")}
               </p>
-              <h2 className="font-display text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase">
+              <h2 className="font-display text-5xl md:text-6xl font-bold text-shimmer tracking-tight leading-tight uppercase">
                 {t("home.threeSpaces")}
               </h2>
             </div>
@@ -257,7 +261,7 @@ export default function HomePage() {
             {businesses.map((biz, i) => (
               <ScrollReveal key={biz.name} delay={i * 0.15}>
                 <Link href={biz.href} className="group block h-full">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-3xl transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.02]">
+                  <div className="card-hover relative aspect-[3/4] overflow-hidden rounded-3xl will-change-transform group-hover:scale-[1.02]">
                     {/* Background photo */}
                     <Image
                       src={biz.cardImage}
@@ -276,7 +280,7 @@ export default function HomePage() {
                     {/* Card content */}
                     <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
                       {/* Top: Logo */}
-                      <div>
+                      <div className="flex justify-center">
                         <biz.logo className="h-16 sm:h-20 w-auto drop-shadow-lg" />
                       </div>
 
@@ -288,7 +292,7 @@ export default function HomePage() {
                         <p className="text-sm text-white/70 leading-relaxed mb-5 line-clamp-2">
                           {t(`home.${biz.id}Description`)}
                         </p>
-                        <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
+                        <span className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
                           {t("common.visit")} {biz.name}
                           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </span>
@@ -302,8 +306,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <OrganizationJsonLd />
+      <WebSiteJsonLd />
     </div>
   );
 }

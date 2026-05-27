@@ -20,17 +20,27 @@ import { useT } from "@/i18n";
 function NewsletterForm() {
   const t = useT();
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setStatus("error");
       return;
     }
-    setStatus("success");
-    setEmail("");
-    setTimeout(() => setStatus("idle"), 4000);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -44,14 +54,16 @@ function NewsletterForm() {
           value={email}
           onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
           placeholder={t("footer.newsletterPlaceholder")}
+          aria-label="Email"
           className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/25 transition-colors"
         />
         <button
           type="submit"
-          className="flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90 transition-colors"
+          disabled={status === "loading"}
+          className="btn-magnetic flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {t("footer.newsletterSubmit")}
-          <ArrowRight size={14} />
+          {status === "loading" ? "..." : t("footer.newsletterSubmit")}
+          {status !== "loading" && <ArrowRight size={14} />}
         </button>
       </form>
       {status === "success" && (
@@ -69,9 +81,9 @@ export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-black">
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:gap-12">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <GroupLogo />
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               {t("footer.tagline")}
@@ -80,14 +92,14 @@ export function Footer() {
 
           {/* Enjoy */}
           <div>
-            <h3 className="text-sm font-semibold text-enjoy uppercase tracking-wider">
+            <p className="text-sm font-semibold text-enjoy uppercase tracking-wider">
               Enjoy Terrace
-            </h3>
+            </p>
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
                   href="/enjoy"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.enjoyTerrace")}
                 </Link>
@@ -95,7 +107,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/enjoy#carta"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.enjoyCocktails")}
                 </Link>
@@ -105,14 +117,14 @@ export function Footer() {
 
           {/* Outxide */}
           <div>
-            <h3 className="text-sm font-semibold text-outxide uppercase tracking-wider">
+            <p className="text-sm font-semibold text-outxide uppercase tracking-wider">
               Outxide Club
-            </h3>
+            </p>
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
                   href="/outxide"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.discover")}
                 </Link>
@@ -120,7 +132,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/outxide#eventos"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.events")}
                 </Link>
@@ -130,14 +142,14 @@ export function Footer() {
 
           {/* Hiru */}
           <div>
-            <h3 className="text-sm font-semibold text-hiru uppercase tracking-wider">
+            <p className="text-sm font-semibold text-hiru uppercase tracking-wider">
               Hiru Food & Drinks
-            </h3>
+            </p>
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
                   href="/hiru"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.discover")}
                 </Link>
@@ -145,7 +157,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/hiru#menu"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.menu")}
                 </Link>
@@ -153,16 +165,57 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Company */}
+          <div>
+            <p className="text-sm font-semibold text-white/40 uppercase tracking-wider">
+              {t("footer.company")}
+            </p>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <Link
+                  href="/nosotros"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.aboutUs")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.blog")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contacto"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.contactUs")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
+                >
+                  {t("footer.faqShort")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Legal */}
           <div>
-            <h3 className="text-sm font-semibold text-white/40 uppercase tracking-wider">
+            <p className="text-sm font-semibold text-white/40 uppercase tracking-wider">
               {t("footer.legal")}
-            </h3>
+            </p>
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
                   href="/legal/aviso-legal"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.avisoLegal")}
                 </Link>
@@ -170,7 +223,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/legal/privacidad"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.privacy")}
                 </Link>
@@ -178,7 +231,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/legal/cookies"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.cookies")}
                 </Link>
@@ -186,7 +239,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/legal/condiciones-venta"
-                  className="text-sm text-muted-foreground hover:text-white transition-colors"
+                  className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.salesConditions")}
                 </Link>
@@ -218,7 +271,7 @@ export function Footer() {
               href="https://www.instagram.com/enjoy.terrace.alcudia"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-enjoy transition-colors"
+              className="btn-magnetic flex items-center gap-1.5 text-muted-foreground hover:text-enjoy transition-colors"
               aria-label="Instagram Enjoy"
             >
               <InstagramIcon />
@@ -228,7 +281,7 @@ export function Footer() {
               href="https://www.instagram.com/outxide.club"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-outxide transition-colors"
+              className="btn-magnetic flex items-center gap-1.5 text-muted-foreground hover:text-outxide transition-colors"
               aria-label="Instagram Outxide"
             >
               <InstagramIcon />
@@ -238,7 +291,7 @@ export function Footer() {
               href="https://www.instagram.com/hirufoodanddrinks"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-hiru transition-colors"
+              className="btn-magnetic flex items-center gap-1.5 text-muted-foreground hover:text-hiru transition-colors"
               aria-label="Instagram Hiru"
             >
               <InstagramIcon />
@@ -246,14 +299,14 @@ export function Footer() {
             </a>
             <a
               href="mailto:info@grupoenjoy.es"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="btn-magnetic text-muted-foreground hover:text-white transition-colors"
               aria-label={t("footer.email")}
             >
               <Mail size={18} />
             </a>
             <a
               href="tel:+34971853932"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="btn-magnetic text-muted-foreground hover:text-white transition-colors"
               aria-label="Teléfono"
             >
               <Phone size={18} />

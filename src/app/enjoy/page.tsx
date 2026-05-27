@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -33,14 +33,14 @@ interface MenuSection {
 interface GalleryImage { src: string; alt: string; }
 
 const galleryImages = enjoyGallery as GalleryImage[];
-const drinkMenus = {
+const drinkMenus: Record<string, typeof enjoyDrinksEs> = {
   es: enjoyDrinksEs,
   en: enjoyDrinksEn,
-} as const;
-const shishaMenus = {
+};
+const shishaMenus: Record<string, typeof enjoyShishaEs> = {
   es: enjoyShishaEs,
   en: enjoyShishaEn,
-} as const;
+};
 
 export default function EnjoyPage() {
   const t = useT();
@@ -49,8 +49,8 @@ export default function EnjoyPage() {
   const [loadVideo, setLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const drinkSections = drinkMenus[locale] as unknown as MenuSection[];
-  const shishaSections = shishaMenus[locale] as unknown as MenuSection[];
+  const drinkSections = (drinkMenus[locale] ?? drinkMenus.en) as unknown as MenuSection[];
+  const shishaSections = (shishaMenus[locale] ?? shishaMenus.en) as unknown as MenuSection[];
   const menuNavRef = useRef<HTMLDivElement>(null);
   const cartaSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);
@@ -89,6 +89,8 @@ export default function EnjoyPage() {
     return () => { navObs.disconnect(); sectionObs.disconnect(); };
   }, []);
 
+  const prefersReduced = useReducedMotion();
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -99,16 +101,18 @@ export default function EnjoyPage() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const yRaw = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  const opacityRaw = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = prefersReduced ? "0%" : yRaw;
+  const scale = prefersReduced ? 1 : scaleRaw;
+  const opacity = prefersReduced ? 1 : opacityRaw;
 
   return (
     <div className="noise-texture relative">
       <AmbientGlow venue="enjoy" />
       <Navbar />
-
-      {/* Hero with Immersive Reveal */}
+      <main>
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ y, scale }} className="absolute inset-0">
           <Image
@@ -116,7 +120,7 @@ export default function EnjoyPage() {
             alt=""
             aria-hidden
             fill
-            preload
+            priority
             sizes="100vw"
             className={`object-cover transition-opacity duration-1000 ${videoReady ? "opacity-0" : "opacity-100"}`}
           />
@@ -150,7 +154,7 @@ export default function EnjoyPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
+              className="link-underline inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
               {t("common.backToGroup")}
@@ -175,7 +179,7 @@ export default function EnjoyPage() {
               <Button
                 asChild
                 size="lg"
-                className="rounded-full px-8 bg-enjoy hover:bg-enjoy/80 text-white shadow-lg shadow-enjoy/20"
+                className="btn-magnetic rounded-full px-8 bg-enjoy hover:bg-enjoy/80 text-white shadow-lg shadow-enjoy/20"
               >
                 <a href="tel:+34971853932">
                   <Phone className="h-4 w-4 mr-2" />
@@ -186,7 +190,7 @@ export default function EnjoyPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full px-8 border-enjoy/40 text-enjoy hover:bg-enjoy/10"
+                className="btn-magnetic rounded-full px-8 border-enjoy/40 text-enjoy hover:bg-enjoy/10"
               >
                 <a href="#carta">
                   <BookOpen className="h-4 w-4 mr-2" />
@@ -228,7 +232,7 @@ export default function EnjoyPage() {
           </a>
           <Link
             href="/outxide"
-            className="flex items-center gap-2 text-enjoy hover:text-enjoy-light transition-colors"
+            className="link-underline flex items-center gap-2 text-enjoy hover:text-enjoy-light transition-colors"
           >
             <ArrowRight className="h-4 w-4" />
             <span>{t("enjoy.continueOutxide")}</span>
@@ -246,7 +250,7 @@ export default function EnjoyPage() {
         >
           <Star className="h-3.5 w-3.5 text-enjoy fill-enjoy" />
           <span className="font-medium text-white">318</span>
-          <span>{locale === "es" ? "opiniones en" : "reviews on"} TripAdvisor</span>
+          <span>{t("socialProof.reviewsOn")} TripAdvisor</span>
         </a>
       </div>
 
@@ -422,6 +426,7 @@ export default function EnjoyPage() {
         )}
       </AnimatePresence>
 
+      </main>
       <Footer />
     </div>
   );

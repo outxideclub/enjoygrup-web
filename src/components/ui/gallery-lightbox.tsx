@@ -200,7 +200,7 @@ export function GalleryLightbox({
             <button
               type="button"
               onClick={() => setActiveIndex(i)}
-              className="group relative w-full overflow-hidden rounded-xl aspect-[3/2] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="group relative w-full overflow-hidden rounded-xl aspect-[3/2] cursor-pointer will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               <Image
                 src={img.src}
