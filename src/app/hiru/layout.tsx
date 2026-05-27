@@ -10,17 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("meta.hiruTitle"),
     description: t("meta.hiruDescription"),
-    alternates: {
-      canonical: "https://www.grupoenjoy.es/hiru",
-      languages: {
-        "x-default": "https://www.grupoenjoy.es/hiru",
-        es: "https://www.grupoenjoy.es/hiru",
-        en: "https://www.grupoenjoy.es/hiru",
-        de: "https://www.grupoenjoy.es/hiru",
-        fr: "https://www.grupoenjoy.es/hiru",
-        it: "https://www.grupoenjoy.es/hiru",
-      },
-    },
+    // alternates handled by <HreflangTags /> in root layout
     openGraph: {
       title: t("meta.hiruTitle"),
       description: t("meta.hiruOgDescription"),

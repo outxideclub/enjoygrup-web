@@ -9,17 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("meta.aboutTitle"),
     description: t("meta.aboutDescription"),
-    alternates: {
-      canonical: "https://www.grupoenjoy.es/nosotros",
-      languages: {
-        "x-default": "https://www.grupoenjoy.es/nosotros",
-        es: "https://www.grupoenjoy.es/nosotros",
-        en: "https://www.grupoenjoy.es/nosotros",
-        de: "https://www.grupoenjoy.es/nosotros",
-        fr: "https://www.grupoenjoy.es/nosotros",
-        it: "https://www.grupoenjoy.es/nosotros",
-      },
-    },
+    // alternates handled by <HreflangTags /> in root layout
     openGraph: {
       title: t("meta.aboutTitle"),
       description: t("meta.aboutOgDescription"),

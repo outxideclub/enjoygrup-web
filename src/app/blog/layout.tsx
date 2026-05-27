@@ -13,17 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: "%s | Blog — Grupo Enjoy",
     },
     description: t("meta.blogDescription"),
-    alternates: {
-      canonical: "https://www.grupoenjoy.es/blog",
-      languages: {
-        "x-default": "https://www.grupoenjoy.es/blog",
-        es: "https://www.grupoenjoy.es/blog",
-        en: "https://www.grupoenjoy.es/blog",
-        de: "https://www.grupoenjoy.es/blog",
-        fr: "https://www.grupoenjoy.es/blog",
-        it: "https://www.grupoenjoy.es/blog",
-      },
-    },
+    // alternates handled by <HreflangTags /> in root layout
     openGraph: {
       title: t("meta.blogTitle"),
       description: t("meta.blogOgDescription"),

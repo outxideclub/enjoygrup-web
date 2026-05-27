@@ -42,17 +42,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description: t("meta.description"),
     keywords: t("meta.keywords").split(", "),
-    alternates: {
-      canonical: "https://www.grupoenjoy.es",
-      languages: {
-        "x-default": "https://www.grupoenjoy.es",
-        es: "https://www.grupoenjoy.es",
-        en: "https://www.grupoenjoy.es",
-        de: "https://www.grupoenjoy.es",
-        fr: "https://www.grupoenjoy.es",
-        it: "https://www.grupoenjoy.es",
-      },
-    },
+    // alternates (canonical + hreflang) handled by <HreflangTags /> server component
+    // to avoid Next.js metadata deduplication of identical URLs in cookie-based i18n
     openGraph: {
       title: t("meta.ogTitle"),
       description: t("meta.ogDescription"),

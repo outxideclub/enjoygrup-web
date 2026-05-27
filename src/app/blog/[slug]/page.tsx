@@ -34,17 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: {
-      canonical: `${BASE_URL}/blog/${post.slug}`,
-      languages: {
-        "x-default": `${BASE_URL}/blog/${post.slug}`,
-        es: `${BASE_URL}/blog/${post.slug}`,
-        en: `${BASE_URL}/blog/${post.slug}`,
-        de: `${BASE_URL}/blog/${post.slug}`,
-        fr: `${BASE_URL}/blog/${post.slug}`,
-        it: `${BASE_URL}/blog/${post.slug}`,
-      },
-    },
+    // alternates handled by <HreflangTags /> in root layout
     openGraph: {
       title,
       description,
