@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EnjoyJsonLd, JsonLd } from "@/components/seo/json-ld";
+import { EnjoyJsonLd, JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -44,6 +44,10 @@ export default async function EnjoyLayout({
   return (
     <div className="theme-enjoy">
       {children}
+      <BreadcrumbJsonLd items={[
+        { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
+        { name: "Enjoy Terrace", url: "https://www.grupoenjoy.es/enjoy" },
+      ]} />
       <EnjoyJsonLd description={t("meta.enjoyDescription")} />
       <JsonLd
         data={{

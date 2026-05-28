@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HiruJsonLd, JsonLd } from "@/components/seo/json-ld";
+import { HiruJsonLd, JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -44,6 +44,10 @@ export default async function HiruLayout({
   return (
     <div className="theme-hiru">
       {children}
+      <BreadcrumbJsonLd items={[
+        { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
+        { name: "Hiru Food & Drinks", url: "https://www.grupoenjoy.es/hiru" },
+      ]} />
       <HiruJsonLd description={t("meta.hiruDescription")} />
       <JsonLd
         data={{

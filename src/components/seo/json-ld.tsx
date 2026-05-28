@@ -120,7 +120,7 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
         image: "https://www.grupoenjoy.es/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
         description:
           description ?? "Cocina mallorquina a la brasa en Alcúdia. Carnes maduradas, arroces de lonja y pescados del Mediterráneo.",
-        servesCuisine: ["Mediterranean", "Spanish", "Seafood", "Grill"],
+        servesCuisine: ["Mediterranean", "Spanish", "Seafood", "Grill", "Paella", "Rice Dishes"],
         priceRange: "€€-€€€",
         address: HIRU_ADDRESS,
         geo: HIRU_GEO,
