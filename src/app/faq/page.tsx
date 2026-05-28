@@ -49,6 +49,7 @@ const faqSections: FaqSection[] = [
       { questionKey: "faq.generalQ2", answerKey: "faq.generalA2" },
       { questionKey: "faq.generalQ3", answerKey: "faq.generalA3" },
       { questionKey: "faq.generalQ4", answerKey: "faq.generalA4" },
+      { questionKey: "faq.generalQ5", answerKey: "faq.generalA5" },
     ],
   },
   {
@@ -62,6 +63,7 @@ const faqSections: FaqSection[] = [
       { questionKey: "faq.enjoyQ2", answerKey: "faq.enjoyA2" },
       { questionKey: "faq.enjoyQ3", answerKey: "faq.enjoyA3" },
       { questionKey: "faq.enjoyQ4", answerKey: "faq.enjoyA4" },
+      { questionKey: "faq.enjoyQ5", answerKey: "faq.enjoyA5" },
     ],
   },
   {
@@ -75,6 +77,7 @@ const faqSections: FaqSection[] = [
       { questionKey: "faq.outxideQ2", answerKey: "faq.outxideA2" },
       { questionKey: "faq.outxideQ3", answerKey: "faq.outxideA3" },
       { questionKey: "faq.outxideQ4", answerKey: "faq.outxideA4" },
+      { questionKey: "faq.outxideQ5", answerKey: "faq.outxideA5" },
     ],
   },
   {
@@ -88,6 +91,7 @@ const faqSections: FaqSection[] = [
       { questionKey: "faq.hiruQ2", answerKey: "faq.hiruA2" },
       { questionKey: "faq.hiruQ3", answerKey: "faq.hiruA3" },
       { questionKey: "faq.hiruQ4", answerKey: "faq.hiruA4" },
+      { questionKey: "faq.hiruQ5", answerKey: "faq.hiruA5" },
     ],
   },
 ];

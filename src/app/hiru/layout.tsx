@@ -59,6 +59,7 @@ export default async function HiruLayout({
             { q: "faq.hiruQ2", a: "faq.hiruA2" },
             { q: "faq.hiruQ3", a: "faq.hiruA3" },
             { q: "faq.hiruQ4", a: "faq.hiruA4" },
+            { q: "faq.hiruQ5", a: "faq.hiruA5" },
           ].map((item) => ({
             "@type": "Question",
             name: t(item.q),

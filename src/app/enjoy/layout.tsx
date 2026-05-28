@@ -59,6 +59,7 @@ export default async function EnjoyLayout({
             { q: "faq.enjoyQ2", a: "faq.enjoyA2" },
             { q: "faq.enjoyQ3", a: "faq.enjoyA3" },
             { q: "faq.enjoyQ4", a: "faq.enjoyA4" },
+            { q: "faq.enjoyQ5", a: "faq.enjoyA5" },
           ].map((item) => ({
             "@type": "Question",
             name: t(item.q),

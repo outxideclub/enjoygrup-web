@@ -3614,6 +3614,500 @@ export const blogPosts: BlogPost[] = [
     venue: "general",
     readingTime: 7,
   },
+  {
+    slug: "outxide-club-discoteca-alcudia-mallorca",
+    title: {
+      es: "Outxide Club: La Discoteca de Referencia en Alcudia, Mallorca",
+      en: "Outxide Club: The Premier Nightclub in Alcudia, Mallorca",
+      de: "Outxide Club: Der Top-Nachtclub in Alcudia, Mallorca",
+      fr: "Outxide Club : La Discothèque de Référence à Alcudia, Majorque",
+      it: "Outxide Club: La Discoteca di Riferimento ad Alcudia, Maiorca",
+    },
+    excerpt: {
+      es: "Todo sobre Outxide Club, la discoteca numero uno del norte de Mallorca. Ubicacion, horarios, DJs residentes, sistema de sonido, mesas VIP y como comprar entradas para Outxide en Port d'Alcudia.",
+      en: "Everything about Outxide Club, the number-one nightclub in northern Mallorca. Location, opening hours, resident DJs, sound system, VIP tables and how to buy tickets for Outxide in Port d'Alcudia.",
+      de: "Alles ueber Outxide Club, den fuehrenden Nachtclub im Norden Mallorcas. Lage, Oeffnungszeiten, Resident-DJs, Soundsystem, VIP-Tische und Ticketkauf fuer Outxide in Port d'Alcudia.",
+      fr: "Tout sur Outxide Club, la discothèque numero un du nord de Majorque. Emplacement, horaires, DJs residents, système sonore, tables VIP et achat de billets pour Outxide à Port d'Alcudia.",
+      it: "Tutto su Outxide Club, la discoteca numero uno del nord di Maiorca. Posizione, orari, DJ residenti, impianto audio, tavoli VIP e come acquistare biglietti per Outxide a Port d'Alcudia.",
+    },
+    content: {
+      es: `<p>Si buscas informacion sobre <strong>Outxide Club</strong>, has llegado al sitio correcto. Esta es la pagina oficial de Grupo Enjoy, la empresa que gestiona Outxide Club en Port d'Alcudia, Mallorca. Aqui encontraras todo lo que necesitas saber antes de visitarnos: desde como llegar hasta que esperar de una noche en Outxide.</p>
+
+<h2>Que es Outxide Club</h2>
+<p><a href="/outxide">Outxide Club</a> es la discoteca de referencia en el norte de Mallorca. Ubicada en la Av. Tucan 1, Port d'Alcudia, Outxide ofrece una experiencia de club premium que combina un sistema de sonido de primer nivel, produccion visual profesional y una seleccion musical cuidada que abarca house, tech house, techno y reggaeton. El club forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/enjoy">Enjoy Terrace</a> y <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Horarios y Dias de Apertura</h2>
+<p>Outxide Club abre jueves, viernes y sabado de 23:30 a 06:00. En temporada alta (junio a septiembre) puede haber eventos especiales entre semana que se anuncian en nuestras redes sociales. Los horarios pueden variar en funcion de la programacion, asi que te recomendamos consultar nuestra pagina de <a href="/outxide">Outxide</a> antes de tu visita.</p>
+
+<h2>Como Llegar a Outxide Club</h2>
+<p>Outxide Club se encuentra en la Av. Tucan 1, en el corazon de la zona de ocio nocturno de Port d'Alcudia. Es facilmente accesible a pie desde cualquier hotel de la zona. Si vienes desde Palma, toma la autopista Ma-13 direccion Alcudia (aproximadamente 50 minutos). Hay aparcamiento disponible en las inmediaciones. Tambien puedes llegar en taxi desde cualquier punto de Alcudia.</p>
+
+<h2>Sistema de Sonido y Produccion</h2>
+<p>Una de las senas de identidad de Outxide Club es su sistema de sonido profesional, disenado para ofrecer una experiencia sonora envolvente en toda la pista. La produccion visual incluye iluminacion LED de ultima generacion, efectos laser y visuales sincronizados con la musica. Cada noche en Outxide es un espectaculo completo que va mucho mas alla de un simple DJ set.</p>
+
+<h2>Musica y DJs</h2>
+<p>La programacion musical de Outxide Club es eclectico y de calidad. Las noches de jueves suelen tener un perfil mas comercial con reggaeton y hits actuales. Los viernes y sabados la propuesta se orienta hacia house, tech house y techno, con DJs residentes y artistas invitados nacionales e internacionales. Consulta el calendario de eventos en nuestra <a href="/outxide">pagina de Outxide</a> para ver la programacion actualizada.</p>
+
+<h2>Mesas VIP y Reservados</h2>
+<p>Outxide ofrece un servicio VIP con mesas reservadas y servicio de botella. Las mesas VIP incluyen acceso prioritario, una zona exclusiva con vistas a la pista y atencion personalizada. Es la opcion ideal para celebraciones, cumpleanos o simplemente para disfrutar de la noche con mas comodidad. Puedes reservar tu mesa contactandonos directamente o a traves de nuestra web.</p>
+
+<h2>Entradas y Precios</h2>
+<p>Las entradas para Outxide Club se pueden comprar online a traves de FourVenues, lo que te permite acceder sin colas y a menudo con descuento respecto a la taquilla. Tambien hay entrada disponible en puerta. Los precios varian segun el evento y la noche. Te recomendamos comprar con antelacion para asegurar tu plaza en las noches mas demandadas.</p>
+
+<h2>Fiestas Tematicas y Eventos Especiales</h2>
+<p>A lo largo de la temporada, Outxide organiza fiestas tematicas, noches de artistas invitados especiales y eventos de apertura y cierre de temporada que se convierten en citas ineludibles del verano mallorquin. Siguenos en Instagram (<a href="https://www.instagram.com/enjoy.club.alcudia/" target="_blank" rel="noopener noreferrer">@enjoy.club.alcudia</a>) para no perderte ninguno.</p>
+
+<h2>La Noche Perfecta en Port d'Alcudia</h2>
+<p>La combinacion ganadora es empezar la noche con una cena en <a href="/hiru">Hiru Food &amp; Drinks</a>, continuar con cocktails al atardecer en <a href="/enjoy">Enjoy Terrace</a> y terminar la noche bailando en Outxide Club. Los tres locales estan a pocos metros de distancia, lo que hace que la noche fluya de forma natural sin necesidad de coches ni taxis entre locales.</p>
+
+<h2>Outxide Club vs Otras Discotecas de Mallorca</h2>
+<p>Frente a las macrodiscotecas de Magaluf o Palma, Outxide Club ofrece una alternativa premium: sonido de calidad, ambiente selecto, produccion cuidada y una ubicacion privilegiada junto al mar en Port d'Alcudia. No es una fiesta masiva; es una experiencia de club pensada para quienes valoran la calidad por encima de la cantidad.</p>
+
+<p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Mallorca. Jueves, viernes y sabado. <a href="/outxide">Visita nuestra web para mas informacion y entradas.</a></strong></p>`,
+
+      en: `<p>Looking for information about <strong>Outxide Club</strong>? You are on the official website of Grupo Enjoy, the company behind Outxide Club in Port d'Alcudia, Mallorca. Here you will find everything you need to know before your visit: from how to get here to what to expect from a night at Outxide.</p>
+
+<h2>What Is Outxide Club</h2>
+<p><a href="/outxide">Outxide Club</a> is the premier nightclub in northern Mallorca. Located at Av. Tucan 1, Port d'Alcudia, Outxide delivers a premium clubbing experience combining a top-tier sound system, professional visual production and a carefully curated music selection spanning house, tech house, techno and reggaeton. The club is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/enjoy">Enjoy Terrace</a> and <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Opening Hours and Days</h2>
+<p>Outxide Club opens Thursday, Friday and Saturday from 23:30 to 06:00. During peak season (June to September) there may be midweek special events announced on our social media. Times may vary depending on the line-up, so we recommend checking our <a href="/outxide">Outxide page</a> before your visit.</p>
+
+<h2>How to Get to Outxide Club</h2>
+<p>Outxide Club is located at Av. Tucan 1, in the heart of Port d'Alcudia's nightlife area. It is easily walkable from any hotel in the area. Coming from Palma, take the Ma-13 motorway towards Alcudia (approximately 50 minutes). Parking is available nearby. You can also arrive by taxi from anywhere in Alcudia.</p>
+
+<h2>Sound System and Production</h2>
+<p>One of Outxide Club's hallmarks is its professional sound system, engineered to deliver an immersive sonic experience across the entire dance floor. Visual production includes cutting-edge LED lighting, laser effects and visuals synchronised with the music. Every night at Outxide is a complete show that goes far beyond a simple DJ set.</p>
+
+<h2>Music and DJs</h2>
+<p>Outxide Club's music programming is eclectic and high quality. Thursday nights tend to lean more commercial with reggaeton and current hits. Fridays and Saturdays focus on house, tech house and techno, featuring resident DJs and national and international guest artists. Check the events calendar on our <a href="/outxide">Outxide page</a> for the latest line-up.</p>
+
+<h2>VIP Tables and Bottle Service</h2>
+<p>Outxide offers a VIP service with reserved tables and bottle service. VIP tables include priority access, an exclusive area overlooking the dance floor and personalised attention. It is the ideal option for celebrations, birthdays or simply enjoying the night in greater comfort. You can book your table by contacting us directly or through our website.</p>
+
+<h2>Tickets and Prices</h2>
+<p>Tickets for Outxide Club can be purchased online through FourVenues, allowing you to skip queues and often at a discount compared to the door price. Door entry is also available. Prices vary by event and night. We recommend buying in advance to secure your spot on the busiest nights.</p>
+
+<h2>Theme Nights and Special Events</h2>
+<p>Throughout the season, Outxide hosts themed parties, special guest nights and opening and closing events that become unmissable dates on the Mallorcan summer calendar. Follow us on Instagram (<a href="https://www.instagram.com/enjoy.club.alcudia/" target="_blank" rel="noopener noreferrer">@enjoy.club.alcudia</a>) so you do not miss any of them.</p>
+
+<h2>The Perfect Night Out in Port d'Alcudia</h2>
+<p>The winning combination is to start the evening with dinner at <a href="/hiru">Hiru Food &amp; Drinks</a>, continue with sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and end the night dancing at Outxide Club. All three venues are just metres apart, making the night flow naturally without needing cars or taxis between spots.</p>
+
+<h2>Outxide Club vs Other Mallorca Nightclubs</h2>
+<p>Compared to the mega-clubs of Magaluf or Palma, Outxide Club offers a premium alternative: quality sound, a selective atmosphere, polished production and a privileged location by the sea in Port d'Alcudia. It is not a massive rave; it is a club experience designed for those who value quality over quantity.</p>
+
+<p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Mallorca. Thursday, Friday and Saturday. <a href="/outxide">Visit our website for more information and tickets.</a></strong></p>`,
+
+      de: `<p>Sie suchen Informationen ueber <strong>Outxide Club</strong>? Sie sind auf der offiziellen Website von Grupo Enjoy, dem Unternehmen hinter dem Outxide Club in Port d'Alcudia, Mallorca. Hier finden Sie alles, was Sie vor Ihrem Besuch wissen muessen: von der Anreise bis zu dem, was Sie bei einer Nacht im Outxide erwartet.</p>
+
+<h2>Was ist der Outxide Club</h2>
+<p><a href="/outxide">Outxide Club</a> ist der fuehrende Nachtclub im Norden Mallorcas. In der Av. Tucan 1, Port d'Alcudia gelegen, bietet Outxide ein Premium-Cluberlebnis mit erstklassigem Soundsystem, professioneller visueller Produktion und sorgfaeltig kuratierter Musik von House ueber Tech House und Techno bis Reggaeton. Der Club gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/enjoy">Enjoy Terrace</a> und <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Oeffnungszeiten</h2>
+<p>Outxide Club oeffnet Donnerstag, Freitag und Samstag von 23:30 bis 06:00 Uhr. In der Hochsaison (Juni bis September) kann es unter der Woche Sonderveranstaltungen geben, die in unseren sozialen Medien angekuendigt werden. Die Zeiten koennen je nach Programm variieren — informieren Sie sich auf unserer <a href="/outxide">Outxide-Seite</a>.</p>
+
+<h2>Anfahrt zum Outxide Club</h2>
+<p>Outxide Club befindet sich in der Av. Tucan 1, im Herzen des Nachtlebens von Port d'Alcudia. Er ist von jedem Hotel in der Umgebung bequem zu Fuss erreichbar. Von Palma nehmen Sie die Autobahn Ma-13 Richtung Alcudia (ca. 50 Minuten). Parkplaetze sind in der Naehe vorhanden. Taxis stehen ebenfalls zur Verfuegung.</p>
+
+<h2>Soundsystem und Produktion</h2>
+<p>Eines der Markenzeichen des Outxide Club ist sein professionelles Soundsystem, das fuer ein immersives Klangerlebnis auf der gesamten Tanzflaeche sorgt. Die visuelle Produktion umfasst modernste LED-Beleuchtung, Lasereffekte und musiksynchronisierte Visuals. Jede Nacht im Outxide ist eine komplette Show.</p>
+
+<h2>Musik und DJs</h2>
+<p>Die Musikprogrammierung des Outxide Club ist vielseitig und hochwertig. Donnerstags ist das Profil eher kommerziell mit Reggaeton und aktuellen Hits. Freitags und samstags liegt der Fokus auf House, Tech House und Techno mit Resident-DJs und nationalen wie internationalen Gastartisten. Den aktuellen Veranstaltungskalender finden Sie auf unserer <a href="/outxide">Outxide-Seite</a>.</p>
+
+<h2>VIP-Tische und Flaschenservice</h2>
+<p>Outxide bietet einen VIP-Service mit reservierten Tischen und Flaschenservice. VIP-Tische beinhalten priorisiertem Einlass, einen exklusiven Bereich mit Blick auf die Tanzflaeche und persoenlichen Service. Ideal fuer Feiern, Geburtstage oder einfach eine komfortablere Nacht. Reservieren Sie direkt bei uns oder ueber unsere Website.</p>
+
+<h2>Tickets und Preise</h2>
+<p>Tickets fuer den Outxide Club koennen online ueber FourVenues erworben werden — ohne Warteschlange und oft guenstiger als an der Abendkasse. Einlass an der Tuer ist ebenfalls moeglich. Preise variieren je nach Event. Wir empfehlen, im Voraus zu kaufen, um sich Ihren Platz an den beliebtesten Abenden zu sichern.</p>
+
+<h2>Die perfekte Nacht in Port d'Alcudia</h2>
+<p>Die Gewinner-Kombination: Abendessen im <a href="/hiru">Hiru Food &amp; Drinks</a>, Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> und danach tanzen im Outxide Club. Alle drei Locations liegen nur wenige Meter voneinander entfernt — die Nacht fliesst ganz natuerlich.</p>
+
+<p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Mallorca. Donnerstag, Freitag und Samstag. <a href="/outxide">Besuchen Sie unsere Website fuer weitere Informationen und Tickets.</a></strong></p>`,
+
+      fr: `<p>Vous cherchez des informations sur <strong>Outxide Club</strong> ? Vous etes sur le site officiel de Grupo Enjoy, l'entreprise derrière Outxide Club à Port d'Alcudia, Majorque. Voici tout ce que vous devez savoir avant votre visite : de comment y arriver à ce qui vous attend lors d'une soiree à Outxide.</p>
+
+<h2>Qu'est-ce que Outxide Club</h2>
+<p><a href="/outxide">Outxide Club</a> est la discothèque de reference dans le nord de Majorque. Situe Av. Tucan 1, Port d'Alcudia, Outxide offre une experience clubbing premium combinant un système sonore de premier plan, une production visuelle professionnelle et une selection musicale soignee allant de la house au tech house, techno et reggaeton. Le club fait partie de <a href="/">Grupo Enjoy</a>, aux cotes de <a href="/enjoy">Enjoy Terrace</a> et <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Horaires d'ouverture</h2>
+<p>Outxide Club ouvre jeudi, vendredi et samedi de 23h30 à 06h00. En haute saison (juin à septembre), des evenements speciaux en semaine peuvent etre annonces sur nos reseaux sociaux. Consultez notre <a href="/outxide">page Outxide</a> avant votre visite.</p>
+
+<h2>Comment venir à Outxide Club</h2>
+<p>Outxide Club se trouve Av. Tucan 1, au coeur de la zone de vie nocturne de Port d'Alcudia. Accessible à pied depuis n'importe quel hotel du quartier. Depuis Palma, prenez l'autoroute Ma-13 direction Alcudia (environ 50 minutes). Parking disponible à proximite. Taxis egalement disponibles.</p>
+
+<h2>Système sonore et production</h2>
+<p>L'un des atouts majeurs d'Outxide Club est son système sonore professionnel, concu pour offrir une experience sonore immersive sur toute la piste de danse. La production visuelle inclut eclairage LED de dernière generation, effets laser et visuels synchronises avec la musique.</p>
+
+<h2>Musique et DJs</h2>
+<p>La programmation musicale d'Outxide Club est eclectique et de qualite. Les jeudis ont un profil plus commercial avec reggaeton et hits actuels. Les vendredis et samedis s'orientent vers la house, la tech house et la techno, avec des DJs residents et des artistes invites. Consultez le calendrier des evenements sur notre <a href="/outxide">page Outxide</a>.</p>
+
+<h2>Tables VIP et service bouteille</h2>
+<p>Outxide propose un service VIP avec tables reservees et service bouteille. Les tables VIP incluent un accès prioritaire, une zone exclusive surplombant la piste et un service personalise. Ideal pour les celebrations. Reservez directement chez nous ou via notre site.</p>
+
+<h2>La soiree parfaite à Port d'Alcudia</h2>
+<p>La combinaison gagnante : diner au <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails au coucher du soleil sur la <a href="/enjoy">Enjoy Terrace</a> puis danser jusqu'au bout de la nuit à Outxide Club. Les trois etablissements sont à quelques mètres les uns des autres.</p>
+
+<p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Majorque. Jeudi, vendredi et samedi. <a href="/outxide">Visitez notre site pour plus d'informations et billets.</a></strong></p>`,
+
+      it: `<p>Cercate informazioni su <strong>Outxide Club</strong>? Siete sul sito ufficiale di Grupo Enjoy, l'azienda che gestisce Outxide Club a Port d'Alcudia, Maiorca. Qui troverete tutto cio' che dovete sapere prima della vostra visita: da come arrivare a cosa aspettarvi da una serata all'Outxide.</p>
+
+<h2>Cos'e' Outxide Club</h2>
+<p><a href="/outxide">Outxide Club</a> e' la discoteca di riferimento nel nord di Maiorca. Situato in Av. Tucan 1, Port d'Alcudia, Outxide offre un'esperienza di clubbing premium che combina un impianto audio di primo livello, produzione visiva professionale e una selezione musicale curata che spazia da house, tech house, techno e reggaeton. Il club fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/enjoy">Enjoy Terrace</a> e <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Orari di apertura</h2>
+<p>Outxide Club apre giovedi', venerdi' e sabato dalle 23:30 alle 06:00. In alta stagione (giugno-settembre) possono esserci eventi speciali infrasettimanali annunciati sui nostri social media. Consultate la nostra <a href="/outxide">pagina Outxide</a> prima della visita.</p>
+
+<h2>Come arrivare a Outxide Club</h2>
+<p>Outxide Club si trova in Av. Tucan 1, nel cuore della zona di vita notturna di Port d'Alcudia. Raggiungibile a piedi da qualsiasi hotel della zona. Da Palma, prendete l'autostrada Ma-13 direzione Alcudia (circa 50 minuti). Parcheggio disponibile nelle vicinanze. Taxi sempre disponibili.</p>
+
+<h2>Impianto audio e produzione</h2>
+<p>Uno dei tratti distintivi di Outxide Club e' il suo impianto audio professionale, progettato per offrire un'esperienza sonora immersiva su tutta la pista da ballo. La produzione visiva include illuminazione LED di ultima generazione, effetti laser e visual sincronizzati con la musica.</p>
+
+<h2>Musica e DJ</h2>
+<p>La programmazione musicale di Outxide Club e' eclettica e di qualita'. Il giovedi' ha un profilo piu' commerciale con reggaeton e hit attuali. Venerdi' e sabato si orientano verso house, tech house e techno, con DJ residenti e artisti ospiti. Consultate il calendario eventi sulla nostra <a href="/outxide">pagina Outxide</a>.</p>
+
+<h2>Tavoli VIP e servizio bottiglia</h2>
+<p>Outxide offre un servizio VIP con tavoli riservati e servizio bottiglia. I tavoli VIP includono accesso prioritario, un'area esclusiva con vista sulla pista e attenzione personalizzata. Ideale per celebrazioni. Prenotate direttamente con noi o tramite il nostro sito.</p>
+
+<h2>La serata perfetta a Port d'Alcudia</h2>
+<p>La combinazione vincente: cena al <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktail al tramonto sulla <a href="/enjoy">Enjoy Terrace</a> e poi ballare tutta la notte all'Outxide Club. I tre locali sono a pochi metri l'uno dall'altro.</p>
+
+<p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Maiorca. Giovedi', venerdi' e sabato. <a href="/outxide">Visitate il nostro sito per maggiori informazioni e biglietti.</a></strong></p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/outxide/DSCF8530-21.jpg",
+    tags: ["outxide", "clubs", "nightlife", "alcudia", "mallorca"],
+    venue: "outxide",
+    readingTime: 8,
+  },
+  {
+    slug: "hiru-food-drinks-restaurante-alcudia",
+    title: {
+      es: "Hiru Food & Drinks: El Restaurante a la Brasa de Referencia en Alcudia",
+      en: "Hiru Food & Drinks: Alcudia's Premier Charcoal Grill Restaurant",
+      de: "Hiru Food & Drinks: Das Top-Grillrestaurant in Alcudia, Mallorca",
+      fr: "Hiru Food & Drinks : Le Restaurant Grill de Référence à Alcudia",
+      it: "Hiru Food & Drinks: Il Ristorante alla Brace di Riferimento ad Alcudia",
+    },
+    excerpt: {
+      es: "Descubre Hiru Food & Drinks, el restaurante de referencia en Alcudia. Carnes maduradas dry-aged, paella de marisco, terraza al aire libre, cocktails de autor y reservas en Port d'Alcudia.",
+      en: "Discover Hiru Food & Drinks, the benchmark restaurant in Alcudia. Dry-aged meats, seafood paella, open-air terrace, signature cocktails and reservations in Port d'Alcudia.",
+      de: "Entdecken Sie Hiru Food & Drinks, das Referenzrestaurant in Alcudia. Dry-Aged-Fleisch, Meeresfruechte-Paella, Terrasse, Signature-Cocktails und Reservierungen in Port d'Alcudia.",
+      fr: "Decouvrez Hiru Food & Drinks, le restaurant de reference à Alcudia. Viandes maturees dry-aged, paella de fruits de mer, terrasse en plein air, cocktails signature et reservations à Port d'Alcudia.",
+      it: "Scoprite Hiru Food & Drinks, il ristorante di riferimento ad Alcudia. Carni frollate dry-aged, paella di frutti di mare, terrazza all'aperto, cocktail d'autore e prenotazioni a Port d'Alcudia.",
+    },
+    content: {
+      es: `<p>Si buscas donde comer bien en Alcudia, <strong>Hiru Food &amp; Drinks</strong> es la respuesta. Esta es la web oficial de Grupo Enjoy, la empresa que gestiona Hiru en Port d'Alcudia, Mallorca. Aqui encontraras toda la informacion que necesitas: carta, horarios, ubicacion, terraza y como reservar mesa.</p>
+
+<h2>Que es Hiru Food &amp; Drinks</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> es un restaurante de cocina a la brasa ubicado en la Carretera d'Arta 40, Alcudia. El nombre Hiru significa "tres" en euskera, reflejando la filosofia de tres pilares que define el restaurante: producto de primera, fuego como tecnica de coccion y un ambiente donde la gastronomia y el buen rato van de la mano. Hiru forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/enjoy">Enjoy Terrace</a> y <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>La Carta: Cocina a la Brasa con Producto Premium</h2>
+<h3>Carnes Maduradas Dry-Aged</h3>
+<p>La gran especialidad de Hiru son las carnes maduradas dry-aged. Seleccionamos piezas de primera calidad que se maduran durante semanas en condiciones controladas para lograr un sabor concentrado y una textura excepcional. Chuleton, tomahawk, entrana y costilla son algunas de las opciones que encontraras en nuestra carta, todas cocinadas a la brasa con madera natural.</p>
+
+<h3>Arroces y Paella de Marisco</h3>
+<p>Los arroces son otro pilar de la cocina de Hiru. La paella de marisco, elaborada con caldo casero y producto fresco de la lonja de Alcudia, es uno de nuestros platos mas solicitados. Tambien ofrecemos arroz caldoso con bogavante, arroz negro con chipirones y arroz de verduras. Cada arroz se prepara al momento, por lo que te recomendamos pedirlo al llegar.</p>
+
+<h3>Pescado del Mediterraneo</h3>
+<p>Pescado fresco del Mediterraneo cocinado a la brasa: lubina, dorada, pulpo y otros ejemplares que varian segun la temporada y la captura del dia. La sencillez del fuego aplicada a un producto excepcional.</p>
+
+<h3>Cocktails de Autor</h3>
+<p>Hiru no es solo un restaurante. Nuestra barra de cocteles ofrece una carta de combinados de autor elaborados con destilados premium, jugos naturales e ingredientes de temporada. Desde clasicos revisitados hasta creaciones originales de nuestro equipo de cocteleria.</p>
+
+<h2>Terraza al Aire Libre</h2>
+<p>La terraza de Hiru es uno de sus grandes atractivos. Amplia, bien ambientada y perfecta tanto para comidas familiares como para cenas romanticas o reuniones de amigos. En verano, cenar al aire libre en Hiru es una experiencia que no te puedes perder.</p>
+
+<h2>Horarios y Dias de Apertura</h2>
+<p>Hiru Food &amp; Drinks esta abierto de lunes a domingo excepto los martes. Horarios: de 12:00 a 23:30 (viernes y sabado hasta la 01:00). Recomendamos reservar mesa con antelacion, especialmente en temporada alta (junio a septiembre).</p>
+
+<h2>Ubicacion y Como Llegar</h2>
+<p>Hiru se encuentra en la Carretera d'Arta 40, Alcudia 07400, Illes Balears. Esta a 5 minutos en coche del centro historico de Alcudia y a 2 minutos del paseo maritimo de Port d'Alcudia. Aparcamiento disponible en las cercanias. Si vienes desde Palma, toma la autopista Ma-13 (unos 50 minutos).</p>
+
+<h2>Como Reservar Mesa</h2>
+<p>Puedes reservar mesa en Hiru a traves de nuestra pagina de <a href="/contacto">contacto</a> o llamando al +34 971 85 39 32. En temporada alta la reserva es practicamente imprescindible, especialmente para cenas de viernes y sabado y para comidas en terraza los fines de semana.</p>
+
+<h2>Por Que Elegir Hiru</h2>
+<p>Hiru Food &amp; Drinks no es solo un restaurante: es el punto de partida para una experiencia gastronomica y de ocio completa en Port d'Alcudia. Cena en Hiru, cocktails en <a href="/enjoy">Enjoy Terrace</a> y, si la noche lo pide, fiesta en <a href="/outxide">Outxide Club</a>. Todo a pocos metros de distancia, sin necesidad de coche. Ese es el espiritu de <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Abierto a diario excepto martes. <a href="/hiru">Visita nuestra web para ver la carta y reservar.</a></strong></p>`,
+
+      en: `<p>Looking for a great place to eat in Alcudia? <strong>Hiru Food &amp; Drinks</strong> is your answer. This is the official website of Grupo Enjoy, the company behind Hiru in Port d'Alcudia, Mallorca. Here you will find everything you need: menu, opening hours, location, terrace and how to book a table.</p>
+
+<h2>What Is Hiru Food &amp; Drinks</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> is a charcoal-grill restaurant located on Carretera d'Arta 40, Alcudia. The name Hiru means "three" in Basque, reflecting the three-pillar philosophy that defines the restaurant: top-quality produce, fire as the cooking method and an atmosphere where great food and good times go hand in hand. Hiru is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/enjoy">Enjoy Terrace</a> and <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>The Menu: Charcoal-Grill Cuisine with Premium Produce</h2>
+<h3>Dry-Aged Meats</h3>
+<p>Hiru's star speciality is dry-aged meat. We select premium cuts matured for weeks under controlled conditions to achieve concentrated flavour and exceptional texture. Ribeye, tomahawk, skirt steak and ribs are some of the options on our menu, all cooked over a natural-wood charcoal grill.</p>
+
+<h3>Rice Dishes and Seafood Paella</h3>
+<p>Rice dishes are another cornerstone of Hiru's kitchen. The seafood paella, made with homemade stock and fresh produce from Alcudia's fish market, is one of our most requested dishes. We also serve lobster caldoso rice, black rice with baby squid and vegetable rice. Each rice dish is prepared to order, so we recommend ordering on arrival.</p>
+
+<h3>Mediterranean Fish</h3>
+<p>Fresh Mediterranean fish grilled over charcoal: sea bass, bream, octopus and other catches that vary with the season. The simplicity of fire applied to exceptional produce.</p>
+
+<h3>Signature Cocktails</h3>
+<p>Hiru is not just a restaurant. Our cocktail bar offers a menu of signature drinks made with premium spirits, fresh juices and seasonal ingredients. From reimagined classics to original creations by our mixology team.</p>
+
+<h2>Open-Air Terrace</h2>
+<p>Hiru's terrace is one of its biggest draws. Spacious, well-designed and perfect for family lunches, romantic dinners or gatherings with friends. In summer, dining al fresco at Hiru is an experience you simply cannot miss.</p>
+
+<h2>Opening Hours</h2>
+<p>Hiru Food &amp; Drinks is open Monday to Sunday except Tuesdays. Hours: 12:00 to 23:30 (Friday and Saturday until 01:00). We recommend booking in advance, especially in high season (June to September).</p>
+
+<h2>Location and How to Get Here</h2>
+<p>Hiru is located on Carretera d'Arta 40, Alcudia 07400, Balearic Islands. It is a 5-minute drive from Alcudia's historic old town and 2 minutes from Port d'Alcudia's promenade. Parking is available nearby. From Palma, take the Ma-13 motorway (approximately 50 minutes).</p>
+
+<h2>How to Book a Table</h2>
+<p>You can reserve a table at Hiru through our <a href="/contacto">contact page</a> or by calling +34 971 85 39 32. In high season, booking is practically essential, especially for Friday and Saturday dinners and weekend terrace lunches.</p>
+
+<h2>Why Choose Hiru</h2>
+<p>Hiru Food &amp; Drinks is not just a restaurant: it is the starting point for a complete dining and leisure experience in Port d'Alcudia. Dinner at Hiru, cocktails at <a href="/enjoy">Enjoy Terrace</a> and, if the night calls for it, dancing at <a href="/outxide">Outxide Club</a>. All just metres apart, no car needed. That is the spirit of <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Open daily except Tuesday. <a href="/hiru">Visit our website to see the menu and book.</a></strong></p>`,
+
+      de: `<p>Sie suchen ein erstklassiges Restaurant in Alcudia? <strong>Hiru Food &amp; Drinks</strong> ist Ihre Antwort. Dies ist die offizielle Website von Grupo Enjoy, dem Unternehmen hinter Hiru in Port d'Alcudia, Mallorca. Hier finden Sie alles: Speisekarte, Oeffnungszeiten, Lage, Terrasse und Tischreservierung.</p>
+
+<h2>Was ist Hiru Food &amp; Drinks</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> ist ein Grillrestaurant an der Carretera d'Arta 40, Alcudia. Der Name Hiru bedeutet "drei" auf Baskisch und spiegelt die Drei-Saeulen-Philosophie wider: erstklassige Produkte, Feuer als Garmethode und eine Atmosphaere, in der gutes Essen und gute Laune zusammengehoeren. Hiru gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/enjoy">Enjoy Terrace</a> und <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Die Karte: Grillkueche mit Premiumprodukten</h2>
+<h3>Dry-Aged-Fleisch</h3>
+<p>Die grosse Spezialitaet von Hiru ist Dry-Aged-Fleisch. Wir waehlen Premium-Stuecke aus, die wochenlang unter kontrollierten Bedingungen reifen, um konzentrierten Geschmack und aussergewoehnliche Textur zu erzielen. Ribeye, Tomahawk, Skirt Steak und Ribs, alles auf dem Holzkohlegrill zubereitet.</p>
+
+<h3>Reisgerichte und Meeresfruechte-Paella</h3>
+<p>Reisgerichte sind ein weiterer Eckpfeiler der Hiru-Kueche. Die Meeresfruechte-Paella, mit hausgemachter Bruehe und frischen Produkten vom Fischmarkt in Alcudia, ist eines unserer beliebtesten Gerichte. Dazu Hummer-Caldoso-Reis, schwarzer Reis mit Tintenfisch und Gemuesereis.</p>
+
+<h3>Mittelmeer-Fisch</h3>
+<p>Frischer Mittelmeerfisch vom Holzkohlegrill: Wolfsbarsch, Goldbrasse, Oktopus und weitere saisonale Faenge. Die Einfachheit des Feuers auf aussergewoehnliche Produkte angewendet.</p>
+
+<h2>Terrasse</h2>
+<p>Die Terrasse von Hiru ist einer der groessten Anziehungspunkte. Geraeumig, stilvoll und perfekt fuer Familienessen, romantische Abendessen oder Treffen mit Freunden. Im Sommer ist Essen im Freien bei Hiru ein unvergessliches Erlebnis.</p>
+
+<h2>Oeffnungszeiten</h2>
+<p>Hiru Food &amp; Drinks ist Montag bis Sonntag ausser Dienstag geoeffnet. Zeiten: 12:00 bis 23:30 (Freitag und Samstag bis 01:00). In der Hochsaison (Juni-September) empfehlen wir eine Reservierung.</p>
+
+<h2>Lage und Anfahrt</h2>
+<p>Hiru befindet sich an der Carretera d'Arta 40, Alcudia 07400, Balearen. 5 Autominuten von Alcudias Altstadt, 2 Minuten von der Strandpromenade von Port d'Alcudia. Von Palma nehmen Sie die Ma-13 (ca. 50 Min.).</p>
+
+<h2>Warum Hiru waehlen</h2>
+<p>Hiru Food &amp; Drinks ist nicht nur ein Restaurant: Es ist der Startpunkt fuer ein komplettes kulinarisches und Freizeiterlebnis in Port d'Alcudia. Abendessen bei Hiru, Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> und dann Tanzen im <a href="/outxide">Outxide Club</a>. Alles nur Meter voneinander entfernt. Das ist der Geist von <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Taeglich ausser Dienstag geoeffnet. <a href="/hiru">Besuchen Sie unsere Website fuer Speisekarte und Reservierung.</a></strong></p>`,
+
+      fr: `<p>Vous cherchez un bon restaurant à Alcudia ? <strong>Hiru Food &amp; Drinks</strong> est la reponse. Ceci est le site officiel de Grupo Enjoy, l'entreprise derrière Hiru à Port d'Alcudia, Majorque. Voici tout ce dont vous avez besoin : carte, horaires, emplacement, terrasse et reservations.</p>
+
+<h2>Qu'est-ce que Hiru Food &amp; Drinks</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> est un restaurant grill situe sur la Carretera d'Arta 40, Alcudia. Le nom Hiru signifie "trois" en basque, refletant la philosophie à trois piliers : produits de premiere qualite, le feu comme methode de cuisson et une ambiance ou gastronomie et convivialite vont de pair. Hiru fait partie de <a href="/">Grupo Enjoy</a>, avec <a href="/enjoy">Enjoy Terrace</a> et <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>La Carte : Cuisine au Grill avec Produits Premium</h2>
+<h3>Viandes Maturees Dry-Aged</h3>
+<p>La grande specialite de Hiru est la viande maturee dry-aged. Nous selectionnons des pièces premium maturees pendant des semaines pour une saveur concentree et une texture exceptionnelle. Entrecote, tomahawk, onglet et travers, le tout grille au charbon de bois naturel.</p>
+
+<h3>Riz et Paella de Fruits de Mer</h3>
+<p>Les riz sont un autre pilier de la cuisine de Hiru. La paella de fruits de mer, preparee avec un bouillon maison et des produits frais du marche aux poissons d'Alcudia, est l'un de nos plats les plus demandes.</p>
+
+<h2>Terrasse en Plein Air</h2>
+<p>La terrasse de Hiru est l'un de ses plus grands atouts. Spacieuse, bien amenagee et parfaite pour les dejeuners en famille, diners romantiques ou retrouvailles entre amis.</p>
+
+<h2>Horaires</h2>
+<p>Hiru Food &amp; Drinks est ouvert du lundi au dimanche sauf le mardi. Horaires : 12h00 à 23h30 (vendredi et samedi jusqu'à 01h00). Reservation recommandee en haute saison (juin à septembre).</p>
+
+<h2>Pourquoi choisir Hiru</h2>
+<p>Hiru Food &amp; Drinks n'est pas qu'un restaurant : c'est le point de depart d'une experience gastronomique et de loisirs complète à Port d'Alcudia. Diner au Hiru, cocktails à la <a href="/enjoy">Enjoy Terrace</a> puis danser à l'<a href="/outxide">Outxide Club</a>. Tout à quelques mètres. C'est l'esprit de <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Majorque. Ouvert tous les jours sauf mardi. <a href="/hiru">Visitez notre site pour la carte et les reservations.</a></strong></p>`,
+
+      it: `<p>Cercate un ottimo ristorante ad Alcudia? <strong>Hiru Food &amp; Drinks</strong> e' la risposta. Questo e' il sito ufficiale di Grupo Enjoy, l'azienda che gestisce Hiru a Port d'Alcudia, Maiorca. Qui troverete tutto: menu, orari, posizione, terrazza e come prenotare un tavolo.</p>
+
+<h2>Cos'e' Hiru Food &amp; Drinks</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> e' un ristorante alla brace situato sulla Carretera d'Arta 40, Alcudia. Il nome Hiru significa "tre" in basco, riflettendo la filosofia a tre pilastri: prodotti di prima qualita', il fuoco come metodo di cottura e un'atmosfera dove gastronomia e buon umore vanno a braccetto. Hiru fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/enjoy">Enjoy Terrace</a> e <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Il Menu: Cucina alla Brace con Prodotti Premium</h2>
+<h3>Carni Frollate Dry-Aged</h3>
+<p>La grande specialita' di Hiru sono le carni frollate dry-aged. Selezioniamo tagli premium frollati per settimane in condizioni controllate per ottenere un sapore concentrato e una consistenza eccezionale. Ribeye, tomahawk, skirt steak e costolette, tutto cotto alla griglia con carbone naturale.</p>
+
+<h3>Risi e Paella di Frutti di Mare</h3>
+<p>I piatti di riso sono un altro pilastro della cucina di Hiru. La paella di frutti di mare, preparata con brodo fatto in casa e prodotti freschi dal mercato del pesce di Alcudia, e' uno dei nostri piatti piu' richiesti.</p>
+
+<h2>Terrazza all'Aperto</h2>
+<p>La terrazza di Hiru e' uno dei suoi punti di forza. Spaziosa, elegante e perfetta per pranzi in famiglia, cene romantiche o incontri con amici.</p>
+
+<h2>Orari</h2>
+<p>Hiru Food &amp; Drinks e' aperto dal lunedi' alla domenica escluso il martedi'. Orari: dalle 12:00 alle 23:30 (venerdi' e sabato fino alle 01:00). Prenotazione consigliata in alta stagione (giugno-settembre).</p>
+
+<h2>Perche' Scegliere Hiru</h2>
+<p>Hiru Food &amp; Drinks non e' solo un ristorante: e' il punto di partenza per un'esperienza gastronomica e di svago completa a Port d'Alcudia. Cena da Hiru, cocktail sulla <a href="/enjoy">Enjoy Terrace</a> e poi ballare all'<a href="/outxide">Outxide Club</a>. Tutto a pochi metri di distanza. Questo e' lo spirito di <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Maiorca. Aperto tutti i giorni tranne martedi'. <a href="/hiru">Visitate il nostro sito per il menu e le prenotazioni.</a></strong></p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
+    tags: ["hiru", "restaurants", "food", "alcudia", "mallorca"],
+    venue: "hiru",
+    readingTime: 8,
+  },
+  {
+    slug: "enjoy-terrace-cocktails-shisha-port-alcudia",
+    title: {
+      es: "Enjoy Terrace: La Terraza de Cocteles y Shisha en Port d'Alcudia",
+      en: "Enjoy Terrace: The Cocktail & Shisha Lounge in Port d'Alcudia",
+      de: "Enjoy Terrace: Die Cocktail- & Shisha-Lounge in Port d'Alcudia",
+      fr: "Enjoy Terrace : Le Lounge Cocktails & Chicha à Port d'Alcudia",
+      it: "Enjoy Terrace: Il Cocktail & Shisha Lounge a Port d'Alcudia",
+    },
+    excerpt: {
+      es: "Todo sobre Enjoy Terrace, la terraza de cocteles y shisha de referencia en Port d'Alcudia. Ubicacion, horarios, carta de cocteles, shisha premium y por que es el mejor plan para empezar la noche en Mallorca.",
+      en: "Everything about Enjoy Terrace, the benchmark cocktail and shisha terrace in Port d'Alcudia. Location, opening hours, cocktail menu, premium shisha and why it is the best way to start your night in Mallorca.",
+      de: "Alles ueber Enjoy Terrace, die fuehrende Cocktail- und Shisha-Terrasse in Port d'Alcudia. Lage, Oeffnungszeiten, Cocktailkarte, Premium-Shisha und warum es der beste Start in die Nacht auf Mallorca ist.",
+      fr: "Tout sur Enjoy Terrace, la terrasse cocktails et chicha de reference à Port d'Alcudia. Emplacement, horaires, carte de cocktails, chicha premium et pourquoi c'est le meilleur plan pour commencer la soiree à Majorque.",
+      it: "Tutto su Enjoy Terrace, la terrazza cocktail e shisha di riferimento a Port d'Alcudia. Posizione, orari, carta cocktail, shisha premium e perche' e' il miglior modo per iniziare la serata a Maiorca.",
+    },
+    content: {
+      es: `<p>Si buscas la mejor terraza de cocteles en Port d'Alcudia, <strong>Enjoy Terrace</strong> es el lugar. Esta es la web oficial de Grupo Enjoy, la empresa que gestiona Enjoy Terrace en Mallorca. Aqui tienes toda la informacion que necesitas para visitarnos.</p>
+
+<h2>Que es Enjoy Terrace</h2>
+<p><a href="/enjoy">Enjoy Terrace</a> es un cocktail lounge y shisha bar premium ubicado en la Av. Tucan 1, Port d'Alcudia. Es el lugar donde las noches comienzan en el norte de Mallorca: una terraza al aire libre con ambiente sofisticado, los mejores cocteles de la zona y shisha premium mientras disfrutas del atardecer mediterraneo. Enjoy Terrace forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/hiru">Hiru Food &amp; Drinks</a> y <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Carta de Cocteles</h2>
+<p>La carta de cocteles de Enjoy Terrace es una de las mas completas de Alcudia. Nuestro equipo de cocteleria elabora combinados de autor con destilados premium, jugos naturales frescos, siropes artesanales e ingredientes de temporada. Desde clasicos como el Aperol Spritz o el Mojito hasta creaciones originales que solo encontraras aqui. La carta rota por temporada para ofrecerte siempre algo nuevo.</p>
+
+<h3>Sunset Cocktails</h3>
+<p>La especialidad de Enjoy Terrace son los sunset cocktails: combinados pensados para disfrutar con la luz del atardecer, con sabores frescos, afrutados y tropicales. Pedir un coctel al atardecer en nuestra terraza es uno de los rituales mas apreciados del verano en Port d'Alcudia.</p>
+
+<h2>Shisha Premium</h2>
+<p>Enjoy Terrace ofrece un servicio de shisha premium con una amplia seleccion de sabores y mezclas. Utilizamos carbon natural y tabacos de primera calidad para una experiencia de shisha superior. Nuestro equipo te asesorara sobre las mejores combinaciones de sabores segun tus preferencias.</p>
+
+<h2>Terraza y Ambiente</h2>
+<p>La terraza de Enjoy es el corazon del local. Un espacio al aire libre disenado para crear el ambiente perfecto: iluminacion calida, musica cuidadosamente seleccionada, mobiliario comodo y una estetica que combina lo moderno con la calidez mediterranea. Es el lugar ideal para una primera cita, una reunion con amigos, un afterwork o simplemente para relajarte con un buen coctel.</p>
+
+<h2>Horarios</h2>
+<p>Enjoy Terrace abre todos los dias de 17:00 a 05:30. Si, has leido bien: esta abierto hasta altas horas de la madrugada, lo que lo convierte en el nexo perfecto entre la cena y la fiesta. Puedes empezar con cocktails al atardecer y quedarte hasta que quieras — o continuar la noche en <a href="/outxide">Outxide Club</a>, que esta literalmente al lado.</p>
+
+<h2>Ubicacion</h2>
+<p>Enjoy Terrace se encuentra en la Av. Tucan 1, Port d'Alcudia 07400, Mallorca. En la misma ubicacion que Outxide Club, en el corazon de la zona de ocio nocturno de Port d'Alcudia. Accesible a pie desde cualquier hotel de la zona. Aparcamiento disponible en las inmediaciones.</p>
+
+<h2>Enjoy Terrace: Donde Comienza la Noche</h2>
+<p>La filosofia de Enjoy Terrace es sencilla: ser el lugar donde quieres estar cuando cae el sol en Mallorca. No es un bar mas; es una experiencia. La combinacion de cocteles de calidad, shisha premium, musica ambiente y una terraza que invita a quedarse hacen de Enjoy el punto de encuentro natural antes de cualquier noche en Port d'Alcudia.</p>
+
+<h2>El Plan Perfecto en Port d'Alcudia</h2>
+<p>Los locales lo tienen claro: cena en <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails y shisha en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sabado, la noche continua en <a href="/outxide">Outxide Club</a>. Todo a pocos metros, todo parte de la misma experiencia <a href="/">Grupo Enjoy</a>. Este es el plan que cada vez mas gente repite verano tras verano.</p>
+
+<p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Mallorca. Abierto a diario desde las 17:00. <a href="/enjoy">Visita nuestra web para mas informacion.</a></strong></p>`,
+
+      en: `<p>Looking for the best cocktail terrace in Port d'Alcudia? <strong>Enjoy Terrace</strong> is the place. This is the official website of Grupo Enjoy, the company behind Enjoy Terrace in Mallorca. Here is everything you need to know before your visit.</p>
+
+<h2>What Is Enjoy Terrace</h2>
+<p><a href="/enjoy">Enjoy Terrace</a> is a premium cocktail lounge and shisha bar located at Av. Tucan 1, Port d'Alcudia. It is where nights begin in northern Mallorca: an open-air terrace with a sophisticated atmosphere, the best cocktails in the area and premium shisha while you enjoy the Mediterranean sunset. Enjoy Terrace is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/hiru">Hiru Food &amp; Drinks</a> and <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Cocktail Menu</h2>
+<p>Enjoy Terrace's cocktail menu is one of the most comprehensive in Alcudia. Our mixology team creates signature drinks with premium spirits, fresh natural juices, artisanal syrups and seasonal ingredients. From classics like Aperol Spritz and Mojito to original creations you will only find here. The menu rotates seasonally to always offer something new.</p>
+
+<h3>Sunset Cocktails</h3>
+<p>Enjoy Terrace's speciality is sunset cocktails: drinks designed to be enjoyed in the golden hour, with fresh, fruity and tropical flavours. Ordering a cocktail at sunset on our terrace is one of the most cherished rituals of summer in Port d'Alcudia.</p>
+
+<h2>Premium Shisha</h2>
+<p>Enjoy Terrace offers a premium shisha service with a wide selection of flavours and blends. We use natural charcoal and top-quality tobaccos for a superior shisha experience. Our team will advise you on the best flavour combinations based on your preferences.</p>
+
+<h2>Terrace and Atmosphere</h2>
+<p>The terrace is the heart of Enjoy. An open-air space designed to create the perfect atmosphere: warm lighting, carefully selected music, comfortable furniture and an aesthetic that blends modern style with Mediterranean warmth. The ideal spot for a first date, a catch-up with friends, after-work drinks or simply relaxing with a great cocktail.</p>
+
+<h2>Opening Hours</h2>
+<p>Enjoy Terrace is open every day from 17:00 to 05:30. Yes, you read that right: it stays open into the early hours, making it the perfect bridge between dinner and the dance floor. Start with sunset cocktails and stay as long as you like — or continue the night at <a href="/outxide">Outxide Club</a>, which is literally next door.</p>
+
+<h2>Location</h2>
+<p>Enjoy Terrace is at Av. Tucan 1, Port d'Alcudia 07400, Mallorca. Same location as Outxide Club, in the heart of Port d'Alcudia's nightlife zone. Walkable from any hotel in the area. Parking available nearby.</p>
+
+<h2>Where the Night Begins</h2>
+<p>Enjoy Terrace's philosophy is simple: be the place you want to be when the sun goes down in Mallorca. It is not just another bar; it is an experience. Quality cocktails, premium shisha, ambient music and a terrace that makes you want to stay — that is what makes Enjoy the natural meeting point before any night out in Port d'Alcudia.</p>
+
+<h2>The Perfect Plan in Port d'Alcudia</h2>
+<p>The locals have it figured out: dinner at <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails and shisha at <a href="/enjoy">Enjoy Terrace</a> and, on Thursday, Friday or Saturday, the night continues at <a href="/outxide">Outxide Club</a>. All within walking distance, all part of the same <a href="/">Grupo Enjoy</a> experience. This is the plan more and more people repeat summer after summer.</p>
+
+<p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Mallorca. Open daily from 17:00. <a href="/enjoy">Visit our website for more information.</a></strong></p>`,
+
+      de: `<p>Suchen Sie die beste Cocktail-Terrasse in Port d'Alcudia? <strong>Enjoy Terrace</strong> ist der richtige Ort. Dies ist die offizielle Website von Grupo Enjoy, dem Unternehmen hinter Enjoy Terrace auf Mallorca. Hier finden Sie alles Wissenswerte fuer Ihren Besuch.</p>
+
+<h2>Was ist Enjoy Terrace</h2>
+<p><a href="/enjoy">Enjoy Terrace</a> ist eine Premium-Cocktailbar und Shisha-Lounge an der Av. Tucan 1, Port d'Alcudia. Hier beginnen die Naechte im Norden Mallorcas: eine Freiluft-Terrasse mit gehobener Atmosphaere, die besten Cocktails der Gegend und Premium-Shisha zum mediterranen Sonnenuntergang. Enjoy Terrace gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/hiru">Hiru Food &amp; Drinks</a> und <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Cocktailkarte</h2>
+<p>Die Cocktailkarte von Enjoy Terrace ist eine der umfangreichsten in Alcudia. Unser Mixologie-Team kreiert Signature-Drinks mit Premium-Spirituosen, frischen Saeften, hausgemachten Sirups und saisonalen Zutaten. Von Klassikern wie Aperol Spritz und Mojito bis zu exklusiven Eigenkreationen.</p>
+
+<h3>Sunset-Cocktails</h3>
+<p>Die Spezialitaet von Enjoy Terrace sind Sunset-Cocktails: Drinks fuer die goldene Stunde mit frischen, fruchtigen und tropischen Aromen. Ein Cocktail bei Sonnenuntergang auf unserer Terrasse gehoert zu den schoensten Ritualen des Sommers in Port d'Alcudia.</p>
+
+<h2>Premium-Shisha</h2>
+<p>Enjoy Terrace bietet Premium-Shisha mit einer grossen Auswahl an Geschmacksrichtungen und Mischungen. Wir verwenden Naturkohle und erstklassige Tabake fuer ein ueberlegenes Shisha-Erlebnis.</p>
+
+<h2>Terrasse und Atmosphaere</h2>
+<p>Die Terrasse ist das Herzstueck von Enjoy. Ein Freiluftbereich mit warmer Beleuchtung, sorgfaeltig ausgewaehlter Musik, bequemen Moebeln und einer Aesthetik, die modernen Stil mit mediterraner Waerme verbindet.</p>
+
+<h2>Oeffnungszeiten</h2>
+<p>Enjoy Terrace ist taeglich von 17:00 bis 05:30 Uhr geoeffnet. Ja, richtig gelesen: bis in die fruehen Morgenstunden, was es zur perfekten Bruecke zwischen Abendessen und Tanzflaeche macht. Beginnen Sie mit Sunset-Cocktails und bleiben Sie so lange Sie moechten — oder setzen Sie die Nacht im <a href="/outxide">Outxide Club</a> direkt nebenan fort.</p>
+
+<h2>Der perfekte Plan in Port d'Alcudia</h2>
+<p>Die Einheimischen wissen es: Abendessen im <a href="/hiru">Hiru Food &amp; Drinks</a>, Cocktails und Shisha auf der <a href="/enjoy">Enjoy Terrace</a> und donnerstags, freitags oder samstags geht die Nacht im <a href="/outxide">Outxide Club</a> weiter. Alles in Gehweite, alles Teil derselben <a href="/">Grupo Enjoy</a>-Erfahrung.</p>
+
+<p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Mallorca. Taeglich ab 17:00 Uhr geoeffnet. <a href="/enjoy">Besuchen Sie unsere Website fuer weitere Informationen.</a></strong></p>`,
+
+      fr: `<p>Vous cherchez la meilleure terrasse cocktails à Port d'Alcudia ? <strong>Enjoy Terrace</strong> est l'endroit ideal. Ceci est le site officiel de Grupo Enjoy, l'entreprise derrière Enjoy Terrace à Majorque. Voici tout ce que vous devez savoir.</p>
+
+<h2>Qu'est-ce qu'Enjoy Terrace</h2>
+<p><a href="/enjoy">Enjoy Terrace</a> est un cocktail lounge et bar à chicha premium situe Av. Tucan 1, Port d'Alcudia. C'est là que les nuits commencent dans le nord de Majorque : une terrasse en plein air avec une ambiance sophistiquee, les meilleurs cocktails de la zone et une chicha premium face au coucher de soleil mediterraneen. Enjoy Terrace fait partie de <a href="/">Grupo Enjoy</a>, avec <a href="/hiru">Hiru Food &amp; Drinks</a> et <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Carte des Cocktails</h2>
+<p>La carte de cocktails d'Enjoy Terrace est l'une des plus complètes d'Alcudia. Notre equipe de mixologie cree des boissons signature avec des spiritueux premium, des jus frais, des sirops artisanaux et des ingredients de saison.</p>
+
+<h2>Chicha Premium</h2>
+<p>Enjoy Terrace propose un service de chicha premium avec une large selection de saveurs et de melanges. Charbon naturel et tabacs de première qualite pour une experience superieure.</p>
+
+<h2>Terrasse et Ambiance</h2>
+<p>La terrasse est le coeur d'Enjoy. Un espace en plein air avec eclairage chaleureux, musique soignee, mobilier confortable et une esthetique melant style moderne et chaleur mediterraneenne.</p>
+
+<h2>Horaires</h2>
+<p>Enjoy Terrace est ouvert tous les jours de 17h00 à 05h30. Le pont parfait entre le diner et le dancefloor. Commencez au coucher du soleil et prolongez au <a href="/outxide">Outxide Club</a> juste à cote.</p>
+
+<h2>Le plan parfait à Port d'Alcudia</h2>
+<p>Les habitues le savent : diner au <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails et chicha à la <a href="/enjoy">Enjoy Terrace</a>, puis la nuit continue à l'<a href="/outxide">Outxide Club</a>. Tout à quelques mètres. L'experience <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Majorque. Ouvert tous les jours dès 17h00. <a href="/enjoy">Visitez notre site pour plus d'informations.</a></strong></p>`,
+
+      it: `<p>Cercate la miglior terrazza cocktail a Port d'Alcudia? <strong>Enjoy Terrace</strong> e' il posto giusto. Questo e' il sito ufficiale di Grupo Enjoy, l'azienda che gestisce Enjoy Terrace a Maiorca. Ecco tutto quello che dovete sapere.</p>
+
+<h2>Cos'e' Enjoy Terrace</h2>
+<p><a href="/enjoy">Enjoy Terrace</a> e' un cocktail lounge e shisha bar premium situato in Av. Tucan 1, Port d'Alcudia. E' qui che le serate iniziano nel nord di Maiorca: una terrazza all'aperto con atmosfera sofisticata, i migliori cocktail della zona e shisha premium mentre godetevi il tramonto mediterraneo. Enjoy Terrace fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/hiru">Hiru Food &amp; Drinks</a> e <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Carta Cocktail</h2>
+<p>La carta cocktail di Enjoy Terrace e' una delle piu' complete di Alcudia. Il nostro team di mixology crea drink d'autore con distillati premium, succhi freschi, sciroppi artigianali e ingredienti stagionali.</p>
+
+<h2>Shisha Premium</h2>
+<p>Enjoy Terrace offre un servizio shisha premium con un'ampia selezione di gusti e miscele. Carbone naturale e tabacchi di prima qualita' per un'esperienza superiore.</p>
+
+<h2>Terrazza e Atmosfera</h2>
+<p>La terrazza e' il cuore di Enjoy. Uno spazio all'aperto con illuminazione calda, musica curata, arredi comodi e un'estetica che unisce stile moderno e calore mediterraneo.</p>
+
+<h2>Orari</h2>
+<p>Enjoy Terrace e' aperto tutti i giorni dalle 17:00 alle 05:30. Il ponte perfetto tra la cena e la pista da ballo. Iniziate al tramonto e proseguite all'<a href="/outxide">Outxide Club</a> proprio accanto.</p>
+
+<h2>Il piano perfetto a Port d'Alcudia</h2>
+<p>I locali lo sanno: cena al <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktail e shisha sulla <a href="/enjoy">Enjoy Terrace</a>, poi la notte continua all'<a href="/outxide">Outxide Club</a>. Tutto a pochi metri. L'esperienza <a href="/">Grupo Enjoy</a>.</p>
+
+<p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Maiorca. Aperto tutti i giorni dalle 17:00. <a href="/enjoy">Visitate il nostro sito per maggiori informazioni.</a></strong></p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
+    tags: ["enjoy", "cocktails", "shisha", "terrace", "alcudia"],
+    venue: "enjoy",
+    readingTime: 7,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

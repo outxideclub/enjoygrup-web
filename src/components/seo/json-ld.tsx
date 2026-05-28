@@ -251,6 +251,7 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           { "@type": "LocationFeatureSpecification", name: "Bottle Service", value: true },
         ],
         sameAs: [
+          "https://www.instagram.com/outxide.club/",
           "https://web.fourvenues.com/es/outxide-club",
         ],
         parentOrganization: {

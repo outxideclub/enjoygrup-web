@@ -43,18 +43,22 @@ async function FaqJsonLd() {
     { q: "faq.generalQ2", a: "faq.generalA2" },
     { q: "faq.generalQ3", a: "faq.generalA3" },
     { q: "faq.generalQ4", a: "faq.generalA4" },
+    { q: "faq.generalQ5", a: "faq.generalA5" },
     { q: "faq.enjoyQ1", a: "faq.enjoyA1" },
     { q: "faq.enjoyQ2", a: "faq.enjoyA2" },
     { q: "faq.enjoyQ3", a: "faq.enjoyA3" },
     { q: "faq.enjoyQ4", a: "faq.enjoyA4" },
+    { q: "faq.enjoyQ5", a: "faq.enjoyA5" },
     { q: "faq.outxideQ1", a: "faq.outxideA1" },
     { q: "faq.outxideQ2", a: "faq.outxideA2" },
     { q: "faq.outxideQ3", a: "faq.outxideA3" },
     { q: "faq.outxideQ4", a: "faq.outxideA4" },
+    { q: "faq.outxideQ5", a: "faq.outxideA5" },
     { q: "faq.hiruQ1", a: "faq.hiruA1" },
     { q: "faq.hiruQ2", a: "faq.hiruA2" },
     { q: "faq.hiruQ3", a: "faq.hiruA3" },
     { q: "faq.hiruQ4", a: "faq.hiruA4" },
+    { q: "faq.hiruQ5", a: "faq.hiruA5" },
   ];
 
   return (
