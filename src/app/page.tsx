@@ -78,8 +78,11 @@ export default function HomePage() {
   const [index, setIndex] = useState(0);
   const [videoReady, setVideoReady] = useState(false);
   const [deferredVideoId, setDeferredVideoId] = useState<string | null>(null);
+  const [isFirstMount, setIsFirstMount] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReduced = useReducedMotion();
+
+  useEffect(() => { setIsFirstMount(false); }, []);
   const activeBiz = businesses[index];
   const loadVideo = deferredVideoId === activeBiz.id;
 
@@ -116,10 +119,10 @@ export default function HomePage() {
           <motion.div
             key={activeBiz.id}
             onAnimationStart={() => setVideoReady(false)}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={isFirstMount ? false : { opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: isFirstMount ? 0 : 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0"
           >
             {activeBiz.video ? (
@@ -140,7 +143,6 @@ export default function HomePage() {
                   muted
                   loop
                   playsInline
-                  poster={activeBiz.poster}
                   preload="none"
                   onLoadedData={handleVideoReady}
                   className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-70" : "opacity-0"}`}
@@ -168,10 +170,10 @@ export default function HomePage() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeBiz.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={isFirstMount ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: isFirstMount ? 0 : 0.8, delay: isFirstMount ? 0 : 0.3 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
               <div>
