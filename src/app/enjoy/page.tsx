@@ -245,6 +245,13 @@ export default function EnjoyPage() {
             <ArrowRight className="h-4 w-4" />
             <span>{t("enjoy.continueOutxide")}</span>
           </Link>
+          <Link
+            href="/hiru"
+            className="link-underline flex items-center gap-2 text-hiru hover:text-hiru/80 transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>{t("enjoy.dinnerHiru")}</span>
+          </Link>
         </div>
       </section>
 

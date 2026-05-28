@@ -211,6 +211,13 @@ export default function HiruPage() {
             <ArrowRight className="h-4 w-4" />
             <span>{t("hiru.continueEnjoy")}</span>
           </Link>
+          <Link
+            href="/outxide"
+            className="link-underline flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>{t("hiru.continueOutxide")}</span>
+          </Link>
         </div>
       </section>
 

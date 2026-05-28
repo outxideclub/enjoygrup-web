@@ -279,6 +279,13 @@ export default function OutxidePage() {
             <ArrowRight className="h-4 w-4" />
             <span>{t("outxide.dinnerHiru")}</span>
           </Link>
+          <Link
+            href="/enjoy"
+            className="link-underline flex items-center gap-2 text-enjoy hover:text-enjoy-light transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" />
+            <span>{t("outxide.cocktailsEnjoy")}</span>
+          </Link>
         </div>
       </section>
 
