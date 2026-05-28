@@ -267,7 +267,7 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="grain-overlay py-16 sm:py-20 relative">
         <div className="mx-auto max-w-3xl px-6">
           <article
-            className="prose prose-invert prose-lg max-w-none
+            className="blog-content prose prose-invert prose-lg max-w-none
               prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tight
               prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-white
               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-white/90

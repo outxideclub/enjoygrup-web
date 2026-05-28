@@ -24,6 +24,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { OutxideLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
+import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
 import outxideGallery from "../../../data/gallery/outxide.json";
 
@@ -484,6 +485,18 @@ export default function OutxidePage() {
           </div>
         </section>
       )}
+
+      {/* Inline FAQ */}
+      <VenueFaq
+        venue="outxide"
+        items={[
+          { questionKey: "faq.outxideQ5", answerKey: "faq.outxideA5" },
+          { questionKey: "faq.outxideQ1", answerKey: "faq.outxideA1" },
+          { questionKey: "faq.outxideQ2", answerKey: "faq.outxideA2" },
+          { questionKey: "faq.outxideQ3", answerKey: "faq.outxideA3" },
+          { questionKey: "faq.outxideQ4", answerKey: "faq.outxideA4" },
+        ]}
+      />
 
       {/* Related Blog Articles */}
       <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">

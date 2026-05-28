@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { EnjoyLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
+import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
 import enjoyGallery from "../../../data/gallery/enjoy.json";
 import enjoyDrinksEs from "../../../data/menus/enjoy-drinks.json";
@@ -457,6 +458,18 @@ export default function EnjoyPage() {
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* Inline FAQ */}
+      <VenueFaq
+        venue="enjoy"
+        items={[
+          { questionKey: "faq.enjoyQ5", answerKey: "faq.enjoyA5" },
+          { questionKey: "faq.enjoyQ1", answerKey: "faq.enjoyA1" },
+          { questionKey: "faq.enjoyQ2", answerKey: "faq.enjoyA2" },
+          { questionKey: "faq.enjoyQ3", answerKey: "faq.enjoyA3" },
+          { questionKey: "faq.enjoyQ4", answerKey: "faq.enjoyA4" },
+        ]}
+      />
 
       {/* Related Blog Articles */}
       <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">

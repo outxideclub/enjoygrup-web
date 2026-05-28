@@ -23,6 +23,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { HiruLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
+import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
 import hiruGallery from "../../../data/gallery/hiru.json";
 import hiruMenuEs from "../../../data/menus/hiru.json";
@@ -483,6 +484,18 @@ export default function HiruPage() {
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* Inline FAQ */}
+      <VenueFaq
+        venue="hiru"
+        items={[
+          { questionKey: "faq.hiruQ5", answerKey: "faq.hiruA5" },
+          { questionKey: "faq.hiruQ1", answerKey: "faq.hiruA1" },
+          { questionKey: "faq.hiruQ2", answerKey: "faq.hiruA2" },
+          { questionKey: "faq.hiruQ3", answerKey: "faq.hiruA3" },
+          { questionKey: "faq.hiruQ4", answerKey: "faq.hiruA4" },
+        ]}
+      />
 
       {/* Related Blog Articles */}
       <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">

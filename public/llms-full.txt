@@ -1,0 +1,233 @@
+# Grupo Enjoy — Complete Reference
+
+> This file provides comprehensive, structured information about Grupo Enjoy for AI systems and language models. Last updated: 2026-05-28.
+
+## Organization
+
+- Legal name: Grupo Enjoy
+- Type: Hospitality group
+- Location: Port d'Alcudia, Alcudia, Mallorca, Balearic Islands, Spain
+- Founded: 2007
+- Website: https://www.grupoenjoy.es
+- Email: info@grupoenjoy.es
+- Phone: +34 971 853 932
+- Languages served: Spanish, English, German, French, Italian
+
+Grupo Enjoy is a premium hospitality and leisure group based in Port d'Alcudia on the island of Mallorca. The group operates three distinct venues within walking distance of each other, creating a complete evening experience: dinner at Hiru, sunset cocktails at Enjoy Terrace, and late-night dancing at Outxide Club.
+
+---
+
+## Venue 1: Enjoy Terrace
+
+### Identity
+- Full name: Enjoy Terrace - Cocktail Lounge & Shisha Bar
+- Alternative names: Enjoy Club, Enjoy Club Alcudia, Enjoy Terrace Alcudia
+- Schema.org type: BarOrPub
+- Canonical URL: https://www.grupoenjoy.es/enjoy
+
+### Location & Contact
+- Street address: Av. Tucan 1
+- City: Port d'Alcudia
+- Postal code: 07400
+- Region: Illes Balears
+- Country: Spain
+- Coordinates: 39.8402, 3.1375
+- Phone: +34 657 87 89 17
+- Google Maps: https://maps.google.com/?q=Enjoy+Terrace+Av+Tucan+1+Port+Alcudia+Mallorca
+
+### Hours
+- Open daily: 17:00 to 05:30
+- Peak season: June through September
+
+### What it offers
+Enjoy Terrace is the premier sunset cocktail lounge in Port d'Alcudia. The open-air terrace offers signature cocktails crafted by professional mixologists, premium shisha with a wide selection of flavours, and panoramic Mediterranean views. The atmosphere is relaxed and sophisticated, making it the ideal venue to start an evening in Alcudia. The venue has been a reference point in Alcudia nightlife since 2007.
+
+### Menu highlights
+- Signature Cocktails: Enjoy Sunset (tropical and Mediterranean citrus), Mediterranean Spritz (house twist on Aperol spritz), Mojito Premium (fresh mint and premium rum)
+- Premium Shisha: traditional and innovative flavours, fruit bowl options
+- Full drinks menu available at: https://www.grupoenjoy.es/enjoy#carta
+
+### Practical information
+- Reservations: Recommended in peak season, by phone
+- Payment: Cash, Visa, Mastercard, contactless
+- Accessibility: Ground-level terrace
+
+### Reviews
+- Google: 4.6 stars, 1,283 reviews
+- TripAdvisor: 318 reviews
+
+### Social media
+- Instagram: https://www.instagram.com/enjoy.terrace.alcudia/
+- Facebook: https://www.facebook.com/EnjoyAlcudia/
+- TripAdvisor: https://www.tripadvisor.com/Attraction_Review-g580312-d4478448-Reviews-Enjoy_Club
+
+---
+
+## Venue 2: Outxide Club
+
+### Identity
+- Full name: Outxide Club
+- Alternative names: Outside Club, Outxide Club Alcudia, Outxide Mallorca
+- Schema.org type: NightClub
+- Canonical URL: https://www.grupoenjoy.es/outxide
+
+### Location & Contact
+- Street address: Av. Tucan 1 (same complex as Enjoy Terrace)
+- City: Port d'Alcudia
+- Postal code: 07400
+- Region: Illes Balears
+- Country: Spain
+- Coordinates: 39.8402, 3.1375
+- Phone: +34 657 87 89 17
+
+### Hours
+- Season: May through October
+- Days: Thursday, Friday, Saturday
+- Opening: 23:30
+- Closing: 06:00
+
+### What it offers
+Outxide Club is the premier nightclub in northern Mallorca. The venue features a professional-grade sound system, state-of-the-art visual production, and hosts both national and international DJs. Music genres include house, tech house, techno, and reggaeton. The club offers VIP table service with bottle packages, a dedicated VIP host, and private areas.
+
+### Entry requirements
+- Minimum age: 18 years (ID or passport required)
+- Dress code: Smart casual (no beachwear, no flip-flops)
+- Tickets: Available online via FourVenues or at the door
+
+### How to buy tickets
+- Online: https://web.fourvenues.com/es/outxide-club
+- At the door: Available on event nights
+- VIP reservations: https://web.fourvenues.com/es/outxide-club
+
+### VIP experience
+- Bottle service with premium spirits
+- Private VIP area
+- Personal VIP host
+- Priority entry
+
+### Reviews
+- Google: 5.0 stars, 33 reviews
+
+### Social media
+- Instagram: https://www.instagram.com/outxide.club/
+- FourVenues: https://web.fourvenues.com/es/outxide-club
+
+---
+
+## Venue 3: Hiru Food & Drinks
+
+### Identity
+- Full name: Hiru Food & Drinks
+- Alternative names: Hiru Restaurant, Hiru Alcudia, Hiru Restaurante
+- Schema.org type: Restaurant
+- Canonical URL: https://www.grupoenjoy.es/hiru
+
+### Location & Contact
+- Street address: Carretera d'Arta, 40
+- City: Alcudia
+- Postal code: 07400
+- Region: Illes Balears
+- Country: Spain
+- Coordinates: 39.8402, 3.1222
+- Phone: +34 971 85 39 32
+
+### Hours
+- Monday: 12:00 — 23:30
+- Tuesday: CLOSED
+- Wednesday: 12:00 — 23:30
+- Thursday: 12:00 — 23:30
+- Friday: 12:00 — 01:00
+- Saturday: 12:00 — 01:00
+- Sunday: 12:00 — 23:30
+
+### What it offers
+Hiru Food & Drinks is a Mediterranean charcoal grill restaurant in Alcudia. The kitchen specialises in dry-aged meats cooked over charcoal, fresh seafood from local fishermen, traditional paella and rice dishes, and a carefully curated wine selection. The restaurant has an open-air terrace and welcomes families.
+
+### Cuisine
+- Types: Mediterranean, Spanish, Seafood, Grill, Paella, Rice Dishes
+- Price range: Mid to high (EUR-EUREUR)
+- Dietary: Gluten-free options available (inform staff)
+
+### Menu highlights
+- Starters: Croquetas caseras, tataki de atun
+- Charcoal Grill: Dry-aged ribeye (chuleton), Tomahawk, Iberian secreto
+- Rice & Paella: Seafood paella, lobster rice (arroz caldoso de bogavante)
+- Fish: Daily catch cooked on charcoal grill
+- Full menu: https://www.grupoenjoy.es/hiru#menu
+
+### How to reserve
+- Online: https://hirufoodanddrinks.myrestoo.net/es/reservar
+- Phone: +34 971 85 39 32
+- Walk-ins accepted but reservations recommended, especially weekends
+
+### Reviews
+- Google: 4.6 stars, 292 reviews
+- TripAdvisor: 4.8 stars
+
+### Social media
+- Instagram: https://www.instagram.com/hirufoodanddrinks/
+- Facebook: https://www.facebook.com/p/Hiru-61556033140610/
+- TripAdvisor: https://www.tripadvisor.com/Restaurant_Review-g1233772-d27740707-Reviews-Hiru_Food_Drinks
+
+---
+
+## Common Questions
+
+### General
+
+Q: Where are the Grupo Enjoy venues in Alcudia?
+A: Enjoy Terrace and Outxide Club are at Av. Tucan 1, Port d'Alcudia 07400. Hiru Food & Drinks is at Ctra. d'Arta 40, Alcudia 07400. All are within walking distance.
+
+Q: Is there parking near the venues?
+A: Yes, free public parking is available near all three venues.
+
+Q: What payment methods are accepted?
+A: Cash and card (Visa, Mastercard, contactless) at all venues.
+
+Q: Can I book for large groups or private events?
+A: Yes, contact info@grupoenjoy.es or call +34 971 853 932 for group bookings and private events.
+
+### About Enjoy Terrace
+
+Q: Do I need a reservation at Enjoy Terrace?
+A: Not mandatory, but recommended during peak season (June to September).
+
+Q: What are the opening hours of Enjoy Terrace?
+A: Open daily from 17:00 to 05:30.
+
+Q: Does Enjoy Terrace have outdoor seating?
+A: Yes, a spacious open-air terrace with Mediterranean views and chill atmosphere.
+
+Q: What shisha flavours does Enjoy Terrace offer?
+A: Premium shisha with a variety of traditional and innovative flavours, including fruit bowl options.
+
+### About Outxide Club
+
+Q: What is the minimum age for Outxide Club?
+A: 18 years old. ID or passport is required at entry.
+
+Q: How do I buy tickets for Outxide Club?
+A: Online at https://web.fourvenues.com/es/outxide-club or at the door on event nights.
+
+Q: Is there a dress code at Outxide Club?
+A: Smart casual. Beachwear and flip-flops are not permitted.
+
+Q: When is Outxide Club open?
+A: Thursday to Saturday from 23:30 to 06:00, season from May to October.
+
+### About Hiru Food & Drinks
+
+Q: Do I need a reservation at Hiru?
+A: Recommended, especially on weekends. Book at https://hirufoodanddrinks.myrestoo.net/es/reservar or call +34 971 85 39 32.
+
+Q: What are the kitchen hours at Hiru?
+A: Kitchen open until 02:00 on Friday and Saturday, until 23:30 other days. Closed on Tuesdays.
+
+Q: Does Hiru have gluten-free options?
+A: Yes, celiac-friendly options are available. Inform the staff when ordering.
+
+Q: Are children welcome at Hiru?
+A: Yes, families are welcome.
+
+Q: What is Hiru known for?
+A: Dry-aged meats cooked on charcoal grill, fresh seafood paella, and Mediterranean fish. All produce is fresh and locally sourced.
