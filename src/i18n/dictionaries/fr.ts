@@ -25,22 +25,22 @@ export const fr: Dictionary = {
       "Hiru : cuisine majorquine au grill à Alcúdia. Viandes maturées, riz aux produits de la criée et poissons méditerranéens. Produit, tradition et saveur.",
     hiruOgDescription:
       "Produit, tradition et saveur. Cuisine majorquine au grill à Alcúdia.",
-    aboutTitle: "À Propos | Grupo Enjoy — Alcúdia, Majorque",
+    aboutTitle: "À Propos — Gastronomie & Vie Nocturne à Alcúdia",
     aboutDescription:
       "Découvrez l'histoire de Grupo Enjoy : trois espaces uniques de loisirs et gastronomie premium à Port d'Alcúdia, Majorque. Enjoy Terrace, Outxide Club et Hiru Food & Drinks.",
     aboutOgDescription:
       "L'histoire de Grupo Enjoy : loisirs et gastronomie premium à Alcúdia, Majorque.",
-    contactTitle: "Contact | Grupo Enjoy — Alcúdia, Majorque",
+    contactTitle: "Contact & Réservations — Alcúdia, Majorque",
     contactDescription:
       "Contactez Grupo Enjoy. Adresse, téléphone, horaires et formulaire de contact pour Enjoy Terrace, Outxide Club et Hiru Food & Drinks à Port d'Alcúdia.",
     contactOgDescription:
       "Contactez Grupo Enjoy à Alcúdia, Majorque. Adresse, téléphone et formulaire de contact.",
-    faqTitle: "Questions Fréquentes | Grupo Enjoy — Alcúdia, Majorque",
+    faqTitle: "FAQ — Vie Nocturne & Restaurants à Alcúdia, Majorque",
     faqDescription:
       "Réponses aux questions fréquentes sur Enjoy Terrace, Outxide Club et Hiru Food & Drinks. Horaires, réservations, emplacement et plus.",
     faqOgDescription:
       "FAQ de Grupo Enjoy : tout ce qu'il faut savoir sur nos établissements à Alcúdia.",
-    blogTitle: "Blog | Grupo Enjoy — Alcúdia, Majorque",
+    blogTitle: "Blog — Vie Nocturne, Restaurants & Activités à Alcúdia",
     blogDescription:
       "Guides, actualités et conseils sur la vie nocturne, la gastronomie et les loisirs à Alcúdia, Majorque. Enjoy Terrace, Outxide Club et Hiru Food & Drinks.",
     blogOgDescription:

@@ -25,22 +25,22 @@ export const en: Dictionary = {
       "Hiru: Mallorcan charcoal grill cuisine in Alcudia. Aged meats, fresh-catch rice dishes and Mediterranean fish. Produce, tradition and flavour.",
     hiruOgDescription:
       "Produce, tradition and flavour. Mallorcan charcoal grill cuisine in Alcudia.",
-    aboutTitle: "About Us | Grupo Enjoy — Alcudia, Mallorca",
+    aboutTitle: "About Us — Dining, Nightlife & Cocktails in Alcudia",
     aboutDescription:
       "Discover the story of Grupo Enjoy: three unique premium leisure and gastronomy venues in Port d'Alcudia, Mallorca. Enjoy Terrace, Outxide Club and Hiru Food & Drinks.",
     aboutOgDescription:
       "The story of Grupo Enjoy: premium leisure and gastronomy in Alcudia, Mallorca.",
-    contactTitle: "Contact | Grupo Enjoy — Alcudia, Mallorca",
+    contactTitle: "Contact & Reservations — Alcudia, Mallorca",
     contactDescription:
       "Get in touch with Grupo Enjoy. Address, phone, opening hours and contact form for Enjoy Terrace, Outxide Club and Hiru Food & Drinks in Port d'Alcudia.",
     contactOgDescription:
       "Contact Grupo Enjoy in Alcudia, Mallorca. Address, phone and contact form.",
-    faqTitle: "Frequently Asked Questions | Grupo Enjoy — Alcudia, Mallorca",
+    faqTitle: "FAQ — Nightlife & Dining in Alcudia, Mallorca",
     faqDescription:
       "Answers to frequently asked questions about Enjoy Terrace, Outxide Club and Hiru Food & Drinks. Opening hours, reservations, location and more.",
     faqOgDescription:
       "Grupo Enjoy FAQ: everything you need to know about our venues in Alcudia.",
-    blogTitle: "Blog | Grupo Enjoy — Alcudia, Mallorca",
+    blogTitle: "Blog — Nightlife, Restaurants & Things to Do in Alcudia",
     blogDescription:
       "Guides, news and tips on nightlife, dining and leisure in Alcudia, Mallorca. Enjoy Terrace, Outxide Club and Hiru Food & Drinks.",
     blogOgDescription:

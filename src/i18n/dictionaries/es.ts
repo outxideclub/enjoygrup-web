@@ -23,22 +23,22 @@ export const es = {
       "Hiru: cocina mallorquina a la brasa en Alcúdia. Carnes maduradas, arroces de lonja y pescados del Mediterráneo. Producto, tradición y sabor.",
     hiruOgDescription:
       "Producto, tradición y sabor. Cocina mallorquina a la brasa en Alcúdia.",
-    aboutTitle: "Sobre Nosotros | Grupo Enjoy — Alcúdia, Mallorca",
+    aboutTitle: "Quiénes Somos — Ocio y Gastronomía en Alcúdia",
     aboutDescription:
       "Conoce la historia de Grupo Enjoy: tres espacios únicos de ocio y gastronomía premium en Port d'Alcúdia, Mallorca. Enjoy Terrace, Outxide Club y Hiru Food & Drinks.",
     aboutOgDescription:
       "La historia de Grupo Enjoy: ocio y gastronomía premium en Alcúdia, Mallorca.",
-    contactTitle: "Contacto | Grupo Enjoy — Alcúdia, Mallorca",
+    contactTitle: "Contacto y Reservas — Alcúdia, Mallorca",
     contactDescription:
       "Contacta con Grupo Enjoy. Dirección, teléfono, horarios y formulario de contacto para Enjoy Terrace, Outxide Club y Hiru Food & Drinks en Port d'Alcúdia.",
     contactOgDescription:
       "Contacta con Grupo Enjoy en Alcúdia, Mallorca. Dirección, teléfono y formulario.",
-    faqTitle: "Preguntas Frecuentes | Grupo Enjoy — Alcúdia, Mallorca",
+    faqTitle: "Preguntas Frecuentes — Ocio Nocturno en Alcúdia",
     faqDescription:
       "Respuestas a las preguntas más frecuentes sobre Enjoy Terrace, Outxide Club y Hiru Food & Drinks. Horarios, reservas, ubicación y más.",
     faqOgDescription:
       "FAQ de Grupo Enjoy: todo lo que necesitas saber sobre nuestros locales en Alcúdia.",
-    blogTitle: "Blog | Grupo Enjoy — Alcúdia, Mallorca",
+    blogTitle: "Blog — Vida Nocturna, Gastronomía y Ocio en Alcúdia",
     blogDescription:
       "Guías, noticias y consejos sobre vida nocturna, gastronomía y ocio en Alcúdia, Mallorca. Enjoy Terrace, Outxide Club y Hiru Food & Drinks.",
     blogOgDescription:
