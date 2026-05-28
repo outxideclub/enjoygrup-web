@@ -4135,6 +4135,732 @@ export const blogPosts: BlogPost[] = [
     venue: "enjoy",
     readingTime: 7,
   },
+  {
+    slug: "despedida-soltera-soltero-alcudia-mallorca",
+    title: {
+      es: "Despedida de Soltera y Soltero en Alcudia: Guia Completa para una Fiesta Inolvidable",
+      en: "Bachelor & Bachelorette Party in Alcudia: Complete Guide for an Unforgettable Celebration",
+      de: "Junggesellenabschied in Alcudia: Kompletter Guide fuer eine unvergessliche Feier auf Mallorca",
+      fr: "Enterrement de Vie de Jeune Fille et Garcon a Alcudia : Guide Complet pour une Fete Inoubliable",
+      it: "Addio al Nubilato e Celibato ad Alcudia: Guida Completa per una Festa Indimenticabile",
+    },
+    excerpt: {
+      es: "Organiza la mejor despedida de soltera o soltero en Alcudia y Port d'Alcudia. Cena en grupo, cocteles en terraza y fiesta en club: el plan perfecto en Mallorca para celebrar con amigos.",
+      en: "Plan the ultimate bachelor or bachelorette party in Alcudia and Port d'Alcudia. Group dinner, terrace cocktails and club night: the perfect celebration plan in Mallorca.",
+      de: "Plane den perfekten Junggesellenabschied in Alcudia und Port d'Alcudia. Gruppenessen, Cocktails auf der Terrasse und Clubnacht: der ideale Feierplan auf Mallorca.",
+      fr: "Organisez le meilleur enterrement de vie de jeune fille ou garcon a Alcudia et Port d'Alcudia. Diner en groupe, cocktails en terrasse et soiree en club : le plan parfait a Majorque.",
+      it: "Organizza il miglior addio al nubilato o celibato ad Alcudia e Port d'Alcudia. Cena di gruppo, cocktail in terrazza e serata in club: il piano perfetto a Maiorca.",
+    },
+    content: {
+      es: `<p>Si estas organizando una despedida de soltera o soltero y buscas un destino que combine buena gastronomia, cocteles en terraza y una noche de fiesta memorable, <strong>Alcudia y Port d'Alcudia</strong> son tu respuesta. El norte de Mallorca ofrece todo lo que necesitas para celebrar con tu grupo de amigos: ambiente, calidad y locales de primer nivel, todo a pocos metros de distancia.</p>
+
+<p>En esta guia te contamos como montar el plan perfecto de despedida en Alcudia paso a paso, desde la cena hasta el amanecer. Y lo mejor: no necesitas coche, porque todo esta en la misma zona.</p>
+
+<h2>El plan perfecto de despedida en Alcudia</h2>
+
+<p>Los mejores planes de despedida de soltera y soltero en Port d'Alcudia siguen una formula que funciona siempre: <strong>cena en grupo, cocteles y fiesta</strong>. Los tres locales de <a href="/">Grupo Enjoy</a> estan uno al lado del otro, asi que la logistica no es un problema.</p>
+
+<h3>Paso 1: Cena en Hiru Food &amp; Drinks</h3>
+<p>Toda buena despedida empieza con una gran cena. <a href="/hiru">Hiru Food &amp; Drinks</a> es el restaurante ideal para grupos grandes que quieren comer bien sin renunciar al ambiente festivo. Su terraza tiene capacidad para mesas amplias y el servicio esta acostumbrado a gestionar celebraciones.</p>
+<p>Para despedidas, la <strong>paella de marisco para compartir</strong> es una de las opciones mas populares: un arrozon generoso que se sirve en el centro de la mesa y que siempre arranca aplausos. Tambien puedes optar por carnes a la brasa para compartir o por un menu de tapas variadas para que todo el grupo pique de todo. Hiru esta abierto hasta tarde, asi que no hay prisa.</p>
+<p>Consejo: reserva mesa con antelacion e indica que sois un grupo de celebracion. El equipo de Hiru os ayudara a organizar la disposicion. Lee mas sobre la carta en nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guia completa de Hiru</a>.</p>
+
+<h3>Paso 2: Cocteles en Enjoy Terrace</h3>
+<p>Despues de cenar, el siguiente paso natural es cruzar a <a href="/enjoy">Enjoy Terrace</a>. Este cocktail lounge con terraza al aire libre es el sitio perfecto para que el grupo se relaje con cocteles de autor y shisha premium mientras la noche va subiendo de temperatura.</p>
+<p>Enjoy Terrace funciona especialmente bien para despedidas porque el ambiente es sofisticado pero relajado, la musica crea atmosfera sin impedir la conversacion, y los cocteles son de los mejores de la zona. Ademas, si el grupo quiere, hay espacio para fotos de grupo en la terraza con esa estetica cuidada que queda genial en las redes.</p>
+<p>Descubre la carta de cocteles y shisha en nuestro <a href="/blog/cocteles-shisha-terraza-alcudia">articulo sobre Enjoy Terrace</a>.</p>
+
+<h3>Paso 3: Fiesta en Outxide Club</h3>
+<p>Cuando el grupo esta listo para bailar, <a href="/outxide">Outxide Club</a> esta literalmente al lado. Es la discoteca de referencia del norte de Mallorca, con sesiones los jueves, viernes y sabados protagonizadas por DJs nacionales e internacionales, un sistema de sonido de primer nivel y una pista que se llena de energia.</p>
+<p>Para despedidas, la opcion de <strong>reservar mesa VIP</strong> es la mejor decision. Tener vuestra propia zona con servicio de botellas garantiza que el grupo esta junto, bien atendido y con el mejor ambiente. Las mesas VIP de Outxide tienen vista directa a la pista y al DJ booth. Puedes consultar disponibilidad y comprar entradas anticipadas en la web de <a href="/outxide">Outxide Club</a>.</p>
+<p>Si quieres saber mas sobre la experiencia, lee nuestra <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guia de Outxide Club</a>.</p>
+
+<h2>Mesas VIP en Outxide para grupos</h2>
+<p>Si hay algo que marca la diferencia en una despedida de soltera o soltero es tener una <strong>zona VIP reservada</strong>. En Outxide Club, las mesas VIP estan situadas en posiciones privilegiadas con vision directa de la pista y el escenario. El servicio de botellas premium incluye atencion personalizada durante toda la noche.</p>
+<p>Para grupos de despedida, recomendamos reservar con al menos una semana de antelacion, especialmente en julio y agosto. Contacta directamente a traves de la web de <a href="/outxide">Outxide Club</a> o por redes sociales para consultar opciones y disponibilidad.</p>
+
+<h2>Cocteles de celebracion en Enjoy Terrace</h2>
+<p>La <a href="/enjoy">Enjoy Terrace</a> es mucho mas que un bar de cocteles. Para grupos de celebracion, el equipo de Enjoy puede preparar rondas de cocteles especiales, shots de bienvenida y combinaciones personalizadas. La terraza permite que grupos de 10, 15 o 20 personas esten juntos en un ambiente elegante, con musica de fondo y las mejores shishas de Alcudia.</p>
+<p>Si la despedida es en verano, llegar a Enjoy al atardecer es un acierto: los colores del cielo sobre Port d'Alcudia son el mejor decorado que puedas imaginar para las fotos del grupo.</p>
+
+<h2>Cena de grupo en Hiru: paella de marisco para todos</h2>
+<p>Una de las grandes ventajas de <a href="/hiru">Hiru Food &amp; Drinks</a> para despedidas es su capacidad de servir mesas grandes sin perder calidad. La <strong>paella de marisco</strong> se prepara con producto fresco de la lonja y se sirve en formato para compartir, ideal para que todo el grupo coma del mismo plato. Tambien hay opciones de carnes maduradas a la brasa y una seleccion de entrantes para picar entre todos.</p>
+<p>El restaurante tiene cocktail bar propio, asi que los que quieran empezar con un gin-tonic o un combinado antes de cenar pueden hacerlo sin moverse de sitio.</p>
+
+<h2>Consejos practicos para tu despedida en Alcudia</h2>
+<p><strong>Alojamiento:</strong> Port d'Alcudia tiene una gran oferta de hoteles y apartamentos. Para despedidas, los apartamentos tipo villa con piscina son los mas populares, ya que permiten que el grupo este junto durante el dia. La zona de Bellevue y la Playa de Muro tienen buenas opciones.</p>
+<p><strong>Transporte:</strong> La gran ventaja de organizar tu despedida con Grupo Enjoy es que <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> y <a href="/outxide">Outxide</a> estan en la misma calle, a pocos pasos el uno del otro. No necesitas taxis ni coches para moverte entre locales.</p>
+<p><strong>Reservas:</strong> Reserva la mesa del restaurante y la zona VIP del club con antelacion. En temporada alta (junio-septiembre), la demanda es muy alta y los grupos grandes necesitan planificacion previa.</p>
+<p><strong>Dia de la semana:</strong> Los viernes y sabados son los dias con mas ambiente en Outxide. Si prefieres algo mas relajado, los jueves tambien hay sesion y suele haber menos gente.</p>
+
+<p>Si quieres mas ideas sobre que hacer en la zona, consulta nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia de vida nocturna en Alcudia</a> y nuestro articulo sobre <a href="/blog/fiestas-eventos-verano-alcudia-2026">fiestas y eventos de verano 2026</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Todo en Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Visita nuestra web para mas informacion.</a></strong></p>`,
+
+      en: `<p>If you're planning a bachelor or bachelorette party and want a destination that combines great food, terrace cocktails and a memorable night of clubbing, <strong>Alcudia and Port d'Alcudia</strong> have everything you need. Northern Mallorca offers quality venues, incredible atmosphere and the convenience of having everything within walking distance.</p>
+
+<p>In this guide we show you how to put together the perfect hen or stag do in Alcudia step by step, from dinner to sunrise. The best part: you don't need a car because everything is on the same street.</p>
+
+<h2>The perfect bachelor/bachelorette plan in Alcudia</h2>
+
+<p>The best celebration plans in Port d'Alcudia follow a proven formula: <strong>group dinner, cocktails and party</strong>. The three venues run by <a href="/">Grupo Enjoy</a> are right next to each other, so logistics are effortless.</p>
+
+<h3>Step 1: Dinner at Hiru Food &amp; Drinks</h3>
+<p>Every great celebration starts with a great meal. <a href="/hiru">Hiru Food &amp; Drinks</a> is the ideal restaurant for large groups who want excellent food in a festive atmosphere. Their terrace accommodates big tables and the staff is experienced with celebration groups.</p>
+<p>For parties, the <strong>seafood paella to share</strong> is one of the most popular choices: a generous rice dish served in the centre of the table that always gets a round of applause. You can also go for grilled meats to share or a selection of varied tapas so everyone can try everything. Hiru is open late, so there's no rush.</p>
+<p>Tip: book your table in advance and mention you're a celebration group. The Hiru team will help organise the seating. Read more about their menu in our <a href="/blog/hiru-food-drinks-restaurante-alcudia">complete Hiru guide</a>.</p>
+
+<h3>Step 2: Cocktails at Enjoy Terrace</h3>
+<p>After dinner, the natural next step is to walk over to <a href="/enjoy">Enjoy Terrace</a>. This open-air cocktail lounge is the perfect spot for the group to unwind with signature cocktails and premium shisha while the night builds momentum.</p>
+<p>Enjoy Terrace works particularly well for celebrations because the vibe is sophisticated yet relaxed, the music creates atmosphere without drowning out conversation, and the cocktails are among the best in the area. Plus, the terrace setting is ideal for group photos with a stylish backdrop.</p>
+<p>Discover the cocktail and shisha menu in our <a href="/blog/cocteles-shisha-terraza-alcudia">article about Enjoy Terrace</a>.</p>
+
+<h3>Step 3: Party at Outxide Club</h3>
+<p>When the group is ready to dance, <a href="/outxide">Outxide Club</a> is literally next door. It's the top nightclub in northern Mallorca, with sessions on Thursdays, Fridays and Saturdays featuring national and international DJs, a top-tier sound system and a dance floor packed with energy.</p>
+<p>For bachelor and bachelorette parties, booking a <strong>VIP table</strong> is the best decision. Having your own area with bottle service ensures the group stays together, well looked after and in the best possible spot. Outxide's VIP tables have direct views of the dance floor and DJ booth. Check availability and buy advance tickets on the <a href="/outxide">Outxide Club</a> website.</p>
+<p>Want to know more about the experience? Read our <a href="/blog/outxide-club-discoteca-alcudia-mallorca">Outxide Club guide</a>.</p>
+
+<h2>VIP tables at Outxide for groups</h2>
+<p>If there's one thing that elevates a bachelor or bachelorette party, it's having a <strong>reserved VIP area</strong>. At Outxide Club, VIP tables are positioned in prime locations with direct views of the dance floor and stage. Premium bottle service includes dedicated attention throughout the night.</p>
+<p>For celebration groups, we recommend booking at least one week in advance, especially in July and August. Contact directly through the <a href="/outxide">Outxide Club</a> website or social media to check options and availability.</p>
+
+<h2>Celebration cocktails at Enjoy Terrace</h2>
+<p><a href="/enjoy">Enjoy Terrace</a> is much more than a cocktail bar. For celebration groups, the Enjoy team can prepare special cocktail rounds, welcome shots and customised combinations. The terrace comfortably fits groups of 10, 15 or 20 people in an elegant setting with background music and the finest shisha in Alcudia.</p>
+<p>If your party is in summer, arriving at Enjoy at sunset is a winning move: the colours over Port d'Alcudia provide the best backdrop you could wish for.</p>
+
+<h2>Group dinner at Hiru: seafood paella for everyone</h2>
+<p>One of the great advantages of <a href="/hiru">Hiru Food &amp; Drinks</a> for celebrations is its ability to serve large tables without compromising on quality. The <strong>seafood paella</strong> is made with fresh produce from the local fish market and served family-style, perfect for the whole group to share. There are also dry-aged grilled meats and a selection of starters for everyone to pick from.</p>
+<p>The restaurant has its own cocktail bar, so anyone who wants to start with a gin and tonic or a mixed drink before dinner can do so without leaving the venue.</p>
+
+<h2>Practical tips for your party in Alcudia</h2>
+<p><strong>Accommodation:</strong> Port d'Alcudia has a wide range of hotels and apartments. For bachelor and bachelorette parties, villa-style apartments with a pool are the most popular, allowing the group to stay together during the day. The Bellevue area and Playa de Muro have great options.</p>
+<p><strong>Transport:</strong> The big advantage of celebrating with Grupo Enjoy is that <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> and <a href="/outxide">Outxide</a> are on the same street, steps apart. No taxis or cars needed to move between venues.</p>
+<p><strong>Bookings:</strong> Reserve your restaurant table and club VIP area in advance. During high season (June to September), demand is very high and large groups need forward planning.</p>
+<p><strong>Day of the week:</strong> Fridays and Saturdays have the biggest atmosphere at Outxide. If you prefer something more relaxed, Thursdays also have sessions and tend to be less crowded.</p>
+
+<p>For more ideas on what to do in the area, check out our <a href="/blog/guia-vida-nocturna-alcudia">Alcudia nightlife guide</a> and our article on <a href="/blog/fiestas-eventos-verano-alcudia-2026">summer events and parties 2026</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. All located on Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Visit our website for more information.</a></strong></p>`,
+
+      de: `<p>Ihr plant einen Junggesellenabschied oder Junggesellinnenabschied und sucht ein Reiseziel, das grossartiges Essen, Cocktails auf der Terrasse und eine unvergessliche Clubnacht vereint? <strong>Alcudia und Port d'Alcudia</strong> im Norden Mallorcas bieten alles, was ihr braucht: hochwertige Locations, tolle Atmosphaere und den Vorteil, dass alles zu Fuss erreichbar ist.</p>
+
+<p>In diesem Guide zeigen wir euch, wie ihr den perfekten Junggesellenabschied in Alcudia Schritt fuer Schritt zusammenstellt — vom Abendessen bis zum Sonnenaufgang. Das Beste: Ihr braucht kein Auto, denn alles liegt in derselben Strasse.</p>
+
+<h2>Der perfekte Junggesellenabschied-Plan in Alcudia</h2>
+
+<p>Die besten Feier-Plaene in Port d'Alcudia folgen einer bewaehrten Formel: <strong>Gruppenessen, Cocktails und Party</strong>. Die drei Locations von <a href="/">Grupo Enjoy</a> liegen direkt nebeneinander, sodass die Logistik mueheloss ist.</p>
+
+<h3>Schritt 1: Abendessen im Hiru Food &amp; Drinks</h3>
+<p>Jede grosse Feier beginnt mit einem grossartigen Essen. <a href="/hiru">Hiru Food &amp; Drinks</a> ist das ideale Restaurant fuer grosse Gruppen, die hervorragend essen moechten und dabei eine festliche Atmosphaere geniessen wollen. Die Terrasse bietet Platz fuer grosse Tische und das Personal ist erfahren mit Feiergruppen.</p>
+<p>Fuer Gruppen ist die <strong>Meeresfrueechte-Paella zum Teilen</strong> eine der beliebtesten Optionen: ein grosszuegiges Reisgericht, das in der Mitte des Tisches serviert wird. Alternativ koennt ihr gegrilltes Fleisch zum Teilen oder eine Auswahl an Tapas bestellen. Hiru hat bis spaet geoeffnet, also gibt es keinen Zeitdruck.</p>
+<p>Tipp: Reserviert euren Tisch im Voraus und erwaehnt, dass ihr eine Feiergruppe seid. Mehr ueber die Speisekarte erfahrt ihr in unserem <a href="/blog/hiru-food-drinks-restaurante-alcudia">kompletten Hiru-Guide</a>.</p>
+
+<h3>Schritt 2: Cocktails auf der Enjoy Terrace</h3>
+<p>Nach dem Essen ist der naechste Schritt ein Spaziergang zur <a href="/enjoy">Enjoy Terrace</a>. Diese Open-Air-Cocktail-Lounge ist der perfekte Ort, um mit Signature-Cocktails und Premium-Shisha zu entspannen, waehrend der Abend an Fahrt aufnimmt.</p>
+<p>Die Enjoy Terrace eignet sich besonders gut fuer Feiern, weil die Stimmung elegant, aber entspannt ist. Die Cocktails gehoeren zu den besten der Gegend und die Terrasse bietet eine stilvolle Kulisse fuer Gruppenfotos.</p>
+<p>Entdeckt die Cocktail- und Shisha-Karte in unserem <a href="/blog/cocteles-shisha-terraza-alcudia">Artikel ueber die Enjoy Terrace</a>.</p>
+
+<h3>Schritt 3: Party im Outxide Club</h3>
+<p>Wenn die Gruppe bereit ist zu tanzen, ist der <a href="/outxide">Outxide Club</a> buchstaeblich nebenan. Er ist der Top-Nachtclub im Norden Mallorcas mit Sessions an Donnerstagen, Freitagen und Samstagen mit nationalen und internationalen DJs, einem erstklassigen Soundsystem und einer energiegeladenen Tanzflaeche.</p>
+<p>Fuer Junggesellenabschiede ist die Buchung eines <strong>VIP-Tisches</strong> die beste Entscheidung. Mit eurer eigenen Zone und Flaschenservice bleibt die Gruppe zusammen und wird bestens betreut. Die VIP-Tische haben direkten Blick auf die Tanzflaeche und das DJ-Pult. Prueft die Verfuegbarkeit auf der <a href="/outxide">Outxide Club</a>-Website.</p>
+<p>Mehr ueber die Erfahrung erfahrt ihr in unserem <a href="/blog/outxide-club-discoteca-alcudia-mallorca">Outxide Club Guide</a>.</p>
+
+<h2>VIP-Tische im Outxide fuer Gruppen</h2>
+<p>Wenn es etwas gibt, das einen Junggesellenabschied aufwertet, dann ist es ein <strong>reservierter VIP-Bereich</strong>. Im Outxide Club sind die VIP-Tische an Premium-Positionen mit direktem Blick auf Tanzflaeche und Buehne. Premium-Flaschenservice inklusive persoenlicher Betreuung die ganze Nacht.</p>
+<p>Fuer Feiergruppen empfehlen wir, mindestens eine Woche im Voraus zu buchen, besonders im Juli und August. Kontaktiert den Club direkt ueber die <a href="/outxide">Outxide Club</a>-Website.</p>
+
+<h2>Feier-Cocktails auf der Enjoy Terrace</h2>
+<p>Die <a href="/enjoy">Enjoy Terrace</a> ist viel mehr als eine Cocktailbar. Fuer Feiergruppen kann das Enjoy-Team spezielle Cocktailrunden, Willkommens-Shots und individuelle Kreationen vorbereiten. Die Terrasse bietet bequem Platz fuer Gruppen von 10, 15 oder 20 Personen in eleganter Umgebung.</p>
+<p>Wenn eure Feier im Sommer stattfindet, ist die Ankunft bei Sonnenuntergang ein Volltreffer: Die Farben ueber Port d'Alcudia sind die perfekte Kulisse fuer Gruppenfotos.</p>
+
+<h2>Gruppenessen im Hiru</h2>
+<p>Einer der grossen Vorteile von <a href="/hiru">Hiru Food &amp; Drinks</a> fuer Feiern ist die Faehigkeit, grosse Tische zu bedienen, ohne bei der Qualitaet Kompromisse zu machen. Die <strong>Meeresfrueechte-Paella</strong> wird mit frischen Produkten vom lokalen Fischmarkt zubereitet und im Familienstil serviert. Dazu gibt es gereifte Grillstuecke und eine Auswahl an Vorspeisen.</p>
+
+<h2>Praktische Tipps fuer euren Junggesellenabschied</h2>
+<p><strong>Unterkunft:</strong> Port d'Alcudia bietet eine grosse Auswahl an Hotels und Apartments. Fuer Junggesellenabschiede sind Villa-Apartments mit Pool am beliebtesten. Die Gegend um Bellevue und Playa de Muro hat gute Optionen.</p>
+<p><strong>Transport:</strong> Der grosse Vorteil ist, dass <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> und <a href="/outxide">Outxide</a> in derselben Strasse liegen. Keine Taxis noetig.</p>
+<p><strong>Reservierungen:</strong> Reserviert Restauranttisch und Club-VIP-Bereich im Voraus. In der Hochsaison (Juni bis September) ist die Nachfrage sehr hoch.</p>
+<p><strong>Wochentag:</strong> Freitage und Samstage bieten die groesste Atmosphaere im Outxide. Donnerstage sind etwas ruhiger, aber es gibt ebenfalls Sessions.</p>
+
+<p>Fuer weitere Ideen schaut euch unseren <a href="/blog/guia-vida-nocturna-alcudia">Alcudia Nachtleben-Guide</a> und unseren Artikel ueber <a href="/blog/fiestas-eventos-verano-alcudia-2026">Sommer-Events und Partys 2026</a> an.</p>
+
+<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Alles in Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Besucht unsere Website fuer weitere Informationen.</a></strong></p>`,
+
+      fr: `<p>Vous organisez un enterrement de vie de jeune fille ou de garcon et cherchez une destination qui combine gastronomie, cocktails en terrasse et une nuit de fete memorable ? <strong>Alcudia et Port d'Alcudia</strong> dans le nord de Majorque offrent tout ce qu'il faut : des etablissements de qualite, une ambiance exceptionnelle et la commodite d'avoir tout a distance de marche.</p>
+
+<p>Dans ce guide, nous vous montrons comment organiser l'enterrement de vie parfait a Alcudia, etape par etape, du diner au lever du soleil. Le meilleur : pas besoin de voiture, tout est dans la meme rue.</p>
+
+<h2>Le plan parfait pour un enterrement de vie a Alcudia</h2>
+
+<p>Les meilleurs plans de fete a Port d'Alcudia suivent une formule eprouvee : <strong>diner en groupe, cocktails et fete</strong>. Les trois etablissements de <a href="/">Grupo Enjoy</a> sont cote a cote, donc la logistique est simple.</p>
+
+<h3>Etape 1 : Diner au Hiru Food &amp; Drinks</h3>
+<p>Toute grande celebration commence par un excellent repas. <a href="/hiru">Hiru Food &amp; Drinks</a> est le restaurant ideal pour les grands groupes qui veulent bien manger dans une ambiance festive. La terrasse accueille de grandes tables et le personnel est habitue aux groupes de celebration.</p>
+<p>Pour les fetes, la <strong>paella aux fruits de mer a partager</strong> est l'un des choix les plus populaires : un plat genereux servi au centre de la table. Vous pouvez aussi opter pour des viandes grillees a partager ou une selection de tapas variees. Hiru est ouvert tard, donc pas de pression.</p>
+<p>Conseil : reservez votre table a l'avance et mentionnez que vous etes un groupe de celebration. Decouvrez le menu dans notre <a href="/blog/hiru-food-drinks-restaurante-alcudia">guide complet de Hiru</a>.</p>
+
+<h3>Etape 2 : Cocktails a l'Enjoy Terrace</h3>
+<p>Apres le diner, direction naturelle : la <a href="/enjoy">Enjoy Terrace</a>. Ce lounge cocktail en plein air est l'endroit parfait pour que le groupe se detende avec des cocktails signatures et du chicha premium pendant que la soiree monte en intensite.</p>
+<p>L'Enjoy Terrace fonctionne particulierement bien pour les celebrations : l'ambiance est sophistiquee mais decontractee, les cocktails sont parmi les meilleurs de la zone, et la terrasse est ideale pour les photos de groupe.</p>
+<p>Decouvrez la carte dans notre <a href="/blog/cocteles-shisha-terraza-alcudia">article sur l'Enjoy Terrace</a>.</p>
+
+<h3>Etape 3 : La fete a l'Outxide Club</h3>
+<p>Quand le groupe est pret a danser, l'<a href="/outxide">Outxide Club</a> est juste a cote. C'est la boite de nuit de reference du nord de Majorque, avec des sessions les jeudis, vendredis et samedis animes par des DJs nationaux et internationaux, un systeme son de premier ordre et un dancefloor plein d'energie.</p>
+<p>Pour les enterrements de vie, reserver une <strong>table VIP</strong> est la meilleure decision. Votre propre espace avec service bouteilles garantit que le groupe reste ensemble et bien servi. Consultez les disponibilites sur le site d'<a href="/outxide">Outxide Club</a>.</p>
+<p>En savoir plus dans notre <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guide Outxide Club</a>.</p>
+
+<h2>Tables VIP a l'Outxide pour les groupes</h2>
+<p>S'il y a une chose qui eleve un enterrement de vie, c'est d'avoir un <strong>espace VIP reserve</strong>. A l'Outxide Club, les tables VIP sont positionnees avec vue directe sur le dancefloor et la scene. Service bouteilles premium avec attention dediee toute la nuit.</p>
+<p>Reservez au moins une semaine a l'avance, surtout en juillet et aout. Contactez directement via le site d'<a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Cocktails de celebration a l'Enjoy Terrace</h2>
+<p>L'<a href="/enjoy">Enjoy Terrace</a> est bien plus qu'un bar a cocktails. Pour les groupes, l'equipe peut preparer des tournees speciales, des shots de bienvenue et des creations personnalisees. La terrasse accueille confortablement des groupes de 10, 15 ou 20 personnes dans un cadre elegant.</p>
+<p>Si votre fete est en ete, arrivez au coucher du soleil : les couleurs sur Port d'Alcudia sont le meilleur decor possible pour les photos de groupe.</p>
+
+<h2>Diner de groupe au Hiru</h2>
+<p>L'un des grands avantages de <a href="/hiru">Hiru Food &amp; Drinks</a> pour les celebrations est sa capacite a servir de grandes tables sans compromettre la qualite. La <strong>paella aux fruits de mer</strong> est preparee avec des produits frais du marche local et servie a partager. Il y a aussi des viandes grillees maturees et une selection d'entrees.</p>
+
+<h2>Conseils pratiques</h2>
+<p><strong>Hebergement :</strong> Port d'Alcudia offre un large choix d'hotels et d'appartements. Les villas avec piscine sont les plus populaires pour les groupes. La zone de Bellevue et Playa de Muro offrent de bonnes options.</p>
+<p><strong>Transport :</strong> <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> et <a href="/outxide">Outxide</a> sont dans la meme rue, a quelques pas. Pas besoin de taxi.</p>
+<p><strong>Reservations :</strong> Reservez table et espace VIP a l'avance. En haute saison (juin-septembre), la demande est tres elevee.</p>
+<p><strong>Jour de la semaine :</strong> Les vendredis et samedis offrent la meilleure ambiance a l'Outxide. Les jeudis sont plus tranquilles mais il y a aussi des sessions.</p>
+
+<p>Pour plus d'idees, consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide de la vie nocturne a Alcudia</a> et notre article sur les <a href="/blog/fiestas-eventos-verano-alcudia-2026">evenements et fetes de l'ete 2026</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Le tout sur l'Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Majorque. <a href="/">Visitez notre site pour plus d'informations.</a></strong></p>`,
+
+      it: `<p>State organizzando un addio al nubilato o al celibato e cercate una destinazione che combini ottima gastronomia, cocktail in terrazza e una notte di festa memorabile? <strong>Alcudia e Port d'Alcudia</strong> nel nord di Maiorca offrono tutto il necessario: locali di qualita', atmosfera incredibile e la comodita' di avere tutto a pochi passi.</p>
+
+<p>In questa guida vi mostriamo come organizzare l'addio al nubilato o celibato perfetto ad Alcudia passo dopo passo, dalla cena all'alba. Il meglio: non serve l'auto, tutto e' nella stessa via.</p>
+
+<h2>Il piano perfetto per un addio al nubilato ad Alcudia</h2>
+
+<p>I migliori piani di festa a Port d'Alcudia seguono una formula collaudata: <strong>cena di gruppo, cocktail e festa</strong>. I tre locali di <a href="/">Grupo Enjoy</a> sono uno accanto all'altro, quindi la logistica e' semplicissima.</p>
+
+<h3>Passo 1: Cena al Hiru Food &amp; Drinks</h3>
+<p>Ogni grande celebrazione inizia con un'ottima cena. <a href="/hiru">Hiru Food &amp; Drinks</a> e' il ristorante ideale per grandi gruppi che vogliono mangiare bene in un'atmosfera festiva. La terrazza ospita tavoli grandi e il personale e' esperto nella gestione di gruppi.</p>
+<p>Per le feste, la <strong>paella ai frutti di mare da condividere</strong> e' una delle opzioni piu' popolari: un piatto generoso servito al centro del tavolo. Si possono anche scegliere carni alla griglia da condividere o una selezione di tapas varie. Hiru e' aperto fino a tardi, quindi nessuna fretta.</p>
+<p>Consiglio: prenotate il tavolo in anticipo e indicate che siete un gruppo di festeggiamento. Scoprite di piu' sul menu nella nostra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guida completa di Hiru</a>.</p>
+
+<h3>Passo 2: Cocktail all'Enjoy Terrace</h3>
+<p>Dopo cena, la tappa naturale successiva e' l'<a href="/enjoy">Enjoy Terrace</a>. Questo cocktail lounge all'aperto e' il posto perfetto per rilassarsi con cocktail d'autore e shisha premium mentre la serata cresce di intensita'.</p>
+<p>L'Enjoy Terrace funziona particolarmente bene per le celebrazioni: l'atmosfera e' sofisticata ma rilassata, i cocktail sono tra i migliori della zona, e la terrazza e' ideale per le foto di gruppo.</p>
+<p>Scoprite la carta nel nostro <a href="/blog/cocteles-shisha-terraza-alcudia">articolo sull'Enjoy Terrace</a>.</p>
+
+<h3>Passo 3: La festa all'Outxide Club</h3>
+<p>Quando il gruppo e' pronto per ballare, l'<a href="/outxide">Outxide Club</a> e' letteralmente accanto. E' la discoteca di riferimento del nord di Maiorca, con serate il giovedi', venerdi' e sabato con DJ nazionali e internazionali, un impianto audio di primo livello e una pista piena di energia.</p>
+<p>Per gli addii al nubilato e celibato, prenotare un <strong>tavolo VIP</strong> e' la scelta migliore. Avere la propria zona con servizio bottiglie garantisce che il gruppo resti unito e ben servito. I tavoli VIP hanno vista diretta sulla pista e sulla consolle DJ. Verificate la disponibilita' sul sito di <a href="/outxide">Outxide Club</a>.</p>
+<p>Scoprite di piu' nella nostra <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guida Outxide Club</a>.</p>
+
+<h2>Tavoli VIP all'Outxide per gruppi</h2>
+<p>Se c'e' qualcosa che eleva un addio al nubilato o celibato, e' avere un'<strong>area VIP riservata</strong>. All'Outxide Club, i tavoli VIP sono posizionati in punti privilegiati con vista diretta sulla pista e sul palco. Servizio bottiglie premium con attenzione dedicata tutta la notte.</p>
+<p>Per gruppi di festeggiamento, raccomandiamo di prenotare almeno una settimana prima, soprattutto a luglio e agosto. Contattate direttamente tramite il sito di <a href="/outxide">Outxide Club</a>.</p>
+
+<h2>Cocktail di celebrazione all'Enjoy Terrace</h2>
+<p>L'<a href="/enjoy">Enjoy Terrace</a> e' molto piu' di un cocktail bar. Per i gruppi, il team di Enjoy puo' preparare giri speciali di cocktail, shot di benvenuto e creazioni personalizzate. La terrazza ospita comodamente gruppi di 10, 15 o 20 persone in un ambiente elegante.</p>
+<p>Se la festa e' in estate, arrivare al tramonto e' una mossa vincente: i colori su Port d'Alcudia sono lo sfondo perfetto per le foto di gruppo.</p>
+
+<h2>Cena di gruppo al Hiru</h2>
+<p>Uno dei grandi vantaggi di <a href="/hiru">Hiru Food &amp; Drinks</a> per le celebrazioni e' la capacita' di servire tavoli grandi senza compromettere la qualita'. La <strong>paella ai frutti di mare</strong> e' preparata con prodotti freschi del mercato locale e servita da condividere. Ci sono anche carni alla griglia stagionate e una selezione di antipasti.</p>
+
+<h2>Consigli pratici</h2>
+<p><strong>Alloggio:</strong> Port d'Alcudia offre un'ampia scelta di hotel e appartamenti. Per addii al nubilato, gli appartamenti tipo villa con piscina sono i piu' popolari. La zona di Bellevue e Playa de Muro hanno buone opzioni.</p>
+<p><strong>Trasporto:</strong> <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> e <a href="/outxide">Outxide</a> sono nella stessa via, a pochi passi. Niente taxi necessari.</p>
+<p><strong>Prenotazioni:</strong> Prenotate tavolo ristorante e area VIP in anticipo. In alta stagione (giugno-settembre), la domanda e' molto alta.</p>
+<p><strong>Giorno della settimana:</strong> Venerdi' e sabato offrono la migliore atmosfera all'Outxide. Il giovedi' e' piu' tranquillo ma ci sono comunque serate.</p>
+
+<p>Per altre idee, consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida alla vita notturna di Alcudia</a> e il nostro articolo su <a href="/blog/fiestas-eventos-verano-alcudia-2026">eventi e feste dell'estate 2026</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Tutto in Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Maiorca. <a href="/">Visitate il nostro sito per maggiori informazioni.</a></strong></p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/outxide/DSCF8103-9.jpg",
+    tags: ["events", "nightlife", "alcudia", "mallorca", "enjoy", "outxide"],
+    venue: "general",
+    readingTime: 7,
+  },
+  {
+    slug: "cena-romantica-alcudia-mallorca",
+    title: {
+      es: "Cena Romantica en Alcudia: Los Mejores Restaurantes para una Noche Especial",
+      en: "Romantic Dinner in Alcudia: The Best Restaurants for a Special Night in Mallorca",
+      de: "Romantisches Abendessen in Alcudia: Die besten Restaurants fuer einen besonderen Abend auf Mallorca",
+      fr: "Diner Romantique a Alcudia : Les Meilleurs Restaurants pour une Soiree Speciale a Majorque",
+      it: "Cena Romantica ad Alcudia: I Migliori Ristoranti per una Serata Speciale a Maiorca",
+    },
+    excerpt: {
+      es: "Descubre donde disfrutar de la mejor cena romantica en Alcudia y Port d'Alcudia. Restaurantes con terraza, ambiente intimo y cocina de calidad para una velada inolvidable en Mallorca.",
+      en: "Discover where to enjoy the best romantic dinner in Alcudia and Port d'Alcudia. Terrace restaurants, intimate atmosphere and quality cuisine for an unforgettable evening in Mallorca.",
+      de: "Entdecken Sie die besten romantischen Abendessen in Alcudia und Port d'Alcudia. Terrassenrestaurants, intime Atmosphaere und hochwertige Kueche fuer einen unvergesslichen Abend auf Mallorca.",
+      fr: "Decouvrez ou profiter du meilleur diner romantique a Alcudia et Port d'Alcudia. Restaurants en terrasse, ambiance intime et cuisine de qualite pour une soiree inoubliable a Majorque.",
+      it: "Scoprite dove godervi la migliore cena romantica ad Alcudia e Port d'Alcudia. Ristoranti con terrazza, atmosfera intima e cucina di qualita' per una serata indimenticabile a Maiorca.",
+    },
+    content: {
+      es: `<p>Si estas buscando un restaurante romantico en Alcudia para sorprender a tu pareja, el norte de Mallorca tiene opciones que van mucho mas alla del tipico restaurante turistico. Una cena romantica en Alcudia puede ser una experiencia memorable si eliges bien el sitio, el momento y el plan. En esta guia te contamos donde cenar en pareja en Alcudia y como completar la velada perfecta.</p>
+
+<h2>Por que Hiru es perfecto para una cena romantica</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> se ha convertido en una de las mejores opciones para cenas romanticas en Port d'Alcudia, y no es casualidad. El restaurante combina tres elementos que hacen que una velada sea especial: <strong>cocina de alto nivel, ambiente cuidado y servicio atento sin ser invasivo</strong>.</p>
+<p>La terraza de Hiru es el escenario ideal para una cena romantica de verano. Mesas bien espaciadas que ofrecen intimidad, iluminacion calida que crea atmosfera, y una brisa suave del Mediterraneo como banda sonora. El interior tambien funciona para veladas mas intimas, con una estetica contemporanea y acogedora que invita a quedarse.</p>
+<p>Pero lo que realmente hace de Hiru un sitio especial para parejas es la calidad de su cocina. No es un restaurante donde simplemente comes bien: es un lugar donde cada plato esta pensado para disfrutarse, donde los sabores sorprenden y donde la experiencia gastronomica eleva toda la velada.</p>
+<p>Descubre toda la propuesta en nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guia completa de Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Que pedir en una cena romantica en Hiru</h2>
+<p>La carta de <a href="/hiru">Hiru</a> esta disenada para compartir, lo que la hace perfecta para una cena en pareja donde ambos podeis probar de todo.</p>
+<h3>Para empezar</h3>
+<p>Comenzad con una seleccion de entrantes para compartir. Los carpaccios, las croquetas caseras y los platos de temporada son un buen punto de partida. Acompanad con una copa de vino de la carta, que incluye referencias locales e internacionales bien seleccionadas.</p>
+<h3>Platos principales</h3>
+<p>Las <strong>carnes maduradas dry-aged</strong> son una de las grandes especialidades de Hiru. Piezas seleccionadas que se maduran durante semanas para alcanzar un sabor y una textura excepcionales, cocinadas a la brasa con la precision que solo el fuego directo permite. Para quien prefiera mar a montana, el <strong>pescado fresco del Mediterraneo a la brasa</strong> es otra opcion sobresaliente. Y si quereis algo para compartir con un toque especial, la <strong>paella para dos</strong> es una experiencia en si misma: arroz con marisco fresco, caldo casero y el punto perfecto de socarrat.</p>
+<h3>Para terminar</h3>
+<p>Los postres de Hiru cambian segun temporada, pero siempre hay opciones para cerrar la cena con un buen sabor de boca. Y si preferis alargar la sobremesa, el cocktail bar del propio restaurante ofrece combinados de autor sin necesidad de moveros.</p>
+
+<h2>Continua la noche: cocteles en Enjoy Terrace</h2>
+<p>Una cena romantica no tiene por que terminar con el postre. Si quereis alargar la velada, <a href="/enjoy">Enjoy Terrace</a> esta a pocos pasos de Hiru y ofrece el complemento perfecto: una terraza al aire libre con iluminacion ambiental, musica suave y una carta de cocteles de autor que incluye clasicos reinventados y creaciones exclusivas.</p>
+<p>Sentaros en la terraza de Enjoy con un cocktail mientras la noche de Alcudia se despliega a vuestro alrededor es una de esas experiencias que convierten una buena cena en una velada inolvidable. La shisha premium tambien es una opcion para quienes quieran probar algo diferente en pareja.</p>
+<p>Mas detalles en nuestro <a href="/blog/cocteles-shisha-terraza-alcudia">articulo sobre cocteles y shisha en Enjoy Terrace</a>.</p>
+
+<h2>Otros restaurantes romanticos en Alcudia</h2>
+<p>Aunque <a href="/hiru">Hiru Food &amp; Drinks</a> es nuestra recomendacion principal, Alcudia tiene otras opciones para cenas romanticas:</p>
+<h3>El Patio de Alcudia</h3>
+<p>Restaurante con un precioso patio interior ajardinado en el casco historico. Cocina fusion con base mediterranea en un ambiente intimo y cuidado. Ideal si buscais algo dentro de la muralla medieval.</p>
+<h3>Sa Placa</h3>
+<p>En la plaza principal del casco antiguo, con terraza con vistas a la muralla. Cocina mediterranea con toques mallorquines. El atardecer desde aqui es especialmente bonito.</p>
+<h3>Can Simó</h3>
+<p>Casa senorial del siglo XVII convertida en restaurante. Cocina de autor con producto local en un edificio historico lleno de encanto. Para una ocasion realmente especial.</p>
+
+<h2>Consejos para tu cena romantica en Alcudia</h2>
+<p><strong>Reserva con antelacion:</strong> Especialmente en temporada alta (junio-septiembre), los mejores restaurantes se llenan rapido. Reserva al menos con dos o tres dias de antelacion para asegurar una buena mesa. En Hiru puedes reservar a traves de su web o por telefono.</p>
+<p><strong>El mejor momento:</strong> Para una cena romantica perfecta, llega entre las 20:00 y las 20:30. Asi podreis disfrutar de las ultimas luces del atardecer durante los entrantes y ver como la noche se va instalando mientras cenais. La terraza de Hiru es especialmente bonita en ese momento.</p>
+<p><strong>Dress code:</strong> El ambiente en los restaurantes de Alcudia es smart-casual. No hace falta ir de etiqueta, pero una camisa o un vestido de verano elegante siempre suman puntos para la ocasion.</p>
+<p><strong>Despues de cenar:</strong> Si quereis seguir la noche, <a href="/enjoy">Enjoy Terrace</a> os espera con cocteles y musica. Y si os apetece una noche mas larga, <a href="/outxide">Outxide Club</a> esta justo al lado. Consultad nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia de vida nocturna en Alcudia</a> para planificar.</p>
+<p><strong>Ocasiones especiales:</strong> Si celebrais un aniversario, cumpleanos o pedida de mano, el equipo de Hiru puede ayudar a preparar detalles especiales si avisais con antelacion.</p>
+
+<p>Para mas ideas gastronomicas, no os perdais nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guia de los mejores restaurantes de Alcudia</a> y nuestro articulo sobre <a href="/blog/restaurante-brasa-parrilla-mallorca">restaurantes a la brasa en Mallorca</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Mallorca. Abierto de 12:00 a 23:30 (viernes y sabado hasta la 1:00). Cierra los martes. <a href="/hiru">Reserva tu mesa aqui.</a></strong></p>`,
+
+      en: `<p>If you're looking for a romantic restaurant in Alcudia to surprise your partner, northern Mallorca has options that go well beyond the typical tourist restaurant. A romantic dinner in Alcudia can be a truly memorable experience if you choose the right place, the right moment and the right plan. In this guide we share where to dine as a couple in Alcudia and how to complete the perfect evening.</p>
+
+<h2>Why Hiru is perfect for a romantic dinner</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> has become one of the best options for romantic dinners in Port d'Alcudia, and it's no coincidence. The restaurant combines three elements that make an evening special: <strong>high-quality cuisine, carefully crafted atmosphere and attentive service without being intrusive</strong>.</p>
+<p>The Hiru terrace is the ideal setting for a summer romantic dinner. Well-spaced tables offering privacy, warm lighting that creates atmosphere, and a gentle Mediterranean breeze as background. The interior also works for more intimate evenings, with a contemporary and welcoming aesthetic that invites you to linger.</p>
+<p>But what truly makes Hiru special for couples is the quality of its cooking. This isn't a restaurant where you simply eat well: it's a place where every dish is designed to be savoured, where flavours surprise and where the gastronomic experience elevates the entire evening.</p>
+<p>Discover the full experience in our <a href="/blog/hiru-food-drinks-restaurante-alcudia">complete Hiru Food &amp; Drinks guide</a>.</p>
+
+<h2>What to order at a romantic dinner at Hiru</h2>
+<p>The <a href="/hiru">Hiru</a> menu is designed for sharing, making it perfect for a couple's dinner where you can both try everything.</p>
+<h3>To start</h3>
+<p>Begin with a selection of shared starters. Carpaccios, homemade croquettes and seasonal dishes are a great starting point. Pair them with a glass of wine from the carefully curated list, which includes both local and international references.</p>
+<h3>Main courses</h3>
+<p>The <strong>dry-aged meats</strong> are one of Hiru's signature specialities. Selected cuts aged for weeks to achieve exceptional flavour and texture, cooked over open flame with the precision that only direct fire allows. For those who prefer sea to land, the <strong>fresh Mediterranean fish cooked on the grill</strong> is another outstanding option. And if you want something to share with a special touch, the <strong>paella for two</strong> is an experience in itself: rice with fresh seafood, homemade stock and the perfect socarrat crust.</p>
+<h3>To finish</h3>
+<p>Hiru's desserts change with the seasons, but there are always options to end the dinner on a sweet note. And if you'd rather extend the after-dinner conversation, the restaurant's own cocktail bar offers signature mixed drinks without needing to move.</p>
+
+<h2>Continue the night: cocktails at Enjoy Terrace</h2>
+<p>A romantic dinner doesn't have to end with dessert. If you want to extend the evening, <a href="/enjoy">Enjoy Terrace</a> is just a few steps from Hiru and offers the perfect complement: an open-air terrace with ambient lighting, soft music and a signature cocktail menu featuring reinvented classics and exclusive creations.</p>
+<p>Sitting on the Enjoy terrace with a cocktail while the Alcudia night unfolds around you is one of those experiences that turns a good dinner into an unforgettable evening. Premium shisha is also an option for couples who want to try something different.</p>
+<p>More details in our <a href="/blog/cocteles-shisha-terraza-alcudia">article on cocktails and shisha at Enjoy Terrace</a>.</p>
+
+<h2>Other romantic restaurants in Alcudia</h2>
+<p>Although <a href="/hiru">Hiru Food &amp; Drinks</a> is our top recommendation, Alcudia has other options for romantic dinners:</p>
+<h3>El Patio de Alcudia</h3>
+<p>A restaurant with a beautiful garden courtyard in the historic centre. Fusion cuisine with a Mediterranean base in an intimate and refined setting. Ideal if you're looking for something within the medieval walls.</p>
+<h3>Sa Placa</h3>
+<p>On the main square of the old town, with a terrace overlooking the walls. Mediterranean cuisine with Mallorcan touches. The sunset from here is particularly beautiful.</p>
+<h3>Can Simo</h3>
+<p>A 17th-century manor house converted into a restaurant. Creative cuisine with local produce in a historic building full of charm. For a truly special occasion.</p>
+
+<h2>Tips for your romantic dinner in Alcudia</h2>
+<p><strong>Book in advance:</strong> Especially during high season (June to September), the best restaurants fill up quickly. Book at least two or three days ahead to secure a good table. You can reserve at Hiru through their website or by phone.</p>
+<p><strong>Best time:</strong> For a perfect romantic dinner, arrive between 20:00 and 20:30. This way you'll enjoy the last sunset light during starters and watch the night settle in as you dine. The Hiru terrace is particularly lovely at this time.</p>
+<p><strong>Dress code:</strong> The atmosphere in Alcudia's restaurants is smart-casual. No need for formal attire, but a nice shirt or an elegant summer dress always adds to the occasion.</p>
+<p><strong>After dinner:</strong> If you want to continue the evening, <a href="/enjoy">Enjoy Terrace</a> awaits with cocktails and music. And if you fancy a longer night, <a href="/outxide">Outxide Club</a> is right next door. Check our <a href="/blog/guia-vida-nocturna-alcudia">Alcudia nightlife guide</a> for planning.</p>
+<p><strong>Special occasions:</strong> If you're celebrating an anniversary, birthday or proposal, the Hiru team can help prepare special details if you let them know in advance.</p>
+
+<p>For more dining ideas, don't miss our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to the best restaurants in Alcudia</a> and our article on <a href="/blog/restaurante-brasa-parrilla-mallorca">grill restaurants in Mallorca</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Mallorca. Open from 12:00 to 23:30 (Friday and Saturday until 1:00). Closed Tuesdays. <a href="/hiru">Reserve your table here.</a></strong></p>`,
+
+      de: `<p>Wenn Sie ein romantisches Restaurant in Alcudia suchen, um Ihren Partner zu ueberraschen, bietet der Norden Mallorcas Optionen, die weit ueber das typische Touristenrestaurant hinausgehen. Ein romantisches Abendessen in Alcudia kann ein unvergessliches Erlebnis sein, wenn Sie den richtigen Ort, den richtigen Moment und den richtigen Plan waehlen. In diesem Guide verraten wir, wo Sie zu zweit in Alcudia essen koennen und wie Sie den perfekten Abend gestalten.</p>
+
+<h2>Warum Hiru perfekt fuer ein romantisches Abendessen ist</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> hat sich zu einer der besten Optionen fuer romantische Abendessen in Port d'Alcudia entwickelt, und das kommt nicht von ungefaehr. Das Restaurant vereint drei Elemente, die einen Abend besonders machen: <strong>hochwertige Kueche, sorgfaeltig gestaltete Atmosphaere und aufmerksamer Service ohne aufdringlich zu sein</strong>.</p>
+<p>Die Terrasse von Hiru ist die ideale Kulisse fuer ein romantisches Sommerabendessen. Gut platzierte Tische bieten Privatsphaere, warmes Licht schafft Atmosphaere, und eine sanfte Meeresbrise sorgt fuer die Hintergrundmelodie. Das Interieur funktioniert ebenfalls fuer intimere Abende, mit einer zeitgenoessischen und einladenden Aesthetik.</p>
+<p>Aber was Hiru wirklich besonders fuer Paare macht, ist die Qualitaet der Kueche. Dies ist kein Restaurant, in dem man einfach gut isst: Es ist ein Ort, an dem jedes Gericht dazu einlaedt, genossen zu werden, wo Aromen ueberraschen und wo das gastronomische Erlebnis den gesamten Abend bereichert.</p>
+<p>Entdecken Sie das volle Erlebnis in unserem <a href="/blog/hiru-food-drinks-restaurante-alcudia">kompletten Hiru Food &amp; Drinks Guide</a>.</p>
+
+<h2>Was bei einem romantischen Abendessen im Hiru bestellen</h2>
+<p>Die Speisekarte von <a href="/hiru">Hiru</a> ist zum Teilen konzipiert, perfekt fuer ein Dinner zu zweit.</p>
+<h3>Zum Einstieg</h3>
+<p>Beginnen Sie mit einer Auswahl an Vorspeisen zum Teilen. Carpaccios, hausgemachte Kroketten und saisonale Gerichte sind ein guter Ausgangspunkt. Begleitet von einem Glas Wein aus der sorgfaeltig kuratierten Weinkarte.</p>
+<h3>Hauptgerichte</h3>
+<p>Die <strong>dry-aged Fleischstuecke</strong> sind eine der grossen Spezialitaeten von Hiru. Ausgewaehlte Stuecke, die wochenlang gereift werden, um aussergewoehnlichen Geschmack und Textur zu erreichen, ueber offenem Feuer gegrillt. Fuer Fischliebhaber ist der <strong>frische Mittelmeerfisch vom Grill</strong> eine hervorragende Alternative. Und wenn Sie etwas Besonderes zum Teilen moechten, ist die <strong>Paella fuer zwei</strong> ein Erlebnis: Reis mit frischen Meeresfrueechten, hausgemachter Bruehe und perfektem Socarrat.</p>
+<h3>Zum Abschluss</h3>
+<p>Die Desserts wechseln saisonal, aber es gibt immer Optionen fuer einen suessen Abschluss. Und wenn Sie lieber das Gespraech verlaengern moechten, bietet die hauseigene Cocktailbar Signatur-Drinks ohne dass Sie sich bewegen muessen.</p>
+
+<h2>Die Nacht fortsetzen: Cocktails auf der Enjoy Terrace</h2>
+<p>Ein romantisches Abendessen muss nicht mit dem Dessert enden. Die <a href="/enjoy">Enjoy Terrace</a> ist nur wenige Schritte von Hiru entfernt und bietet die perfekte Ergaenzung: eine Open-Air-Terrasse mit stimmungsvoller Beleuchtung, sanfter Musik und einer Signatur-Cocktailkarte.</p>
+<p>Auf der Enjoy-Terrasse mit einem Cocktail zu sitzen, waehrend die Nacht in Alcudia sich entfaltet, ist eines dieser Erlebnisse, die ein gutes Abendessen in einen unvergesslichen Abend verwandeln. Premium-Shisha ist ebenfalls eine Option fuer Paare.</p>
+<p>Mehr Details in unserem <a href="/blog/cocteles-shisha-terraza-alcudia">Artikel ueber Cocktails und Shisha auf der Enjoy Terrace</a>.</p>
+
+<h2>Weitere romantische Restaurants in Alcudia</h2>
+<p>Obwohl <a href="/hiru">Hiru Food &amp; Drinks</a> unsere Top-Empfehlung ist, hat Alcudia weitere Optionen:</p>
+<h3>El Patio de Alcudia</h3>
+<p>Restaurant mit einem wunderschoenen Garteninnenhof im historischen Zentrum. Fusionskueche auf mediterraner Basis in einem intimen Ambiente. Ideal innerhalb der mittelalterlichen Mauern.</p>
+<h3>Sa Placa</h3>
+<p>Am Hauptplatz der Altstadt, mit Terrasse und Blick auf die Stadtmauer. Mediterrane Kueche mit mallorquinischen Akzenten. Der Sonnenuntergang hier ist besonders schoen.</p>
+<h3>Can Simo</h3>
+<p>Ein Herrenhaus aus dem 17. Jahrhundert, umgebaut zum Restaurant. Kreative Kueche mit lokalen Produkten in einem historischen Gebaeude voller Charme.</p>
+
+<h2>Tipps fuer Ihr romantisches Abendessen</h2>
+<p><strong>Im Voraus reservieren:</strong> Besonders in der Hochsaison (Juni-September) sind die besten Restaurants schnell voll. Reservieren Sie mindestens zwei bis drei Tage vorher.</p>
+<p><strong>Beste Zeit:</strong> Kommen Sie zwischen 20:00 und 20:30 Uhr, um das letzte Sonnenlicht bei den Vorspeisen zu geniessen. Die Hiru-Terrasse ist zu dieser Zeit besonders schoen.</p>
+<p><strong>Dresscode:</strong> Smart-Casual. Keine formelle Kleidung noetig, aber ein huebsches Hemd oder ein elegantes Sommerkleid runden den Anlass ab.</p>
+<p><strong>Nach dem Essen:</strong> <a href="/enjoy">Enjoy Terrace</a> erwartet Sie mit Cocktails und Musik. Und wenn Sie eine laengere Nacht moechten, ist der <a href="/outxide">Outxide Club</a> gleich nebenan. Schauen Sie in unseren <a href="/blog/guia-vida-nocturna-alcudia">Alcudia Nachtleben-Guide</a>.</p>
+<p><strong>Besondere Anlaesse:</strong> Bei Jahrestag, Geburtstag oder Heiratsantrag kann das Hiru-Team besondere Details vorbereiten, wenn Sie vorher Bescheid geben.</p>
+
+<p>Fuer weitere Ideen lesen Sie unseren <a href="/blog/mejores-restaurantes-alcudia-mallorca">Guide der besten Restaurants in Alcudia</a> und unseren Artikel ueber <a href="/blog/restaurante-brasa-parrilla-mallorca">Grill-Restaurants auf Mallorca</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Mallorca. Geoeffnet von 12:00 bis 23:30 (Freitag und Samstag bis 1:00). Dienstags geschlossen. <a href="/hiru">Reservieren Sie Ihren Tisch hier.</a></strong></p>`,
+
+      fr: `<p>Si vous cherchez un restaurant romantique a Alcudia pour surprendre votre partenaire, le nord de Majorque offre des options bien au-dela du restaurant touristique classique. Un diner romantique a Alcudia peut etre une experience vraiment memorable si vous choisissez le bon endroit, le bon moment et le bon plan. Dans ce guide, nous partageons ou diner en couple a Alcudia et comment completer la soiree parfaite.</p>
+
+<h2>Pourquoi Hiru est parfait pour un diner romantique</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> est devenu l'une des meilleures options pour les diners romantiques a Port d'Alcudia, et ce n'est pas un hasard. Le restaurant combine trois elements qui rendent une soiree speciale : <strong>une cuisine de haut niveau, une atmosphere soignee et un service attentif sans etre intrusif</strong>.</p>
+<p>La terrasse de Hiru est le cadre ideal pour un diner romantique d'ete. Des tables bien espacees offrant de l'intimite, un eclairage chaleureux qui cree l'ambiance, et une douce brise mediterraneenne en fond sonore. L'interieur fonctionne aussi pour des soirees plus intimes, avec une esthetique contemporaine et accueillante.</p>
+<p>Mais ce qui rend vraiment Hiru special pour les couples, c'est la qualite de sa cuisine. Ce n'est pas un restaurant ou l'on mange simplement bien : c'est un lieu ou chaque plat est concu pour etre savoure, ou les saveurs surprennent et ou l'experience gastronomique eleve toute la soiree.</p>
+<p>Decouvrez l'experience complete dans notre <a href="/blog/hiru-food-drinks-restaurante-alcudia">guide complet Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Que commander lors d'un diner romantique au Hiru</h2>
+<p>La carte de <a href="/hiru">Hiru</a> est concue pour le partage, parfaite pour un diner en couple.</p>
+<h3>Pour commencer</h3>
+<p>Debutez avec une selection d'entrees a partager. Carpaccios, croquettes maison et plats de saison sont un excellent point de depart. Accompagnez d'un verre de vin de la carte soigneusement selectionnee.</p>
+<h3>Plats principaux</h3>
+<p>Les <strong>viandes maturees dry-aged</strong> sont l'une des grandes specialites de Hiru. Des pieces selectionnees, maturees pendant des semaines pour atteindre une saveur et une texture exceptionnelles, cuites au feu de braise. Pour ceux qui preferent la mer, le <strong>poisson frais de Mediterranee grille</strong> est une autre option remarquable. Et si vous voulez partager, la <strong>paella pour deux</strong> est une experience en soi : riz aux fruits de mer frais, bouillon maison et socarrat parfait.</p>
+<h3>Pour finir</h3>
+<p>Les desserts changent selon la saison, mais il y a toujours des options pour terminer sur une note sucree. Et si vous preferez prolonger l'apres-diner, le bar a cocktails du restaurant propose des creations signatures.</p>
+
+<h2>Prolonger la soiree : cocktails a l'Enjoy Terrace</h2>
+<p>Un diner romantique ne doit pas se terminer au dessert. L'<a href="/enjoy">Enjoy Terrace</a> est a quelques pas de Hiru et offre le complement parfait : une terrasse en plein air avec eclairage d'ambiance, musique douce et une carte de cocktails signatures.</p>
+<p>S'asseoir sur la terrasse d'Enjoy avec un cocktail pendant que la nuit d'Alcudia se deploie autour de vous est une de ces experiences qui transforment un bon diner en soiree inoubliable. Le chicha premium est aussi une option pour les couples.</p>
+<p>Plus de details dans notre <a href="/blog/cocteles-shisha-terraza-alcudia">article sur les cocktails et chicha a l'Enjoy Terrace</a>.</p>
+
+<h2>Autres restaurants romantiques a Alcudia</h2>
+<p>Bien que <a href="/hiru">Hiru Food &amp; Drinks</a> soit notre recommandation principale, Alcudia a d'autres options :</p>
+<h3>El Patio de Alcudia</h3>
+<p>Restaurant avec un beau patio jardine dans le centre historique. Cuisine fusion a base mediterraneenne dans un cadre intime et soigne. Ideal a l'interieur des remparts medievaux.</p>
+<h3>Sa Placa</h3>
+<p>Sur la place principale de la vieille ville, avec terrasse vue sur les remparts. Cuisine mediterraneenne aux touches majorquines. Le coucher de soleil d'ici est particulierement beau.</p>
+<h3>Can Simo</h3>
+<p>Maison seigneuriale du XVIIe siecle transformee en restaurant. Cuisine creative avec des produits locaux dans un batiment historique plein de charme.</p>
+
+<h2>Conseils pour votre diner romantique</h2>
+<p><strong>Reservez a l'avance :</strong> Surtout en haute saison (juin-septembre), les meilleurs restaurants se remplissent vite. Reservez au moins deux ou trois jours avant.</p>
+<p><strong>Meilleur moment :</strong> Arrivez entre 20h00 et 20h30 pour profiter des dernieres lueurs du coucher de soleil. La terrasse de Hiru est particulierement belle a ce moment.</p>
+<p><strong>Dress code :</strong> Smart-casual. Pas besoin de tenue formelle, mais une belle chemise ou une robe d'ete elegante completent l'occasion.</p>
+<p><strong>Apres le diner :</strong> L'<a href="/enjoy">Enjoy Terrace</a> vous attend avec cocktails et musique. Et si vous voulez prolonger, l'<a href="/outxide">Outxide Club</a> est juste a cote. Consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide de la vie nocturne a Alcudia</a>.</p>
+<p><strong>Occasions speciales :</strong> Pour un anniversaire, un anniversaire de mariage ou une demande en mariage, l'equipe Hiru peut preparer des details speciaux si vous prevenez a l'avance.</p>
+
+<p>Pour plus d'idees, consultez notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des meilleurs restaurants d'Alcudia</a> et notre article sur les <a href="/blog/restaurante-brasa-parrilla-mallorca">restaurants grill a Majorque</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Majorque. Ouvert de 12h00 a 23h30 (vendredi et samedi jusqu'a 1h00). Ferme le mardi. <a href="/hiru">Reservez votre table ici.</a></strong></p>`,
+
+      it: `<p>Se cercate un ristorante romantico ad Alcudia per sorprendere il vostro partner, il nord di Maiorca offre opzioni che vanno ben oltre il tipico ristorante turistico. Una cena romantica ad Alcudia puo' essere un'esperienza davvero memorabile se scegliete il posto giusto, il momento giusto e il piano giusto. In questa guida vi raccontiamo dove cenare in coppia ad Alcudia e come completare la serata perfetta.</p>
+
+<h2>Perche' Hiru e' perfetto per una cena romantica</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> e' diventato una delle migliori opzioni per cene romantiche a Port d'Alcudia, e non e' un caso. Il ristorante unisce tre elementi che rendono una serata speciale: <strong>cucina di alto livello, atmosfera curata e servizio attento senza essere invadente</strong>.</p>
+<p>La terrazza di Hiru e' lo scenario ideale per una cena romantica estiva. Tavoli ben distanziati che offrono privacy, illuminazione calda che crea atmosfera, e una leggera brezza mediterranea come colonna sonora. L'interno funziona anche per serate piu' intime, con un'estetica contemporanea e accogliente.</p>
+<p>Ma cio' che rende davvero Hiru speciale per le coppie e' la qualita' della cucina. Non e' un ristorante dove si mangia semplicemente bene: e' un luogo dove ogni piatto e' pensato per essere gustato, dove i sapori sorprendono e dove l'esperienza gastronomica eleva l'intera serata.</p>
+<p>Scoprite l'esperienza completa nella nostra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guida completa di Hiru Food &amp; Drinks</a>.</p>
+
+<h2>Cosa ordinare per una cena romantica al Hiru</h2>
+<p>Il menu di <a href="/hiru">Hiru</a> e' pensato per la condivisione, perfetto per una cena di coppia.</p>
+<h3>Per iniziare</h3>
+<p>Cominciate con una selezione di antipasti da condividere. Carpacci, crocchette fatte in casa e piatti stagionali sono un ottimo inizio. Accompagnate con un calice di vino dalla carta accuratamente selezionata.</p>
+<h3>Piatti principali</h3>
+<p>Le <strong>carni stagionate dry-aged</strong> sono una delle grandi specialita' di Hiru. Tagli selezionati, stagionati per settimane per raggiungere un sapore e una consistenza eccezionali, cotti alla brace con la precisione che solo il fuoco diretto permette. Per chi preferisce il mare, il <strong>pesce fresco del Mediterraneo alla griglia</strong> e' un'altra opzione eccellente. E se volete qualcosa di speciale da condividere, la <strong>paella per due</strong> e' un'esperienza in se': riso con frutti di mare freschi, brodo fatto in casa e socarrat perfetto.</p>
+<h3>Per finire</h3>
+<p>I dessert cambiano stagionalmente, ma ci sono sempre opzioni per chiudere con dolcezza. E se preferite prolungare il dopocena, il cocktail bar del ristorante offre drink d'autore senza dovervi spostare.</p>
+
+<h2>Continuare la serata: cocktail all'Enjoy Terrace</h2>
+<p>Una cena romantica non deve finire con il dessert. L'<a href="/enjoy">Enjoy Terrace</a> e' a pochi passi da Hiru e offre il complemento perfetto: una terrazza all'aperto con illuminazione d'atmosfera, musica soft e una carta di cocktail d'autore.</p>
+<p>Sedersi sulla terrazza di Enjoy con un cocktail mentre la notte di Alcudia si dispiega intorno a voi e' una di quelle esperienze che trasformano una buona cena in una serata indimenticabile. Lo shisha premium e' anche un'opzione per le coppie.</p>
+<p>Piu' dettagli nel nostro <a href="/blog/cocteles-shisha-terraza-alcudia">articolo sui cocktail e shisha all'Enjoy Terrace</a>.</p>
+
+<h2>Altri ristoranti romantici ad Alcudia</h2>
+<p>Anche se <a href="/hiru">Hiru Food &amp; Drinks</a> e' la nostra raccomandazione principale, Alcudia ha altre opzioni:</p>
+<h3>El Patio de Alcudia</h3>
+<p>Ristorante con un bel cortile giardino nel centro storico. Cucina fusion su base mediterranea in un ambiente intimo e curato. Ideale all'interno delle mura medievali.</p>
+<h3>Sa Placa</h3>
+<p>Nella piazza principale del centro storico, con terrazza vista sulle mura. Cucina mediterranea con tocchi maiorchini. Il tramonto da qui e' particolarmente bello.</p>
+<h3>Can Simo</h3>
+<p>Casa signorile del XVII secolo trasformata in ristorante. Cucina creativa con prodotti locali in un edificio storico pieno di fascino.</p>
+
+<h2>Consigli per la vostra cena romantica</h2>
+<p><strong>Prenotate in anticipo:</strong> Soprattutto in alta stagione (giugno-settembre), i migliori ristoranti si riempiono velocemente. Prenotate almeno due o tre giorni prima.</p>
+<p><strong>Momento migliore:</strong> Arrivate tra le 20:00 e le 20:30 per godervi le ultime luci del tramonto. La terrazza di Hiru e' particolarmente bella in quel momento.</p>
+<p><strong>Dress code:</strong> Smart-casual. Non serve abbigliamento formale, ma una bella camicia o un vestito estivo elegante completano l'occasione.</p>
+<p><strong>Dopo cena:</strong> L'<a href="/enjoy">Enjoy Terrace</a> vi aspetta con cocktail e musica. E se volete una notte piu' lunga, l'<a href="/outxide">Outxide Club</a> e' proprio accanto. Consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida alla vita notturna di Alcudia</a>.</p>
+<p><strong>Occasioni speciali:</strong> Se festeggiate un anniversario, compleanno o proposta di matrimonio, il team di Hiru puo' preparare dettagli speciali se avvisate in anticipo.</p>
+
+<p>Per altre idee gastronomiche, consultate la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai migliori ristoranti di Alcudia</a> e il nostro articolo sui <a href="/blog/restaurante-brasa-parrilla-mallorca">ristoranti alla griglia a Maiorca</a>.</p>
+
+<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Maiorca. Aperto dalle 12:00 alle 23:30 (venerdi' e sabato fino all'1:00). Chiuso il martedi'. <a href="/hiru">Prenotate il vostro tavolo qui.</a></strong></p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
+    tags: ["food", "restaurants", "hiru", "alcudia", "mallorca"],
+    venue: "hiru",
+    readingTime: 6,
+  },
+  {
+    slug: "plan-nocturno-port-alcudia-mallorca",
+    title: {
+      es: "Mejor Plan Nocturno en Port d'Alcudia: Guia Paso a Paso para la Noche Perfecta",
+      en: "Best Night Out in Port d'Alcudia: Step-by-Step Guide to the Perfect Evening in Mallorca",
+      de: "Bester Abendplan in Port d'Alcudia: Schritt-fuer-Schritt-Guide fuer den perfekten Abend auf Mallorca",
+      fr: "Meilleur Plan Nocturne a Port d'Alcudia : Guide Etape par Etape pour la Soiree Parfaite a Majorque",
+      it: "Miglior Piano Notturno a Port d'Alcudia: Guida Passo dopo Passo per la Serata Perfetta a Maiorca",
+    },
+    excerpt: {
+      es: "Descubre el mejor plan nocturno en Port d'Alcudia: cena, cocteles en terraza y fiesta en el club. Guia completa paso a paso para disfrutar de la vida nocturna del norte de Mallorca.",
+      en: "Discover the best night out plan in Port d'Alcudia: dinner, terrace cocktails and club night. Complete step-by-step guide to enjoying northern Mallorca's nightlife.",
+      de: "Entdecken Sie den besten Abendplan in Port d'Alcudia: Abendessen, Terrassen-Cocktails und Clubnacht. Kompletter Schritt-fuer-Schritt-Guide fuer das Nachtleben im Norden Mallorcas.",
+      fr: "Decouvrez le meilleur plan nocturne a Port d'Alcudia : diner, cocktails en terrasse et soiree en club. Guide complet etape par etape pour profiter de la vie nocturne du nord de Majorque.",
+      it: "Scoprite il miglior piano notturno a Port d'Alcudia: cena, cocktail in terrazza e serata in club. Guida completa passo dopo passo per godervi la vita notturna del nord di Maiorca.",
+    },
+    content: {
+      es: `<p>Port d'Alcudia tiene la mejor vida nocturna del norte de Mallorca, y eso no es opinion: es un hecho. Mientras que el sur de la isla concentra los grandes macroclubes, el norte ofrece algo diferente — una experiencia nocturna mas completa, mas cercana y con una calidad que sorprende a quienes la descubren por primera vez. Y lo mejor de todo es que <strong>el plan perfecto esta concentrado en una sola zona</strong>: Av. Tucan y Ctra. d'Arta, donde los tres locales de <a href="/">Grupo Enjoy</a> te permiten pasar de la cena a la fiesta sin necesitar un taxi.</p>
+
+<p>En esta guia te explicamos paso a paso como montar la noche perfecta en Port d'Alcudia, con variaciones para todos los gustos.</p>
+
+<h2>Paso 1: Cena en Hiru Food &amp; Drinks</h2>
+<p>La mejor noche siempre empieza con una buena cena, y <a href="/hiru">Hiru Food &amp; Drinks</a> es el punto de partida ideal. Este restaurante se ha ganado la reputacion de ser el mejor de Port d'Alcudia por una razon: su cocina a la brasa con producto de primera, su terraza con ambiente, y un horario que se adapta perfectamente a los planes nocturnos.</p>
+<p>Hiru abre de 12:00 a 23:30 entre semana y hasta la 1:00 los viernes y sabados. Eso significa que puedes cenar tranquilamente a las 21:00 o 21:30 sin sentir que te echan del sitio. La carta ofrece carnes maduradas dry-aged cocinadas a la brasa, pescado fresco del Mediterraneo a la parrilla, arroces y paellas elaborados con caldo casero y marisco de la lonja, y una seleccion de entrantes y tapas que funcionan perfectamente para compartir.</p>
+<p>El cocktail bar de Hiru ya empieza a marcar el tono de la noche: puedes acompanar la cena con un buen vino de su carta o arrancar con un combinado de autor. Los viernes y sabados, el ambiente en Hiru se nota especialmente animado — es donde empieza todo.</p>
+<p>Lee mas sobre la experiencia gastronomica en nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guia completa de Hiru</a> y en nuestro <a href="/blog/mejores-restaurantes-alcudia-mallorca">ranking de mejores restaurantes de Alcudia</a>.</p>
+
+<h2>Paso 2: Cocteles en Enjoy Terrace</h2>
+<p>Despues de cenar, el siguiente paso es cruzar a <a href="/enjoy">Enjoy Terrace</a>, el cocktail lounge y shisha bar que funciona como el puente perfecto entre la cena y la fiesta. Enjoy esta abierto todos los dias de 17:00 a 05:30, lo que significa que puedes llegar a cualquier hora y siempre encontraras ambiente.</p>
+<p>La terraza al aire libre de Enjoy es uno de los secretos mejor guardados de Port d'Alcudia. Iluminacion calida, musica cuidadosamente seleccionada que va subiendo de intensidad segun avanza la noche, cocteles de autor preparados por mixologos profesionales y una seleccion de shisha premium con carbon natural y tabaco de primera calidad.</p>
+<p>Si llegas al atardecer, el espectaculo de colores sobre Alcudia es impresionante. Pero incluso a medianoche, Enjoy tiene una energia especial: es el momento en que los grupos se juntan, las conversaciones fluyen y la noche empieza a coger velocidad.</p>
+<p>Explora la carta de cocteles y la experiencia shisha en nuestro <a href="/blog/cocteles-shisha-terraza-alcudia">articulo dedicado a Enjoy Terrace</a>.</p>
+
+<h2>Paso 3: La fiesta en Outxide Club</h2>
+<p>Cuando la terraza ya no es suficiente y el cuerpo pide musica a todo volumen y pista de baile, <a href="/outxide">Outxide Club</a> esta literalmente a pocos metros. Es la discoteca de referencia del norte de Mallorca, y los que la conocen saben que la experiencia no tiene nada que envidiar a los clubs del sur.</p>
+<p>Outxide tiene sesiones los <strong>jueves, viernes y sabados</strong>, con DJs nacionales e internacionales que pintan house, tech-house, R&amp;B y sesiones tematicas que cambian cada semana. El sistema de sonido es de primer nivel, la iluminacion esta disenada para crear una experiencia inmersiva y la pista se llena de gente con ganas de pasarlo bien.</p>
+<p>Las opciones de entrada incluyen <strong>compra anticipada online</strong> (recomendada para asegurar tu plaza y a menudo con descuento) y taquilla en puerta. Para grupos y celebraciones, las <strong>mesas VIP con servicio de botellas</strong> son la opcion premium: tu propia zona con vista a la pista y atencion personalizada toda la noche.</p>
+<p>Toda la informacion sobre las sesiones y las entradas en nuestra <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guia de Outxide Club</a> y en el articulo sobre <a href="/blog/mejores-discotecas-clubs-alcudia">las mejores discotecas de Alcudia</a>.</p>
+
+<h2>Variaciones del plan nocturno</h2>
+<p>No todos los planes nocturnos tienen que ser iguales. Aqui van tres variaciones que funcionan segun lo que te apetezca:</p>
+
+<h3>Plan casual: Enjoy + Outxide</h3>
+<p>Si prefieres cenar por tu cuenta o en tu hotel y salir directamente a tomar cocteles, puedes empezar la noche directamente en <a href="/enjoy">Enjoy Terrace</a>. Un par de cocteles, algo de shisha, y cuando el ambiente suba lo suficiente, cruzas al <a href="/outxide">Outxide Club</a>. Es el plan mas ligero y funciona perfectamente para noches entre semana o cuando no quieres complicarte.</p>
+
+<h3>Plan foodie: Hiru + Enjoy</h3>
+<p>Si la gastronomia es lo tuyo y prefieres una noche mas tranquila sin discoteca, la combinacion de cena en <a href="/hiru">Hiru</a> seguida de cocteles en <a href="/enjoy">Enjoy</a> es una velada completa. Puedes alargar la sobremesa en el cocktail bar de Hiru y luego pasarte a Enjoy para cambiar de ambiente. La terraza de Enjoy esta abierta hasta las 05:30, asi que no hay prisa.</p>
+
+<h3>Plan experiencia completa: Hiru + Enjoy + Outxide</h3>
+<p>Este es el plan estrella. Cena en <a href="/hiru">Hiru</a> a las 21:00, cocteles en <a href="/enjoy">Enjoy</a> a partir de las 23:00, y fiesta en <a href="/outxide">Outxide</a> desde la 1:00. Es la formula que siguen los que conocen la zona y quieren exprimir cada momento de la noche. Todo sin coger un coche.</p>
+
+<h2>Lo que necesitas saber</h2>
+<p><strong>Horarios:</strong> Hiru abre de 12:00 a 23:30 (viernes y sabado hasta la 1:00, cierra martes). Enjoy Terrace de 17:00 a 05:30 todos los dias. Outxide Club abre jueves, viernes y sabado por la noche (consulta horarios exactos en su web).</p>
+<p><strong>Ubicacion:</strong> Los tres locales estan en la misma zona de Port d'Alcudia, en Av. Tucan y Ctra. d'Arta. Puedes ir andando de uno a otro en menos de dos minutos. No necesitas coche ni taxi.</p>
+<p><strong>Edad:</strong> Outxide Club tiene un requisito de edad de <strong>21+</strong>. Asegurate de llevar DNI o pasaporte. Hiru y Enjoy no tienen restriccion de edad para cenar y tomar cocteles, aunque el servicio de alcohol es solo para mayores de edad.</p>
+<p><strong>Entradas de Outxide:</strong> Compra tus entradas online con antelacion para evitar colas y a menudo conseguir mejor precio. Disponible en la web de <a href="/outxide">Outxide Club</a>.</p>
+<p><strong>Reservas:</strong> Recomendamos reservar mesa en Hiru, especialmente los viernes y sabados en temporada alta. Para mesas VIP en Outxide, contacta directamente por la web.</p>
+
+<p>Para completar tu planificacion, no te pierdas nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia completa de vida nocturna en Alcudia</a> y el articulo sobre <a href="/blog/planes-alcudia-mallorca">los mejores planes en Alcudia</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Toda la informacion en nuestra web.</a></strong></p>`,
+
+      en: `<p>Port d'Alcudia has the best nightlife in northern Mallorca, and that's not just opinion — it's a fact. While the south of the island concentrates the mega-clubs, the north offers something different: a more complete night-out experience, more personal and with a quality that surprises first-time visitors. And the best part is that <strong>the perfect plan is concentrated in one area</strong>: Av. Tucan and Ctra. d'Arta, where the three venues by <a href="/">Grupo Enjoy</a> let you go from dinner to dancing without needing a taxi.</p>
+
+<p>In this guide we walk you through step by step how to put together the perfect night in Port d'Alcudia, with variations for every taste.</p>
+
+<h2>Step 1: Dinner at Hiru Food &amp; Drinks</h2>
+<p>The best night always starts with a great dinner, and <a href="/hiru">Hiru Food &amp; Drinks</a> is the ideal starting point. This restaurant has earned its reputation as the best in Port d'Alcudia for a reason: its open-flame cuisine with premium ingredients, its terrace with atmosphere, and opening hours that fit perfectly into an evening plan.</p>
+<p>Hiru is open from 12:00 to 23:30 on weekdays and until 1:00 on Fridays and Saturdays. That means you can dine comfortably at 21:00 or 21:30 without feeling rushed. The menu offers dry-aged meats cooked over open flame, fresh Mediterranean fish from the grill, rice dishes and paellas made with homemade stock and market-fresh seafood, and a selection of starters and tapas perfect for sharing.</p>
+<p>Hiru's cocktail bar already sets the tone for the night: pair your dinner with a wine from the list or kick off with a signature mixed drink. On Fridays and Saturdays, the atmosphere at Hiru is especially lively — it's where it all begins.</p>
+<p>Read more about the dining experience in our <a href="/blog/hiru-food-drinks-restaurante-alcudia">complete Hiru guide</a> and our <a href="/blog/mejores-restaurantes-alcudia-mallorca">best restaurants in Alcudia ranking</a>.</p>
+
+<h2>Step 2: Cocktails at Enjoy Terrace</h2>
+<p>After dinner, the next step is walking over to <a href="/enjoy">Enjoy Terrace</a>, the cocktail lounge and shisha bar that works as the perfect bridge between dinner and clubbing. Enjoy is open every day from 17:00 to 05:30, meaning you can arrive at any time and always find atmosphere.</p>
+<p>The open-air terrace at Enjoy is one of Port d'Alcudia's best-kept secrets. Warm lighting, carefully curated music that builds in intensity as the night progresses, signature cocktails crafted by professional mixologists, and a premium shisha selection with natural charcoal and top-quality tobacco.</p>
+<p>If you arrive at sunset, the colours over Alcudia are stunning. But even at midnight, Enjoy has a special energy: it's the moment when groups come together, conversations flow and the night starts picking up speed.</p>
+<p>Explore the cocktail menu and shisha experience in our <a href="/blog/cocteles-shisha-terraza-alcudia">dedicated Enjoy Terrace article</a>.</p>
+
+<h2>Step 3: The party at Outxide Club</h2>
+<p>When the terrace isn't enough and your body is calling for loud music and a dance floor, <a href="/outxide">Outxide Club</a> is literally metres away. It's the leading nightclub in northern Mallorca, and those who know it will tell you the experience rivals the best clubs in the south.</p>
+<p>Outxide has sessions on <strong>Thursdays, Fridays and Saturdays</strong>, with national and international DJs playing house, tech-house, R&amp;B and themed sessions that change every week. The sound system is top-tier, the lighting is designed for an immersive experience, and the dance floor is packed with people ready to have a great time.</p>
+<p>Entry options include <strong>advance online purchase</strong> (recommended to secure your spot, often at a discount) and door tickets. For groups and celebrations, <strong>VIP tables with bottle service</strong> are the premium option: your own area with dance floor views and personal attention all night.</p>
+<p>Full details on sessions and tickets in our <a href="/blog/outxide-club-discoteca-alcudia-mallorca">Outxide Club guide</a> and our article on <a href="/blog/mejores-discotecas-clubs-alcudia">the best clubs in Alcudia</a>.</p>
+
+<h2>Night out variations</h2>
+<p>Not every night out has to follow the same script. Here are three variations that work depending on your mood:</p>
+
+<h3>Casual plan: Enjoy + Outxide</h3>
+<p>If you'd rather dine at your hotel and head straight out for drinks, start the night at <a href="/enjoy">Enjoy Terrace</a>. A couple of cocktails, some shisha, and when the atmosphere peaks, cross over to <a href="/outxide">Outxide Club</a>. It's the lightest plan and works perfectly for midweek nights or when you want to keep things simple.</p>
+
+<h3>Foodie plan: Hiru + Enjoy</h3>
+<p>If gastronomy is your thing and you prefer a more relaxed night without clubbing, the combination of dinner at <a href="/hiru">Hiru</a> followed by cocktails at <a href="/enjoy">Enjoy</a> is a complete evening. You can linger over after-dinner drinks at Hiru's cocktail bar and then stroll to Enjoy for a change of scene. The terrace is open until 05:30, so there's no rush.</p>
+
+<h3>Full experience plan: Hiru + Enjoy + Outxide</h3>
+<p>This is the flagship plan. Dinner at <a href="/hiru">Hiru</a> at 21:00, cocktails at <a href="/enjoy">Enjoy</a> from 23:00, and party at <a href="/outxide">Outxide</a> from 1:00. It's the formula followed by those who know the area and want to make the most of every moment. All on foot.</p>
+
+<h2>What you need to know</h2>
+<p><strong>Opening hours:</strong> Hiru opens 12:00 to 23:30 (Friday and Saturday until 1:00, closed Tuesdays). Enjoy Terrace 17:00 to 05:30 every day. Outxide Club opens Thursday, Friday and Saturday nights (check exact times on their website).</p>
+<p><strong>Location:</strong> All three venues are in the same area of Port d'Alcudia, on Av. Tucan and Ctra. d'Arta. You can walk between them in under two minutes. No car or taxi needed.</p>
+<p><strong>Age requirement:</strong> Outxide Club has a <strong>21+</strong> age policy. Make sure you carry ID or passport. Hiru and Enjoy have no age restriction for dining and cocktails, though alcohol service is for legal adults only.</p>
+<p><strong>Outxide tickets:</strong> Buy your tickets online in advance to skip queues and often get a better price. Available on the <a href="/outxide">Outxide Club</a> website.</p>
+<p><strong>Reservations:</strong> We recommend booking a table at Hiru, especially on Fridays and Saturdays during high season. For VIP tables at Outxide, contact directly through the website.</p>
+
+<p>To complete your planning, don't miss our <a href="/blog/guia-vida-nocturna-alcudia">complete Alcudia nightlife guide</a> and the article on <a href="/blog/planes-alcudia-mallorca">the best plans in Alcudia</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">All information on our website.</a></strong></p>`,
+
+      de: `<p>Port d'Alcudia hat das beste Nachtleben im Norden Mallorcas, und das ist keine blosse Meinung — es ist eine Tatsache. Waehrend der Sueden der Insel die Mega-Clubs konzentriert, bietet der Norden etwas anderes: ein vollstaendigeres Ausgeherlebnis, persoenlicher und mit einer Qualitaet, die Erstbesucher ueberrascht. Und das Beste ist, dass <strong>der perfekte Plan in einem einzigen Bereich konzentriert ist</strong>: Av. Tucan und Ctra. d'Arta, wo die drei Locations von <a href="/">Grupo Enjoy</a> es ermoeglichen, vom Abendessen zur Party zu wechseln, ohne ein Taxi zu brauchen.</p>
+
+<p>In diesem Guide zeigen wir Ihnen Schritt fuer Schritt, wie Sie den perfekten Abend in Port d'Alcudia zusammenstellen, mit Variationen fuer jeden Geschmack.</p>
+
+<h2>Schritt 1: Abendessen im Hiru Food &amp; Drinks</h2>
+<p>Der beste Abend beginnt immer mit einem grossartigen Essen, und <a href="/hiru">Hiru Food &amp; Drinks</a> ist der ideale Startpunkt. Dieses Restaurant hat sich seinen Ruf als bestes in Port d'Alcudia verdient: Offene-Flamme-Kueche mit Premium-Zutaten, eine Terrasse mit Atmosphaere und Oeffnungszeiten, die perfekt in einen Abendplan passen.</p>
+<p>Hiru oeffnet von 12:00 bis 23:30 Uhr unter der Woche und bis 1:00 Uhr an Freitagen und Samstagen. Die Karte bietet dry-aged Fleisch vom Grill, frischen Mittelmeerfisch, Reisgerichte und Paellas mit hausgemachter Bruehe sowie eine Auswahl an Vorspeisen und Tapas zum Teilen.</p>
+<p>Die Cocktailbar von Hiru setzt bereits den Ton fuer den Abend: Begleiten Sie Ihr Essen mit einem Wein von der Karte oder starten Sie mit einem Signatur-Drink. An Freitagen und Samstagen ist die Stimmung besonders lebendig.</p>
+<p>Mehr ueber das kulinarische Erlebnis in unserem <a href="/blog/hiru-food-drinks-restaurante-alcudia">kompletten Hiru-Guide</a> und unserem <a href="/blog/mejores-restaurantes-alcudia-mallorca">Ranking der besten Restaurants in Alcudia</a>.</p>
+
+<h2>Schritt 2: Cocktails auf der Enjoy Terrace</h2>
+<p>Nach dem Essen ist der naechste Schritt ein Spaziergang zur <a href="/enjoy">Enjoy Terrace</a>, der Cocktail-Lounge und Shisha-Bar, die als perfekte Bruecke zwischen Abendessen und Club funktioniert. Enjoy hat taeglich von 17:00 bis 05:30 Uhr geoeffnet, sodass Sie jederzeit kommen koennen und immer Atmosphaere finden.</p>
+<p>Die Open-Air-Terrasse von Enjoy ist einer der bestgehueteten Geheimnisse von Port d'Alcudia. Warmes Licht, sorgfaeltig kuratierte Musik, die im Laufe des Abends an Intensitaet zunimmt, Signatur-Cocktails von professionellen Mixologen und eine Premium-Shisha-Auswahl mit Naturkohle.</p>
+<p>Wenn Sie zum Sonnenuntergang ankommen, sind die Farben ueber Alcudia atemberaubend. Aber auch um Mitternacht hat Enjoy eine besondere Energie: der Moment, in dem sich Gruppen zusammenfinden und die Nacht Fahrt aufnimmt.</p>
+<p>Entdecken Sie die Cocktailkarte in unserem <a href="/blog/cocteles-shisha-terraza-alcudia">Enjoy Terrace-Artikel</a>.</p>
+
+<h2>Schritt 3: Die Party im Outxide Club</h2>
+<p>Wenn die Terrasse nicht mehr reicht und der Koerper nach lauter Musik und Tanzflaeche verlangt, ist der <a href="/outxide">Outxide Club</a> buchstaeblich nur Meter entfernt. Er ist der fuehrende Nachtclub im Norden Mallorcas.</p>
+<p>Outxide hat Sessions an <strong>Donnerstagen, Freitagen und Samstagen</strong> mit nationalen und internationalen DJs, die House, Tech-House, R&amp;B und wechselnde Themen-Sessions spielen. Das Soundsystem ist erstklassig, die Beleuchtung ist fuer ein immersives Erlebnis konzipiert.</p>
+<p>Eintrittsmoegiichkeiten umfassen <strong>Online-Vorverkauf</strong> (empfohlen, oft mit Rabatt) und Abendkasse. Fuer Gruppen bieten <strong>VIP-Tische mit Flaschenservice</strong> die Premium-Option.</p>
+<p>Alle Details in unserem <a href="/blog/outxide-club-discoteca-alcudia-mallorca">Outxide Club Guide</a> und im Artikel ueber <a href="/blog/mejores-discotecas-clubs-alcudia">die besten Clubs in Alcudia</a>.</p>
+
+<h2>Variationen des Abendplans</h2>
+
+<h3>Casual-Plan: Enjoy + Outxide</h3>
+<p>Wenn Sie lieber im Hotel essen und direkt zum Trinken ausgehen moechten, starten Sie den Abend auf der <a href="/enjoy">Enjoy Terrace</a>. Ein paar Cocktails, etwas Shisha, und wenn die Stimmung stimmt, wechseln Sie zum <a href="/outxide">Outxide Club</a>. Der leichteste Plan, perfekt fuer Wochentage.</p>
+
+<h3>Foodie-Plan: Hiru + Enjoy</h3>
+<p>Wenn Gastronomie Ihr Ding ist und Sie einen entspannten Abend ohne Club bevorzugen, ist die Kombination aus Abendessen im <a href="/hiru">Hiru</a> und Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> ein vollstaendiger Abend. Die Terrasse hat bis 05:30 Uhr geoeffnet.</p>
+
+<h3>Volle-Erfahrung-Plan: Hiru + Enjoy + Outxide</h3>
+<p>Der Flaggschiff-Plan. Abendessen im <a href="/hiru">Hiru</a> um 21:00, Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> ab 23:00, Party im <a href="/outxide">Outxide</a> ab 1:00. Alles zu Fuss.</p>
+
+<h2>Was Sie wissen muessen</h2>
+<p><strong>Oeffnungszeiten:</strong> Hiru: 12:00-23:30 (Fr/Sa bis 1:00, Di geschlossen). Enjoy Terrace: 17:00-05:30 taeglich. Outxide Club: Do/Fr/Sa abends (genaue Zeiten auf der Website).</p>
+<p><strong>Lage:</strong> Alle drei Locations liegen im selben Bereich von Port d'Alcudia, auf der Av. Tucan und Ctra. d'Arta. Unter zwei Minuten zu Fuss zwischen allen. Kein Auto oder Taxi noetig.</p>
+<p><strong>Altersanforderung:</strong> Outxide Club hat eine <strong>21+</strong> Altersrichtlinie. Personalausweis oder Reisepass mitbringen. Hiru und Enjoy haben keine Altersbeschraenkung zum Essen und Cocktailtrinken, Alkoholausschank nur fuer Volljaehrige.</p>
+<p><strong>Outxide-Tickets:</strong> Online im Voraus kaufen, um Warteschlangen zu vermeiden und oft einen besseren Preis zu bekommen. Verfuegbar auf der <a href="/outxide">Outxide Club</a>-Website.</p>
+<p><strong>Reservierungen:</strong> Tischreservierung im Hiru empfohlen, besonders Fr/Sa in der Hochsaison. VIP-Tische im Outxide direkt ueber die Website anfragen.</p>
+
+<p>Fuer die vollstaendige Planung lesen Sie unseren <a href="/blog/guia-vida-nocturna-alcudia">kompletten Alcudia Nachtleben-Guide</a> und den Artikel ueber <a href="/blog/planes-alcudia-mallorca">die besten Plaene in Alcudia</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Alle Informationen auf unserer Website.</a></strong></p>`,
+
+      fr: `<p>Port d'Alcudia possede la meilleure vie nocturne du nord de Majorque, et ce n'est pas une simple opinion — c'est un fait. Alors que le sud de l'ile concentre les mega-clubs, le nord offre quelque chose de different : une experience nocturne plus complete, plus personnelle et d'une qualite qui surprend les visiteurs. Et le meilleur, c'est que <strong>le plan parfait est concentre dans une seule zone</strong> : Av. Tucan et Ctra. d'Arta, ou les trois etablissements de <a href="/">Grupo Enjoy</a> permettent de passer du diner a la fete sans taxi.</p>
+
+<p>Dans ce guide, nous vous expliquons etape par etape comment organiser la soiree parfaite a Port d'Alcudia, avec des variations pour tous les gouts.</p>
+
+<h2>Etape 1 : Diner au Hiru Food &amp; Drinks</h2>
+<p>La meilleure soiree commence toujours par un excellent diner, et <a href="/hiru">Hiru Food &amp; Drinks</a> est le point de depart ideal. Ce restaurant s'est forge une reputation de meilleur de Port d'Alcudia : cuisine au feu ouvert avec des ingredients premium, terrasse avec ambiance, et horaires parfaitement adaptes aux plans nocturnes.</p>
+<p>Hiru ouvre de 12h00 a 23h30 en semaine et jusqu'a 1h00 les vendredis et samedis. La carte propose des viandes maturees dry-aged cuites a la braise, du poisson frais de Mediterranee grille, des riz et paellas elabores avec bouillon maison et fruits de mer du marche, et une selection d'entrees et tapas a partager.</p>
+<p>Le bar a cocktails de Hiru donne deja le ton : accompagnez votre diner d'un vin de la carte ou demarrez avec un cocktail signature. Les vendredis et samedis, l'ambiance est particulierement animee.</p>
+<p>Decouvrez l'experience gastronomique dans notre <a href="/blog/hiru-food-drinks-restaurante-alcudia">guide complet Hiru</a> et notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">classement des meilleurs restaurants d'Alcudia</a>.</p>
+
+<h2>Etape 2 : Cocktails a l'Enjoy Terrace</h2>
+<p>Apres le diner, direction l'<a href="/enjoy">Enjoy Terrace</a>, le lounge cocktail et bar a chicha qui sert de pont parfait entre le diner et le club. Enjoy est ouvert tous les jours de 17h00 a 05h30, vous trouverez toujours de l'ambiance.</p>
+<p>La terrasse en plein air d'Enjoy est l'un des secrets les mieux gardes de Port d'Alcudia. Eclairage chaleureux, musique soigneusement selectionnee qui monte en intensite, cocktails signatures prepares par des mixologues professionnels et une selection de chicha premium au charbon naturel.</p>
+<p>Si vous arrivez au coucher du soleil, les couleurs sur Alcudia sont impressionnantes. Mais meme a minuit, Enjoy a une energie speciale : le moment ou les groupes se rassemblent et la nuit prend de la vitesse.</p>
+<p>Explorez la carte dans notre <a href="/blog/cocteles-shisha-terraza-alcudia">article dedie a l'Enjoy Terrace</a>.</p>
+
+<h2>Etape 3 : La fete a l'Outxide Club</h2>
+<p>Quand la terrasse ne suffit plus et que le corps reclame de la musique a fond et un dancefloor, l'<a href="/outxide">Outxide Club</a> est a quelques metres. C'est la boite de nuit de reference du nord de Majorque.</p>
+<p>Outxide a des sessions les <strong>jeudis, vendredis et samedis</strong>, avec des DJs nationaux et internationaux jouant house, tech-house, R&amp;B et des sessions thematiques qui changent chaque semaine. Le systeme son est de premier ordre et l'eclairage est concu pour une experience immersive.</p>
+<p>Les options d'entree comprennent l'<strong>achat anticipe en ligne</strong> (recommande, souvent avec reduction) et la billetterie sur place. Pour les groupes, les <strong>tables VIP avec service bouteilles</strong> sont l'option premium.</p>
+<p>Tous les details dans notre <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guide Outxide Club</a> et l'article sur <a href="/blog/mejores-discotecas-clubs-alcudia">les meilleures discoteques d'Alcudia</a>.</p>
+
+<h2>Variations du plan nocturne</h2>
+
+<h3>Plan casual : Enjoy + Outxide</h3>
+<p>Si vous preferez diner a votre hotel et sortir directement pour les verres, commencez a l'<a href="/enjoy">Enjoy Terrace</a>. Quelques cocktails, du chicha, et quand l'ambiance monte, traversez vers l'<a href="/outxide">Outxide Club</a>. Le plan le plus leger, parfait en semaine.</p>
+
+<h3>Plan foodie : Hiru + Enjoy</h3>
+<p>Si la gastronomie est votre passion et vous preferez une soiree tranquille sans club, la combinaison diner au <a href="/hiru">Hiru</a> puis cocktails a l'<a href="/enjoy">Enjoy</a> est une soiree complete. La terrasse est ouverte jusqu'a 05h30.</p>
+
+<h3>Plan experience complete : Hiru + Enjoy + Outxide</h3>
+<p>Le plan phare. Diner au <a href="/hiru">Hiru</a> a 21h00, cocktails a l'<a href="/enjoy">Enjoy</a> a partir de 23h00, fete a l'<a href="/outxide">Outxide</a> des 1h00. La formule des connaisseurs. Le tout a pied.</p>
+
+<h2>Ce qu'il faut savoir</h2>
+<p><strong>Horaires :</strong> Hiru : 12h00-23h30 (ven/sam jusqu'a 1h00, ferme mardi). Enjoy Terrace : 17h00-05h30 tous les jours. Outxide Club : jeu/ven/sam soir (consultez les horaires exacts sur le site).</p>
+<p><strong>Emplacement :</strong> Les trois etablissements sont dans la meme zone de Port d'Alcudia, sur l'Av. Tucan et la Ctra. d'Arta. Moins de deux minutes a pied entre chaque. Pas besoin de voiture ni de taxi.</p>
+<p><strong>Age requis :</strong> Outxide Club exige <strong>21 ans minimum</strong>. Pensez a apporter une piece d'identite. Hiru et Enjoy n'ont pas de restriction d'age pour diner et boire des cocktails, le service d'alcool est reserve aux majeurs.</p>
+<p><strong>Billets Outxide :</strong> Achetez en ligne a l'avance pour eviter les files d'attente et souvent obtenir un meilleur prix. Disponible sur le site d'<a href="/outxide">Outxide Club</a>.</p>
+<p><strong>Reservations :</strong> Reservez votre table au Hiru, surtout ven/sam en haute saison. Tables VIP a l'Outxide sur demande via le site.</p>
+
+<p>Pour completer votre planification, consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide complet de la vie nocturne a Alcudia</a> et l'article sur <a href="/blog/planes-alcudia-mallorca">les meilleurs plans a Alcudia</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Majorque. <a href="/">Toutes les informations sur notre site.</a></strong></p>`,
+
+      it: `<p>Port d'Alcudia ha la migliore vita notturna del nord di Maiorca, e non e' solo un'opinione — e' un fatto. Mentre il sud dell'isola concentra i mega-club, il nord offre qualcosa di diverso: un'esperienza notturna piu' completa, piu' personale e con una qualita' che sorprende chi la scopre per la prima volta. E il bello e' che <strong>il piano perfetto e' concentrato in un'unica zona</strong>: Av. Tucan e Ctra. d'Arta, dove i tre locali di <a href="/">Grupo Enjoy</a> permettono di passare dalla cena alla festa senza bisogno di un taxi.</p>
+
+<p>In questa guida vi spieghiamo passo dopo passo come organizzare la serata perfetta a Port d'Alcudia, con variazioni per tutti i gusti.</p>
+
+<h2>Passo 1: Cena al Hiru Food &amp; Drinks</h2>
+<p>La serata migliore inizia sempre con un'ottima cena, e <a href="/hiru">Hiru Food &amp; Drinks</a> e' il punto di partenza ideale. Questo ristorante si e' guadagnato la reputazione di essere il migliore di Port d'Alcudia: cucina alla brace con ingredienti premium, terrazza con atmosfera e orari perfettamente adatti ai piani serali.</p>
+<p>Hiru e' aperto dalle 12:00 alle 23:30 in settimana e fino all'1:00 il venerdi' e sabato. Il menu offre carni stagionate dry-aged alla brace, pesce fresco del Mediterraneo alla griglia, risi e paelle con brodo fatto in casa e frutti di mare del mercato, e una selezione di antipasti e tapas da condividere.</p>
+<p>Il cocktail bar di Hiru da' gia' il tono alla serata: accompagnate la cena con un vino dalla carta o iniziate con un drink d'autore. Il venerdi' e sabato l'atmosfera e' particolarmente vivace.</p>
+<p>Scoprite di piu' sull'esperienza gastronomica nella nostra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guida completa di Hiru</a> e nella nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">classifica dei migliori ristoranti di Alcudia</a>.</p>
+
+<h2>Passo 2: Cocktail all'Enjoy Terrace</h2>
+<p>Dopo cena, il passo successivo e' attraversare verso l'<a href="/enjoy">Enjoy Terrace</a>, il cocktail lounge e shisha bar che funziona come ponte perfetto tra la cena e il club. Enjoy e' aperto tutti i giorni dalle 17:00 alle 05:30, quindi troverete sempre atmosfera.</p>
+<p>La terrazza all'aperto di Enjoy e' uno dei segreti meglio custoditi di Port d'Alcudia. Illuminazione calda, musica accuratamente selezionata che cresce di intensita', cocktail d'autore preparati da mixologi professionisti e una selezione di shisha premium con carbone naturale.</p>
+<p>Se arrivate al tramonto, i colori su Alcudia sono mozzafiato. Ma anche a mezzanotte, Enjoy ha un'energia speciale: il momento in cui i gruppi si riuniscono e la notte prende velocita'.</p>
+<p>Esplorate la carta nel nostro <a href="/blog/cocteles-shisha-terraza-alcudia">articolo dedicato all'Enjoy Terrace</a>.</p>
+
+<h2>Passo 3: La festa all'Outxide Club</h2>
+<p>Quando la terrazza non basta piu' e il corpo chiede musica alta e pista da ballo, l'<a href="/outxide">Outxide Club</a> e' a pochi metri. E' la discoteca di riferimento del nord di Maiorca.</p>
+<p>Outxide ha serate il <strong>giovedi', venerdi' e sabato</strong>, con DJ nazionali e internazionali che suonano house, tech-house, R&amp;B e serate a tema che cambiano ogni settimana. L'impianto audio e' di primo livello e l'illuminazione e' progettata per un'esperienza immersiva.</p>
+<p>Le opzioni di ingresso includono l'<strong>acquisto online anticipato</strong> (consigliato, spesso con sconto) e la cassa in loco. Per i gruppi, i <strong>tavoli VIP con servizio bottiglie</strong> sono l'opzione premium.</p>
+<p>Tutti i dettagli nella nostra <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guida Outxide Club</a> e nell'articolo sui <a href="/blog/mejores-discotecas-clubs-alcudia">migliori club di Alcudia</a>.</p>
+
+<h2>Variazioni del piano notturno</h2>
+
+<h3>Piano casual: Enjoy + Outxide</h3>
+<p>Se preferite cenare in hotel e uscire direttamente per i drink, iniziate all'<a href="/enjoy">Enjoy Terrace</a>. Un paio di cocktail, un po' di shisha, e quando l'atmosfera sale, attraversate verso l'<a href="/outxide">Outxide Club</a>. Il piano piu' leggero, perfetto in settimana.</p>
+
+<h3>Piano foodie: Hiru + Enjoy</h3>
+<p>Se la gastronomia e' la vostra passione e preferite una serata tranquilla senza discoteca, la combinazione cena al <a href="/hiru">Hiru</a> e cocktail all'<a href="/enjoy">Enjoy</a> e' una serata completa. La terrazza e' aperta fino alle 05:30.</p>
+
+<h3>Piano esperienza completa: Hiru + Enjoy + Outxide</h3>
+<p>Il piano di punta. Cena al <a href="/hiru">Hiru</a> alle 21:00, cocktail all'<a href="/enjoy">Enjoy</a> dalle 23:00, festa all'<a href="/outxide">Outxide</a> dall'1:00. La formula degli intenditori. Tutto a piedi.</p>
+
+<h2>Quello che dovete sapere</h2>
+<p><strong>Orari:</strong> Hiru: 12:00-23:30 (ven/sab fino all'1:00, chiuso martedi'). Enjoy Terrace: 17:00-05:30 tutti i giorni. Outxide Club: gio/ven/sab sera (consultate gli orari esatti sul sito).</p>
+<p><strong>Posizione:</strong> Tutti e tre i locali sono nella stessa zona di Port d'Alcudia, su Av. Tucan e Ctra. d'Arta. Meno di due minuti a piedi tra uno e l'altro. Niente auto o taxi.</p>
+<p><strong>Requisito di eta':</strong> Outxide Club richiede <strong>21+</strong>. Portate documento d'identita' o passaporto. Hiru e Enjoy non hanno restrizioni di eta' per cenare e bere cocktail, il servizio di alcolici e' riservato ai maggiorenni.</p>
+<p><strong>Biglietti Outxide:</strong> Acquistate online in anticipo per evitare code e spesso ottenere un prezzo migliore. Disponibili sul sito di <a href="/outxide">Outxide Club</a>.</p>
+<p><strong>Prenotazioni:</strong> Consigliamo di prenotare al Hiru, soprattutto ven/sab in alta stagione. Tavoli VIP all'Outxide su richiesta tramite il sito.</p>
+
+<p>Per completare la pianificazione, consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida completa alla vita notturna di Alcudia</a> e l'articolo sui <a href="/blog/planes-alcudia-mallorca">migliori piani ad Alcudia</a>.</p>
+
+<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Maiorca. <a href="/">Tutte le informazioni sul nostro sito.</a></strong></p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/enjoy/485765269_1384374992965504_5931564430169011113_n.jpg",
+    tags: ["nightlife", "guide", "alcudia", "mallorca", "enjoy", "outxide", "hiru"],
+    venue: "general",
+    readingTime: 8,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
