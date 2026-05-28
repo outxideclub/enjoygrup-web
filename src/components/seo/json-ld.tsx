@@ -334,24 +334,94 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
 }
 
 export function OutxideEventsJsonLd() {
-  // Recurring weekly club nights — generates Event rich results
-  const events = [
+  // Generate concrete upcoming dates for Google Rich Results validation
+  // Google requires startDate on each Event — Schedule alone is not enough
+  const now = new Date();
+
+  function getNextDay(dayOfWeek: number): Date {
+    const d = new Date(now);
+    d.setHours(23, 30, 0, 0);
+    const diff = (dayOfWeek - d.getDay() + 7) % 7;
+    d.setDate(d.getDate() + (diff === 0 && now.getHours() >= 23 ? 7 : diff === 0 ? 0 : diff));
+    return d;
+  }
+
+  // Format as ISO 8601 with CEST offset (summer Mallorca = +02:00)
+  function fmtDate(d: Date, time: string): string {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}T${time}:00+02:00`;
+  }
+
+  const eventDefs = [
     {
       name: "Outxide Thursday",
-      dayOfWeek: "Thursday",
-      description: "Weekly club night at Outxide Club, Port d'Alcúdia. Techno, house and the best DJs every Thursday.",
+      dayOfWeek: 4,
+      description:
+        "Weekly club night at Outxide Club, Port d'Alcúdia. Techno, house and the best DJs every Thursday.",
     },
     {
       name: "Outxide Friday",
-      dayOfWeek: "Friday",
-      description: "Friday night at Outxide Club, Port d'Alcúdia. International DJs, themed parties and VIP bottle service.",
+      dayOfWeek: 5,
+      description:
+        "Friday night at Outxide Club, Port d'Alcúdia. International DJs, themed parties and VIP bottle service.",
     },
     {
       name: "Outxide Saturday",
-      dayOfWeek: "Saturday",
-      description: "Saturday night at Outxide Club, Port d'Alcúdia. The biggest party of the week with top DJs and special events.",
+      dayOfWeek: 6,
+      description:
+        "Saturday night at Outxide Club, Port d'Alcúdia. The biggest party of the week with top DJs and special events.",
     },
   ];
+
+  const OUTXIDE_IMAGE = "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.jpg";
+  const ORGANIZER = {
+    "@type": "Organization",
+    "@id": "https://www.grupoenjoy.es/#organization",
+    name: "Grupo Enjoy",
+    url: "https://www.grupoenjoy.es",
+  };
+  const LOCATION = {
+    "@type": "NightClub",
+    "@id": "https://www.grupoenjoy.es/outxide#nightclub",
+    name: "Outxide Club",
+    address: ENJOY_ADDRESS,
+    geo: ENJOY_GEO,
+  };
+
+  // Generate next 2 occurrences of each day = 6 concrete events
+  const subEvents = eventDefs.flatMap((e) => {
+    const first = getNextDay(e.dayOfWeek);
+    return [0, 7].map((offset) => {
+      const start = new Date(first);
+      start.setDate(start.getDate() + offset);
+      const end = new Date(start);
+      end.setDate(end.getDate() + 1);
+      return {
+        "@type": "Event",
+        name: e.name,
+        description: e.description,
+        startDate: fmtDate(start, "23:30"),
+        endDate: fmtDate(end, "06:00"),
+        image: OUTXIDE_IMAGE,
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: LOCATION,
+        organizer: ORGANIZER,
+        offers: {
+          "@type": "Offer",
+          url: "https://web.fourvenues.com/es/outxide-club",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+        },
+        performer: {
+          "@type": "PerformingGroup",
+          name: "International DJs",
+        },
+      };
+    });
+  });
 
   return (
     <JsonLd
@@ -359,51 +429,13 @@ export function OutxideEventsJsonLd() {
         "@context": "https://schema.org",
         "@type": "EventSeries",
         name: "Outxide Club Weekly Events",
-        description: "Weekly club nights at Outxide Club in Port d'Alcúdia, Mallorca. Techno, house, reggaetón and international DJs every Thursday, Friday and Saturday.",
+        description:
+          "Weekly club nights at Outxide Club in Port d'Alcúdia, Mallorca. Techno, house, reggaetón and international DJs every Thursday, Friday and Saturday.",
         url: "https://www.grupoenjoy.es/outxide",
-        location: {
-          "@type": "NightClub",
-          "@id": "https://www.grupoenjoy.es/outxide#nightclub",
-          name: "Outxide Club",
-          address: ENJOY_ADDRESS,
-        },
-        organizer: {
-          "@type": "Organization",
-          "@id": "https://www.grupoenjoy.es/#organization",
-          name: "Grupo Enjoy",
-        },
-        eventSchedule: events.map((e) => ({
-          "@type": "Schedule",
-          byDay: `https://schema.org/${e.dayOfWeek}`,
-          startTime: "23:30",
-          endTime: "06:00",
-          scheduleTimezone: "Europe/Madrid",
-          repeatFrequency: "P1W",
-        })),
-        subEvent: events.map((e) => ({
-          "@type": "Event",
-          name: e.name,
-          description: e.description,
-          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-          eventStatus: "https://schema.org/EventScheduled",
-          location: {
-            "@type": "NightClub",
-            "@id": "https://www.grupoenjoy.es/outxide#nightclub",
-            name: "Outxide Club",
-            address: ENJOY_ADDRESS,
-            geo: ENJOY_GEO,
-          },
-          offers: {
-            "@type": "Offer",
-            url: "https://web.fourvenues.com/es/outxide-club",
-            priceCurrency: "EUR",
-            availability: "https://schema.org/InStock",
-          },
-          performer: {
-            "@type": "PerformingGroup",
-            name: "International DJs",
-          },
-        })),
+        location: LOCATION,
+        organizer: ORGANIZER,
+        image: OUTXIDE_IMAGE,
+        subEvent: subEvents,
       }}
     />
   );
