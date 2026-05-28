@@ -10,17 +10,17 @@ export const es = {
       "Enjoy Terrace, Outxide Club y Hiru Food & Drinks — tres espacios únicos en Alcúdia, Mallorca.",
     enjoyTitle: "Enjoy Terrace | Cocktails & Shisha en Alcúdia",
     enjoyDescription:
-      "Enjoy Terrace: cócteles de autor, shisha premium y la mejor terraza nocturna de Alcúdia, Mallorca. Where nights begin. Abierto diario desde las 17:00.",
+      "Enjoy Terrace: terraza de cócteles y sunset cocktails en Port d'Alcúdia, Mallorca. Cócteles de autor, shisha premium y el mejor atardecer. Abierto diario desde las 17:00.",
     enjoyOgDescription:
       "Where nights begin. Cócteles de autor y shisha premium en la mejor terraza de Alcúdia.",
     outxideTitle: "Outxide Club | Discoteca en Alcúdia, Mallorca",
     outxideDescription:
-      "Outxide Club: discoteca y club nocturno en Alcúdia. The night continues. Eventos exclusivos, DJs y la mejor vida nocturna. Entradas vía FourVenues.",
+      "Outxide Club: la mejor discoteca en Alcúdia, Mallorca. Techno, house y reggaetón con DJs internacionales. Comprar entradas online vía FourVenues.",
     outxideOgDescription:
       "The night continues. Discoteca y club nocturno en Alcúdia. Entradas online vía FourVenues.",
     hiruTitle: "Hiru Food & Drinks | Restaurante a la Brasa en Alcúdia",
     hiruDescription:
-      "Hiru: cocina mallorquina a la brasa en Alcúdia. Carnes maduradas, arroces de lonja y pescados del Mediterráneo. Producto, tradición y sabor.",
+      "Hiru: restaurante a la brasa en Port d'Alcúdia. Paella de marisco, carnes maduradas dry-aged, arroces de lonja y pescados del Mediterráneo. Reservar mesa.",
     hiruOgDescription:
       "Producto, tradición y sabor. Cocina mallorquina a la brasa en Alcúdia.",
     aboutTitle: "Quiénes Somos — Ocio y Gastronomía en Alcúdia",
@@ -71,13 +71,13 @@ export const es = {
   home: {
     enjoySubtitle: "Terrace · Cocktails & Shisha",
     enjoyDescription:
-      "Where nights begin. Los mejores cócteles de Alcúdia, shisha premium y la terraza con más ambiente para empezar la noche.",
+      "Where nights begin. Sunset cocktails, cócteles de autor y shisha premium en la terraza con más ambiente de Alcúdia.",
     outxideSubtitle: "Club",
     outxideDescription:
-      "The night continues. Club nocturno con los mejores DJs, producción de primer nivel y una energía que no encontrarás en otro sitio.",
+      "The night continues. Discoteca con los mejores DJs, techno, house y reggaetón. La mejor fiesta de Mallorca.",
     hiruSubtitle: "Food & Drinks",
     hiruDescription:
-      "Brasa, cocktails y buen ambiente. Cocina de autor con las mejores carnes, arroces y cócteles hasta altas horas de la noche.",
+      "Brasa, cocktails y buen ambiente. Paella de marisco, carnes maduradas y cócteles hasta altas horas en Port d'Alcúdia.",
     threeSpaces: "Tres espacios, una misma excelencia",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -100,7 +100,7 @@ export const es = {
   outxide: {
     tagline: "The night continues",
     description:
-      "La nueva referencia en vida nocturna de Alcúdia. Música, energía y noches que no olvidarás.",
+      "La mejor discoteca de Alcúdia, Mallorca. Techno, house y reggaetón con DJs internacionales. Compra tus entradas online.",
     galleryTitle: "El club",
     eventsTitle: "Próximos eventos",
     eventsCalendar: "Calendario",
@@ -134,7 +134,7 @@ export const es = {
   hiru: {
     subtitle: "Brasa · Cocktails · Good vibes",
     description:
-      "Cocina de autor donde la brasa y el producto fresco son los protagonistas. Carnes, arroces de lonja y los mejores cócteles hasta altas horas.",
+      "Restaurante en Port d'Alcúdia donde la brasa es protagonista. Carnes maduradas, paella de marisco, arroces caldosos y cócteles hasta altas horas. Reserva tu mesa.",
     galleryTitle: "Producto · Tradición · Sabor",
     galleryAll: "Todo",
     galleryFood: "Gastronomía",
@@ -142,13 +142,13 @@ export const es = {
     menuTitle: "La Carta",
     freshProduct: "Producto fresco",
     freshProductDesc:
-      "Seleccionamos las mejores carnes y pescados para ofrecer platos de brasa con carácter.",
+      "Carnes maduradas dry-aged, pescados del Mediterráneo y mariscos frescos de lonja para platos de brasa con carácter.",
     signatureCuisine: "Cocina de autor",
     signatureCuisineDesc:
-      "Reinterpretamos la cocina mallorquina con técnicas modernas y sabores internacionales.",
+      "Paellas de marisco, arroces caldosos y cocina mallorquina reinterpretada con técnicas modernas y producto local.",
     openLate: "Abierto hasta tarde",
     openLateDesc:
-      "Restaurante y bar de cócteles con el mejor ambiente nocturno de Alcúdia.",
+      "Restaurante y cocktail bar abierto hasta la 1:00 los fines de semana en Port d'Alcúdia.",
     hours: "12:00–23:30 · Vie-Sáb hasta 1:00 · Mar cerrado",
     address: "Ctra. d'Artà, 40, Port d'Alcúdia",
     continueEnjoy: "Continúa en Enjoy Terrace",

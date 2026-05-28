@@ -12,17 +12,17 @@ export const en: Dictionary = {
       "Enjoy Terrace, Outxide Club and Hiru Food & Drinks — three unique venues in Alcudia, Mallorca.",
     enjoyTitle: "Enjoy Terrace | Cocktails & Shisha in Alcudia",
     enjoyDescription:
-      "Enjoy Terrace: signature cocktails, premium shisha and the best night terrace in Alcudia, Mallorca. Where nights begin. Open daily from 17:00.",
+      "Enjoy Terrace: cocktail terrace and sunset drinks in Port d'Alcúdia, Mallorca. Signature cocktails, premium shisha and the best sunset views. Open daily from 17:00.",
     enjoyOgDescription:
       "Where nights begin. Signature cocktails and premium shisha on the best terrace in Alcudia.",
     outxideTitle: "Outxide Club | Nightclub in Alcudia, Mallorca",
     outxideDescription:
-      "Outxide Club: nightclub in Alcudia. The night continues. Exclusive events, DJs and the best nightlife. Tickets via FourVenues.",
+      "Outxide Club: the best nightclub in Alcúdia, Mallorca. Techno, house and reggaeton with international DJs. Buy tickets online via FourVenues.",
     outxideOgDescription:
       "The night continues. Nightclub in Alcudia. Online tickets via FourVenues.",
     hiruTitle: "Hiru Food & Drinks | Grill Restaurant in Alcudia",
     hiruDescription:
-      "Hiru: Mallorcan charcoal grill cuisine in Alcudia. Aged meats, fresh-catch rice dishes and Mediterranean fish. Produce, tradition and flavour.",
+      "Hiru: grill restaurant in Port d'Alcúdia. Seafood paella, dry-aged meats, fresh fish and Mediterranean rice dishes. Book a table.",
     hiruOgDescription:
       "Produce, tradition and flavour. Mallorcan charcoal grill cuisine in Alcudia.",
     aboutTitle: "About Us — Dining, Nightlife & Cocktails in Alcudia",
@@ -73,13 +73,13 @@ export const en: Dictionary = {
   home: {
     enjoySubtitle: "Terrace - Cocktails & Shisha",
     enjoyDescription:
-      "Where nights begin. The best cocktails in Alcudia, premium shisha and the liveliest terrace to start your night.",
+      "Where nights begin. Sunset cocktails, signature drinks and premium shisha on the most vibrant terrace in Alcúdia.",
     outxideSubtitle: "Club",
     outxideDescription:
-      "The night continues. Nightclub with the best DJs, top-tier production and an energy you won't find anywhere else.",
+      "The night continues. Nightclub with the best DJs, techno, house and reggaeton. The best party in Mallorca.",
     hiruSubtitle: "Food & Drinks",
     hiruDescription:
-      "Grill, cocktails and good vibes. Signature cuisine with the finest meats, rice dishes and cocktails into the late hours.",
+      "Grill, cocktails and great vibes. Seafood paella, dry-aged meats and cocktails until late in Port d'Alcúdia.",
     threeSpaces: "Three spaces, one standard of excellence",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -102,7 +102,7 @@ export const en: Dictionary = {
   outxide: {
     tagline: "The night continues",
     description:
-      "The new benchmark for nightlife in Alcudia. Music, energy and unforgettable nights.",
+      "The best nightclub in Alcúdia, Mallorca. Techno, house and reggaeton with international DJs. Buy your tickets online.",
     galleryTitle: "The club",
     eventsTitle: "Upcoming events",
     eventsCalendar: "Calendar",
@@ -136,7 +136,7 @@ export const en: Dictionary = {
   hiru: {
     subtitle: "Grill - Cocktails - Good vibes",
     description:
-      "Signature cuisine where charcoal grill and fresh produce take centre stage. Meats, fresh-catch rice dishes and the finest cocktails into the late hours.",
+      "Grill restaurant in Port d'Alcúdia where fire takes centre stage. Dry-aged meats, seafood paella, brothy rice dishes and cocktails until late. Book your table.",
     galleryTitle: "Produce - Tradition - Flavour",
     galleryAll: "All",
     galleryFood: "Food",
@@ -144,13 +144,13 @@ export const en: Dictionary = {
     menuTitle: "The Menu",
     freshProduct: "Fresh produce",
     freshProductDesc:
-      "We select the finest meats and fish to deliver charcoal-grilled dishes with character.",
+      "Dry-aged meats, Mediterranean fish and fresh seafood from the local market for grill dishes with character.",
     signatureCuisine: "Signature cuisine",
     signatureCuisineDesc:
-      "We reinterpret Mallorcan cuisine with modern techniques and international flavours.",
+      "Seafood paella, brothy rice dishes and Mallorcan cuisine reimagined with modern techniques and local produce.",
     openLate: "Open late",
     openLateDesc:
-      "Restaurant and cocktail bar with the best nightlife atmosphere in Alcudia.",
+      "Restaurant and cocktail bar open until 1 AM on weekends in Port d'Alcúdia.",
     hours: "12:00-23:30 - Fri-Sat until 1:00 - Tue closed",
     address: "Ctra. d'Artà, 40, Port d'Alcúdia",
     continueEnjoy: "Continue at Enjoy Terrace",
