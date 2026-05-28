@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -38,5 +39,13 @@ export default function AboutLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <BreadcrumbJsonLd items={[
+        { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
+        { name: "Sobre Nosotros", url: "https://www.grupoenjoy.es/nosotros" },
+      ]} />
+    </>
+  );
 }

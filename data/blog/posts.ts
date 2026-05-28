@@ -38,6 +38,634 @@ export function getPostText(
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "mejores-restaurantes-alcudia-mallorca",
+    title: {
+      es: "Mejores Restaurantes en Alcudia: Donde Comer Bien en 2026",
+      en: "Best Restaurants in Alcudia: Where to Eat in Mallorca (2026)",
+      de: "Beste Restaurants in Alcudia: Wo man auf Mallorca gut essen kann (2026)",
+      fr: "Meilleurs Restaurants a Alcudia : Ou Bien Manger a Majorque (2026)",
+      it: "Migliori Ristoranti ad Alcudia: Dove Mangiare Bene a Maiorca (2026)",
+    },
+    excerpt: {
+      es: "Descubre los mejores restaurantes en Alcudia y Port d'Alcudia: paella, cocina mediterranea, terraza, marisco y mucho mas. Guia actualizada con donde comer en Alcudia, Mallorca.",
+      en: "Discover the best restaurants in Alcudia and Port d'Alcudia: paella, Mediterranean cuisine, terrace dining, seafood and more. Updated guide on where to eat in Alcudia, Mallorca.",
+      de: "Entdecken Sie die besten Restaurants in Alcudia und Port d'Alcudia: Paella, mediterrane Kueche, Terrassen-Restaurants, Meeresfruechte und mehr. Aktueller Guide zum Essen auf Mallorca.",
+      fr: "Decouvrez les meilleurs restaurants a Alcudia et Port d'Alcudia : paella, cuisine mediterraneenne, terrasse, fruits de mer et plus. Guide actualise pour manger a Alcudia, Majorque.",
+      it: "Scopri i migliori ristoranti ad Alcudia e Port d'Alcudia: paella, cucina mediterranea, terrazza, frutti di mare e molto altro. Guida aggiornata su dove mangiare ad Alcudia, Maiorca.",
+    },
+    content: {
+      es: `<p>Si te preguntas donde comer en Alcudia, estas en el lugar correcto. El norte de Mallorca se ha consolidado como uno de los destinos gastronomicos mas interesantes de la isla, con una oferta que va desde arroces y paellas frente al mar hasta cocina de autor con producto local de primera. En esta guia repasamos los mejores restaurantes en Alcudia y Port d'Alcudia para que aciertes en cada comida de tus vacaciones.</p>
+
+<h2>1. Hiru Food &amp; Drinks: la referencia gastronomica de Alcudia</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> se ha convertido en el restaurante imprescindible de Port d'Alcudia. Ubicado en la Ctra. d'Arta 40, Hiru combina cocina a la brasa de alto nivel con un ambiente moderno y relajado que funciona tanto para una comida familiar como para una cena romantica o una celebracion con amigos.</p>
+<h3>Que hace especial a Hiru</h3>
+<p>La cocina de Hiru gira en torno al fuego y al producto de calidad. Sus carnes maduradas dry-aged son una de las grandes especialidades: piezas seleccionadas que se maduran durante semanas para conseguir un sabor y una textura excepcionales. Los arroces son otro pilar fundamental de la carta. La paella de marisco, elaborada con producto fresco de la lonja, es uno de los platos mas demandados. Tambien destacan los arroces caldosos con bogavante y los arroces negros. El pescado del Mediterraneo, cocinado a la brasa, completa una propuesta gastronomica redonda.</p>
+<h3>Terraza y ambiente</h3>
+<p>Hiru cuenta con una amplia terraza que es el lugar perfecto para una cena de verano al aire libre. El interior mantiene una estetica contemporanea y acogedora. Ademas, su cocktail bar ofrece combinados de autor y una carta de vinos bien pensada. El restaurante esta abierto hasta tarde, lo que lo convierte en el punto de partida ideal para continuar la noche en Port d'Alcudia.</p>
+<p><strong>Horario:</strong> De 12:00 a 23:30 (viernes y sabado hasta la 1:00). Cierra los martes. Reservar mesa en Alcudia es muy recomendable, especialmente en temporada alta.</p>
+
+<h2>Donde Comer Paella en Alcudia</h2>
+<p>La paella es, sin duda, uno de los platos que todo visitante quiere probar en Mallorca. En Alcudia hay varias opciones para disfrutar de un buen arroz, pero no todos los restaurantes la preparan con el mismo cuidado. Aqui van nuestras recomendaciones para comer paella en Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> encabeza la lista por una razon clara: sus arroces se preparan con caldo casero, marisco fresco de la lonja local y el punto justo de coccion que marca la diferencia entre una paella correcta y una memorable. La paella de marisco y el arroz caldoso con bogavante son los favoritos de quienes repiten.</p>
+
+<h3>2. Can Costa</h3>
+<p>Un clasico de la zona con anos de trayectoria. Especializado en cocina mallorquina y arroces. Buen sitio para probar platos tipicos de la isla en un ambiente familiar. Se encuentra en el casco antiguo de Alcudia.</p>
+
+<h3>3. Bistro Mar</h3>
+<p>Restaurante frente al paseo maritimo de Port d'Alcudia con vistas al mar. Ofrece paellas y fideuaes con marisco ademas de pescado fresco. Terraza agradable para comidas con brisa marina. Cocina de perfil mediterraneo.</p>
+
+<h2>Restaurantes con Terraza en Alcudia</h2>
+<p>Comer en terraza es casi obligatorio cuando visitas Mallorca. El buen clima del norte de la isla permite disfrutar de comidas y cenas al aire libre desde abril hasta bien entrado octubre. Estos son los mejores restaurantes con terraza en Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> tiene una de las terrazas mas agradables de Port d'Alcudia: espaciosa, bien ambientada y perfecta tanto para comidas como para cenas. Combinar una cena en su terraza con cocteles en <a href="/enjoy">Enjoy Terrace</a> es uno de los mejores planes de la zona.</p>
+
+<h3>4. Sa Plaça</h3>
+<p>Situado en la plaza principal del casco antiguo de Alcudia, ofrece cocina mediterranea con toques mallorquines. La terraza con vistas a la muralla medieval es especialmente encantadora al atardecer. Tapas, ensaladas y platos de temporada.</p>
+
+<h3>5. El Patio de Alcudia</h3>
+<p>Restaurante con un bonito patio interior ajardinado en el centro historico. Cocina fusion con base mediterranea. Ambiente intimo y cuidado. Ideal para cenas especiales o citas romanticas.</p>
+
+<h2>Cocina Internacional en Port d'Alcudia</h2>
+
+<h3>6. Ristorante Da Vinci</h3>
+<p>Un restaurante italiano con buena pasta fresca, pizzas en horno de lena y una carta de vinos italianos. Ubicado cerca del puerto, tiene terraza y un ambiente familiar. Buena opcion para quienes buscan algo distinto al mediterraneo.</p>
+
+<h3>7. Sushi Alcudia</h3>
+<p>Para los amantes de la cocina asiatica, esta opcion ofrece sushi, sashimi y platos wok en un local moderno del paseo maritimo. Calidad decente del pescado y buena relacion calidad-precio para la zona.</p>
+
+<h2>Tapas y Raciones</h2>
+
+<h3>8. Bar Ponent</h3>
+<p>Bar de tapas con sabor local en el casco antiguo. Raciones generosas de jamon iberico, pulpo a la gallega, gambas al ajillo y quesos artesanos. Terraza pequena pero con mucho encanto en una callejuela tranquila.</p>
+
+<h3>9. Bodega d'es Port</h3>
+<p>Una bodega con caracter marinero junto al puerto deportivo. Especializada en tapas de marisco y vinos locales. Buena opcion para un aperitivo antes de una cena mas formal. Ambiente informal y animado.</p>
+
+<h2>Marisquerias y Pescado Fresco</h2>
+
+<h3>10. Ca'n Lliro</h3>
+<p>Restaurante familiar con decadas de historia en Port d'Alcudia. Pescado fresco del dia cocinado de forma sencilla pero eficaz: a la plancha, al horno o frito. Los calderetas de langosta y las fritures de peix son sus platos estrella. Ambiente tradicional y precio medio-alto.</p>
+
+<h2>Por que Hiru es la mejor opcion para una experiencia completa</h2>
+<p>Si tuvieras que elegir un solo restaurante en Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> ofrece la experiencia gastronomica mas completa del norte de Mallorca. Combina cocina a la brasa con producto premium, arroces elaborados con marisco fresco, una carta de cocteles de autor, terraza para cenar al aire libre y un horario amplio que permite desde comidas familiares hasta cenas tardias.</p>
+<p>Ademas, su ubicacion en Port d'Alcudia lo convierte en el punto de partida perfecto para una noche redonda: cena en Hiru, cocteles al atardecer en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sabado, fiesta en <a href="/outxide">Outxide Club</a>. Es la combinacion que los locales ya conocen y que cada vez mas visitantes descubren.</p>
+<p>No olvides reservar mesa en Alcudia con antelacion, especialmente en junio, julio y agosto. La mejor forma de asegurar tu sitio en los mejores restaurantes de Port d'Alcudia es planificar con tiempo.</p>`,
+
+      en: `<p>If you are wondering where to eat in Alcudia, you are in the right place. Northern Mallorca has established itself as one of the island's most exciting dining destinations, offering everything from seafood paella by the sea to creative cuisine with top-quality local produce. This guide covers the best restaurants in Alcudia and Port d'Alcudia so you can eat well on every meal of your holiday.</p>
+
+<h2>1. Hiru Food &amp; Drinks: Alcudia's Culinary Benchmark</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> has become the must-visit restaurant in Port d'Alcudia. Located on Ctra. d'Arta 40, Hiru pairs high-level charcoal-grill cooking with a modern, relaxed atmosphere that works equally well for a family lunch, a romantic dinner or a celebration with friends.</p>
+<h3>What Makes Hiru Special</h3>
+<p>Hiru's kitchen revolves around fire and quality produce. Their dry-aged meats are one of the standout specialities: hand-selected cuts matured for weeks to achieve exceptional flavour and tenderness. Rice dishes are another cornerstone of the menu. The seafood paella, made with fish-market-fresh shellfish, is one of the most requested plates. The lobster caldoso rice and black rice also draw consistent praise. Mediterranean fish cooked over charcoal rounds out a rock-solid culinary offering.</p>
+<h3>Terrace and Atmosphere</h3>
+<p>Hiru boasts a generous terrace that is the perfect setting for an al-fresco summer dinner. The interior keeps a contemporary, welcoming aesthetic. The cocktail bar serves signature drinks alongside a well-curated wine list. The restaurant stays open late, making it the ideal starting point for a night out in Port d'Alcudia.</p>
+<p><strong>Hours:</strong> 12:00 to 23:30 (Friday and Saturday until 01:00). Closed on Tuesdays. Booking a table is highly recommended, especially in high season.</p>
+
+<h2>Where to Eat Paella in Alcudia</h2>
+<p>Paella is undoubtedly one of the dishes every visitor wants to try in Mallorca. Alcudia has several options, but not every restaurant prepares it with the same care. Here are our recommendations for paella in Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> leads the list for a clear reason: their rice dishes are prepared with homemade stock, fresh seafood from the local fish market and the precise cooking point that separates a good paella from a memorable one. The seafood paella and lobster caldoso rice are favourites among returning guests.</p>
+
+<h3>2. Can Costa</h3>
+<p>A long-established classic in the area specialising in Mallorcan cuisine and rice dishes. Good spot for trying traditional island dishes in a family-friendly setting. Located in Alcudia's old town.</p>
+
+<h3>3. Bistro Mar</h3>
+<p>A seafront restaurant on Port d'Alcudia's promenade with sea views. Offers paellas and seafood fideuaes alongside fresh fish. Pleasant terrace for meals with a sea breeze. Mediterranean profile.</p>
+
+<h2>Best Terrace Restaurants in Alcudia</h2>
+<p>Dining al fresco is practically mandatory when visiting Mallorca. The northern coast's mild climate allows for outdoor meals from April well into October. These are the best terrace restaurants in Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> has one of the finest terraces in Port d'Alcudia: spacious, well-designed and perfect for both lunch and dinner. Pairing a terrace dinner at Hiru with cocktails at <a href="/enjoy">Enjoy Terrace</a> is one of the best plans in the area.</p>
+
+<h3>4. Sa Placa</h3>
+<p>Set on Alcudia old town's main square, serving Mediterranean cuisine with Mallorcan touches. The terrace overlooking the medieval walls is especially charming at sunset. Tapas, salads and seasonal plates.</p>
+
+<h3>5. El Patio de Alcudia</h3>
+<p>A restaurant with a lovely garden courtyard in the historic centre. Fusion cuisine with a Mediterranean base. Intimate, carefully designed setting. Ideal for special dinners or romantic dates.</p>
+
+<h2>International Cuisine in Port d'Alcudia</h2>
+
+<h3>6. Ristorante Da Vinci</h3>
+<p>An Italian restaurant with good fresh pasta, wood-fired pizzas and an Italian wine list. Located near the port, it has a terrace and a family-friendly feel. A solid choice for those seeking something beyond Mediterranean.</p>
+
+<h3>7. Sushi Alcudia</h3>
+<p>For Asian-food enthusiasts, this spot offers sushi, sashimi and wok dishes in a modern promenade venue. Decent fish quality and good value for the area.</p>
+
+<h2>Tapas and Small Plates</h2>
+
+<h3>8. Bar Ponent</h3>
+<p>A local-flavoured tapas bar in the old town. Generous portions of Iberian ham, Galician-style octopus, garlic prawns and artisan cheeses. Small terrace with plenty of charm on a quiet lane.</p>
+
+<h3>9. Bodega d'es Port</h3>
+<p>A bodega with nautical character beside the marina. Specialising in seafood tapas and local wines. Great option for an aperitif before a more formal dinner. Casual, lively atmosphere.</p>
+
+<h2>Seafood Restaurants</h2>
+
+<h3>10. Ca'n Lliro</h3>
+<p>A family-run restaurant with decades of history in Port d'Alcudia. Daily-fresh fish cooked simply but effectively: grilled, oven-baked or fried. The lobster stew and mixed fish fry are their signature dishes. Traditional setting, mid-to-high price range.</p>
+
+<h2>Why Hiru Is the Best Choice for a Complete Dining Experience</h2>
+<p>If you had to pick just one restaurant in Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> delivers the most complete culinary experience in northern Mallorca. It combines charcoal-grill cooking with premium produce, rice dishes made with fresh seafood, a signature cocktail menu, a terrace for outdoor dining and long opening hours that accommodate everything from family lunches to late dinners.</p>
+<p>Its Port d'Alcudia location also makes it the perfect launchpad for a stellar night: dinner at Hiru, sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and, on Thursday, Friday or Saturday, dancing at <a href="/outxide">Outxide Club</a>. It is the combination locals already know and more visitors discover every season.</p>
+<p>Remember to book your table in advance, especially in June, July and August. Planning ahead is the best way to secure your spot at the best restaurants in Port d'Alcudia.</p>`,
+
+      de: `<p>Sie fragen sich, wo man in Alcudia gut essen kann? Dann sind Sie hier genau richtig. Der Norden Mallorcas hat sich zu einem der spannendsten gastronomischen Ziele der Insel entwickelt. Das Angebot reicht von Paella mit Meeresfruechten direkt am Meer bis hin zu kreativer Kueche mit erstklassigen lokalen Produkten. In diesem Guide stellen wir Ihnen die besten Restaurants in Alcudia und Port d'Alcudia vor, damit Sie bei jedem Essen im Urlaub die richtige Wahl treffen.</p>
+
+<h2>1. Hiru Food &amp; Drinks: Das beste Restaurant in Alcudia</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> hat sich zum gastronomischen Pflichtbesuch in Port d'Alcudia entwickelt. An der Ctra. d'Arta 40 gelegen, verbindet Hiru Grillkueche auf hoechstem Niveau mit einer modernen, entspannten Atmosphaere, die sowohl fuer ein Familienessen als auch fuer ein romantisches Dinner oder eine Feier mit Freunden perfekt passt.</p>
+<h3>Was Hiru besonders macht</h3>
+<p>Hirus Kueche dreht sich um Feuer und Qualitaetsprodukte. Die Dry-Aged-Fleischspezialitaeten gehoeren zu den absoluten Highlights: handverlesene Stuecke, die wochenlang gereift werden, um einen aussergewoehnlichen Geschmack und eine perfekte Textur zu erreichen. Reisgerichte sind eine weitere Saeuele der Speisekarte. Die Meeresfruechte-Paella, zubereitet mit fangfrischen Produkten vom lokalen Fischmarkt, ist eines der meistbestellten Gerichte. Der Hummer-Reistopf (Arroz Caldoso) und der schwarze Reis ueberzeugen ebenfalls. Mediterraner Fisch vom Holzkohlegrill rundet das erstklassige kulinarische Angebot ab.</p>
+<h3>Terrasse und Ambiente</h3>
+<p>Hiru verfuegt ueber eine grosszuegige Terrasse, die den perfekten Rahmen fuer ein Sommerabendessen unter freiem Himmel bietet. Der Innenbereich besticht durch zeitgenoessisches, einladendes Design. Die Cocktailbar serviert Signature-Drinks und eine durchdachte Weinkarte. Das Restaurant hat bis spaet abends geoeffnet und ist damit der ideale Ausgangspunkt fuer einen Abend in Port d'Alcudia.</p>
+<p><strong>Oeffnungszeiten:</strong> 12:00 bis 23:30 Uhr (Freitag und Samstag bis 01:00 Uhr). Dienstags geschlossen. Eine Tischreservierung wird dringend empfohlen, besonders in der Hochsaison.</p>
+
+<h2>Wo kann man Paella in Alcudia essen?</h2>
+<p>Paella ist zweifellos eines der Gerichte, das jeder Mallorca-Besucher probieren moechte. In Alcudia gibt es mehrere Moeglichkeiten, aber nicht jedes Restaurant bereitet sie mit der gleichen Sorgfalt zu. Hier sind unsere Empfehlungen fuer Paella in Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> fuehrt die Liste aus gutem Grund an: Die Reisgerichte werden mit hausgemachter Bruehe, frischen Meeresfruechten vom lokalen Fischmarkt und dem praezisen Garpunkt zubereitet, der eine gute Paella von einer unvergesslichen unterscheidet. Die Meeresfruechte-Paella und der Hummer-Reistopf sind die Favoriten der Stammgaeste.</p>
+
+<h3>2. Can Costa</h3>
+<p>Ein etablierter Klassiker in der Gegend, spezialisiert auf mallorquinische Kueche und Reisgerichte. Guter Ort, um traditionelle Inselgerichte in familiaerer Atmosphaere zu probieren. Im Altstadtkern von Alcudia gelegen.</p>
+
+<h3>3. Bistro Mar</h3>
+<p>Restaurant an der Strandpromenade von Port d'Alcudia mit Meerblick. Bietet Paellas und Meeresfruechte-Fideuas neben frischem Fisch. Angenehme Terrasse fuer Mahlzeiten mit Meeresbrise. Mediterranes Profil.</p>
+
+<h2>Beste Terrassen-Restaurants in Alcudia</h2>
+<p>Draussen essen gehoert auf Mallorca praktisch zum Pflichtprogramm. Das milde Klima an der Nordkueste ermoeglicht Mahlzeiten im Freien von April bis weit in den Oktober hinein. Das sind die besten Terrassen-Restaurants in Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> bietet eine der schoensten Terrassen in Port d'Alcudia: weitlaeufig, stilvoll gestaltet und perfekt sowohl fuer Mittag- als auch Abendessen. Ein Terrassenabendessen bei Hiru mit anschliessendem Cocktailgenuss in der <a href="/enjoy">Enjoy Terrace</a> ist einer der besten Plaene, die die Region zu bieten hat.</p>
+
+<h3>4. Sa Placa</h3>
+<p>Am Hauptplatz der Altstadt von Alcudia gelegen, mit mediterraner Kueche und mallorquinischen Akzenten. Die Terrasse mit Blick auf die mittelalterliche Stadtmauer ist besonders bei Sonnenuntergang bezaubernd. Tapas, Salate und saisonale Gerichte.</p>
+
+<h3>5. El Patio de Alcudia</h3>
+<p>Restaurant mit einem huebschen Garteninnenhof im historischen Zentrum. Fusionskueche auf mediterraner Basis. Intimes, sorgfaeltig gestaltetes Ambiente. Ideal fuer besondere Abendessen oder romantische Dates.</p>
+
+<h2>Internationale Kueche in Port d'Alcudia</h2>
+
+<h3>6. Ristorante Da Vinci</h3>
+<p>Italienisches Restaurant mit guter frischer Pasta, Holzofenpizzen und italienischer Weinkarte. In Hafennaehe gelegen, mit Terrasse und familienfreundlichem Flair. Eine solide Wahl fuer alle, die ueber die mediterrane Kueche hinausschauen moechten.</p>
+
+<h3>7. Sushi Alcudia</h3>
+<p>Fuer Liebhaber der asiatischen Kueche bietet dieses Lokal Sushi, Sashimi und Wok-Gerichte in einem modernen Ambiente an der Promenade. Ordentliche Fischqualitaet und gutes Preis-Leistungs-Verhaeltnis fuer die Gegend.</p>
+
+<h2>Tapas und kleine Gerichte</h2>
+
+<h3>8. Bar Ponent</h3>
+<p>Tapas-Bar mit lokalem Flair in der Altstadt. Grosszuegige Portionen Iberico-Schinken, Pulpo a la Gallega, Knoblauchgarnelen und handwerklich hergestellter Kaese. Kleine Terrasse mit viel Charme in einer ruhigen Gasse.</p>
+
+<h3>9. Bodega d'es Port</h3>
+<p>Bodega mit maritimem Charakter am Yachthafen. Spezialisiert auf Meeresfruechte-Tapas und lokale Weine. Tolle Option fuer einen Aperitif vor einem gehobeneren Abendessen. Ungezwungene, lebhafte Atmosphaere.</p>
+
+<h2>Fischrestaurants und Meeresfruechte</h2>
+
+<h3>10. Ca'n Lliro</h3>
+<p>Familienrestaurant mit jahrzehntelanger Geschichte in Port d'Alcudia. Tagesfrischer Fisch, schlicht aber wirkungsvoll zubereitet: gegrillt, aus dem Ofen oder frittiert. Der Hummereintopf und die gemischte Fischplatte sind die Spezialitaeten des Hauses. Traditionelles Ambiente, mittlere bis gehobene Preisklasse.</p>
+
+<h2>Warum Hiru die beste Wahl fuer ein vollstaendiges Restauranterlebnis ist</h2>
+<p>Wenn Sie nur ein Restaurant in Alcudia waehlen koennten, bietet <a href="/hiru">Hiru Food &amp; Drinks</a> das umfassendste kulinarische Erlebnis im Norden Mallorcas. Es vereint Grillkueche mit Premium-Produkten, Reisgerichte mit frischen Meeresfruechten, eine Signature-Cocktailkarte, eine Terrasse fuer Mahlzeiten unter freiem Himmel und grosszuegige Oeffnungszeiten, die vom Familienmittagessen bis zum spaeten Abendessen alles abdecken.</p>
+<p>Die Lage in Port d'Alcudia macht Hiru ausserdem zum perfekten Startpunkt fuer einen grossartigen Abend auf Mallorca: Abendessen bei Hiru, Cocktails bei Sonnenuntergang in der <a href="/enjoy">Enjoy Terrace</a> und donnerstags, freitags oder samstags Tanzen im <a href="/outxide">Outxide Club</a>. Es ist die Kombination, die Einheimische laengst kennen und die immer mehr Urlauber entdecken.</p>
+<p>Denken Sie daran, Ihren Tisch rechtzeitig zu reservieren, besonders im Juni, Juli und August. Vorausplanung ist der beste Weg, um sich Ihren Platz in den besten Restaurants von Port d'Alcudia zu sichern.</p>`,
+
+      fr: `<p>Vous vous demandez ou manger a Alcudia ? Vous etes au bon endroit. Le nord de Majorque s'est impose comme l'une des destinations gastronomiques les plus interessantes de l'ile, avec une offre allant de la paella aux fruits de mer face a la mer jusqu'a la cuisine creative a base de produits locaux de premier choix. Ce guide passe en revue les meilleurs restaurants d'Alcudia et de Port d'Alcudia pour que chaque repas de vos vacances soit une reussite.</p>
+
+<h2>1. Hiru Food &amp; Drinks : la reference gastronomique d'Alcudia</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> s'est impose comme le restaurant incontournable de Port d'Alcudia. Situe Ctra. d'Arta 40, Hiru allie cuisine au grill de haut niveau et ambiance moderne et decontractee, aussi adaptee a un dejeuner en famille qu'a un diner romantique ou une fete entre amis.</p>
+<h3>Ce qui rend Hiru special</h3>
+<p>La cuisine d'Hiru tourne autour du feu et des produits de qualite. Les viandes maturees dry-aged comptent parmi les grandes specialites : des pieces selectionnees muries pendant des semaines pour obtenir une saveur et une texture exceptionnelles. Les plats de riz constituent un autre pilier de la carte. La paella aux fruits de mer, preparee avec des produits frais de la criee locale, est l'un des plats les plus demandes. Le riz caldoso au homard et le riz noir sont egalement excellents. Le poisson mediterraneen grille au charbon de bois complete une offre culinaire remarquable.</p>
+<h3>Terrasse et ambiance</h3>
+<p>Hiru dispose d'une grande terrasse, cadre ideal pour un diner estival en plein air. L'interieur conserve une esthetique contemporaine et accueillante. Le bar a cocktails sert des creations maison et une carte des vins bien pensee. Le restaurant reste ouvert tard, ce qui en fait le point de depart ideal pour prolonger la soiree a Port d'Alcudia.</p>
+<p><strong>Horaires :</strong> 12h00 a 23h30 (vendredi et samedi jusqu'a 01h00). Ferme le mardi. La reservation est vivement conseillee, surtout en haute saison.</p>
+
+<h2>Ou manger une paella a Alcudia</h2>
+<p>La paella est sans doute le plat que tout visiteur souhaite gouter a Majorque. Alcudia offre plusieurs possibilites, mais tous les restaurants ne la preparent pas avec le meme soin. Voici nos recommandations pour la paella a Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> arrive en tete pour une raison simple : les plats de riz sont prepares avec un bouillon maison, des fruits de mer frais du marche local et le point de cuisson precis qui fait la difference entre une bonne paella et une paella inoubliable. La paella aux fruits de mer et le riz caldoso au homard sont les favoris des habitues.</p>
+
+<h3>2. Can Costa</h3>
+<p>Un classique bien etabli dans la zone, specialise dans la cuisine majorquine et les plats de riz. Bon endroit pour gouter les plats traditionnels de l'ile dans un cadre familial. Situe dans la vieille ville d'Alcudia.</p>
+
+<h3>3. Bistro Mar</h3>
+<p>Restaurant en front de mer sur la promenade de Port d'Alcudia avec vue sur la mer. Propose des paellas et des fideuaes aux fruits de mer ainsi que du poisson frais. Terrasse agreable pour des repas avec la brise marine. Profil mediterraneen.</p>
+
+<h2>Meilleurs restaurants avec terrasse a Alcudia</h2>
+<p>Manger en terrasse est quasiment obligatoire a Majorque. Le climat doux de la cote nord permet de profiter de repas en plein air d'avril a octobre. Voici les meilleurs restaurants avec terrasse a Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> possede l'une des plus belles terrasses de Port d'Alcudia : spacieuse, bien amenagee et parfaite tant pour le dejeuner que pour le diner. Combiner un diner en terrasse chez Hiru avec des cocktails a l'<a href="/enjoy">Enjoy Terrace</a> est l'un des meilleurs plans de la region.</p>
+
+<h3>4. Sa Placa</h3>
+<p>Sur la place principale de la vieille ville d'Alcudia, cuisine mediterraneenne avec des touches majorquines. La terrasse face aux remparts medievaux est particulierement charmante au coucher du soleil. Tapas, salades et plats de saison.</p>
+
+<h3>5. El Patio de Alcudia</h3>
+<p>Restaurant avec un joli patio-jardin dans le centre historique. Cuisine fusion a base mediterraneenne. Ambiance intime et soignee. Ideal pour un diner special ou une soiree romantique.</p>
+
+<h2>Cuisine internationale a Port d'Alcudia</h2>
+
+<h3>6. Ristorante Da Vinci</h3>
+<p>Restaurant italien avec de bonnes pates fraiches, des pizzas au feu de bois et une carte de vins italiens. Situe pres du port, avec terrasse et ambiance familiale. Bonne option pour ceux qui cherchent autre chose que le mediterraneen.</p>
+
+<h3>7. Sushi Alcudia</h3>
+<p>Pour les amateurs de cuisine asiatique, cette adresse propose sushis, sashimis et plats au wok dans un local moderne sur la promenade. Qualite correcte du poisson et bon rapport qualite-prix pour la zone.</p>
+
+<h2>Tapas et portions a partager</h2>
+
+<h3>8. Bar Ponent</h3>
+<p>Bar a tapas au caractere local dans la vieille ville. Portions genereuses de jambon iberique, poulpe a la galicienne, crevettes a l'ail et fromages artisanaux. Petite terrasse pleine de charme dans une ruelle tranquille.</p>
+
+<h3>9. Bodega d'es Port</h3>
+<p>Bodega au caractere marin pres du port de plaisance. Specialisee dans les tapas de fruits de mer et les vins locaux. Bonne option pour un aperitif avant un diner plus formel. Ambiance decontractee et animee.</p>
+
+<h2>Poissons et fruits de mer</h2>
+
+<h3>10. Ca'n Lliro</h3>
+<p>Restaurant familial avec des decennies d'histoire a Port d'Alcudia. Poisson frais du jour cuisine simplement mais efficacement : grille, au four ou frit. Le ragoet de homard et la friture de poissons sont les specialites. Cadre traditionnel, gamme de prix moyenne a elevee.</p>
+
+<h2>Pourquoi Hiru est le meilleur choix pour une experience complete</h2>
+<p>Si vous ne deviez choisir qu'un seul restaurant a Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> offre l'experience culinaire la plus complete du nord de Majorque. Il allie cuisine au grill avec des produits premium, plats de riz aux fruits de mer frais, carte de cocktails signatures, terrasse pour diner en plein air et horaires etendus qui conviennent aussi bien aux dejeuners familiaux qu'aux diners tardifs.</p>
+<p>Sa situation a Port d'Alcudia en fait aussi le point de depart ideal pour une soiree reussie : diner chez Hiru, cocktails au coucher du soleil a l'<a href="/enjoy">Enjoy Terrace</a> et, le jeudi, vendredi ou samedi, danse a l'<a href="/outxide">Outxide Club</a>. C'est la combinaison que les locaux connaissent deja et que de plus en plus de visiteurs decouvrent.</p>
+<p>N'oubliez pas de reserver votre table a l'avance, surtout en juin, juillet et aout. Anticiper est la meilleure facon de s'assurer une place dans les meilleurs restaurants de Port d'Alcudia.</p>`,
+
+      it: `<p>Vi state chiedendo dove mangiare ad Alcudia? Siete nel posto giusto. Il nord di Maiorca si e' affermato come una delle destinazioni gastronomiche piu' interessanti dell'isola, con un'offerta che spazia dalla paella di pesce in riva al mare alla cucina creativa con prodotti locali di prima qualita'. Questa guida passa in rassegna i migliori ristoranti di Alcudia e Port d'Alcudia perche' ogni pasto delle vostre vacanze sia azzeccato.</p>
+
+<h2>1. Hiru Food &amp; Drinks: il punto di riferimento gastronomico di Alcudia</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> e' diventato il ristorante imprescindibile di Port d'Alcudia. Situato in Ctra. d'Arta 40, Hiru unisce cucina alla brace di alto livello con un'atmosfera moderna e rilassata, perfetta sia per un pranzo in famiglia sia per una cena romantica o una festa tra amici.</p>
+<h3>Cosa rende speciale Hiru</h3>
+<p>La cucina di Hiru ruota attorno al fuoco e ai prodotti di qualita'. Le carni frollate dry-aged sono una delle grandi specialita': tagli selezionati a mano, maturati per settimane per raggiungere un sapore e una consistenza eccezionali. I piatti di riso sono un altro pilastro del menu. La paella di frutti di mare, preparata con prodotto fresco della pescheria locale, e' uno dei piatti piu' richiesti. Eccellenti anche il riso brodoso all'astice e il riso nero. Il pesce mediterraneo cotto alla brace completa un'offerta culinaria di prim'ordine.</p>
+<h3>Terrazza e atmosfera</h3>
+<p>Hiru dispone di un'ampia terrazza, cornice ideale per una cena estiva all'aperto. L'interno mantiene un design contemporaneo e accogliente. Il cocktail bar serve drink d'autore e una carta dei vini ben curata. Il ristorante resta aperto fino a tardi, il che lo rende il punto di partenza ideale per una serata a Port d'Alcudia.</p>
+<p><strong>Orari:</strong> dalle 12:00 alle 23:30 (venerdi' e sabato fino all'01:00). Chiuso il martedi'. La prenotazione e' fortemente consigliata, soprattutto in alta stagione.</p>
+
+<h2>Dove mangiare la paella ad Alcudia</h2>
+<p>La paella e' senza dubbio uno dei piatti che ogni visitatore vuole assaggiare a Maiorca. Ad Alcudia ci sono diverse opzioni, ma non tutti i ristoranti la preparano con la stessa cura. Ecco le nostre raccomandazioni per la paella ad Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> guida la classifica per un motivo chiaro: i piatti di riso sono preparati con brodo fatto in casa, frutti di mare freschi dal mercato ittico locale e il punto di cottura preciso che fa la differenza tra una buona paella e una indimenticabile. La paella di frutti di mare e il riso all'astice sono i preferiti di chi torna.</p>
+
+<h3>2. Can Costa</h3>
+<p>Un classico consolidato nella zona, specializzato in cucina maiorchina e piatti di riso. Buon posto per provare i piatti tradizionali dell'isola in un ambiente familiare. Situato nel centro storico di Alcudia.</p>
+
+<h3>3. Bistro Mar</h3>
+<p>Ristorante sul lungomare di Port d'Alcudia con vista sul mare. Offre paellas e fideuaes di frutti di mare oltre a pesce fresco. Terrazza piacevole per pasti con brezza marina. Profilo mediterraneo.</p>
+
+<h2>Migliori ristoranti con terrazza ad Alcudia</h2>
+<p>Mangiare all'aperto e' praticamente obbligatorio quando si visita Maiorca. Il clima mite della costa nord consente pasti en plein air da aprile fino a ottobre inoltrato. Questi sono i migliori ristoranti con terrazza ad Alcudia.</p>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> vanta una delle terrazze piu' belle di Port d'Alcudia: spaziosa, curata nel design e perfetta sia per il pranzo che per la cena. Abbinare una cena in terrazza da Hiru con cocktail all'<a href="/enjoy">Enjoy Terrace</a> e' uno dei migliori piani della zona.</p>
+
+<h3>4. Sa Placa</h3>
+<p>Nella piazza principale del centro storico di Alcudia, con cucina mediterranea e tocchi maiorchini. La terrazza affacciata sulle mura medievali e' particolarmente affascinante al tramonto. Tapas, insalate e piatti stagionali.</p>
+
+<h3>5. El Patio de Alcudia</h3>
+<p>Ristorante con un grazioso cortile-giardino nel centro storico. Cucina fusion su base mediterranea. Ambiente intimo e curato. Ideale per cene speciali o appuntamenti romantici.</p>
+
+<h2>Cucina internazionale a Port d'Alcudia</h2>
+
+<h3>6. Ristorante Da Vinci</h3>
+<p>Ristorante italiano con buona pasta fresca, pizze cotte nel forno a legna e carta dei vini italiani. Situato vicino al porto, con terrazza e atmosfera familiare. Buona scelta per chi cerca qualcosa oltre il mediterraneo.</p>
+
+<h3>7. Sushi Alcudia</h3>
+<p>Per gli amanti della cucina asiatica, questo locale offre sushi, sashimi e piatti al wok in un ambiente moderno sul lungomare. Qualita' discreta del pesce e buon rapporto qualita'-prezzo per la zona.</p>
+
+<h2>Tapas e piatti da condividere</h2>
+
+<h3>8. Bar Ponent</h3>
+<p>Tapas bar dal sapore locale nel centro storico. Porzioni generose di prosciutto iberico, polpo alla galiziana, gamberi all'aglio e formaggi artigianali. Piccola terrazza ricca di fascino in una viuzza tranquilla.</p>
+
+<h3>9. Bodega d'es Port</h3>
+<p>Bodega dal carattere marinaro accanto al porto turistico. Specializzata in tapas di pesce e vini locali. Ottima opzione per un aperitivo prima di una cena piu' formale. Atmosfera informale e vivace.</p>
+
+<h2>Pesce e frutti di mare</h2>
+
+<h3>10. Ca'n Lliro</h3>
+<p>Ristorante familiare con decenni di storia a Port d'Alcudia. Pesce fresco del giorno cucinato in modo semplice ma efficace: alla griglia, al forno o fritto. Lo stufato di aragosta e il fritto misto di pesce sono i piatti simbolo. Ambiente tradizionale, fascia di prezzo media-alta.</p>
+
+<h2>Perche' Hiru e' la scelta migliore per un'esperienza completa</h2>
+<p>Se doveste scegliere un solo ristorante ad Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> offre l'esperienza culinaria piu' completa del nord di Maiorca. Unisce cucina alla brace con prodotti premium, piatti di riso con frutti di mare freschi, una carta cocktail d'autore, una terrazza per cenare all'aperto e orari ampi che vanno dal pranzo in famiglia alla cena tardiva.</p>
+<p>La sua posizione a Port d'Alcudia lo rende inoltre il punto di partenza perfetto per una serata indimenticabile: cena da Hiru, cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a> e, il giovedi', venerdi' o sabato, ballo all'<a href="/outxide">Outxide Club</a>. E' la combinazione che i locali gia' conoscono e che sempre piu' turisti scoprono.</p>
+<p>Ricordatevi di prenotare il tavolo in anticipo, soprattutto a giugno, luglio e agosto. Pianificare in anticipo e' il modo migliore per assicurarsi un posto nei migliori ristoranti di Port d'Alcudia.</p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-27",
+    image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
+    tags: ["alcudia", "restaurants", "mallorca", "paella", "hiru", "gastronomy"],
+    venue: "hiru",
+    readingTime: 10,
+  },
+  {
+    slug: "vida-nocturna-mallorca-guia",
+    title: {
+      es: "Vida Nocturna en Mallorca: Guia Completa de Fiestas y Clubs en 2026",
+      en: "Mallorca Nightlife: Complete Guide to Parties and Clubs in 2026",
+      de: "Nachtleben auf Mallorca: Kompletter Guide zu Partys und Clubs 2026",
+      fr: "Vie Nocturne a Majorque : Guide Complet des Fetes et Clubs en 2026",
+      it: "Vita Notturna a Maiorca: Guida Completa a Feste e Club nel 2026",
+    },
+    excerpt: {
+      es: "Guia completa de la vida nocturna en Mallorca: discotecas en Alcudia, Palma y Magaluf, cocktail bars, fiestas y como organizar tu noche perfecta en la isla.",
+      en: "Complete guide to Mallorca nightlife: clubs in Alcudia, Palma and Magaluf, cocktail bars, parties and how to plan your perfect night out on the island.",
+      de: "Kompletter Guide zum Nachtleben auf Mallorca: Diskotheken in Alcudia, Palma und Magaluf, Cocktailbars, Partys und wie Sie Ihre perfekte Nacht auf der Insel planen.",
+      fr: "Guide complet de la vie nocturne a Majorque : discothèques a Alcudia, Palma et Magaluf, bars a cocktails, fetes et comment organiser votre soiree parfaite sur l'ile.",
+      it: "Guida completa alla vita notturna a Maiorca: discoteche ad Alcudia, Palma e Magaluf, cocktail bar, feste e come organizzare la vostra serata perfetta sull'isola.",
+    },
+    content: {
+      es: `<p>Mallorca no es solo playas y cultura. Cuando cae el sol, la isla se transforma en uno de los destinos de fiesta mas vibrantes del Mediterraneo. Desde las macrodiscotecas de Magaluf hasta los clubs con personalidad del norte, pasando por los cocktail bars con terraza y las fiestas en barco, hay vida nocturna en Mallorca para todos los gustos. Esta guia te cuenta todo lo que necesitas saber para disfrutar de la noche mallorquina en 2026.</p>
+
+<h2>Zonas de Fiesta en Mallorca</h2>
+<p>Mallorca tiene varias zonas de fiesta bien diferenciadas, cada una con su propio caracter. Elegir la zona adecuada es clave para que tu noche sea exactamente lo que buscas.</p>
+
+<h3>Palma de Mallorca</h3>
+<p>La capital de la isla concentra la mayor variedad de opciones nocturnas. El Paseo Maritimo es la zona clasica de clubs y discotecas, con locales de todos los estilos musicales. Santa Catalina se ha convertido en el barrio de moda para cocteles, vino y cenas tardias. La Lonja y el casco antiguo ofrecen bares con encanto y terrazas en callejuelas medievales. Palma es la opcion mas cosmopolita y diversa.</p>
+
+<h3>Magaluf</h3>
+<p>La zona de fiesta mas conocida internacionalmente. Grandes discotecas, fiestas tematicas, pool parties y un ambiente orientado al turismo britanico y nordico. Si buscas macrofiestas y DJs internacionales de primer nivel, BCM y otros grandes locales de la franja de Punta Ballena son el destino. El ambiente es intenso y muy orientado a la fiesta masiva.</p>
+
+<h3>Alcudia y Port d'Alcudia: la alternativa premium</h3>
+<p>El norte de Mallorca ofrece una vida nocturna diferente: mas selecta, menos masificada y con una calidad muy por encima de la media. Port d'Alcudia se ha posicionado como la alternativa para quienes quieren disfrutar de la noche sin las multitudes y el caos de las zonas mas turisticas del sur. Aqui la noche tiene estilo, buen sonido y un ambiente donde prima la calidad sobre la cantidad.</p>
+
+<h2>Discotecas en Alcudia: Outxide Club</h2>
+<p>Si hay un nombre que define el clubbing en el norte de Mallorca, ese es <a href="/outxide">Outxide Club</a>. Situado en Port d'Alcudia, Outxide se ha convertido en la discoteca de referencia para quienes buscan una experiencia de club de verdad fuera de las zonas masificadas del sur de la isla.</p>
+<h3>Que hace unico a Outxide</h3>
+<p>Outxide destaca por su sistema de sonido profesional de primer nivel, una produccion visual y de iluminacion que transforma cada noche en un espectaculo, y una programacion de DJs que mezcla talento nacional e internacional. La seleccion musical abarca house, tech house, techno y sesiones especiales que se anuncian en sus redes sociales. El club cuida cada detalle: desde la acustica hasta la distribucion del espacio, pasando por un servicio de barra eficiente y un equipo de seguridad profesional.</p>
+<h3>Informacion practica</h3>
+<p>Outxide abre de jueves a sabado, de mayo a octubre, a partir de las 23:00. Las entradas estan disponibles a traves de FourVenues (plataforma oficial) o en la puerta, aunque comprar online suele ofrecer mejor precio. El dress code es smart casual: se busca un ambiente cuidado sin caer en la rigidez. La mejor noche suele ser el sabado, aunque los jueves de verano tienen un ambiente local muy autentico.</p>
+
+<h2>Mejores Cocktail Bars en Mallorca</h2>
+<p>Un buen coctel es el comienzo perfecto para cualquier noche en Mallorca. Estos son los cocktail bars que marcan la diferencia.</p>
+
+<h3>Enjoy Terrace: el rey del pre-party en Alcudia</h3>
+<p><a href="/enjoy">Enjoy Terrace</a>, situado en Av. Tucan 1 de Port d'Alcudia, es el cocktail bar que ha redefinido las noches en el norte de Mallorca. Con una terraza que se llena cada atardecer, Enjoy combina cocteles de autor elaborados con tecnicas de mixologia avanzada, shisha premium y un ambiente sofisticado que atrae tanto a locales como a visitantes internacionales. Abre todos los dias a partir de las 17:00 y se convierte en el punto de encuentro natural antes de salir de fiesta.</p>
+<p>Lo que distingue a Enjoy Terrace es su capacidad para crear ambiente sin necesidad de volumen excesivo. La musica esta cuidada, la iluminacion es perfecta y el servicio es atento sin ser intrusivo. Es el tipo de lugar donde una copa se convierte facilmente en tres y donde empiezas la noche con buen pie.</p>
+
+<h3>Otros cocktail bars destacados</h3>
+<p>En Palma, Ginbo y Aqua forman parte de la escena coctelera mas reconocida. En Santa Catalina, varios bares de vinos naturales y cocteles artesanales han ganado popularidad. En la zona de Alcudia, sin embargo, <a href="/enjoy">Enjoy Terrace</a> no tiene rival directo en cuanto a calidad, ambiente y ubicacion.</p>
+
+<h2>Como Organizar Tu Noche Perfecta en Mallorca</h2>
+<p>Organizar una buena noche en Mallorca es cuestion de combinar los momentos adecuados. Aqui va nuestra recomendacion para la noche perfecta en el norte de la isla, la formula que los que saben ya han adoptado.</p>
+
+<h3>Paso 1: Cena en Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
+<p>Empieza la noche con una cena memorable. <a href="/hiru">Hiru Food &amp; Drinks</a> ofrece carnes maduradas dry-aged, paella de marisco, arroces caldosos y pescado a la brasa en un ambiente moderno y relajado. Su terraza es ideal para cenar al aire libre en las noches de verano. Reserva mesa con antelacion, especialmente viernes y sabado.</p>
+
+<h3>Paso 2: Cocteles en Enjoy Terrace (22:00 - 00:00)</h3>
+<p>Tras la cena, un paseo corto te lleva a <a href="/enjoy">Enjoy Terrace</a>. Aqui es donde la noche empieza a tomar forma: cocteles de autor, shisha, buena musica y un ambiente que sube progresivamente. Es el pre-party perfecto y el lugar donde los grupos se reencuentran antes de ir al club.</p>
+
+<h3>Paso 3: Fiesta en Outxide Club (00:00 - 05:00)</h3>
+<p>Cuando la energia esta al maximo, <a href="/outxide">Outxide Club</a> abre sus puertas. Sonido de primer nivel, produccion visual espectacular y sesiones que se alargan hasta las 5:00 o mas. Es el broche perfecto para una noche completa en el norte de Mallorca.</p>
+
+<h2>Consejos Practicos para la Vida Nocturna en Mallorca</h2>
+
+<h3>Dress code</h3>
+<p>En la mayoria de clubs de calidad en Mallorca, el dress code es smart casual. Evita chanclas, camisetas de tirantes y ropa de playa. En Outxide Club, se espera un look cuidado pero sin excesiva formalidad. Zapatillas limpias, pantalon largo o corto elegante y camisa o camiseta de calidad funcionan bien.</p>
+
+<h3>Transporte</h3>
+<p>En Port d'Alcudia todo esta cerca y se puede ir andando entre Hiru, Enjoy Terrace y Outxide Club. Para volver al hotel, taxis y VTCs estan disponibles toda la noche. Si vienes desde Palma o Magaluf, el coche es la opcion mas practica (designa un conductor o usa un servicio de conductor privado). En verano hay servicios de bus nocturno en algunas rutas.</p>
+
+<h3>Mejores noches</h3>
+<p>En el norte de Mallorca, los sabados son la noche grande. Los jueves y viernes en verano tambien tienen muy buen ambiente, especialmente en julio y agosto. En Palma, hay opciones cada noche de la semana en temporada alta.</p>
+
+<h3>Presupuesto orientativo</h3>
+<p>Cena completa con bebida en un buen restaurante: 30-60 EUR por persona. Cocteles: 10-15 EUR cada uno. Entrada a club: 15-30 EUR dependiendo de la noche y si compras online o en puerta. Una noche completa de cena, cocteles y club puede rondar los 80-120 EUR por persona, una inversion razonable para una experiencia de primer nivel.</p>
+
+<h2>Por que el norte de Mallorca es la mejor opcion para salir de fiesta</h2>
+<p>Mientras que Magaluf y Palma tienen su publico, cada vez mas personas descubren que el norte de Mallorca ofrece una experiencia nocturna superior. Menos aglomeraciones, mejor calidad en todos los aspectos, un ambiente mas autentico y maduro, y la posibilidad de combinar gastronomia de alto nivel con fiesta de calidad en un radio de pocos minutos a pie. La combinacion de <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> y <a href="/outxide">Outxide Club</a> ofrece todo lo que necesitas para una noche perfecta en Mallorca, sin masificaciones y con mucho estilo.</p>`,
+
+      en: `<p>Mallorca is not just beaches and culture. When the sun goes down, the island transforms into one of the most vibrant party destinations in the Mediterranean. From the mega-clubs of Magaluf to the character-filled venues up north, taking in terrace cocktail bars and boat parties along the way, there is nightlife in Mallorca for every taste. This guide tells you everything you need to know to enjoy the Mallorcan night in 2026.</p>
+
+<h2>Party Zones in Mallorca</h2>
+<p>Mallorca has several distinct party zones, each with its own personality. Choosing the right area is key to having the night you are looking for.</p>
+
+<h3>Palma de Mallorca</h3>
+<p>The island capital offers the widest variety of nightlife options. The Paseo Maritimo is the classic strip for clubs and discos, with venues covering every music style. Santa Catalina has become the trendy neighbourhood for cocktails, wine and late dinners. La Lonja and the old town have charming bars and terraces tucked into medieval lanes. Palma is the most cosmopolitan and diverse choice.</p>
+
+<h3>Magaluf</h3>
+<p>The internationally best-known party zone. Large clubs, themed parties, pool parties and an atmosphere geared towards British and Nordic tourism. If you want mega-events and world-class DJs, BCM and the other big venues on the Punta Ballena strip are the destination. The vibe is intense and squarely focused on mass partying.</p>
+
+<h3>Alcudia and Port d'Alcudia: The Premium Alternative</h3>
+<p>Northern Mallorca offers a different kind of nightlife: more curated, less crowded and with quality well above the average. Port d'Alcudia has positioned itself as the alternative for those who want to enjoy the night without the crowds and chaos of the more touristy southern zones. Here, nightlife has style, great sound and an atmosphere where quality trumps quantity.</p>
+
+<h2>Clubs in Alcudia: Outxide Club</h2>
+<p>If one name defines clubbing in northern Mallorca, it is <a href="/outxide">Outxide Club</a>. Located in Port d'Alcudia, Outxide has become the go-to club for anyone seeking a genuine club experience away from the overcrowded southern zones.</p>
+<h3>What Makes Outxide Unique</h3>
+<p>Outxide stands out for its top-tier professional sound system, a visual and lighting production that turns every night into a spectacle, and a DJ line-up blending national and international talent. The musical selection spans house, tech house, techno and special sessions announced on their social channels. The club sweats the details: from acoustics to spatial layout, efficient bar service and a professional security team.</p>
+<h3>Practical Information</h3>
+<p>Outxide opens Thursday to Saturday, May to October, from 23:00. Tickets are available through FourVenues (the official platform) or at the door, though buying online typically gets you a better price. The dress code is smart casual: a polished look without being stuffy. Saturday is usually the biggest night, though summer Thursdays have a very authentic local atmosphere.</p>
+
+<h2>Best Cocktail Bars in Mallorca</h2>
+<p>A great cocktail is the perfect opening act for any Mallorca night. These are the cocktail bars that make the difference.</p>
+
+<h3>Enjoy Terrace: The Pre-Party King in Alcudia</h3>
+<p><a href="/enjoy">Enjoy Terrace</a>, at Av. Tucan 1 in Port d'Alcudia, is the cocktail bar that has redefined nights in northern Mallorca. With a terrace that fills up every sunset, Enjoy blends signature cocktails crafted with advanced mixology techniques, premium shisha and a sophisticated atmosphere that draws locals and international visitors alike. Open daily from 17:00, it naturally becomes the meeting point before heading out to party.</p>
+<p>What sets Enjoy Terrace apart is its ability to build atmosphere without excessive volume. The music is curated, the lighting is on point and the service is attentive without being intrusive. It is the kind of place where one drink easily becomes three and where your night starts on the right note.</p>
+
+<h3>Other Notable Cocktail Bars</h3>
+<p>In Palma, Ginbo and Aqua are part of the most recognised cocktail scene. In Santa Catalina, several natural wine and craft cocktail bars have gained popularity. In the Alcudia area, however, <a href="/enjoy">Enjoy Terrace</a> has no direct rival in terms of quality, atmosphere and location.</p>
+
+<h2>How to Plan Your Perfect Night in Mallorca</h2>
+<p>Planning a great night in Mallorca comes down to combining the right moments. Here is our recommendation for the perfect night in the north of the island, the formula those in the know have already adopted.</p>
+
+<h3>Step 1: Dinner at Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
+<p>Start your night with a memorable dinner. <a href="/hiru">Hiru Food &amp; Drinks</a> serves dry-aged meats, seafood paella, caldoso rice and charcoal-grilled fish in a modern, relaxed setting. The terrace is ideal for outdoor dining on summer nights. Book ahead, especially on Fridays and Saturdays.</p>
+
+<h3>Step 2: Cocktails at Enjoy Terrace (22:00 - 00:00)</h3>
+<p>After dinner, a short walk brings you to <a href="/enjoy">Enjoy Terrace</a>. This is where the night starts to take shape: signature cocktails, shisha, great music and an atmosphere that builds steadily. It is the perfect pre-party and the spot where groups reunite before heading to the club.</p>
+
+<h3>Step 3: Party at Outxide Club (00:00 - 05:00)</h3>
+<p>When the energy peaks, <a href="/outxide">Outxide Club</a> opens its doors. Top-level sound, spectacular visual production and sets that run until 05:00 or beyond. It is the perfect finale to a complete night out in northern Mallorca.</p>
+
+<h2>Practical Tips for Mallorca Nightlife</h2>
+
+<h3>Dress Code</h3>
+<p>At most quality clubs in Mallorca, the dress code is smart casual. Skip flip-flops, vest tops and beachwear. At Outxide Club, a polished look is expected but without excessive formality. Clean trainers, smart shorts or trousers and a quality shirt or tee work well.</p>
+
+<h3>Getting Around</h3>
+<p>In Port d'Alcudia everything is within walking distance between Hiru, Enjoy Terrace and Outxide Club. Taxis and ride-hailing services are available all night for the journey back to your hotel. If coming from Palma or Magaluf, driving is the most practical option (designate a driver or use a private driver service). Some night bus services run on certain routes during summer.</p>
+
+<h3>Best Nights</h3>
+<p>In northern Mallorca, Saturday is the big night. Thursdays and Fridays during summer also have a strong atmosphere, especially in July and August. In Palma, there are options every night of the week in high season.</p>
+
+<h3>Budget Guide</h3>
+<p>A full dinner with drinks at a good restaurant: 30-60 EUR per person. Cocktails: 10-15 EUR each. Club entry: 15-30 EUR depending on the night and whether you buy online or at the door. A complete night of dinner, cocktails and clubbing can come to around 80-120 EUR per person, a reasonable investment for a top-level experience.</p>
+
+<h2>Why Northern Mallorca Is the Best Place to Party</h2>
+<p>While Magaluf and Palma have their audience, more and more people are discovering that northern Mallorca offers a superior night out. Fewer crowds, better quality across the board, a more authentic and mature atmosphere, and the ability to combine high-level dining with quality clubbing within a few minutes' walk. The combination of <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> and <a href="/outxide">Outxide Club</a> delivers everything you need for a perfect night in Mallorca, without the masses and with plenty of style.</p>`,
+
+      de: `<p>Mallorca ist nicht nur Straende und Kultur. Wenn die Sonne untergeht, verwandelt sich die Insel in eines der lebendigsten Partyziele im Mittelmeerraum. Von den Mega-Clubs in Magaluf ueber die charaktervollen Clubs im Norden bis hin zu Cocktailbars mit Terrasse und Bootspartys gibt es Nachtleben auf Mallorca fuer jeden Geschmack. Dieser Guide verraet Ihnen alles, was Sie wissen muessen, um die mallorquinische Nacht 2026 in vollen Zuegen zu geniessen.</p>
+
+<h2>Partyzonen auf Mallorca</h2>
+<p>Mallorca hat mehrere klar unterschiedliche Partyzonen, jede mit eigenem Charakter. Die richtige Zone zu waehlen ist entscheidend dafuer, dass Ihre Nacht genau so wird, wie Sie es sich vorstellen.</p>
+
+<h3>Palma de Mallorca</h3>
+<p>Die Inselhauptstadt bietet die groesste Vielfalt an Moeglichkeiten fuer das Nachtleben. Der Paseo Maritimo ist die klassische Meile fuer Clubs und Diskotheken mit Lokalen fuer jeden Musikgeschmack. Santa Catalina hat sich zum Trendviertel fuer Cocktails, Wein und spaete Abendessen entwickelt. La Lonja und die Altstadt bieten charmante Bars und Terrassen in mittelalterlichen Gassen. Palma ist die kosmopolitischste und vielseitigste Wahl.</p>
+
+<h3>Magaluf</h3>
+<p>Die international bekannteste Partyzone Mallorcas. Grosse Diskotheken, Themenpartys, Poolpartys und ein Ambiente, das auf britischen und skandinavischen Tourismus ausgerichtet ist. Wenn Sie Grossveranstaltungen und erstklassige internationale DJs suchen, sind BCM und die anderen grossen Lokale an der Punta Ballena die richtige Adresse. Die Stimmung ist intensiv und ganz auf Massenpartys ausgelegt.</p>
+
+<h3>Alcudia und Port d'Alcudia: Die Premium-Alternative fuer Nachtleben auf Mallorca</h3>
+<p>Der Norden Mallorcas bietet ein anderes Nachtleben: gewaehlt, weniger ueberlaufen und mit einer Qualitaet deutlich ueber dem Durchschnitt. Port d'Alcudia hat sich als Alternative fuer diejenigen positioniert, die die Nacht geniessen wollen, ohne die Menschenmassen und das Chaos der touristischeren Zonen im Sueden. Hier hat das Nachtleben Stil, guten Sound und eine Atmosphaere, in der Qualitaet ueber Quantitaet geht. Fuer viele deutsche Mallorca-Urlauber ist genau das der entscheidende Unterschied.</p>
+
+<h2>Diskotheken in Alcudia: Outxide Club</h2>
+<p>Wenn ein Name das Clubbing im Norden Mallorcas definiert, dann ist es <a href="/outxide">Outxide Club</a>. Im Herzen von Port d'Alcudia gelegen, hat sich Outxide zur Referenz-Diskothek fuer alle entwickelt, die ein echtes Club-Erlebnis abseits der ueberfuellten Zonen im Sueden der Insel suchen.</p>
+<h3>Was Outxide einzigartig macht</h3>
+<p>Outxide ueberzeugt mit einer professionellen Soundanlage auf hoechstem Niveau, einer visuellen Produktion und Lichtshow, die jede Nacht in ein Spektakel verwandelt, und einem DJ-Line-up, das nationales und internationales Talent vereint. Die musikalische Auswahl umfasst House, Tech House, Techno und Spezialsessions, die auf den Social-Media-Kanaelen angekuendigt werden. Der Club achtet auf jedes Detail: von der Akustik ueber das Raumkonzept bis hin zu effizientem Barservice und professionellem Sicherheitsteam.</p>
+<h3>Praktische Informationen</h3>
+<p>Outxide oeffnet donnerstags bis samstags, von Mai bis Oktober, ab 23:00 Uhr. Tickets sind ueber FourVenues (offizielle Plattform) oder an der Abendkasse erhaeltlich, wobei der Online-Kauf in der Regel guenstiger ist. Der Dresscode ist Smart Casual: ein gepflegtes Erscheinungsbild ohne uebertriebene Formalitaet. Der Samstag ist in der Regel die groesste Nacht, wobei die Donnerstage im Sommer eine sehr authentische lokale Atmosphaere bieten. Fuer Liebhaber guter Diskotheken auf Mallorca ist Outxide ein absolutes Muss.</p>
+
+<h2>Beste Cocktailbars auf Mallorca</h2>
+<p>Ein guter Cocktail ist der perfekte Auftakt fuer jede Nacht auf Mallorca. Das sind die Cocktailbars, die den Unterschied machen.</p>
+
+<h3>Enjoy Terrace: Der Koenig des Pre-Partys in Alcudia</h3>
+<p><a href="/enjoy">Enjoy Terrace</a>, in der Av. Tucan 1 in Port d'Alcudia, ist die Cocktailbar, die die Naechte im Norden Mallorcas neu definiert hat. Mit einer Terrasse, die sich jeden Abend bei Sonnenuntergang fuellt, verbindet Enjoy Signature-Cocktails mit fortgeschrittenen Mixology-Techniken, Premium-Shisha und ein anspruchsvolles Ambiente, das gleichermassen Einheimische wie internationale Besucher anzieht. Taeglich ab 17:00 Uhr geoeffnet, wird Enjoy zum natuerlichen Treffpunkt, bevor es zum Feiern geht.</p>
+<p>Was die Enjoy Terrace auszeichnet, ist ihre Faehigkeit, Atmosphaere zu schaffen, ohne auf uebertriebene Lautstaerke zu setzen. Die Musik ist sorgfaeltig ausgewaehlt, die Beleuchtung perfekt und der Service aufmerksam, ohne aufdringlich zu sein. Es ist die Art von Ort, an dem aus einem Drink schnell drei werden und an dem Ihre Nacht genau richtig beginnt.</p>
+
+<h3>Weitere empfehlenswerte Cocktailbars</h3>
+<p>In Palma gehoeren Ginbo und Aqua zur bekanntesten Cocktailszene. In Santa Catalina haben mehrere Naturwein- und Craft-Cocktail-Bars an Popularitaet gewonnen. In der Gegend von Alcudia hat <a href="/enjoy">Enjoy Terrace</a> jedoch keinen direkten Konkurrenten, was Qualitaet, Atmosphaere und Lage betrifft.</p>
+
+<h2>So Planen Sie Ihre Perfekte Nacht auf Mallorca</h2>
+<p>Eine grossartige Nacht auf Mallorca zu planen bedeutet, die richtigen Momente zu kombinieren. Hier ist unsere Empfehlung fuer die perfekte Nacht im Norden der Insel, die Formel, die Kenner laengst fuer sich entdeckt haben.</p>
+
+<h3>Schritt 1: Abendessen im Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
+<p>Starten Sie die Nacht mit einem unvergesslichen Abendessen. <a href="/hiru">Hiru Food &amp; Drinks</a> serviert Dry-Aged-Fleisch, Meeresfruechte-Paella, Arroz Caldoso und Holzkohlegrillfish in einem modernen, entspannten Ambiente. Die Terrasse ist ideal fuer Sommerabende unter freiem Himmel. Reservieren Sie vorab, besonders freitags und samstags.</p>
+
+<h3>Schritt 2: Cocktails in der Enjoy Terrace (22:00 - 00:00)</h3>
+<p>Nach dem Essen fuehrt ein kurzer Spaziergang zur <a href="/enjoy">Enjoy Terrace</a>. Hier nimmt die Nacht Gestalt an: Signature-Cocktails, Shisha, gute Musik und eine Atmosphaere, die stetig aufbaut. Es ist das perfekte Pre-Party und der Ort, an dem sich Gruppen treffen, bevor es in den Club geht.</p>
+
+<h3>Schritt 3: Party im Outxide Club (00:00 - 05:00)</h3>
+<p>Wenn die Energie ihren Hoehepunkt erreicht, oeffnet <a href="/outxide">Outxide Club</a> seine Tueren. Erstklassiger Sound, spektakulaere visuelle Produktion und Sets, die bis 05:00 Uhr oder laenger laufen. Der perfekte Abschluss einer kompletten Nacht im Norden Mallorcas. Wer das beste Nachtleben auf Mallorca abseits der Massen sucht, findet hier genau das Richtige.</p>
+
+<h2>Praktische Tipps fuer das Nachtleben auf Mallorca</h2>
+
+<h3>Dresscode</h3>
+<p>In den meisten Qualitaets-Clubs auf Mallorca gilt Smart Casual als Dresscode. Vermeiden Sie Flipflops, Traegershirts und Strandkleidung. Im Outxide Club wird ein gepflegter Look erwartet, aber ohne uebertriebene Formalitaet. Saubere Sneaker, eine elegante Hose oder Shorts und ein hochwertiges Hemd oder T-Shirt passen bestens.</p>
+
+<h3>Anreise und Transport</h3>
+<p>In Port d'Alcudia liegt alles in Gehdistanz: Hiru, Enjoy Terrace und Outxide Club. Fuer die Rueckfahrt zum Hotel stehen die ganze Nacht Taxis und Fahrdienstleister zur Verfuegung. Wenn Sie aus Palma oder Magaluf kommen, ist das Auto die praktischste Option (bestimmen Sie einen Fahrer oder nutzen Sie einen privaten Fahrservice). Im Sommer verkehren auf einigen Strecken Nachtbusse.</p>
+
+<h3>Beste Naechte</h3>
+<p>Im Norden Mallorcas ist der Samstag die grosse Nacht. Donnerstage und Freitage im Sommer haben ebenfalls eine starke Atmosphaere, besonders im Juli und August. In Palma gibt es in der Hochsaison jeden Abend der Woche Angebote.</p>
+
+<h3>Orientierungsbudget</h3>
+<p>Komplettes Abendessen mit Getraenk in einem guten Restaurant: 30-60 EUR pro Person. Cocktails: 10-15 EUR pro Stueck. Clubeintritt: 15-30 EUR je nach Abend und ob online oder an der Abendkasse gekauft. Eine komplette Nacht mit Abendessen, Cocktails und Club liegt bei etwa 80-120 EUR pro Person, eine vernuenftige Investition fuer ein erstklassiges Erlebnis.</p>
+
+<h2>Warum der Norden Mallorcas der beste Ort zum Feiern ist</h2>
+<p>Waehrend Magaluf und Palma ihr Publikum haben, entdecken immer mehr Menschen, dass der Norden Mallorcas ein ueberlegenes Nachtleben bietet. Weniger Gedraenge, bessere Qualitaet in allen Bereichen, eine authentischere und reifere Atmosphaere und die Moeglichkeit, gehobene Gastronomie mit erstklassigem Clubbing innerhalb weniger Gehminuten zu verbinden. Die Kombination aus <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> und <a href="/outxide">Outxide Club</a> bietet alles, was Sie fuer eine perfekte Nacht auf Mallorca brauchen, ohne Massentourismus und mit viel Stil. Fuer deutsche Urlauber, die Mallorca abseits der Ballermann-Klischees erleben wollen, ist der Norden die klare Nummer eins.</p>`,
+
+      fr: `<p>Majorque ne se resume pas aux plages et a la culture. Quand le soleil se couche, l'ile se transforme en l'une des destinations festives les plus vibrantes de la Mediterranee. Des mega-clubs de Magaluf aux clubs a forte personnalite du nord, en passant par les bars a cocktails en terrasse et les soirees en bateau, la vie nocturne a Majorque a de quoi satisfaire tous les gouts. Ce guide vous dit tout ce qu'il faut savoir pour profiter de la nuit majorquine en 2026.</p>
+
+<h2>Zones de Fete a Majorque</h2>
+<p>Majorque compte plusieurs zones de fete bien distinctes, chacune avec son propre caractere. Choisir la bonne zone est essentiel pour que votre soiree soit exactement ce que vous recherchez.</p>
+
+<h3>Palma de Majorque</h3>
+<p>La capitale de l'ile concentre la plus grande variete d'options nocturnes. Le Paseo Maritimo est le boulevard classique des clubs et discotheques, avec des etablissements couvrant tous les styles musicaux. Santa Catalina est devenu le quartier tendance pour les cocktails, le vin et les diners tardifs. La Lonja et la vieille ville proposent des bars pleins de charme et des terrasses nichees dans les ruelles medievales. Palma est le choix le plus cosmopolite et diversifie.</p>
+
+<h3>Magaluf</h3>
+<p>La zone de fete la plus connue a l'international. Grandes discotheques, soirees a theme, pool parties et une ambiance orientee vers le tourisme britannique et nordique. Si vous cherchez des mega-evenements et des DJs internationaux de premier plan, BCM et les autres grands etablissements de la bande de Punta Ballena sont la destination. L'ambiance est intense et entierement dediee a la fete de masse.</p>
+
+<h3>Alcudia et Port d'Alcudia : l'alternative premium</h3>
+<p>Le nord de Majorque offre une vie nocturne differente : plus selecte, moins bondee et d'une qualite nettement superieure a la moyenne. Port d'Alcudia s'est positionne comme l'alternative pour ceux qui veulent profiter de la nuit sans les foules et le chaos des zones plus touristiques du sud. Ici, la nuit a du style, un bon son et une atmosphere ou la qualite prime sur la quantite.</p>
+
+<h2>Discotheques a Alcudia : Outxide Club</h2>
+<p>S'il y a un nom qui definit le clubbing dans le nord de Majorque, c'est <a href="/outxide">Outxide Club</a>. Situe a Port d'Alcudia, Outxide est devenu la discotheque de reference pour tous ceux qui recherchent une veritable experience de club en dehors des zones surchargees du sud de l'ile.</p>
+<h3>Ce qui rend Outxide unique</h3>
+<p>Outxide se distingue par son systeme son professionnel de premier ordre, une production visuelle et lumineuse qui transforme chaque nuit en spectacle, et une programmation de DJs melant talents nationaux et internationaux. La selection musicale couvre house, tech house, techno et sessions speciales annoncees sur les reseaux sociaux. Le club soigne chaque detail : de l'acoustique a l'agencement de l'espace, en passant par un service au bar efficace et une equipe de securite professionnelle.</p>
+<h3>Informations pratiques</h3>
+<p>Outxide ouvre du jeudi au samedi, de mai a octobre, a partir de 23h00. Les billets sont disponibles via FourVenues (plateforme officielle) ou a l'entree, bien que l'achat en ligne offre generalement un meilleur tarif. Le dress code est smart casual : un look soigne sans exces de formalite. Le samedi est generalement la grande nuit, bien que les jeudis d'ete aient une ambiance locale tres authentique.</p>
+
+<h2>Meilleurs Bars a Cocktails a Majorque</h2>
+<p>Un bon cocktail est le debut parfait de toute nuit majorquine. Voici les bars a cocktails qui font la difference.</p>
+
+<h3>Enjoy Terrace : le roi du pre-party a Alcudia</h3>
+<p><a href="/enjoy">Enjoy Terrace</a>, Av. Tucan 1 a Port d'Alcudia, est le bar a cocktails qui a redéfini les nuits dans le nord de Majorque. Avec une terrasse qui se remplit chaque soir au coucher du soleil, Enjoy associe cocktails signatures elabores avec des techniques de mixologie avancees, chicha premium et une ambiance sophistiquee qui attire autant les locaux que les visiteurs internationaux. Ouvert tous les jours a partir de 17h00, il devient naturellement le point de rencontre avant de sortir.</p>
+<p>Ce qui distingue l'Enjoy Terrace, c'est sa capacite a creer une ambiance sans volume excessif. La musique est soignee, l'eclairage parfait et le service attentif sans etre intrusif. C'est le genre d'endroit ou un verre en appelle facilement trois et ou votre nuit commence du bon pied.</p>
+
+<h3>Autres bars a cocktails remarquables</h3>
+<p>A Palma, Ginbo et Aqua font partie de la scene cocktail la plus reconnue. A Santa Catalina, plusieurs bars a vins naturels et cocktails artisanaux ont gagne en popularite. Dans la zone d'Alcudia, cependant, l'<a href="/enjoy">Enjoy Terrace</a> n'a pas de rival direct en termes de qualite, d'ambiance et d'emplacement.</p>
+
+<h2>Comment Organiser Votre Soiree Parfaite a Majorque</h2>
+<p>Organiser une grande soiree a Majorque revient a combiner les bons moments. Voici notre recommandation pour la soiree parfaite dans le nord de l'ile, la formule que les connaisseurs ont deja adoptee.</p>
+
+<h3>Etape 1 : Diner au Hiru Food &amp; Drinks (20h00 - 22h00)</h3>
+<p>Commencez la soiree par un diner memorable. <a href="/hiru">Hiru Food &amp; Drinks</a> propose viandes maturees dry-aged, paella aux fruits de mer, riz caldoso et poisson grille au charbon dans un cadre moderne et decontracte. La terrasse est ideale pour diner en plein air les soirs d'ete. Reservez a l'avance, surtout les vendredis et samedis.</p>
+
+<h3>Etape 2 : Cocktails a l'Enjoy Terrace (22h00 - 00h00)</h3>
+<p>Apres le diner, une courte promenade vous mene a l'<a href="/enjoy">Enjoy Terrace</a>. C'est la que la nuit prend forme : cocktails signatures, chicha, bonne musique et une ambiance qui monte progressivement. C'est le pre-party parfait et le lieu ou les groupes se retrouvent avant d'aller au club.</p>
+
+<h3>Etape 3 : Fete a l'Outxide Club (00h00 - 05h00)</h3>
+<p>Quand l'energie est a son comble, l'<a href="/outxide">Outxide Club</a> ouvre ses portes. Son de premier plan, production visuelle spectaculaire et sets qui s'etirent jusqu'a 05h00 ou plus. La fin parfaite d'une nuit complete dans le nord de Majorque.</p>
+
+<h2>Conseils Pratiques pour la Vie Nocturne a Majorque</h2>
+
+<h3>Dress code</h3>
+<p>Dans la plupart des clubs de qualite a Majorque, le dress code est smart casual. Evitez les tongs, les debardeurs et les vetements de plage. A l'Outxide Club, un look soigne est attendu mais sans formalite excessive. Des baskets propres, un pantalon ou bermuda elegant et une chemise ou un t-shirt de qualite conviennent parfaitement.</p>
+
+<h3>Se deplacer</h3>
+<p>A Port d'Alcudia, tout est a distance de marche entre Hiru, Enjoy Terrace et Outxide Club. Taxis et VTC sont disponibles toute la nuit pour le retour a l'hotel. Si vous venez de Palma ou Magaluf, la voiture est l'option la plus pratique (designez un conducteur ou utilisez un service de chauffeur prive). En ete, des services de bus de nuit fonctionnent sur certains itineraires.</p>
+
+<h3>Meilleures nuits</h3>
+<p>Dans le nord de Majorque, le samedi est la grande nuit. Les jeudis et vendredis en ete ont egalement une tres bonne ambiance, surtout en juillet et aout. A Palma, des options existent tous les soirs de la semaine en haute saison.</p>
+
+<h3>Budget indicatif</h3>
+<p>Diner complet avec boisson dans un bon restaurant : 30-60 EUR par personne. Cocktails : 10-15 EUR piece. Entree en club : 15-30 EUR selon la nuit et l'achat en ligne ou sur place. Une nuit complete diner, cocktails et club revient a environ 80-120 EUR par personne, un investissement raisonnable pour une experience haut de gamme.</p>
+
+<h2>Pourquoi le nord de Majorque est le meilleur endroit pour sortir</h2>
+<p>Alors que Magaluf et Palma ont leur public, de plus en plus de personnes decouvrent que le nord de Majorque offre une experience nocturne superieure. Moins de foule, meilleure qualite a tous les niveaux, une ambiance plus authentique et mature, et la possibilite de combiner gastronomie de haut niveau et clubbing de qualite en quelques minutes a pied. La combinaison <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> et <a href="/outxide">Outxide Club</a> offre tout ce qu'il faut pour une nuit parfaite a Majorque, sans les masses et avec beaucoup de style.</p>`,
+
+      it: `<p>Maiorca non e' solo spiagge e cultura. Quando il sole tramonta, l'isola si trasforma in una delle destinazioni festive piu' vibranti del Mediterraneo. Dalle mega-discoteche di Magaluf ai club dal forte carattere del nord, passando per cocktail bar con terrazza e feste in barca, la vita notturna a Maiorca ha qualcosa per tutti i gusti. Questa guida vi racconta tutto cio' che dovete sapere per godervi la notte maiorchina nel 2026.</p>
+
+<h2>Zone della Movida a Maiorca</h2>
+<p>Maiorca ha diverse zone della movida ben distinte, ciascuna con la propria personalita'. Scegliere la zona giusta e' fondamentale perche' la vostra serata sia esattamente cio' che cercate.</p>
+
+<h3>Palma di Maiorca</h3>
+<p>Il capoluogo dell'isola concentra la maggiore varieta' di opzioni per la vita notturna. Il Paseo Maritimo e' la zona classica di club e discoteche, con locali per ogni genere musicale. Santa Catalina e' diventato il quartiere alla moda per cocktail, vino e cene tardive. La Lonja e il centro storico offrono bar pieni di fascino e terrazze nascoste nei vicoli medievali. Palma e' la scelta piu' cosmopolita e variegata.</p>
+
+<h3>Magaluf</h3>
+<p>La zona festiva piu' conosciuta a livello internazionale. Grandi discoteche, serate a tema, pool party e un'atmosfera orientata al turismo britannico e nordico. Se cercate mega-eventi e DJ internazionali di primo livello, BCM e gli altri grandi locali della striscia di Punta Ballena sono la meta. Il clima e' intenso e totalmente dedicato alla festa di massa.</p>
+
+<h3>Alcudia e Port d'Alcudia: l'alternativa premium</h3>
+<p>Il nord di Maiorca offre una vita notturna diversa: piu' selezionata, meno affollata e con una qualita' nettamente superiore alla media. Port d'Alcudia si e' posizionato come l'alternativa per chi vuole godersi la notte senza la folla e il caos delle zone piu' turistiche del sud. Qui la notte ha stile, buon suono e un'atmosfera dove la qualita' prevale sulla quantita'.</p>
+
+<h2>Discoteche ad Alcudia: Outxide Club</h2>
+<p>Se un nome definisce il clubbing nel nord di Maiorca, quello e' <a href="/outxide">Outxide Club</a>. Situato a Port d'Alcudia, Outxide e' diventato la discoteca di riferimento per chi cerca un'autentica esperienza da club lontano dalle zone sovraffollate del sud dell'isola.</p>
+<h3>Cosa rende unico Outxide</h3>
+<p>Outxide si distingue per il suo impianto audio professionale di primo livello, una produzione visiva e di illuminazione che trasforma ogni serata in uno spettacolo, e una programmazione di DJ che mescola talento nazionale e internazionale. La selezione musicale spazia da house a tech house, techno e sessioni speciali annunciate sui canali social. Il club cura ogni dettaglio: dall'acustica alla distribuzione dello spazio, passando per un servizio al bancone efficiente e un team di sicurezza professionale.</p>
+<h3>Informazioni pratiche</h3>
+<p>Outxide apre da giovedi' a sabato, da maggio a ottobre, dalle 23:00. I biglietti sono disponibili tramite FourVenues (piattaforma ufficiale) o alla porta, anche se l'acquisto online offre solitamente un prezzo migliore. Il dress code e' smart casual: un look curato senza eccessi di formalita'. Il sabato e' di solito la serata piu' importante, anche se i giovedi' estivi hanno un'atmosfera locale molto autentica.</p>
+
+<h2>Migliori Cocktail Bar a Maiorca</h2>
+<p>Un buon cocktail e' l'inizio perfetto di qualsiasi notte a Maiorca. Questi sono i cocktail bar che fanno la differenza.</p>
+
+<h3>Enjoy Terrace: il re del pre-party ad Alcudia</h3>
+<p><a href="/enjoy">Enjoy Terrace</a>, in Av. Tucan 1 a Port d'Alcudia, e' il cocktail bar che ha ridefinito le notti nel nord di Maiorca. Con una terrazza che si riempie ogni sera al tramonto, Enjoy unisce cocktail d'autore elaborati con tecniche di mixologia avanzata, shisha premium e un'atmosfera sofisticata che attrae sia locali che visitatori internazionali. Aperto tutti i giorni dalle 17:00, diventa naturalmente il punto d'incontro prima di uscire a fare festa.</p>
+<p>Cio' che distingue l'Enjoy Terrace e' la sua capacita' di creare atmosfera senza volumi eccessivi. La musica e' curata, l'illuminazione e' perfetta e il servizio e' attento senza essere invadente. E' il tipo di posto dove un drink diventa facilmente tre e dove la vostra serata inizia con il piede giusto.</p>
+
+<h3>Altri cocktail bar degni di nota</h3>
+<p>A Palma, Ginbo e Aqua fanno parte della scena cocktail piu' riconosciuta. A Santa Catalina, diversi bar di vini naturali e cocktail artigianali hanno guadagnato popolarita'. Nella zona di Alcudia, pero', l'<a href="/enjoy">Enjoy Terrace</a> non ha rivali diretti in termini di qualita', atmosfera e posizione.</p>
+
+<h2>Come Organizzare la Vostra Serata Perfetta a Maiorca</h2>
+<p>Organizzare una grande serata a Maiorca significa combinare i momenti giusti. Ecco la nostra raccomandazione per la serata perfetta nel nord dell'isola, la formula che chi sa ha gia' adottato.</p>
+
+<h3>Passo 1: Cena da Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
+<p>Iniziate la serata con una cena memorabile. <a href="/hiru">Hiru Food &amp; Drinks</a> serve carni frollate dry-aged, paella di frutti di mare, riso caldoso e pesce alla brace in un ambiente moderno e rilassato. La terrazza e' ideale per cenare all'aperto nelle sere d'estate. Prenotate in anticipo, specialmente il venerdi' e il sabato.</p>
+
+<h3>Passo 2: Cocktail all'Enjoy Terrace (22:00 - 00:00)</h3>
+<p>Dopo cena, una breve passeggiata vi porta all'<a href="/enjoy">Enjoy Terrace</a>. E' qui che la serata inizia a prendere forma: cocktail d'autore, shisha, buona musica e un'atmosfera che sale progressivamente. E' il pre-party perfetto e il luogo dove i gruppi si ritrovano prima di andare in discoteca.</p>
+
+<h3>Passo 3: Festa all'Outxide Club (00:00 - 05:00)</h3>
+<p>Quando l'energia e' al massimo, l'<a href="/outxide">Outxide Club</a> apre le sue porte. Suono di primo livello, produzione visiva spettacolare e set che si prolungano fino alle 05:00 o oltre. Il finale perfetto di una notte completa nel nord di Maiorca.</p>
+
+<h2>Consigli Pratici per la Vita Notturna a Maiorca</h2>
+
+<h3>Dress code</h3>
+<p>Nella maggior parte dei club di qualita' a Maiorca, il dress code e' smart casual. Evitate infradito, canottiere e abbigliamento da spiaggia. All'Outxide Club ci si aspetta un look curato ma senza eccessiva formalita'. Sneakers pulite, pantaloni o bermuda eleganti e una camicia o maglietta di qualita' vanno benissimo.</p>
+
+<h3>Come muoversi</h3>
+<p>A Port d'Alcudia tutto e' raggiungibile a piedi: Hiru, Enjoy Terrace e Outxide Club. Taxi e servizi di noleggio con conducente sono disponibili tutta la notte per il rientro in hotel. Se venite da Palma o Magaluf, l'auto e' l'opzione piu' pratica (designate un guidatore o usate un servizio di autista privato). In estate funzionano servizi di bus notturno su alcuni percorsi.</p>
+
+<h3>Serate migliori</h3>
+<p>Nel nord di Maiorca il sabato e' la serata clou. Giovedi' e venerdi' in estate hanno anch'essi un'ottima atmosfera, specialmente a luglio e agosto. A Palma ci sono opzioni ogni sera della settimana in alta stagione.</p>
+
+<h3>Budget indicativo</h3>
+<p>Cena completa con bevanda in un buon ristorante: 30-60 EUR a persona. Cocktail: 10-15 EUR ciascuno. Ingresso in discoteca: 15-30 EUR a seconda della serata e dell'acquisto online o alla porta. Una notte completa di cena, cocktail e discoteca si aggira intorno agli 80-120 EUR a persona, un investimento ragionevole per un'esperienza di primo livello.</p>
+
+<h2>Perche' il nord di Maiorca e' il posto migliore per uscire la sera</h2>
+<p>Mentre Magaluf e Palma hanno il loro pubblico, sempre piu' persone scoprono che il nord di Maiorca offre un'esperienza notturna superiore. Meno folla, qualita' migliore sotto ogni aspetto, un'atmosfera piu' autentica e matura, e la possibilita' di combinare alta gastronomia e clubbing di qualita' nel raggio di pochi minuti a piedi. La combinazione di <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> e <a href="/outxide">Outxide Club</a> offre tutto cio' che serve per una notte perfetta a Maiorca, senza masse e con molto stile.</p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-25",
+    image: "/images/outxide/DSCF8103-9.jpg",
+    tags: ["nightlife", "mallorca", "outxide", "clubs", "alcudia", "cocktails", "enjoy"],
+    venue: "outxide",
+    readingTime: 12,
+  },
+  {
     slug: "que-hacer-alcudia-mallorca",
     title: {
       es: "Que Hacer en Alcudia: 15 Planes Imprescindibles en 2026",

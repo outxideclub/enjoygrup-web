@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getServerLocale, getServerT } from "@/i18n/server";
-import { JsonLd } from "@/components/seo/json-ld";
+import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
 
@@ -83,6 +83,10 @@ export default function FaqLayout({
   return (
     <>
       {children}
+      <BreadcrumbJsonLd items={[
+        { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
+        { name: "FAQ", url: "https://www.grupoenjoy.es/faq" },
+      ]} />
       <FaqJsonLd />
     </>
   );
