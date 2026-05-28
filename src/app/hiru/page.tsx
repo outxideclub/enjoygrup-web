@@ -497,6 +497,8 @@ export default function HiruPage() {
               { slug: "donde-cenar-tarde-port-alcudia", label: locale === "es" ? "Dónde Cenar Tarde en Port d'Alcúdia" : locale === "de" ? "Spät Essen in Port d'Alcúdia" : locale === "fr" ? "Où Dîner Tard à Port d'Alcúdia" : locale === "it" ? "Dove Cenare Tardi a Port d'Alcúdia" : "Late Dining in Port d'Alcúdia" },
               { slug: "cena-romantica-alcudia-mallorca", label: locale === "es" ? "Cena Romántica en Alcúdia" : locale === "de" ? "Romantisches Abendessen Alcúdia" : locale === "fr" ? "Dîner Romantique à Alcúdia" : locale === "it" ? "Cena Romantica ad Alcúdia" : "Romantic Dinner in Alcúdia" },
               { slug: "restaurante-brasa-parrilla-mallorca", label: locale === "es" ? "Restaurante a la Brasa en Mallorca" : locale === "de" ? "Grillrestaurant auf Mallorca" : locale === "fr" ? "Restaurant au Charbon à Majorque" : locale === "it" ? "Ristorante alla Brace a Maiorca" : "Charcoal Grill Restaurant in Mallorca" },
+              { slug: "mejores-restaurantes-alcudia", label: locale === "es" ? "Dónde Comer en Alcúdia 2026" : locale === "de" ? "Wo man in Alcúdia essen geht 2026" : locale === "fr" ? "Où Manger à Alcúdia 2026" : locale === "it" ? "Dove Mangiare ad Alcúdia 2026" : "Where to Eat in Alcúdia 2026" },
+              { slug: "que-hacer-alcudia-mallorca", label: locale === "es" ? "Qué Hacer en Alcúdia: 15 Planes" : locale === "de" ? "15 Aktivitäten in Alcúdia" : locale === "fr" ? "15 Activités à Alcúdia" : locale === "it" ? "15 Attività ad Alcúdia" : "15 Things to Do in Alcúdia" },
             ].map((article) => (
               <Link
                 key={article.slug}

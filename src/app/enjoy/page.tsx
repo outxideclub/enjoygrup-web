@@ -471,6 +471,8 @@ export default function EnjoyPage() {
               { slug: "shisha-bar-terraza-lounge-mallorca", label: locale === "es" ? "Los Mejores Shisha Bars de Mallorca" : locale === "de" ? "Die Besten Shisha-Bars auf Mallorca" : locale === "fr" ? "Les Meilleurs Shisha Bars de Majorque" : locale === "it" ? "I Migliori Shisha Bar di Maiorca" : "Best Shisha Bars in Mallorca" },
               { slug: "plan-nocturno-port-alcudia-mallorca", label: locale === "es" ? "Mejor Plan Nocturno en Port d'Alcúdia" : locale === "de" ? "Bester Nachtplan Port d'Alcúdia" : locale === "fr" ? "Meilleur Plan Nocturne à Alcúdia" : locale === "it" ? "Miglior Piano Notturno ad Alcúdia" : "Best Night Out in Port d'Alcúdia" },
               { slug: "despedida-soltera-soltero-alcudia-mallorca", label: locale === "es" ? "Despedidas de Soltera en Alcúdia" : locale === "de" ? "Junggesellenabschied Alcúdia" : locale === "fr" ? "Enterrement de Vie à Alcúdia" : locale === "it" ? "Addio al Nubilato ad Alcúdia" : "Bachelorette Parties in Alcúdia" },
+              { slug: "musica-dj-fiestas-tematicas-alcudia-mallorca", label: locale === "es" ? "Música en Vivo, DJs y Fiestas Temáticas" : locale === "de" ? "Live-Musik, DJs & Themenpartys" : locale === "fr" ? "Musique Live, DJs et Soirées à Thème" : locale === "it" ? "Musica dal Vivo, DJ e Serate a Tema" : "Live Music, DJs & Themed Parties" },
+              { slug: "planes-alcudia-mallorca", label: locale === "es" ? "Planes Imprescindibles en Alcúdia" : locale === "de" ? "Unverzichtbare Aktivitäten Alcúdia" : locale === "fr" ? "Activités Incontournables à Alcúdia" : locale === "it" ? "Attività Imperdibili ad Alcúdia" : "Must-Do Activities in Alcúdia" },
             ].map((article) => (
               <Link
                 key={article.slug}
