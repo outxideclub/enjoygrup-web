@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, OrganizationJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -34,11 +34,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function AboutLayout({
+export default async function AboutLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
   return (
     <>
       {children}
@@ -46,6 +48,7 @@ export default function AboutLayout({
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
         { name: "Sobre Nosotros", url: "https://www.grupoenjoy.es/nosotros" },
       ]} />
+      <OrganizationJsonLd description={t("meta.aboutDescription")} />
     </>
   );
 }

@@ -97,11 +97,14 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
         ],
         sameAs: [
           "https://www.instagram.com/enjoy.club.alcudia/",
-          "https://www.facebook.com/EnjoyAlcudia/",
+          "https://www.instagram.com/enjoy.terrace.alcudia/",
+          "https://www.instagram.com/outxide.club/",
           "https://www.instagram.com/hirufoodanddrinks/",
+          "https://www.facebook.com/EnjoyAlcudia/",
           "https://www.facebook.com/p/Hiru-61556033140610/",
           "https://www.tripadvisor.com/Attraction_Review-g580312-d4478448-Reviews-Enjoy_Club-Port_d_Alcudia_Alcudia_Majorca_Balearic_Islands.html",
           "https://www.tripadvisor.com/Restaurant_Review-g1233772-d27740707-Reviews-Hiru_Food_Drinks-Alcudia_Majorca_Balearic_Islands.html",
+          "https://web.fourvenues.com/es/outxide-club",
         ],
       }}
     />
