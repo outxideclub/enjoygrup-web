@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HiruJsonLd } from "@/components/seo/json-ld";
+import { HiruJsonLd, JsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -45,6 +45,22 @@ export default async function HiruLayout({
     <div className="theme-hiru">
       {children}
       <HiruJsonLd description={t("meta.hiruDescription")} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { q: "faq.hiruQ1", a: "faq.hiruA1" },
+            { q: "faq.hiruQ2", a: "faq.hiruA2" },
+            { q: "faq.hiruQ3", a: "faq.hiruA3" },
+            { q: "faq.hiruQ4", a: "faq.hiruA4" },
+          ].map((item) => ({
+            "@type": "Question",
+            name: t(item.q),
+            acceptedAnswer: { "@type": "Answer", text: t(item.a) },
+          })),
+        }}
+      />
     </div>
   );
 }

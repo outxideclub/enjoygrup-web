@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OutxideJsonLd } from "@/components/seo/json-ld";
+import { OutxideJsonLd, JsonLd } from "@/components/seo/json-ld";
 import { AgeVerification } from "@/components/legal/age-verification";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
@@ -47,6 +47,22 @@ export default async function OutxideLayout({
       <AgeVerification />
       {children}
       <OutxideJsonLd description={t("meta.outxideDescription")} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { q: "faq.outxideQ1", a: "faq.outxideA1" },
+            { q: "faq.outxideQ2", a: "faq.outxideA2" },
+            { q: "faq.outxideQ3", a: "faq.outxideA3" },
+            { q: "faq.outxideQ4", a: "faq.outxideA4" },
+          ].map((item) => ({
+            "@type": "Question",
+            name: t(item.q),
+            acceptedAnswer: { "@type": "Answer", text: t(item.a) },
+          })),
+        }}
+      />
     </div>
   );
 }

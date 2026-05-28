@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EnjoyJsonLd } from "@/components/seo/json-ld";
+import { EnjoyJsonLd, JsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -45,6 +45,22 @@ export default async function EnjoyLayout({
     <div className="theme-enjoy">
       {children}
       <EnjoyJsonLd description={t("meta.enjoyDescription")} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { q: "faq.enjoyQ1", a: "faq.enjoyA1" },
+            { q: "faq.enjoyQ2", a: "faq.enjoyA2" },
+            { q: "faq.enjoyQ3", a: "faq.enjoyA3" },
+            { q: "faq.enjoyQ4", a: "faq.enjoyA4" },
+          ].map((item) => ({
+            "@type": "Question",
+            name: t(item.q),
+            acceptedAnswer: { "@type": "Answer", text: t(item.a) },
+          })),
+        }}
+      />
     </div>
   );
 }
