@@ -4,7 +4,7 @@ export const es = {
     description:
       "Tres experiencias únicas en Alcúdia, Mallorca: Enjoy Terrace (cócteles y shisha), Outxide Club (discoteca) y Hiru Food & Drinks (restaurante a la brasa).",
     keywords:
-      "grupo enjoy, coctelería alcúdia, discoteca alcúdia, restaurante alcúdia, enjoy terrace, outxide club, hiru food drinks, nightlife mallorca, ocio nocturno alcúdia",
+      "grupo enjoy, coctelería alcúdia, discoteca alcúdia, restaurante alcúdia, enjoy terrace, outxide club, hiru food drinks, nightlife mallorca, ocio nocturno alcúdia, salir de noche alcudia, que hacer en alcudia, ocio port alcudia, vida nocturna mallorca",
     ogTitle: "Grupo Enjoy | Coctelería, Club & Restaurante en Alcúdia",
     ogDescription:
       "Enjoy Terrace, Outxide Club y Hiru Food & Drinks — tres espacios únicos en Alcúdia, Mallorca.",
@@ -14,21 +14,21 @@ export const es = {
     enjoyOgDescription:
       "Where nights begin. Cócteles de autor y shisha premium en la mejor terraza de Alcúdia.",
     enjoyKeywords:
-      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, terraza cocteles port alcudia, sunset drinks mallorca, cocteleria alcudia, lounge bar mallorca",
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, terraza cocteles port alcudia, sunset drinks mallorca, cocteleria alcudia, lounge bar mallorca, cocktail bar port alcudia, shisha bar alcudia, terraza port alcudia, copas port alcudia, mejores cocktails alcudia, bar cocteles alcudia",
     outxideTitle: "Outxide Club — Discoteca en Port d'Alcúdia, Mallorca",
     outxideDescription:
       "Outxide Club: discoteca y club nocturno en Port d'Alcúdia, Mallorca. Sesiones de techno, house y reggaetón con DJs internacionales. Entradas online. Página oficial.",
     outxideOgDescription:
       "The night continues. Discoteca y club nocturno en Alcúdia. Entradas online vía FourVenues.",
     outxideKeywords:
-      "outxide club, outxide club alcudia, outxide alcudia, discoteca alcudia, nightclub alcudia, club nocturno port alcudia, techno mallorca, house mallorca, fiesta alcudia, entradas outxide",
+      "outxide club, outxide club alcudia, outxide alcudia, discoteca alcudia, nightclub alcudia, club nocturno port alcudia, techno mallorca, house mallorca, fiesta alcudia, entradas outxide, disco alcudia mallorca, mejores discotecas alcudia, fiesta alcudia mallorca, dj alcudia, noche alcudia, salir de noche port alcudia",
     hiruTitle: "Hiru Food & Drinks — Restaurante a la Brasa en Alcúdia",
     hiruDescription:
       "Hiru Food & Drinks: restaurante a la brasa en Port d'Alcúdia, Mallorca. Paella de marisco, carnes maduradas dry-aged, arroces y pescados frescos. Carta y reservas. Página oficial.",
     hiruOgDescription:
       "Producto, tradición y sabor. Cocina mallorquina a la brasa en Alcúdia.",
     hiruKeywords:
-      "hiru food drinks, hiru food and drinks, hiru alcudia, restaurante alcudia, restaurante brasa alcudia, paella alcudia, restaurante port alcudia, comer en alcudia, restaurante mallorca, hiru restaurante",
+      "hiru food drinks, hiru food and drinks, hiru alcudia, restaurante alcudia, restaurante brasa alcudia, paella alcudia, restaurante port alcudia, comer en alcudia, restaurante mallorca, hiru restaurante, restaurante mediterraneo alcudia, donde cenar alcudia, cena alcudia, cenar tarde alcudia, carne a la brasa mallorca",
     aboutTitle: "Quiénes Somos — Ocio y Gastronomía en Alcúdia",
     aboutDescription:
       "Conoce la historia de Grupo Enjoy: tres espacios únicos de ocio y gastronomía premium en Port d'Alcúdia, Mallorca. Enjoy Terrace, Outxide Club y Hiru Food & Drinks.",
