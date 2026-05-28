@@ -271,6 +271,9 @@ export default function HiruPage() {
             <p className="text-muted-foreground leading-relaxed text-lg">
               {t("hiru.aboutText")}
             </p>
+            <p className="text-muted-foreground leading-relaxed text-lg mt-4">
+              {t("hiru.aboutText2")}
+            </p>
           </ScrollReveal>
         </div>
       </section>

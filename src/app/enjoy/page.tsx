@@ -272,6 +272,9 @@ export default function EnjoyPage() {
             <p className="text-muted-foreground leading-relaxed text-lg">
               {t("enjoy.aboutText")}
             </p>
+            <p className="text-muted-foreground leading-relaxed text-lg mt-4">
+              {t("enjoy.aboutText2")}
+            </p>
           </ScrollReveal>
         </div>
       </section>

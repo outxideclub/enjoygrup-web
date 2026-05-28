@@ -99,6 +99,8 @@ export const fr: Dictionary = {
     aboutHeading: "À propos d'Enjoy Terrace",
     aboutText:
       "Enjoy Terrace est la terrasse cocktails de référence à Port d'Alcúdia, Majorque. Depuis 2007, notre espace mêle cocktails signature, chicha premium et les plus belles vues sur le coucher de soleil méditerranéen. Située Av. Tucán 1, Enjoy Terrace ouvre tous les jours à 17h00 pour une expérience unique face à la mer. Fait partie de Grupo Enjoy, aux côtés d'Outxide Club et Hiru Food & Drinks.",
+    aboutText2:
+      "Notre carte de cocktails signature est renouvelée chaque saison avec des créations exclusives mêlant spiritueux premium, ingrédients frais et mixologie de pointe. La terrasse d'Enjoy est le point de rencontre idéal pour un sunset entre amis, un verre après le dîner ou le début d'une soirée à Port d'Alcúdia. Avec son service chicha premium et une sélection musicale soignée, Enjoy Terrace est devenu le meilleur bar à cocktails d'Alcúdia.",
     galleryTitle: "La terrasse",
     menuTitle: "Notre Carte",
     shishaTitle: "Chicha",
@@ -115,6 +117,8 @@ export const fr: Dictionary = {
     aboutHeading: "À propos d'Outxide Club",
     aboutText:
       "Outxide Club est la discothèque de référence à Port d'Alcúdia, Majorque. Soirées techno, house et reggaeton avec DJs internationaux font de chaque nuit une expérience inoubliable. Situé Av. Tucán 1, Outxide ouvre jeudi, vendredi et samedi dès 23h00. Achetez vos billets en ligne via FourVenues ou réservez une table VIP. Fait partie de Grupo Enjoy aux côtés d'Enjoy Terrace et Hiru Food & Drinks.",
+    aboutText2:
+      "Chaque week-end, Outxide programme des sessions avec des DJs nationaux et internationaux couvrant techno, house, reggaeton et musique urbaine. Le système son professionnel, l'éclairage dernier cri et l'espace VIP avec service de bouteilles premium font d'Outxide la meilleure discothèque d'Alcúdia. Le club accueille également des soirées à thème, événements spéciaux et artistes invités tout au long de la saison estivale à Majorque.",
     description:
       "La meilleure discothèque d'Alcúdia, Majorque. Techno, house et reggaeton avec DJs internationaux. Achetez vos billets en ligne.",
     galleryTitle: "Le club",
@@ -153,6 +157,8 @@ export const fr: Dictionary = {
     aboutHeading: "À propos de Hiru Food & Drinks",
     aboutText:
       "Hiru Food & Drinks est un restaurant grill à Alcúdia, Majorque, spécialisé en cuisine méditerranéenne de produit. Paella aux fruits de mer, viandes maturées dry-aged, poissons frais de Méditerranée et une sélection de vins. Situé Ctra. d'Artà 40, Hiru ouvre du lundi au dimanche (sauf mardi) dès 12h00. Fait partie de Grupo Enjoy aux côtés d'Enjoy Terrace et Outxide Club.",
+    aboutText2:
+      "La carte de Hiru allie le meilleur de la cuisine méditerranéenne avec des techniques de grill qui subliment la saveur naturelle de chaque ingrédient. Nos viandes maturées dry-aged sont grillées à la perfection sur braises de chêne vert. Les plats de riz — dont notre paella aux fruits de mer avec produits de la criée locale — comptent parmi les plus demandés. Hiru est le choix idéal pour un repas en famille, un dîner romantique ou une célébration à Port d'Alcúdia. Réservez votre table et découvrez la référence grill de Majorque.",
     description:
       "Restaurant grill à Port d'Alcúdia où la braise est reine. Viandes maturées, paella aux fruits de mer, riz caldoso et cocktails jusqu'à tard. Réservez votre table.",
     galleryTitle: "Produit · Tradition · Saveur",

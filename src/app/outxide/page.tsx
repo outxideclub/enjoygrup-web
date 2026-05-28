@@ -292,6 +292,9 @@ export default function OutxidePage() {
             <p className="text-muted-foreground leading-relaxed text-lg">
               {t("outxide.aboutText")}
             </p>
+            <p className="text-muted-foreground leading-relaxed text-lg mt-4">
+              {t("outxide.aboutText2")}
+            </p>
           </ScrollReveal>
         </div>
       </section>
