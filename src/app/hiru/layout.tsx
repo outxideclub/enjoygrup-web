@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HiruJsonLd, JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { HiruJsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -50,23 +50,7 @@ export default async function HiruLayout({
         { name: "Hiru Food & Drinks", url: "https://www.grupoenjoy.es/hiru" },
       ]} />
       <HiruJsonLd description={t("meta.hiruDescription")} />
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: [
-            { q: "faq.hiruQ1", a: "faq.hiruA1" },
-            { q: "faq.hiruQ2", a: "faq.hiruA2" },
-            { q: "faq.hiruQ3", a: "faq.hiruA3" },
-            { q: "faq.hiruQ4", a: "faq.hiruA4" },
-            { q: "faq.hiruQ5", a: "faq.hiruA5" },
-          ].map((item) => ({
-            "@type": "Question",
-            name: t(item.q),
-            acceptedAnswer: { "@type": "Answer", text: t(item.a) },
-          })),
-        }}
-      />
+      <VenueVideoJsonLd venue="hiru" />
     </div>
   );
 }

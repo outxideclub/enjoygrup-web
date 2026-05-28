@@ -504,6 +504,64 @@ export function OutxideEventsJsonLd() {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Venue hero video schema for Video Rich Results + AI Mode           */
+/* ------------------------------------------------------------------ */
+
+interface VenueVideoProps {
+  venue: "enjoy" | "outxide" | "hiru";
+}
+
+const venueVideoData = {
+  enjoy: {
+    name: "Enjoy Terrace — Cocktail Lounge & Shisha Bar in Port d'Alcúdia",
+    description: "Experience the sunset cocktail atmosphere at Enjoy Terrace, the premium shisha and cocktail lounge in Port d'Alcúdia, Mallorca. Open daily from 17:00.",
+    thumbnailUrl: "https://www.grupoenjoy.es/videos/enjoy-hero-poster.jpg",
+    contentUrl: "https://www.grupoenjoy.es/videos/enjoy-hero.mp4",
+    embedUrl: "https://www.grupoenjoy.es/enjoy",
+    uploadDate: "2025-05-01",
+  },
+  outxide: {
+    name: "Outxide Club — Premier Nightclub in Port d'Alcúdia, Mallorca",
+    description: "Feel the energy of Outxide Club, the top nightclub in northern Mallorca. International DJs, VIP service, and unforgettable nights in Port d'Alcúdia.",
+    thumbnailUrl: "https://www.grupoenjoy.es/videos/outxide-hero-poster.jpg",
+    contentUrl: "https://www.grupoenjoy.es/videos/outxide-hero.mp4",
+    embedUrl: "https://www.grupoenjoy.es/outxide",
+    uploadDate: "2025-05-01",
+  },
+  hiru: {
+    name: "Hiru Food & Drinks — Charcoal Grill Restaurant in Alcúdia, Mallorca",
+    description: "Discover Hiru Food & Drinks, a Mediterranean charcoal grill restaurant in Alcúdia, Mallorca. Dry-aged meats, fresh seafood paella, and a vibrant atmosphere.",
+    thumbnailUrl: "https://www.grupoenjoy.es/videos/hiru-hero-poster.jpg",
+    contentUrl: "https://www.grupoenjoy.es/videos/hiru-hero.mp4",
+    embedUrl: "https://www.grupoenjoy.es/hiru",
+    uploadDate: "2025-05-01",
+  },
+} as const;
+
+export function VenueVideoJsonLd({ venue }: VenueVideoProps) {
+  const v = venueVideoData[venue];
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        name: v.name,
+        description: v.description,
+        thumbnailUrl: v.thumbnailUrl,
+        contentUrl: v.contentUrl,
+        embedUrl: v.embedUrl,
+        uploadDate: v.uploadDate,
+        publisher: {
+          "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
+          name: "Grupo Enjoy",
+        },
+      }}
+    />
+  );
+}
+
 export function WebSiteJsonLd({ description }: { description?: string } = {}) {
   return (
     <JsonLd
