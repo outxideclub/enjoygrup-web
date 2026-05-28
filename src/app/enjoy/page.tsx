@@ -280,7 +280,10 @@ export default function EnjoyPage() {
             <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
               {t("enjoy.aboutText")}
             </p>
-            <p data-speakable className="text-muted-foreground leading-relaxed text-lg mt-4">
+            <h3 className="font-display text-xl md:text-2xl font-semibold text-white mt-8 mb-4">
+              {t("enjoy.aboutHeading2")}
+            </h3>
+            <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
               {t("enjoy.aboutText2")}
             </p>
           </ScrollReveal>

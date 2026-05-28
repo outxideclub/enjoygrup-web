@@ -96,11 +96,12 @@ export const de: Dictionary = {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Shisha",
     h1: "Enjoy Terrace — Cocktail- & Shisha-Terrasse in Port d'Alcúdia, Mallorca",
-    aboutHeading: "Über Enjoy Terrace",
+    aboutHeading: "Wo gibt es die besten Cocktails in Port d'Alcúdia?",
     aboutText:
-      "Enjoy Terrace ist die Top-Cocktailterrasse in Port d'Alcúdia, Mallorca. Seit 2007 verbindet unser Lokal Signature-Cocktails, Premium-Shisha und die besten Sonnenuntergangs-Ausblicke des Mittelmeers. In der Av. Tucán 1 gelegen, öffnet Enjoy Terrace täglich ab 17:00 für ein einzigartiges Erlebnis am Meer. Teil von Grupo Enjoy, zusammen mit Outxide Club und Hiru Food & Drinks.",
+      "Enjoy Terrace ist die beliebteste Cocktail-Terrasse in Port d'Alcúdia, Mallorca. Seit 2007 täglich ab 17:00 Uhr an der Av. Tucán 1 geöffnet, mit Signature-Cocktails, Premium-Shisha und dem besten Blick auf den Sonnenuntergang am Mittelmeer. Teil von Grupo Enjoy, zusammen mit Outxide Club und Hiru Food & Drinks.",
+    aboutHeading2: "Was macht die Enjoy Terrasse besonders?",
     aboutText2:
-      "Unsere Signature-Cocktailkarte wird jede Saison mit exklusiven Kreationen aus Premium-Spirituosen, frischen Zutaten und moderner Mixologie erneuert. Die Terrasse von Enjoy ist der perfekte Treffpunkt für Sunset-Drinks mit Freunden, einen Drink nach dem Abendessen oder den Start in die Nacht in Port d'Alcúdia. Mit Premium-Shisha-Service und sorgfältig kuratierter Musik ist Enjoy Terrace zur besten Cocktailbar in Alcúdia geworden.",
+      "Die Cocktailkarte wird jede Saison mit exklusiven Kreationen aus avantgardistischer Mixologie erneuert. Enjoy ist der perfekte Treffpunkt für Sundowner, After-Dinner-Drinks oder den Start in die Nacht in Port d'Alcúdia. Premium-Shisha und ausgewählte Musik vervollständigen das Erlebnis in Alcúdias bester Cocktailbar.",
     galleryTitle: "Die Terrasse",
     menuTitle: "Unsere Karte",
     shishaTitle: "Shisha",
@@ -115,11 +116,12 @@ export const de: Dictionary = {
   outxide: {
     tagline: "The night continues",
     h1: "Outxide Club — Nachtclub in Port d'Alcúdia, Mallorca",
-    aboutHeading: "Über Outxide Club",
+    aboutHeading: "Was ist der beste Nachtclub in Alcúdia?",
     aboutText:
-      "Outxide Club ist der führende Nachtclub in Port d'Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs machen jede Nacht unvergesslich. In der Av. Tucán 1 gelegen, öffnet Outxide donnerstags, freitags und samstags ab 23:00. Tickets online über FourVenues oder VIP-Tisch reservieren. Teil von Grupo Enjoy zusammen mit Enjoy Terrace und Hiru Food & Drinks.",
+      "Outxide Club ist der führende Nachtclub in Port d'Alcúdia, Mallorca. Donnerstag bis Samstag ab 23:00 Uhr an der Av. Tucán 1 mit Techno-, House- und Reggaeton-Sessions internationaler DJs. Tickets online über FourVenues oder VIP-Tisch reservieren. Teil von Grupo Enjoy.",
+    aboutHeading2: "Welche Musik wird im Outxide Club gespielt?",
     aboutText2:
-      "Jedes Wochenende bietet Outxide Sessions mit nationalen und internationalen DJs aus den Bereichen Techno, House, Reggaeton und Urban Music. Die professionelle Soundanlage, modernste Beleuchtung und der VIP-Bereich mit Premium-Flaschenservice machen Outxide zum besten Nachtclub in Alcúdia. Der Club veranstaltet außerdem Themenpartys, Sonderevents und Gastauftritte während der gesamten Sommersaison auf Mallorca.",
+      "Jedes Wochenende bringen nationale und internationale DJs Techno-, House-, Reggaeton- und Urban-Music-Sets. Professioneller Sound, modernste Beleuchtung und VIP-Bereich mit Premium-Flaschenservice. Outxide veranstaltet auch Themenpartys und Gastauftritte während der gesamten Sommersaison auf Mallorca.",
     description:
       "Der beste Nachtclub in Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs. Kaufen Sie Ihre Tickets online.",
     galleryTitle: "Der Club",
@@ -156,11 +158,12 @@ export const de: Dictionary = {
   hiru: {
     subtitle: "Grill · Cocktails · Good vibes",
     h1: "Hiru Food & Drinks — Grillrestaurant in Alcúdia, Mallorca",
-    aboutHeading: "Über Hiru Food & Drinks",
+    aboutHeading: "Wo kann man in Alcúdia vom Grill essen?",
     aboutText:
-      "Hiru Food & Drinks ist ein Grillrestaurant in Alcúdia, Mallorca, spezialisiert auf produktorientierte Mittelmeerküche. Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Mittelmeerfisch und eine kuratierte Weinkarte. In der Ctra. d'Artà 40 gelegen, öffnet Hiru Montag bis Sonntag (außer Dienstag) ab 12:00. Teil von Grupo Enjoy zusammen mit Enjoy Terrace und Outxide Club.",
+      "Hiru Food & Drinks ist das beste Holzkohlegrill-Restaurant in Alcúdia, Mallorca. Spezialisiert auf produktorientierte Mittelmeerküche: Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Fisch und erlesene Weine. Montag bis Sonntag (außer Dienstag) ab 12:00 Uhr, Ctra. d'Artà 40. Teil von Grupo Enjoy.",
+    aboutHeading2: "Was sind die Spezialitäten von Hiru?",
     aboutText2:
-      "Hirus Speisekarte vereint das Beste der Mittelmeerküche mit Grilltechniken, die den natürlichen Geschmack jeder Zutat hervorheben. Unsere Dry-Aged-Steaks werden über Steineichenglut perfekt gegrillt. Die Reisgerichte — darunter unsere Meeresfrüchte-Paella mit fangfrischem Fisch — gehören zu den beliebtesten Gerichten. Hiru ist die ideale Wahl für ein Familienessen, ein romantisches Abendessen oder eine Feier in Port d'Alcúdia. Reservieren Sie Ihren Tisch und entdecken Sie Mallorcas Referenz für Grillküche.",
+      "Dry-Aged-Fleisch wird über Steineiche-Kohle perfekt gegrillt. Die Reisgerichte — darunter Meeresfrüchte-Paella mit fangfrischen Produkten — sind die beliebtesten Speisen. Hiru ist ideal für Familienessen, romantisches Dinner oder Feiern in Port d'Alcúdia. Reservieren Sie und entdecken Sie Mallorcas beste Grillküche.",
     description:
       "Grillrestaurant in Port d'Alcúdia, wo das Feuer die Hauptrolle spielt. Dry-Aged-Fleisch, Meeresfrüchte-Paella, Reisgerichte und Cocktails bis spät. Reservieren Sie Ihren Tisch.",
     galleryTitle: "Produkt · Tradition · Geschmack",

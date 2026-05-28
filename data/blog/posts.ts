@@ -6,6 +6,12 @@ export interface BlogLocalizedText {
   it?: string;
 }
 
+export interface HowToStep {
+  name: BlogLocalizedText;
+  text: BlogLocalizedText;
+  url?: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: BlogLocalizedText;
@@ -17,6 +23,7 @@ export interface BlogPost {
   tags: string[];
   venue?: "enjoy" | "outxide" | "hiru" | "general";
   readingTime: number;
+  howToSteps?: HowToStep[];
 }
 
 export type BlogLocale = "es" | "en" | "de" | "fr" | "it";
@@ -4860,6 +4867,59 @@ export const blogPosts: BlogPost[] = [
     tags: ["nightlife", "guide", "alcudia", "mallorca", "enjoy", "outxide", "hiru"],
     venue: "general",
     readingTime: 8,
+    howToSteps: [
+      {
+        name: {
+          es: "Cena en Hiru Food & Drinks",
+          en: "Dinner at Hiru Food & Drinks",
+          de: "Abendessen im Hiru Food & Drinks",
+          fr: "Diner au Hiru Food & Drinks",
+          it: "Cena da Hiru Food & Drinks",
+        },
+        text: {
+          es: "Reserva mesa en Hiru (Ctra. d'Arta 40) a las 21:00. Disfruta de carnes maduradas dry-aged a la brasa, paella de marisco y cocktails de autor. Abierto hasta la 1:00 viernes y sabado.",
+          en: "Book a table at Hiru (Ctra. d'Arta 40) for 21:00. Enjoy dry-aged meats grilled over charcoal, seafood paella and signature cocktails. Open until 1:00 on Friday and Saturday.",
+          de: "Reservieren Sie einen Tisch im Hiru (Ctra. d'Arta 40) fuer 21:00 Uhr. Geniessen Sie Dry-Aged-Fleisch vom Grill, Meeresfruechte-Paella und Signature-Cocktails. Freitag und Samstag bis 1:00 geoeffnet.",
+          fr: "Reservez une table au Hiru (Ctra. d'Arta 40) pour 21h00. Savourez des viandes maturees grillees, une paella aux fruits de mer et des cocktails signatures. Ouvert jusqu'a 1h00 vendredi et samedi.",
+          it: "Prenota un tavolo da Hiru (Ctra. d'Arta 40) per le 21:00. Gustati carni frollate alla brace, paella di mare e cocktail d'autore. Aperto fino all'1:00 venerdi e sabato.",
+        },
+        url: "https://www.grupoenjoy.es/hiru",
+      },
+      {
+        name: {
+          es: "Cocktails en Enjoy Terrace",
+          en: "Cocktails at Enjoy Terrace",
+          de: "Cocktails auf der Enjoy Terrace",
+          fr: "Cocktails a l'Enjoy Terrace",
+          it: "Cocktail all'Enjoy Terrace",
+        },
+        text: {
+          es: "Cruza a Enjoy Terrace (Av. Tucan 1) sobre las 23:00. Pide un cocktail de autor, disfruta de la shisha premium y deja que la musica chill marque el ritmo. La terraza esta abierta hasta las 05:30.",
+          en: "Walk over to Enjoy Terrace (Av. Tucan 1) around 23:00. Order a signature cocktail, enjoy premium shisha and let the chill music set the pace. The terrace is open until 05:30.",
+          de: "Gehen Sie gegen 23:00 Uhr zur Enjoy Terrace (Av. Tucan 1). Bestellen Sie einen Signature-Cocktail, geniessen Sie Premium-Shisha und lassen Sie sich von der Chill-Musik treiben. Die Terrasse ist bis 05:30 geoeffnet.",
+          fr: "Rendez-vous a l'Enjoy Terrace (Av. Tucan 1) vers 23h00. Commandez un cocktail signature, profitez du chicha premium et laissez la musique chill donner le rythme. La terrasse est ouverte jusqu'a 05h30.",
+          it: "Dirigiti all'Enjoy Terrace (Av. Tucan 1) verso le 23:00. Ordina un cocktail d'autore, goditi la shisha premium e lasciati trasportare dalla musica chill. La terrazza e aperta fino alle 05:30.",
+        },
+        url: "https://www.grupoenjoy.es/enjoy",
+      },
+      {
+        name: {
+          es: "Fiesta en Outxide Club",
+          en: "Party at Outxide Club",
+          de: "Party im Outxide Club",
+          fr: "Soiree a l'Outxide Club",
+          it: "Festa all'Outxide Club",
+        },
+        text: {
+          es: "Compra tu entrada online via FourVenues y entra en Outxide Club (Av. Tucan 1) desde la 1:00. DJs internacionales, techno, house y reggaeton. Opcion VIP con servicio de botellas. Abierto hasta las 05:30.",
+          en: "Buy your ticket online via FourVenues and enter Outxide Club (Av. Tucan 1) from 1:00. International DJs, techno, house and reggaeton. VIP option with bottle service. Open until 05:30.",
+          de: "Kaufen Sie Ihr Ticket online ueber FourVenues und betreten Sie den Outxide Club (Av. Tucan 1) ab 1:00 Uhr. Internationale DJs, Techno, House und Reggaeton. VIP-Option mit Flaschenservice. Geoeffnet bis 05:30.",
+          fr: "Achetez votre billet en ligne via FourVenues et entrez a l'Outxide Club (Av. Tucan 1) des 1h00. DJs internationaux, techno, house et reggaeton. Option VIP avec service bouteilles. Ouvert jusqu'a 05h30.",
+          it: "Acquista il biglietto online via FourVenues ed entra all'Outxide Club (Av. Tucan 1) dall'1:00. DJ internazionali, techno, house e reggaeton. Opzione VIP con servizio bottiglie. Aperto fino alle 05:30.",
+        },
+        url: "https://www.grupoenjoy.es/outxide",
+      },
+    ],
   },
   {
     slug: "musica-dj-fiestas-tematicas-alcudia-mallorca",

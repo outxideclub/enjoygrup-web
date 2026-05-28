@@ -300,7 +300,10 @@ export default function OutxidePage() {
             <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
               {t("outxide.aboutText")}
             </p>
-            <p data-speakable className="text-muted-foreground leading-relaxed text-lg mt-4">
+            <h3 className="font-display text-xl md:text-2xl font-semibold text-white mt-8 mb-4">
+              {t("outxide.aboutHeading2")}
+            </h3>
+            <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
               {t("outxide.aboutText2")}
             </p>
           </ScrollReveal>

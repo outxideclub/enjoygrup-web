@@ -96,11 +96,12 @@ export const fr: Dictionary = {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Chicha",
     h1: "Enjoy Terrace — Terrasse Cocktails & Chicha à Port d'Alcúdia, Majorque",
-    aboutHeading: "À propos d'Enjoy Terrace",
+    aboutHeading: "Où déguster les meilleurs cocktails à Port d'Alcúdia ?",
     aboutText:
-      "Enjoy Terrace est la terrasse cocktails de référence à Port d'Alcúdia, Majorque. Depuis 2007, notre espace mêle cocktails signature, chicha premium et les plus belles vues sur le coucher de soleil méditerranéen. Située Av. Tucán 1, Enjoy Terrace ouvre tous les jours à 17h00 pour une expérience unique face à la mer. Fait partie de Grupo Enjoy, aux côtés d'Outxide Club et Hiru Food & Drinks.",
+      "Enjoy Terrace est la terrasse cocktails incontournable de Port d'Alcúdia, Majorque. Ouverte chaque jour depuis 2007 dès 17h00 à l'Av. Tucán 1, elle propose des cocktails signatures, du chicha premium et les plus belles vues sur le coucher de soleil méditerranéen. Fait partie de Grupo Enjoy, avec Outxide Club et Hiru Food & Drinks.",
+    aboutHeading2: "Qu'est-ce qui rend Enjoy Terrace unique ?",
     aboutText2:
-      "Notre carte de cocktails signature est renouvelée chaque saison avec des créations exclusives mêlant spiritueux premium, ingrédients frais et mixologie de pointe. La terrasse d'Enjoy est le point de rencontre idéal pour un sunset entre amis, un verre après le dîner ou le début d'une soirée à Port d'Alcúdia. Avec son service chicha premium et une sélection musicale soignée, Enjoy Terrace est devenu le meilleur bar à cocktails d'Alcúdia.",
+      "La carte de cocktails est renouvelée chaque saison avec des créations exclusives de mixologie d'avant-garde. Enjoy est le point de rencontre idéal pour un sunset entre amis, un verre après dîner ou le début de soirée à Port d'Alcúdia. Chicha premium et musique soignée complètent l'expérience du meilleur bar à cocktails d'Alcúdia.",
     galleryTitle: "La terrasse",
     menuTitle: "Notre Carte",
     shishaTitle: "Chicha",
@@ -115,11 +116,12 @@ export const fr: Dictionary = {
   outxide: {
     tagline: "The night continues",
     h1: "Outxide Club — Discothèque à Port d'Alcúdia, Majorque",
-    aboutHeading: "À propos d'Outxide Club",
+    aboutHeading: "Quelle est la meilleure discothèque d'Alcúdia ?",
     aboutText:
-      "Outxide Club est la discothèque de référence à Port d'Alcúdia, Majorque. Soirées techno, house et reggaeton avec DJs internationaux font de chaque nuit une expérience inoubliable. Situé Av. Tucán 1, Outxide ouvre jeudi, vendredi et samedi dès 23h00. Achetez vos billets en ligne via FourVenues ou réservez une table VIP. Fait partie de Grupo Enjoy aux côtés d'Enjoy Terrace et Hiru Food & Drinks.",
+      "Outxide Club est la discothèque de référence à Port d'Alcúdia, Majorque. Ouvert jeudi, vendredi et samedi dès 23h00 à l'Av. Tucán 1 avec des sessions techno, house et reggaeton de DJs internationaux. Achetez vos billets en ligne via FourVenues ou réservez une table VIP. Fait partie de Grupo Enjoy.",
+    aboutHeading2: "Quel type de musique passe-t-on à Outxide Club ?",
     aboutText2:
-      "Chaque week-end, Outxide programme des sessions avec des DJs nationaux et internationaux couvrant techno, house, reggaeton et musique urbaine. Le système son professionnel, l'éclairage dernier cri et l'espace VIP avec service de bouteilles premium font d'Outxide la meilleure discothèque d'Alcúdia. Le club accueille également des soirées à thème, événements spéciaux et artistes invités tout au long de la saison estivale à Majorque.",
+      "Chaque week-end, des DJs nationaux et internationaux proposent des sets de techno, house, reggaeton et musique urbaine. Son professionnel, éclairage dernier cri et espace VIP avec service bouteilles premium. Outxide accueille aussi des soirées à thème et des artistes invités tout au long de la saison estivale à Majorque.",
     description:
       "La meilleure discothèque d'Alcúdia, Majorque. Techno, house et reggaeton avec DJs internationaux. Achetez vos billets en ligne.",
     galleryTitle: "Le club",
@@ -156,11 +158,12 @@ export const fr: Dictionary = {
   hiru: {
     subtitle: "Grill · Cocktails · Good vibes",
     h1: "Hiru Food & Drinks — Restaurant Grill à Alcúdia, Majorque",
-    aboutHeading: "À propos de Hiru Food & Drinks",
+    aboutHeading: "Où manger des grillades à Alcúdia ?",
     aboutText:
-      "Hiru Food & Drinks est un restaurant grill à Alcúdia, Majorque, spécialisé en cuisine méditerranéenne de produit. Paella aux fruits de mer, viandes maturées dry-aged, poissons frais de Méditerranée et une sélection de vins. Situé Ctra. d'Artà 40, Hiru ouvre du lundi au dimanche (sauf mardi) dès 12h00. Fait partie de Grupo Enjoy aux côtés d'Enjoy Terrace et Outxide Club.",
+      "Hiru Food & Drinks est le meilleur restaurant grill à Alcúdia, Majorque. Spécialisé en cuisine méditerranéenne de produit : paella aux fruits de mer, viandes maturées dry-aged, poissons frais et vins sélectionnés. Ouvert du lundi au dimanche (sauf mardi) dès 12h00, Ctra. d'Artà 40. Fait partie de Grupo Enjoy.",
+    aboutHeading2: "Quelles sont les spécialités de Hiru ?",
     aboutText2:
-      "La carte de Hiru allie le meilleur de la cuisine méditerranéenne avec des techniques de grill qui subliment la saveur naturelle de chaque ingrédient. Nos viandes maturées dry-aged sont grillées à la perfection sur braises de chêne vert. Les plats de riz — dont notre paella aux fruits de mer avec produits de la criée locale — comptent parmi les plus demandés. Hiru est le choix idéal pour un repas en famille, un dîner romantique ou une célébration à Port d'Alcúdia. Réservez votre table et découvrez la référence grill de Majorque.",
+      "Les viandes maturées dry-aged sont grillées à la perfection sur braises de chêne vert. Les plats de riz — dont la paella aux fruits de mer avec produits de la criée — sont les plus demandés. Hiru est idéal pour un déjeuner en famille, un dîner romantique ou une fête à Port d'Alcúdia. Réservez et découvrez les meilleures grillades de Majorque.",
     description:
       "Restaurant grill à Port d'Alcúdia où la braise est reine. Viandes maturées, paella aux fruits de mer, riz caldoso et cocktails jusqu'à tard. Réservez votre table.",
     galleryTitle: "Produit · Tradition · Saveur",

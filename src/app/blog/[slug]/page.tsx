@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
-import { getPostBySlug, getAllPosts, getRelatedPosts, toBlogLocale, getPostText } from "../../../../data/blog/posts";
+import { getPostBySlug, getAllPosts, getRelatedPosts, toBlogLocale, getPostText, type HowToStep } from "../../../../data/blog/posts";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { notFound } from "next/navigation";
@@ -197,6 +197,23 @@ export default async function BlogPostPage({ params }: Props) {
       <Navbar />
       <JsonLd data={articleJsonLd} />
       <BreadcrumbJsonLd items={breadcrumbItems} />
+      {post.howToSteps && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: title,
+          description: excerpt,
+          image: `${BASE_URL}${post.image}`,
+          totalTime: `PT${post.readingTime}M`,
+          step: post.howToSteps.map((step: HowToStep, i: number) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: getPostText(step.name, blogLocale),
+            text: getPostText(step.text, blogLocale),
+            url: step.url,
+          })),
+        }} />
+      )}
       <main>
       <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end overflow-hidden">
         <Image
