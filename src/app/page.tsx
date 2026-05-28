@@ -82,7 +82,11 @@ export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReduced = useReducedMotion();
 
-  useEffect(() => { setIsFirstMount(false); }, []);
+  useEffect(() => {
+    setIsFirstMount(false);
+    // Remove data-hero so CSS override stops and Framer Motion controls animations
+    document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
+  }, []);
   const activeBiz = businesses[index];
   const loadVideo = deferredVideoId === activeBiz.id;
 
@@ -117,6 +121,7 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         <AnimatePresence mode="wait">
           <motion.div
+            data-hero
             key={activeBiz.id}
             onAnimationStart={() => setVideoReady(false)}
             initial={isFirstMount ? false : { opacity: 0, scale: 1.1 }}
@@ -169,6 +174,7 @@ export default function HomePage() {
           <h1 className="sr-only">Grupo Enjoy — Alcúdia, Mallorca</h1>
           <AnimatePresence mode="wait">
             <motion.div
+              data-hero
               key={activeBiz.id}
               initial={isFirstMount ? false : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
