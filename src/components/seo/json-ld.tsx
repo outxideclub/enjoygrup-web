@@ -217,6 +217,10 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
           bestRating: "5",
           reviewCount: "292",
         },
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["[data-speakable]"],
+        },
         sameAs: [
           "https://www.instagram.com/hirufoodanddrinks/",
           "https://www.facebook.com/p/Hiru-61556033140610/",
@@ -266,9 +270,45 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
           bestRating: "5",
           reviewCount: "1283",
         },
+        hasMenu: {
+          "@type": "Menu",
+          name: "Enjoy Terrace Cocktail & Shisha Menu",
+          url: "https://www.grupoenjoy.es/enjoy#menu",
+          hasMenuSection: [
+            {
+              "@type": "MenuSection",
+              name: "Signature Cocktails",
+              hasMenuItem: [
+                { "@type": "MenuItem", name: "Enjoy Sunset", description: "Signature cocktail with tropical flavours and Mediterranean citrus" },
+                { "@type": "MenuItem", name: "Mediterranean Spritz", description: "Refreshing Aperol spritz with a house twist" },
+                { "@type": "MenuItem", name: "Mojito Premium", description: "Classic mojito with fresh mint and premium rum" },
+              ],
+            },
+            {
+              "@type": "MenuSection",
+              name: "Premium Shisha",
+              hasMenuItem: [
+                { "@type": "MenuItem", name: "Shisha Premium", description: "Premium hookah with a wide selection of flavours" },
+                { "@type": "MenuItem", name: "Shisha Fruit Bowl", description: "Shisha served in a fresh fruit bowl" },
+              ],
+            },
+          ],
+        },
+        potentialAction: {
+          "@type": "ViewAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://www.grupoenjoy.es/enjoy#menu",
+          },
+          name: "Ver Carta de Enjoy Terrace",
+        },
         hasMap: "https://www.google.com/maps/search/?api=1&query=Enjoy+Terrace+Av+Tucan+1+Alcudia",
         currenciesAccepted: "EUR",
         paymentAccepted: "Cash, Credit Card",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["[data-speakable]"],
+        },
         sameAs: [
           "https://www.instagram.com/enjoy.terrace.alcudia/",
           "https://www.facebook.com/EnjoyAlcudia/",
@@ -321,10 +361,27 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           bestRating: "5",
           reviewCount: "33",
         },
+        potentialAction: {
+          "@type": "BuyAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://web.fourvenues.com/es/outxide-club",
+            actionPlatform: [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/IOSPlatform",
+              "http://schema.org/AndroidPlatform",
+            ],
+          },
+          name: "Comprar Entradas Outxide Club",
+        },
         hasMap: "https://www.google.com/maps/search/?api=1&query=Outxide+Club+Av+Tucan+1+Alcudia",
         isAccessibleForFree: false,
         currenciesAccepted: "EUR",
         paymentAccepted: "Cash, Credit Card",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["[data-speakable]"],
+        },
         sameAs: [
           "https://www.instagram.com/outxide.club/",
           "https://web.fourvenues.com/es/outxide-club",

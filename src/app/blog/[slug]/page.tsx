@@ -83,13 +83,20 @@ export default async function BlogPostPage({ params }: Props) {
     description: excerpt,
     image: `${BASE_URL}${post.image}`,
     datePublished: post.date,
+    dateModified: post.date,
     author: {
       "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
       name: post.author,
       url: BASE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/images/logos/enjoy.png`,
+      },
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
       name: "Grupo Enjoy",
       url: BASE_URL,
       logo: {
@@ -97,7 +104,10 @@ export default async function BlogPostPage({ params }: Props) {
         url: `${BASE_URL}/images/logos/enjoy.png`,
       },
     },
-    dateModified: post.date,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+    },
     inLanguage: locale,
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -106,6 +116,14 @@ export default async function BlogPostPage({ params }: Props) {
     wordCount: rawContent.replace(/<[^>]+>/g, "").split(/\s+/).length,
     articleSection: post.tags[0],
     keywords: post.tags.join(", "),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".blog-content p:first-of-type", ".blog-content h2"],
+    },
+    about: post.venue && post.venue !== "general" ? {
+      "@type": post.venue === "hiru" ? "Restaurant" : post.venue === "enjoy" ? "BarOrPub" : "NightClub",
+      "@id": `${BASE_URL}/${post.venue}#${post.venue === "hiru" ? "restaurant" : post.venue === "enjoy" ? "bar" : "nightclub"}`,
+    } : undefined,
   };
 
   const breadcrumbItems = [

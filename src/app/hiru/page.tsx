@@ -275,10 +275,10 @@ export default function HiruPage() {
             <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-6">
               {t("hiru.aboutHeading")}
             </h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">
+            <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
               {t("hiru.aboutText")}
             </p>
-            <p className="text-muted-foreground leading-relaxed text-lg mt-4">
+            <p data-speakable className="text-muted-foreground leading-relaxed text-lg mt-4">
               {t("hiru.aboutText2")}
             </p>
           </ScrollReveal>
