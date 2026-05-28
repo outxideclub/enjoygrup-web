@@ -36,6 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL("https://www.grupoenjoy.es"),
+    verification: {
+      google: "949yLzP1TpjpLfi4-yVUoI_rn19gdumwRyCgnkv6fv4",
+    },
     title: {
       default: t("meta.title"),
       template: "%s | Grupo Enjoy",
