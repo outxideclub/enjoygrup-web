@@ -466,6 +466,32 @@ export default function HiruPage() {
         )}
       </AnimatePresence>
 
+      {/* Related Blog Articles */}
+      <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight text-center mb-10">
+            {t("blog.venueRelatedArticles")}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { slug: "hiru-food-drinks-restaurante-alcudia", label: locale === "es" ? "Hiru Food & Drinks: El Restaurante a la Brasa" : locale === "de" ? "Hiru Food & Drinks: Das Grillrestaurant" : locale === "fr" ? "Hiru Food & Drinks: Le Restaurant au Charbon" : locale === "it" ? "Hiru Food & Drinks: Il Ristorante alla Brace" : "Hiru Food & Drinks: The Charcoal Grill Restaurant" },
+              { slug: "mejores-restaurantes-alcudia-mallorca", label: locale === "es" ? "Mejores Restaurantes de Alcúdia" : locale === "de" ? "Beste Restaurants in Alcúdia" : locale === "fr" ? "Meilleurs Restaurants à Alcúdia" : locale === "it" ? "Migliori Ristoranti ad Alcúdia" : "Best Restaurants in Alcúdia" },
+              { slug: "donde-cenar-tarde-port-alcudia", label: locale === "es" ? "Dónde Cenar Tarde en Port d'Alcúdia" : locale === "de" ? "Spät Essen in Port d'Alcúdia" : locale === "fr" ? "Où Dîner Tard à Port d'Alcúdia" : locale === "it" ? "Dove Cenare Tardi a Port d'Alcúdia" : "Late Dining in Port d'Alcúdia" },
+              { slug: "restaurante-brasa-parrilla-mallorca", label: locale === "es" ? "Restaurante a la Brasa en Mallorca" : locale === "de" ? "Grillrestaurant auf Mallorca" : locale === "fr" ? "Restaurant au Charbon à Majorque" : locale === "it" ? "Ristorante alla Brace a Maiorca" : "Charcoal Grill Restaurant in Mallorca" },
+            ].map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition-all hover:border-hiru/30 hover:bg-hiru/[0.04]"
+              >
+                <ArrowRight className="h-4 w-4 text-hiru shrink-0 transition-transform group-hover:translate-x-0.5" />
+                <span className="text-sm text-white/70 group-hover:text-white transition-colors">{article.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       </main>
       <Footer />
     </div>

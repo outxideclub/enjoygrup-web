@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OutxideJsonLd, JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { OutxideJsonLd, OutxideEventsJsonLd, JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { AgeVerification } from "@/components/legal/age-verification";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
@@ -52,6 +52,7 @@ export default async function OutxideLayout({
         { name: "Outxide Club", url: "https://www.grupoenjoy.es/outxide" },
       ]} />
       <OutxideJsonLd description={t("meta.outxideDescription")} />
+      <OutxideEventsJsonLd />
       <JsonLd
         data={{
           "@context": "https://schema.org",

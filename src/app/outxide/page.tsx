@@ -467,6 +467,32 @@ export default function OutxidePage() {
         </section>
       )}
 
+      {/* Related Blog Articles */}
+      <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight text-center mb-10">
+            {t("blog.venueRelatedArticles")}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { slug: "outxide-club-discoteca-alcudia-mallorca", label: locale === "es" ? "Outxide Club: La Discoteca de Referencia" : locale === "de" ? "Outxide Club: Der Referenz-Nachtclub" : locale === "fr" ? "Outxide Club: La Discothèque de Référence" : locale === "it" ? "Outxide Club: La Discoteca di Riferimento" : "Outxide Club: The Reference Nightclub" },
+              { slug: "guia-vida-nocturna-alcudia", label: locale === "es" ? "Guía de Vida Nocturna en Alcúdia" : locale === "de" ? "Nachtleben-Guide Alcúdia" : locale === "fr" ? "Guide Vie Nocturne Alcúdia" : locale === "it" ? "Guida Vita Notturna Alcúdia" : "Nightlife Guide in Alcúdia" },
+              { slug: "mejores-discotecas-clubs-alcudia", label: locale === "es" ? "Mejores Discotecas y Clubs en Alcúdia" : locale === "de" ? "Beste Clubs in Alcúdia" : locale === "fr" ? "Meilleurs Clubs à Alcúdia" : locale === "it" ? "Migliori Discoteche ad Alcúdia" : "Best Clubs in Alcúdia" },
+              { slug: "fiestas-eventos-verano-alcudia-2026", label: locale === "es" ? "Fiestas y Eventos Verano 2026" : locale === "de" ? "Partys & Events Sommer 2026" : locale === "fr" ? "Fêtes & Événements Été 2026" : locale === "it" ? "Feste & Eventi Estate 2026" : "Summer 2026 Parties & Events" },
+            ].map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition-all hover:border-outxide/30 hover:bg-outxide/[0.04]"
+              >
+                <ArrowRight className="h-4 w-4 text-outxide shrink-0 transition-transform group-hover:translate-x-0.5" />
+                <span className="text-sm text-white/70 group-hover:text-white transition-colors">{article.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       </main>
       <Footer />
     </div>

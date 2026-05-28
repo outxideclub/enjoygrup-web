@@ -440,6 +440,32 @@ export default function EnjoyPage() {
         )}
       </AnimatePresence>
 
+      {/* Related Blog Articles */}
+      <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight text-center mb-10">
+            {t("blog.venueRelatedArticles")}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { slug: "enjoy-terrace-cocktails-shisha-port-alcudia", label: locale === "es" ? "Enjoy Terrace: La Terraza de Cócteles" : locale === "de" ? "Enjoy Terrace: Die Cocktail-Terrasse" : locale === "fr" ? "Enjoy Terrace: La Terrasse Cocktails" : locale === "it" ? "Enjoy Terrace: Il Terrazzo Cocktail" : "Enjoy Terrace: The Cocktail Terrace" },
+              { slug: "cocteles-shisha-terraza-alcudia", label: locale === "es" ? "Guía de Cócteles y Shisha en Alcúdia" : locale === "de" ? "Cocktails & Shisha Guide Alcúdia" : locale === "fr" ? "Guide Cocktails & Shisha Alcúdia" : locale === "it" ? "Guida Cocktail e Shisha Alcúdia" : "Cocktails & Shisha Guide in Alcúdia" },
+              { slug: "shisha-bar-terraza-lounge-mallorca", label: locale === "es" ? "Los Mejores Shisha Bars de Mallorca" : locale === "de" ? "Die Besten Shisha-Bars auf Mallorca" : locale === "fr" ? "Les Meilleurs Shisha Bars de Majorque" : locale === "it" ? "I Migliori Shisha Bar di Maiorca" : "Best Shisha Bars in Mallorca" },
+              { slug: "que-hacer-alcudia-mallorca", label: locale === "es" ? "Qué Hacer en Alcúdia" : locale === "de" ? "Was tun in Alcúdia" : locale === "fr" ? "Que faire à Alcúdia" : locale === "it" ? "Cosa fare ad Alcúdia" : "Things to Do in Alcúdia" },
+            ].map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition-all hover:border-enjoy/30 hover:bg-enjoy/[0.04]"
+              >
+                <ArrowRight className="h-4 w-4 text-enjoy shrink-0 transition-transform group-hover:translate-x-0.5" />
+                <span className="text-sm text-white/70 group-hover:text-white transition-colors">{article.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       </main>
       <Footer />
     </div>

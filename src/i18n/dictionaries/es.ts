@@ -266,6 +266,7 @@ export const es = {
     allPosts: "Todos los artículos",
     noPostsFound: "No se encontraron artículos.",
     discoverVenues: "Descubre nuestros espacios",
+    venueRelatedArticles: "Artículos relacionados",
   },
   about: {
     heroTitle: "19 Años Creando Momentos Inolvidables",

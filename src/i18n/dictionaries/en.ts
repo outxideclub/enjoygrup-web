@@ -268,6 +268,7 @@ export const en: Dictionary = {
     allPosts: "All posts",
     noPostsFound: "No posts found.",
     discoverVenues: "Discover our venues",
+    venueRelatedArticles: "Related Articles",
   },
   about: {
     heroTitle: "19 Years Creating Unforgettable Moments",

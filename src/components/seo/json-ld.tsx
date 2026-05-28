@@ -150,9 +150,60 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
           },
         ],
         acceptsReservations: "True",
+        potentialAction: {
+          "@type": "ReserveAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://hirufoodanddrinks.myrestoo.net/es/reservar",
+            actionPlatform: [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/IOSPlatform",
+              "http://schema.org/AndroidPlatform",
+            ],
+          },
+          result: {
+            "@type": "FoodEstablishmentReservation",
+            name: "Reserva en Hiru Food & Drinks",
+          },
+        },
         hasMenu: {
           "@type": "Menu",
+          name: "Carta de Hiru Food & Drinks",
           url: "https://www.grupoenjoy.es/hiru#menu",
+          hasMenuSection: [
+            {
+              "@type": "MenuSection",
+              name: "Entrantes",
+              hasMenuItem: [
+                { "@type": "MenuItem", name: "Croquetas caseras", description: "Croquetas artesanales" },
+                { "@type": "MenuItem", name: "Tataki de atún", description: "Tataki de atún rojo con sésamo" },
+              ],
+            },
+            {
+              "@type": "MenuSection",
+              name: "Carnes a la Brasa",
+              hasMenuItem: [
+                { "@type": "MenuItem", name: "Chuletón de vaca madurada", description: "Carne madurada dry-aged a la brasa" },
+                { "@type": "MenuItem", name: "Tomahawk", description: "Tomahawk premium a la brasa" },
+                { "@type": "MenuItem", name: "Secreto ibérico", description: "Secreto ibérico a la brasa con guarnición" },
+              ],
+            },
+            {
+              "@type": "MenuSection",
+              name: "Arroces y Paellas",
+              hasMenuItem: [
+                { "@type": "MenuItem", name: "Paella de marisco", description: "Paella tradicional con marisco fresco de lonja" },
+                { "@type": "MenuItem", name: "Arroz caldoso de bogavante", description: "Arroz caldoso con bogavante del Mediterráneo" },
+              ],
+            },
+            {
+              "@type": "MenuSection",
+              name: "Pescados",
+              hasMenuItem: [
+                { "@type": "MenuItem", name: "Pescado del día a la brasa", description: "Pescado fresco del Mediterráneo cocinado a la brasa" },
+              ],
+            },
+          ],
         },
         hasMap: "https://www.google.com/maps/search/?api=1&query=Hiru+Food+Drinks+Ctra+Arta+40+Alcudia",
         areaServed: {
@@ -277,6 +328,82 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           "@id": "https://www.grupoenjoy.es/#organization",
           name: "Grupo Enjoy",
         },
+      }}
+    />
+  );
+}
+
+export function OutxideEventsJsonLd() {
+  // Recurring weekly club nights — generates Event rich results
+  const events = [
+    {
+      name: "Outxide Thursday",
+      dayOfWeek: "Thursday",
+      description: "Weekly club night at Outxide Club, Port d'Alcúdia. Techno, house and the best DJs every Thursday.",
+    },
+    {
+      name: "Outxide Friday",
+      dayOfWeek: "Friday",
+      description: "Friday night at Outxide Club, Port d'Alcúdia. International DJs, themed parties and VIP bottle service.",
+    },
+    {
+      name: "Outxide Saturday",
+      dayOfWeek: "Saturday",
+      description: "Saturday night at Outxide Club, Port d'Alcúdia. The biggest party of the week with top DJs and special events.",
+    },
+  ];
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "EventSeries",
+        name: "Outxide Club Weekly Events",
+        description: "Weekly club nights at Outxide Club in Port d'Alcúdia, Mallorca. Techno, house, reggaetón and international DJs every Thursday, Friday and Saturday.",
+        url: "https://www.grupoenjoy.es/outxide",
+        location: {
+          "@type": "NightClub",
+          "@id": "https://www.grupoenjoy.es/outxide#nightclub",
+          name: "Outxide Club",
+          address: ENJOY_ADDRESS,
+        },
+        organizer: {
+          "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
+          name: "Grupo Enjoy",
+        },
+        eventSchedule: events.map((e) => ({
+          "@type": "Schedule",
+          byDay: `https://schema.org/${e.dayOfWeek}`,
+          startTime: "23:30",
+          endTime: "06:00",
+          scheduleTimezone: "Europe/Madrid",
+          repeatFrequency: "P1W",
+        })),
+        subEvent: events.map((e) => ({
+          "@type": "Event",
+          name: e.name,
+          description: e.description,
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+          eventStatus: "https://schema.org/EventScheduled",
+          location: {
+            "@type": "NightClub",
+            "@id": "https://www.grupoenjoy.es/outxide#nightclub",
+            name: "Outxide Club",
+            address: ENJOY_ADDRESS,
+            geo: ENJOY_GEO,
+          },
+          offers: {
+            "@type": "Offer",
+            url: "https://web.fourvenues.com/es/outxide-club",
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+          },
+          performer: {
+            "@type": "PerformingGroup",
+            name: "International DJs",
+          },
+        })),
       }}
     />
   );

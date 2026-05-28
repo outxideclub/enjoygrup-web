@@ -268,6 +268,7 @@ export const fr: Dictionary = {
     allPosts: "Tous les articles",
     noPostsFound: "Aucun article trouvé.",
     discoverVenues: "Découvrez nos espaces",
+    venueRelatedArticles: "Articles associés",
   },
   about: {
     heroTitle: "19 Ans de Moments Inoubliables",
