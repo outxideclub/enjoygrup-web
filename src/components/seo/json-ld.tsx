@@ -116,6 +116,7 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
         "@type": "Restaurant",
         "@id": "https://www.grupoenjoy.es/hiru#restaurant",
         name: "Hiru Food & Drinks",
+        alternateName: ["Hiru Restaurant", "Hiru Alcudia", "Hiru Food and Drinks", "Hiru Restaurante"],
         url: "https://www.grupoenjoy.es/hiru",
         image: "https://www.grupoenjoy.es/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
         description:
@@ -178,6 +179,7 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
         "@type": "BarOrPub",
         "@id": "https://www.grupoenjoy.es/enjoy#bar",
         name: "Enjoy Terrace - Cocktail Lounge & Shisha Bar",
+        alternateName: ["Enjoy Club", "Enjoy Club Alcudia", "Enjoy Terrace Alcudia", "Enjoy Cocktails"],
         url: "https://www.grupoenjoy.es/enjoy",
         image: "https://www.grupoenjoy.es/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
         description:
@@ -225,6 +227,7 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
         "@type": "NightClub",
         "@id": "https://www.grupoenjoy.es/outxide#nightclub",
         name: "Outxide Club",
+        alternateName: ["Outside Club", "Outxide Club Alcudia", "Outxide Alcudia", "Outxide Mallorca"],
         url: "https://www.grupoenjoy.es/outxide",
         image: "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.jpg",
         description:
@@ -246,6 +249,9 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           { "@type": "LocationFeatureSpecification", name: "DJ Sets", value: true },
           { "@type": "LocationFeatureSpecification", name: "Themed Parties", value: true },
           { "@type": "LocationFeatureSpecification", name: "Bottle Service", value: true },
+        ],
+        sameAs: [
+          "https://web.fourvenues.com/es/outxide-club",
         ],
         parentOrganization: {
           "@type": "Organization",

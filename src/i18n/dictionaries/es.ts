@@ -8,21 +8,27 @@ export const es = {
     ogTitle: "Grupo Enjoy | Coctelería, Club & Restaurante en Alcúdia",
     ogDescription:
       "Enjoy Terrace, Outxide Club y Hiru Food & Drinks — tres espacios únicos en Alcúdia, Mallorca.",
-    enjoyTitle: "Enjoy Terrace | Cocktails & Shisha en Alcúdia",
+    enjoyTitle: "Enjoy Terrace — Cocktails & Shisha en Port d'Alcúdia",
     enjoyDescription:
-      "Enjoy Terrace: terraza de cócteles y sunset cocktails en Port d'Alcúdia, Mallorca. Cócteles de autor, shisha premium y el mejor atardecer. Abierto diario desde las 17:00.",
+      "Enjoy Terrace: terraza de cócteles de autor y shisha premium en Port d'Alcúdia, Mallorca. Sunset cocktails con el mejor atardecer del Mediterráneo. Abierto diario 17:00. Página oficial.",
     enjoyOgDescription:
       "Where nights begin. Cócteles de autor y shisha premium en la mejor terraza de Alcúdia.",
-    outxideTitle: "Outxide Club | Discoteca en Alcúdia, Mallorca",
+    enjoyKeywords:
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, terraza cocteles port alcudia, sunset drinks mallorca, cocteleria alcudia, lounge bar mallorca",
+    outxideTitle: "Outxide Club — Discoteca en Port d'Alcúdia, Mallorca",
     outxideDescription:
-      "Outxide Club: la mejor discoteca en Alcúdia, Mallorca. Techno, house y reggaetón con DJs internacionales. Comprar entradas online vía FourVenues.",
+      "Outxide Club: discoteca y club nocturno en Port d'Alcúdia, Mallorca. Sesiones de techno, house y reggaetón con DJs internacionales. Entradas online. Página oficial.",
     outxideOgDescription:
       "The night continues. Discoteca y club nocturno en Alcúdia. Entradas online vía FourVenues.",
-    hiruTitle: "Hiru Food & Drinks | Restaurante a la Brasa en Alcúdia",
+    outxideKeywords:
+      "outxide club, outxide club alcudia, outxide alcudia, discoteca alcudia, nightclub alcudia, club nocturno port alcudia, techno mallorca, house mallorca, fiesta alcudia, entradas outxide",
+    hiruTitle: "Hiru Food & Drinks — Restaurante a la Brasa en Alcúdia",
     hiruDescription:
-      "Hiru: restaurante a la brasa en Port d'Alcúdia. Paella de marisco, carnes maduradas dry-aged, arroces de lonja y pescados del Mediterráneo. Reservar mesa.",
+      "Hiru Food & Drinks: restaurante a la brasa en Port d'Alcúdia, Mallorca. Paella de marisco, carnes maduradas dry-aged, arroces y pescados frescos. Carta y reservas. Página oficial.",
     hiruOgDescription:
       "Producto, tradición y sabor. Cocina mallorquina a la brasa en Alcúdia.",
+    hiruKeywords:
+      "hiru food drinks, hiru food and drinks, hiru alcudia, restaurante alcudia, restaurante brasa alcudia, paella alcudia, restaurante port alcudia, comer en alcudia, restaurante mallorca, hiru restaurante",
     aboutTitle: "Quiénes Somos — Ocio y Gastronomía en Alcúdia",
     aboutDescription:
       "Conoce la historia de Grupo Enjoy: tres espacios únicos de ocio y gastronomía premium en Port d'Alcúdia, Mallorca. Enjoy Terrace, Outxide Club y Hiru Food & Drinks.",
@@ -71,13 +77,13 @@ export const es = {
   home: {
     enjoySubtitle: "Terrace · Cocktails & Shisha",
     enjoyDescription:
-      "Where nights begin. Sunset cocktails, cócteles de autor y shisha premium en la terraza con más ambiente de Alcúdia.",
+      "Where nights begin. Enjoy Terrace ofrece sunset cocktails, cócteles de autor y shisha premium en la terraza con más ambiente de Port d'Alcúdia.",
     outxideSubtitle: "Club",
     outxideDescription:
-      "The night continues. Discoteca con los mejores DJs, techno, house y reggaetón. La mejor fiesta de Mallorca.",
+      "The night continues. Outxide Club es la discoteca con los mejores DJs, techno, house y reggaetón en Port d'Alcúdia, Mallorca.",
     hiruSubtitle: "Food & Drinks",
     hiruDescription:
-      "Brasa, cocktails y buen ambiente. Paella de marisco, carnes maduradas y cócteles hasta altas horas en Port d'Alcúdia.",
+      "Brasa, cocktails y buen ambiente. Hiru Food & Drinks ofrece paella de marisco, carnes maduradas y cócteles hasta altas horas en Port d'Alcúdia.",
     threeSpaces: "Tres espacios, una misma excelencia",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -87,6 +93,10 @@ export const es = {
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Shisha",
+    h1: "Enjoy Terrace — Terraza de Cócteles y Shisha en Port d'Alcúdia, Mallorca",
+    aboutHeading: "Sobre Enjoy Terrace",
+    aboutText:
+      "Enjoy Terrace es la terraza de referencia en Port d'Alcúdia, Mallorca. Desde 2007, nuestro espacio combina cócteles de autor, shisha premium y las mejores vistas al atardecer del Mediterráneo. Ubicada en la Av. Tucán 1, Enjoy Terrace abre cada día a las 17:00 para que disfrutes de una experiencia única frente al mar. Parte de Grupo Enjoy, junto a Outxide Club y Hiru Food & Drinks.",
     galleryTitle: "La terraza",
     menuTitle: "Nuestra Carta",
     shishaTitle: "Shisha",
@@ -99,6 +109,10 @@ export const es = {
   },
   outxide: {
     tagline: "The night continues",
+    h1: "Outxide Club — Discoteca y Club Nocturno en Port d'Alcúdia, Mallorca",
+    aboutHeading: "Sobre Outxide Club",
+    aboutText:
+      "Outxide Club es la discoteca de referencia en Port d'Alcúdia, Mallorca. Sesiones de techno, house y reggaetón con DJs internacionales convierten cada noche en una experiencia inolvidable. Ubicado en la Av. Tucán 1, Outxide abre jueves, viernes y sábado desde las 23:00. Compra tus entradas online a través de FourVenues o reserva una mesa VIP. Forma parte de Grupo Enjoy junto a Enjoy Terrace y Hiru Food & Drinks.",
     description:
       "La mejor discoteca de Alcúdia, Mallorca. Techno, house y reggaetón con DJs internacionales. Compra tus entradas online.",
     galleryTitle: "El club",
@@ -133,6 +147,10 @@ export const es = {
   },
   hiru: {
     subtitle: "Brasa · Cocktails · Good vibes",
+    h1: "Hiru Food & Drinks — Restaurante a la Brasa en Alcúdia, Mallorca",
+    aboutHeading: "Sobre Hiru Food & Drinks",
+    aboutText:
+      "Hiru Food & Drinks es un restaurante a la brasa en Alcúdia, Mallorca, especializado en cocina mediterránea de producto. Paella de marisco, carnes maduradas dry-aged, pescados frescos del Mediterráneo y una cuidada selección de vinos. Ubicado en la Ctra. d'Artà 40, Hiru abre de lunes a domingo (excepto martes) desde las 12:00. Forma parte de Grupo Enjoy junto a Enjoy Terrace y Outxide Club.",
     description:
       "Restaurante en Port d'Alcúdia donde la brasa es protagonista. Carnes maduradas, paella de marisco, arroces caldosos y cócteles hasta altas horas. Reserva tu mesa.",
     galleryTitle: "Producto · Tradición · Sabor",

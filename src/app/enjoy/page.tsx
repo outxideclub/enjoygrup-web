@@ -168,7 +168,7 @@ export default function EnjoyPage() {
                 <EnjoyLogo className="h-64 md:h-80 w-auto" />
               </motion.div>
             </div>
-            <h1 className="sr-only">Enjoy Terrace</h1>
+            <h1 className="sr-only">{t("enjoy.h1")}</h1>
             <p className="mt-2 text-lg font-bold tracking-[0.2em] text-enjoy/80 uppercase drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">
               {t("enjoy.subtitle")}
             </p>
@@ -253,6 +253,20 @@ export default function EnjoyPage() {
           <span>{t("socialProof.reviewsOn")} TripAdvisor</span>
         </a>
       </div>
+
+      {/* About — branded SEO content */}
+      <section className="relative z-20 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <ScrollReveal>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-6">
+              {t("enjoy.aboutHeading")}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              {t("enjoy.aboutText")}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Gallery */}
       <section className="grain-overlay py-24 md:py-32 relative z-20 bg-[radial-gradient(ellipse_at_30%_50%,rgba(236,72,153,0.18)_0%,transparent_65%)]">

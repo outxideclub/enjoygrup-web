@@ -10,21 +10,27 @@ export const it: Dictionary = {
     ogTitle: "Grupo Enjoy | Bar Cocktail, Club & Ristorante ad Alcúdia",
     ogDescription:
       "Enjoy Terrace, Outxide Club e Hiru Food & Drinks — tre location uniche ad Alcúdia, Maiorca.",
-    enjoyTitle: "Enjoy Terrace | Cocktail & Shisha ad Alcúdia",
+    enjoyTitle: "Enjoy Terrace — Cocktail & Shisha a Port d'Alcúdia",
     enjoyDescription:
-      "Enjoy Terrace: terrazza cocktail e sunset drinks a Port d'Alcúdia, Maiorca. Cocktail d'autore, shisha premium e il miglior tramonto. Aperto tutti i giorni dalle 17:00.",
+      "Enjoy Terrace: terrazza cocktail e sunset drinks a Port d'Alcúdia, Maiorca. Cocktail d'autore, shisha premium e il miglior tramonto. Aperto tutti i giorni dalle 17:00. Sito ufficiale.",
     enjoyOgDescription:
       "Where nights begin. Cocktail d'autore e shisha premium sulla migliore terrazza di Alcúdia.",
-    outxideTitle: "Outxide Club | Discoteca ad Alcúdia, Maiorca",
+    enjoyKeywords:
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktail alcudia, shisha alcudia, sunset drinks maiorca, cocktail bar alcudia, lounge bar maiorca, terrazza bar alcudia",
+    outxideTitle: "Outxide Club — Discoteca a Port d'Alcúdia, Maiorca",
     outxideDescription:
-      "Outxide Club: la migliore discoteca di Alcúdia, Maiorca. Techno, house e reggaeton con DJ internazionali. Acquista biglietti online su FourVenues.",
+      "Outxide Club: discoteca a Port d'Alcúdia, Maiorca. Serate techno, house e reggaeton con DJ internazionali. Acquista biglietti online. Sito ufficiale.",
     outxideOgDescription:
       "The night continues. Discoteca ad Alcúdia. Biglietti online tramite FourVenues.",
-    hiruTitle: "Hiru Food & Drinks | Ristorante alla Griglia ad Alcúdia",
+    outxideKeywords:
+      "outxide club, outxide club alcudia, outxide alcudia, discoteca alcudia, locale notturno alcudia maiorca, techno maiorca, house maiorca, festa alcudia, vita notturna alcudia, biglietti outxide",
+    hiruTitle: "Hiru Food & Drinks — Ristorante alla Griglia ad Alcúdia",
     hiruDescription:
-      "Hiru: ristorante alla brace a Port d'Alcúdia. Paella di mare, carni frollate dry-aged, pesce fresco e risi mediterranei. Prenota un tavolo.",
+      "Hiru Food & Drinks: ristorante alla brace a Port d'Alcúdia, Maiorca. Paella di mare, carni frollate dry-aged, pesce fresco e risi mediterranei. Menu e prenotazioni. Sito ufficiale.",
     hiruOgDescription:
       "Prodotto, tradizione e sapore. Cucina maiorchina alla griglia ad Alcúdia.",
+    hiruKeywords:
+      "hiru food drinks, hiru food and drinks, hiru alcudia, ristorante alcudia, ristorante griglia alcudia, paella alcudia, ristorante port alcudia, mangiare ad alcudia, ristorante maiorca, hiru ristorante",
     aboutTitle: "Chi Siamo — Gastronomia & Vita Notturna ad Alcúdia",
     aboutDescription:
       "Scoprite la storia di Grupo Enjoy: tre spazi unici di svago e gastronomia premium a Port d'Alcúdia, Maiorca. Enjoy Terrace, Outxide Club e Hiru Food & Drinks.",
@@ -73,13 +79,13 @@ export const it: Dictionary = {
   home: {
     enjoySubtitle: "Terrace · Cocktail & Shisha",
     enjoyDescription:
-      "Where nights begin. Cocktail al tramonto, drink d'autore e shisha premium sulla terrazza più vivace di Alcúdia.",
+      "Where nights begin. Enjoy Terrace offre sunset cocktail, drink d'autore e shisha premium sulla migliore terrazza di Port d'Alcúdia.",
     outxideSubtitle: "Club",
     outxideDescription:
-      "The night continues. Discoteca con i migliori DJ, techno, house e reggaeton. La festa migliore di Maiorca.",
+      "The night continues. Outxide Club è la discoteca di riferimento con i migliori DJ, techno, house e reggaeton a Port d'Alcúdia, Maiorca.",
     hiruSubtitle: "Food & Drinks",
     hiruDescription:
-      "Brace, cocktail e buon ambiente. Paella di mare, carni frollate e cocktail fino a tardi a Port d'Alcúdia.",
+      "Griglia, cocktail e buon ambiente. Hiru Food & Drinks offre paella di mare, carni frollate e cocktail fino a tardi a Port d'Alcúdia.",
     threeSpaces: "Tre spazi, un unico standard di eccellenza",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -89,6 +95,10 @@ export const it: Dictionary = {
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktail & Shisha",
+    h1: "Enjoy Terrace — Terrazza Cocktail & Shisha a Port d'Alcúdia, Maiorca",
+    aboutHeading: "Su Enjoy Terrace",
+    aboutText:
+      "Enjoy Terrace è la terrazza cocktail di riferimento a Port d'Alcúdia, Maiorca. Dal 2007, il nostro spazio unisce cocktail d'autore, shisha premium e le migliori viste sul tramonto del Mediterraneo. Situata in Av. Tucán 1, Enjoy Terrace apre tutti i giorni alle 17:00 per un'esperienza unica sul mare. Parte di Grupo Enjoy, insieme a Outxide Club e Hiru Food & Drinks.",
     galleryTitle: "La terrazza",
     menuTitle: "Il Nostro Menu",
     shishaTitle: "Shisha",
@@ -101,6 +111,10 @@ export const it: Dictionary = {
   },
   outxide: {
     tagline: "The night continues",
+    h1: "Outxide Club — Discoteca a Port d'Alcúdia, Maiorca",
+    aboutHeading: "Su Outxide Club",
+    aboutText:
+      "Outxide Club è la discoteca di riferimento a Port d'Alcúdia, Maiorca. Serate techno, house e reggaeton con DJ internazionali rendono ogni notte indimenticabile. Situato in Av. Tucán 1, Outxide apre giovedì, venerdì e sabato dalle 23:00. Acquista i biglietti online tramite FourVenues o prenota un tavolo VIP. Parte di Grupo Enjoy insieme a Enjoy Terrace e Hiru Food & Drinks.",
     description:
       "La migliore discoteca di Alcúdia, Maiorca. Techno, house e reggaeton con DJ internazionali. Acquista i tuoi biglietti online.",
     galleryTitle: "Il club",
@@ -135,6 +149,10 @@ export const it: Dictionary = {
   },
   hiru: {
     subtitle: "Griglia · Cocktail · Good vibes",
+    h1: "Hiru Food & Drinks — Ristorante alla Griglia ad Alcúdia, Maiorca",
+    aboutHeading: "Su Hiru Food & Drinks",
+    aboutText:
+      "Hiru Food & Drinks è un ristorante alla brace ad Alcúdia, Maiorca, specializzato in cucina mediterranea di prodotto. Paella di mare, carni frollate dry-aged, pesce fresco del Mediterraneo e una curata selezione di vini. Situato in Ctra. d'Artà 40, Hiru apre da lunedì a domenica (tranne martedì) dalle 12:00. Parte di Grupo Enjoy insieme a Enjoy Terrace e Outxide Club.",
     description:
       "Ristorante alla brace a Port d'Alcúdia dove il fuoco è protagonista. Carni frollate, paella di mare, risi brodosi e cocktail fino a tardi. Prenota il tuo tavolo.",
     galleryTitle: "Prodotto · Tradizione · Sapore",

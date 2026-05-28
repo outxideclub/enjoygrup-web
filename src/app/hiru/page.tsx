@@ -165,7 +165,7 @@ export default function HiruPage() {
                 <HiruLogo className="h-64 md:h-80 w-auto" />
               </motion.div>
             </div>
-            <h1 className="sr-only">Hiru Food & Drinks</h1>
+            <h1 className="sr-only">{t("hiru.h1")}</h1>
             <p className="mt-2 text-lg tracking-[0.2em] text-hiru/80 uppercase font-bold">
               {t("hiru.subtitle")}
             </p>
@@ -250,6 +250,20 @@ export default function HiruPage() {
               {t("hiru.callToReserve")}
             </a>
           </Button>
+        </div>
+      </section>
+
+      {/* About — branded SEO content */}
+      <section className="relative z-20 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <ScrollReveal>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-6">
+              {t("hiru.aboutHeading")}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              {t("hiru.aboutText")}
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 

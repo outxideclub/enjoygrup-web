@@ -210,7 +210,7 @@ export default function OutxidePage() {
                 <OutxideLogo className="h-64 md:h-80 w-auto" />
               </motion.div>
             </div>
-            <h1 className="sr-only">Outxide Club</h1>
+            <h1 className="sr-only">{t("outxide.h1")}</h1>
             <p className="mt-2 text-lg tracking-[0.2em] text-outxide/80 uppercase font-bold drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
               {t("outxide.tagline")}
             </p>
@@ -271,6 +271,20 @@ export default function OutxidePage() {
             <ArrowRight className="h-4 w-4" />
             <span>{t("outxide.dinnerHiru")}</span>
           </Link>
+        </div>
+      </section>
+
+      {/* About — branded SEO content */}
+      <section className="relative z-20 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <ScrollReveal>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-6">
+              {t("outxide.aboutHeading")}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              {t("outxide.aboutText")}
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 

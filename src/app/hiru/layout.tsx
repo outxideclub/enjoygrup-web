@@ -10,6 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("meta.hiruTitle"),
     description: t("meta.hiruDescription"),
+    keywords: t("meta.hiruKeywords").split(", "),
     // alternates handled by <HreflangTags /> in root layout
     openGraph: {
       title: t("meta.hiruTitle"),

@@ -10,21 +10,27 @@ export const de: Dictionary = {
     ogTitle: "Grupo Enjoy | Cocktailbar, Club & Restaurant in Alcúdia",
     ogDescription:
       "Enjoy Terrace, Outxide Club und Hiru Food & Drinks — drei einzigartige Locations in Alcúdia, Mallorca.",
-    enjoyTitle: "Enjoy Terrace | Cocktails & Shisha in Alcúdia",
+    enjoyTitle: "Enjoy Terrace — Cocktails & Shisha in Port d'Alcúdia",
     enjoyDescription:
-      "Enjoy Terrace: Cocktailterrasse und Sunset-Drinks in Port d'Alcúdia, Mallorca. Signature-Cocktails, Premium-Shisha und der beste Sonnenuntergang. Täglich ab 17:00 geöffnet.",
+      "Enjoy Terrace: Cocktailterrasse und Sunset-Drinks in Port d'Alcúdia, Mallorca. Signature-Cocktails, Premium-Shisha und der beste Sonnenuntergang. Täglich ab 17:00 geöffnet. Offizielle Webseite.",
     enjoyOgDescription:
       "Where nights begin. Signature-Cocktails und Premium-Shisha auf der besten Terrasse in Alcúdia.",
-    outxideTitle: "Outxide Club | Nachtclub in Alcúdia, Mallorca",
+    enjoyKeywords:
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, sunset drinks mallorca, cocktailbar alcudia, lounge bar mallorca, terrasse bar alcudia",
+    outxideTitle: "Outxide Club — Nachtclub in Port d'Alcúdia, Mallorca",
     outxideDescription:
-      "Outxide Club: der beste Nachtclub in Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs. Tickets online kaufen über FourVenues.",
+      "Outxide Club: Nachtclub in Port d'Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs. Tickets online kaufen. Offizielle Webseite.",
     outxideOgDescription:
       "The night continues. Nachtclub in Alcúdia. Online-Tickets über FourVenues.",
-    hiruTitle: "Hiru Food & Drinks | Grillrestaurant in Alcúdia",
+    outxideKeywords:
+      "outxide club, outxide club alcudia, outxide alcudia, nachtclub alcudia, diskothek alcudia mallorca, techno mallorca, house mallorca, party alcudia, nachtleben alcudia, outxide tickets",
+    hiruTitle: "Hiru Food & Drinks — Grillrestaurant in Alcúdia",
     hiruDescription:
-      "Hiru: Grillrestaurant in Port d'Alcúdia. Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Fisch und mediterrane Reisgerichte. Tisch reservieren.",
+      "Hiru Food & Drinks: Grillrestaurant in Port d'Alcúdia, Mallorca. Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Fisch und mediterrane Reisgerichte. Speisekarte und Reservierung. Offizielle Webseite.",
     hiruOgDescription:
       "Produkt, Tradition und Geschmack. Mallorquinische Grillküche in Alcúdia.",
+    hiruKeywords:
+      "hiru food drinks, hiru food and drinks, hiru alcudia, restaurant alcudia, grillrestaurant alcudia, paella alcudia, restaurant port alcudia, essen in alcudia, restaurant mallorca, hiru restaurant",
     aboutTitle: "Über Uns — Gastronomie & Nachtleben in Alcúdia",
     aboutDescription:
       "Lernen Sie die Geschichte von Grupo Enjoy kennen: drei einzigartige Premium-Locations für Freizeit und Gastronomie in Port d'Alcúdia, Mallorca. Enjoy Terrace, Outxide Club und Hiru Food & Drinks.",
@@ -73,13 +79,13 @@ export const de: Dictionary = {
   home: {
     enjoySubtitle: "Terrace · Cocktails & Shisha",
     enjoyDescription:
-      "Where nights begin. Sunset-Cocktails, Signature-Drinks und Premium-Shisha auf der lebendigsten Terrasse in Alcúdia.",
+      "Where nights begin. Enjoy Terrace bietet Sunset-Cocktails, Signature-Drinks und Premium-Shisha auf der besten Terrasse in Port d'Alcúdia.",
     outxideSubtitle: "Club",
     outxideDescription:
-      "The night continues. Nachtclub mit den besten DJs, Techno, House und Reggaeton. Die beste Party auf Mallorca.",
+      "The night continues. Outxide Club ist der Top-Nachtclub mit den besten DJs, Techno, House und Reggaeton in Port d'Alcúdia, Mallorca.",
     hiruSubtitle: "Food & Drinks",
     hiruDescription:
-      "Grill, Cocktails und gute Stimmung. Meeresfrüchte-Paella, Dry-Aged-Fleisch und Cocktails bis spät in Port d'Alcúdia.",
+      "Grill, Cocktails und gute Stimmung. Hiru Food & Drinks bietet Meeresfrüchte-Paella, Dry-Aged-Fleisch und Cocktails bis spät in Port d'Alcúdia.",
     threeSpaces: "Drei Locations, ein Qualitätsanspruch",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -89,6 +95,10 @@ export const de: Dictionary = {
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Shisha",
+    h1: "Enjoy Terrace — Cocktail- & Shisha-Terrasse in Port d'Alcúdia, Mallorca",
+    aboutHeading: "Über Enjoy Terrace",
+    aboutText:
+      "Enjoy Terrace ist die Top-Cocktailterrasse in Port d'Alcúdia, Mallorca. Seit 2007 verbindet unser Lokal Signature-Cocktails, Premium-Shisha und die besten Sonnenuntergangs-Ausblicke des Mittelmeers. In der Av. Tucán 1 gelegen, öffnet Enjoy Terrace täglich ab 17:00 für ein einzigartiges Erlebnis am Meer. Teil von Grupo Enjoy, zusammen mit Outxide Club und Hiru Food & Drinks.",
     galleryTitle: "Die Terrasse",
     menuTitle: "Unsere Karte",
     shishaTitle: "Shisha",
@@ -101,6 +111,10 @@ export const de: Dictionary = {
   },
   outxide: {
     tagline: "The night continues",
+    h1: "Outxide Club — Nachtclub in Port d'Alcúdia, Mallorca",
+    aboutHeading: "Über Outxide Club",
+    aboutText:
+      "Outxide Club ist der führende Nachtclub in Port d'Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs machen jede Nacht unvergesslich. In der Av. Tucán 1 gelegen, öffnet Outxide donnerstags, freitags und samstags ab 23:00. Tickets online über FourVenues oder VIP-Tisch reservieren. Teil von Grupo Enjoy zusammen mit Enjoy Terrace und Hiru Food & Drinks.",
     description:
       "Der beste Nachtclub in Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs. Kaufen Sie Ihre Tickets online.",
     galleryTitle: "Der Club",
@@ -135,6 +149,10 @@ export const de: Dictionary = {
   },
   hiru: {
     subtitle: "Grill · Cocktails · Good vibes",
+    h1: "Hiru Food & Drinks — Grillrestaurant in Alcúdia, Mallorca",
+    aboutHeading: "Über Hiru Food & Drinks",
+    aboutText:
+      "Hiru Food & Drinks ist ein Grillrestaurant in Alcúdia, Mallorca, spezialisiert auf produktorientierte Mittelmeerküche. Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Mittelmeerfisch und eine kuratierte Weinkarte. In der Ctra. d'Artà 40 gelegen, öffnet Hiru Montag bis Sonntag (außer Dienstag) ab 12:00. Teil von Grupo Enjoy zusammen mit Enjoy Terrace und Outxide Club.",
     description:
       "Grillrestaurant in Port d'Alcúdia, wo das Feuer die Hauptrolle spielt. Dry-Aged-Fleisch, Meeresfrüchte-Paella, Reisgerichte und Cocktails bis spät. Reservieren Sie Ihren Tisch.",
     galleryTitle: "Produkt · Tradition · Geschmack",
