@@ -47,6 +47,7 @@ export default function EnjoyPage() {
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
   const [loadVideo, setLoadVideo] = useState(false);
+  const [isFirstMount, setIsFirstMount] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const drinkSections = (drinkMenus[locale] ?? drinkMenus.en) as unknown as MenuSection[];
@@ -57,6 +58,11 @@ export default function EnjoyPage() {
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
+  }, []);
+
+  useEffect(() => {
+    setIsFirstMount(false);
+    document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
   }, []);
 
   useEffect(() => {
@@ -148,9 +154,10 @@ export default function EnjoyPage() {
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            data-hero
+            initial={isFirstMount ? false : { opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: isFirstMount ? 0 : 1.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link
               href="/"
@@ -161,9 +168,10 @@ export default function EnjoyPage() {
             </Link>
             <div className="flex items-center justify-center mb-6">
               <motion.div
-                initial={{ filter: "blur(10px)", opacity: 0 }}
+                data-hero
+                initial={isFirstMount ? false : { filter: "blur(10px)", opacity: 0 }}
                 animate={{ filter: "blur(0px)", opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.2 }}
+                transition={{ duration: isFirstMount ? 0 : 1.5, delay: isFirstMount ? 0 : 0.2 }}
               >
                 <EnjoyLogo className="h-64 md:h-80 w-auto" />
               </motion.div>

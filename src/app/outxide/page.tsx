@@ -94,10 +94,16 @@ export default function OutxidePage() {
 
   const [videoReady, setVideoReady] = useState(false);
   const [loadVideo, setLoadVideo] = useState(false);
+  const [isFirstMount, setIsFirstMount] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
+  }, []);
+
+  useEffect(() => {
+    setIsFirstMount(false);
+    document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
   }, []);
 
   useEffect(() => {
@@ -190,9 +196,10 @@ export default function OutxidePage() {
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            data-hero
+            initial={isFirstMount ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: isFirstMount ? 0 : 1 }}
           >
             <Link
               href="/"
@@ -203,9 +210,10 @@ export default function OutxidePage() {
             </Link>
             <div className="flex items-center justify-center mb-6">
               <motion.div
-                initial={{ scale: 0.5, rotateY: 180, opacity: 0 }}
+                data-hero
+                initial={isFirstMount ? false : { scale: 0.5, rotateY: 180, opacity: 0 }}
                 animate={{ scale: 1, rotateY: 0, opacity: 1 }}
-                transition={{ duration: 1.5, type: "spring", stiffness: 50 }}
+                transition={{ duration: isFirstMount ? 0 : 1.5, type: "spring", stiffness: 50 }}
               >
                 <OutxideLogo className="h-64 md:h-80 w-auto" />
               </motion.div>

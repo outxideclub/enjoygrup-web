@@ -50,6 +50,7 @@ export default function HiruPage() {
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
   const [loadVideo, setLoadVideo] = useState(false);
+  const [isFirstMount, setIsFirstMount] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const menuSections = (menus[locale] ?? menus.en) as unknown as MenuSection[];
@@ -59,6 +60,11 @@ export default function HiruPage() {
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
+  }, []);
+
+  useEffect(() => {
+    setIsFirstMount(false);
+    document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
   }, []);
 
   useEffect(() => {
@@ -145,9 +151,10 @@ export default function HiruPage() {
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            data-hero
+            initial={isFirstMount ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: isFirstMount ? 0 : 1.2, ease: "easeOut" }}
           >
             <Link
               href="/"
@@ -158,9 +165,10 @@ export default function HiruPage() {
             </Link>
             <div className="flex items-center justify-center mb-6">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                data-hero
+                initial={isFirstMount ? false : { opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
+                transition={{ duration: isFirstMount ? 0 : 1, delay: isFirstMount ? 0 : 0.3 }}
               >
                 <HiruLogo className="h-64 md:h-80 w-auto" />
               </motion.div>
