@@ -315,6 +315,12 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           { "@type": "LocationFeatureSpecification", name: "Themed Parties", value: true },
           { "@type": "LocationFeatureSpecification", name: "Bottle Service", value: true },
         ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "5.0",
+          bestRating: "5",
+          reviewCount: "33",
+        },
         hasMap: "https://www.google.com/maps/search/?api=1&query=Outxide+Club+Av+Tucan+1+Alcudia",
         isAccessibleForFree: false,
         currenciesAccepted: "EUR",
