@@ -38,6 +38,876 @@ export function getPostText(
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "que-hacer-alcudia-mallorca",
+    title: {
+      es: "Que Hacer en Alcudia: 15 Planes Imprescindibles en 2026",
+      en: "15 Best Things to Do in Alcudia, Mallorca (2026 Guide)",
+      de: "Was kann man in Alcudia unternehmen: 15 Aktivitaten fur 2026",
+      fr: "Que Faire a Alcudia : 15 Activites Incontournables en 2026",
+      it: "Cosa Fare ad Alcudia: 15 Attivita Imperdibili nel 2026",
+    },
+    excerpt: {
+      es: "Descubre que hacer en Alcudia, Mallorca: playas, casco antiguo, mercados, deportes acuaticos, ciclismo, excursiones en barco, senderismo y la mejor vida nocturna del norte de la isla.",
+      en: "Discover the best things to do in Alcudia, Mallorca: beaches, old town, markets, water sports, cycling, boat trips, hiking and the best nightlife in northern Mallorca.",
+      de: "Entdecke die besten Aktivitaten in Alcudia, Mallorca: Strande, Altstadt, Markte, Wassersport, Radfahren, Bootsausfluge, Wandern und das beste Nachtleben im Norden der Insel.",
+      fr: "Decouvrez les meilleures activites a Alcudia, Majorque : plages, vieille ville, marches, sports nautiques, cyclisme, excursions en bateau, randonnees et la meilleure vie nocturne du nord de l'ile.",
+      it: "Scopri le migliori cose da fare ad Alcudia, Maiorca: spiagge, centro storico, mercati, sport acquatici, ciclismo, gite in barca, escursionismo e la migliore vita notturna del nord dell'isola.",
+    },
+    content: {
+      es: `<p>Alcudia es uno de los destinos mas completos de Mallorca. Situada en el extremo norte de la isla, esta ciudad combina historia medieval, playas espectaculares, naturaleza protegida y una oferta gastronomica y de ocio que no deja de crecer. Si te preguntas que hacer en Alcudia, aqui tienes 15 planes imprescindibles que cubren desde la manana hasta bien entrada la noche.</p>
+
+<h2>1. Recorrer el casco antiguo amurallado</h2>
+<p>El casco antiguo de Alcudia es uno de los mejor conservados de Mallorca. La muralla medieval del siglo XIV rodea un laberinto de calles empedradas con casas senoriales, iglesias goticas y rincones con encanto. No te pierdas la Puerta de Mallorca, la Puerta del Moll, la iglesia de Sant Jaume y el Ayuntamiento. El paseo por encima de la muralla ofrece vistas panoramicas al puerto, la bahia y las montanas de la Serra de Tramuntana.</p>
+<p><strong>Consejo local:</strong> Llega temprano por la manana o al atardecer para evitar el calor y disfrutar de la luz mas bonita para fotos. El recorrido completo por la muralla toma unos 30 minutos.</p>
+
+<h2>2. Relajarte en la Platja d'Alcudia</h2>
+<p>Con mas de 7 kilometros de arena fina y aguas turquesas poco profundas, la playa de Alcudia es una de las mejores de Mallorca. Es perfecta para familias gracias a su entrada gradual al mar y su equipamiento completo: hamacas, sombrillas, chiringuitos y zonas de deportes acuaticos. La parte norte, cerca de la Ciudad Blanca, es la mas tranquila.</p>
+<p><strong>Como llegar:</strong> Desde el centro de Port d'Alcudia, la playa esta a menos de 5 minutos a pie. Hay aparcamiento publico en la avenida principal, aunque en temporada alta conviene llegar antes de las 10:00.</p>
+
+<h2>3. Visitar las ruinas romanas de Pollentia</h2>
+<p>Justo a las afueras del casco antiguo se encuentran las ruinas de Pollentia, la ciudad romana mas importante de Mallorca, fundada en el 123 a.C. Puedes recorrer el foro, las viviendas patricias y el pequeno teatro romano. El Museu Monografic de Pollentia, dentro del casco historico, complementa la visita con piezas encontradas en las excavaciones.</p>
+<p><strong>Datos practicos:</strong> Abierto de martes a sabado, de 10:00 a 16:00 en temporada alta. La entrada combinada ruinas + museo cuesta unos 4 EUR.</p>
+
+<h2>4. Perderte en el mercado de los martes y domingos</h2>
+<p>El mercado semanal de Alcudia se celebra los martes y domingos por la manana en las calles del casco antiguo. Es uno de los mas grandes de Mallorca y una explosion de color: frutas y verduras locales, embutido mallorquin (sobrasada, botifarron), quesos de Mahon, aceitunas, ensaimadas recien hechas, ceramica artesanal, ropa y complementos. Es el lugar perfecto para comprar productos tipicos y sumergirte en la cultura local.</p>
+<p><strong>Consejo local:</strong> Llega entre las 8:30 y las 10:00 para disfrutarlo sin aglomeraciones. Los domingos el mercado es mas pequeno pero menos turistico.</p>
+
+<h2>5. Hacer deportes acuaticos en la bahia</h2>
+<p>La bahia de Alcudia es un paraiso para los deportes acuaticos. Las aguas tranquilas y el viento constante la convierten en un spot ideal para paddle surf, kayak, windsurf y kitesurf. Varias escuelas en la playa ofrecen clases para principiantes y alquiler de material. Tambien puedes probar el parasailing, el jet ski o el banana boat para una dosis extra de adrenalina.</p>
+<p><strong>Mejor momento:</strong> Las mananas suelen ser mas tranquilas para paddle surf y kayak. Por la tarde sube el viento, ideal para windsurf y kite.</p>
+
+<h2>6. Excursion en barco a la Formentor y cuevas marinas</h2>
+<p>Desde el puerto de Alcudia salen excursiones en barco que te llevan a la espectacular peninsula de Formentor, con sus acantilados verticales, calas escondidas y aguas cristalinas. Algunas rutas incluyen paradas para nadar en calas solo accesibles por mar y visitas a cuevas marinas. Es una de las experiencias mas memorables que puedes vivir en el norte de Mallorca.</p>
+<p><strong>Opciones:</strong> Hay desde catamaranes para grupos grandes hasta lanchas privadas para experiencias mas exclusivas. Las salidas suelen ser a las 10:00 y duran entre 3 y 6 horas. Reserva con antelacion en temporada alta.</p>
+
+<h2>7. Ciclismo por las rutas del norte</h2>
+<p>Alcudia es la capital del ciclismo en Mallorca. Miles de ciclistas profesionales y aficionados eligen la zona como base de entrenamiento cada ano. Las rutas van desde paseos llanos por la bahia y el parque natural de s'Albufera hasta ascensiones epicas como el Cap de Formentor, el Coll de Sa Batalla o el Puig Major. Hay tiendas de alquiler de bicicletas de carretera, gravel y mountain bike por toda la zona.</p>
+<p><strong>Ruta recomendada para principiantes:</strong> Alcudia - Can Picafort por la via verde costera (30 km ida y vuelta, totalmente llano, vistas al mar todo el trayecto).</p>
+
+<h2>8. Senderismo en la Victoria</h2>
+<p>La peninsula de la Victoria, al este de Alcudia, es un tesoro para los amantes del senderismo. La ruta mas popular es la subida a la Talaia d'Alcudia (444 metros), con vistas de 360 grados sobre la bahia, la peninsula de Formentor y, en dias claros, hasta Menorca. Tambien puedes caminar hasta la Cala des Coll Baix, una de las playas mas bonitas y salvajes de Mallorca, accesible solo a pie o en barco.</p>
+<p><strong>Datos practicos:</strong> La subida a la Talaia toma unas 2 horas ida y vuelta. Lleva agua, proteccion solar y calzado adecuado. El camino a Coll Baix es mas exigente (unos 45 minutos de bajada con tramos de roca).</p>
+
+<h2>9. Explorar el Parc Natural de s'Albufera</h2>
+<p>S'Albufera es el humedal mas grande de las Baleares y uno de los mejores lugares de Europa para la observacion de aves. Mas de 300 especies han sido registradas aqui, incluyendo aguila pescadora, flamencos, garzas y numerosas aves migratorias. Los senderos del parque son llanos y accesibles, con observatorios estrategicamente situados. La entrada es gratuita y hay un centro de visitantes con informacion sobre la fauna y flora.</p>
+<p><strong>Consejo:</strong> Las primeras horas de la manana y el atardecer son los mejores momentos para ver aves. Lleva prismaticos si puedes.</p>
+
+<h2>10. Cenar a la brasa con producto local</h2>
+<p>Despues de un dia explorando Alcudia, nada mejor que una buena cena con producto fresco y cocinado a la brasa. <a href="/hiru">Hiru Food &amp; Drinks</a>, en la Ctra. d'Arta 40 de Port d'Alcudia, se ha convertido en la referencia gastronomica de la zona. Su cocina se basa en carnes maduradas seleccionadas, arroces elaborados con pescado y marisco de la lonja local, y pescados del Mediterraneo cocinados al punto perfecto sobre carbon. El ambiente es moderno y relajado, perfecto para una cena larga con buena compania.</p>
+<p><strong>Horario:</strong> Abierto de 12:00 a 23:30 (viernes y sabado hasta la 1:00). Cierra los martes. Reservar mesa es recomendable, especialmente en fin de semana.</p>
+
+<h2>11. Cocteles al atardecer con vistas</h2>
+<p>Alcudia tiene algunos de los atardeceres mas bonitos de Mallorca, y no hay mejor forma de disfrutarlos que con un buen coctel en la mano. <a href="/enjoy">Enjoy Terrace</a>, en Av. Tucan 1 de Port d'Alcudia, es el lugar donde locales y visitantes se reúnen cada tarde para ver caer el sol. La carta de cocteles de autor, combinada con shisha premium y un ambiente sofisticado, hace que sea facil quedarse hasta bien entrada la noche. Abre todos los dias a partir de las 17:00.</p>
+<p><strong>Consejo:</strong> Llega unos 30 minutos antes del atardecer para coger buen sitio. Los bartenders te pueden recomendar combinaciones segun tus gustos.</p>
+
+<h2>12. Vida nocturna de nivel</h2>
+<p>La noche en Port d'Alcudia tiene un nombre propio: <a href="/outxide">Outxide Club</a>. Es la referencia del clubbing en el norte de Mallorca, con sonido profesional de primer nivel, DJs nacionales e internacionales y una produccion visual espectacular. Abre de jueves a sabado a partir de las 23:00, de mayo a octubre. La ubicacion es perfecta para combinar con una cena en Hiru y cocteles en Enjoy Terrace antes de entrar al club.</p>
+<p><strong>Entradas:</strong> Disponibles a traves de FourVenues (plataforma oficial) o en la puerta. Comprar online suele tener mejor precio.</p>
+
+<h2>13. Visitar la Cueva de Sant Marti</h2>
+<p>Cerca de la Ermita de la Victoria, la Cueva de Sant Marti es una gruta natural convertida en capilla que merece una visita. Las dos salas excavadas en la roca albergan altares y pinturas antiguas. El entorno es espectacular, rodeado de bosque de pinos y con vistas al mar. La visita es gratuita y se combina perfectamente con la ruta de senderismo a la Talaia.</p>
+
+<h2>14. Alquilar un barco y explorar la costa</h2>
+<p>Si quieres libertad total para explorar la costa norte de Mallorca, alquilar un barco sin titulacion es una opcion cada vez mas popular en Alcudia. Hay empresas que alquilan lanchas de hasta 15 CV que no requieren licencia, perfectas para recorrer la bahia, fondear en calas escondidas y llegar a playas como Coll Baix, Cala Morella o la costa de Formentor. Para embarcaciones mas grandes, necesitaras licencia o un patron incluido.</p>
+<p><strong>Donde:</strong> En el puerto deportivo de Alcudia hay varias empresas de charter. Los precios varian segun el tipo de embarcacion y la temporada.</p>
+
+<h2>15. Recorrer Alcudia en segway o bicicleta electrica</h2>
+<p>Para quienes prefieren una actividad mas relajada, los tours en segway o bicicleta electrica son una forma divertida de explorar Port d'Alcudia, el paseo maritimo y los alrededores del parque de s'Albufera sin esfuerzo. Varias empresas ofrecen rutas guiadas que incluyen paradas en miradores y puntos de interes historico.</p>
+
+<h2>Tu dia perfecto en Alcudia</h2>
+<p>Si tuvieras que elegir un solo dia, aqui va nuestra recomendacion: empieza con una visita al casco antiguo y el mercado (si es martes o domingo), banate en la playa de Alcudia por la manana, come un arroz de lonja en <a href="/hiru">Hiru Food &amp; Drinks</a>, dedica la tarde a una excursion en barco o senderismo en la Victoria, disfruta del atardecer con cocteles en <a href="/enjoy">Enjoy Terrace</a>, y si es jueves, viernes o sabado, cierra la noche bailando en <a href="/outxide">Outxide Club</a>. Alcudia lo tiene todo, concentrado y a tu alcance.</p>`,
+      en: `<p>Alcudia is one of the most complete destinations in Mallorca. Perched on the northern tip of the island, this town blends medieval history, spectacular beaches, protected natural areas and an ever-growing food and entertainment scene. If you are wondering what to do in Alcudia, here are 15 essential plans that cover everything from early morning to late at night.</p>
+
+<h2>1. Walk the medieval walled old town</h2>
+<p>Alcudia's old town boasts some of the best-preserved medieval walls in Mallorca. The 14th-century fortifications encircle a maze of cobblestone streets lined with stately homes, Gothic churches and hidden corners. Do not miss the Porta de Mallorca, the Porta del Moll, the church of Sant Jaume and the Town Hall. Walking along the top of the wall rewards you with panoramic views across the harbour, the bay and the Tramuntana mountains.</p>
+<p><strong>Local tip:</strong> Arrive early in the morning or at sunset to beat the heat and catch the best light for photos. A full circuit along the ramparts takes around 30 minutes.</p>
+
+<h2>2. Relax at Platja d'Alcudia</h2>
+<p>Stretching over 7 kilometres of fine white sand with shallow turquoise waters, Alcudia beach ranks among the finest on the island. It is ideal for families thanks to the gentle slope into the sea and full facilities including sunbeds, parasols, beach bars and water-sport stations. The northern end near Ciudad Blanca is the quietest stretch.</p>
+<p><strong>How to get there:</strong> From central Port d'Alcudia the beach is less than a five-minute walk. Public car parks line the main avenue, but during peak season aim to arrive before 10:00.</p>
+
+<h2>3. Visit the Roman ruins of Pollentia</h2>
+<p>Just outside the old-town walls lie the remains of Pollentia, the most important Roman settlement in Mallorca, founded in 123 BC. You can explore the forum, patrician houses and a small Roman theatre. The Museu Monografic de Pollentia inside the historic centre complements the visit with artefacts unearthed during excavations.</p>
+<p><strong>Practical info:</strong> Open Tuesday to Saturday, 10:00 to 16:00 in high season. A combined ticket for the ruins and the museum costs around 4 EUR.</p>
+
+<h2>4. Browse the Tuesday and Sunday markets</h2>
+<p>Alcudia's weekly market takes over the old-town streets every Tuesday and Sunday morning. It is one of the largest on the island and a riot of colour: local fruit and vegetables, Mallorcan charcuterie (sobrasada, botifarron), Mahon cheese, olives, freshly baked ensaimadas, handmade ceramics, clothing and accessories. It is the perfect place to pick up authentic local produce and soak up the culture.</p>
+<p><strong>Local tip:</strong> Arrive between 08:30 and 10:00 to enjoy the market without the crowds. The Sunday edition is smaller but far less touristy.</p>
+
+<h2>5. Try water sports in the bay</h2>
+<p>The Bay of Alcudia is a paradise for water sports. Calm waters and steady wind make it an ideal spot for stand-up paddleboarding, kayaking, windsurfing and kitesurfing. Several schools along the beach offer beginner lessons and equipment hire. For an extra adrenaline hit, parasailing, jet-skiing and banana-boat rides are also on the menu.</p>
+<p><strong>Best time:</strong> Mornings tend to be calmer for paddleboarding and kayaking. The afternoon breeze picks up nicely for windsurfing and kiting.</p>
+
+<h2>6. Take a boat trip to Formentor and sea caves</h2>
+<p>Boat excursions depart from Alcudia harbour and head for the dramatic Formentor peninsula, with its sheer cliffs, hidden coves and crystal-clear water. Some routes include swimming stops at coves only reachable by sea and visits to marine caves. It is one of the most memorable experiences in northern Mallorca.</p>
+<p><strong>Options:</strong> You can choose anything from large catamarans to private speedboats for a more exclusive outing. Departures are usually around 10:00 and last between three and six hours. Book ahead in high season.</p>
+
+<h2>7. Cycling on the northern routes</h2>
+<p>Alcudia is the cycling capital of Mallorca. Thousands of professional and amateur riders choose the area as a training base every year. Routes range from flat bay-side spins and laps through the s'Albufera nature reserve to epic climbs such as Cap de Formentor, Coll de Sa Batalla and Puig Major. Road-bike, gravel-bike and mountain-bike hire shops are plentiful throughout the area.</p>
+<p><strong>Recommended beginner route:</strong> Alcudia to Can Picafort on the coastal greenway (30 km round trip, completely flat, sea views the whole way).</p>
+
+<h2>8. Hike on the Victoria peninsula</h2>
+<p>The Victoria peninsula east of Alcudia is a gem for hikers. The most popular route climbs to the Talaia d'Alcudia (444 metres), offering 360-degree views across the bay, the Formentor peninsula and, on clear days, as far as Menorca. You can also walk down to Cala des Coll Baix, one of the most beautiful and wild beaches in Mallorca, accessible only on foot or by boat.</p>
+<p><strong>Practical info:</strong> The Talaia round trip takes about two hours. Carry water, sun protection and proper footwear. The trail to Coll Baix is more demanding (around 45 minutes downhill with rocky sections).</p>
+
+<h2>9. Explore the s'Albufera nature reserve</h2>
+<p>S'Albufera is the largest wetland in the Balearic Islands and one of the best birdwatching sites in Europe. More than 300 species have been recorded here, including osprey, flamingo, heron and numerous migratory birds. Trails are flat and accessible, with strategically placed hides. Entry is free and there is a visitors' centre with information on local wildlife and flora.</p>
+<p><strong>Tip:</strong> Early morning and late afternoon are the best times for birdwatching. Bring binoculars if you can.</p>
+
+<h2>10. Dine on charcoal-grilled local produce</h2>
+<p>After a day exploring Alcudia, nothing beats a proper sit-down dinner with fresh local ingredients cooked over charcoal. <a href="/hiru">Hiru Food &amp; Drinks</a>, on Ctra. d'Arta 40 in Port d'Alcudia, has become the gastronomic benchmark of the area. The kitchen revolves around hand-selected aged meats, rice dishes prepared with fish and shellfish from the local market, and Mediterranean fish grilled to perfection over charcoal. The atmosphere is modern and relaxed, ideal for a long dinner with good company.</p>
+<p><strong>Hours:</strong> Open 12:00 to 23:30 (Friday and Saturday until 01:00). Closed Tuesdays. Booking is recommended, especially at weekends.</p>
+
+<h2>11. Sunset cocktails with a view</h2>
+<p>Alcudia enjoys some of the most stunning sunsets in Mallorca, and there is no better way to savour them than with a quality cocktail in hand. <a href="/enjoy">Enjoy Terrace</a>, at Av. Tucan 1 in Port d'Alcudia, is where locals and visitors gather every evening to watch the sun dip below the horizon. The menu of signature cocktails, paired with premium shisha and a sophisticated ambiance, makes it easy to stay well into the night. Open daily from 17:00.</p>
+<p><strong>Tip:</strong> Arrive about 30 minutes before sunset to grab a good spot. The bartenders are happy to recommend combinations based on your taste.</p>
+
+<h2>12. World-class nightlife</h2>
+<p>When it comes to after-dark action in Port d'Alcudia, <a href="/outxide">Outxide Club</a> is the undisputed reference. It is the top clubbing destination in northern Mallorca, with professional-grade sound, national and international DJs and spectacular visual production. Open Thursday to Saturday from 23:00, May through October. The location is perfect for combining a dinner at Hiru and cocktails at Enjoy Terrace before heading into the club.</p>
+<p><strong>Tickets:</strong> Available through FourVenues (the official platform) or at the door. Buying online usually means a better price.</p>
+
+<h2>13. Visit the Cave of Sant Marti</h2>
+<p>Near the Ermita de la Victoria, the Cave of Sant Marti is a natural grotto converted into a chapel that is well worth a visit. Two chambers carved into the rock house ancient altars and paintings. The setting is spectacular, surrounded by pine forest with sea views. Entry is free and the visit combines perfectly with the Talaia hiking route.</p>
+
+<h2>14. Rent a boat and explore the coastline</h2>
+<p>If you want total freedom to discover the northern Mallorcan coast, renting a boat without a licence is an increasingly popular option in Alcudia. Companies hire out small motorboats of up to 15 HP that require no licence, ideal for cruising the bay, anchoring in hidden coves and reaching beaches such as Coll Baix, Cala Morella and the Formentor coast. For larger vessels you will need a licence or a skipper included in the hire.</p>
+<p><strong>Where:</strong> Several charter companies operate from Alcudia marina. Prices vary depending on the boat type and the season.</p>
+
+<h2>15. Discover Alcudia by Segway or e-bike</h2>
+<p>For a more laid-back activity, Segway or electric-bike tours are a fun way to explore Port d'Alcudia, the seafront promenade and the s'Albufera surroundings without breaking a sweat. Several operators run guided routes with stops at viewpoints and historical landmarks.</p>
+
+<h2>Your perfect day in Alcudia</h2>
+<p>If you only had one day, here is our recommendation: start with the old town and the market (if it is Tuesday or Sunday), swim at Alcudia beach in the morning, have a seafood rice dish for lunch at <a href="/hiru">Hiru Food &amp; Drinks</a>, spend the afternoon on a boat trip or hiking on the Victoria peninsula, enjoy sunset cocktails at <a href="/enjoy">Enjoy Terrace</a>, and if it is Thursday, Friday or Saturday, close the night dancing at <a href="/outxide">Outxide Club</a>. Alcudia has it all, compact and within reach.</p>`,
+      de: `<p>Alcudia ist eines der vielseitigsten Reiseziele auf Mallorca. An der Nordspitze der Insel gelegen, vereint die Stadt mittelalterliche Geschichte, spektakulare Strande, geschutzte Naturgebiete und ein stetig wachsendes Gastronomie- und Freizeitangebot. Wenn du dich fragst, was man in Alcudia unternehmen kann, findest du hier 15 unverzichtbare Aktivitaten, die vom fruhen Morgen bis tief in die Nacht reichen.</p>
+
+<h2>1. Die mittelalterliche Altstadt erkunden</h2>
+<p>Die Altstadt von Alcudia besitzt eine der am besten erhaltenen mittelalterlichen Stadtmauern Mallorcas. Die Befestigungen aus dem 14. Jahrhundert umschliessen ein Labyrinth aus Kopfsteinpflastergassen mit herrschaftlichen Hausern, gotischen Kirchen und versteckten Winkeln. Besonders sehenswert sind die Porta de Mallorca, die Porta del Moll, die Kirche Sant Jaume und das Rathaus. Ein Spaziergang auf der Mauer belohnt dich mit Panoramablicken uber den Hafen, die Bucht und das Tramuntana-Gebirge.</p>
+<p><strong>Tipp:</strong> Komm frueh morgens oder zum Sonnenuntergang, um der Hitze auszuweichen und das schoenste Licht fur Fotos zu erwischen. Ein kompletter Rundgang auf der Mauer dauert etwa 30 Minuten.</p>
+
+<h2>2. Am Strand von Alcudia entspannen</h2>
+<p>Mit uber 7 Kilometern feinem weissen Sand und turkisfarbenem, flach abfallendem Wasser gehort der Strand von Alcudia zu den besten der Insel. Er ist ideal fur Familien dank des sanften Einstiegs ins Meer und der kompletten Ausstattung mit Liegen, Sonnenschirmen, Strandbars und Wassersportstationen. Der noerdliche Abschnitt nahe der Ciudad Blanca ist am ruhigsten.</p>
+<p><strong>Anfahrt:</strong> Vom Zentrum von Port d'Alcudia ist der Strand weniger als funf Gehminuten entfernt. Oeffentliche Parkplatze gibt es an der Hauptstrasse, aber in der Hochsaison solltest du vor 10:00 Uhr kommen.</p>
+
+<h2>3. Die roemischen Ruinen von Pollentia besichtigen</h2>
+<p>Direkt vor den Altstadtmauern liegen die Ruinen von Pollentia, der wichtigsten roemischen Siedlung Mallorcas, gegrundet 123 v. Chr. Du kannst das Forum, Patrizierhaeuser und ein kleines roemisches Theater erkunden. Das Museu Monografic de Pollentia im historischen Zentrum ergaenzt den Besuch mit Fundstucken aus den Ausgrabungen.</p>
+<p><strong>Praktische Infos:</strong> Geoeffnet Dienstag bis Samstag, 10:00 bis 16:00 Uhr in der Hauptsaison. Ein Kombiticket fur Ruinen und Museum kostet ca. 4 EUR.</p>
+
+<h2>4. Den Dienstags- und Sonntagsmarkt besuchen</h2>
+<p>Der Wochenmarkt von Alcudia findet jeden Dienstag und Sonntag morgens in den Gassen der Altstadt statt. Er ist einer der groessten der Insel und ein Farbenmeer: lokales Obst und Gemuese, mallorquinische Wurstspezialitaeten (Sobrasada, Botifarron), Mahon-Kaese, Oliven, frisch gebackene Ensaimadas, handgefertigte Keramik, Kleidung und Accessoires. Der perfekte Ort, um authentische lokale Produkte zu kaufen und in die Kultur einzutauchen.</p>
+<p><strong>Tipp:</strong> Komm zwischen 8:30 und 10:00 Uhr, um den Markt ohne Gedraenge zu geniessen. Die Sonntagsausgabe ist kleiner, aber deutlich weniger touristisch.</p>
+
+<h2>5. Wassersport in der Bucht</h2>
+<p>Die Bucht von Alcudia ist ein Paradies fur Wassersport. Ruhiges Wasser und bestaendiger Wind machen sie zum idealen Spot fur Stand-Up-Paddling, Kajakfahren, Windsurfen und Kitesurfen. Mehrere Schulen am Strand bieten Anfaengerkurse und Materialverleih an. Fur einen Extra-Adrenalinkick gibt es auch Parasailing, Jetski und Bananenbootfahrten.</p>
+<p><strong>Beste Zeit:</strong> Vormittags ist es ruhiger fur Paddleboarding und Kajak. Nachmittags frischt der Wind auf, ideal zum Windsurfen und Kiten.</p>
+
+<h2>6. Bootsausflug nach Formentor und zu den Meereshoehlen</h2>
+<p>Vom Hafen Alcudia starten Bootsausfluege zur spektakulaeren Halbinsel Formentor mit ihren senkrechten Klippen, versteckten Buchten und kristallklarem Wasser. Einige Routen beinhalten Badestopps in Buchten, die nur vom Meer aus erreichbar sind, und Besuche von Meereshoehlen. Es ist eines der unvergesslichsten Erlebnisse im Norden Mallorcas.</p>
+<p><strong>Optionen:</strong> Du kannst zwischen grossen Katamaranen und privaten Schnellbooten fur ein exklusiveres Erlebnis waehlen. Abfahrten sind normalerweise um 10:00 Uhr, Dauer zwischen 3 und 6 Stunden. In der Hochsaison vorher reservieren.</p>
+
+<h2>7. Radfahren auf den Nordrouten</h2>
+<p>Alcudia ist die Radsporthauptstadt Mallorcas. Tausende Profi- und Hobbyradfahrer waehlen die Gegend jedes Jahr als Trainingsbasis. Die Routen reichen von flachen Touren entlang der Bucht und durch den Naturpark s'Albufera bis zu legendaeren Anstiegen wie dem Cap de Formentor, dem Coll de Sa Batalla oder dem Puig Major. Verleihe fur Rennraeder, Gravelbikes und Mountainbikes gibt es ueberall in der Gegend.</p>
+<p><strong>Empfohlene Anfaengerroute:</strong> Alcudia nach Can Picafort auf dem Kuesten-Radweg (30 km Rundstrecke, komplett flach, Meerblick die gesamte Strecke).</p>
+
+<h2>8. Wandern auf der Halbinsel Victoria</h2>
+<p>Die Halbinsel Victoria oestlich von Alcudia ist ein Juwel fur Wanderer. Die beliebteste Route fuhrt auf die Talaia d'Alcudia (444 Meter), mit 360-Grad-Panoramablick uber die Bucht, die Halbinsel Formentor und an klaren Tagen bis nach Menorca. Du kannst auch hinunter zur Cala des Coll Baix wandern, einem der schoensten und wildesten Straende Mallorcas, der nur zu Fuss oder per Boot erreichbar ist.</p>
+<p><strong>Praktische Infos:</strong> Die Talaia-Rundwanderung dauert etwa 2 Stunden. Nimm Wasser, Sonnenschutz und geeignetes Schuhwerk mit. Der Weg zum Coll Baix ist anspruchsvoller (ca. 45 Minuten Abstieg mit felsigen Abschnitten).</p>
+
+<h2>9. Den Naturpark s'Albufera erkunden</h2>
+<p>S'Albufera ist das groesste Feuchtgebiet der Balearen und einer der besten Orte Europas zur Vogelbeobachtung. Uber 300 Arten wurden hier registriert, darunter Fischadler, Flamingos, Reiher und zahlreiche Zugvoegel. Die Wege im Park sind flach und barrierefrei, mit strategisch platzierten Beobachtungshuetten. Der Eintritt ist frei, ein Besucherzentrum informiert uber Fauna und Flora.</p>
+<p><strong>Tipp:</strong> Die fruehen Morgenstunden und der spaete Nachmittag sind die besten Zeiten zur Vogelbeobachtung. Bring ein Fernglas mit, wenn moeglich.</p>
+
+<h2>10. Am Holzkohlegrill dinieren mit lokalen Produkten</h2>
+<p>Nach einem Tag voller Erkundungen in Alcudia gibt es nichts Besseres als ein ordentliches Abendessen mit frischen, regionalen Zutaten vom Holzkohlegrill. <a href="/hiru">Hiru Food &amp; Drinks</a> an der Ctra. d'Arta 40 in Port d'Alcudia hat sich zum gastronomischen Massstab der Gegend entwickelt. Die Kueche dreht sich um handverlesenes gereiftes Fleisch, Reisgerichte mit Fisch und Meeresfruechten vom lokalen Fischmarkt und mediterrane Fische, die ueber Holzkohle perfekt gegrillt werden. Das Ambiente ist modern und entspannt, ideal fur ein langes Abendessen in guter Gesellschaft.</p>
+<p><strong>Oeffnungszeiten:</strong> 12:00 bis 23:30 Uhr (Freitag und Samstag bis 1:00 Uhr). Dienstags geschlossen. Reservierung empfohlen, besonders am Wochenende.</p>
+
+<h2>11. Cocktails bei Sonnenuntergang mit Aussicht</h2>
+<p>Alcudia bietet einige der schoensten Sonnenuntergaenge Mallorcas, und es gibt keinen besseren Weg, sie zu geniessen, als mit einem erstklassigen Cocktail in der Hand. <a href="/enjoy">Enjoy Terrace</a> in der Av. Tucan 1 in Port d'Alcudia ist der Treffpunkt, an dem Einheimische und Besucher jeden Abend zusammenkommen, um die Sonne untergehen zu sehen. Die Karte mit Signature-Cocktails, gepaart mit Premium-Shisha und anspruchsvollem Ambiente, macht es leicht, bis tief in die Nacht zu bleiben. Taeglich geoeffnet ab 17:00 Uhr.</p>
+<p><strong>Tipp:</strong> Komm etwa 30 Minuten vor Sonnenuntergang, um einen guten Platz zu ergattern. Die Bartender empfehlen dir gerne Kombinationen nach deinem Geschmack.</p>
+
+<h2>12. Nachtleben auf Top-Niveau</h2>
+<p>Wenn es um Nachtleben in Port d'Alcudia geht, ist <a href="/outxide">Outxide Club</a> die unangefochtene Nummer eins. Er ist die Top-Clubbing-Adresse im Norden Mallorcas mit professionellem Sound, nationalen und internationalen DJs und spektakulaerer visueller Produktion. Geoeffnet Donnerstag bis Samstag ab 23:00 Uhr, von Mai bis Oktober. Die Lage ist perfekt, um ein Abendessen im Hiru und Cocktails in der Enjoy Terrace mit einem Clubbesuch zu kombinieren.</p>
+<p><strong>Tickets:</strong> Erhaeltlich ueber FourVenues (offizielle Plattform) oder an der Abendkasse. Online-Kauf bietet in der Regel einen besseren Preis.</p>
+
+<h2>13. Die Hoehle von Sant Marti besuchen</h2>
+<p>In der Naehe der Ermita de la Victoria ist die Hoehle von Sant Marti eine natuerliche Grotte, die in eine Kapelle umgewandelt wurde und einen Besuch wert ist. Zwei in den Fels gehauene Raeume beherbergen alte Altaere und Malereien. Die Umgebung ist spektakulaer, umgeben von Pinienwald mit Meerblick. Der Eintritt ist frei und der Besuch laesst sich hervorragend mit der Talaia-Wanderroute verbinden.</p>
+
+<h2>14. Ein Boot mieten und die Kuste erkunden</h2>
+<p>Wenn du die noerdliche Mallorca-Kuste in voelliger Freiheit entdecken moechtest, ist das Mieten eines fuehrerscheinfreien Bootes eine immer beliebtere Option in Alcudia. Unternehmen vermieten kleine Motorboote bis 15 PS, die keinen Fuehrerschein erfordern und ideal sind, um die Bucht zu erkunden, in versteckten Buchten zu ankern und Straende wie Coll Baix, Cala Morella und die Formentor-Kuste zu erreichen. Fuer groessere Boote brauchst du einen Fuehrerschein oder einen Skipper ist inklusive.</p>
+<p><strong>Wo:</strong> Im Sporthafen von Alcudia gibt es mehrere Charterunternehmen. Die Preise variieren je nach Bootstyp und Saison.</p>
+
+<h2>15. Alcudia per Segway oder E-Bike entdecken</h2>
+<p>Fur eine entspanntere Aktivitaet sind Segway- oder E-Bike-Touren eine unterhaltsame Moeglichkeit, Port d'Alcudia, die Strandpromenade und die Umgebung von s'Albufera ohne Anstrengung zu erkunden. Mehrere Anbieter bieten gefuehrte Routen mit Stopps an Aussichtspunkten und historischen Sehenswuerdigkeiten an.</p>
+
+<h2>Dein perfekter Tag in Alcudia</h2>
+<p>Wenn du nur einen Tag haettest, hier ist unsere Empfehlung: Starte mit der Altstadt und dem Markt (falls Dienstag oder Sonntag), schwimm am Strand von Alcudia am Vormittag, iss mittags ein Reisgericht mit Fisch und Meeresfruechten im <a href="/hiru">Hiru Food &amp; Drinks</a>, verbringe den Nachmittag mit einem Bootsausflug oder einer Wanderung auf der Victoria-Halbinsel, geniesse Cocktails bei Sonnenuntergang auf der <a href="/enjoy">Enjoy Terrace</a>, und wenn es Donnerstag, Freitag oder Samstag ist, lass die Nacht tanzend im <a href="/outxide">Outxide Club</a> ausklingen. Alcudia hat alles, kompakt und in Reichweite.</p>`,
+      fr: `<p>Alcudia est l'une des destinations les plus completes de Majorque. Situee a la pointe nord de l'ile, cette ville allie histoire medievale, plages spectaculaires, espaces naturels proteges et une offre gastronomique et de loisirs en pleine expansion. Si vous vous demandez que faire a Alcudia, voici 15 activites incontournables, du petit matin jusqu'au bout de la nuit.</p>
+
+<h2>1. Parcourir la vieille ville fortifiee</h2>
+<p>La vieille ville d'Alcudia possede l'une des enceintes medievales les mieux conservees de Majorque. Les fortifications du XIVe siecle entourent un dedale de ruelles pavees bordees de maisons seigneuriales, d'eglises gothiques et de recoins pleins de charme. Ne manquez pas la Porta de Mallorca, la Porta del Moll, l'eglise de Sant Jaume et l'hotel de ville. La promenade sur les remparts offre des vues panoramiques sur le port, la baie et la Serra de Tramuntana.</p>
+<p><strong>Conseil local :</strong> Arrivez tot le matin ou au coucher du soleil pour eviter la chaleur et profiter de la plus belle lumiere pour les photos. Le tour complet des remparts prend environ 30 minutes.</p>
+
+<h2>2. Se detendre a la Platja d'Alcudia</h2>
+<p>Avec plus de 7 kilometres de sable fin et d'eaux turquoise peu profondes, la plage d'Alcudia est l'une des plus belles de Majorque. Elle est ideale pour les familles grace a son entree progressive dans la mer et ses equipements complets : transats, parasols, bars de plage et stations de sports nautiques. Le secteur nord, pres de la Ciudad Blanca, est le plus calme.</p>
+<p><strong>Comment y aller :</strong> Depuis le centre de Port d'Alcudia, la plage est a moins de cinq minutes a pied. Des parkings publics bordent l'avenue principale, mais en haute saison, arrivez avant 10h00.</p>
+
+<h2>3. Visiter les ruines romaines de Pollentia</h2>
+<p>Juste a l'exterieur des murailles, se trouvent les vestiges de Pollentia, la plus importante cite romaine de Majorque, fondee en 123 av. J.-C. Vous pouvez explorer le forum, les maisons patriciennes et un petit theatre romain. Le Museu Monografic de Pollentia, dans le centre historique, complete la visite avec des pieces decouvertes lors des fouilles.</p>
+<p><strong>Infos pratiques :</strong> Ouvert du mardi au samedi, de 10h00 a 16h00 en haute saison. Le billet combine ruines et musee coute environ 4 EUR.</p>
+
+<h2>4. Flaner au marche du mardi et du dimanche</h2>
+<p>Le marche hebdomadaire d'Alcudia envahit les rues de la vieille ville chaque mardi et dimanche matin. C'est l'un des plus grands de l'ile et une explosion de couleurs : fruits et legumes locaux, charcuterie majorquine (sobrasada, botifarron), fromage de Mahon, olives, ensaimadas fraichement cuites, ceramique artisanale, vetements et accessoires. L'endroit parfait pour acheter des produits authentiques et s'immerger dans la culture locale.</p>
+<p><strong>Conseil :</strong> Arrivez entre 8h30 et 10h00 pour en profiter sans la foule. L'edition du dimanche est plus petite mais nettement moins touristique.</p>
+
+<h2>5. Sports nautiques dans la baie</h2>
+<p>La baie d'Alcudia est un paradis pour les sports nautiques. Des eaux calmes et un vent regulier en font un spot ideal pour le paddle, le kayak, la planche a voile et le kitesurf. Plusieurs ecoles sur la plage proposent des cours debutants et la location de materiel. Pour une dose supplementaire d'adrenaline, le parasailing, le jet ski et la bouee tractee sont aussi au programme.</p>
+<p><strong>Meilleur moment :</strong> Les matinees sont plus calmes pour le paddle et le kayak. L'apres-midi, le vent se leve, ideal pour la planche a voile et le kite.</p>
+
+<h2>6. Excursion en bateau vers Formentor et les grottes marines</h2>
+<p>Du port d'Alcudia partent des excursions en bateau vers la spectaculaire peninsule de Formentor, avec ses falaises vertigineuses, ses criques cachees et ses eaux limpides. Certains itineraires incluent des arrets baignade dans des criques accessibles uniquement par la mer et des visites de grottes marines. C'est l'une des experiences les plus memorables du nord de Majorque.</p>
+<p><strong>Options :</strong> Du grand catamaran au hors-bord prive pour une sortie plus exclusive. Les departs sont generalement a 10h00, duree entre 3 et 6 heures. Reservez a l'avance en haute saison.</p>
+
+<h2>7. Cyclisme sur les routes du nord</h2>
+<p>Alcudia est la capitale du cyclisme a Majorque. Des milliers de cyclistes professionnels et amateurs choisissent la region comme base d'entrainement chaque annee. Les itineraires vont des balades plates le long de la baie et dans le parc naturel de s'Albufera aux ascensions mythiques comme le Cap de Formentor, le Coll de Sa Batalla ou le Puig Major. Des magasins de location de velos de route, gravel et VTT sont presents partout dans la zone.</p>
+<p><strong>Itineraire debutant recommande :</strong> Alcudia - Can Picafort par la voie verte cotiere (30 km aller-retour, entierement plat, vue sur la mer tout le trajet).</p>
+
+<h2>8. Randonnee sur la peninsule de la Victoria</h2>
+<p>La peninsule de la Victoria, a l'est d'Alcudia, est un tresor pour les randonneurs. L'itineraire le plus populaire monte a la Talaia d'Alcudia (444 metres), offrant une vue a 360 degres sur la baie, la peninsule de Formentor et, par temps clair, jusqu'a Minorque. Vous pouvez aussi descendre jusqu'a la Cala des Coll Baix, l'une des plus belles plages sauvages de Majorque, accessible uniquement a pied ou en bateau.</p>
+<p><strong>Infos pratiques :</strong> L'aller-retour de la Talaia prend environ 2 heures. Emportez de l'eau, une protection solaire et des chaussures adaptees. Le chemin vers Coll Baix est plus exigeant (environ 45 minutes de descente avec des passages rocheux).</p>
+
+<h2>9. Explorer le parc naturel de s'Albufera</h2>
+<p>S'Albufera est la plus grande zone humide des Baleares et l'un des meilleurs sites d'observation ornithologique d'Europe. Plus de 300 especes y ont ete repertoriees, dont le balbuzard pecheur, le flamant rose, le heron et de nombreux oiseaux migrateurs. Les sentiers du parc sont plats et accessibles, avec des observatoires strategiquement places. L'entree est gratuite et un centre d'accueil informe sur la faune et la flore.</p>
+<p><strong>Conseil :</strong> Le petit matin et la fin d'apres-midi sont les meilleurs moments pour l'observation. Apportez des jumelles si possible.</p>
+
+<h2>10. Diner au grill avec des produits locaux</h2>
+<p>Apres une journee d'exploration a Alcudia, rien de mieux qu'un diner de qualite avec des ingredients frais cuits au charbon de bois. <a href="/hiru">Hiru Food &amp; Drinks</a>, sur la Ctra. d'Arta 40 a Port d'Alcudia, s'est impose comme la reference gastronomique de la zone. La cuisine tourne autour de viandes maturees selectionnees, de plats de riz prepares avec le poisson et les fruits de mer du marche local, et de poissons mediterraneens grilles a la perfection sur charbon. L'ambiance est moderne et decontractee, ideale pour un diner prolonge en bonne compagnie.</p>
+<p><strong>Horaires :</strong> 12h00 a 23h30 (vendredi et samedi jusqu'a 1h00). Ferme le mardi. Reservation recommandee, surtout le week-end.</p>
+
+<h2>11. Cocktails au coucher du soleil</h2>
+<p>Alcudia offre certains des plus beaux couchers de soleil de Majorque, et il n'y a pas de meilleure facon d'en profiter qu'avec un cocktail de qualite a la main. <a href="/enjoy">Enjoy Terrace</a>, Av. Tucan 1 a Port d'Alcudia, est le point de rendez-vous ou locaux et visiteurs se retrouvent chaque soir pour regarder le soleil se coucher. La carte de cocktails signatures, associee a une chicha premium et une ambiance raffinee, rend facile d'y rester jusqu'au bout de la nuit. Ouvert tous les jours a partir de 17h00.</p>
+<p><strong>Conseil :</strong> Arrivez environ 30 minutes avant le coucher du soleil pour avoir une bonne place. Les bartenders se feront un plaisir de vous recommander des combinaisons selon vos gouts.</p>
+
+<h2>12. Vie nocturne haut de gamme</h2>
+<p>Cote nuit a Port d'Alcudia, <a href="/outxide">Outxide Club</a> est la reference incontestee. C'est la premiere destination clubbing du nord de Majorque, avec un son professionnel, des DJ nationaux et internationaux et une production visuelle spectaculaire. Ouvert du jeudi au samedi a partir de 23h00, de mai a octobre. L'emplacement est parfait pour enchaîner un diner chez Hiru, des cocktails a l'Enjoy Terrace puis une soiree au club.</p>
+<p><strong>Billets :</strong> Disponibles via FourVenues (plateforme officielle) ou sur place. L'achat en ligne offre generalement un meilleur tarif.</p>
+
+<h2>13. Visiter la grotte de Sant Marti</h2>
+<p>Pres de l'Ermita de la Victoria, la grotte de Sant Marti est une cavite naturelle transformee en chapelle qui merite le detour. Deux salles creusees dans la roche abritent des autels anciens et des peintures. Le cadre est spectaculaire, entoure de pinede avec vue sur la mer. L'entree est gratuite et la visite se combine parfaitement avec la randonnee de la Talaia.</p>
+
+<h2>14. Louer un bateau et explorer la cote</h2>
+<p>Pour une liberte totale dans l'exploration de la cote nord de Majorque, la location de bateau sans permis est une option de plus en plus prisee a Alcudia. Des societes louent des petits bateaux a moteur jusqu'a 15 CV ne necessitant aucun permis, parfaits pour parcourir la baie, mouiller dans des criques cachees et rejoindre des plages comme Coll Baix, Cala Morella ou la cote de Formentor. Pour des embarcations plus grandes, il vous faudra un permis ou un skipper inclus.</p>
+<p><strong>Ou :</strong> Plusieurs societes de charter operent depuis le port de plaisance d'Alcudia. Les tarifs varient selon le type de bateau et la saison.</p>
+
+<h2>15. Decouvrir Alcudia en Segway ou velo electrique</h2>
+<p>Pour une activite plus tranquille, les tours en Segway ou velo electrique sont une facon amusante d'explorer Port d'Alcudia, le front de mer et les alentours de s'Albufera sans effort. Plusieurs operateurs proposent des circuits guides avec des arrets aux points de vue et sites historiques.</p>
+
+<h2>Votre journee parfaite a Alcudia</h2>
+<p>Si vous n'aviez qu'une journee, voici notre recommandation : commencez par la vieille ville et le marche (si c'est mardi ou dimanche), baignez-vous a la plage d'Alcudia le matin, dejeuner d'un riz aux fruits de mer au <a href="/hiru">Hiru Food &amp; Drinks</a>, passez l'apres-midi en excursion en bateau ou en randonnee sur la Victoria, savourez des cocktails au coucher du soleil a la <a href="/enjoy">Enjoy Terrace</a>, et si c'est jeudi, vendredi ou samedi, terminez la nuit en dansant a l'<a href="/outxide">Outxide Club</a>. Alcudia a tout, compact et a portee de main.</p>`,
+      it: `<p>Alcudia e' una delle destinazioni piu' complete di Maiorca. Situata sulla punta settentrionale dell'isola, questa citta' unisce storia medievale, spiagge spettacolari, aree naturali protette e un'offerta gastronomica e di svago in continua crescita. Se ti chiedi cosa fare ad Alcudia, ecco 15 attivita' imperdibili che coprono dalla mattina presto fino a notte fonda.</p>
+
+<h2>1. Passeggiare nel centro storico medievale</h2>
+<p>Il centro storico di Alcudia vanta una delle cinte murarie medievali meglio conservate di Maiorca. Le fortificazioni del XIV secolo racchiudono un labirinto di stradine acciottolate fiancheggiate da palazzi signorili, chiese gotiche e angoli nascosti. Da non perdere la Porta de Mallorca, la Porta del Moll, la chiesa di Sant Jaume e il Municipio. Una passeggiata lungo le mura regala viste panoramiche sul porto, la baia e le montagne della Serra de Tramuntana.</p>
+<p><strong>Consiglio locale:</strong> Arriva al mattino presto o al tramonto per evitare il caldo e cogliere la luce migliore per le foto. Il giro completo delle mura richiede circa 30 minuti.</p>
+
+<h2>2. Rilassarsi alla Platja d'Alcudia</h2>
+<p>Con oltre 7 chilometri di sabbia fine e acque turchesi poco profonde, la spiaggia di Alcudia e' tra le piu' belle dell'isola. E' ideale per le famiglie grazie al fondale dolcemente digradante e ai servizi completi: lettini, ombrelloni, chiringuitos e postazioni per sport acquatici. Il tratto nord, vicino alla Ciudad Blanca, e' il piu' tranquillo.</p>
+<p><strong>Come arrivare:</strong> Dal centro di Port d'Alcudia la spiaggia e' a meno di cinque minuti a piedi. Parcheggi pubblici si trovano lungo il viale principale, ma in alta stagione conviene arrivare prima delle 10:00.</p>
+
+<h2>3. Visitare le rovine romane di Pollentia</h2>
+<p>Appena fuori dalle mura della citta' vecchia si trovano i resti di Pollentia, il piu' importante insediamento romano di Maiorca, fondato nel 123 a.C. Puoi esplorare il foro, le case patrizie e un piccolo teatro romano. Il Museu Monografic de Pollentia nel centro storico completa la visita con reperti rinvenuti durante gli scavi.</p>
+<p><strong>Info pratiche:</strong> Aperto da martedi' a sabato, 10:00-16:00 in alta stagione. Il biglietto combinato rovine + museo costa circa 4 EUR.</p>
+
+<h2>4. Perdersi nel mercato del martedi' e della domenica</h2>
+<p>Il mercato settimanale di Alcudia invade le strade del centro storico ogni martedi' e domenica mattina. E' uno dei piu' grandi dell'isola e un'esplosione di colori: frutta e verdura locale, salumi maiorchini (sobrasada, botifarron), formaggio di Mahon, olive, ensaimadas appena sfornate, ceramiche artigianali, abbigliamento e accessori. Il luogo perfetto per acquistare prodotti autentici e immergersi nella cultura locale.</p>
+<p><strong>Consiglio:</strong> Arriva tra le 8:30 e le 10:00 per goderti il mercato senza la folla. L'edizione domenicale e' piu' piccola ma molto meno turistica.</p>
+
+<h2>5. Sport acquatici nella baia</h2>
+<p>La baia di Alcudia e' un paradiso per gli sport acquatici. Acque calme e vento costante la rendono uno spot ideale per stand-up paddle, kayak, windsurf e kitesurf. Diverse scuole sulla spiaggia offrono corsi per principianti e noleggio attrezzature. Per una dose extra di adrenalina ci sono anche parasailing, moto d'acqua e banana boat.</p>
+<p><strong>Momento migliore:</strong> Le mattine sono piu' calme per il paddle e il kayak. Nel pomeriggio si alza il vento, perfetto per windsurf e kite.</p>
+
+<h2>6. Escursione in barca a Formentor e alle grotte marine</h2>
+<p>Dal porto di Alcudia partono escursioni in barca verso la spettacolare penisola di Formentor, con le sue scogliere a picco, calette nascoste e acque cristalline. Alcuni itinerari includono soste per nuotare in calette raggiungibili solo via mare e visite a grotte marine. E' una delle esperienze piu' indimenticabili del nord di Maiorca.</p>
+<p><strong>Opzioni:</strong> Si va dai grandi catamarani ai motoscafi privati per un'esperienza piu' esclusiva. Le partenze sono di solito alle 10:00, durata tra 3 e 6 ore. In alta stagione, prenota in anticipo.</p>
+
+<h2>7. Ciclismo sulle strade del nord</h2>
+<p>Alcudia e' la capitale del ciclismo a Maiorca. Migliaia di ciclisti professionisti e amatoriali scelgono la zona come base di allenamento ogni anno. I percorsi spaziano dalle pedalate pianeggianti lungo la baia e nel parco naturale di s'Albufera alle salite leggendarie come il Cap de Formentor, il Coll de Sa Batalla e il Puig Major. Negozi di noleggio bici da strada, gravel e mountain bike sono diffusi in tutta la zona.</p>
+<p><strong>Percorso consigliato per principianti:</strong> Alcudia - Can Picafort sulla ciclabile costiera (30 km andata e ritorno, completamente pianeggiante, vista mare per tutto il tragitto).</p>
+
+<h2>8. Trekking sulla penisola della Victoria</h2>
+<p>La penisola della Victoria, a est di Alcudia, e' un gioiello per gli escursionisti. Il percorso piu' popolare sale alla Talaia d'Alcudia (444 metri), con vista a 360 gradi sulla baia, la penisola di Formentor e, nelle giornate limpide, fino a Minorca. Puoi anche scendere fino alla Cala des Coll Baix, una delle spiagge piu' belle e selvagge di Maiorca, raggiungibile solo a piedi o in barca.</p>
+<p><strong>Info pratiche:</strong> L'andata e ritorno dalla Talaia richiede circa 2 ore. Porta acqua, protezione solare e scarpe adeguate. Il sentiero per Coll Baix e' piu' impegnativo (circa 45 minuti di discesa con tratti rocciosi).</p>
+
+<h2>9. Esplorare il parco naturale di s'Albufera</h2>
+<p>S'Albufera e' la zona umida piu' grande delle Baleari e uno dei migliori siti di birdwatching d'Europa. Oltre 300 specie sono state registrate, tra cui falco pescatore, fenicottero, airone e numerosi uccelli migratori. I sentieri del parco sono pianeggianti e accessibili, con capanni di osservazione strategicamente posizionati. L'ingresso e' gratuito e un centro visitatori fornisce informazioni sulla fauna e la flora.</p>
+<p><strong>Consiglio:</strong> Le prime ore del mattino e il tardo pomeriggio sono i momenti migliori per il birdwatching. Porta un binocolo se puoi.</p>
+
+<h2>10. Cenare alla griglia con prodotti locali</h2>
+<p>Dopo una giornata di esplorazioni ad Alcudia, niente batte una cena come si deve con ingredienti freschi locali cotti alla brace. <a href="/hiru">Hiru Food &amp; Drinks</a>, in Ctra. d'Arta 40 a Port d'Alcudia, e' diventato il punto di riferimento gastronomico della zona. La cucina ruota attorno a carni frollate selezionate, risotti preparati con pesce e frutti di mare del mercato locale e pesci mediterranei grigliati alla perfezione su carbone. L'atmosfera e' moderna e rilassata, ideale per una cena lunga in buona compagnia.</p>
+<p><strong>Orari:</strong> 12:00-23:30 (venerdi' e sabato fino all'1:00). Chiuso il martedi'. Prenotazione consigliata, specialmente nel fine settimana.</p>
+
+<h2>11. Cocktail al tramonto con vista</h2>
+<p>Alcudia regala alcuni dei tramonti piu' belli di Maiorca, e non c'e' modo migliore di goderseli che con un cocktail di qualita' in mano. <a href="/enjoy">Enjoy Terrace</a>, in Av. Tucan 1 a Port d'Alcudia, e' il punto d'incontro dove locali e visitatori si ritrovano ogni sera per guardare il sole scendere all'orizzonte. Il menu di cocktail d'autore, abbinato a shisha premium e un'atmosfera raffinata, rende facile restare fino a tarda notte. Aperto tutti i giorni dalle 17:00.</p>
+<p><strong>Consiglio:</strong> Arriva circa 30 minuti prima del tramonto per assicurarti un buon posto. I bartender saranno felici di consigliarti combinazioni in base ai tuoi gusti.</p>
+
+<h2>12. Vita notturna di alto livello</h2>
+<p>Quando si parla di notte a Port d'Alcudia, <a href="/outxide">Outxide Club</a> e' il riferimento indiscusso. E' la prima destinazione per il clubbing nel nord di Maiorca, con impianto audio professionale, DJ nazionali e internazionali e una produzione visiva spettacolare. Aperto da giovedi' a sabato dalle 23:00, da maggio a ottobre. La posizione e' perfetta per combinare una cena da Hiru e cocktail all'Enjoy Terrace prima di entrare in discoteca.</p>
+<p><strong>Biglietti:</strong> Disponibili tramite FourVenues (piattaforma ufficiale) o alla porta. L'acquisto online offre di solito un prezzo migliore.</p>
+
+<h2>13. Visitare la grotta di Sant Marti</h2>
+<p>Vicino all'Ermita de la Victoria, la grotta di Sant Marti e' una cavita' naturale trasformata in cappella che merita una visita. Due sale scavate nella roccia ospitano altari antichi e dipinti. Il contesto e' spettacolare, circondato da pineta con vista sul mare. L'ingresso e' gratuito e la visita si abbina perfettamente al trekking della Talaia.</p>
+
+<h2>14. Noleggiare una barca ed esplorare la costa</h2>
+<p>Se vuoi la totale liberta' di scoprire la costa nord di Maiorca, noleggiare una barca senza patente e' un'opzione sempre piu' popolare ad Alcudia. Aziende noleggiano piccoli motoscafi fino a 15 CV che non richiedono patente, perfetti per esplorare la baia, ancorare in calette nascoste e raggiungere spiagge come Coll Baix, Cala Morella e la costa di Formentor. Per imbarcazioni piu' grandi servira' la patente o uno skipper incluso.</p>
+<p><strong>Dove:</strong> Nel porto turistico di Alcudia operano diverse societa' di charter. I prezzi variano in base al tipo di barca e alla stagione.</p>
+
+<h2>15. Scoprire Alcudia in Segway o e-bike</h2>
+<p>Per un'attivita' piu' rilassata, i tour in Segway o bici elettrica sono un modo divertente di esplorare Port d'Alcudia, il lungomare e i dintorni di s'Albufera senza fatica. Diversi operatori propongono percorsi guidati con soste ai punti panoramici e ai siti storici.</p>
+
+<h2>La tua giornata perfetta ad Alcudia</h2>
+<p>Se avessi un solo giorno, ecco il nostro consiglio: inizia con il centro storico e il mercato (se e' martedi' o domenica), fai il bagno alla spiaggia di Alcudia la mattina, pranza con un riso ai frutti di mare da <a href="/hiru">Hiru Food &amp; Drinks</a>, dedica il pomeriggio a un'escursione in barca o al trekking sulla Victoria, goditi i cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a>, e se e' giovedi', venerdi' o sabato, chiudi la notte ballando all'<a href="/outxide">Outxide Club</a>. Alcudia ha tutto, compatto e a portata di mano.</p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
+    tags: ["alcudia", "mallorca", "activities", "guide"],
+    venue: "general",
+    readingTime: 12,
+  },
+  {
+    slug: "playas-alcudia-guia-completa",
+    title: {
+      es: "Playas de Alcudia: Guia Completa de las Mejores Playas en 2026",
+      en: "Alcudia Beaches: Complete Guide to the Best Beaches in 2026",
+      de: "Strande in Alcudia: Kompletter Guide zu den schoensten Stranden 2026",
+      fr: "Plages d'Alcudia : Guide Complet des Plus Belles Plages en 2026",
+      it: "Spiagge di Alcudia: Guida Completa alle Migliori Spiagge nel 2026",
+    },
+    excerpt: {
+      es: "Guia completa de las mejores playas de Alcudia: Platja d'Alcudia, Platja de Muro, Cala Sant Vicenc, Es Coll Baix y mas. Como llegar, servicios y planes despues de la playa.",
+      en: "Complete guide to the best Alcudia beaches: Platja d'Alcudia, Platja de Muro, Cala Sant Vicenc, Es Coll Baix and more. How to get there, facilities and after-beach plans.",
+      de: "Kompletter Guide zu den schoensten Straenden in Alcudia: Platja d'Alcudia, Platja de Muro, Cala Sant Vicenc, Es Coll Baix und mehr. Anfahrt, Ausstattung und Plane nach dem Strand.",
+      fr: "Guide complet des plus belles plages d'Alcudia : Platja d'Alcudia, Platja de Muro, Cala Sant Vicenc, Es Coll Baix et plus. Comment y aller, equipements et plans apres la plage.",
+      it: "Guida completa alle migliori spiagge di Alcudia: Platja d'Alcudia, Platja de Muro, Cala Sant Vicenc, Es Coll Baix e altre. Come arrivare, servizi e piani dopo la spiaggia.",
+    },
+    content: {
+      es: `<p>La zona de Alcudia, en el norte de Mallorca, concentra algunas de las playas mas espectaculares de las Islas Baleares. Desde la interminable franja de arena blanca de la Platja d'Alcudia hasta calas escondidas solo accesibles a pie o en barco, hay una playa para cada tipo de viajero. Esta guia te lleva por las mejores playas de Alcudia con toda la informacion practica que necesitas para disfrutarlas al maximo.</p>
+
+<h2>Platja d'Alcudia: la playa principal</h2>
+<p>La Platja d'Alcudia es la playa estrella del norte de Mallorca y una de las mas grandes de la isla, con mas de 3,5 kilometros de arena fina y dorada. El agua es cristalina, poco profunda y con un fondo de arena que permite caminar varios metros mar adentro sin perder pie, lo que la convierte en la favorita de las familias con ninos pequenos.</p>
+
+<h3>Como es</h3>
+<p>Arena fina y dorada, aguas turquesas tranquilas. La playa es ancha y tiene espacio de sobra incluso en temporada alta. La zona norte (cerca de la Ciudad Blanca) es mas tranquila, mientras que la parte central, frente al paseo maritimo, es la mas animada con chiringuitos, restaurantes y tiendas.</p>
+
+<h3>Como llegar</h3>
+<p>Desde el centro de Port d'Alcudia, la playa esta a menos de 5 minutos a pie por cualquiera de las calles que bajan hacia el mar. En coche, hay aparcamiento gratuito en las calles paralelas al paseo maritimo y un parking publico junto al puerto. En temporada alta, llega antes de las 10:00 para encontrar sitio facilmente.</p>
+
+<h3>Servicios</h3>
+<p>Hamacas y sombrillas de alquiler, duchas, aseos publicos, chiringuitos, socorristas en temporada alta, zonas de deportes acuaticos (paddle surf, kayak, banana boat, parasailing), acceso adaptado para personas con movilidad reducida en varios puntos.</p>
+
+<h3>Mejor momento para visitarla</h3>
+<p>De junio a septiembre para banarte. Las mananas de entre semana son las mas tranquilas. Al atardecer, la luz es espectacular para paseos por la orilla. Fuera de temporada (abril-mayo, octubre) la playa esta practicamente desierta y es perfecta para caminar o correr.</p>
+
+<h2>Platja de Muro: el paraiso de arena blanca</h2>
+<p>Tecnicamnete en el municipio de Muro, pero continuacion directa de la playa de Alcudia hacia el sur, la Platja de Muro es donde la arena se vuelve aun mas blanca y fina y el agua alcanza tonos caribenos. Es una de las playas mas fotografiadas de Mallorca y aparece regularmente en los rankings de mejores playas de Europa.</p>
+
+<h3>Como es</h3>
+<p>Arena blanca y finisima, aguas poco profundas de un turquesa intenso. La playa se divide en sectores: la zona 1 es la mas cercana a Alcudia y la mas equipada; las zonas 2 y 3 estan dentro del parque natural de s'Albufera y son progresivamente mas tranquilas y salvajes, con dunas protegidas y vegetacion baja.</p>
+
+<h3>Como llegar</h3>
+<p>En coche, toma la carretera Ma-12 direccion Can Picafort. Hay varios accesos senalizados con parking (de pago en zona 1, gratuito en zonas 2 y 3). En bicicleta, la via verde costera conecta Port d'Alcudia con la playa de Muro (unos 15 minutos pedaleando). Tambien hay un autobus local que conecta ambas zonas en verano.</p>
+
+<h3>Servicios</h3>
+<p>Zona 1: hamacas, sombrillas, chiringuitos, aseos, socorristas. Zonas 2 y 3: servicios muy limitados o inexistentes. Lleva tu propia agua y comida si vas a las zonas mas alejadas.</p>
+
+<h3>Mejor momento para visitarla</h3>
+<p>De mayo a octubre. Las mananas de entre semana, especialmente en las zonas 2 y 3, ofrecen una experiencia casi privada. Si buscas ambiente, la zona 1 en julio y agosto es la mas animada.</p>
+
+<h2>Cala Sant Vicenc: las calas de postal</h2>
+<p>A unos 15 minutos en coche de Alcudia, Cala Sant Vicenc es en realidad un conjunto de cuatro pequeñas calas rodeadas de montanas y pinares: Cala Barques, Cala Clara, Cala Molins y Cala Carbó. Cada una tiene su personalidad, pero todas comparten aguas cristalinas y un entorno natural espectacular.</p>
+
+<h3>Las cuatro calas</h3>
+<ul>
+<li><strong>Cala Barques:</strong> la mas grande y accesible, con arena y roca, buen snorkel en los laterales. Tiene chiringuito y alquiler de hamacas.</li>
+<li><strong>Cala Clara:</strong> pequena y recogida, ideal para parejas. Agua transparente sobre fondo de roca.</li>
+<li><strong>Cala Molins:</strong> la mas popular, con arena fina, restaurante en primera linea y ambiente familiar. Aparcamiento cercano.</li>
+<li><strong>Cala Carbo:</strong> la mas salvaje y pequena, sin servicios. Acceso por un sendero corto entre pinos. Perfecta para quien busca tranquilidad absoluta.</li>
+</ul>
+
+<h3>Como llegar</h3>
+<p>Desde Alcudia, toma la Ma-2200 hacia Pollenca y luego la Ma-2210 hasta Cala Sant Vicenc. El trayecto es de unos 15 minutos. Hay parking publico (limitado en verano, llega temprano). No hay transporte publico directo; el coche o la bicicleta son las mejores opciones.</p>
+
+<h3>Mejor momento para visitarla</h3>
+<p>De junio a septiembre para banarte. Llega antes de las 10:00 en verano para aparcar bien. Fuera de temporada es perfecta para senderismo por los acantilados entre las calas.</p>
+
+<h2>Es Coll Baix: la playa salvaje</h2>
+<p>Es Coll Baix es una de las playas mas espectaculares y salvajes de Mallorca. Encajonada entre acantilados de mas de 200 metros de altura y solo accesible a pie por un sendero exigente o en barco, es el destino perfecto para los amantes de la naturaleza que no les importa caminar para encontrar un lugar unico.</p>
+
+<h3>Como es</h3>
+<p>Playa de piedras y grava gruesa, rodeada de paredes verticales de roca. El agua es de un azul profundo y cristalino. No hay sombra natural ni servicios de ningun tipo. Es un lugar completamente virgen donde la naturaleza manda.</p>
+
+<h3>Como llegar a pie</h3>
+<p>El sendero parte del final de la carretera de la Ermita de la Victoria (hay un pequeno parking). La bajada toma unos 40-50 minutos por un camino rocoso con tramos empinados. Necesitas calzado de senderismo, agua abundante y proteccion solar. La subida de vuelta es exigente. No es apta para ninos pequenos ni personas con movilidad reducida.</p>
+
+<h3>Como llegar en barco</h3>
+<p>Desde el puerto de Alcudia, varias empresas ofrecen excursiones que incluyen parada en Es Coll Baix. Tambien puedes alquilar un barco sin licencia y llegar por tu cuenta. Esta opcion te permite disfrutar de la playa sin el esfuerzo de la caminata.</p>
+
+<h3>Mejor momento para visitarla</h3>
+<p>De mayo a septiembre. Madruga para ir a pie (sal a las 8:00-9:00 para evitar el calor). Si vas en barco, cualquier hora de la manana es buena. Evita los dias de mucho viento, ya que el mar puede estar agitado en esta zona.</p>
+
+<h2>Platja des Coll Baix (Platja des Coll Baix Petit)</h2>
+<p>No hay que confundirla con Es Coll Baix. La Platja des Coll Baix, tambien llamada Coll Baix Petit, es una pequena playa de grava accesible por un sendero diferente desde la zona de la Victoria. Es mas pequena y menos visitada que su vecina famosa, lo que la convierte en una opcion interesante para quienes buscan soledad absoluta.</p>
+
+<h3>Como llegar</h3>
+<p>El acceso es por un sendero que parte de la carretera de la Victoria, antes de llegar al parking de Es Coll Baix. La bajada es mas corta pero igualmente rocosa. Lleva calzado adecuado y agua.</p>
+
+<h3>Mejor momento para visitarla</h3>
+<p>Las mismas recomendaciones que para Es Coll Baix. Al ser menos conocida, encontraras menos gente incluso en temporada alta.</p>
+
+<h2>S'Illot: el islote frente a la playa</h2>
+<p>S'Illot es un pequeno islote rocoso situado justo frente a la Platja d'Alcudia, en su extremo norte. Se puede llegar nadando o caminando con el agua por la cintura (la distancia es de unos 50 metros). Es un punto popular para hacer snorkel, ya que las rocas del islote albergan una rica vida marina con peces de colores, erizos y estrellas de mar.</p>
+
+<h3>Como llegar</h3>
+<p>Desde la parte norte de la Platja d'Alcudia, camina hacia el extremo donde la arena termina en una zona rocosa. Desde ahi, el islote esta a pocos metros. Puedes caminar o nadar dependiendo de la marea.</p>
+
+<h3>Consejo</h3>
+<p>Lleva gafas de snorkel y escarpines. El fondo entre la playa y el islote tiene tramos de roca y posidonia. La zona es especialmente bonita por la manana, cuando el agua esta mas tranquila y la visibilidad es maxima.</p>
+
+<h2>Despues de la playa: tus planes en Alcudia</h2>
+<p>Un gran dia de playa merece un gran final. Aqui van nuestras recomendaciones para completar la jornada:</p>
+
+<h3>Para comer o cenar</h3>
+<p>Despues de horas al sol, el cuerpo pide una buena comida. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) es la eleccion perfecta: arroces elaborados con pescado y marisco de la lonja, carnes maduradas a la brasa y pescados del Mediterraneo. Abierto desde las 12:00, es ideal tanto para un almuerzo largo como para una cena relajada despues de la playa. Cierra los martes.</p>
+
+<h3>Para tomar algo al atardecer</h3>
+<p>Sal de la playa, date una ducha y dirigete a <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Cocteles de autor, shisha premium y un ambiente que combina perfectamente con el atardecer de Alcudia. Abre a las 17:00 cada dia y es el lugar donde la tarde se convierte en noche de forma natural.</p>
+
+<h3>Para salir de noche</h3>
+<p>Si es jueves, viernes o sabado, la noche continua en <a href="/outxide">Outxide Club</a>, en la misma Av. Tucan 1. DJs de primer nivel, sonido profesional y una produccion visual que transforma cada noche en una experiencia unica. Abre a las 23:00 de mayo a octubre.</p>
+
+<h2>Consejos practicos para las playas de Alcudia</h2>
+<ul>
+<li><strong>Proteccion solar:</strong> el sol de Mallorca es intenso, especialmente entre las 12:00 y las 16:00. Usa SPF 50 y reaplica despues de cada bano.</li>
+<li><strong>Agua y comida:</strong> las playas equipadas tienen chiringuitos, pero para las calas salvajes (Es Coll Baix, Cala Carbo) lleva tu propia provision.</li>
+<li><strong>Calzado:</strong> escarpines o sandalias acuaticas son imprescindibles para las playas de grava y roca.</li>
+<li><strong>Medioambiente:</strong> respeta la posidonia (las algas que a veces se acumulan en la orilla). Es un ecosistema protegido vital para la salud del Mediterraneo.</li>
+<li><strong>Temporada de bandera azul:</strong> las playas principales tienen bandera azul y socorristas de junio a septiembre.</li>
+</ul>`,
+      en: `<p>The Alcudia area in northern Mallorca is home to some of the most spectacular beaches in the Balearic Islands. From the seemingly endless strip of white sand at Platja d'Alcudia to hidden coves reachable only on foot or by boat, there is a beach for every type of traveller. This guide takes you through the best Alcudia beaches with all the practical information you need to make the most of them.</p>
+
+<h2>Platja d'Alcudia: the main beach</h2>
+<p>Platja d'Alcudia is the flagship beach of northern Mallorca and one of the largest on the island, stretching over 3.5 kilometres of fine golden sand. The water is crystal clear, shallow and sandy-bottomed, allowing you to wade out a long way without losing your footing, which makes it a firm favourite with families with young children.</p>
+
+<h3>What it is like</h3>
+<p>Fine golden sand, calm turquoise waters. The beach is wide and has plenty of room even in peak season. The northern end (near Ciudad Blanca) is quieter, while the central section opposite the promenade is the liveliest with beach bars, restaurants and shops.</p>
+
+<h3>How to get there</h3>
+<p>From central Port d'Alcudia the beach is less than a five-minute walk down any of the streets heading towards the sea. By car, there is free parking on the streets running parallel to the promenade and a public car park next to the harbour. In high season, arrive before 10:00 to find a spot easily.</p>
+
+<h3>Facilities</h3>
+<p>Sunbed and parasol hire, showers, public toilets, beach bars, lifeguards in high season, water-sport areas (paddleboarding, kayaking, banana boat, parasailing), disabled-access ramps at several points.</p>
+
+<h3>Best time to visit</h3>
+<p>June to September for swimming. Weekday mornings are the quietest. Sunsets provide spectacular light for walks along the shoreline. Outside the main season (April-May, October) the beach is virtually deserted and perfect for walking or running.</p>
+
+<h2>Platja de Muro: white-sand paradise</h2>
+<p>Technically in the municipality of Muro but a direct continuation of Alcudia beach heading south, Platja de Muro is where the sand turns even whiter and finer and the water takes on Caribbean shades. It is one of the most photographed beaches in Mallorca and regularly features in European best-beach rankings.</p>
+
+<h3>What it is like</h3>
+<p>Brilliant white, ultra-fine sand, shallow turquoise water. The beach is split into sectors: zone 1 is closest to Alcudia and has the most facilities; zones 2 and 3 fall within the s'Albufera nature reserve and become progressively quieter and wilder, with protected dunes and low vegetation.</p>
+
+<h3>How to get there</h3>
+<p>By car, take the Ma-12 towards Can Picafort. Several signposted access points have parking (paid in zone 1, free in zones 2 and 3). By bike, the coastal greenway connects Port d'Alcudia to Playa de Muro in about 15 minutes of cycling. A local bus also links the two areas in summer.</p>
+
+<h3>Facilities</h3>
+<p>Zone 1: sunbeds, parasols, beach bars, toilets, lifeguards. Zones 2 and 3: very limited or no facilities. Bring your own water and food if heading to the further sections.</p>
+
+<h3>Best time to visit</h3>
+<p>May to October. Weekday mornings, especially in zones 2 and 3, offer an almost private experience. If you want atmosphere, zone 1 in July and August is the liveliest.</p>
+
+<h2>Cala Sant Vicenc: picture-postcard coves</h2>
+<p>About 15 minutes by car from Alcudia, Cala Sant Vicenc is actually a group of four small coves framed by mountains and pine forest: Cala Barques, Cala Clara, Cala Molins and Cala Carbo. Each has its own character, but all share crystal-clear water and a stunning natural setting.</p>
+
+<h3>The four coves</h3>
+<ul>
+<li><strong>Cala Barques:</strong> the largest and most accessible, a mix of sand and rock with good snorkelling along the sides. Beach bar and sunbed hire available.</li>
+<li><strong>Cala Clara:</strong> small and sheltered, ideal for couples. Transparent water over a rocky bottom.</li>
+<li><strong>Cala Molins:</strong> the most popular, with fine sand, a front-row restaurant and a family-friendly atmosphere. Parking nearby.</li>
+<li><strong>Cala Carbo:</strong> the wildest and smallest, with no facilities. Reached by a short path through the pines. Perfect for total peace and quiet.</li>
+</ul>
+
+<h3>How to get there</h3>
+<p>From Alcudia, take the Ma-2200 towards Pollenca and then the Ma-2210 to Cala Sant Vicenc. The drive takes about 15 minutes. There is a public car park (limited in summer, arrive early). No direct public transport; car or bicycle are the best options.</p>
+
+<h3>Best time to visit</h3>
+<p>June to September for swimming. Arrive before 10:00 in summer for easy parking. Outside the season the cliffs between the coves are great for hiking.</p>
+
+<h2>Es Coll Baix: the wild beach</h2>
+<p>Es Coll Baix is one of the most spectacular and unspoilt beaches in Mallorca. Hemmed in by cliffs rising over 200 metres and reachable only by a demanding trail on foot or by boat, it is the ultimate destination for nature lovers who do not mind a hike to find somewhere truly special.</p>
+
+<h3>What it is like</h3>
+<p>A beach of stones and coarse gravel surrounded by sheer rock walls. The water is a deep, crystal-clear blue. There is no natural shade and absolutely no facilities. It is a completely untouched place where nature is in charge.</p>
+
+<h3>Getting there on foot</h3>
+<p>The trail starts at the end of the road to the Ermita de la Victoria (small car park available). The descent takes about 40 to 50 minutes along a rocky path with steep sections. You will need hiking shoes, plenty of water and sun protection. The climb back up is strenuous. Not suitable for young children or anyone with limited mobility.</p>
+
+<h3>Getting there by boat</h3>
+<p>From Alcudia harbour, several companies run excursions that stop at Es Coll Baix. You can also hire a no-licence boat and make your own way there. This option lets you enjoy the beach without the effort of the hike.</p>
+
+<h3>Best time to visit</h3>
+<p>May to September. Start early if going on foot (set off at 08:00 to 09:00 to beat the heat). By boat, any time in the morning works well. Avoid very windy days, as the sea can get rough in this area.</p>
+
+<h2>Platja des Coll Baix (Coll Baix Petit)</h2>
+<p>Not to be confused with Es Coll Baix. Platja des Coll Baix, also called Coll Baix Petit, is a small pebble beach reached by a different trail from the Victoria area. It is smaller and far less visited than its famous neighbour, making it an interesting option for anyone seeking absolute solitude.</p>
+
+<h3>How to get there</h3>
+<p>Access is via a path that branches off the Victoria road before the Es Coll Baix car park. The descent is shorter but equally rocky. Wear proper footwear and carry water.</p>
+
+<h3>Best time to visit</h3>
+<p>The same recommendations as for Es Coll Baix apply. Because it is less well known, you will find fewer people even in peak season.</p>
+
+<h2>S'Illot: the islet off the beach</h2>
+<p>S'Illot is a small rocky islet sitting just off the northern end of Platja d'Alcudia. You can reach it by swimming or wading (the distance is around 50 metres). It is a popular snorkelling spot, as the rocks around the islet harbour rich marine life including colourful fish, sea urchins and starfish.</p>
+
+<h3>How to get there</h3>
+<p>From the northern end of Platja d'Alcudia, walk to the point where the sand gives way to a rocky area. From there the islet is just metres away. You can walk or swim depending on the tide.</p>
+
+<h3>Tip</h3>
+<p>Bring a snorkel mask and reef shoes. The seabed between the beach and the islet has patches of rock and posidonia seagrass. The area is particularly beautiful in the morning, when the water is calmest and visibility is at its best.</p>
+
+<h2>After the beach: your plans in Alcudia</h2>
+<p>A great beach day deserves a great finish. Here are our recommendations for rounding off the day:</p>
+
+<h3>For lunch or dinner</h3>
+<p>After hours in the sun, your body craves a proper meal. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) is the ideal choice: rice dishes prepared with fish and seafood from the local market, charcoal-grilled aged meats and Mediterranean fish. Open from 12:00, it works perfectly for a long lunch or a relaxed post-beach dinner. Closed Tuesdays.</p>
+
+<h3>For sunset drinks</h3>
+<p>Leave the beach, take a shower and head to <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Signature cocktails, premium shisha and an ambiance that pairs perfectly with an Alcudia sunset. Open from 17:00 daily, it is the place where the afternoon naturally turns into evening.</p>
+
+<h3>For nightlife</h3>
+<p>If it is Thursday, Friday or Saturday, the night carries on at <a href="/outxide">Outxide Club</a>, at the same Av. Tucan 1. Top-tier DJs, professional sound and visual production that turns every night into a unique experience. Open from 23:00, May to October.</p>
+
+<h2>Practical tips for Alcudia's beaches</h2>
+<ul>
+<li><strong>Sun protection:</strong> The Mallorcan sun is fierce, especially between 12:00 and 16:00. Use SPF 50 and reapply after every swim.</li>
+<li><strong>Water and food:</strong> Equipped beaches have beach bars, but for wild coves (Es Coll Baix, Cala Carbo) bring your own supplies.</li>
+<li><strong>Footwear:</strong> Reef shoes or aqua sandals are essential for pebble and rocky beaches.</li>
+<li><strong>Environment:</strong> Respect the posidonia seagrass that sometimes washes up on shore. It is a protected ecosystem vital to the health of the Mediterranean.</li>
+<li><strong>Blue Flag season:</strong> The main beaches hold Blue Flag status and have lifeguards from June to September.</li>
+</ul>`,
+      de: `<p>Die Region um Alcudia im Norden Mallorcas beherbergt einige der spektakulaersten Straende der Balearen. Von der scheinbar endlosen weissen Sandflaeche der Platja d'Alcudia bis hin zu versteckten Buchten, die nur zu Fuss oder per Boot erreichbar sind, gibt es fur jeden Reisetyp den passenden Strand. Dieser Guide fuehrt dich durch die besten Straende in Alcudia mit allen praktischen Informationen, die du brauchst.</p>
+
+<h2>Platja d'Alcudia: der Hauptstrand</h2>
+<p>Die Platja d'Alcudia ist der Vorzeigestrand des Nordens von Mallorca und einer der laengsten der Insel mit ueber 3,5 Kilometern feinem, goldenem Sand. Das Wasser ist kristallklar, flach und sandig, sodass du weit ins Meer hineinlaufen kannst, ohne den Boden zu verlieren. Das macht ihn zum absoluten Favoriten fuer Familien mit kleinen Kindern.</p>
+
+<h3>Wie der Strand ist</h3>
+<p>Feiner goldener Sand, ruhiges tuerkisfarbenes Wasser. Der Strand ist breit und bietet selbst in der Hochsaison reichlich Platz. Der noerdliche Abschnitt (nahe der Ciudad Blanca) ist ruhiger, waehrend der zentrale Bereich gegenueber der Strandpromenade am belebtesten ist, mit Strandbars, Restaurants und Geschaeften.</p>
+
+<h3>Anfahrt</h3>
+<p>Vom Zentrum von Port d'Alcudia ist der Strand weniger als fuenf Gehminuten entfernt, einfach eine der Strassen Richtung Meer hinunterlaufen. Mit dem Auto gibt es kostenloses Parken in den Strassen parallel zur Promenade und einen oeffentlichen Parkplatz am Hafen. In der Hochsaison solltest du vor 10:00 Uhr kommen, um problemlos einen Platz zu finden.</p>
+
+<h3>Ausstattung</h3>
+<p>Liegen- und Sonnenschirmverleih, Duschen, oeffentliche Toiletten, Strandbars, Rettungsschwimmer in der Hochsaison, Wassersportbereiche (Stand-Up-Paddling, Kajak, Bananenboot, Parasailing), barrierefreie Zugaenge an mehreren Stellen.</p>
+
+<h3>Beste Besuchszeit</h3>
+<p>Juni bis September zum Baden. Wochentags morgens ist es am ruhigsten. Bei Sonnenuntergang ist das Licht spektakulaer fuer Spaziergaenge am Wasser. Ausserhalb der Saison (April-Mai, Oktober) ist der Strand fast menschenleer und perfekt zum Spazierengehen oder Joggen.</p>
+
+<h2>Platja de Muro: das Paradies aus weissem Sand</h2>
+<p>Technisch gesehen in der Gemeinde Muro gelegen, aber eine direkte Fortsetzung des Strands von Alcudia nach Sueden, ist die Platja de Muro der Ort, wo der Sand noch weisser und feiner wird und das Wasser karibische Toene annimmt. Es ist einer der meistfotografierten Straende Mallorcas und taucht regelmaessig in den Rankings der besten Straende Europas auf.</p>
+
+<h3>Wie der Strand ist</h3>
+<p>Strahlend weisser, ultrafeiner Sand, flaches tuerkisfarbenes Wasser. Der Strand ist in Zonen unterteilt: Zone 1 liegt am naechsten zu Alcudia und hat die meisten Einrichtungen; die Zonen 2 und 3 gehoeren zum Naturpark s'Albufera und werden zunehmend ruhiger und wilder, mit geschuetzten Duenen und niedriger Vegetation.</p>
+
+<h3>Anfahrt</h3>
+<p>Mit dem Auto die Ma-12 Richtung Can Picafort nehmen. Es gibt mehrere ausgeschilderte Zufahrten mit Parkplaetzen (kostenpflichtig in Zone 1, kostenlos in den Zonen 2 und 3). Mit dem Fahrrad verbindet der Kuesten-Radweg Port d'Alcudia mit dem Strand von Muro in etwa 15 Minuten. Im Sommer gibt es auch einen lokalen Bus zwischen beiden Bereichen.</p>
+
+<h3>Ausstattung</h3>
+<p>Zone 1: Liegen, Sonnenschirme, Strandbars, Toiletten, Rettungsschwimmer. Zonen 2 und 3: sehr begrenzte oder keine Einrichtungen. Bringe dein eigenes Wasser und Essen mit, wenn du in die entfernteren Abschnitte gehst.</p>
+
+<h3>Beste Besuchszeit</h3>
+<p>Mai bis Oktober. Wochentags morgens, besonders in den Zonen 2 und 3, bieten ein fast privates Erlebnis. Wer Stimmung sucht, findet sie in Zone 1 im Juli und August.</p>
+
+<h2>Cala Sant Vicenc: Postkartenbuchten</h2>
+<p>Etwa 15 Autominuten von Alcudia entfernt, ist Cala Sant Vicenc eigentlich eine Gruppe von vier kleinen Buchten, eingerahmt von Bergen und Pinienwaelder: Cala Barques, Cala Clara, Cala Molins und Cala Carbo. Jede hat ihren eigenen Charakter, aber alle teilen kristallklares Wasser und eine atemberaubende natuerliche Kulisse.</p>
+
+<h3>Die vier Buchten</h3>
+<ul>
+<li><strong>Cala Barques:</strong> Die groesste und am besten zugaengliche, mit Sand und Felsen, gut zum Schnorcheln an den Seiten. Strandbar und Liegenverleih vorhanden.</li>
+<li><strong>Cala Clara:</strong> Klein und geschuetzt, ideal fuer Paare. Glasklares Wasser ueber felsigem Grund.</li>
+<li><strong>Cala Molins:</strong> Die beliebteste, mit feinem Sand, einem Restaurant in erster Reihe und familienfreundlicher Atmosphaere. Parkplatz in der Naehe.</li>
+<li><strong>Cala Carbo:</strong> Die wildeste und kleinste, ohne jegliche Einrichtungen. Zugang ueber einen kurzen Pfad durch die Pinien. Perfekt fuer absolute Ruhe.</li>
+</ul>
+
+<h3>Anfahrt</h3>
+<p>Von Alcudia die Ma-2200 Richtung Pollenca nehmen, dann die Ma-2210 nach Cala Sant Vicenc. Die Fahrt dauert etwa 15 Minuten. Es gibt einen oeffentlichen Parkplatz (im Sommer begrenzt, frueh kommen). Kein direkter oeffentlicher Nahverkehr; Auto oder Fahrrad sind die besten Optionen.</p>
+
+<h3>Beste Besuchszeit</h3>
+<p>Juni bis September zum Baden. Im Sommer vor 10:00 Uhr kommen, um gut zu parken. Ausserhalb der Saison eignen sich die Klippen zwischen den Buchten hervorragend zum Wandern.</p>
+
+<h2>Es Coll Baix: der wilde Strand</h2>
+<p>Es Coll Baix ist einer der spektakulaersten und unberuehrtesten Straende Mallorcas. Eingekeilt zwischen ueber 200 Meter hohen Klippen und nur ueber einen anspruchsvollen Wanderweg oder per Boot erreichbar, ist er das ultimative Ziel fuer Naturliebhaber, die nicht scheuen, fuer einen einzigartigen Ort zu wandern.</p>
+
+<h3>Wie der Strand ist</h3>
+<p>Ein Strand aus Steinen und grobem Kies, umgeben von senkrechten Felswanden. Das Wasser hat ein tiefes, kristallklares Blau. Es gibt keinen natuerlichen Schatten und keinerlei Infrastruktur. Ein voellig unberuehrter Ort, an dem die Natur das Sagen hat.</p>
+
+<h3>Zu Fuss hingelangen</h3>
+<p>Der Wanderweg beginnt am Ende der Strasse zur Ermita de la Victoria (kleiner Parkplatz vorhanden). Der Abstieg dauert etwa 40 bis 50 Minuten ueber einen felsigen Pfad mit steilen Abschnitten. Du brauchst Wanderschuhe, reichlich Wasser und Sonnenschutz. Der Aufstieg zurueck ist anstrengend. Nicht geeignet fuer kleine Kinder oder Personen mit eingeschraenkter Mobilitaet.</p>
+
+<h3>Per Boot hingelangen</h3>
+<p>Vom Hafen Alcudia bieten mehrere Unternehmen Ausfluege mit Halt an Es Coll Baix an. Du kannst auch ein Boot ohne Fuehrerschein mieten und auf eigene Faust hinfahren. Diese Option ermoeglicht es dir, den Strand ohne den Aufwand der Wanderung zu geniessen.</p>
+
+<h3>Beste Besuchszeit</h3>
+<p>Mai bis September. Starte frueh, wenn du zu Fuss gehst (Aufbruch zwischen 8:00 und 9:00 Uhr, um der Hitze zu entgehen). Per Boot ist jeder Morgen gut. Vermeide sehr windige Tage, da das Meer in dieser Gegend unruhig werden kann.</p>
+
+<h2>Platja des Coll Baix (Coll Baix Petit)</h2>
+<p>Nicht zu verwechseln mit Es Coll Baix. Die Platja des Coll Baix, auch Coll Baix Petit genannt, ist ein kleiner Kiesstrand, der ueber einen anderen Wanderweg vom Victoria-Gebiet aus erreichbar ist. Er ist kleiner und weit weniger besucht als sein beruehmter Nachbar, was ihn zu einer interessanten Option fuer alle macht, die absolute Einsamkeit suchen.</p>
+
+<h3>Anfahrt</h3>
+<p>Der Zugang erfolgt ueber einen Pfad, der von der Victoria-Strasse abzweigt, bevor man den Parkplatz von Es Coll Baix erreicht. Der Abstieg ist kuerzer, aber ebenso felsig. Trage geeignetes Schuhwerk und nimm Wasser mit.</p>
+
+<h3>Beste Besuchszeit</h3>
+<p>Die gleichen Empfehlungen wie fuer Es Coll Baix gelten. Da der Strand weniger bekannt ist, triffst du selbst in der Hochsaison auf weniger Menschen.</p>
+
+<h2>S'Illot: die kleine Felsinsel vor dem Strand</h2>
+<p>S'Illot ist eine kleine Felsinsel direkt vor dem noerdlichen Ende der Platja d'Alcudia. Du kannst sie schwimmend oder watend erreichen (die Entfernung betraegt etwa 50 Meter). Es ist ein beliebter Schnorchelspot, denn die Felsen rund um die Insel beherbergen eine reiche Unterwasserwelt mit bunten Fischen, Seeigeln und Seesternen.</p>
+
+<h3>Wie du hinkommst</h3>
+<p>Vom noerdlichen Ende der Platja d'Alcudia gehe bis zu dem Punkt, wo der Sand in einen felsigen Bereich uebergeht. Von dort ist die Insel nur wenige Meter entfernt. Je nach Gezeit kannst du laufen oder schwimmen.</p>
+
+<h3>Tipp</h3>
+<p>Bringe eine Schnorchelmaske und Badeschuhe mit. Der Meeresboden zwischen Strand und Insel hat Abschnitte mit Felsen und Posidonia-Seegras. Die Gegend ist besonders schoen am Morgen, wenn das Wasser am ruhigsten ist und die Sicht am besten.</p>
+
+<h2>Nach dem Strand: deine Plane in Alcudia</h2>
+<p>Ein grossartiger Strandtag verdient einen grossartigen Abschluss. Hier sind unsere Empfehlungen, um den Tag abzurunden:</p>
+
+<h3>Zum Mittag- oder Abendessen</h3>
+<p>Nach Stunden in der Sonne verlangt der Koerper nach einer ordentlichen Mahlzeit. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) ist die ideale Wahl: Reisgerichte mit Fisch und Meeresfruechten vom lokalen Markt, gereiftes Fleisch vom Holzkohlegrill und mediterrane Fische. Ab 12:00 Uhr geoeffnet, perfekt sowohl fuer ein ausgiebiges Mittagessen als auch fuer ein entspanntes Abendessen nach dem Strand. Dienstags geschlossen.</p>
+
+<h3>Fuer Drinks bei Sonnenuntergang</h3>
+<p>Verlasse den Strand, dusche dich und geh zur <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Signature-Cocktails, Premium-Shisha und ein Ambiente, das perfekt zum Sonnenuntergang in Alcudia passt. Taeglich ab 17:00 Uhr geoeffnet, ist es der Ort, an dem der Nachmittag ganz natuerlich in den Abend uebergeht.</p>
+
+<h3>Fuer das Nachtleben</h3>
+<p>Wenn es Donnerstag, Freitag oder Samstag ist, geht die Nacht im <a href="/outxide">Outxide Club</a> weiter, in der gleichen Av. Tucan 1. Erstklassige DJs, professioneller Sound und eine visuelle Produktion, die jede Nacht in ein einzigartiges Erlebnis verwandelt. Ab 23:00 Uhr geoeffnet, von Mai bis Oktober.</p>
+
+<h2>Praktische Tipps fuer die Straende in Alcudia</h2>
+<ul>
+<li><strong>Sonnenschutz:</strong> Die Sonne auf Mallorca ist intensiv, besonders zwischen 12:00 und 16:00 Uhr. Verwende LSF 50 und trage nach jedem Bad erneut auf.</li>
+<li><strong>Wasser und Essen:</strong> Ausgestattete Straende haben Strandbars, aber fuer wilde Buchten (Es Coll Baix, Cala Carbo) bringe deinen eigenen Proviant mit.</li>
+<li><strong>Schuhwerk:</strong> Badeschuhe oder Aquasandalen sind unverzichtbar fuer Kies- und Felsenstraende.</li>
+<li><strong>Umwelt:</strong> Respektiere das Posidonia-Seegras, das manchmal am Ufer angespuelt wird. Es ist ein geschuetztes Oekosystem, das fuer die Gesundheit des Mittelmeers lebenswichtig ist.</li>
+<li><strong>Blaue-Flagge-Saison:</strong> Die Hauptstraende tragen das Blaue-Flagge-Siegel und haben von Juni bis September Rettungsschwimmer.</li>
+</ul>`,
+      fr: `<p>La region d'Alcudia, au nord de Majorque, abrite certaines des plages les plus spectaculaires des Baleares. De l'immense bande de sable blanc de la Platja d'Alcudia aux criques cachees accessibles uniquement a pied ou en bateau, il y a une plage pour chaque type de voyageur. Ce guide vous emmene a travers les meilleures plages d'Alcudia avec toutes les informations pratiques dont vous avez besoin.</p>
+
+<h2>Platja d'Alcudia : la plage principale</h2>
+<p>La Platja d'Alcudia est la plage phare du nord de Majorque et l'une des plus grandes de l'ile, avec plus de 3,5 kilometres de sable fin et dore. L'eau est cristalline, peu profonde et a fond sableux, ce qui permet de marcher loin dans la mer sans perdre pied. C'est la favorite des familles avec de jeunes enfants.</p>
+
+<h3>A quoi elle ressemble</h3>
+<p>Sable fin et dore, eaux turquoise calmes. La plage est large et offre suffisamment d'espace meme en haute saison. L'extremite nord (pres de la Ciudad Blanca) est plus calme, tandis que la section centrale face a la promenade est la plus animee avec ses bars de plage, restaurants et commerces.</p>
+
+<h3>Comment y aller</h3>
+<p>Depuis le centre de Port d'Alcudia, la plage est a moins de cinq minutes a pied en descendant n'importe quelle rue vers la mer. En voiture, parking gratuit dans les rues paralleles a la promenade et un parking public pres du port. En haute saison, arrivez avant 10h00 pour trouver une place facilement.</p>
+
+<h3>Equipements</h3>
+<p>Location de transats et parasols, douches, toilettes publiques, bars de plage, maitres-nageurs en haute saison, zones de sports nautiques (paddle, kayak, bouee tractee, parasailing), acces handicapes a plusieurs endroits.</p>
+
+<h3>Meilleur moment pour la visiter</h3>
+<p>De juin a septembre pour la baignade. Les matinees en semaine sont les plus calmes. Au coucher du soleil, la lumiere est spectaculaire pour les promenades au bord de l'eau. Hors saison (avril-mai, octobre), la plage est pratiquement deserte et parfaite pour marcher ou courir.</p>
+
+<h2>Platja de Muro : le paradis de sable blanc</h2>
+<p>Techniquement dans la commune de Muro mais prolongement direct de la plage d'Alcudia vers le sud, la Platja de Muro est l'endroit ou le sable devient encore plus blanc et fin et ou l'eau prend des teintes caribeennes. C'est l'une des plages les plus photographiees de Majorque, regulierement classee parmi les meilleures plages d'Europe.</p>
+
+<h3>A quoi elle ressemble</h3>
+<p>Sable blanc eclatant et ultrafin, eau turquoise peu profonde. La plage est divisee en secteurs : la zone 1 est la plus proche d'Alcudia et la plus equipee ; les zones 2 et 3 font partie du parc naturel de s'Albufera et deviennent progressivement plus calmes et sauvages, avec des dunes protegees et une vegetation basse.</p>
+
+<h3>Comment y aller</h3>
+<p>En voiture, prendre la Ma-12 direction Can Picafort. Plusieurs acces flechees disposent de parkings (payant en zone 1, gratuit en zones 2 et 3). A velo, la voie verte cotiere relie Port d'Alcudia a la plage de Muro en environ 15 minutes. Un bus local dessert egalement les deux zones en ete.</p>
+
+<h3>Equipements</h3>
+<p>Zone 1 : transats, parasols, bars de plage, toilettes, maitres-nageurs. Zones 2 et 3 : equipements tres limites ou inexistants. Apportez votre propre eau et nourriture si vous allez dans les sections eloignees.</p>
+
+<h3>Meilleur moment pour la visiter</h3>
+<p>De mai a octobre. Les matinees en semaine, surtout en zones 2 et 3, offrent une experience presque privee. Pour l'ambiance, la zone 1 en juillet-aout est la plus animee.</p>
+
+<h2>Cala Sant Vicenc : les criques de carte postale</h2>
+<p>A environ 15 minutes en voiture d'Alcudia, Cala Sant Vicenc est en realite un ensemble de quatre petites criques encadrees par des montagnes et des pinedes : Cala Barques, Cala Clara, Cala Molins et Cala Carbo. Chacune a son propre caractere, mais toutes partagent des eaux cristallines et un cadre naturel epoustouflant.</p>
+
+<h3>Les quatre criques</h3>
+<ul>
+<li><strong>Cala Barques :</strong> la plus grande et la plus accessible, melange de sable et de roche, bon snorkeling sur les cotes. Bar de plage et location de transats disponibles.</li>
+<li><strong>Cala Clara :</strong> petite et abritee, ideale pour les couples. Eau transparente sur fond rocheux.</li>
+<li><strong>Cala Molins :</strong> la plus populaire, avec du sable fin, un restaurant en premiere ligne et une ambiance familiale. Parking a proximite.</li>
+<li><strong>Cala Carbo :</strong> la plus sauvage et la plus petite, sans aucun equipement. Acces par un court sentier a travers les pins. Parfaite pour une tranquillite absolue.</li>
+</ul>
+
+<h3>Comment y aller</h3>
+<p>Depuis Alcudia, prendre la Ma-2200 vers Pollenca puis la Ma-2210 jusqu'a Cala Sant Vicenc. Le trajet dure environ 15 minutes. Parking public (limite en ete, arrivez tot). Pas de transport en commun direct ; la voiture ou le velo sont les meilleures options.</p>
+
+<h3>Meilleur moment pour la visiter</h3>
+<p>De juin a septembre pour la baignade. Arrivez avant 10h00 en ete pour le parking. Hors saison, les falaises entre les criques sont ideales pour la randonnee.</p>
+
+<h2>Es Coll Baix : la plage sauvage</h2>
+<p>Es Coll Baix est l'une des plages les plus spectaculaires et les plus preservees de Majorque. Encaissee entre des falaises de plus de 200 metres de haut et accessible uniquement par un sentier exigeant a pied ou en bateau, c'est la destination ultime pour les amoureux de la nature prets a marcher pour trouver un endroit vraiment unique.</p>
+
+<h3>A quoi elle ressemble</h3>
+<p>Une plage de galets et de gravier grossier entouree de parois rocheuses verticales. L'eau est d'un bleu profond et cristallin. Il n'y a pas d'ombre naturelle ni aucun equipement. Un lieu completement vierge ou la nature est reine.</p>
+
+<h3>Y aller a pied</h3>
+<p>Le sentier part du bout de la route menant a l'Ermita de la Victoria (petit parking disponible). La descente prend environ 40 a 50 minutes sur un chemin rocheux avec des passages raides. Il vous faut des chaussures de randonnee, beaucoup d'eau et une protection solaire. La remontee est eprouvante. Deconseille aux jeunes enfants et aux personnes a mobilite reduite.</p>
+
+<h3>Y aller en bateau</h3>
+<p>Depuis le port d'Alcudia, plusieurs compagnies proposent des excursions avec arret a Es Coll Baix. Vous pouvez aussi louer un bateau sans permis et y aller par vos propres moyens. Cette option permet de profiter de la plage sans l'effort de la randonnee.</p>
+
+<h3>Meilleur moment pour la visiter</h3>
+<p>De mai a septembre. Partez tot si vous y allez a pied (depart entre 8h00 et 9h00 pour eviter la chaleur). En bateau, toute la matinee convient. Evitez les jours de grand vent, car la mer peut etre agitee dans ce secteur.</p>
+
+<h2>Platja des Coll Baix (Coll Baix Petit)</h2>
+<p>A ne pas confondre avec Es Coll Baix. La Platja des Coll Baix, aussi appelee Coll Baix Petit, est une petite plage de galets accessible par un sentier different depuis la zone de la Victoria. Plus petite et bien moins frequentee que sa celebre voisine, c'est une option interessante pour ceux qui recherchent une solitude absolue.</p>
+
+<h3>Comment y aller</h3>
+<p>L'acces se fait par un sentier qui bifurque de la route de la Victoria avant le parking d'Es Coll Baix. La descente est plus courte mais tout aussi rocheuse. Portez des chaussures adaptees et emportez de l'eau.</p>
+
+<h3>Meilleur moment pour la visiter</h3>
+<p>Les memes recommandations que pour Es Coll Baix. Etant moins connue, vous y croiserez moins de monde meme en pleine saison.</p>
+
+<h2>S'Illot : l'ilot face a la plage</h2>
+<p>S'Illot est un petit ilot rocheux situe juste en face de l'extremite nord de la Platja d'Alcudia. On peut l'atteindre a la nage ou en marchant dans l'eau (la distance est d'environ 50 metres). C'est un spot de snorkeling populaire, car les rochers autour de l'ilot abritent une riche vie marine avec des poissons colores, des oursins et des etoiles de mer.</p>
+
+<h3>Comment y aller</h3>
+<p>Depuis l'extremite nord de la Platja d'Alcudia, marchez jusqu'au point ou le sable laisse place a une zone rocheuse. De la, l'ilot n'est qu'a quelques metres. Vous pouvez y aller a pied ou a la nage selon la maree.</p>
+
+<h3>Conseil</h3>
+<p>Apportez un masque de snorkeling et des chaussures aquatiques. Le fond entre la plage et l'ilot presente des zones de roche et de posidonie. L'endroit est particulierement beau le matin, quand l'eau est la plus calme et la visibilite maximale.</p>
+
+<h2>Apres la plage : vos plans a Alcudia</h2>
+<p>Une belle journee de plage merite une belle fin. Voici nos recommandations pour terminer la journee en beaute :</p>
+
+<h3>Pour dejeuner ou diner</h3>
+<p>Apres des heures au soleil, le corps reclame un bon repas. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) est le choix ideal : plats de riz prepares avec le poisson et les fruits de mer du marche local, viandes maturees au grill et poissons mediterraneens. Ouvert des 12h00, parfait aussi bien pour un long dejeuner que pour un diner decontracte apres la plage. Ferme le mardi.</p>
+
+<h3>Pour un verre au coucher du soleil</h3>
+<p>Quittez la plage, prenez une douche et dirigez-vous vers <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Cocktails signatures, chicha premium et une ambiance qui s'accorde parfaitement avec le coucher du soleil d'Alcudia. Ouvert tous les jours a partir de 17h00, c'est l'endroit ou l'apres-midi se transforme naturellement en soiree.</p>
+
+<h3>Pour sortir le soir</h3>
+<p>Si c'est jeudi, vendredi ou samedi, la nuit continue a l'<a href="/outxide">Outxide Club</a>, a la meme Av. Tucan 1. DJs de premier plan, son professionnel et production visuelle qui transforment chaque nuit en une experience unique. Ouvert a partir de 23h00, de mai a octobre.</p>
+
+<h2>Conseils pratiques pour les plages d'Alcudia</h2>
+<ul>
+<li><strong>Protection solaire :</strong> le soleil de Majorque est intense, surtout entre 12h00 et 16h00. Utilisez un SPF 50 et reappliquez apres chaque bain.</li>
+<li><strong>Eau et nourriture :</strong> les plages equipees ont des bars de plage, mais pour les criques sauvages (Es Coll Baix, Cala Carbo), apportez vos propres provisions.</li>
+<li><strong>Chaussures :</strong> des chaussures aquatiques sont indispensables pour les plages de galets et de rochers.</li>
+<li><strong>Environnement :</strong> respectez la posidonie qui s'echoue parfois sur le rivage. C'est un ecosysteme protege vital pour la sante de la Mediterranee.</li>
+<li><strong>Saison Pavillon Bleu :</strong> les plages principales arborent le Pavillon Bleu et disposent de maitres-nageurs de juin a septembre.</li>
+</ul>`,
+      it: `<p>La zona di Alcudia, nel nord di Maiorca, ospita alcune delle spiagge piu' spettacolari delle Isole Baleari. Dall'interminabile striscia di sabbia bianca della Platja d'Alcudia alle calette nascoste raggiungibili solo a piedi o in barca, c'e' una spiaggia per ogni tipo di viaggiatore. Questa guida ti accompagna attraverso le migliori spiagge di Alcudia con tutte le informazioni pratiche di cui hai bisogno.</p>
+
+<h2>Platja d'Alcudia: la spiaggia principale</h2>
+<p>La Platja d'Alcudia e' la spiaggia di punta del nord di Maiorca e una delle piu' grandi dell'isola, con oltre 3,5 chilometri di sabbia fine e dorata. L'acqua e' cristallina, bassa e con fondale sabbioso, permettendo di camminare a lungo in mare senza perdere piede. Questo la rende la preferita delle famiglie con bambini piccoli.</p>
+
+<h3>Com'e'</h3>
+<p>Sabbia fine e dorata, acque turchesi calme. La spiaggia e' ampia e offre spazio a sufficienza anche in alta stagione. Il tratto nord (vicino alla Ciudad Blanca) e' piu' tranquillo, mentre la sezione centrale di fronte al lungomare e' la piu' vivace con chiringuitos, ristoranti e negozi.</p>
+
+<h3>Come arrivare</h3>
+<p>Dal centro di Port d'Alcudia la spiaggia e' a meno di cinque minuti a piedi scendendo per una qualsiasi delle strade verso il mare. In auto, parcheggio gratuito nelle strade parallele al lungomare e un parcheggio pubblico accanto al porto. In alta stagione, arriva prima delle 10:00 per trovare posto facilmente.</p>
+
+<h3>Servizi</h3>
+<p>Noleggio lettini e ombrelloni, docce, bagni pubblici, chiringuitos, bagnini in alta stagione, zone sport acquatici (paddle surf, kayak, banana boat, parasailing), accessi per disabili in diversi punti.</p>
+
+<h3>Momento migliore per visitarla</h3>
+<p>Da giugno a settembre per fare il bagno. Le mattine infrasettimanali sono le piu' tranquille. Al tramonto, la luce e' spettacolare per passeggiate lungo la riva. Fuori stagione (aprile-maggio, ottobre) la spiaggia e' praticamente deserta e perfetta per camminare o correre.</p>
+
+<h2>Platja de Muro: il paradiso di sabbia bianca</h2>
+<p>Tecnicamente nel comune di Muro ma proseguimento diretto della spiaggia di Alcudia verso sud, la Platja de Muro e' il punto dove la sabbia diventa ancora piu' bianca e fine e l'acqua assume tonalita' caraibiche. E' una delle spiagge piu' fotografate di Maiorca e compare regolarmente nelle classifiche delle migliori spiagge d'Europa.</p>
+
+<h3>Com'e'</h3>
+<p>Sabbia bianca splendente e ultrafine, acqua turchese poco profonda. La spiaggia e' divisa in settori: la zona 1 e' la piu' vicina ad Alcudia e la piu' attrezzata; le zone 2 e 3 rientrano nel parco naturale di s'Albufera e diventano progressivamente piu' tranquille e selvagge, con dune protette e vegetazione bassa.</p>
+
+<h3>Come arrivare</h3>
+<p>In auto, prendere la Ma-12 direzione Can Picafort. Ci sono diversi accessi segnalati con parcheggio (a pagamento in zona 1, gratuito nelle zone 2 e 3). In bicicletta, la ciclabile costiera collega Port d'Alcudia alla spiaggia di Muro in circa 15 minuti. In estate c'e' anche un autobus locale che collega le due zone.</p>
+
+<h3>Servizi</h3>
+<p>Zona 1: lettini, ombrelloni, chiringuitos, bagni, bagnini. Zone 2 e 3: servizi molto limitati o inesistenti. Porta acqua e cibo se vai nelle sezioni piu' lontane.</p>
+
+<h3>Momento migliore per visitarla</h3>
+<p>Da maggio a ottobre. Le mattine infrasettimanali, specialmente nelle zone 2 e 3, offrono un'esperienza quasi privata. Per l'atmosfera, la zona 1 in luglio e agosto e' la piu' vivace.</p>
+
+<h2>Cala Sant Vicenc: le calette da cartolina</h2>
+<p>A circa 15 minuti d'auto da Alcudia, Cala Sant Vicenc e' in realta' un gruppo di quattro piccole calette incorniciate da montagne e pinete: Cala Barques, Cala Clara, Cala Molins e Cala Carbo. Ognuna ha il suo carattere, ma tutte condividono acque cristalline e uno scenario naturale mozzafiato.</p>
+
+<h3>Le quattro calette</h3>
+<ul>
+<li><strong>Cala Barques:</strong> la piu' grande e accessibile, mix di sabbia e roccia, buono snorkeling ai lati. Chiringuito e noleggio lettini disponibili.</li>
+<li><strong>Cala Clara:</strong> piccola e riparata, ideale per le coppie. Acqua trasparente su fondale roccioso.</li>
+<li><strong>Cala Molins:</strong> la piu' popolare, con sabbia fine, ristorante in prima fila e atmosfera familiare. Parcheggio nelle vicinanze.</li>
+<li><strong>Cala Carbo:</strong> la piu' selvaggia e piccola, senza alcun servizio. Accesso tramite un breve sentiero tra i pini. Perfetta per la tranquillita' assoluta.</li>
+</ul>
+
+<h3>Come arrivare</h3>
+<p>Da Alcudia, prendere la Ma-2200 verso Pollenca e poi la Ma-2210 fino a Cala Sant Vicenc. Il tragitto dura circa 15 minuti. Parcheggio pubblico (limitato in estate, arriva presto). Nessun trasporto pubblico diretto; auto o bicicletta sono le opzioni migliori.</p>
+
+<h3>Momento migliore per visitarla</h3>
+<p>Da giugno a settembre per il bagno. In estate, arriva prima delle 10:00 per parcheggiare bene. Fuori stagione, le scogliere tra le calette sono ottime per il trekking.</p>
+
+<h2>Es Coll Baix: la spiaggia selvaggia</h2>
+<p>Es Coll Baix e' una delle spiagge piu' spettacolari e incontaminate di Maiorca. Incastonata tra scogliere di oltre 200 metri d'altezza e raggiungibile solo tramite un sentiero impegnativo a piedi o in barca, e' la destinazione definitiva per gli amanti della natura disposti a camminare per trovare un luogo davvero unico.</p>
+
+<h3>Com'e'</h3>
+<p>Spiaggia di ciottoli e ghiaia grossa, circondata da pareti rocciose verticali. L'acqua e' di un blu profondo e cristallino. Non c'e' ombra naturale ne' alcun servizio. Un luogo completamente incontaminato dove la natura comanda.</p>
+
+<h3>Arrivarci a piedi</h3>
+<p>Il sentiero parte dalla fine della strada per l'Ermita de la Victoria (piccolo parcheggio disponibile). La discesa richiede circa 40-50 minuti su un percorso roccioso con tratti ripidi. Servono scarpe da trekking, acqua abbondante e protezione solare. La risalita e' impegnativa. Non adatta a bambini piccoli o persone con mobilita' ridotta.</p>
+
+<h3>Arrivarci in barca</h3>
+<p>Dal porto di Alcudia, diverse compagnie offrono escursioni con sosta a Es Coll Baix. Puoi anche noleggiare una barca senza patente e andarci per conto tuo. Questa opzione ti permette di goderti la spiaggia senza la fatica dell'escursione.</p>
+
+<h3>Momento migliore per visitarla</h3>
+<p>Da maggio a settembre. Parti presto se vai a piedi (partenza tra le 8:00 e le 9:00 per evitare il caldo). In barca, qualsiasi orario della mattina va bene. Evita le giornate molto ventose, perche' il mare puo' essere agitato in questa zona.</p>
+
+<h2>Platja des Coll Baix (Coll Baix Petit)</h2>
+<p>Da non confondere con Es Coll Baix. La Platja des Coll Baix, chiamata anche Coll Baix Petit, e' una piccola spiaggia di ciottoli raggiungibile tramite un sentiero diverso dalla zona della Victoria. Piu' piccola e molto meno visitata della sua celebre vicina, e' un'opzione interessante per chi cerca solitudine assoluta.</p>
+
+<h3>Come arrivare</h3>
+<p>L'accesso avviene tramite un sentiero che si stacca dalla strada della Victoria prima del parcheggio di Es Coll Baix. La discesa e' piu' breve ma altrettanto rocciosa. Indossa scarpe adeguate e porta acqua.</p>
+
+<h3>Momento migliore per visitarla</h3>
+<p>Le stesse raccomandazioni di Es Coll Baix. Essendo meno conosciuta, troverai meno persone anche in alta stagione.</p>
+
+<h2>S'Illot: l'isolotto di fronte alla spiaggia</h2>
+<p>S'Illot e' un piccolo isolotto roccioso situato appena al largo dell'estremita' nord della Platja d'Alcudia. Si puo' raggiungere nuotando o camminando nell'acqua (la distanza e' di circa 50 metri). E' un punto popolare per lo snorkeling, poiche' le rocce intorno all'isolotto ospitano una ricca vita marina con pesci colorati, ricci di mare e stelle marine.</p>
+
+<h3>Come arrivarci</h3>
+<p>Dall'estremita' nord della Platja d'Alcudia, cammina fino al punto in cui la sabbia lascia posto a una zona rocciosa. Da li', l'isolotto e' a pochi metri. Puoi camminare o nuotare a seconda della marea.</p>
+
+<h3>Consiglio</h3>
+<p>Porta maschera da snorkeling e scarpette da scoglio. Il fondale tra la spiaggia e l'isolotto presenta tratti di roccia e posidonia. La zona e' particolarmente bella al mattino, quando l'acqua e' piu' calma e la visibilita' e' massima.</p>
+
+<h2>Dopo la spiaggia: i tuoi piani ad Alcudia</h2>
+<p>Una grande giornata di mare merita un gran finale. Ecco i nostri consigli per completare la giornata:</p>
+
+<h3>Per pranzo o cena</h3>
+<p>Dopo ore al sole, il corpo chiede un pasto come si deve. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) e' la scelta ideale: risotti preparati con pesce e frutti di mare del mercato locale, carni frollate alla brace e pesci mediterranei. Aperto dalle 12:00, perfetto sia per un pranzo lungo sia per una cena rilassata dopo la spiaggia. Chiuso il martedi'.</p>
+
+<h3>Per un drink al tramonto</h3>
+<p>Esci dalla spiaggia, fatti una doccia e dirigiti all'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Cocktail d'autore, shisha premium e un'atmosfera che si sposa perfettamente con il tramonto di Alcudia. Aperto tutti i giorni dalle 17:00, e' il luogo dove il pomeriggio si trasforma naturalmente in serata.</p>
+
+<h3>Per uscire la sera</h3>
+<p>Se e' giovedi', venerdi' o sabato, la notte prosegue all'<a href="/outxide">Outxide Club</a>, nella stessa Av. Tucan 1. DJ di primo livello, audio professionale e produzione visiva che trasformano ogni serata in un'esperienza unica. Aperto dalle 23:00, da maggio a ottobre.</p>
+
+<h2>Consigli pratici per le spiagge di Alcudia</h2>
+<ul>
+<li><strong>Protezione solare:</strong> il sole di Maiorca e' intenso, specialmente tra le 12:00 e le 16:00. Usa SPF 50 e riapplica dopo ogni bagno.</li>
+<li><strong>Acqua e cibo:</strong> le spiagge attrezzate hanno chiringuitos, ma per le calette selvagge (Es Coll Baix, Cala Carbo) porta le tue provviste.</li>
+<li><strong>Calzature:</strong> scarpette da scoglio o sandali acquatici sono indispensabili per le spiagge di ciottoli e roccia.</li>
+<li><strong>Ambiente:</strong> rispetta la posidonia che a volte si accumula sulla riva. E' un ecosistema protetto vitale per la salute del Mediterraneo.</li>
+<li><strong>Stagione Bandiera Blu:</strong> le spiagge principali hanno la Bandiera Blu e bagnini da giugno a settembre.</li>
+</ul>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-26",
+    image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
+    tags: ["alcudia", "mallorca", "activities", "guide"],
+    venue: "general",
+    readingTime: 10,
+  },
+  {
     slug: "guia-vida-nocturna-alcudia",
     title: {
       es: "Guía Completa de Vida Nocturna en Alcúdia 2026",
