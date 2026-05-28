@@ -4861,6 +4861,266 @@ export const blogPosts: BlogPost[] = [
     venue: "general",
     readingTime: 8,
   },
+  {
+    slug: "musica-dj-fiestas-tematicas-alcudia-mallorca",
+    title: {
+      es: "Musica en Vivo, DJ Sessions y Fiestas Tematicas en Alcudia",
+      en: "Live Music, DJ Sessions and Themed Parties in Alcudia",
+      de: "Live-Musik, DJ-Sessions und Themenpartys in Alcudia",
+      fr: "Musique Live, DJ Sessions et Soirees a Theme a Alcudia",
+      it: "Musica dal Vivo, DJ Set e Feste a Tema ad Alcudia",
+    },
+    excerpt: {
+      es: "Descubre las mejores noches de musica en vivo, DJ sets y fiestas tematicas en Alcudia. Outxide Club, Enjoy Terrace y Hiru te esperan en Port d'Alcudia, Mallorca.",
+      en: "Discover the best nights of live music, DJ sets and themed parties in Alcudia. Outxide Club, Enjoy Terrace and Hiru await you in Port d'Alcudia, Mallorca.",
+      de: "Entdecke die besten Naechte mit Live-Musik, DJ-Sets und Themenpartys in Alcudia. Outxide Club, Enjoy Terrace und Hiru erwarten dich in Port d'Alcudia, Mallorca.",
+      fr: "Decouvrez les meilleures soirees de musique live, DJ sets et fetes a theme a Alcudia. Outxide Club, Enjoy Terrace et Hiru vous attendent a Port d'Alcudia, Majorque.",
+      it: "Scopri le migliori serate di musica dal vivo, DJ set e feste a tema ad Alcudia. Outxide Club, Enjoy Terrace e Hiru ti aspettano a Port d'Alcudia, Maiorca.",
+    },
+    content: {
+      es: `<p>Alcudia se ha consolidado como uno de los destinos mas vibrantes de Mallorca cuando cae el sol. Cada verano, miles de visitantes llegan al norte de la isla buscando noches inolvidables con musica en vivo, sesiones de DJ de primer nivel y fiestas tematicas que no encontraras en ningun otro lugar del Mediterraneo. Si estas planeando tu viaje y quieres saber donde disfrutar de la mejor musica en Alcudia, esta guia es para ti.</p>
+
+<h2>La escena musical de Alcudia: mucho mas que turismo de sol y playa</h2>
+
+<p>Port d'Alcudia ha evolucionado enormemente en los ultimos anos. Lo que antes era un destino conocido unicamente por sus playas de arena blanca y aguas turquesas ahora ofrece una vida nocturna a la altura de los mejores destinos europeos. La zona cuenta con locales que apuestan por experiencias musicales cuidadas, con sistemas de sonido profesionales, iluminacion de ultima generacion y una programacion que abarca desde house y techno hasta sesiones de musica comercial, reggaeton y festivales tematicos.</p>
+
+<p>El epicentro de esta transformacion es <a href="/outxide">Outxide Club</a>, la discoteca de referencia en el norte de Mallorca. Junto a ella, <a href="/enjoy">Enjoy Terrace</a> completa la experiencia con cocktails de autor y un ambiente perfecto para comenzar la noche, mientras que <a href="/hiru">Hiru Food &amp; Drinks</a> aporta el componente gastronomico con cocina mallorquina a la brasa.</p>
+
+<h2>DJ Sessions en Outxide Club: el sonido del norte de Mallorca</h2>
+
+<p>Si buscas DJ en Alcudia con sesiones que realmente merezcan la pena, <a href="/outxide">Outxide Club</a> es tu destino. Situado en Av. Tuca, 1, en pleno corazon de Port d'Alcudia, este club apuesta por una programacion musical de calidad con residentes que dominan la pista y artistas invitados que elevan cada noche a otro nivel.</p>
+
+<p>La sala combina un diseno contemporaneo y elegante con un sistema de sonido envolvente que hace justicia a cada genero musical. Desde sesiones de musica electronica con matices de deep house y tech house hasta noches de exitos comerciales donde la pista no para, Outxide ofrece una variedad que pocos clubs en la zona pueden igualar.</p>
+
+<p>Entre sus formatos mas populares destacan las series DISCO FEVER, una celebracion del sonido disco y funk con un toque moderno, y las noches HYPE, donde la musica urbana, el reggaeton y los ritmos latinos se apoderan de la pista. Cada sesion esta disenada para crear una atmosfera unica donde la musica es la verdadera protagonista.</p>
+
+<p>Si quieres conocer mas sobre el club y su propuesta, te recomendamos leer nuestra <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guia completa sobre Outxide Club</a>.</p>
+
+<h2>Fiestas tematicas en Alcudia: noches que no se repiten</h2>
+
+<p>Una de las grandes senales de identidad de la vida nocturna en Alcudia son las fiestas tematicas. En <a href="/outxide">Outxide Club</a>, cada fin de semana trae consigo un concepto diferente. No se trata simplemente de cambiar la decoracion: la tematica define la musica, la estetica visual, la iluminacion y toda la experiencia sensorial del evento.</p>
+
+<p>Desde noches de neon donde la luz ultravioleta transforma la sala en un escenario futurista, hasta eventos de inspiracion tropical con ritmos afrobeat y dancehall, pasando por celebraciones especiales en fechas senaladas del calendario, la programacion esta pensada para que cada visita sea diferente a la anterior.</p>
+
+<p>Estas fiestas tematicas atraen tanto a turistas internacionales como a residentes locales, creando una mezcla de publico que aporta una energia unica. Puedes consultar nuestra seleccion de las <a href="/blog/mejores-discotecas-clubs-alcudia">mejores discotecas y clubs en Alcudia</a> para descubrir mas opciones nocturnas.</p>
+
+<h2>Pre-party en Enjoy Terrace: donde la noche comienza</h2>
+
+<p>Toda gran noche necesita un gran comienzo, y en Alcudia ese lugar es <a href="/enjoy">Enjoy Terrace</a>. Abierta todos los dias desde las 17:00, esta cocteleria es el punto de encuentro perfecto para prepararse antes de una sesion en Outxide. Con una carta de cocktails de autor, una seleccion de shisha premium y musica chill que marca el ritmo de la puesta de sol, Enjoy Terrace ofrece la transicion ideal entre la playa y la discoteca.</p>
+
+<p>El ambiente es relajado pero sofisticado, con una terraza que invita a quedarse mientras el cielo de Alcudia se tine de naranja y rosa. Es el lugar donde los planes de la noche toman forma, donde los grupos se reunen y donde la anticipacion de lo que viene despues se convierte en parte de la experiencia.</p>
+
+<p>Y si antes de salir prefieres disfrutar de una buena cena, <a href="/hiru">Hiru Food &amp; Drinks</a> te ofrece cocina mallorquina de producto y tradicion a pocos pasos de distancia. Carnes a la brasa, arroces y pescados frescos: la combinacion perfecta antes de una noche de musica.</p>
+
+<h2>Como conseguir entradas y horarios</h2>
+
+<p>Outxide Club abre sus puertas jueves, viernes y sabado a partir de las 23:00. Para garantizar tu entrada y evitar colas, te recomendamos comprar tus tickets con antelacion a traves de FourVenues, la plataforma oficial de venta de entradas del club. Alli encontraras tambien informacion actualizada sobre los proximos eventos, artistas confirmados y noches especiales.</p>
+
+<p>Planificar con antelacion es especialmente importante durante los meses de julio y agosto, cuando la demanda es mas alta y algunas noches especiales pueden agotar entradas. Si quieres ideas para organizar tu plan completo, echa un vistazo a nuestra <a href="/blog/plan-nocturno-port-alcudia-mallorca">guia de plan nocturno en Port d'Alcudia</a>.</p>
+
+<h2>Consejos para disfrutar de la musica en Alcudia al maximo</h2>
+
+<p>Para aprovechar al maximo las noches de musica en vivo, DJ sets y fiestas tematicas en Alcudia, ten en cuenta estos consejos practicos:</p>
+
+<p>Llega a <a href="/enjoy">Enjoy Terrace</a> sobre las 20:00 o 21:00 para disfrutar del atardecer con un cocktail antes de que la noche coja ritmo. Compra tus entradas para <a href="/outxide">Outxide Club</a> online con antelacion, especialmente en fin de semana. Consulta las redes sociales del club para conocer la tematica de cada noche y vestir acorde si asi lo deseas. El norte de Mallorca en verano tiene noches calidas, asi que la ropa ligera y comoda es siempre buena idea. Y recuerda: la zona de Av. Tuca concentra todo lo que necesitas para una noche completa, desde cena hasta la ultima cancion.</p>
+
+<p>Alcudia te espera con la mejor musica del verano. Ya sea una sesion de musica electronica en la madrugada, una fiesta tematica irrepetible o un atardecer con musica chill en una terraza frente al mar, aqui encontraras tu noche perfecta.</p>`,
+      en: `<p>Alcudia has established itself as one of Mallorca's most vibrant destinations after dark. Every summer, thousands of visitors travel to the north of the island seeking unforgettable nights filled with live music, world-class DJ sessions, and themed parties you will not find anywhere else in the Mediterranean. If you are planning your trip and want to know where to enjoy the best music in Alcudia, this guide is for you.</p>
+
+<h2>The Alcudia music scene: far more than sun and beach tourism</h2>
+
+<p>Port d'Alcudia has evolved dramatically in recent years. What was once a destination known exclusively for its white sand beaches and turquoise waters now offers a nightlife scene that rivals the best European destinations. The area features venues that invest in curated musical experiences, professional sound systems, cutting-edge lighting, and programming that spans house, techno, commercial hits, reggaeton, and themed festivals.</p>
+
+<p>At the heart of this transformation is <a href="/outxide">Outxide Club</a>, the benchmark nightclub in northern Mallorca. Alongside it, <a href="/enjoy">Enjoy Terrace</a> completes the experience with signature cocktails and the perfect atmosphere to start your night, while <a href="/hiru">Hiru Food &amp; Drinks</a> brings the gastronomic element with traditional Mallorcan grill cuisine.</p>
+
+<h2>DJ sessions at Outxide Club: the sound of northern Mallorca</h2>
+
+<p>If you are looking for DJ sets in Alcudia that are truly worth your time, <a href="/outxide">Outxide Club</a> is your destination. Located at Av. Tuca, 1, in the heart of Port d'Alcudia, this club delivers quality music programming with resident DJs who command the dance floor and guest artists who take each night to another level.</p>
+
+<p>The venue combines contemporary, sleek design with an immersive sound system that does justice to every genre. From electronic music sessions with deep house and tech house nuances to commercial hit nights where the dance floor never stops, Outxide offers a variety that few clubs in the area can match.</p>
+
+<p>Among its most popular formats are the DISCO FEVER series, a celebration of disco and funk sound with a modern twist, and the HYPE nights, where urban music, reggaeton, and Latin rhythms take over the floor. Every session is designed to create a unique atmosphere where the music is the true protagonist.</p>
+
+<p>For a deeper look at the club and everything it has to offer, we recommend reading our <a href="/blog/outxide-club-discoteca-alcudia-mallorca">complete guide to Outxide Club</a>.</p>
+
+<h2>Themed parties in Alcudia: nights that never repeat</h2>
+
+<p>One of the defining features of nightlife in Alcudia is the themed party culture. At <a href="/outxide">Outxide Club</a>, each weekend brings a different concept. This is not simply about changing the decoration: the theme defines the music, the visual aesthetic, the lighting, and the entire sensory experience of the event.</p>
+
+<p>From neon nights where ultraviolet light transforms the venue into a futuristic stage, to tropical-inspired events with afrobeat and dancehall rhythms, to special celebrations on key calendar dates, the programming is designed to ensure each visit feels different from the last.</p>
+
+<p>These themed parties attract international tourists and local residents alike, creating a blend of audiences that generates a unique energy. You can check our selection of the <a href="/blog/mejores-discotecas-clubs-alcudia">best clubs and discos in Alcudia</a> to discover more nightlife options.</p>
+
+<h2>Pre-party at Enjoy Terrace: where the night begins</h2>
+
+<p>Every great night needs a great beginning, and in Alcudia that place is <a href="/enjoy">Enjoy Terrace</a>. Open daily from 17:00, this cocktail bar is the perfect meeting point to get ready before a session at Outxide. With a menu of signature cocktails, a selection of premium shisha, and chill music that sets the pace for the sunset, Enjoy Terrace offers the ideal transition from the beach to the club.</p>
+
+<p>The atmosphere is relaxed yet sophisticated, with a terrace that invites you to stay while the Alcudia sky turns orange and pink. It is the place where the night's plans take shape, where groups gather, and where the anticipation of what comes next becomes part of the experience itself.</p>
+
+<p>And if you prefer to enjoy a proper dinner before heading out, <a href="/hiru">Hiru Food &amp; Drinks</a> offers traditional Mallorcan cuisine just steps away. Grilled meats, rice dishes, and fresh seafood: the perfect combination before a night of music.</p>
+
+<h2>How to get tickets and opening hours</h2>
+
+<p>Outxide Club opens its doors on Thursday, Friday, and Saturday from 23:00. To guarantee your entry and avoid queues, we recommend purchasing your tickets in advance through FourVenues, the official ticketing platform for the club. There you will also find updated information about upcoming events, confirmed artists, and special nights.</p>
+
+<p>Planning ahead is especially important during July and August, when demand is at its peak and some special nights can sell out. If you want ideas for organising your complete evening, take a look at our <a href="/blog/plan-nocturno-port-alcudia-mallorca">nightlife plan guide for Port d'Alcudia</a>.</p>
+
+<h2>Tips for making the most of live music in Alcudia</h2>
+
+<p>To get the most out of the live music nights, DJ sets, and themed parties in Alcudia, keep these practical tips in mind:</p>
+
+<p>Arrive at <a href="/enjoy">Enjoy Terrace</a> around 20:00 or 21:00 to enjoy the sunset with a cocktail before the night picks up pace. Buy your tickets for <a href="/outxide">Outxide Club</a> online in advance, especially on weekends. Check the club's social media to find out the theme of each night and dress accordingly if you wish. Northern Mallorca enjoys warm summer evenings, so light and comfortable clothing is always a good idea. And remember: the Av. Tuca area has everything you need for a complete night out, from dinner to the last track.</p>
+
+<p>Alcudia is waiting for you with the best music of the summer. Whether it is an electronic music session in the early hours, an unrepeatable themed party, or a sunset with chill music on a terrace overlooking the sea, you will find your perfect night here.</p>`,
+      de: `<p>Alcudia hat sich als eines der lebendigsten Reiseziele Mallorcas nach Sonnenuntergang etabliert. Jeden Sommer reisen Tausende von Besuchern in den Norden der Insel, auf der Suche nach unvergesslichen Naechten mit Live-Musik, erstklassigen DJ-Sessions und Themenpartys, die man nirgendwo sonst im Mittelmeerraum findet. Wenn du deinen Trip planst und wissen willst, wo du die beste Musik in Alcudia erleben kannst, ist dieser Guide genau richtig.</p>
+
+<h2>Die Musikszene in Alcudia: weit mehr als Strand und Sonne</h2>
+
+<p>Port d'Alcudia hat sich in den letzten Jahren enorm weiterentwickelt. Was einst ein Reiseziel war, das ausschliesslich fuer seine weissen Sandstraende und tuerkisfarbenes Wasser bekannt war, bietet heute ein Nachtleben, das mit den besten europaeischen Destinationen mithalten kann. Die Gegend verfuegt ueber Locations, die auf kuratierte Musikerlebnisse setzen, mit professionellen Soundsystemen, modernster Beleuchtung und einem Programm, das von House und Techno ueber kommerzielle Hits bis hin zu Reggaeton und Themenpartys reicht.</p>
+
+<p>Im Zentrum dieser Verwandlung steht der <a href="/outxide">Outxide Club</a>, der Referenz-Nachtclub im Norden Mallorcas. Daneben vervollstaendigt die <a href="/enjoy">Enjoy Terrace</a> das Erlebnis mit Signature-Cocktails und der perfekten Atmosphaere, um den Abend zu beginnen, waehrend <a href="/hiru">Hiru Food &amp; Drinks</a> die gastronomische Komponente mit traditioneller mallorquinischer Grillkueche beisteuert.</p>
+
+<h2>DJ-Sessions im Outxide Club: der Sound des Nordens von Mallorca</h2>
+
+<p>Wenn du DJ-Sets in Alcudia suchst, die sich wirklich lohnen, ist der <a href="/outxide">Outxide Club</a> dein Ziel. An der Av. Tuca, 1, im Herzen von Port d'Alcudia gelegen, bietet dieser Club hochwertige Musikprogrammierung mit Resident-DJs, die die Tanzflaeche beherrschen, und Gastartisten, die jede Nacht auf ein neues Niveau heben.</p>
+
+<p>Die Location verbindet zeitgenoessisches, elegantes Design mit einem immersiven Soundsystem, das jedem Genre gerecht wird. Von elektronischen Musiksessions mit Deep-House- und Tech-House-Nuancen bis hin zu kommerziellen Hit-Naechten, in denen die Tanzflaeche nie stillsteht, bietet Outxide eine Vielfalt, die nur wenige Clubs in der Region erreichen koennen.</p>
+
+<p>Zu den beliebtesten Formaten gehoeren die DISCO FEVER-Reihe, eine Feier des Disco- und Funk-Sounds mit modernem Touch, und die HYPE-Naechte, bei denen urbane Musik, Reggaeton und lateinamerikanische Rhythmen die Tanzflaeche uebernehmen. Jede Session ist darauf ausgelegt, eine einzigartige Atmosphaere zu schaffen, in der die Musik die wahre Hauptrolle spielt.</p>
+
+<p>Fuer einen tieferen Einblick in den Club empfehlen wir unseren <a href="/blog/outxide-club-discoteca-alcudia-mallorca">kompletten Guide zum Outxide Club</a>.</p>
+
+<h2>Themenpartys in Alcudia: Naechte, die sich nie wiederholen</h2>
+
+<p>Eines der grossen Markenzeichen des Nachtlebens in Alcudia sind die Themenpartys. Im <a href="/outxide">Outxide Club</a> bringt jedes Wochenende ein anderes Konzept mit sich. Es geht nicht einfach nur darum, die Dekoration zu aendern: Das Thema bestimmt die Musik, die visuelle Aesthetik, die Beleuchtung und das gesamte sensorische Erlebnis des Events.</p>
+
+<p>Von Neon-Naechten, in denen UV-Licht die Location in eine futuristische Buehne verwandelt, ueber tropisch inspirierte Events mit Afrobeat- und Dancehall-Rhythmen bis hin zu besonderen Feiern an wichtigen Kalenderdaten ist das Programm so gestaltet, dass sich jeder Besuch anders anfuehlt als der vorherige.</p>
+
+<p>Diese Themenpartys ziehen sowohl internationale Touristen als auch Einheimische an und schaffen eine Mischung aus Publikum, die eine einzigartige Energie erzeugt. In unserer Auswahl der <a href="/blog/mejores-discotecas-clubs-alcudia">besten Clubs und Diskotheken in Alcudia</a> findest du weitere Optionen fuer dein Nachtleben.</p>
+
+<h2>Pre-Party auf der Enjoy Terrace: wo die Nacht beginnt</h2>
+
+<p>Jede grossartige Nacht braucht einen grossartigen Anfang, und in Alcudia ist dieser Ort die <a href="/enjoy">Enjoy Terrace</a>. Taeglich ab 17:00 Uhr geoeffnet, ist diese Cocktailbar der perfekte Treffpunkt, um sich auf eine Session im Outxide vorzubereiten. Mit einer Karte voller Signature-Cocktails, einer Auswahl an Premium-Shisha und Chill-Musik, die den Rhythmus zum Sonnenuntergang vorgibt, bietet die Enjoy Terrace den idealen Uebergang vom Strand zum Club.</p>
+
+<p>Die Atmosphaere ist entspannt und dennoch anspruchsvoll, mit einer Terrasse, die zum Verweilen einlaedt, waehrend sich der Himmel ueber Alcudia in Orange und Rosa faerbt. Es ist der Ort, an dem die Plaene fuer die Nacht entstehen, an dem sich Gruppen treffen und an dem die Vorfreude auf das, was kommt, Teil des Erlebnisses wird.</p>
+
+<p>Und wenn du vor dem Ausgehen lieber ein gutes Abendessen geniessen moechtest, bietet dir <a href="/hiru">Hiru Food &amp; Drinks</a> traditionelle mallorquinische Kueche in unmittelbarer Naehe. Gegrilltes Fleisch, Reisgerichte und frischer Fisch: die perfekte Kombination vor einer Nacht voller Musik.</p>
+
+<h2>Tickets und Oeffnungszeiten</h2>
+
+<p>Der Outxide Club oeffnet seine Tueren donnerstags, freitags und samstags ab 23:00 Uhr. Um deinen Eintritt zu sichern und Warteschlangen zu vermeiden, empfehlen wir, deine Tickets im Voraus ueber FourVenues zu kaufen, die offizielle Ticketing-Plattform des Clubs. Dort findest du auch aktuelle Informationen ueber kommende Events, bestaetigte Kuenstler und besondere Naechte.</p>
+
+<p>Vorausplanung ist besonders wichtig in den Monaten Juli und August, wenn die Nachfrage am hoechsten ist und einige Sonderveranstaltungen ausverkauft sein koennen. Wenn du Ideen fuer die Planung deines kompletten Abends suchst, wirf einen Blick auf unseren <a href="/blog/plan-nocturno-port-alcudia-mallorca">Nachtleben-Guide fuer Port d'Alcudia</a>.</p>
+
+<h2>Tipps fuer das beste Musikerlebnis in Alcudia</h2>
+
+<p>Um das Beste aus den Live-Musik-Naechten, DJ-Sets und Themenpartys in Alcudia herauszuholen, beachte diese praktischen Tipps:</p>
+
+<p>Komm gegen 20:00 oder 21:00 Uhr zur <a href="/enjoy">Enjoy Terrace</a>, um den Sonnenuntergang bei einem Cocktail zu geniessen, bevor die Nacht Fahrt aufnimmt. Kaufe deine Tickets fuer den <a href="/outxide">Outxide Club</a> online im Voraus, besonders am Wochenende. Pruefe die Social-Media-Kanaele des Clubs, um das Thema jeder Nacht zu erfahren und dich entsprechend zu kleiden, wenn du moechtest. Der Norden Mallorcas bietet warme Sommerabende, daher ist leichte und bequeme Kleidung immer eine gute Idee. Und denk daran: Die Gegend rund um die Av. Tuca bietet alles, was du fuer eine komplette Nacht brauchst, vom Abendessen bis zum letzten Track.</p>
+
+<p>Alcudia erwartet dich mit der besten Musik des Sommers. Ob eine elektronische Musiksession in den fruehen Morgenstunden, eine einmalige Themenparty oder ein Sonnenuntergang mit Chill-Musik auf einer Terrasse mit Meerblick, hier findest du deine perfekte Nacht.</p>`,
+      fr: `<p>Alcudia s'est imposee comme l'une des destinations les plus vibrantes de Majorque apres le coucher du soleil. Chaque ete, des milliers de visiteurs se rendent dans le nord de l'ile a la recherche de nuits inoubliables rythmees par de la musique live, des sessions DJ de premier plan et des soirees a theme introuvables ailleurs en Mediterranee. Si vous planifiez votre voyage et souhaitez savoir ou profiter de la meilleure musique a Alcudia, ce guide est fait pour vous.</p>
+
+<h2>La scene musicale d'Alcudia : bien plus que du tourisme balneaire</h2>
+
+<p>Port d'Alcudia a considerablement evolue ces dernieres annees. Ce qui etait autrefois une destination connue uniquement pour ses plages de sable blanc et ses eaux turquoise offre desormais une vie nocturne a la hauteur des meilleures destinations europeennes. La zone compte des etablissements qui misent sur des experiences musicales soignees, avec des systemes son professionnels, un eclairage de derniere generation et une programmation qui couvre le house, la techno, les tubes commerciaux, le reggaeton et les festivals a theme.</p>
+
+<p>Au coeur de cette transformation se trouve l'<a href="/outxide">Outxide Club</a>, la discotheque de reference du nord de Majorque. A ses cotes, l'<a href="/enjoy">Enjoy Terrace</a> complete l'experience avec des cocktails signatures et l'ambiance parfaite pour commencer la soiree, tandis que <a href="/hiru">Hiru Food &amp; Drinks</a> apporte la dimension gastronomique avec une cuisine majorquine au grill.</p>
+
+<h2>Sessions DJ a l'Outxide Club : le son du nord de Majorque</h2>
+
+<p>Si vous cherchez des DJ sets a Alcudia qui valent vraiment le detour, l'<a href="/outxide">Outxide Club</a> est votre destination. Situe Av. Tuca, 1, au coeur de Port d'Alcudia, ce club propose une programmation musicale de qualite avec des DJ residents qui maitrisent le dancefloor et des artistes invites qui elevent chaque soiree a un autre niveau.</p>
+
+<p>L'espace allie un design contemporain et elegant a un systeme son immersif qui rend justice a chaque genre musical. Des sessions de musique electronique aux nuances deep house et tech house jusqu'aux soirees de tubes commerciaux ou le dancefloor ne desemplit pas, Outxide offre une variete que peu de clubs de la region peuvent egaler.</p>
+
+<p>Parmi ses formats les plus populaires figurent les soirees DISCO FEVER, une celebration du son disco et funk avec une touche moderne, et les nuits HYPE, ou la musique urbaine, le reggaeton et les rythmes latinos prennent possession de la piste. Chaque session est concue pour creer une ambiance unique ou la musique est la veritable star.</p>
+
+<p>Pour en savoir plus sur le club et son offre, nous vous recommandons de lire notre <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guide complet de l'Outxide Club</a>.</p>
+
+<h2>Soirees a theme a Alcudia : des nuits qui ne se repetent jamais</h2>
+
+<p>L'un des grands signes distinctifs de la vie nocturne a Alcudia est la culture des soirees a theme. A l'<a href="/outxide">Outxide Club</a>, chaque week-end apporte un concept different. Il ne s'agit pas simplement de changer la decoration : le theme definit la musique, l'esthetique visuelle, l'eclairage et toute l'experience sensorielle de l'evenement.</p>
+
+<p>Des soirees neon ou la lumiere ultraviolette transforme la salle en une scene futuriste, aux evenements d'inspiration tropicale avec des rythmes afrobeat et dancehall, en passant par des celebrations speciales aux dates cles du calendrier, la programmation est pensee pour que chaque visite soit differente de la precedente.</p>
+
+<p>Ces soirees a theme attirent aussi bien les touristes internationaux que les residents locaux, creant un melange de publics qui genere une energie unique. Decouvrez notre selection des <a href="/blog/mejores-discotecas-clubs-alcudia">meilleurs clubs et discotheques a Alcudia</a> pour explorer d'autres options nocturnes.</p>
+
+<h2>Pre-party a l'Enjoy Terrace : la ou la nuit commence</h2>
+
+<p>Chaque grande soiree a besoin d'un grand debut, et a Alcudia ce lieu est l'<a href="/enjoy">Enjoy Terrace</a>. Ouverte tous les jours des 17h00, cette cocteleria est le point de rencontre ideal pour se preparer avant une session a l'Outxide. Avec une carte de cocktails signatures, une selection de chicha premium et une musique chill qui accompagne le coucher du soleil, l'Enjoy Terrace offre la transition ideale entre la plage et le club.</p>
+
+<p>L'ambiance est detendue mais sophistiquee, avec une terrasse qui invite a rester tandis que le ciel d'Alcudia se pare d'orange et de rose. C'est l'endroit ou les plans de la soiree prennent forme, ou les groupes se retrouvent et ou l'anticipation de ce qui va suivre fait partie integrante de l'experience.</p>
+
+<p>Et si vous preferez savourer un bon diner avant de sortir, <a href="/hiru">Hiru Food &amp; Drinks</a> vous propose une cuisine majorquine traditionnelle a quelques pas. Viandes grillees, riz et poissons frais : la combinaison parfaite avant une nuit de musique.</p>
+
+<h2>Comment obtenir des billets et horaires</h2>
+
+<p>L'Outxide Club ouvre ses portes le jeudi, vendredi et samedi a partir de 23h00. Pour garantir votre entree et eviter les files d'attente, nous vous recommandons d'acheter vos billets a l'avance via FourVenues, la plateforme officielle de billetterie du club. Vous y trouverez egalement des informations actualisees sur les prochains evenements, les artistes confirmes et les soirees speciales.</p>
+
+<p>Planifier a l'avance est particulierement important pendant les mois de juillet et aout, lorsque la demande est la plus forte et que certaines soirees speciales peuvent afficher complet. Si vous cherchez des idees pour organiser votre soiree complete, consultez notre <a href="/blog/plan-nocturno-port-alcudia-mallorca">guide du plan nocturne a Port d'Alcudia</a>.</p>
+
+<h2>Conseils pour profiter au maximum de la musique a Alcudia</h2>
+
+<p>Pour tirer le meilleur des nuits de musique live, DJ sets et soirees a theme a Alcudia, gardez ces conseils pratiques en tete :</p>
+
+<p>Arrivez a l'<a href="/enjoy">Enjoy Terrace</a> vers 20h00 ou 21h00 pour profiter du coucher de soleil avec un cocktail avant que la nuit ne batte son plein. Achetez vos billets pour l'<a href="/outxide">Outxide Club</a> en ligne a l'avance, surtout le week-end. Consultez les reseaux sociaux du club pour connaitre le theme de chaque soiree et vous habiller en consequence si vous le souhaitez. Le nord de Majorque offre des soirees d'ete chaudes, alors des vetements legers et confortables sont toujours une bonne idee. Et n'oubliez pas : le quartier autour de l'Av. Tuca concentre tout ce dont vous avez besoin pour une nuit complete, du diner jusqu'au dernier morceau.</p>
+
+<p>Alcudia vous attend avec la meilleure musique de l'ete. Qu'il s'agisse d'une session de musique electronique au petit matin, d'une soiree a theme unique ou d'un coucher de soleil accompagne de musique chill sur une terrasse face a la mer, vous trouverez ici votre nuit parfaite.</p>`,
+      it: `<p>Alcudia si e affermata come una delle destinazioni piu vibranti di Maiorca dopo il tramonto. Ogni estate, migliaia di visitatori raggiungono il nord dell'isola alla ricerca di notti indimenticabili con musica dal vivo, sessioni DJ di primo livello e feste a tema introvabili altrove nel Mediterraneo. Se stai pianificando il tuo viaggio e vuoi sapere dove goderti la migliore musica ad Alcudia, questa guida fa per te.</p>
+
+<h2>La scena musicale di Alcudia: molto piu del turismo balneare</h2>
+
+<p>Port d'Alcudia si e evoluta notevolmente negli ultimi anni. Quella che un tempo era una destinazione conosciuta esclusivamente per le sue spiagge di sabbia bianca e le acque turchesi, oggi offre una vita notturna all'altezza delle migliori destinazioni europee. La zona conta su locali che puntano su esperienze musicali curate, con impianti audio professionali, illuminazione di ultima generazione e una programmazione che spazia dall'house alla techno, dai successi commerciali al reggaeton fino ai festival a tema.</p>
+
+<p>Al centro di questa trasformazione si trova l'<a href="/outxide">Outxide Club</a>, la discoteca di riferimento nel nord di Maiorca. Accanto ad esso, l'<a href="/enjoy">Enjoy Terrace</a> completa l'esperienza con cocktail d'autore e l'atmosfera perfetta per iniziare la serata, mentre <a href="/hiru">Hiru Food &amp; Drinks</a> aggiunge la componente gastronomica con cucina maiorchina alla brace.</p>
+
+<h2>DJ set all'Outxide Club: il suono del nord di Maiorca</h2>
+
+<p>Se cerchi DJ set ad Alcudia che valgano davvero la pena, l'<a href="/outxide">Outxide Club</a> e la tua destinazione. Situato in Av. Tuca, 1, nel cuore di Port d'Alcudia, questo club propone una programmazione musicale di qualita con DJ resident che dominano la pista e artisti ospiti che portano ogni serata a un livello superiore.</p>
+
+<p>Lo spazio combina un design contemporaneo ed elegante con un impianto audio immersivo che rende giustizia a ogni genere musicale. Dalle sessioni di musica elettronica con sfumature deep house e tech house alle serate di successi commerciali dove la pista non si ferma mai, Outxide offre una varieta che pochi club della zona possono eguagliare.</p>
+
+<p>Tra i formati piu apprezzati spiccano le serate DISCO FEVER, una celebrazione del sound disco e funk con un tocco moderno, e le notti HYPE, dove la musica urbana, il reggaeton e i ritmi latini si impossessano della pista. Ogni sessione e progettata per creare un'atmosfera unica in cui la musica e la vera protagonista.</p>
+
+<p>Per uno sguardo approfondito sul club e sulla sua proposta, ti consigliamo di leggere la nostra <a href="/blog/outxide-club-discoteca-alcudia-mallorca">guida completa all'Outxide Club</a>.</p>
+
+<h2>Feste a tema ad Alcudia: notti che non si ripetono mai</h2>
+
+<p>Uno dei grandi tratti distintivi della vita notturna ad Alcudia sono le feste a tema. All'<a href="/outxide">Outxide Club</a>, ogni fine settimana porta con se un concept diverso. Non si tratta semplicemente di cambiare la decorazione: il tema definisce la musica, l'estetica visiva, l'illuminazione e l'intera esperienza sensoriale dell'evento.</p>
+
+<p>Dalle serate neon in cui la luce ultravioletta trasforma il locale in un palcoscenico futuristico, agli eventi di ispirazione tropicale con ritmi afrobeat e dancehall, fino alle celebrazioni speciali nelle date chiave del calendario, la programmazione e pensata perche ogni visita sia diversa dalla precedente.</p>
+
+<p>Queste feste a tema attraggono sia turisti internazionali che residenti locali, creando un mix di pubblico che genera un'energia unica. Scopri la nostra selezione dei <a href="/blog/mejores-discotecas-clubs-alcudia">migliori club e discoteche di Alcudia</a> per esplorare altre opzioni notturne.</p>
+
+<h2>Pre-party all'Enjoy Terrace: dove la notte ha inizio</h2>
+
+<p>Ogni grande serata ha bisogno di un grande inizio, e ad Alcudia quel posto e l'<a href="/enjoy">Enjoy Terrace</a>. Aperta tutti i giorni dalle 17:00, questa cocktail bar e il punto di ritrovo perfetto per prepararsi prima di una sessione all'Outxide. Con un menu di cocktail d'autore, una selezione di shisha premium e musica chill che accompagna il tramonto, l'Enjoy Terrace offre la transizione ideale dalla spiaggia al club.</p>
+
+<p>L'atmosfera e rilassata ma sofisticata, con una terrazza che invita a restare mentre il cielo di Alcudia si tinge di arancione e rosa. E il luogo dove prendono forma i piani della serata, dove i gruppi si riuniscono e dove l'attesa di cio che verra diventa parte dell'esperienza stessa.</p>
+
+<p>E se prima di uscire preferisci goderti una buona cena, <a href="/hiru">Hiru Food &amp; Drinks</a> ti propone cucina maiorchina tradizionale a pochi passi di distanza. Carni alla brace, riso e pesce fresco: la combinazione perfetta prima di una notte di musica.</p>
+
+<h2>Come acquistare i biglietti e orari di apertura</h2>
+
+<p>L'Outxide Club apre le sue porte il giovedi, venerdi e sabato dalle 23:00. Per garantirti l'ingresso ed evitare code, ti consigliamo di acquistare i biglietti in anticipo tramite FourVenues, la piattaforma ufficiale di biglietteria del club. Li troverai anche informazioni aggiornate sui prossimi eventi, gli artisti confermati e le serate speciali.</p>
+
+<p>Pianificare in anticipo e particolarmente importante nei mesi di luglio e agosto, quando la domanda e piu alta e alcune serate speciali possono esaurirsi. Se cerchi idee per organizzare la tua serata completa, dai un'occhiata alla nostra <a href="/blog/plan-nocturno-port-alcudia-mallorca">guida al piano notturno a Port d'Alcudia</a>.</p>
+
+<h2>Consigli per vivere al meglio la musica ad Alcudia</h2>
+
+<p>Per sfruttare al massimo le serate di musica dal vivo, DJ set e feste a tema ad Alcudia, tieni a mente questi consigli pratici:</p>
+
+<p>Arriva all'<a href="/enjoy">Enjoy Terrace</a> verso le 20:00 o le 21:00 per goderti il tramonto con un cocktail prima che la notte entri nel vivo. Acquista i biglietti per l'<a href="/outxide">Outxide Club</a> online in anticipo, soprattutto nel fine settimana. Controlla i social media del club per scoprire il tema di ogni serata e vestirti di conseguenza se lo desideri. Il nord di Maiorca gode di calde serate estive, quindi abbigliamento leggero e comodo e sempre una buona idea. E ricorda: la zona di Av. Tuca ha tutto cio che ti serve per una serata completa, dalla cena fino all'ultimo brano.</p>
+
+<p>Alcudia ti aspetta con la migliore musica dell'estate. Che si tratti di una sessione di musica elettronica nelle prime ore del mattino, di una festa a tema irripetibile o di un tramonto con musica chill su una terrazza fronte mare, qui troverai la tua serata perfetta.</p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-05-28",
+    image: "/images/outxide/DSCF8103-9.jpg",
+    tags: ["nightlife", "music", "dj", "outxide", "enjoy", "alcudia", "mallorca"],
+    venue: "outxide",
+    readingTime: 7,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
