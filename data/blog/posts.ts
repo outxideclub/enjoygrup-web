@@ -108,7 +108,10 @@ export const blogPosts: BlogPost[] = [
 <h2>Por que Hiru es la mejor opcion para una experiencia completa</h2>
 <p>Si tuvieras que elegir un solo restaurante en Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> ofrece la experiencia gastronomica mas completa del norte de Mallorca. Combina cocina a la brasa con producto premium, arroces elaborados con marisco fresco, una carta de cocteles de autor, terraza para cenar al aire libre y un horario amplio que permite desde comidas familiares hasta cenas tardias.</p>
 <p>Ademas, su ubicacion en Port d'Alcudia lo convierte en el punto de partida perfecto para una noche redonda: cena en Hiru, cocteles al atardecer en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sabado, fiesta en <a href="/outxide">Outxide Club</a>. Es la combinacion que los locales ya conocen y que cada vez mas visitantes descubren.</p>
-<p>No olvides reservar mesa en Alcudia con antelacion, especialmente en junio, julio y agosto. La mejor forma de asegurar tu sitio en los mejores restaurantes de Port d'Alcudia es planificar con tiempo.</p>`,
+<p>No olvides reservar mesa en Alcudia con antelacion, especialmente en junio, julio y agosto. La mejor forma de asegurar tu sitio en los mejores restaurantes de Port d'Alcudia es planificar con tiempo.</p>
+
+<h2>Lectura Recomendada</h2>
+<p>Lee nuestro articulo completo sobre <a href="/blog/hiru-food-drinks-restaurante-alcudia">Hiru Food &amp; Drinks: el restaurante de referencia en Alcudia</a>. Tambien te puede interesar nuestra guia de <a href="/blog/donde-cenar-tarde-port-alcudia">donde cenar tarde en Port d'Alcudia</a> y la seleccion de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a> para despues de cenar.</p>`,
 
       en: `<p>If you are wondering where to eat in Alcudia, you are in the right place. Northern Mallorca has established itself as one of the island's most exciting dining destinations, offering everything from seafood paella by the sea to creative cuisine with top-quality local produce. This guide covers the best restaurants in Alcudia and Port d'Alcudia so you can eat well on every meal of your holiday.</p>
 
@@ -1587,7 +1590,10 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Por qué Alcúdia es diferente</h2>
-<p>Lo que hace única la noche en Port d'Alcúdia es la proximidad de todo. Puedes empezar con cócteles al atardecer, cenar en un restaurante a la brasa como <a href="/hiru">Hiru Food &amp; Drinks</a>, volver a la terraza para una shisha y terminar bailando en el club. Todo en la misma zona, a pocos pasos. Eso, combinado con la brisa del Mediterráneo, el ambiente internacional y una oferta de calidad, convierte a Alcúdia en un destino nocturno que no tiene nada que envidiar al sur de la isla.</p>`,
+<p>Lo que hace única la noche en Port d'Alcúdia es la proximidad de todo. Puedes empezar con cócteles al atardecer, cenar en un restaurante a la brasa como <a href="/hiru">Hiru Food &amp; Drinks</a>, volver a la terraza para una shisha y terminar bailando en el club. Todo en la misma zona, a pocos pasos. Eso, combinado con la brisa del Mediterráneo, el ambiente internacional y una oferta de calidad, convierte a Alcúdia en un destino nocturno que no tiene nada que envidiar al sur de la isla.</p>
+
+<h2>Sigue leyendo</h2>
+<p>Conoce a fondo <a href="/blog/outxide-club-discoteca-alcudia-mallorca">Outxide Club: la discoteca de referencia en Alcudia</a>, descubre todo sobre <a href="/blog/enjoy-terrace-cocktails-shisha-port-alcudia">Enjoy Terrace: cocteles y shisha en Port d'Alcudia</a> y consulta los <a href="/blog/fiestas-eventos-verano-alcudia-2026">mejores eventos del verano 2026</a>.</p>`,
       en: `<p>Port d'Alcudia has established itself as the most attractive nightlife destination in northern Mallorca. Located alongside 7 km of white sand beach, this corner of the island offers a nightlife ecosystem that spans cocktail terraces to the best club in the area. If you are planning a night out in Alcudia, this guide covers everything you need to know.</p>
 
 <h2>Where the night begins: Enjoy Terrace</h2>
@@ -2035,7 +2041,10 @@ export const blogPosts: BlogPost[] = [
 <p>Enjoy Terrace ha sido diseñada para ofrecer algo más que un espacio bonito. La iluminación cambia según avanza la noche, la música ambiente evoluciona de lo chill a algo más enérgico, y el mobiliario está pensado para veladas largas. Hay zonas de sofás para grupos, mesas para parejas y rincones más íntimos.</p>
 
 <h2>La transición perfecta a la noche</h2>
-<p>Una de las grandes ventajas de Enjoy Terrace es su ubicación. Justo al lado está <a href="/outxide">Outxide Club</a>, que abre a las 23:00 de jueves a sábado. Así que puedes pasar una tarde entera de cócteles y shisha y, cuando la noche suba de nivel, simplemente caminar unos metros hasta el mejor club de Alcúdia. Es la transición más natural y cómoda que vas a encontrar en Mallorca.</p>`,
+<p>Una de las grandes ventajas de Enjoy Terrace es su ubicación. Justo al lado está <a href="/outxide">Outxide Club</a>, que abre a las 23:00 de jueves a sábado. Así que puedes pasar una tarde entera de cócteles y shisha y, cuando la noche suba de nivel, simplemente caminar unos metros hasta el mejor club de Alcúdia. Es la transición más natural y cómoda que vas a encontrar en Mallorca.</p>
+
+<h2>Sigue leyendo</h2>
+<p>Lee nuestro articulo completo sobre <a href="/blog/enjoy-terrace-cocktails-shisha-port-alcudia">Enjoy Terrace: la terraza de cocteles y shisha de Port d'Alcudia</a>. Tambien te puede interesar nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia de vida nocturna en Alcudia</a> y la seleccion de los <a href="/blog/shisha-bar-terraza-lounge-mallorca">mejores shisha bars de Mallorca</a>.</p>`,
       en: `<p>There are nights defined by a well-crafted cocktail, the aroma of premium shisha and the Mediterranean breeze. In Port d'Alcudia, <a href="/enjoy">Enjoy Terrace</a> has created exactly that experience: a space where signature mixology, shisha and an atmosphere crafted down to the last detail combine to set the stage for the best nights in Mallorca.</p>
 
 <h2>Enjoy Terrace: where the night begins in Alcudia</h2>
@@ -3663,6 +3672,9 @@ export const blogPosts: BlogPost[] = [
 <h2>Outxide Club vs Otras Discotecas de Mallorca</h2>
 <p>Frente a las macrodiscotecas de Magaluf o Palma, Outxide Club ofrece una alternativa premium: sonido de calidad, ambiente selecto, produccion cuidada y una ubicacion privilegiada junto al mar en Port d'Alcudia. No es una fiesta masiva; es una experiencia de club pensada para quienes valoran la calidad por encima de la cantidad.</p>
 
+<h2>Mas Guias sobre Vida Nocturna en Alcudia</h2>
+<p>Si quieres descubrir mas opciones de ocio nocturno, consulta nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia completa de vida nocturna en Alcudia</a>, la seleccion de las <a href="/blog/mejores-discotecas-clubs-alcudia">mejores discotecas y clubs de Alcudia</a> y nuestro calendario de <a href="/blog/fiestas-eventos-verano-alcudia-2026">fiestas y eventos del verano 2026</a>. Y para cenar antes de la fiesta, no te pierdas la guia de los <a href="/blog/mejores-restaurantes-alcudia-mallorca">mejores restaurantes en Alcudia</a>.</p>
+
 <p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Mallorca. Jueves, viernes y sabado. <a href="/outxide">Visita nuestra web para mas informacion y entradas.</a></strong></p>`,
 
       en: `<p>Looking for information about <strong>Outxide Club</strong>? You are on the official website of Grupo Enjoy, the company behind Outxide Club in Port d'Alcudia, Mallorca. Here you will find everything you need to know before your visit: from how to get here to what to expect from a night at Outxide.</p>
@@ -3696,6 +3708,9 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Outxide Club vs Other Mallorca Nightclubs</h2>
 <p>Compared to the mega-clubs of Magaluf or Palma, Outxide Club offers a premium alternative: quality sound, a selective atmosphere, polished production and a privileged location by the sea in Port d'Alcudia. It is not a massive rave; it is a club experience designed for those who value quality over quantity.</p>
+
+<h2>More Nightlife Guides for Alcudia</h2>
+<p>Discover more options in our <a href="/blog/guia-vida-nocturna-alcudia">complete nightlife guide to Alcudia</a>, browse the <a href="/blog/mejores-discotecas-clubs-alcudia">best clubs and discos in Alcudia</a> and check out the <a href="/blog/fiestas-eventos-verano-alcudia-2026">summer 2026 events calendar</a>. For dinner before the party, see our guide to the <a href="/blog/mejores-restaurantes-alcudia-mallorca">best restaurants in Alcudia</a>.</p>
 
 <p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Mallorca. Thursday, Friday and Saturday. <a href="/outxide">Visit our website for more information and tickets.</a></strong></p>`,
 
@@ -3834,6 +3849,9 @@ export const blogPosts: BlogPost[] = [
 <h2>Por Que Elegir Hiru</h2>
 <p>Hiru Food &amp; Drinks no es solo un restaurante: es el punto de partida para una experiencia gastronomica y de ocio completa en Port d'Alcudia. Cena en Hiru, cocktails en <a href="/enjoy">Enjoy Terrace</a> y, si la noche lo pide, fiesta en <a href="/outxide">Outxide Club</a>. Todo a pocos metros de distancia, sin necesidad de coche. Ese es el espiritu de <a href="/">Grupo Enjoy</a>.</p>
 
+<h2>Mas Guias Gastronomicas de Alcudia</h2>
+<p>Si buscas mas opciones donde comer, consulta nuestra guia de los <a href="/blog/mejores-restaurantes-alcudia-mallorca">mejores restaurantes en Alcudia</a>, descubre las mejores opciones para una <a href="/blog/donde-cenar-tarde-port-alcudia">cena tardia en Port d'Alcudia</a> o conoce lo mejor de la <a href="/blog/restaurante-brasa-parrilla-mallorca">cocina a la brasa en Mallorca</a>. Y si despues de cenar quieres cocktails, lee nuestra guia de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a>.</p>
+
 <p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Abierto a diario excepto martes. <a href="/hiru">Visita nuestra web para ver la carta y reservar.</a></strong></p>`,
 
       en: `<p>Looking for a great place to eat in Alcudia? <strong>Hiru Food &amp; Drinks</strong> is your answer. This is the official website of Grupo Enjoy, the company behind Hiru in Port d'Alcudia, Mallorca. Here you will find everything you need: menu, opening hours, location, terrace and how to book a table.</p>
@@ -3868,6 +3886,9 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Why Choose Hiru</h2>
 <p>Hiru Food &amp; Drinks is not just a restaurant: it is the starting point for a complete dining and leisure experience in Port d'Alcudia. Dinner at Hiru, cocktails at <a href="/enjoy">Enjoy Terrace</a> and, if the night calls for it, dancing at <a href="/outxide">Outxide Club</a>. All just metres apart, no car needed. That is the spirit of <a href="/">Grupo Enjoy</a>.</p>
+
+<h2>More Restaurant Guides for Alcudia</h2>
+<p>Explore more dining options in our guide to the <a href="/blog/mejores-restaurantes-alcudia-mallorca">best restaurants in Alcudia</a>, find the best spots for a <a href="/blog/donde-cenar-tarde-port-alcudia">late dinner in Port d'Alcudia</a> or discover top <a href="/blog/restaurante-brasa-parrilla-mallorca">charcoal grill restaurants in Mallorca</a>. After dinner, check out our <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails and shisha guide for Alcudia</a>.</p>
 
 <p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Open daily except Tuesday. <a href="/hiru">Visit our website to see the menu and book.</a></strong></p>`,
 
@@ -3999,6 +4020,9 @@ export const blogPosts: BlogPost[] = [
 <h2>El Plan Perfecto en Port d'Alcudia</h2>
 <p>Los locales lo tienen claro: cena en <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails y shisha en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sabado, la noche continua en <a href="/outxide">Outxide Club</a>. Todo a pocos metros, todo parte de la misma experiencia <a href="/">Grupo Enjoy</a>. Este es el plan que cada vez mas gente repite verano tras verano.</p>
 
+<h2>Mas Guias de Ocio en Alcudia</h2>
+<p>Explora mas planes en nuestra guia de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a>, descubre la <a href="/blog/guia-vida-nocturna-alcudia">vida nocturna de Alcudia al completo</a> o planifica tu dia con nuestra guia de <a href="/blog/que-hacer-alcudia-mallorca">que hacer en Alcudia</a>. Si buscas un plan con shisha, te gustara nuestra seleccion de los <a href="/blog/shisha-bar-terraza-lounge-mallorca">mejores shisha bars de Mallorca</a>.</p>
+
 <p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Mallorca. Abierto a diario desde las 17:00. <a href="/enjoy">Visita nuestra web para mas informacion.</a></strong></p>`,
 
       en: `<p>Looking for the best cocktail terrace in Port d'Alcudia? <strong>Enjoy Terrace</strong> is the place. This is the official website of Grupo Enjoy, the company behind Enjoy Terrace in Mallorca. Here is everything you need to know before your visit.</p>
@@ -4029,6 +4053,9 @@ export const blogPosts: BlogPost[] = [
 
 <h2>The Perfect Plan in Port d'Alcudia</h2>
 <p>The locals have it figured out: dinner at <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails and shisha at <a href="/enjoy">Enjoy Terrace</a> and, on Thursday, Friday or Saturday, the night continues at <a href="/outxide">Outxide Club</a>. All within walking distance, all part of the same <a href="/">Grupo Enjoy</a> experience. This is the plan more and more people repeat summer after summer.</p>
+
+<h2>More Leisure Guides for Alcudia</h2>
+<p>Explore more plans in our <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails and shisha guide for Alcudia</a>, discover <a href="/blog/guia-vida-nocturna-alcudia">the complete Alcudia nightlife scene</a> or plan your day with our <a href="/blog/que-hacer-alcudia-mallorca">things to do in Alcudia guide</a>. If you love shisha, check out the <a href="/blog/shisha-bar-terraza-lounge-mallorca">best shisha bars in Mallorca</a>.</p>
 
 <p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Mallorca. Open daily from 17:00. <a href="/enjoy">Visit our website for more information.</a></strong></p>`,
 
@@ -4118,4 +4145,26 @@ export function getAllPosts(): BlogPost[] {
   return [...blogPosts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
+}
+
+/**
+ * Returns up to `limit` related posts scored by shared tags + same venue.
+ * Excludes the current post from results.
+ */
+export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
+  const current = getPostBySlug(slug);
+  if (!current) return [];
+
+  const currentTags = new Set(current.tags);
+
+  return blogPosts
+    .filter((p) => p.slug !== slug)
+    .map((p) => {
+      let score = p.tags.filter((t) => currentTags.has(t)).length;
+      if (current.venue && p.venue === current.venue) score += 2;
+      return { post: p, score };
+    })
+    .sort((a, b) => b.score - a.score || new Date(b.post.date).getTime() - new Date(a.post.date).getTime())
+    .slice(0, limit)
+    .map((r) => r.post);
 }

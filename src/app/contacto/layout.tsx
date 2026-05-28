@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, JsonLd, EnjoyJsonLd, OutxideJsonLd, HiruJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -34,11 +34,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ContactLayout({
+export default async function ContactLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
   return (
     <>
       {children}
@@ -46,6 +48,39 @@ export default function ContactLayout({
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
         { name: "Contacto", url: "https://www.grupoenjoy.es/contacto" },
       ]} />
+      <EnjoyJsonLd description={t("meta.enjoyDescription")} />
+      <OutxideJsonLd description={t("meta.outxideDescription")} />
+      <HiruJsonLd description={t("meta.hiruDescription")} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Contacto — Grupo Enjoy",
+        url: "https://www.grupoenjoy.es/contacto",
+        mainEntity: {
+          "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
+          name: "Grupo Enjoy",
+          url: "https://www.grupoenjoy.es",
+          email: "info@grupoenjoy.es",
+          telephone: "+34 639 388 690",
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: "+34 657 87 89 17",
+              contactType: "reservations",
+              areaServed: "ES",
+              availableLanguage: ["Spanish", "English", "German", "French", "Italian"],
+            },
+            {
+              "@type": "ContactPoint",
+              telephone: "+34 639 388 690",
+              contactType: "customer service",
+              areaServed: "ES",
+              availableLanguage: ["Spanish", "English", "German", "French", "Italian"],
+            },
+          ],
+        },
+      }} />
     </>
   );
 }

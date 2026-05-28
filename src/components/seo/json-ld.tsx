@@ -151,6 +151,12 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
           "@type": "Menu",
           url: "https://www.grupoenjoy.es/hiru#menu",
         },
+        hasMap: "https://www.google.com/maps/search/?api=1&query=Hiru+Food+Drinks+Ctra+Arta+40+Alcudia",
+        areaServed: {
+          "@type": "GeoCircle",
+          geoMidpoint: { "@type": "GeoCoordinates", latitude: 39.8402, longitude: 3.1222 },
+          geoRadius: "10000",
+        },
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.6",
@@ -164,6 +170,7 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
         ],
         parentOrganization: {
           "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
           name: "Grupo Enjoy",
         },
       }}
@@ -205,6 +212,9 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
           bestRating: "5",
           reviewCount: "1283",
         },
+        hasMap: "https://www.google.com/maps/search/?api=1&query=Enjoy+Terrace+Av+Tucan+1+Alcudia",
+        currenciesAccepted: "EUR",
+        paymentAccepted: "Cash, Credit Card",
         sameAs: [
           "https://www.instagram.com/enjoy.terrace.alcudia/",
           "https://www.facebook.com/EnjoyAlcudia/",
@@ -212,6 +222,7 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
         ],
         parentOrganization: {
           "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
           name: "Grupo Enjoy",
         },
       }}
@@ -250,12 +261,17 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           { "@type": "LocationFeatureSpecification", name: "Themed Parties", value: true },
           { "@type": "LocationFeatureSpecification", name: "Bottle Service", value: true },
         ],
+        hasMap: "https://www.google.com/maps/search/?api=1&query=Outxide+Club+Av+Tucan+1+Alcudia",
+        isAccessibleForFree: false,
+        currenciesAccepted: "EUR",
+        paymentAccepted: "Cash, Credit Card",
         sameAs: [
           "https://www.instagram.com/outxide.club/",
           "https://web.fourvenues.com/es/outxide-club",
         ],
         parentOrganization: {
           "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
           name: "Grupo Enjoy",
         },
       }}
@@ -269,14 +285,25 @@ export function WebSiteJsonLd({ description }: { description?: string } = {}) {
       data={{
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://www.grupoenjoy.es/#website",
         url: "https://www.grupoenjoy.es",
         name: "Grupo Enjoy",
+        alternateName: ["Grupo Enjoy Alcudia", "Enjoy Group Mallorca"],
         description: description ?? "Cocktail lounge, nightclub & restaurant in Port d'Alcúdia, Mallorca",
         inLanguage: ["es", "en", "de", "fr", "it"],
         publisher: {
           "@type": "Organization",
+          "@id": "https://www.grupoenjoy.es/#organization",
           name: "Grupo Enjoy",
           url: "https://www.grupoenjoy.es",
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://www.grupoenjoy.es/blog?q={search_term_string}",
+          },
+          "query-input": "required name=search_term_string",
         },
       }}
     />

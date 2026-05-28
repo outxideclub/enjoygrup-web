@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
-import { getPostBySlug, getAllPosts, toBlogLocale, getPostText } from "../../../../data/blog/posts";
+import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
+import { getPostBySlug, getAllPosts, getRelatedPosts, toBlogLocale, getPostText } from "../../../../data/blog/posts";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { notFound } from "next/navigation";
@@ -73,6 +73,8 @@ export default async function BlogPostPage({ params }: Props) {
   const rawContent = getPostText(post.content, blogLocale);
   const content = sanitizeHtml(rawContent);
   const excerpt = getPostText(post.excerpt, blogLocale);
+
+  const relatedPosts = getRelatedPosts(slug, 3);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -271,6 +273,64 @@ export default async function BlogPostPage({ params }: Props) {
           {t("blog.backToBlog")}
         </Link>
       </div>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="border-t border-white/5 py-16 sm:py-20 relative">
+          <div className="mx-auto max-w-5xl px-6">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight text-center mb-10">
+              {t("blog.relatedPosts")}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {relatedPosts.map((rp) => {
+                const rpTitle = getPostText(rp.title, blogLocale);
+                const rpExcerpt = getPostText(rp.excerpt, blogLocale);
+                const venueColor =
+                  rp.venue === "enjoy" ? "text-enjoy" :
+                  rp.venue === "outxide" ? "text-outxide" :
+                  rp.venue === "hiru" ? "text-hiru" : "text-white/60";
+                const borderColor =
+                  rp.venue === "enjoy" ? "border-enjoy/20 hover:border-enjoy/40" :
+                  rp.venue === "outxide" ? "border-outxide/20 hover:border-outxide/40" :
+                  rp.venue === "hiru" ? "border-hiru/20 hover:border-hiru/40" : "border-white/10 hover:border-white/20";
+                return (
+                  <Link
+                    key={rp.slug}
+                    href={`/blog/${rp.slug}`}
+                    className={`group glass-card rounded-2xl overflow-hidden border ${borderColor} transition-all duration-300 hover:scale-[1.02] flex flex-col`}
+                  >
+                    <div className="relative h-40 overflow-hidden">
+                      <Image
+                        src={rp.image}
+                        alt={rpTitle}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <p className={`text-[10px] font-semibold uppercase tracking-wider mb-2 ${venueColor}`}>
+                        {rp.tags.slice(0, 2).join(" · ")}
+                      </p>
+                      <h3 className="text-sm font-semibold text-white leading-snug mb-2 line-clamp-2 group-hover:text-white/90 transition-colors">
+                        {rpTitle}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2 flex-1">
+                        {rpExcerpt}
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-white/50 group-hover:text-white mt-3 transition-colors">
+                        {t("blog.readMore")}
+                        <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Discover Venues */}
       <BlogPostClient venues={venues} discoverLabel={t("blog.discoverVenues")} visitLabel={t("common.visit")} />
