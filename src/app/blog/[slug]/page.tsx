@@ -6,7 +6,7 @@ import { getPostBySlug, getAllPosts, toBlogLocale, getPostText } from "../../../
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { notFound } from "next/navigation";
-import DOMPurify from "isomorphic-dompurify";
+import { sanitizeHtml } from "@/lib/sanitize";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { BlogPostClient } from "./client";
@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const title = getPostText(post.title, blogLocale);
   const rawContent = getPostText(post.content, blogLocale);
-  const content = DOMPurify.sanitize(rawContent);
+  const content = sanitizeHtml(rawContent);
   const excerpt = getPostText(post.excerpt, blogLocale);
 
   const articleJsonLd = {

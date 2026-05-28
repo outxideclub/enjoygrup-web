@@ -1,7 +1,7 @@
 import { readDataSafe } from "@/lib/data";
 import type { LegalPage } from "@/lib/data";
 import { getServerLocale, getServerT } from "@/i18n/server";
-import DOMPurify from "isomorphic-dompurify";
+import { sanitizeHtml } from "@/lib/sanitize";
 
 interface Props {
   slug: string;
@@ -32,7 +32,7 @@ export async function LegalPageContent({ slug }: Props) {
       {page.sections.map((section) => (
         <section key={section.id}>
           <h2>{section.heading}</h2>
-          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(section.content) }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }} />
         </section>
       ))}
     </>
