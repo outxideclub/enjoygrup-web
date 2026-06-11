@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contacto`, lastModified: now, changeFrequency: "monthly", priority: 0.7, alternates: buildAlternates(`${baseUrl}/contacto`) },
     { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6, alternates: buildAlternates(`${baseUrl}/faq`) },
     { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7, alternates: buildAlternates(`${baseUrl}/blog`) },
+    { url: `${baseUrl}/mundial`, lastModified: now, changeFrequency: "daily", priority: 0.8, alternates: buildAlternates(`${baseUrl}/mundial`) },
     ...blogPosts,
     { url: `${baseUrl}/legal/aviso-legal`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/legal/privacidad`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },

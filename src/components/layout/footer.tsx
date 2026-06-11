@@ -173,6 +173,14 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
+                  href="/mundial"
+                  className="link-underline text-sm font-medium text-emerald-300 hover:text-emerald-200 transition-colors"
+                >
+                  {t("mundial.navLabel")}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/nosotros"
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >

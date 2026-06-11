@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
+import { MundialBanner } from "@/components/ui/mundial-banner";
 import dynamic from "next/dynamic";
 
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
@@ -313,6 +314,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Banner Mundial 2026 (apartado temporal compartido) */}
+      <ScrollReveal>
+        <MundialBanner />
+      </ScrollReveal>
 
       </main>
       <Footer />
