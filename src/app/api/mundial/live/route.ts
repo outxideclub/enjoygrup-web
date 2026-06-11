@@ -9,10 +9,9 @@ import type { LiveScore, Match } from "@/lib/mundial";
 
 // Marcador en vivo del Mundial 2026.
 // Fuente: API pública de FIFA (api.fifa.com), gratuita y sin clave.
-// El route handler hace de proxy con caché corta: aunque haya muchas pantallas
-// abiertas, FIFA solo recibe ~1 petición cada REVALIDATE segundos.
+// El route handler hace de proxy con caché muy corta (3 s) para ir casi en
+// tiempo real: aunque haya varias pantallas, FIFA recibe como mucho ~1 pet./3 s.
 
-const REVALIDATE = 25; // s
 const FIFA_BASE = "https://api.fifa.com/api/v3/live/football";
 
 // Salvaguarda manual opcional: si la API fallara en pleno directo, el staff puede
@@ -57,7 +56,7 @@ async function fetchFifaLive(match: Match): Promise<LiveScore | null> {
   try {
     const res = await fetch(url, {
       headers: { "User-Agent": "Mozilla/5.0 (grupoenjoy.es)" },
-      next: { revalidate: REVALIDATE },
+      cache: "no-store",
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return null;
@@ -118,7 +117,9 @@ export async function GET(request: Request) {
     {
       status: 200,
       headers: {
-        "Cache-Control": `public, s-maxage=${REVALIDATE}, stale-while-revalidate=60`,
+        // Mínima latencia: caché de CDN de solo 3 s (evita martillear a FIFA con
+        // muchas pantallas) y sin servir datos viejos.
+        "Cache-Control": "public, s-maxage=3, stale-while-revalidate=0",
       },
     },
   );

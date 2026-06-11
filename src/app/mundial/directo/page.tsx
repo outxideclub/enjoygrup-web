@@ -98,7 +98,7 @@ export default function DirectoPage() {
       }
     };
     load();
-    const id = setInterval(load, 1000 * 20);
+    const id = setInterval(load, 1000 * 5);
     return () => {
       alive = false;
       clearInterval(id);
