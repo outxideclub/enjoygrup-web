@@ -252,6 +252,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Banner Mundial 2026 (apartado temporal compartido) — destacado bajo el hero */}
+      <div className="pt-16">
+        <MundialBanner />
+      </div>
+
       {/* Featured Spaces Section */}
       <section id="spaces" className="grain-overlay py-32 relative bg-[radial-gradient(ellipse_at_50%_0%,rgba(236,72,153,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_80%_80%,rgba(6,182,212,0.12)_0%,transparent_60%)]">
         <div className="mx-auto max-w-6xl px-6">
@@ -314,11 +319,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Banner Mundial 2026 (apartado temporal compartido) */}
-      <ScrollReveal>
-        <MundialBanner />
-      </ScrollReveal>
 
       </main>
       <Footer />
