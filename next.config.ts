@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "fourvenues.com",
         pathname: "/cdn-cgi/imagedelivery/**",
       },
+      {
+        protocol: "https",
+        hostname: "api.fifa.com",
+        pathname: "/api/v3/picture/**",
+      },
     ],
   },
   async headers() {
