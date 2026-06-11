@@ -8,6 +8,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { GroupLogo } from "@/components/ui/logos";
+import { cn } from "@/lib/utils";
 import { useT } from "@/i18n";
 import {
   flagUrl,
@@ -39,11 +40,16 @@ interface ApiMatch {
   city: string | null;
 }
 
-function BigFlag({ code, label }: { code: string | null; label: string }) {
+function Flag({ code, label, className }: { code: string | null; label: string; className?: string }) {
   const url = flagUrl(code);
   if (!url) {
     return (
-      <div className="flex aspect-square w-[7vw] items-center justify-center rounded-2xl bg-white/10 text-[1.4vw] font-bold text-white/50">
+      <div
+        className={cn(
+          "flex aspect-square items-center justify-center rounded-2xl bg-white/10 font-bold text-white/50",
+          className,
+        )}
+      >
         {label.slice(0, 3).toUpperCase()}
       </div>
     );
@@ -52,9 +58,9 @@ function BigFlag({ code, label }: { code: string | null; label: string }) {
     <Image
       src={url}
       alt={label}
-      width={160}
-      height={160}
-      className="aspect-square w-[7vw] rounded-2xl object-cover shadow-2xl ring-2 ring-white/15"
+      width={260}
+      height={260}
+      className={cn("aspect-square rounded-2xl object-cover shadow-2xl ring-2 ring-white/15", className)}
       unoptimized
       priority
     />
@@ -140,20 +146,28 @@ export default function DirectoPage() {
 
   const match = api?.match ?? null;
   const live = api?.live ?? null;
-  const isLive = live?.status === "LIVE" || live?.status === "HALFTIME";
+  const status = live?.status;
+  // Mostramos marcador cuando hay partido en juego, descanso o recién acabado.
+  const showScore = status === "LIVE" || status === "HALFTIME" || status === "FINISHED";
   const stageLabel = match && STAGE_KEY[match.stage] ? t(STAGE_KEY[match.stage]) : match?.stage ?? "";
   const groupLetter = match?.group?.replace(/[^A-Z]/g, "");
+  const stageLine = stageLabel + (groupLetter ? ` · ${t("mundial.group")} ${groupLetter}` : "");
 
-  const statusText =
-    live?.status === "LIVE"
-      ? live.minute || t("mundial.liveNow")
-      : live?.status === "HALFTIME"
+  // Texto grande del tiempo (minuto de FIFA / Descanso / Final).
+  const bigTime =
+    status === "LIVE"
+      ? live?.minute || ""
+      : status === "HALFTIME"
         ? t("mundial.halftime")
-        : live?.status === "FINISHED"
+        : status === "FINISHED"
           ? t("mundial.finished")
-          : match
-            ? `${madridDayLabel(match)} · ${madridTimeLabel(match)}`
-            : "";
+          : "";
+
+  const homeName = match ? match.home.name ?? match.home.placeholder ?? t("mundial.tbd") : "";
+  const awayName = match ? match.away.name ?? match.away.placeholder ?? t("mundial.tbd") : "";
+
+  // Lista de próximos (sin el partido que ya se muestra de héroe).
+  const upcomingList = upcoming.filter((m) => m.id !== match?.id).slice(0, 3);
 
   return (
     // Letterbox a 16:9 exacto para que la captura/kiosko siempre cuadre.
@@ -164,29 +178,19 @@ export default function DirectoPage() {
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-outxide/10 blur-3xl" />
 
         <div className="relative flex h-full flex-col p-[3vw]">
-          {/* Cabecera */}
+          {/* Cabecera mínima (sin círculo rojo) */}
           <header className="flex items-center justify-between">
             <div className="flex items-center gap-[1.2vw]">
-              <div className="scale-[1.1] origin-left">
-                <GroupLogo />
-              </div>
-              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/5 px-[1vw] py-[0.4vw] text-[1vw] font-semibold uppercase tracking-wider text-emerald-300">
+              <GroupLogo />
+              <span className="rounded-full border border-emerald-400/30 bg-emerald-400/5 px-[1vw] py-[0.4vw] text-[1.1vw] font-semibold uppercase tracking-wider text-emerald-300">
                 {t("mundial.navLabel")}
               </span>
             </div>
             <div className="flex items-center gap-[1vw]">
-              {isLive && (
-                <span className="flex items-center gap-[0.5vw] rounded-full bg-red-600 px-[1vw] py-[0.4vw] text-[1vw] font-bold uppercase tracking-wider">
-                  <span className="h-[0.8vw] w-[0.8vw] animate-pulse rounded-full bg-white" />
-                  {t("mundial.liveNow")}
-                </span>
-              )}
-              <span className="font-display text-[1.6vw] font-bold tabular-nums text-white/70">
-                {clock}
-              </span>
+              <span className="font-display text-[1.8vw] font-bold tabular-nums text-white/70">{clock}</span>
               {delaySec > 0 && (
                 <span
-                  className="text-[0.8vw] font-medium tabular-nums text-white/25"
+                  className="text-[0.9vw] font-medium tabular-nums text-white/25"
                   title="Desfase aplicado para sincronizar con el vídeo"
                 >
                   ⧖{delaySec}s
@@ -195,98 +199,106 @@ export default function DirectoPage() {
             </div>
           </header>
 
-          {/* Marcador / próximo */}
-          <div className="flex flex-1 flex-col items-center justify-center">
-            {!isLive && (
-              <p className="mb-[1.5vw] text-[1.3vw] font-semibold uppercase tracking-[0.3em] text-emerald-300">
-                {t("mundial.nextAtOutxide")}
-              </p>
-            )}
-            <p className="mb-[2vw] text-[1.1vw] uppercase tracking-wider text-white/40">
-              {stageLabel}
-              {groupLetter ? ` · ${t("mundial.group")} ${groupLetter}` : ""}
-            </p>
+          {showScore && match ? (
+            /* ===== MODO PARTIDO: marcador y minuto enormes, sin próximos ===== */
+            <div className="flex flex-1 flex-col items-center justify-center">
+              <p className="mb-[1.5vw] text-[2vw] uppercase tracking-[0.2em] text-white/45">{stageLine}</p>
 
-            {match ? (
               <div className="flex w-full items-center justify-center gap-[3vw]">
                 {/* Local */}
-                <div className="flex flex-1 flex-col items-center gap-[1vw]">
-                  <BigFlag code={match.home.code} label={match.home.name ?? match.home.placeholder ?? "?"} />
-                  <span className="text-center text-[2vw] font-bold leading-tight">
-                    {match.home.name ?? match.home.placeholder ?? t("mundial.tbd")}
-                  </span>
+                <div className="flex flex-1 flex-col items-center gap-[1.2vw]">
+                  <Flag code={match.home.code} label={homeName} className="w-[12vw]" />
+                  <span className="text-center text-[3.2vw] font-bold leading-tight">{homeName}</span>
                 </div>
 
                 {/* Marcador */}
-                <div className="flex flex-col items-center">
-                  {isLive || live?.status === "FINISHED" ? (
-                    <div className="flex items-center gap-[1.5vw] font-display text-[7vw] font-bold leading-none tabular-nums">
-                      <span>{live?.home.score ?? 0}</span>
-                      <span className="text-white/30">:</span>
-                      <span>{live?.away.score ?? 0}</span>
-                    </div>
-                  ) : (
-                    <div className="font-display text-[5vw] font-bold leading-none text-white/30">
-                      {madridTimeLabel(match)}
-                    </div>
-                  )}
-                  <span
-                    className={
-                      "mt-[1vw] rounded-full px-[1.2vw] py-[0.4vw] text-[1.1vw] font-semibold tabular-nums " +
-                      (isLive ? "bg-red-600/90 text-white" : "bg-white/10 text-white/60")
-                    }
-                  >
-                    {statusText}
-                  </span>
-                  {live?.manual && (
-                    <span className="mt-[0.5vw] text-[0.8vw] text-white/30">·</span>
-                  )}
+                <div className="flex items-center gap-[2vw] font-display text-[15vw] font-extrabold leading-none tabular-nums">
+                  <span>{live?.home.score ?? 0}</span>
+                  <span className="text-white/25">:</span>
+                  <span>{live?.away.score ?? 0}</span>
                 </div>
 
                 {/* Visitante */}
-                <div className="flex flex-1 flex-col items-center gap-[1vw]">
-                  <BigFlag code={match.away.code} label={match.away.name ?? match.away.placeholder ?? "?"} />
-                  <span className="text-center text-[2vw] font-bold leading-tight">
-                    {match.away.name ?? match.away.placeholder ?? t("mundial.tbd")}
-                  </span>
+                <div className="flex flex-1 flex-col items-center gap-[1.2vw]">
+                  <Flag code={match.away.code} label={awayName} className="w-[12vw]" />
+                  <span className="text-center text-[3.2vw] font-bold leading-tight">{awayName}</span>
                 </div>
               </div>
-            ) : (
-              <p className="text-[1.6vw] text-white/40">{t("mundial.noUpcoming")}</p>
-            )}
 
-            {match && (match.venue || match.city) && (
-              <p className="mt-[2vw] text-[1vw] text-white/40">
-                {[match.venue, match.city].filter(Boolean).join(" · ")}
-              </p>
-            )}
-          </div>
-
-          {/* Mini-calendario */}
-          <footer className="border-t border-white/10 pt-[1.5vw]">
-            <p className="mb-[1vw] text-[0.9vw] font-semibold uppercase tracking-[0.3em] text-white/40">
-              {t("mundial.upcoming")}
-            </p>
-            <div className="flex gap-[1.2vw]">
-              {upcoming.map((m) => (
-                <div
-                  key={m.id}
-                  className="flex flex-1 items-center gap-[0.8vw] rounded-xl border border-white/5 bg-white/[0.03] px-[1vw] py-[0.8vw]"
+              {/* Minuto ENORME, sin círculo rojo */}
+              {bigTime && (
+                <span
+                  className={cn(
+                    "mt-[2vw] font-display font-extrabold leading-none tabular-nums",
+                    status === "LIVE" ? "text-[9vw] text-emerald-400" : "text-[6vw] text-white/80",
+                  )}
                 >
-                  <div className="flex flex-col items-center text-[0.8vw] leading-tight text-emerald-300">
-                    <span className="font-semibold">{madridTimeLabel(m)}</span>
-                    <span className="text-white/30">{madridDayLabel(m).split(" ")[0]}</span>
-                  </div>
-                  <div className="flex min-w-0 flex-1 flex-col gap-[0.3vw] text-[0.95vw]">
-                    <span className="truncate">{m.home.name ?? m.home.placeholder ?? t("mundial.tbd")}</span>
-                    <span className="truncate text-white/50">
-                      {m.away.name ?? m.away.placeholder ?? t("mundial.tbd")}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                  {bigTime}
+                </span>
+              )}
             </div>
-          </footer>
+          ) : (
+            /* ===== MODO SIN PARTIDO: próximos en grande ===== */
+            <div className="flex flex-1 flex-col items-center justify-center gap-[2vw]">
+              <p className="text-[2.6vw] font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                {t("mundial.nextAtOutxide")}
+              </p>
+
+              {match ? (
+                <>
+                  <p className="text-[1.8vw] uppercase tracking-wider text-white/40">{stageLine}</p>
+                  <div className="flex w-full items-center justify-center gap-[3vw]">
+                    <div className="flex flex-1 flex-col items-center gap-[1vw]">
+                      <Flag code={match.home.code} label={homeName} className="w-[10vw]" />
+                      <span className="text-center text-[2.8vw] font-bold leading-tight">{homeName}</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span className="font-display text-[6.5vw] font-extrabold leading-none tabular-nums">
+                        {madridTimeLabel(match)}
+                      </span>
+                      <span className="mt-[0.5vw] text-[1.8vw] capitalize text-white/50">
+                        {madridDayLabel(match)}
+                      </span>
+                    </div>
+                    <div className="flex flex-1 flex-col items-center gap-[1vw]">
+                      <Flag code={match.away.code} label={awayName} className="w-[10vw]" />
+                      <span className="text-center text-[2.8vw] font-bold leading-tight">{awayName}</span>
+                    </div>
+                  </div>
+
+                  {upcomingList.length > 0 && (
+                    <div className="mt-[2vw] w-full">
+                      <p className="mb-[1vw] text-center text-[1.4vw] font-semibold uppercase tracking-[0.3em] text-white/35">
+                        {t("mundial.upcoming")}
+                      </p>
+                      <div className="flex flex-col gap-[1vw]">
+                        {upcomingList.map((m) => (
+                          <div
+                            key={m.id}
+                            className="flex items-center gap-[2vw] rounded-2xl border border-white/5 bg-white/[0.03] px-[2.5vw] py-[1.4vw]"
+                          >
+                            <span className="text-[2.6vw] font-bold tabular-nums text-emerald-300">
+                              {madridTimeLabel(m)}
+                            </span>
+                            <span className="w-[9vw] text-[1.6vw] capitalize text-white/40">
+                              {madridDayLabel(m)}
+                            </span>
+                            <span className="flex-1 truncate text-[2.4vw] font-medium">
+                              {(m.home.name ?? m.home.placeholder ?? t("mundial.tbd")) +
+                                "  –  " +
+                                (m.away.name ?? m.away.placeholder ?? t("mundial.tbd"))}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <p className="text-[2.5vw] text-white/40">{t("mundial.noUpcoming")}</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
