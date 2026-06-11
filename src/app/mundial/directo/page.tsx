@@ -5,7 +5,7 @@
 // del DJ, o capturarla como Browser Source en OBS/mimoLive (cámara virtual).
 // El partido grande va por tu OBS actual; esta página es la SEGUNDA fuente.
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { GroupLogo } from "@/components/ui/logos";
 import { useT } from "@/i18n";
@@ -66,6 +66,16 @@ export default function DirectoPage() {
   const [api, setApi] = useState<{ match: ApiMatch | null; live: LiveScore | null } | null>(null);
   const [clock, setClock] = useState("");
   const [nowMs, setNowMs] = useState(0);
+  // Desfase opcional (?delay=25) para que el marcador NO vaya por delante del
+  // vídeo de la retransmisión. Buffer de snapshots con su hora de llegada.
+  const [delaySec, setDelaySec] = useState(0);
+  const historyRef = useRef<{ at: number; data: { match: ApiMatch | null; live: LiveScore | null } }[]>([]);
+
+  // Lee ?delay=segundos de la URL (máx. 120 s).
+  useEffect(() => {
+    const d = parseInt(new URLSearchParams(window.location.search).get("delay") || "0", 10);
+    if (!Number.isNaN(d) && d >= 0) setDelaySec(Math.min(d, 120));
+  }, []);
 
   // Reloj local (Mallorca)
   useEffect(() => {
@@ -85,14 +95,17 @@ export default function DirectoPage() {
     return () => clearInterval(id);
   }, []);
 
-  // Polling del marcador
+  // Polling del marcador → guarda cada respuesta en el historial con su hora.
   useEffect(() => {
     let alive = true;
     const load = async () => {
       try {
         const res = await fetch("/api/mundial/live", { cache: "no-store" });
         const json = await res.json();
-        if (alive) setApi({ match: json.match ?? null, live: json.live ?? null });
+        if (!alive) return;
+        historyRef.current.push({ at: Date.now(), data: { match: json.match ?? null, live: json.live ?? null } });
+        const cutoff = Date.now() - 150000; // conserva ~150 s
+        historyRef.current = historyRef.current.filter((s) => s.at >= cutoff);
       } catch {
         /* mantiene el último estado */
       }
@@ -104,6 +117,24 @@ export default function DirectoPage() {
       clearInterval(id);
     };
   }, []);
+
+  // Cada segundo elige qué snapshot mostrar según el desfase configurado.
+  useEffect(() => {
+    const tick = () => {
+      const h = historyRef.current;
+      if (!h.length) return;
+      const target = Date.now() - delaySec * 1000;
+      let chosen = h[0]; // si ninguno es lo bastante antiguo, el más viejo disponible
+      for (const s of h) {
+        if (s.at <= target) chosen = s;
+        else break;
+      }
+      setApi(chosen.data);
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [delaySec]);
 
   const upcoming = useMemo(() => (nowMs ? upcomingBroadcasts(nowMs, 4) : []), [nowMs]);
 
@@ -153,6 +184,14 @@ export default function DirectoPage() {
               <span className="font-display text-[1.6vw] font-bold tabular-nums text-white/70">
                 {clock}
               </span>
+              {delaySec > 0 && (
+                <span
+                  className="text-[0.8vw] font-medium tabular-nums text-white/25"
+                  title="Desfase aplicado para sincronizar con el vídeo"
+                >
+                  ⧖{delaySec}s
+                </span>
+              )}
             </div>
           </header>
 
