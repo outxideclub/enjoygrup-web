@@ -3,13 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, Wine, Music, Flame, ChevronLeft, ChevronRight, Radio } from "lucide-react";
+import { ArrowRight, Wine, Music, Flame, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
+import { MundialBanner } from "@/components/ui/mundial-banner";
 import dynamic from "next/dynamic";
 
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
@@ -315,31 +316,9 @@ export default function HomePage() {
       </section>
 
       {/* Banner Mundial 2026 (apartado temporal compartido) */}
-      <section className="px-6 pb-24">
-        <ScrollReveal>
-          <Link
-            href="/mundial"
-            className="group mx-auto flex max-w-5xl flex-col items-center gap-6 overflow-hidden rounded-3xl border border-emerald-400/20 bg-[radial-gradient(ellipse_at_30%_0%,rgba(16,185,129,0.18)_0%,transparent_60%),radial-gradient(ellipse_at_90%_100%,rgba(6,182,212,0.15)_0%,transparent_55%)] p-8 text-center transition-colors hover:border-emerald-400/40 sm:flex-row sm:p-12 sm:text-left"
-          >
-            <div className="flex-1">
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300">
-                <Radio size={13} />
-                {t("mundial.badge")}
-              </span>
-              <h2 className="mt-4 font-display text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
-                {t("mundial.homeBannerTitle")}
-              </h2>
-              <p className="mt-3 max-w-xl text-sm text-muted-foreground sm:text-base">
-                {t("mundial.homeBannerText")}
-              </p>
-            </div>
-            <span className="btn-magnetic inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-colors group-hover:bg-white/90">
-              {t("mundial.homeBannerCta")}
-              <ArrowRight size={16} />
-            </span>
-          </Link>
-        </ScrollReveal>
-      </section>
+      <ScrollReveal>
+        <MundialBanner />
+      </ScrollReveal>
 
       </main>
       <Footer />
