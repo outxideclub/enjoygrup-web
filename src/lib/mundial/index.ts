@@ -182,7 +182,15 @@ export function broadcastState(m: Match): BroadcastState {
 
 // --- Helpers para la página de directo ---
 
-const MATCH_DURATION_MS = 135 * 60 * 1000; // ~2h15 (incl. descanso/añadido)
+export const MATCH_DURATION_MS = 135 * 60 * 1000; // ~2h15 (incl. descanso/añadido)
+
+/** Partidos que se están jugando ahora mismo (cualquiera, no solo los de Enjoy). */
+export function inPlayMatches(nowMs: number): Match[] {
+  return getMatches().filter((m) => {
+    const start = new Date(m.kickoffUtc).getTime();
+    return nowMs >= start && nowMs <= start + MATCH_DURATION_MS;
+  });
+}
 
 /** Partido que se emite y está en juego ahora mismo, si lo hay. */
 export function liveBroadcast(nowMs: number): Match | null {

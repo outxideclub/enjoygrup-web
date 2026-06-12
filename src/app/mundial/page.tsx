@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { Tv, Radio, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
@@ -15,6 +15,7 @@ import {
   matchOfTheNightIds,
   flagUrl,
   madridTimeLabel,
+  type LiveScore,
   type Match,
 } from "@/lib/mundial";
 
@@ -74,20 +75,55 @@ function TeamRow({
   );
 }
 
-function MatchCard({ match }: { match: Match }) {
+/** Indicador de estado en vivo (minuto / descanso / final) para el calendario. */
+function LiveBadge({ live }: { live: LiveScore }) {
+  const t = useT();
+  if (live.status === "LIVE") {
+    return (
+      <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-300">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+        </span>
+        {live.minute || t("mundial.liveNow")}
+      </span>
+    );
+  }
+  if (live.status === "HALFTIME") {
+    return (
+      <span className="shrink-0 rounded-full bg-amber-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-300">
+        {t("mundial.halftime")}
+      </span>
+    );
+  }
+  return (
+    <span className="shrink-0 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/60">
+      {t("mundial.finished")}
+    </span>
+  );
+}
+
+function MatchCard({ match, live }: { match: Match; live?: LiveScore }) {
   const t = useT();
   const state = broadcastState(match);
   const isMotn = matchOfTheNightIds().has(match.id);
   const stageLabel = STAGE_KEY[match.stage] ? t(STAGE_KEY[match.stage]) : match.stage;
   const groupLetter = match.group?.replace(/[^A-Z]/g, "");
 
+  // Mostramos resultado cuando el partido está en juego, en descanso o ya acabó.
+  const showScore =
+    !!live && (live.status === "LIVE" || live.status === "HALFTIME" || live.status === "FINISHED");
+  const isLive = live?.status === "LIVE" || live?.status === "HALFTIME";
+
   return (
     <div
       className={cn(
         "glass-card rounded-2xl p-4 transition-colors sm:p-5",
-        state === "broadcast"
-          ? "border-outxide/30 bg-outxide/[0.04]"
-          : "border-white/5",
+        isLive
+          ? "border-emerald-400/30 bg-emerald-400/[0.04]"
+          : state === "broadcast"
+            ? "border-outxide/30 bg-outxide/[0.04]"
+            : "border-white/5",
       )}
     >
       <div className="flex items-center justify-between gap-3">
@@ -100,22 +136,38 @@ function MatchCard({ match }: { match: Match }) {
             {groupLetter ? ` · ${t("mundial.group")} ${groupLetter}` : ""}
           </span>
         </div>
-        {state === "broadcast" && (
-          <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-outxide/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-outxide">
-            {isMotn ? <Star size={11} className="fill-outxide" /> : <Tv size={11} />}
-            {isMotn ? t("mundial.matchOfTheNight") : t("mundial.watchAtOutxide")}
-          </span>
-        )}
-        {state === "conflict" && (
-          <span className="shrink-0 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white/40">
-            {t("mundial.conflictNote")}
-          </span>
-        )}
+        <div className="flex shrink-0 items-center gap-2">
+          {showScore && <LiveBadge live={live} />}
+          {state === "broadcast" && (
+            <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-outxide/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-outxide">
+              {isMotn ? <Star size={11} className="fill-outxide" /> : <Tv size={11} />}
+              {isMotn ? t("mundial.matchOfTheNight") : t("mundial.watchAtOutxide")}
+            </span>
+          )}
+          {state === "conflict" && !showScore && (
+            <span className="shrink-0 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white/40">
+              {t("mundial.conflictNote")}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
         <TeamRow team={match.home} align="left" />
-        <span className="text-xs font-semibold text-white/30">—</span>
+        {showScore ? (
+          <span
+            className={cn(
+              "flex items-baseline gap-1.5 font-display text-xl font-extrabold tabular-nums sm:text-2xl",
+              isLive ? "text-emerald-300" : "text-white",
+            )}
+          >
+            <span>{live.home.score ?? 0}</span>
+            <span className="text-white/25">:</span>
+            <span>{live.away.score ?? 0}</span>
+          </span>
+        ) : (
+          <span className="text-xs font-semibold text-white/30">—</span>
+        )}
         <TeamRow team={match.away} align="right" />
       </div>
 
@@ -128,9 +180,40 @@ function MatchCard({ match }: { match: Match }) {
   );
 }
 
+/** Sondea /api/mundial/scores y devuelve un mapa id→marcador de los partidos en juego. */
+function useLiveScores(): Map<string, LiveScore> {
+  const [scores, setScores] = useState<Map<string, LiveScore>>(new Map());
+  const aliveRef = useRef(true);
+
+  useEffect(() => {
+    aliveRef.current = true;
+    const load = async () => {
+      try {
+        const res = await fetch("/api/mundial/scores", { cache: "no-store" });
+        const json = await res.json();
+        if (!aliveRef.current) return;
+        const next = new Map<string, LiveScore>();
+        for (const s of (json.scores ?? []) as LiveScore[]) next.set(s.matchId, s);
+        setScores(next);
+      } catch {
+        /* mantiene el último estado conocido */
+      }
+    };
+    load();
+    const id = setInterval(load, 1000 * 20);
+    return () => {
+      aliveRef.current = false;
+      clearInterval(id);
+    };
+  }, []);
+
+  return scores;
+}
+
 export default function MundialPage() {
   const t = useT();
   const [onlyOutxide, setOnlyOutxide] = useState(false);
+  const liveScores = useLiveScores();
 
   const groups = useMemo(() => {
     const all = getMatches();
@@ -194,7 +277,7 @@ export default function MundialPage() {
                 </h2>
                 <div className="space-y-3">
                   {day.matches.map((m) => (
-                    <MatchCard key={m.id} match={m} />
+                    <MatchCard key={m.id} match={m} live={liveScores.get(m.id)} />
                   ))}
                 </div>
               </div>
