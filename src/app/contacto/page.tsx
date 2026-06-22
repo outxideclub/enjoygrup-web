@@ -300,7 +300,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/34639388690"
+                  href="https://wa.me/34657878917"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 glass-card rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02] group"
@@ -313,7 +313,7 @@ export default function ContactPage() {
                       {t("contact.whatsappCta")}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      +34 639 388 690
+                      +34 657 87 89 17
                     </p>
                   </div>
                   <ExternalLink className="ml-auto h-4 w-4 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
