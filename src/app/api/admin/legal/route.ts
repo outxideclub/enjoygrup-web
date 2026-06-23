@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readDataSafe, writeData } from "@/lib/data";
 import type { LegalPage } from "@/lib/data";
+import { validateSession } from "@/lib/auth";
 
 const VALID_SLUGS = [
   "aviso-legal",
@@ -26,6 +27,9 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  if (!(await validateSession())) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  }
   const origin = req.headers.get("origin");
   const host = req.headers.get("host");
   if (origin && host && !origin.includes(host)) {

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
+import { validateSession } from "@/lib/auth";
+import { commitFile, isGitHubConfigured } from "@/lib/github";
 
 const UPLOAD_DIR = path.join(process.cwd(), "public", "images", "uploads");
 const MAX_SIZE = 5 * 1024 * 1024; // 5MB
@@ -14,6 +16,9 @@ const VALID_MAGIC = [
 ];
 
 export async function POST(req: NextRequest) {
+  if (!(await validateSession())) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  }
   const origin = req.headers.get("origin");
   const host = req.headers.get("host");
   if (origin && host && !origin.includes(host)) {
@@ -46,13 +51,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid file content" }, { status: 400 });
     }
 
-    if (!existsSync(UPLOAD_DIR)) {
-      await mkdir(UPLOAD_DIR, { recursive: true });
-    }
-
     const safeName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "")}`;
-    const filePath = path.join(UPLOAD_DIR, safeName);
-    await writeFile(filePath, buffer);
+
+    // In production commit the image to the repo (read-only FS on Vercel);
+    // locally write straight to public/ for instant preview.
+    if (isGitHubConfigured()) {
+      await commitFile(`public/images/uploads/${safeName}`, buffer, `chore(admin): subir imagen ${safeName}`);
+    } else {
+      if (!existsSync(UPLOAD_DIR)) {
+        await mkdir(UPLOAD_DIR, { recursive: true });
+      }
+      await writeFile(path.join(UPLOAD_DIR, safeName), buffer);
+    }
 
     const publicUrl = `/images/uploads/${safeName}`;
     return NextResponse.json({ url: publicUrl });

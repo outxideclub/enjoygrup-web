@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import dynamic from "next/dynamic";
 import { useT } from "@/i18n";
+import { siteContact, waHref } from "@/lib/site";
 
 const AmbientGlow = dynamic(
   () =>
@@ -41,10 +42,9 @@ const venueCards = [
     glowClass: "hover-glow-enjoy",
     gradient: "from-pink-500/20 to-pink-900/10",
     addressKey: "contact.enjoyAddress" as const,
-    phoneKey: "contact.enjoyPhone" as const,
+    phone: siteContact.venues.enjoy.phone,
     hoursKey: "contact.enjoyHours" as const,
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Enjoy+Terrace+Av+Tucan+1+Alcudia",
+    mapsUrl: siteContact.venues.enjoy.mapsUrl,
   },
   {
     id: "outxide" as const,
@@ -56,10 +56,9 @@ const venueCards = [
     glowClass: "hover-glow-outxide",
     gradient: "from-cyan-500/20 to-violet-500/10",
     addressKey: "contact.outxideAddress" as const,
-    phoneKey: "contact.outxidePhone" as const,
+    phone: siteContact.venues.outxide.phone,
     hoursKey: "contact.outxideHours" as const,
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Outxide+Club+Av+Tucan+1+Alcudia",
+    mapsUrl: siteContact.venues.outxide.mapsUrl,
   },
   {
     id: "hiru" as const,
@@ -71,10 +70,9 @@ const venueCards = [
     glowClass: "hover-glow-hiru",
     gradient: "from-amber-800/20 to-amber-950/10",
     addressKey: "contact.hiruAddress" as const,
-    phoneKey: "contact.hiruPhone" as const,
+    phone: siteContact.venues.hiru.phone,
     hoursKey: "contact.hiruHours" as const,
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Hiru+Food+Drinks+Ctra+Arta+40+Alcudia",
+    mapsUrl: siteContact.venues.hiru.mapsUrl,
   },
 ];
 
@@ -300,7 +298,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/34657878917"
+                  href={waHref(siteContact.general.whatsapp)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 glass-card rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02] group"
@@ -313,7 +311,7 @@ export default function ContactPage() {
                       {t("contact.whatsappCta")}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      +34 657 87 89 17
+                      {siteContact.general.whatsapp}
                     </p>
                   </div>
                   <ExternalLink className="ml-auto h-4 w-4 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -321,7 +319,7 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <a
-                  href="mailto:info@grupoenjoy.es"
+                  href={`mailto:${siteContact.general.email}`}
                   className="flex items-center gap-4 glass-card rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02] group"
                 >
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
@@ -332,7 +330,7 @@ export default function ContactPage() {
                       {t("contact.emailLabel")}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {t("contact.emailAddress")}
+                      {siteContact.general.email}
                     </p>
                   </div>
                   <ExternalLink className="ml-auto h-4 w-4 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -391,10 +389,10 @@ export default function ContactPage() {
                             {t("contact.phone")}
                           </p>
                           <a
-                            href={`tel:${t(venue.phoneKey).replace(/\s/g, "")}`}
+                            href={`tel:${venue.phone.replace(/\s/g, "")}`}
                             className="text-sm text-muted-foreground hover:text-white transition-colors"
                           >
-                            {t(venue.phoneKey)}
+                            {venue.phone}
                           </a>
                         </div>
                       </div>

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readData, writeData } from "@/lib/data";
 import type { VenueInfo } from "@/lib/data";
+import { validateSession } from "@/lib/auth";
 
 const VALID_VENUES = ["enjoy", "hiru", "outxide"] as const;
 
@@ -18,6 +19,9 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  if (!(await validateSession())) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  }
   const origin = req.headers.get("origin");
   const host = req.headers.get("host");
   if (origin && host && !origin.includes(host)) {

@@ -16,6 +16,7 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
 import { GroupLogo } from "@/components/ui/logos";
 import { CookieSettingsButton } from "@/components/layout/cookie-settings-button";
 import { useT } from "@/i18n";
+import { siteContact, telHref } from "@/lib/site";
 
 function NewsletterForm() {
   const t = useT();
@@ -268,15 +269,15 @@ export function Footer() {
             </p>
             <span className="hidden sm:inline text-xs text-white/10">|</span>
             <a
-              href="mailto:privacidad@grupoenjoy.es"
+              href={`mailto:${siteContact.general.privacyEmail}`}
               className="text-xs text-muted-foreground hover:text-white transition-colors"
             >
-              privacidad@grupoenjoy.es
+              {siteContact.general.privacyEmail}
             </a>
           </div>
           <div className="flex items-center gap-5">
             <a
-              href="https://www.instagram.com/enjoy.terrace.alcudia"
+              href={siteContact.venues.enjoy.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-magnetic flex items-center gap-1.5 text-muted-foreground hover:text-enjoy transition-colors"
@@ -286,7 +287,7 @@ export function Footer() {
               <span className="text-xs">Enjoy</span>
             </a>
             <a
-              href="https://www.instagram.com/outxide.club"
+              href={siteContact.venues.outxide.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-magnetic flex items-center gap-1.5 text-muted-foreground hover:text-outxide transition-colors"
@@ -296,7 +297,7 @@ export function Footer() {
               <span className="text-xs">Outxide</span>
             </a>
             <a
-              href="https://www.instagram.com/hirufoodanddrinks"
+              href={siteContact.venues.hiru.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-magnetic flex items-center gap-1.5 text-muted-foreground hover:text-hiru transition-colors"
@@ -306,14 +307,14 @@ export function Footer() {
               <span className="text-xs">Hiru</span>
             </a>
             <a
-              href="mailto:info@grupoenjoy.es"
+              href={`mailto:${siteContact.general.email}`}
               className="btn-magnetic text-muted-foreground hover:text-white transition-colors"
               aria-label={t("footer.email")}
             >
               <Mail size={18} />
             </a>
             <a
-              href="tel:+34971853932"
+              href={telHref(siteContact.general.phone)}
               className="btn-magnetic text-muted-foreground hover:text-white transition-colors"
               aria-label="Teléfono"
             >

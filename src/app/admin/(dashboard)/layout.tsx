@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { UtensilsCrossed, Image as ImageIcon, Building2, Scale, LogOut, Menu, X } from "lucide-react";
+import { UtensilsCrossed, Image as ImageIcon, Building2, Scale, Phone, LogOut, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
   { href: "/admin", label: "Carta", icon: UtensilsCrossed },
   { href: "/admin/galeria", label: "Galería", icon: ImageIcon },
   { href: "/admin/info", label: "Locales", icon: Building2 },
+  { href: "/admin/contacto", label: "Contacto", icon: Phone },
   { href: "/admin/legal", label: "Legal", icon: Scale },
 ];
 

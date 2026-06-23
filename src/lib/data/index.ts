@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
+import { commitFile, isGitHubConfigured } from "@/lib/github";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -15,10 +16,26 @@ export async function readData<T>(relativePath: string): Promise<T> {
   return JSON.parse(raw) as T;
 }
 
-export async function writeData<T>(relativePath: string, data: T): Promise<void> {
+export async function writeData<T>(
+  relativePath: string,
+  data: T,
+  commitMessage?: string,
+): Promise<void> {
+  const json = JSON.stringify(data, null, 2);
+  // In production (Vercel) the filesystem is read-only, so persist by committing
+  // to the repo when GitHub is configured. Vercel then redeploys with the change.
+  if (isGitHubConfigured()) {
+    await commitFile(
+      `data/${relativePath}`,
+      `${json}\n`,
+      commitMessage ?? `chore(admin): actualizar data/${relativePath}`,
+    );
+    return;
+  }
+  // Local development: write straight to disk for instant iteration.
   const filePath = path.join(DATA_DIR, relativePath);
   await ensureDir(filePath);
-  await writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
+  await writeFile(filePath, json, "utf-8");
 }
 
 export async function readDataSafe<T>(relativePath: string, fallback: T): Promise<T> {

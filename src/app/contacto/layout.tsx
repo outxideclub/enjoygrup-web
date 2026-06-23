@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLd, EnjoyJsonLd, OutxideJsonLd, HiruJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { siteContact } from "@/lib/site";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
 
@@ -61,19 +62,19 @@ export default async function ContactLayout({
           "@id": "https://www.grupoenjoy.es/#organization",
           name: "Grupo Enjoy",
           url: "https://www.grupoenjoy.es",
-          email: "info@grupoenjoy.es",
-          telephone: "+34 657 87 89 17",
+          email: siteContact.general.email,
+          telephone: siteContact.general.whatsapp,
           contactPoint: [
             {
               "@type": "ContactPoint",
-              telephone: "+34 657 87 89 17",
+              telephone: siteContact.general.whatsapp,
               contactType: "reservations",
               areaServed: "ES",
               availableLanguage: ["Spanish", "English", "German", "French", "Italian"],
             },
             {
               "@type": "ContactPoint",
-              telephone: "+34 657 87 89 17",
+              telephone: siteContact.general.whatsapp,
               contactType: "customer service",
               areaServed: "ES",
               availableLanguage: ["Spanish", "English", "German", "French", "Italian"],

@@ -1,3 +1,5 @@
+import { siteContact } from "@/lib/site";
+
 interface JsonLdProps {
   data: Record<string, unknown>;
 }
@@ -70,7 +72,7 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
         logo: "https://www.grupoenjoy.es/images/logos/enjoy.png",
         description:
           description ?? "Grupo de hostelería y ocio premium en Alcúdia, Mallorca. Tres experiencias únicas: Hiru Food & Drinks, Enjoy Terrace y Outxide Club.",
-        telephone: "+34 971 853 932",
+        telephone: siteContact.general.phone,
         address: ENJOY_ADDRESS,
         contactPoint: {
           "@type": "ContactPoint",
@@ -128,7 +130,7 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
         priceRange: "€€-€€€",
         address: HIRU_ADDRESS,
         geo: HIRU_GEO,
-        telephone: "+34 971 85 39 32",
+        telephone: siteContact.venues.hiru.phone,
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -253,7 +255,7 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
         priceRange: "€€",
         address: ENJOY_ADDRESS,
         geo: ENJOY_GEO,
-        telephone: "+34 657 87 89 17",
+        telephone: siteContact.venues.enjoy.phone,
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -340,7 +342,7 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
         priceRange: "€€",
         address: ENJOY_ADDRESS,
         geo: ENJOY_GEO,
-        telephone: "+34 657 87 89 17",
+        telephone: siteContact.venues.outxide.phone,
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
