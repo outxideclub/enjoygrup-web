@@ -62,7 +62,7 @@ export default async function ContactLayout({
           name: "Grupo Enjoy",
           url: "https://www.grupoenjoy.es",
           email: "info@grupoenjoy.es",
-          telephone: "+34 639 388 690",
+          telephone: "+34 657 87 89 17",
           contactPoint: [
             {
               "@type": "ContactPoint",
@@ -73,7 +73,7 @@ export default async function ContactLayout({
             },
             {
               "@type": "ContactPoint",
-              telephone: "+34 639 388 690",
+              telephone: "+34 657 87 89 17",
               contactType: "customer service",
               areaServed: "ES",
               availableLanguage: ["Spanish", "English", "German", "French", "Italian"],
