@@ -407,6 +407,8 @@ export const es = {
     liveNow: "EN DIRECTO",
     halftime: "Descanso",
     finished: "Finalizado",
+    penalties: "Penaltis",
+    bracketTitle: "Cuadro de eliminatorias",
     scheduled: "Programado",
     nextAtOutxide: "Próximo en Enjoy",
     upcoming: "Próximos en Enjoy",

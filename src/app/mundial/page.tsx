@@ -6,6 +6,7 @@ import { Tv, Radio, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { MundialBracket } from "@/components/ui/mundial-bracket";
 import { cn } from "@/lib/utils";
 import { useT } from "@/i18n";
 import {
@@ -15,8 +16,9 @@ import {
   matchOfTheNightIds,
   flagUrl,
   madridTimeLabel,
-  type LiveScore,
+  type BroadcastState,
   type Match,
+  type MatchResult,
 } from "@/lib/mundial";
 
 const STAGE_KEY: Record<string, string> = {
@@ -76,20 +78,20 @@ function TeamRow({
 }
 
 /** Indicador de estado en vivo (minuto / descanso / final) para el calendario. */
-function LiveBadge({ live }: { live: LiveScore }) {
+function LiveBadge({ result }: { result: MatchResult }) {
   const t = useT();
-  if (live.status === "LIVE") {
+  if (result.status === "LIVE") {
     return (
       <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-300">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
         </span>
-        {live.minute || t("mundial.liveNow")}
+        {result.minute || t("mundial.liveNow")}
       </span>
     );
   }
-  if (live.status === "HALFTIME") {
+  if (result.status === "HALFTIME") {
     return (
       <span className="shrink-0 rounded-full bg-amber-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-300">
         {t("mundial.halftime")}
@@ -103,17 +105,27 @@ function LiveBadge({ live }: { live: LiveScore }) {
   );
 }
 
-function MatchCard({ match, live }: { match: Match; live?: LiveScore }) {
+function MatchCard({
+  match,
+  state,
+  isMotn,
+}: {
+  match: Match;
+  state: BroadcastState;
+  isMotn: boolean;
+}) {
   const t = useT();
-  const state = broadcastState(match);
-  const isMotn = matchOfTheNightIds().has(match.id);
   const stageLabel = STAGE_KEY[match.stage] ? t(STAGE_KEY[match.stage]) : match.stage;
-  const groupLetter = match.group?.replace(/[^A-Z]/g, "");
+  const groupLetter = match.group?.replace(/^group\s*/i, "");
 
-  // Mostramos resultado cuando el partido está en juego, en descanso o ya acabó.
+  // Mostramos resultado cuando el partido está en juego, en descanso o ya acabó
+  // (registro permanente del marcador para todos los partidos jugados).
+  const result = match.result ?? null;
   const showScore =
-    !!live && (live.status === "LIVE" || live.status === "HALFTIME" || live.status === "FINISHED");
-  const isLive = live?.status === "LIVE" || live?.status === "HALFTIME";
+    !!result &&
+    (result.status === "LIVE" || result.status === "HALFTIME" || result.status === "FINISHED");
+  const isLive = result?.status === "LIVE" || result?.status === "HALFTIME";
+  const hasPens = result != null && result.penHome != null && result.penAway != null;
 
   return (
     <div
@@ -126,7 +138,7 @@ function MatchCard({ match, live }: { match: Match; live?: LiveScore }) {
             : "border-white/5",
       )}
     >
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         <div className="flex items-baseline gap-2">
           <span className="font-display text-lg font-bold tracking-tight text-white tabular-nums">
             {madridTimeLabel(match)}
@@ -136,8 +148,8 @@ function MatchCard({ match, live }: { match: Match; live?: LiveScore }) {
             {groupLetter ? ` · ${t("mundial.group")} ${groupLetter}` : ""}
           </span>
         </div>
-        <div className="flex shrink-0 items-center gap-2">
-          {showScore && <LiveBadge live={live} />}
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          {showScore && result && <LiveBadge result={result} />}
           {state === "broadcast" && (
             <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-outxide/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-outxide">
               {isMotn ? <Star size={11} className="fill-outxide" /> : <Tv size={11} />}
@@ -154,16 +166,23 @@ function MatchCard({ match, live }: { match: Match; live?: LiveScore }) {
 
       <div className="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
         <TeamRow team={match.home} align="left" />
-        {showScore ? (
-          <span
-            className={cn(
-              "flex items-baseline gap-1.5 font-display text-xl font-extrabold tabular-nums sm:text-2xl",
-              isLive ? "text-emerald-300" : "text-white",
+        {showScore && result ? (
+          <span className="flex flex-col items-center">
+            <span
+              className={cn(
+                "flex items-baseline gap-1.5 font-display text-xl font-extrabold tabular-nums sm:text-2xl",
+                isLive ? "text-emerald-300" : "text-white",
+              )}
+            >
+              <span>{result.home ?? 0}</span>
+              <span className="text-white/25">:</span>
+              <span>{result.away ?? 0}</span>
+            </span>
+            {hasPens && (
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-white/50 tabular-nums">
+                {t("mundial.penalties")} {result.penHome}–{result.penAway}
+              </span>
             )}
-          >
-            <span>{live.home.score ?? 0}</span>
-            <span className="text-white/25">:</span>
-            <span>{live.away.score ?? 0}</span>
           </span>
         ) : (
           <span className="text-xs font-semibold text-white/30">—</span>
@@ -180,21 +199,25 @@ function MatchCard({ match, live }: { match: Match; live?: LiveScore }) {
   );
 }
 
-/** Sondea /api/mundial/scores y devuelve un mapa id→marcador de los partidos en juego. */
-function useLiveScores(): Map<string, LiveScore> {
-  const [scores, setScores] = useState<Map<string, LiveScore>>(new Map());
+/**
+ * Sondea /api/mundial/matches: partidos enriquecidos con el calendario de FIFA
+ * (equipos reales en eliminatorias según clasifican + resultado de cada partido,
+ * en vivo o como registro permanente). Arranca con el JSON estático mientras llega.
+ */
+function useEnrichedMatches(): Match[] {
+  const [matches, setMatches] = useState<Match[]>(() => getMatches());
   const aliveRef = useRef(true);
 
   useEffect(() => {
     aliveRef.current = true;
     const load = async () => {
       try {
-        const res = await fetch("/api/mundial/scores", { cache: "no-store" });
+        const res = await fetch("/api/mundial/matches", { cache: "no-store" });
         const json = await res.json();
         if (!aliveRef.current) return;
-        const next = new Map<string, LiveScore>();
-        for (const s of (json.scores ?? []) as LiveScore[]) next.set(s.matchId, s);
-        setScores(next);
+        if (Array.isArray(json.matches) && json.matches.length > 0) {
+          setMatches(json.matches as Match[]);
+        }
       } catch {
         /* mantiene el último estado conocido */
       }
@@ -207,21 +230,20 @@ function useLiveScores(): Map<string, LiveScore> {
     };
   }, []);
 
-  return scores;
+  return matches;
 }
 
 export default function MundialPage() {
   const t = useT();
   const [onlyOutxide, setOnlyOutxide] = useState(false);
-  const liveScores = useLiveScores();
+  const all = useEnrichedMatches();
 
-  const groups = useMemo(() => {
-    const all = getMatches();
+  const { groups, motnIds } = useMemo(() => {
     const filtered = onlyOutxide
-      ? all.filter((m) => broadcastState(m) === "broadcast")
+      ? all.filter((m) => broadcastState(m, all) === "broadcast")
       : all;
-    return groupByDay(filtered);
-  }, [onlyOutxide]);
+    return { groups: groupByDay(filtered), motnIds: matchOfTheNightIds(all) };
+  }, [all, onlyOutxide]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -266,6 +288,20 @@ export default function MundialPage() {
         </div>
       </section>
 
+      {/* Cuadro de eliminatorias (se rellena solo según clasifican los equipos) */}
+      <section className="px-6 pb-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-6 text-center font-display text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
+            {t("mundial.bracketTitle")}
+          </h2>
+          <MundialBracket matches={all} depth={4} variant="web" />
+          <p className="mt-3 flex items-center justify-center gap-2 text-xs text-white/35">
+            <span className="inline-block h-2.5 w-2.5 rounded-sm border border-outxide/40 bg-outxide/[0.15]" />
+            {t("mundial.watchAtOutxide")}
+          </p>
+        </div>
+      </section>
+
       {/* Lista de partidos */}
       <section className="px-6 pb-24">
         <div className="mx-auto max-w-3xl space-y-10">
@@ -277,7 +313,12 @@ export default function MundialPage() {
                 </h2>
                 <div className="space-y-3">
                   {day.matches.map((m) => (
-                    <MatchCard key={m.id} match={m} live={liveScores.get(m.id)} />
+                    <MatchCard
+                      key={m.id}
+                      match={m}
+                      state={broadcastState(m, all)}
+                      isMotn={motnIds.has(m.id)}
+                    />
                   ))}
                 </div>
               </div>

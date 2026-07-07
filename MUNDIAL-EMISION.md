@@ -71,9 +71,18 @@ Los ids están en `data/mundial/matches.json`.
 ---
 
 ## D) Marcador en vivo — fuente de datos
-- Lo sirve `//api/mundial/live`, que consulta la **API pública de FIFA**
+- Lo sirve `/api/mundial/live`, que consulta la **API pública de FIFA**
   (`api.fifa.com`) — **gratis y sin clave**. El servidor cachea ~25 s, así que aunque
   haya varias pantallas, FIFA recibe muy pocas peticiones.
+- **Eliminatorias**: los cruces se actualizan **solos**. El servidor fusiona el
+  calendario estático con el calendario de FIFA, así que en cuanto un equipo
+  clasifica, su nombre y bandera aparecen automáticamente en `/mundial` y en
+  `/mundial/directo` (sin tocar nada). Mientras no haya clasificado, se ve el
+  placeholder de FIFA (p. ej. "W97" = ganador del partido 97).
+- **Resultados**: el calendario público (`/mundial`, servido por
+  `/api/mundial/matches`) muestra el marcador en tiempo real de los partidos en
+  juego y deja **registro permanente** del resultado de todos los partidos
+  acabados, incluidas las tandas de penaltis.
 - **Salvaguarda manual** (por si la API fallara en directo): define en Vercel la
   variable de entorno `MUNDIAL_SCORE_OVERRIDE` con un JSON, p. ej.:
   ```json
@@ -84,7 +93,29 @@ Los ids están en `data/mundial/matches.json`.
 
 ---
 
-## E) Reglas de programación (las aplica la web sola)
+## E) Cuadro de eliminatorias (bracket)
+- La web (`/mundial`) muestra el cuadro completo desde dieciseisavos hasta la
+  Final, y la pantalla del directo lo muestra **desde cuartos cuando no hay
+  marcador en vivo** (en cuanto empieza un partido, vuelve el marcador gigante).
+- Se rellena **solo**: equipos según clasifican, resultados (con penaltis) y
+  hora de los pendientes. Los partidos **que se ven en la sala van remarcados**
+  en el color de Outxide con un icono de TV.
+
+## F) Corregir qué partidos se retransmiten (manual)
+Si según pasen las rondas quieres cambiar qué partidos se emiten (p. ej. emitir
+uno de madrugada, o no emitir el que la web elige sola), edita
+**`src/lib/mundial/broadcast-overrides.ts`**:
+
+- `FORCE_BROADCAST` → ids que SÍ se emiten siempre (aunque estén fuera de la
+  franja 17–23h).
+- `EXCLUDE_BROADCAST` → ids que NO se emiten nunca (si excluyes al ganador de
+  un horario disputado, el otro partido pasa a emitirse solo).
+
+Los ids están en `data/mundial/matches.json`. El fichero tiene ejemplos e
+instrucciones. Tras editar: commit + push a main (Vercel despliega solo). El
+cambio afecta a todo a la vez: calendario, cuadro, banner y pantalla de directo.
+
+## G) Reglas de programación (las aplica la web sola)
 - Se marcan **"Se ve en Outxide"** los partidos cuyo saque cae entre **17:00 y 23:00**
   (hora de Mallorca, calculada automáticamente con cambios de horario incluidos).
 - Si **dos partidos coinciden** a la misma hora dentro de la franja, la web destaca

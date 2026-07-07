@@ -409,6 +409,8 @@ export const fr: Dictionary = {
     liveNow: "EN DIRECT",
     halftime: "Mi-temps",
     finished: "Terminé",
+    penalties: "Tirs au but",
+    bracketTitle: "Tableau final",
     scheduled: "Programmé",
     nextAtOutxide: "Prochain à Enjoy",
     upcoming: "Prochainement à Enjoy",

@@ -5,16 +5,17 @@
 // del DJ, o capturarla como Browser Source en OBS/mimoLive (cámara virtual).
 // El partido grande va por tu OBS actual; esta página es la SEGUNDA fuente.
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { GroupLogo } from "@/components/ui/logos";
+import { MundialBracket } from "@/components/ui/mundial-bracket";
 import { cn } from "@/lib/utils";
 import { useT } from "@/i18n";
 import {
+  getMatches,
   flagUrl,
   madridTimeLabel,
   madridDayLabel,
-  upcomingBroadcasts,
   type LiveScore,
   type Match,
 } from "@/lib/mundial";
@@ -38,6 +39,13 @@ interface ApiMatch {
   away: Match["away"];
   venue: string | null;
   city: string | null;
+}
+
+/** Respuesta de /api/mundial/live: partido + marcador + próximos (equipos ya resueltos). */
+interface ApiPayload {
+  match: ApiMatch | null;
+  live: LiveScore | null;
+  upcoming: ApiMatch[];
 }
 
 function Flag({ code, label, className }: { code: string | null; label: string; className?: string }) {
@@ -69,13 +77,12 @@ function Flag({ code, label, className }: { code: string | null; label: string; 
 
 export default function DirectoPage() {
   const t = useT();
-  const [api, setApi] = useState<{ match: ApiMatch | null; live: LiveScore | null } | null>(null);
+  const [api, setApi] = useState<ApiPayload | null>(null);
   const [clock, setClock] = useState("");
-  const [nowMs, setNowMs] = useState(0);
   // Desfase opcional (?delay=25) para que el marcador NO vaya por delante del
   // vídeo de la retransmisión. Buffer de snapshots con su hora de llegada.
   const [delaySec, setDelaySec] = useState(0);
-  const historyRef = useRef<{ at: number; data: { match: ApiMatch | null; live: LiveScore | null } }[]>([]);
+  const historyRef = useRef<{ at: number; data: ApiPayload }[]>([]);
 
   // Lee ?delay=segundos de la URL (máx. 120 s).
   useEffect(() => {
@@ -94,7 +101,6 @@ export default function DirectoPage() {
           hour12: false,
         }).format(new Date()),
       );
-      setNowMs(Date.now());
     };
     tick();
     const id = setInterval(tick, 1000 * 30);
@@ -109,7 +115,10 @@ export default function DirectoPage() {
         const res = await fetch("/api/mundial/live", { cache: "no-store" });
         const json = await res.json();
         if (!alive) return;
-        historyRef.current.push({ at: Date.now(), data: { match: json.match ?? null, live: json.live ?? null } });
+        historyRef.current.push({
+          at: Date.now(),
+          data: { match: json.match ?? null, live: json.live ?? null, upcoming: json.upcoming ?? [] },
+        });
         const cutoff = Date.now() - 150000; // conserva ~150 s
         historyRef.current = historyRef.current.filter((s) => s.at >= cutoff);
       } catch {
@@ -118,6 +127,31 @@ export default function DirectoPage() {
     };
     load();
     const id = setInterval(load, 1000 * 5);
+    return () => {
+      alive = false;
+      clearInterval(id);
+    };
+  }, []);
+
+  // Partidos enriquecidos para el cuadro de eliminatorias (equipos + resultados).
+  // Cambia poco: refresco cada 60 s (la CDN cachea, FIFA apenas recibe peticiones).
+  const [allMatches, setAllMatches] = useState<Match[]>(() => getMatches());
+  useEffect(() => {
+    let alive = true;
+    const load = async () => {
+      try {
+        const res = await fetch("/api/mundial/matches", { cache: "no-store" });
+        const json = await res.json();
+        if (!alive) return;
+        if (Array.isArray(json.matches) && json.matches.length > 0) {
+          setAllMatches(json.matches as Match[]);
+        }
+      } catch {
+        /* mantiene el último estado */
+      }
+    };
+    load();
+    const id = setInterval(load, 1000 * 60);
     return () => {
       alive = false;
       clearInterval(id);
@@ -142,15 +176,14 @@ export default function DirectoPage() {
     return () => clearInterval(id);
   }, [delaySec]);
 
-  const upcoming = useMemo(() => (nowMs ? upcomingBroadcasts(nowMs, 4) : []), [nowMs]);
-
   const match = api?.match ?? null;
   const live = api?.live ?? null;
   const status = live?.status;
   // Mostramos marcador cuando hay partido en juego, descanso o recién acabado.
   const showScore = status === "LIVE" || status === "HALFTIME" || status === "FINISHED";
+  const hasPens = live != null && live.penHome != null && live.penAway != null;
   const stageLabel = match && STAGE_KEY[match.stage] ? t(STAGE_KEY[match.stage]) : match?.stage ?? "";
-  const groupLetter = match?.group?.replace(/[^A-Z]/g, "");
+  const groupLetter = match?.group?.replace(/^group\s*/i, "");
   const stageLine = stageLabel + (groupLetter ? ` · ${t("mundial.group")} ${groupLetter}` : "");
 
   // Texto grande del tiempo (minuto de FIFA / Descanso / Final).
@@ -166,8 +199,6 @@ export default function DirectoPage() {
   const homeName = match ? match.home.name ?? match.home.placeholder ?? t("mundial.tbd") : "";
   const awayName = match ? match.away.name ?? match.away.placeholder ?? t("mundial.tbd") : "";
 
-  // Lista de próximos (sin el partido que ya se muestra de héroe).
-  const upcomingList = upcoming.filter((m) => m.id !== match?.id).slice(0, 3);
 
   return (
     // Letterbox a 16:9 exacto para que la captura/kiosko siempre cuadre.
@@ -212,10 +243,17 @@ export default function DirectoPage() {
                 </div>
 
                 {/* Marcador */}
-                <div className="flex items-center gap-[2vw] font-display text-[15vw] font-extrabold leading-none tabular-nums">
-                  <span>{live?.home.score ?? 0}</span>
-                  <span className="text-white/25">:</span>
-                  <span>{live?.away.score ?? 0}</span>
+                <div className="flex flex-col items-center">
+                  <div className="flex items-center gap-[2vw] font-display text-[15vw] font-extrabold leading-none tabular-nums">
+                    <span>{live?.home.score ?? 0}</span>
+                    <span className="text-white/25">:</span>
+                    <span>{live?.away.score ?? 0}</span>
+                  </div>
+                  {hasPens && (
+                    <span className="mt-[1vw] text-[2.2vw] font-semibold uppercase tracking-wider text-white/60 tabular-nums">
+                      {t("mundial.penalties")} {live?.penHome}–{live?.penAway}
+                    </span>
+                  )}
                 </div>
 
                 {/* Visitante */}
@@ -238,65 +276,40 @@ export default function DirectoPage() {
               )}
             </div>
           ) : (
-            /* ===== MODO SIN PARTIDO: próximos en grande ===== */
-            <div className="flex flex-1 flex-col items-center justify-center gap-[2vw]">
-              <p className="text-[2.6vw] font-semibold uppercase tracking-[0.3em] text-emerald-300">
-                {t("mundial.nextAtOutxide")}
-              </p>
-
+            /* ===== MODO SIN PARTIDO: próximo partido + cuadro de eliminatorias ===== */
+            <div className="flex flex-1 flex-col items-center justify-evenly">
               {match ? (
-                <>
-                  <p className="text-[1.8vw] uppercase tracking-wider text-white/40">{stageLine}</p>
+                <div className="flex w-full flex-col items-center gap-[0.8vw]">
+                  <p className="text-[1.6vw] font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                    {t("mundial.nextAtOutxide")}
+                  </p>
                   <div className="flex w-full items-center justify-center gap-[3vw]">
-                    <div className="flex flex-1 flex-col items-center gap-[1vw]">
-                      <Flag code={match.home.code} label={homeName} className="w-[10vw]" />
-                      <span className="text-center text-[2.8vw] font-bold leading-tight">{homeName}</span>
+                    <div className="flex items-center gap-[1.2vw]">
+                      <Flag code={match.home.code} label={homeName} className="w-[5vw]" />
+                      <span className="text-[2.2vw] font-bold leading-tight">{homeName}</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <span className="font-display text-[6.5vw] font-extrabold leading-none tabular-nums">
+                      <span className="font-display text-[4vw] font-extrabold leading-none tabular-nums">
                         {madridTimeLabel(match)}
                       </span>
-                      <span className="mt-[0.5vw] text-[1.8vw] capitalize text-white/50">
-                        {madridDayLabel(match)}
+                      <span className="mt-[0.3vw] text-[1.3vw] capitalize text-white/50">
+                        {madridDayLabel(match)} · {stageLine}
                       </span>
                     </div>
-                    <div className="flex flex-1 flex-col items-center gap-[1vw]">
-                      <Flag code={match.away.code} label={awayName} className="w-[10vw]" />
-                      <span className="text-center text-[2.8vw] font-bold leading-tight">{awayName}</span>
+                    <div className="flex items-center gap-[1.2vw]">
+                      <span className="text-[2.2vw] font-bold leading-tight">{awayName}</span>
+                      <Flag code={match.away.code} label={awayName} className="w-[5vw]" />
                     </div>
                   </div>
-
-                  {upcomingList.length > 0 && (
-                    <div className="mt-[2vw] w-full">
-                      <p className="mb-[1vw] text-center text-[1.4vw] font-semibold uppercase tracking-[0.3em] text-white/35">
-                        {t("mundial.upcoming")}
-                      </p>
-                      <div className="flex flex-col gap-[1vw]">
-                        {upcomingList.map((m) => (
-                          <div
-                            key={m.id}
-                            className="flex items-center gap-[2vw] rounded-2xl border border-white/5 bg-white/[0.03] px-[2.5vw] py-[1.4vw]"
-                          >
-                            <span className="text-[2.6vw] font-bold tabular-nums text-emerald-300">
-                              {madridTimeLabel(m)}
-                            </span>
-                            <span className="w-[9vw] text-[1.6vw] capitalize text-white/40">
-                              {madridDayLabel(m)}
-                            </span>
-                            <span className="flex-1 truncate text-[2.4vw] font-medium">
-                              {(m.home.name ?? m.home.placeholder ?? t("mundial.tbd")) +
-                                "  –  " +
-                                (m.away.name ?? m.away.placeholder ?? t("mundial.tbd"))}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </>
+                </div>
               ) : (
-                <p className="text-[2.5vw] text-white/40">{t("mundial.noUpcoming")}</p>
+                <p className="text-[2vw] text-white/40">{t("mundial.noUpcoming")}</p>
               )}
+
+              {/* Cuadro desde cuartos: los partidos que se ven en la sala, remarcados */}
+              <div className="flex w-full justify-center">
+                <MundialBracket matches={allMatches} depth={2} variant="screen" />
+              </div>
             </div>
           )}
         </div>

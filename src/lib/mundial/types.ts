@@ -23,6 +23,23 @@ export interface Match {
   venue: string | null;
   city: string | null;
   country: string | null;
+  /**
+   * Resultado del partido (en juego o acabado). El JSON estático no lo trae;
+   * lo rellena el servidor al enriquecer con el calendario de FIFA.
+   */
+  result?: MatchResult | null;
+}
+
+/** Resultado de un partido según el calendario de FIFA (registro permanente). */
+export interface MatchResult {
+  status: "SCHEDULED" | "LIVE" | "HALFTIME" | "FINISHED" | "UNKNOWN";
+  /** Minuto de juego, p. ej. "67'" (vacío si no aplica). */
+  minute: string;
+  home: number | null;
+  away: number | null;
+  /** Tanda de penaltis, si la hubo (eliminatorias). */
+  penHome: number | null;
+  penAway: number | null;
 }
 
 export interface MatchesDoc {
@@ -46,6 +63,9 @@ export interface LiveScore {
   minute: string;
   home: { code: string | null; score: number | null };
   away: { code: string | null; score: number | null };
+  /** Tanda de penaltis, si la hay (eliminatorias). */
+  penHome?: number | null;
+  penAway?: number | null;
   /** true si el dato viene de un override manual del staff (salvaguarda). */
   manual?: boolean;
   /** epoch ms en que se obtuvo (para mostrar frescura). */
