@@ -27,6 +27,17 @@
 // Después de editar: commit + push a main (Vercel despliega solo).
 // ============================================================================
 
-export const FORCE_BROADCAST: string[] = [];
+// Decisión del 9 jul 2026: se emiten TODOS los partidos de aquí al final
+// (cuartos, semifinales, tercer puesto y Final), tengan la hora que tengan.
+export const FORCE_BROADCAST: string[] = [
+  "400021536", // 97  · Cuartos      · jue 9 jul 22:00
+  "400021538", // 98  · Cuartos      · vie 10 jul 21:00
+  "400021539", // 99  · Cuartos      · sáb 11 jul 23:00
+  "400021537", // 100 · Cuartos      · dom 12 jul 03:00
+  "400021541", // 101 · Semifinal    · mar 14 jul 21:00
+  "400021540", // 102 · Semifinal    · mié 15 jul 21:00
+  "400021542", // 103 · Tercer puesto· sáb 18 jul 23:00
+  "400021543", // 104 · FINAL        · dom 19 jul 21:00
+];
 
 export const EXCLUDE_BROADCAST: string[] = [];
