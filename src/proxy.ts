@@ -69,8 +69,20 @@ function denyAdmin(req: NextRequest, pathname: string): NextResponse {
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
+  // El idioma NUNCA prefija rutas internas. Detectamos admin sobre la ruta base
+  // (sin prefijo de idioma) para que /en/admin o /de/api/admin no esquiven el
+  // guard de autenticación colándose por la rama de i18n.
+  const { locale: pathLocale, basePath } = localeFromPath(pathname);
   const isAdminRoute =
-    pathname.startsWith("/admin") || pathname.startsWith("/api/admin");
+    basePath.startsWith("/admin") || basePath.startsWith("/api/admin");
+
+  // Un admin route con prefijo de idioma (/en/admin…) se redirige a su forma
+  // canónica sin prefijo; el guard se aplica siempre sobre /admin y /api/admin.
+  if (isAdminRoute && pathLocale) {
+    const url = req.nextUrl.clone();
+    url.pathname = basePath;
+    return NextResponse.redirect(url, 308);
+  }
 
   if (!isAdminRoute) {
     // ── i18n por rutas ──
@@ -86,7 +98,6 @@ export async function proxy(req: NextRequest) {
       return NextResponse.redirect(url, 308);
     }
 
-    const { locale: pathLocale, basePath } = localeFromPath(pathname);
     const requestHeaders = new Headers(req.headers);
     requestHeaders.set("x-pathname", pathname);
     requestHeaders.set("x-base-path", basePath);
