@@ -15,11 +15,13 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
 }
 import { GroupLogo } from "@/components/ui/logos";
 import { CookieSettingsButton } from "@/components/layout/cookie-settings-button";
-import { useT } from "@/i18n";
+import { useT, useLocale } from "@/i18n";
+import { localizedPath } from "@/i18n/config";
 import { siteContact, telHref } from "@/lib/site";
 
 function NewsletterForm() {
   const t = useT();
+  const locale = useLocale();
   const [email, setEmail] = useState("");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
@@ -36,11 +38,13 @@ function NewsletterForm() {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        // consent viaja al servidor: el checkbox deja de ser solo del cliente.
+        body: JSON.stringify({ email, consent: privacyAccepted }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
       setEmail("");
+      setPrivacyAccepted(false);
     } catch {
       setStatus("error");
     }
@@ -79,7 +83,7 @@ function NewsletterForm() {
         />
         <span className="text-[11px] leading-relaxed text-white/40">
           {t("footer.newsletterPrivacy")}{" "}
-          <Link href="/legal/privacidad" className="underline underline-offset-2 hover:text-white">
+          <Link href={localizedPath("/legal/privacidad", locale)} className="underline underline-offset-2 hover:text-white">
             {t("footer.newsletterPrivacyLink")}
           </Link>
         </span>
@@ -99,6 +103,7 @@ function NewsletterForm() {
 }
 
 export function Footer() {
+  const locale = useLocale();
   const t = useT();
   return (
     <footer className="border-t border-white/5 bg-black">
@@ -120,7 +125,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href="/enjoy"
+                  href={localizedPath("/enjoy", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.enjoyTerrace")}
@@ -128,7 +133,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/enjoy#carta"
+                  href={localizedPath("/enjoy#carta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.enjoyCocktails")}
@@ -145,7 +150,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href="/outxide"
+                  href={localizedPath("/outxide", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.discover")}
@@ -153,7 +158,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/outxide#eventos"
+                  href={localizedPath("/outxide#eventos", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.events")}
@@ -170,7 +175,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href="/hiru"
+                  href={localizedPath("/hiru", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.discover")}
@@ -178,7 +183,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/hiru#menu"
+                  href={localizedPath("/hiru#menu", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.menu")}
@@ -195,7 +200,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href="/mundial"
+                  href={localizedPath("/mundial", locale)}
                   className="link-underline text-sm font-medium text-emerald-300 hover:text-emerald-200 transition-colors"
                 >
                   {t("mundial.navLabel")}
@@ -203,7 +208,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/nosotros"
+                  href={localizedPath("/nosotros", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.aboutUs")}
@@ -211,7 +216,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href={localizedPath("/blog", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.blog")}
@@ -219,7 +224,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contacto"
+                  href={localizedPath("/contacto", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.contactUs")}
@@ -227,7 +232,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/faq"
+                  href={localizedPath("/faq", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.faqShort")}
@@ -244,7 +249,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href="/legal/aviso-legal"
+                  href={localizedPath("/legal/aviso-legal", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.avisoLegal")}
@@ -252,7 +257,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/legal/privacidad"
+                  href={localizedPath("/legal/privacidad", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.privacy")}
@@ -260,7 +265,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/legal/cookies"
+                  href={localizedPath("/legal/cookies", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.cookies")}
@@ -268,7 +273,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/legal/condiciones-venta"
+                  href={localizedPath("/legal/condiciones-venta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.salesConditions")}

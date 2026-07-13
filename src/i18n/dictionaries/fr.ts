@@ -219,7 +219,7 @@ export const fr: Dictionary = {
     newsletterTagline: "Recevez nos actualités et offres exclusives",
     newsletterPlaceholder: "Votre e-mail",
     newsletterSubmit: "S'abonner",
-    newsletterSuccess: "Merci ! Nous vous tiendrons informé.",
+    newsletterSuccess: "Presque\u00a0! V\u00e9rifiez votre bo\u00eete mail pour confirmer votre inscription.",
     newsletterError: "Veuillez entrer une adresse e-mail valide.",
     newsletterPrivacy: "J'ai lu et j'accepte la",
     newsletterPrivacyLink: "Politique de confidentialité",

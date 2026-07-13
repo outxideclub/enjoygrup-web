@@ -217,7 +217,7 @@ export const es = {
     newsletterTagline: "Recibe novedades y ofertas exclusivas",
     newsletterPlaceholder: "Tu email",
     newsletterSubmit: "Suscribirse",
-    newsletterSuccess: "¡Gracias! Te mantendremos informado.",
+    newsletterSuccess: "¡Casi! Revisa tu correo y confirma la suscripción.",
     newsletterError: "Por favor, introduce un email válido.",
     newsletterPrivacy: "He leído y acepto la",
     newsletterPrivacyLink: "Política de Privacidad",

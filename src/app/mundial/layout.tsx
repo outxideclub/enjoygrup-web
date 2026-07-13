@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 import { getMatches, broadcastIds, flagUrl, madridTimeLabel } from "@/lib/mundial";
 
 const ogLocaleMap: Record<string, string> = {
@@ -20,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("mundial.metaTitle"),
       description: t("mundial.metaDescription"),
-      url: "https://www.grupoenjoy.es/mundial",
+      url: `https://www.grupoenjoy.es${localizedPath("/mundial", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
     },

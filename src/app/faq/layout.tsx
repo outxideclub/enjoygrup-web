@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -14,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("meta.faqTitle"),
       description: t("meta.faqOgDescription"),
-      url: "https://www.grupoenjoy.es/faq",
+      url: `https://www.grupoenjoy.es${localizedPath("/faq", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
       images: [

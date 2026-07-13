@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { OutxideJsonLd, OutxideEventsJsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
 import { AgeVerification } from "@/components/legal/age-verification";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
 
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("meta.outxideTitle"),
       description: t("meta.outxideOgDescription"),
-      url: "https://www.grupoenjoy.es/outxide",
+      url: `https://www.grupoenjoy.es${localizedPath("/outxide", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
       images: [
@@ -49,7 +50,7 @@ export default async function OutxideLayout({
       {children}
       <BreadcrumbJsonLd items={[
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
-        { name: "Outxide Club", url: "https://www.grupoenjoy.es/outxide" },
+        { name: "Outxide Club", url: `https://www.grupoenjoy.es${localizedPath("/outxide", locale)}` },
       ]} />
       <OutxideJsonLd description={t("meta.outxideDescription")} />
       <OutxideEventsJsonLd />

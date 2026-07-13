@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
 
@@ -18,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("meta.blogTitle"),
       description: t("meta.blogOgDescription"),
-      url: "https://www.grupoenjoy.es/blog",
+      url: `https://www.grupoenjoy.es${localizedPath("/blog", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
       images: [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HiruJsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
 
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("meta.hiruTitle"),
       description: t("meta.hiruOgDescription"),
-      url: "https://www.grupoenjoy.es/hiru",
+      url: `https://www.grupoenjoy.es${localizedPath("/hiru", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
       images: [
@@ -50,7 +51,7 @@ export default async function HiruLayout({
       {children}
       <BreadcrumbJsonLd items={[
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
-        { name: "Hiru Food & Drinks", url: "https://www.grupoenjoy.es/hiru" },
+        { name: "Hiru Food & Drinks", url: `https://www.grupoenjoy.es${localizedPath("/hiru", locale)}` },
       ]} />
       <HiruJsonLd description={t("meta.hiruDescription")} />
       <VenueVideoJsonLd venue="hiru" />

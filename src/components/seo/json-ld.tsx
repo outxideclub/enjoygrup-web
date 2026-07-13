@@ -4,11 +4,23 @@ interface JsonLdProps {
   data: Record<string, unknown>;
 }
 
+/**
+ * Serializa a JSON escapando los caracteres que podrían romper el <script> o
+ * inyectar HTML (`<`, `>`, `&`) y los separadores de línea JS (U+2028/2029).
+ * Cualquier dato del CMS que acabe en un JSON-LD queda neutralizado.
+ */
+function safeJsonLd(data: Record<string, unknown>): string {
+  // Escapa <, >, & y los separadores de línea JS U+2028/U+2029 por su forma \uXXXX.
+  return JSON.stringify(data).replace(/[<>&\u2028\u2029]/g, (c) => {
+    return "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0");
+  });
+}
+
 export function JsonLd({ data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(data) }}
     />
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
 import { getPostBySlug, getAllPosts, getRelatedPosts, toBlogLocale, getPostText, type HowToStep } from "../../../../data/blog/posts";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { notFound } from "next/navigation";
 import { sanitizeHtml } from "@/lib/sanitize";
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `${BASE_URL}/blog/${post.slug}`,
+      url: `${BASE_URL}${localizedPath(`/blog/${post.slug}`, locale)}`,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],

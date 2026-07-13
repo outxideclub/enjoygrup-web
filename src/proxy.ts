@@ -66,6 +66,16 @@ function denyAdmin(req: NextRequest, pathname: string): NextResponse {
   return NextResponse.redirect(new URL("/admin/login", req.url));
 }
 
+// Cabeceras de confianza que SOLO puede fijar este middleware. Si llegan del
+// cliente hay que borrarlas antes de reenviar la petición para que no las falsee.
+const TRUSTED_HEADERS = ["x-locale", "x-pathname", "x-base-path"] as const;
+
+function baseHeaders(req: NextRequest): Headers {
+  const h = new Headers(req.headers);
+  for (const name of TRUSTED_HEADERS) h.delete(name);
+  return h;
+}
+
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
@@ -98,7 +108,7 @@ export async function proxy(req: NextRequest) {
       return NextResponse.redirect(url, 308);
     }
 
-    const requestHeaders = new Headers(req.headers);
+    const requestHeaders = baseHeaders(req);
     requestHeaders.set("x-pathname", pathname);
     requestHeaders.set("x-base-path", basePath);
 

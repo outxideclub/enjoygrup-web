@@ -25,6 +25,27 @@ export async function GET() {
   return NextResponse.json(data);
 }
 
+/**
+ * Valida que el objeto tiene EXACTAMENTE la forma de SiteContact con todos los
+ * campos string. Un guardado malformado se comitea al repo y puede tumbar el
+ * build/render en producción (contact.json se importa estáticamente), así que
+ * lo rechazamos antes de escribir.
+ */
+function isValidSiteContact(d: unknown): d is SiteContact {
+  if (!d || typeof d !== "object") return false;
+  const o = d as Record<string, unknown>;
+  const g = o.general as Record<string, unknown> | undefined;
+  const v = o.venues as Record<string, unknown> | undefined;
+  if (!g || !v) return false;
+  const str = (x: unknown) => typeof x === "string";
+  if (![g.email, g.privacyEmail, g.phone, g.whatsapp].every(str)) return false;
+  for (const key of ["enjoy", "outxide", "hiru"] as const) {
+    const ven = v[key] as Record<string, unknown> | undefined;
+    if (!ven || ![ven.phone, ven.instagram, ven.mapsUrl].every(str)) return false;
+  }
+  return true;
+}
+
 export async function PUT(req: NextRequest) {
   if (!(await validateSession())) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
@@ -34,9 +55,12 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   try {
-    const { data } = (await req.json()) as { data?: SiteContact };
-    if (!data || !data.general || !data.venues) {
-      return NextResponse.json({ error: "Datos inválidos" }, { status: 400 });
+    const { data } = (await req.json()) as { data?: unknown };
+    if (!isValidSiteContact(data)) {
+      return NextResponse.json(
+        { error: "Datos inválidos: faltan campos o no son de texto" },
+        { status: 400 },
+      );
     }
     await writeData("site/contact.json", data, "chore(admin): actualizar datos de contacto");
     return NextResponse.json({ ok: true });

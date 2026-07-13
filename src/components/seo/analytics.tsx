@@ -62,6 +62,9 @@ export function AnalyticsScripts() {
               gtag('js', new Date());
               gtag('config', '${GA_ID}', {
                 anonymize_ip: true,
+                // Caduca la cookie _ga a ~13 meses (recomendación AEPD de
+                // duraciones cortas y coherente con la política de cookies).
+                cookie_expires: 34164000,
                 custom_map: { dimension1: 'venue' }
               });
             `}

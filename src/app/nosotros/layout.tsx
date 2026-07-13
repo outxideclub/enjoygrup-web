@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, OrganizationJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
 
@@ -14,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("meta.aboutTitle"),
       description: t("meta.aboutOgDescription"),
-      url: "https://www.grupoenjoy.es/nosotros",
+      url: `https://www.grupoenjoy.es${localizedPath("/nosotros", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
       images: [
@@ -46,7 +47,7 @@ export default async function AboutLayout({
       {children}
       <BreadcrumbJsonLd items={[
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
-        { name: "Sobre Nosotros", url: "https://www.grupoenjoy.es/nosotros" },
+        { name: "Sobre Nosotros", url: `https://www.grupoenjoy.es${localizedPath("/nosotros", locale)}` },
       ]} />
       <OrganizationJsonLd description={t("meta.aboutDescription")} />
     </>

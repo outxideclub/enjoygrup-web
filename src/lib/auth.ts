@@ -4,9 +4,19 @@ import { timingSafeEqual } from "crypto";
 const SESSION_COOKIE = "ge_admin_session";
 const SESSION_MAX_AGE = 60 * 60 * 24; // 24 hours
 
+// El secreto firma la sesión del admin (única barrera): exigimos entropía real.
+// Rechazamos valores cortos o con pinta de placeholder elegido a mano para que
+// nunca se despliegue una clave débil por descuido.
+const WEAK_SECRET = /^(ge-|test|dev|change|secret|admin|password|placeholder|example)/i;
+
 function getSecret(): string {
   const secret = process.env.ADMIN_SESSION_SECRET;
   if (!secret) throw new Error("ADMIN_SESSION_SECRET env var is required");
+  if (secret.length < 32 || WEAK_SECRET.test(secret)) {
+    throw new Error(
+      "ADMIN_SESSION_SECRET débil: usa >=32 bytes aleatorios (openssl rand -base64 48)",
+    );
+  }
   return secret;
 }
 
@@ -91,7 +101,10 @@ const ALLOWED_ORIGIN_HOSTS = new Set(["grupoenjoy.es", "www.grupoenjoy.es"]);
  *   petición (cubre los deploys de preview de Vercel).
  */
 export function isAllowedAdminOrigin(origin: string | null, host: string | null): boolean {
-  if (!origin) return true;
+  // Sin Origin no hay señal de mismo-origen: las escrituras del panel se hacen
+  // con fetch (que SIEMPRE envía Origin), así que un Origin ausente se rechaza
+  // en vez de permitirse — así el check sí protege frente a CSRF.
+  if (!origin) return false;
   try {
     const originUrl = new URL(origin);
     if (ALLOWED_ORIGIN_HOSTS.has(originUrl.host)) return true;

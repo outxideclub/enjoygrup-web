@@ -8,7 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GroupLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
-import { useT } from "@/i18n";
+import { useT, useLocale } from "@/i18n";
+import { localeFromPath, localizedPath } from "@/i18n/config";
 
 const navItems = [
   { name: "Enjoy Terrace", href: "/enjoy", ariaKey: "nav.goToEnjoy", activeClass: "text-enjoy border-enjoy" },
@@ -27,6 +28,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
   const pathname = usePathname();
   const t = useT();
+  const locale = useLocale();
+  // Ruta sin prefijo de idioma para comparar activo y para prefijar los enlaces.
+  const { basePath } = localeFromPath(pathname ?? "/");
 
   React.useEffect(() => {
     let ticking = false;
@@ -68,7 +72,7 @@ export function Navbar() {
       >
         <div className="flex items-center justify-between py-4">
           <Link
-            href="/"
+            href={localizedPath("/", locale)}
             className="flex items-center gap-2"
             aria-label="Grupo Enjoy - Home"
           >
@@ -78,11 +82,11 @@ export function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
-              const isActive = pathname.startsWith(item.href);
+              const isActive = basePath === item.href || basePath.startsWith(item.href + "/");
               return (
                 <Link
                   key={item.name}
-                  href={item.href}
+                  href={localizedPath(item.href, locale)}
                   className={cn(
                     "text-sm pb-1 border-b-2 transition-colors duration-300",
                     isActive
@@ -98,11 +102,11 @@ export function Navbar() {
             })}
             <span className="h-3 w-px bg-white/20" aria-hidden="true" />
             {secondaryItems.map((item) => {
-              const isActive = pathname.startsWith(item.href);
+              const isActive = basePath === item.href || basePath.startsWith(item.href + "/");
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={localizedPath(item.href, locale)}
                   className={cn(
                     "text-xs transition-colors duration-300",
                     isActive
@@ -147,7 +151,7 @@ export function Navbar() {
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
           >
             {navItems.map((item, i) => {
-              const isActive = pathname.startsWith(item.href);
+              const isActive = basePath === item.href || basePath.startsWith(item.href + "/");
               return (
                 <motion.div
                   key={item.name}
@@ -156,7 +160,7 @@ export function Navbar() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link
-                    href={item.href}
+                    href={localizedPath(item.href, locale)}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
                       "text-3xl font-display font-bold transition-colors",
@@ -177,7 +181,7 @@ export function Navbar() {
               aria-hidden="true"
             />
             {secondaryItems.map((item, i) => {
-              const isActive = pathname.startsWith(item.href);
+              const isActive = basePath === item.href || basePath.startsWith(item.href + "/");
               return (
                 <motion.div
                   key={item.href}
@@ -186,7 +190,7 @@ export function Navbar() {
                   transition={{ delay: (navItems.length + 1 + i) * 0.1 }}
                 >
                   <Link
-                    href={item.href}
+                    href={localizedPath(item.href, locale)}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
                       "text-xl transition-colors",

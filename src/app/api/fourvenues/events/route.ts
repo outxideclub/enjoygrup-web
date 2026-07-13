@@ -21,14 +21,10 @@ export async function GET(request: NextRequest) {
       },
     );
   } catch (error) {
-    if (error instanceof FourVenuesError) {
-      return NextResponse.json(
-        { error: error.message, success: false },
-        { status: error.statusCode || 502 },
-      );
-    }
-    const message =
-      error instanceof Error ? error.message : "Internal server error";
-    return NextResponse.json({ error: message, success: false }, { status: 500 });
+    // No reexponer el mensaje del upstream (puede traer host/config/cuerpo de
+    // error crudo): se registra en servidor y se responde un código neutro.
+    console.error("FourVenues events error:", error);
+    const status = error instanceof FourVenuesError ? error.statusCode || 502 : 502;
+    return NextResponse.json({ error: "upstream_unavailable", success: false }, { status });
   }
 }

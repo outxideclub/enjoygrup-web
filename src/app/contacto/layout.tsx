@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd, JsonLd, EnjoyJsonLd, OutxideJsonLd, HiruJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath } from "@/i18n/config";
 import { siteContact } from "@/lib/site";
 
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t("meta.contactTitle"),
       description: t("meta.contactOgDescription"),
-      url: "https://www.grupoenjoy.es/contacto",
+      url: `https://www.grupoenjoy.es${localizedPath("/contacto", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
       images: [
@@ -47,7 +48,7 @@ export default async function ContactLayout({
       {children}
       <BreadcrumbJsonLd items={[
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
-        { name: "Contacto", url: "https://www.grupoenjoy.es/contacto" },
+        { name: "Contacto", url: `https://www.grupoenjoy.es${localizedPath("/contacto", locale)}` },
       ]} />
       <EnjoyJsonLd description={t("meta.enjoyDescription")} />
       <OutxideJsonLd description={t("meta.outxideDescription")} />
@@ -56,7 +57,7 @@ export default async function ContactLayout({
         "@context": "https://schema.org",
         "@type": "ContactPage",
         name: "Contacto — Grupo Enjoy",
-        url: "https://www.grupoenjoy.es/contacto",
+        url: `https://www.grupoenjoy.es${localizedPath("/contacto", locale)}`,
         mainEntity: {
           "@type": "Organization",
           "@id": "https://www.grupoenjoy.es/#organization",

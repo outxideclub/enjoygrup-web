@@ -8,7 +8,6 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
-import { useRouter } from "next/navigation";
 import { type Locale, defaultLocale, COOKIE_NAME, locales } from "./config";
 import { es, type Dictionary } from "./dictionaries/es";
 import { en } from "./dictionaries/en";
@@ -46,7 +45,9 @@ function detectBrowserLocale(): Locale {
     if (normalized.startsWith("fr")) return "fr";
     if (normalized.startsWith("it")) return "it";
   }
-  return "en";
+  // Mismo fallback que el servidor (getServerLocale) para evitar parpadeo de
+  // hidratación cuando el navegador no coincide con ningún idioma soportado.
+  return defaultLocale;
 }
 
 function getNestedValue(obj: unknown, path: string): string | undefined {
@@ -68,7 +69,6 @@ interface LocaleProviderProps {
 
 export function LocaleProvider({ children, initialLocale }: LocaleProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale ?? defaultLocale);
-  const router = useRouter();
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -83,19 +83,16 @@ export function LocaleProvider({ children, initialLocale }: LocaleProviderProps)
     return () => window.clearTimeout(id);
   }, [locale]);
 
-  const setLocale = useCallback(
-    (newLocale: Locale) => {
-      setLocaleState(newLocale);
-      document.cookie = `${COOKIE_NAME}=${newLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
-      // La navegación cliente no re-renderiza <html>, así que el lang se
-      // sincroniza a mano (los lectores de pantalla lo usan al momento).
-      document.documentElement.lang = newLocale;
-      // Re-renderiza los componentes de SERVIDOR con el idioma nuevo (blog,
-      // páginas legales, metadatos); sin esto solo cambia el cliente.
-      router.refresh();
-    },
-    [router],
-  );
+  const setLocale = useCallback((newLocale: Locale) => {
+    setLocaleState(newLocale);
+    document.cookie = `${COOKIE_NAME}=${newLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
+    // La navegación cliente no re-renderiza <html>, así que el lang se
+    // sincroniza a mano (los lectores de pantalla lo usan al momento).
+    document.documentElement.lang = newLocale;
+    // El re-render de los componentes de SERVIDOR (blog, legales, metadatos) lo
+    // provoca la navegación a la URL del idioma que hace el selector (router.push):
+    // no llamamos aquí a router.refresh() para no duplicar el render.
+  }, []);
 
   const t = useCallback(
     (key: string): string => {
