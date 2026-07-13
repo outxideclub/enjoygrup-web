@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readData, writeData } from "@/lib/data";
 import type { MenuSection } from "@/lib/data";
-import { validateSession } from "@/lib/auth";
+import { validateSession, isAllowedAdminOrigin } from "@/lib/auth";
 
 const VALID_MENUS = ["enjoy-drinks", "enjoy-shisha", "hiru"] as const;
 
@@ -22,9 +22,8 @@ export async function PUT(req: NextRequest) {
   if (!(await validateSession())) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
-  const origin = req.headers.get("origin");
-  const host = req.headers.get("host");
-  if (origin && host && !origin.includes(host)) {
+  // Comprobación CSRF: Origin parseado y comparado por igualdad exacta
+  if (!isAllowedAdminOrigin(req.headers.get("origin"), req.headers.get("host"))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   try {

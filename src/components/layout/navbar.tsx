@@ -43,6 +43,19 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Accesibilidad del menú móvil: Escape lo cierra y devuelve el foco al botón.
+  React.useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        document.getElementById("nav-menu-toggle")?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav
@@ -109,11 +122,14 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <LanguageSelector />
             <button
+              id="nav-menu-toggle"
               onClick={() => setMenuOpen(!menuOpen)}
               className="relative z-50 p-2 text-white"
               aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+              aria-expanded={menuOpen}
+              aria-controls="nav-mobile-menu"
             >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              {menuOpen ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}
             </button>
           </div>
         </div>
@@ -123,6 +139,7 @@ export function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="nav-mobile-menu"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

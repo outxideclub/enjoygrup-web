@@ -76,6 +76,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getServerLocale();
+  const t = getServerT(locale);
 
   return (
     <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} style={{ scrollBehavior: "smooth" }} suppressHydrationWarning>
@@ -93,6 +94,13 @@ export default async function RootLayout({
         <link rel="help" type="text/plain" href="/llms-full.txt" title="LLM full reference" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased" suppressHydrationWarning>
+        {/* Enlace "saltar al contenido" para usuarios de teclado/lector de pantalla */}
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[300] focus:rounded-full focus:bg-white focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-black"
+        >
+          {t("nav.skipToContent")}
+        </a>
         <MotionConfigProvider>
           <LocaleProvider initialLocale={locale}>
             {children}

@@ -68,6 +68,7 @@ export const es = {
   },
   nav: {
     openMenu: "Abrir menú",
+    skipToContent: "Saltar al contenido",
     closeMenu: "Cerrar menú",
     goToHome: "Volver al inicio de Grupo Enjoy",
     goToEnjoy: "Ir a Enjoy Terrace",
@@ -218,6 +219,9 @@ export const es = {
     newsletterSubmit: "Suscribirse",
     newsletterSuccess: "¡Gracias! Te mantendremos informado.",
     newsletterError: "Por favor, introduce un email válido.",
+    newsletterPrivacy: "He leído y acepto la",
+    newsletterPrivacyLink: "Política de Privacidad",
+    newsletterPrivacyRequired: "Debes aceptar la política de privacidad.",
     company: "Empresa",
     aboutUs: "Sobre nosotros",
     blog: "Blog",
@@ -256,6 +260,7 @@ export const es = {
     and: "y",
     privacyPolicy: "Política de Privacidad",
     settingsButton: "Configurar Cookies",
+    close: "Cerrar",
   },
   ageVerification: {
     title: "Verificación de edad",
@@ -315,6 +320,11 @@ export const es = {
     formSubmit: "Enviar mensaje",
     formSuccess: "¡Mensaje enviado! Te responderemos lo antes posible.",
     formError: "Por favor, completa todos los campos.",
+    formPrivacy: "He leído y acepto la",
+    formPrivacyLink: "Política de Privacidad",
+    mapConsentText: "Para mostrar el mapa cargamos contenido de Google Maps, que puede instalar cookies de Google en tu dispositivo.",
+    mapConsentButton: "Cargar mapa",
+    mapConsentNote: "Al cargarlo aceptas las cookies de Google. Más información en nuestra",
     venuesTitle: "Nuestros Locales",
     enjoyAddress: "Av. Tucán, 1, Port d'Alcúdia",
     enjoyPhone: "+34 657 87 89 17",
@@ -426,6 +436,11 @@ export const es = {
     title: "Página no encontrada",
     description: "Lo sentimos, la página que buscas no existe o ha sido movida.",
     backHome: "Volver al inicio",
+  },
+  gallery: {
+    close: "Cerrar",
+    previous: "Anterior",
+    next: "Siguiente",
   },
 } as const;
 

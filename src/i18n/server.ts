@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { type Locale, defaultLocale, COOKIE_NAME, locales } from "./config";
 import { es, type Dictionary } from "./dictionaries/es";
 import { en } from "./dictionaries/en";
@@ -20,6 +20,25 @@ function getNestedValue(obj: unknown, path: string): string | undefined {
   return typeof current === "string" ? current : undefined;
 }
 
+/** Negocia el idioma con la cabecera Accept-Language del navegador. */
+function negotiateFromHeader(acceptLanguage: string | null): Locale | null {
+  if (!acceptLanguage) return null;
+  // "de-DE,de;q=0.9,en;q=0.8" → ["de-de", "de", "en"] respetando el orden/q
+  const requested = acceptLanguage
+    .split(",")
+    .map((part) => {
+      const [tag, q] = part.trim().split(";q=");
+      return { tag: tag.toLowerCase(), q: q ? parseFloat(q) : 1 };
+    })
+    .filter((x) => !Number.isNaN(x.q))
+    .sort((a, b) => b.q - a.q);
+  for (const { tag } of requested) {
+    const base = tag.split("-")[0];
+    if (locales.includes(base as Locale)) return base as Locale;
+  }
+  return null;
+}
+
 export async function getServerLocale(): Promise<Locale> {
   const cookieStore = await cookies();
   const localeCookie = cookieStore.get(COOKIE_NAME);
@@ -27,7 +46,10 @@ export async function getServerLocale(): Promise<Locale> {
   if (value && locales.includes(value as Locale)) {
     return value as Locale;
   }
-  return defaultLocale;
+  // Primera visita (sin cookie): usar el idioma del navegador en vez de forzar
+  // español a todos los turistas. El cliente fija la cookie tras hidratar.
+  const headerStore = await headers();
+  return negotiateFromHeader(headerStore.get("accept-language")) ?? defaultLocale;
 }
 
 export function getServerT(locale: Locale): (key: string) => string {

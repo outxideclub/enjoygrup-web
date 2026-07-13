@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: Props) {
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/images/logos/enjoy.png`,
+        url: `${BASE_URL}/images/logos/enjoy-og.png`,
       },
     },
     publisher: {
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/images/logos/enjoy.png`,
+        url: `${BASE_URL}/images/logos/enjoy-og.png`,
       },
     },
     isPartOf: {
@@ -214,7 +214,7 @@ export default async function BlogPostPage({ params }: Props) {
           })),
         }} />
       )}
-      <main>
+      <main id="contenido">
       <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end overflow-hidden">
         <Image
           src={post.image}

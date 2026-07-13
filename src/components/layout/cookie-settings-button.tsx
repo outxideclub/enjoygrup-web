@@ -2,12 +2,16 @@
 
 import { Settings2 } from "lucide-react";
 import { useT } from "@/i18n";
+import { CONSENT_KEY, deleteTrackingCookies } from "@/lib/consent";
 
 export function CookieSettingsButton() {
   const t = useT();
 
   const openCookieSettings = () => {
-    localStorage.removeItem("ge_cookie_consent");
+    // Reabrir el banner equivale a retirar el consentimiento: además de volver
+    // a preguntar, se eliminan las cookies de rastreo ya instaladas.
+    localStorage.removeItem(CONSENT_KEY);
+    deleteTrackingCookies({ necessary: true, analytics: false, marketing: false });
     window.location.reload();
   };
 

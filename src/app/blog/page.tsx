@@ -150,7 +150,7 @@ export default function BlogPage() {
     <div className="noise-texture relative">
       <Navbar />
       <JsonLd data={collectionJsonLd} />
-      <main>
+      <main id="contenido">
       <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(236,72,153,0.1)_0%,transparent_50%),radial-gradient(ellipse_at_80%_80%,rgba(6,182,212,0.08)_0%,transparent_50%)]" />
         <div className="relative mx-auto max-w-6xl px-6">

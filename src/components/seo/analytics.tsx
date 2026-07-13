@@ -1,62 +1,33 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { CONSENT_EVENT, CONSENT_KEY, getStoredConsent, type ConsentState } from "@/lib/consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID;
 
-const CONSENT_KEY = "ge_cookie_consent";
-
-type ConsentState = {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-};
-
-function getStoredConsentRaw(): string | null {
-  if (typeof window === "undefined") return null;
-  return localStorage.getItem(CONSENT_KEY);
-}
-
-function parseConsent(raw: string | null): ConsentState | null {
-  if (!raw) return null;
-  try {
-    return JSON.parse(raw).consent as ConsentState;
-  } catch {
-    return null;
-  }
-}
-
 export function AnalyticsScripts() {
   const [consent, setConsent] = useState<ConsentState | null>(null);
-  const lastRaw = useRef<string | null>(null);
 
   useEffect(() => {
-    const raw = getStoredConsentRaw();
-    lastRaw.current = raw;
-    setConsent(parseConsent(raw));
+    // getStoredConsent valida versión y antigüedad (12 meses): un consentimiento
+    // caducado o de otra versión de la política NO carga ningún píxel.
+    const sync = () => setConsent(getStoredConsent());
+    sync();
 
+    // El banner avisa con un evento propio en esta pestaña; el evento "storage"
+    // cubre cambios desde otras pestañas. Sin polling.
+    window.addEventListener(CONSENT_EVENT, sync);
     const handleStorage = (e: StorageEvent) => {
-      if (e.key === CONSENT_KEY) {
-        lastRaw.current = e.newValue;
-        setConsent(parseConsent(e.newValue));
-      }
+      if (e.key === CONSENT_KEY) sync();
     };
     window.addEventListener("storage", handleStorage);
 
-    const interval = setInterval(() => {
-      const raw = getStoredConsentRaw();
-      if (raw !== lastRaw.current) {
-        lastRaw.current = raw;
-        setConsent(parseConsent(raw));
-      }
-    }, 1000);
-
     return () => {
+      window.removeEventListener(CONSENT_EVENT, sync);
       window.removeEventListener("storage", handleStorage);
-      clearInterval(interval);
     };
   }, []);
 

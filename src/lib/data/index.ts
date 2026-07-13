@@ -10,9 +10,17 @@ async function ensureDir(filePath: string) {
   if (!existsSync(dir)) await mkdir(dir, { recursive: true });
 }
 
+/** Resuelve una ruta relativa DENTRO de data/ y rechaza cualquier escape (../ etc.). */
+function resolveDataPath(relativePath: string): string {
+  const filePath = path.resolve(DATA_DIR, relativePath);
+  if (!filePath.startsWith(path.resolve(DATA_DIR) + path.sep)) {
+    throw new Error(`Ruta fuera de data/: ${relativePath}`);
+  }
+  return filePath;
+}
+
 export async function readData<T>(relativePath: string): Promise<T> {
-  const filePath = path.join(DATA_DIR, relativePath);
-  const raw = await readFile(filePath, "utf-8");
+  const raw = await readFile(resolveDataPath(relativePath), "utf-8");
   return JSON.parse(raw) as T;
 }
 
@@ -33,7 +41,7 @@ export async function writeData<T>(
     return;
   }
   // Local development: write straight to disk for instant iteration.
-  const filePath = path.join(DATA_DIR, relativePath);
+  const filePath = resolveDataPath(relativePath);
   await ensureDir(filePath);
   await writeFile(filePath, json, "utf-8");
 }

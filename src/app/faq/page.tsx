@@ -185,7 +185,7 @@ export default function FaqPage() {
     <div className="noise-texture relative">
       <AmbientGlow venue="home" />
       <Navbar />
-      <main>
+      <main id="contenido">
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(184,115,51,0.10)_0%,transparent_60%)]" />
         <div className="relative z-10 mx-auto max-w-4xl px-6 pt-32 pb-20 text-center">

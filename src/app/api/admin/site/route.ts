@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readDataSafe, writeData } from "@/lib/data";
-import { validateSession } from "@/lib/auth";
+import { validateSession, isAllowedAdminOrigin } from "@/lib/auth";
 import type { SiteContact } from "@/lib/site";
 
 const FALLBACK: SiteContact = {
@@ -29,9 +29,8 @@ export async function PUT(req: NextRequest) {
   if (!(await validateSession())) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
-  const origin = req.headers.get("origin");
-  const host = req.headers.get("host");
-  if (origin && host && !origin.includes(host)) {
+  // Comprobación CSRF: Origin parseado y comparado por igualdad exacta
+  if (!isAllowedAdminOrigin(req.headers.get("origin"), req.headers.get("host"))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   try {

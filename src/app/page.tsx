@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, Wine, Music, Flame, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -17,60 +17,44 @@ const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m 
 import { useT } from "@/i18n";
 import { useState, useEffect, useRef, useCallback } from "react";
 
+// Los textos visibles (subtitle/description) salen de t("home.*") en el render;
+// aquí solo viven los datos no traducibles de cada local.
 const businesses = [
   {
     name: "Enjoy",
     id: "enjoy",
     logo: EnjoyLogo,
-    subtitle: "Terrace · Cocktails & Shisha",
-    description:
-      "Where nights begin. Los mejores cócteles de Alcúdia, shisha premium y la terraza con más ambiente para empezar la noche.",
     href: "/enjoy",
-    icon: Wine,
     color: "from-pink-500/40 to-pink-900/20",
     accent: "text-enjoy",
-    borderColor: "hover:border-enjoy/30",
     image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
     cardImage: "/images/enjoy/485765269_1384374992965504_5931564430169011113_n.jpg",
     video: "/videos/enjoy-hero.mp4",
     poster: "/videos/enjoy-hero-poster.jpg",
-    cta: "Enjoy Terrace"
   },
   {
     name: "Outxide",
     id: "outxide",
     logo: OutxideLogo,
-    subtitle: "Club",
-    description:
-      "The night continues. Club nocturno con los mejores DJs, producción de primer nivel y una energía que no encontrarás en otro sitio.",
     href: "/outxide",
-    icon: Music,
     color: "from-cyan-500/40 to-violet-500/20",
     accent: "text-outxide",
-    borderColor: "hover:border-outxide/30",
     image: "/images/outxide/DSCF8103-9.jpg",
     cardImage: "/images/outxide/DSCF8103-9.jpg",
     video: "/videos/outxide-hero.mp4",
     poster: "/videos/outxide-hero-poster.jpg",
-    cta: "Outxide Club"
   },
   {
     name: "Hiru",
     id: "hiru",
     logo: HiruLogo,
-    subtitle: "Food & Drinks",
-    description:
-      "Brasa, cocktails y buen ambiente. Cocina de autor con las mejores carnes, arroces y cócteles hasta altas horas de la noche.",
     href: "/hiru",
-    icon: Flame,
     color: "from-amber-800/40 to-amber-950/20",
     accent: "text-hiru",
-    borderColor: "hover:border-hiru/30",
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     cardImage: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     video: "/videos/hiru-hero.mp4",
     poster: "/videos/hiru-hero-poster.jpg",
-    cta: "Hiru Food & Drinks"
   },
 ];
 
@@ -80,6 +64,9 @@ export default function HomePage() {
   const [videoReady, setVideoReady] = useState(false);
   const [deferredVideoId, setDeferredVideoId] = useState<string | null>(null);
   const [isFirstMount, setIsFirstMount] = useState(true);
+  // Pausa de la rotación automática mientras el puntero está encima o el foco dentro del hero
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocusWithin, setIsFocusWithin] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReduced = useReducedMotion();
 
@@ -96,9 +83,11 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    // Con prefers-reduced-motion no cargamos el vídeo: se queda el poster estático
+    if (prefersReduced) return;
     const id = window.setTimeout(() => setDeferredVideoId(activeBiz.id), 800);
     return () => window.clearTimeout(id);
-  }, [activeBiz.id]);
+  }, [activeBiz.id, prefersReduced]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -109,17 +98,27 @@ export default function HomePage() {
   const prev = () => setIndex((prev) => (prev - 1 + businesses.length) % businesses.length);
 
   useEffect(() => {
-    if (prefersReduced) return;
+    // Sin rotación automática con reduced-motion, ni mientras el usuario interactúa
+    if (prefersReduced || isHovered || isFocusWithin) return;
     const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
-  }, [prefersReduced]);
+  }, [prefersReduced, isHovered, isFocusWithin]);
 
   return (
     <div className="noise-texture relative">
       <AmbientGlow venue="home" />
       <Navbar />
-      <main>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <main id="contenido">
+      <section
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsFocusWithin(true)}
+        onBlur={(e) => {
+          // Solo reanudamos cuando el foco sale de verdad de la sección
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setIsFocusWithin(false);
+        }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             data-hero
@@ -188,7 +187,8 @@ export default function HomePage() {
                   {t("common.location")}
                 </p>
                 <div className="mb-6 h-28 md:h-40 flex items-center">
-                  <activeBiz.logo className="h-full w-auto max-w-[400px]" />
+                  {/* priority: único logo above-the-fold de verdad (hero de la home) */}
+                  <activeBiz.logo className="h-full w-auto max-w-[400px]" priority />
                 </div>
                 <p className={`text-xl font-medium ${activeBiz.accent} mb-6 tracking-wide`}>
                   {t(`home.${activeBiz.id}Subtitle`)}
@@ -213,6 +213,9 @@ export default function HomePage() {
                     src={activeBiz.image}
                     alt={activeBiz.name}
                     fill
+                    // Oculto en <lg (1px evita la descarga); en desktop la columna
+                    // está capada a ~528px por max-w-6xl, no a 50vw reales
+                    sizes="(max-width: 1023px) 1px, (max-width: 1151px) 50vw, 528px"
                     className="object-cover transition-transform duration-[2s] group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

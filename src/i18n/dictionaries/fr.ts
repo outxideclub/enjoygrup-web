@@ -70,6 +70,7 @@ export const fr: Dictionary = {
   },
   nav: {
     openMenu: "Ouvrir le menu",
+    skipToContent: "Aller au contenu",
     closeMenu: "Fermer le menu",
     goToHome: "Retour à l'accueil Grupo Enjoy",
     goToEnjoy: "Aller à Enjoy Terrace",
@@ -220,6 +221,9 @@ export const fr: Dictionary = {
     newsletterSubmit: "S'abonner",
     newsletterSuccess: "Merci ! Nous vous tiendrons informé.",
     newsletterError: "Veuillez entrer une adresse e-mail valide.",
+    newsletterPrivacy: "J'ai lu et j'accepte la",
+    newsletterPrivacyLink: "Politique de confidentialité",
+    newsletterPrivacyRequired: "Vous devez accepter la politique de confidentialité.",
     company: "Entreprise",
     aboutUs: "À propos",
     blog: "Blog",
@@ -258,6 +262,7 @@ export const fr: Dictionary = {
     and: "et",
     privacyPolicy: "Politique de confidentialité",
     settingsButton: "Paramètres des cookies",
+    close: "Fermer",
   },
   ageVerification: {
     title: "Vérification de l'âge",
@@ -317,6 +322,11 @@ export const fr: Dictionary = {
     formSubmit: "Envoyer le message",
     formSuccess: "Message envoyé ! Nous vous répondrons dans les meilleurs délais.",
     formError: "Veuillez remplir tous les champs.",
+    formPrivacy: "J'ai lu et j'accepte la",
+    formPrivacyLink: "Politique de confidentialité",
+    mapConsentText: "Pour afficher la carte, nous chargeons du contenu de Google Maps, qui peut déposer des cookies Google sur votre appareil.",
+    mapConsentButton: "Charger la carte",
+    mapConsentNote: "En la chargeant, vous acceptez les cookies de Google. Plus d'informations dans notre",
     venuesTitle: "Nos Établissements",
     enjoyAddress: "Av. Tucán, 1, Port d'Alcúdia",
     enjoyPhone: "+34 657 87 89 17",
@@ -428,5 +438,10 @@ export const fr: Dictionary = {
     title: "Page non trouvée",
     description: "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
     backHome: "Retour à l'accueil",
+  },
+  gallery: {
+    close: "Fermer",
+    previous: "Précédent",
+    next: "Suivant",
   },
 } as const;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldAlert } from "lucide-react";
 import { OutxideLogo } from "@/components/ui/logos";
@@ -11,12 +11,38 @@ const AGE_KEY = "ge_age_verified";
 export function AgeVerification() {
   const [show, setShow] = useState(false);
   const t = useT();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const confirmRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const verified = sessionStorage.getItem(AGE_KEY);
     if (!verified) setShow(true);
   }, []);
+
+  // Diálogo modal accesible: foco inicial en "Confirmar" y Tab cíclico dentro.
+  useEffect(() => {
+    if (!show) return;
+    confirmRef.current?.focus();
+    const trap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button, a[href], [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", trap);
+    return () => document.removeEventListener("keydown", trap);
+  }, [show]);
 
   const confirm = () => {
     sessionStorage.setItem(AGE_KEY, "true");
@@ -44,6 +70,11 @@ export function AgeVerification() {
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
 
           <motion.div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="age-verification-title"
+            aria-describedby="age-verification-desc"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -56,17 +87,18 @@ export function AgeVerification() {
 
             <OutxideLogo className="h-10 mx-auto mb-6" />
 
-            <h2 className="text-lg font-display font-bold text-white uppercase tracking-wide mb-2">
+            <h2 id="age-verification-title" className="text-lg font-display font-bold text-white uppercase tracking-wide mb-2">
               {t("ageVerification.title")}
             </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+            <p id="age-verification-desc" className="text-sm text-muted-foreground leading-relaxed mb-8">
               {t("ageVerification.description")}
             </p>
 
             <div className="space-y-3">
               <button
+                ref={confirmRef}
                 onClick={confirm}
-                className="w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-white/90 transition-colors"
+                className="w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-white/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {t("ageVerification.confirm")}
               </button>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
+import { SaveErrorBanner, saveErrorFromResponse, type SaveError } from "../save-error";
 import {
   Plus,
   Trash2,
@@ -39,42 +40,54 @@ export default function LegalAdminPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<SaveError | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
-  const loadPage = useCallback(async (slug: string) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/admin/legal?slug=${slug}`);
-      const data = await res.json();
-      setPage(data);
-      setExpandedSections(new Set(data.sections?.map((s: LegalSection) => s.id) || []));
-    } catch {
-      setPage(null);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    loadPage(activeSlug);
-  }, [activeSlug, loadPage]);
+    // AbortController evita la carrera al cambiar de página rápido:
+    // la respuesta antigua se cancela y no puede pisar a la nueva
+    const ac = new AbortController();
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/admin/legal?slug=${activeSlug}`, {
+          signal: ac.signal,
+        });
+        const data = await res.json();
+        setPage(data);
+        setExpandedSections(new Set(data.sections?.map((s: LegalSection) => s.id) || []));
+      } catch (err) {
+        if ((err as Error)?.name === "AbortError") return; // petición cancelada
+        setPage(null);
+      } finally {
+        if (!ac.signal.aborted) setLoading(false);
+      }
+    })();
+    return () => ac.abort();
+  }, [activeSlug]);
 
   async function handleSave() {
     if (!page) return;
     setSaving(true);
     setSaved(false);
+    setSaveError(null);
     try {
       const updated = { ...page, lastUpdated: new Date().toISOString().split("T")[0] };
-      await fetch("/api/admin/legal", {
+      const res = await fetch("/api/admin/legal", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ slug: activeSlug, data: updated }),
       });
+      if (!res.ok) {
+        // No actualizar lastUpdated en local si el guardado falló
+        setSaveError(await saveErrorFromResponse(res, "Error al guardar"));
+        return;
+      }
       setPage(updated);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {
-      alert("Error al guardar");
+      setSaveError({ message: "Error de conexión al guardar" });
     } finally {
       setSaving(false);
     }
@@ -139,6 +152,8 @@ export default function LegalAdminPage() {
           {saving ? "Guardando..." : saved ? "Guardado" : "Guardar"}
         </button>
       </div>
+
+      <SaveErrorBanner error={saveError} />
 
       {/* Page tabs */}
       <div className="flex flex-wrap gap-2 mb-6">

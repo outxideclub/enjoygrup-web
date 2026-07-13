@@ -1,7 +1,7 @@
 {
   "slug": "privacidad",
   "title": "Privacy Policy",
-  "lastUpdated": "2026-05",
+  "lastUpdated": "2026-07",
   "sections": [
     {
       "id": "intro",
@@ -26,7 +26,7 @@
     {
       "id": "destinatarios",
       "heading": "4. Data recipients",
-      "content": "<p>Your personal data may be shared with the following recipients:</p><table><thead><tr><th>Recipient</th><th>Purpose</th><th>Location</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Web hosting and edge functions</td><td>USA (Data Processing Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Web analytics (consent only)</td><td>USA (Data Processing Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing and remarketing (consent only)</td><td>USA (Data Processing Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing and remarketing (consent only)</td><td>USA/Singapore (Standard Contractual Clauses)</td></tr><tr><td>Resend Inc.</td><td>Transactional email delivery</td><td>USA (Data Processing Framework)</td></tr><tr><td>Cookiebot (Usercentrics)</td><td>Cookie consent management</td><td>EU (Germany)</td></tr><tr><td>FourVenues S.L.</td><td>Ticketing and reservation system (Outxide)</td><td>Spain (EU)</td></tr><tr><td>Stripe Inc.</td><td>Payment processing</td><td>USA (Data Processing Framework)</td></tr></tbody></table><p>All international data transfers are carried out under the EU-US Data Privacy Framework or through Standard Contractual Clauses approved by the European Commission, ensuring a level of protection equivalent to the GDPR.</p>"
+      "content": "<p>Your personal data may be shared with the following recipients:</p><table><thead><tr><th>Recipient</th><th>Purpose</th><th>Location</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Web hosting and edge functions</td><td>USA (Data Processing Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Web analytics (consent only)</td><td>USA (Data Processing Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing and remarketing (consent only)</td><td>USA (Data Processing Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing and remarketing (consent only)</td><td>USA/Singapore (Standard Contractual Clauses)</td></tr><tr><td>Resend Inc.</td><td>Transactional email delivery</td><td>USA (Data Processing Framework)</td></tr><tr><td>FourVenues S.L.</td><td>Ticketing and reservation system (Outxide)</td><td>Spain (EU)</td></tr></tbody></table><p>All international data transfers are carried out under the EU-US Data Privacy Framework or through Standard Contractual Clauses approved by the European Commission, ensuring a level of protection equivalent to the GDPR.</p>"
     },
     {
       "id": "derechos",
@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Security measures",
-      "content": "<p>We apply appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including:</p><ul><li>TLS/SSL encryption on all Website communications.</li><li>Restricted access to personal data by authorised personnel only.</li><li>Regular backups and secure storage.</li><li>Payment processing delegated to PCI-DSS certified gateways (Stripe).</li><li>IP anonymisation in analytics tools.</li></ul>"
+      "content": "<p>We apply appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including:</p><ul><li>TLS/SSL encryption on all Website communications.</li><li>Restricted access to personal data by authorised personnel only.</li><li>Regular backups and secure storage.</li><li>Ticket payments are processed entirely on the external FourVenues platform (web.fourvenues.com), under its own terms and privacy policy.</li><li>IP anonymisation in analytics tools.</li></ul>"
     },
     {
       "id": "menores",

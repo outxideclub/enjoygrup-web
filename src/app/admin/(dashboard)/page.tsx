@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
+import { SaveErrorBanner, saveErrorFromResponse, type SaveError } from "./save-error";
 import {
   Plus,
   Trash2,
@@ -41,39 +42,50 @@ export default function CartaAdminPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<SaveError | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
-  const loadMenu = useCallback(async (menu: MenuKey) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/admin/menus?menu=${menu}`);
-      const data = await res.json();
-      setSections(data);
-      setExpandedSections(new Set(data.map((s: MenuSection) => s.id)));
-    } catch {
-      setSections([]);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    loadMenu(activeMenu);
-  }, [activeMenu, loadMenu]);
+    // AbortController evita la carrera al cambiar de pestaña rápido:
+    // la respuesta antigua se cancela y no puede pisar a la nueva
+    const ac = new AbortController();
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/admin/menus?menu=${activeMenu}`, {
+          signal: ac.signal,
+        });
+        const data = await res.json();
+        setSections(data);
+        setExpandedSections(new Set(data.map((s: MenuSection) => s.id)));
+      } catch (err) {
+        if ((err as Error)?.name === "AbortError") return; // petición cancelada
+        setSections([]);
+      } finally {
+        if (!ac.signal.aborted) setLoading(false);
+      }
+    })();
+    return () => ac.abort();
+  }, [activeMenu]);
 
   async function handleSave() {
     setSaving(true);
     setSaved(false);
+    setSaveError(null);
     try {
-      await fetch("/api/admin/menus", {
+      const res = await fetch("/api/admin/menus", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ menu: activeMenu, sections }),
       });
+      if (!res.ok) {
+        setSaveError(await saveErrorFromResponse(res, "Error al guardar"));
+        return;
+      }
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {
-      alert("Error al guardar");
+      setSaveError({ message: "Error de conexión al guardar" });
     } finally {
       setSaving(false);
     }
@@ -200,6 +212,8 @@ export default function CartaAdminPage() {
           {saving ? "Guardando..." : saved ? "Guardado" : "Guardar"}
         </button>
       </div>
+
+      <SaveErrorBanner error={saveError} />
 
       {/* Menu selector tabs */}
       <div className="flex flex-wrap gap-2 mb-6">

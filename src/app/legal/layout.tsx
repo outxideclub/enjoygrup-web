@@ -52,7 +52,7 @@ export default async function LegalLayout({ children }: { children: React.ReactN
               </nav>
             </aside>
 
-            <main className="min-w-0">
+            <main id="contenido" className="min-w-0">
               {/* Mobile navigation */}
               <nav className="lg:hidden mb-8 flex flex-wrap gap-2">
                 {legalNav.map((item) => (

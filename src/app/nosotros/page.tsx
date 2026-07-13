@@ -123,7 +123,7 @@ export default function AboutPage() {
     <div className="noise-texture relative">
       <AmbientGlow venue="home" />
       <Navbar />
-      <main>
+      <main id="contenido">
 
         {/* ===== Section 1: Hero ===== */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">

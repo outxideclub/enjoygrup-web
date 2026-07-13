@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readDataSafe, writeData } from "@/lib/data";
 import type { LegalPage } from "@/lib/data";
-import { validateSession } from "@/lib/auth";
+import { validateSession, isAllowedAdminOrigin } from "@/lib/auth";
+import { sanitizeHtml } from "@/lib/sanitize";
 
 const VALID_SLUGS = [
   "aviso-legal",
@@ -30,9 +31,8 @@ export async function PUT(req: NextRequest) {
   if (!(await validateSession())) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
-  const origin = req.headers.get("origin");
-  const host = req.headers.get("host");
-  if (origin && host && !origin.includes(host)) {
+  // Comprobación CSRF: Origin parseado y comparado por igualdad exacta
+  if (!isAllowedAdminOrigin(req.headers.get("origin"), req.headers.get("host"))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   try {
@@ -40,7 +40,18 @@ export async function PUT(req: NextRequest) {
     if (!slug || !isValidSlug(slug) || !data) {
       return NextResponse.json({ error: "Datos inválidos" }, { status: 400 });
     }
-    await writeData(`legal/${slug}.json`, data);
+    // Sanitizar el HTML editable YA al guardar (además de al renderizar),
+    // para que no quede XSS persistente en los JSON del repo
+    const sanitized: LegalPage = {
+      ...data,
+      sections: Array.isArray(data.sections)
+        ? data.sections.map((s: LegalPage["sections"][number]) => ({
+            ...s,
+            content: typeof s?.content === "string" ? sanitizeHtml(s.content) : "",
+          }))
+        : [],
+    };
+    await writeData(`legal/${slug}.json`, sanitized);
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Error al guardar" }, { status: 500 });

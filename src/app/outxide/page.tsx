@@ -47,11 +47,16 @@ const localeMap: Record<string, string> = {
   it: "it-IT",
 };
 
+// Zona horaria del local: sin fijarla, un visitante en UK/Irlanda/Portugal
+// vería el día anterior en eventos que empiezan a medianoche hora de Madrid
+const VENUE_TIMEZONE = "Europe/Madrid";
+
 function formatDate(isoDate: string, locale: string) {
   return new Date(isoDate).toLocaleDateString(localeMap[locale as keyof typeof localeMap] ?? "es-ES", {
     weekday: "short",
     day: "numeric",
     month: "short",
+    timeZone: VENUE_TIMEZONE,
   });
 }
 
@@ -59,8 +64,18 @@ function formatTime(isoDate: string, locale: string) {
   return new Date(isoDate).toLocaleTimeString(localeMap[locale as keyof typeof localeMap] ?? "es-ES", {
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: "Europe/Madrid",
+    timeZone: VENUE_TIMEZONE,
   });
+}
+
+// URL pública de un evento en FourVenues (formato verificado):
+//   https://web.fourvenues.com/es/outxide-club/events/{slug}
+// OJO: event.iframe.tag_url NO sirve como enlace — es una URL para incrustar
+// en iframe cuya cadena de redirecciones acaba en un host inválido.
+const FOURVENUES_ORG_URL = "https://web.fourvenues.com/es/outxide-club";
+
+function eventTicketUrl(event: FVEvent): string {
+  return event.slug ? `${FOURVENUES_ORG_URL}/events/${event.slug}` : FOURVENUES_ORG_URL;
 }
 
 function extractGenres(event: FVEvent): string {
@@ -107,17 +122,22 @@ export default function OutxidePage() {
     document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
   }, []);
 
+  const prefersReduced = useReducedMotion();
+
+  // Respeta prefers-reduced-motion: si el usuario lo pide no se inyecta el
+  // <source> del vídeo (preload="none") y se queda el poster estático.
+  // useReducedMotion puede devolver null antes de hidratar: se trata como falsy.
   useEffect(() => {
+    if (prefersReduced) return;
     const id = window.setTimeout(() => setLoadVideo(true), 800);
     return () => window.clearTimeout(id);
-  }, []);
+  }, [prefersReduced]);
 
   useEffect(() => {
     const v = videoRef.current;
     if (v && v.readyState >= 3) handleVideoReady();
   }, [handleVideoReady, loadVideo]);
 
-  const prefersReduced = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -159,7 +179,7 @@ export default function OutxidePage() {
       <AmbientGlow venue="outxide" />
       <LaserBeams />
       <Navbar />
-      <main>
+      <main id="contenido">
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden perspective-1000">
         <motion.div style={{ y, rotateX }} className="absolute inset-0">
           {/* Poster — visible instantly, fades out when video is ready */}
@@ -185,7 +205,7 @@ export default function OutxidePage() {
             onLoadedData={handleVideoReady}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
           >
-            {loadVideo && <source src="/videos/outxide-hero.mp4" type="video/mp4" />}
+            {loadVideo && !prefersReduced && <source src="/videos/outxide-hero.mp4" type="video/mp4" />}
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.25),transparent_60%)]" />
@@ -216,7 +236,7 @@ export default function OutxidePage() {
                 animate={{ scale: 1, rotateY: 0, opacity: 1 }}
                 transition={{ duration: isFirstMount ? 0 : 1.5, type: "spring", stiffness: 50 }}
               >
-                <OutxideLogo className="h-64 md:h-80 w-auto" />
+                <OutxideLogo className="h-64 md:h-80 w-auto" priority />
               </motion.div>
             </div>
             <h1 className="sr-only">{t("outxide.h1")}</h1>
@@ -380,7 +400,7 @@ export default function OutxidePage() {
                       </p>
 
                       <a
-                        href={event.iframe?.tag_url ?? `https://web.fourvenues.com/es/outxide-club`}
+                        href={eventTicketUrl(event)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`btn-magnetic inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}

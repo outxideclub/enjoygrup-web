@@ -4,11 +4,7 @@
 
 import type {
   FVEvent,
-  FVTicketRate,
-  FVListRate,
   FVListResponse,
-  FVCheckoutRequest,
-  FVCheckoutResponse,
 } from "./types";
 
 const DEFAULT_BASE_URL = "https://channels-service.fourvenues.com";
@@ -112,38 +108,6 @@ export class FourVenuesClient {
     return res.data;
   }
 
-  // -----------------------------------------------------------------------
-  // Ticket Rates
-  // -----------------------------------------------------------------------
 
-  async getTicketRates(eventId: string): Promise<FVTicketRate[]> {
-    const res = await this.request<FVListResponse<FVTicketRate>>(
-      `/ticket-rates?event_id=${encodeURIComponent(eventId)}`,
-      { revalidate: 30 },
-    );
-    return res.data;
-  }
 
-  // -----------------------------------------------------------------------
-  // List Rates
-  // -----------------------------------------------------------------------
-
-  async getListRates(eventId: string): Promise<FVListRate[]> {
-    const res = await this.request<FVListResponse<FVListRate>>(
-      `/list-rates?event_id=${encodeURIComponent(eventId)}`,
-      { revalidate: 30 },
-    );
-    return res.data;
-  }
-
-  // -----------------------------------------------------------------------
-  // Checkout
-  // -----------------------------------------------------------------------
-
-  async createCheckout(data: FVCheckoutRequest): Promise<FVCheckoutResponse> {
-    return this.request<FVCheckoutResponse>("/tickets/checkout", {
-      method: "POST",
-      body: data,
-    });
-  }
 }

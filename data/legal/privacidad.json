@@ -1,7 +1,7 @@
 {
   "slug": "privacidad",
   "title": "Política de Privacidad",
-  "lastUpdated": "2026-05",
+  "lastUpdated": "2026-07",
   "sections": [
     {
       "id": "intro",
@@ -26,7 +26,7 @@
     {
       "id": "destinatarios",
       "heading": "4. Destinatarios de los datos",
-      "content": "<p>Sus datos personales podrán ser comunicados a los siguientes destinatarios:</p><table><thead><tr><th>Destinatario</th><th>Finalidad</th><th>Ubicación</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Alojamiento web y edge functions</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Analítica web (solo con consentimiento)</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing y remarketing (solo con consentimiento)</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing y remarketing (solo con consentimiento)</td><td>EE.UU./Singapur (Cláusulas Contractuales Tipo)</td></tr><tr><td>Resend Inc.</td><td>Envío de emails transaccionales</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>Cookiebot (Usercentrics)</td><td>Gestión de consentimiento de cookies</td><td>UE (Alemania)</td></tr><tr><td>FourVenues S.L.</td><td>Sistema de ticketing y reservas (Outxide)</td><td>España (UE)</td></tr><tr><td>Stripe Inc.</td><td>Procesamiento de pagos</td><td>EE.UU. (Data Processing Framework)</td></tr></tbody></table><p>Todas las transferencias internacionales de datos se realizan al amparo del EU-US Data Privacy Framework o mediante Cláusulas Contractuales Tipo aprobadas por la Comisión Europea, garantizando un nivel de protección equivalente al del RGPD.</p>"
+      "content": "<p>Sus datos personales podrán ser comunicados a los siguientes destinatarios:</p><table><thead><tr><th>Destinatario</th><th>Finalidad</th><th>Ubicación</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Alojamiento web y edge functions</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Analítica web (solo con consentimiento)</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing y remarketing (solo con consentimiento)</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing y remarketing (solo con consentimiento)</td><td>EE.UU./Singapur (Cláusulas Contractuales Tipo)</td></tr><tr><td>Resend Inc.</td><td>Envío de emails transaccionales</td><td>EE.UU. (Data Processing Framework)</td></tr><tr><td>FourVenues S.L.</td><td>Sistema de ticketing y reservas (Outxide)</td><td>España (UE)</td></tr></tbody></table><p>Todas las transferencias internacionales de datos se realizan al amparo del EU-US Data Privacy Framework o mediante Cláusulas Contractuales Tipo aprobadas por la Comisión Europea, garantizando un nivel de protección equivalente al del RGPD.</p>"
     },
     {
       "id": "derechos",
@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Medidas de seguridad",
-      "content": "<p>Aplicamos las medidas técnicas y organizativas adecuadas para garantizar un nivel de seguridad apropiado al riesgo, incluyendo:</p><ul><li>Cifrado TLS/SSL en todas las comunicaciones del Sitio Web.</li><li>Acceso restringido a datos personales por parte del personal autorizado.</li><li>Copias de seguridad periódicas y almacenamiento seguro.</li><li>Procesamiento de pagos delegado en pasarelas certificadas PCI-DSS (Stripe).</li><li>Anonimización de IPs en herramientas de analítica.</li></ul>"
+      "content": "<p>Aplicamos las medidas técnicas y organizativas adecuadas para garantizar un nivel de seguridad apropiado al riesgo, incluyendo:</p><ul><li>Cifrado TLS/SSL en todas las comunicaciones del Sitio Web.</li><li>Acceso restringido a datos personales por parte del personal autorizado.</li><li>Copias de seguridad periódicas y almacenamiento seguro.</li><li>Procesamiento de pagos delegado en la plataforma externa FourVenues (las entradas se compran y pagan en web.fourvenues.com, con sus propias condiciones y política de privacidad).</li><li>Anonimización de IPs en herramientas de analítica.</li></ul>"
     },
     {
       "id": "menores",

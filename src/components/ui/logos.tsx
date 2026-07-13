@@ -3,9 +3,11 @@ import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;
+  /** Precarga con prioridad — pasar true SOLO cuando el logo esté above-the-fold (hero) */
+  priority?: boolean;
 }
 
-export function EnjoyLogo({ className }: LogoProps) {
+export function EnjoyLogo({ className, priority = false }: LogoProps) {
   return (
     <div className={cn("relative", className)}>
       <Image
@@ -14,13 +16,13 @@ export function EnjoyLogo({ className }: LogoProps) {
         width={600}
         height={200}
         className="h-full w-auto object-contain brightness-0 invert"
-        priority
+        priority={priority}
       />
     </div>
   );
 }
 
-export function OutxideLogo({ className }: LogoProps) {
+export function OutxideLogo({ className, priority = false }: LogoProps) {
   return (
     <div className={cn("relative", className)}>
       <Image
@@ -29,7 +31,7 @@ export function OutxideLogo({ className }: LogoProps) {
         width={600}
         height={200}
         className="h-full w-auto object-contain brightness-0 invert"
-        priority
+        priority={priority}
       />
     </div>
   );
@@ -49,7 +51,7 @@ export function OutxideXMark({ className }: LogoProps) {
   );
 }
 
-export function HiruLogo({ className }: LogoProps) {
+export function HiruLogo({ className, priority = false }: LogoProps) {
   return (
     <div className={cn("relative", className)}>
       <Image
@@ -58,7 +60,7 @@ export function HiruLogo({ className }: LogoProps) {
         width={600}
         height={200}
         className="h-full w-auto object-contain brightness-0 invert"
-        priority
+        priority={priority}
       />
     </div>
   );
@@ -68,13 +70,13 @@ export function GroupLogo({ className }: { className?: string }) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
       <div className="relative h-7">
+        {/* Sin priority: el logo del navbar/footer no justifica un preload */}
         <Image
           src="/images/logos/enjoy.png"
           alt="Grupo Enjoy"
           width={400}
           height={140}
           className="h-full w-auto object-contain brightness-0 invert"
-          priority
         />
       </div>
       <span className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground uppercase translate-y-px">

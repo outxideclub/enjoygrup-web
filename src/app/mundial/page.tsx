@@ -246,7 +246,7 @@ export default function MundialPage() {
   }, [all, onlyOutxide]);
 
   return (
-    <main className="min-h-screen bg-background">
+    <main id="contenido" className="min-h-screen bg-background">
       <Navbar />
 
       {/* Hero */}

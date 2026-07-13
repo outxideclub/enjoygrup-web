@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <div className="noise-texture relative min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 flex items-center justify-center px-6">
+      <main id="contenido" className="flex-1 flex items-center justify-center px-6">
         <div className="text-center max-w-md">
           <p className="text-9xl font-display font-bold text-white/5 mb-2 select-none">404</p>
           <h1 className="text-2xl font-bold text-white mb-4">

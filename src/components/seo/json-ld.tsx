@@ -69,7 +69,8 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
         "@id": "https://www.grupoenjoy.es/#organization",
         name: "Grupo Enjoy",
         url: "https://www.grupoenjoy.es",
-        logo: "https://www.grupoenjoy.es/images/logos/enjoy.png",
+        // Versión ligera del logo (~210 KB): Google lo descarga para el Knowledge Panel
+        logo: "https://www.grupoenjoy.es/images/logos/enjoy-og.png",
         description:
           description ?? "Grupo de hostelería y ocio premium en Alcúdia, Mallorca. Tres experiencias únicas: Hiru Food & Drinks, Enjoy Terrace y Outxide Club.",
         telephone: siteContact.general.phone,
@@ -213,12 +214,8 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
           geoMidpoint: { "@type": "GeoCoordinates", latitude: 39.8402, longitude: 3.1222 },
           geoRadius: "10000",
         },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.6",
-          bestRating: "5",
-          reviewCount: "292",
-        },
+        // Sin aggregateRating: Google ignora las valoraciones autoservidas (no
+        // verificables en la propia página) y marcarlas es riesgo de acción manual.
         speakable: {
           "@type": "SpeakableSpecification",
           cssSelector: ["[data-speakable]"],
@@ -266,12 +263,7 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
             closes: "05:30",
           },
         ],
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.6",
-          bestRating: "5",
-          reviewCount: "1283",
-        },
+        // Sin aggregateRating: valoraciones autoservidas, ver nota en HiruJsonLd
         hasMenu: {
           "@type": "Menu",
           name: "Enjoy Terrace Cocktail & Shisha Menu",
@@ -357,12 +349,7 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           { "@type": "LocationFeatureSpecification", name: "Themed Parties", value: true },
           { "@type": "LocationFeatureSpecification", name: "Bottle Service", value: true },
         ],
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "5.0",
-          bestRating: "5",
-          reviewCount: "33",
-        },
+        // Sin aggregateRating: valoraciones autoservidas, ver nota en HiruJsonLd
         potentialAction: {
           "@type": "BuyAction",
           target: {
@@ -582,14 +569,8 @@ export function WebSiteJsonLd({ description }: { description?: string } = {}) {
           name: "Grupo Enjoy",
           url: "https://www.grupoenjoy.es",
         },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: "https://www.grupoenjoy.es/blog?q={search_term_string}",
-          },
-          "query-input": "required name=search_term_string",
-        },
+        // Sin SearchAction: /blog no implementa búsqueda y Google retiró el
+        // sitelinks search box en 2024 — el markup era un no-op engañoso.
       }}
     />
   );

@@ -21,11 +21,13 @@ import { siteContact, telHref } from "@/lib/site";
 function NewsletterForm() {
   const t = useT();
   const [email, setEmail] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // RGPD: sin aceptación expresa de la política de privacidad no se envía.
+    if (!privacyAccepted || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setStatus("error");
       return;
     }
@@ -55,7 +57,7 @@ function NewsletterForm() {
           value={email}
           onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
           placeholder={t("footer.newsletterPlaceholder")}
-          aria-label="Email"
+          aria-label={t("footer.newsletterPlaceholder")}
           className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/25 transition-colors"
         />
         <button
@@ -67,12 +69,31 @@ function NewsletterForm() {
           {status !== "loading" && <ArrowRight size={14} />}
         </button>
       </form>
-      {status === "success" && (
-        <p className="text-xs text-green-400">{t("footer.newsletterSuccess")}</p>
-      )}
-      {status === "error" && (
-        <p className="text-xs text-red-400">{t("footer.newsletterError")}</p>
-      )}
+      {/* Cláusula informativa + consentimiento expreso (RGPD art. 13) */}
+      <label className="flex max-w-sm cursor-pointer items-start gap-2 text-left">
+        <input
+          type="checkbox"
+          checked={privacyAccepted}
+          onChange={(e) => { setPrivacyAccepted(e.target.checked); setStatus("idle"); }}
+          className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-white"
+        />
+        <span className="text-[11px] leading-relaxed text-white/40">
+          {t("footer.newsletterPrivacy")}{" "}
+          <Link href="/legal/privacidad" className="underline underline-offset-2 hover:text-white">
+            {t("footer.newsletterPrivacyLink")}
+          </Link>
+        </span>
+      </label>
+      <div aria-live="polite" role="status">
+        {status === "success" && (
+          <p className="text-xs text-green-400">{t("footer.newsletterSuccess")}</p>
+        )}
+        {status === "error" && (
+          <p className="text-xs text-red-400">
+            {!privacyAccepted ? t("footer.newsletterPrivacyRequired") : t("footer.newsletterError")}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

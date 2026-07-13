@@ -88,6 +88,8 @@ export default function ContactPage() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  // El mapa de Google solo se carga si el usuario lo pide (cookies de terceros).
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -124,7 +126,7 @@ export default function ContactPage() {
     <div className="noise-texture relative">
       <AmbientGlow venue="home" />
       <Navbar />
-      <main>
+      <main id="contenido">
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(236,72,153,0.12)_0%,transparent_60%)]" />
         <div className="relative z-10 mx-auto max-w-4xl px-6 pt-32 pb-20 text-center">
@@ -257,6 +259,23 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {/* Cláusula informativa + consentimiento expreso (RGPD art. 13).
+                      El checkbox es required: el navegador impide enviar sin marcarlo. */}
+                  <label className="flex cursor-pointer items-start gap-2.5">
+                    <input
+                      type="checkbox"
+                      required
+                      disabled={isLoading}
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-white"
+                    />
+                    <span className="text-xs leading-relaxed text-white/45">
+                      {t("contact.formPrivacy")}{" "}
+                      <Link href="/legal/privacidad" className="underline underline-offset-2 hover:text-white">
+                        {t("contact.formPrivacyLink")}
+                      </Link>
+                    </span>
+                  </label>
+
                   {/* Submit */}
                   <Button
                     type="submit"
@@ -272,23 +291,25 @@ export default function ContactPage() {
                     {t("contact.formSubmit")}
                   </Button>
 
-                  {/* Status messages */}
-                  {status === "success" && (
-                    <div className="flex items-center gap-3 rounded-xl border border-green-500/20 bg-green-500/10 p-4">
-                      <CheckCircle2 className="h-5 w-5 text-green-400 flex-shrink-0" />
-                      <p className="text-sm text-green-300">
-                        {t("contact.formSuccess")}
-                      </p>
-                    </div>
-                  )}
-                  {status === "error" && (
-                    <div className="flex items-center gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4">
-                      <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0" />
-                      <p className="text-sm text-red-300">
-                        {t("contact.formError")}
-                      </p>
-                    </div>
-                  )}
+                  {/* Status messages — región viva para que el lector de pantalla los anuncie */}
+                  <div aria-live="polite" role="status">
+                    {status === "success" && (
+                      <div className="flex items-center gap-3 rounded-xl border border-green-500/20 bg-green-500/10 p-4">
+                        <CheckCircle2 className="h-5 w-5 text-green-400 flex-shrink-0" aria-hidden />
+                        <p className="text-sm text-green-300">
+                          {t("contact.formSuccess")}
+                        </p>
+                      </div>
+                    )}
+                    {status === "error" && (
+                      <div className="flex items-center gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4">
+                        <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0" aria-hidden />
+                        <p className="text-sm text-red-300">
+                          {t("contact.formError")}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </form>
               </div>
             </ScrollReveal>
@@ -440,18 +461,38 @@ export default function ContactPage() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
+            {/* RGPD: el embed de Google Maps instala cookies de Google, así que NO se
+                carga hasta que el usuario lo pide (patrón de dos clics de la AEPD). */}
             <div className="rounded-3xl overflow-hidden border border-white/10">
-              <iframe
-                src="https://www.google.com/maps?q=Enjoy+Cafe+Lounge,+Av.+Tuc%C3%A1n+1,+Port+d'Alc%C3%BAdia,+Mallorca&output=embed"
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={t("contact.mapTitle")}
-                className="w-full"
-              />
+              {mapLoaded ? (
+                <iframe
+                  src="https://www.google.com/maps?q=Enjoy+Cafe+Lounge,+Av.+Tuc%C3%A1n+1,+Port+d'Alc%C3%BAdia,+Mallorca&output=embed"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={t("contact.mapTitle")}
+                  className="w-full"
+                />
+              ) : (
+                <div className="flex h-[400px] w-full flex-col items-center justify-center gap-4 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.06)_0%,transparent_70%)] px-6 text-center">
+                  <MapPin className="h-10 w-10 text-white/25" aria-hidden />
+                  <p className="max-w-md text-sm text-muted-foreground">{t("contact.mapConsentText")}</p>
+                  <button
+                    onClick={() => setMapLoaded(true)}
+                    className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-white/90"
+                  >
+                    {t("contact.mapConsentButton")}
+                  </button>
+                  <p className="max-w-md text-[11px] text-white/35">
+                    {t("contact.mapConsentNote")}{" "}
+                    <Link href="/legal/cookies" className="underline underline-offset-2 hover:text-white">
+                      {t("cookieBanner.cookiePolicy")}
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
           </ScrollReveal>
         </div>

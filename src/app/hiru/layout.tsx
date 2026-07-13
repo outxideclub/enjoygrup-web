@@ -20,9 +20,12 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: ogLocaleMap[locale] || "es_ES",
       images: [
         {
-          url: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
-          width: 1200,
-          height: 630,
+          // Foto horizontal real (verificada con sips) — una vertical se recorta
+          // mal en las previews de WhatsApp/Facebook, y las dimensiones deben
+          // ser las verdaderas del fichero.
+          url: "/images/hiru/493354205_122229099188201104_3242778805126633840_n.jpg",
+          width: 2048,
+          height: 1366,
           alt: "Hiru Food & Drinks — Alcudia, Mallorca",
         },
       ],

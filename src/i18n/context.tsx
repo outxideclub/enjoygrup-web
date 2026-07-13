@@ -8,6 +8,7 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
+import { useRouter } from "next/navigation";
 import { type Locale, defaultLocale, COOKIE_NAME, locales } from "./config";
 import { es, type Dictionary } from "./dictionaries/es";
 import { en } from "./dictionaries/en";
@@ -67,6 +68,7 @@ interface LocaleProviderProps {
 
 export function LocaleProvider({ children, initialLocale }: LocaleProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale ?? defaultLocale);
+  const router = useRouter();
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -81,10 +83,16 @@ export function LocaleProvider({ children, initialLocale }: LocaleProviderProps)
     return () => window.clearTimeout(id);
   }, [locale]);
 
-  const setLocale = useCallback((newLocale: Locale) => {
-    setLocaleState(newLocale);
-    document.cookie = `${COOKIE_NAME}=${newLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
-  }, []);
+  const setLocale = useCallback(
+    (newLocale: Locale) => {
+      setLocaleState(newLocale);
+      document.cookie = `${COOKIE_NAME}=${newLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
+      // Re-renderiza los componentes de SERVIDOR con el idioma nuevo (blog,
+      // páginas legales, <html lang>, metadatos); sin esto solo cambia el cliente.
+      router.refresh();
+    },
+    [router],
+  );
 
   const t = useCallback(
     (key: string): string => {

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { SaveErrorBanner, saveErrorFromResponse, type SaveError } from "../save-error";
 import {
   Plus,
   Trash2,
@@ -33,38 +34,49 @@ export default function GaleriaAdminPage() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [saveError, setSaveError] = useState<SaveError | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const loadGallery = useCallback(async (venue: Venue) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/admin/gallery?venue=${venue}`);
-      const data = await res.json();
-      setImages(data);
-    } catch {
-      setImages([]);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    loadGallery(activeVenue);
-  }, [activeVenue, loadGallery]);
+    // AbortController evita la carrera al cambiar de local rápido:
+    // la respuesta antigua se cancela y no puede pisar a la nueva
+    const ac = new AbortController();
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/admin/gallery?venue=${activeVenue}`, {
+          signal: ac.signal,
+        });
+        const data = await res.json();
+        setImages(data);
+      } catch (err) {
+        if ((err as Error)?.name === "AbortError") return; // petición cancelada
+        setImages([]);
+      } finally {
+        if (!ac.signal.aborted) setLoading(false);
+      }
+    })();
+    return () => ac.abort();
+  }, [activeVenue]);
 
   async function handleSave() {
     setSaving(true);
     setSaved(false);
+    setSaveError(null);
     try {
-      await fetch("/api/admin/gallery", {
+      const res = await fetch("/api/admin/gallery", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ venue: activeVenue, images }),
       });
+      if (!res.ok) {
+        setSaveError(await saveErrorFromResponse(res, "Error al guardar"));
+        return;
+      }
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {
-      alert("Error al guardar");
+      setSaveError({ message: "Error de conexión al guardar" });
     } finally {
       setSaving(false);
     }
@@ -74,16 +86,26 @@ export default function GaleriaAdminPage() {
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
+    setSaveError(null);
     try {
       const formData = new FormData();
       formData.append("file", file);
       const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
-      const { url } = await res.json();
-      if (url) {
-        setImages((prev) => [...prev, { src: url, alt: file.name.replace(/\.[^.]+$/, "") }]);
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data?.url) {
+        // Mostrar el motivo real (sesión caducada, formato, tamaño…) en vez de fallar en silencio
+        if (res.status === 401) {
+          setSaveError({ sessionExpired: true });
+          return;
+        }
+        setSaveError({
+          message: `${data?.error ?? "Error al subir imagen"} (HTTP ${res.status})`,
+        });
+        return;
       }
+      setImages((prev) => [...prev, { src: data.url, alt: file.name.replace(/\.[^.]+$/, "") }]);
     } catch {
-      alert("Error al subir imagen");
+      setSaveError({ message: "Error de conexión al subir la imagen" });
     } finally {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -135,6 +157,8 @@ export default function GaleriaAdminPage() {
           {saving ? "Guardando..." : saved ? "Guardado" : "Guardar"}
         </button>
       </div>
+
+      <SaveErrorBanner error={saveError} />
 
       {/* Venue tabs */}
       <div className="flex flex-wrap gap-2 mb-6">

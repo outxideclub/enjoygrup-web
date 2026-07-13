@@ -77,49 +77,7 @@ export interface FVField {
   items?: string[];
 }
 
-export interface FVTicketRate {
-  _id: string;
-  organization_id: string;
-  event_id: string;
-  name: string;
-  slug: string;
-  valid_from: string;
-  complete: boolean;
-  type: "limited" | "public";
-  show_all_prices: boolean;
-  available: boolean;
-  has_discount_codes_enabled: boolean;
-  min: number;
-  max: number;
-  nominative: boolean;
-  prices: FVTicketPrice[];
-  current_price: FVTicketPrice;
-  supplements: FVSupplement[];
-  availability: { sold: number; available: number };
-  warranty: { enabled: boolean; percentage?: number; hours?: number };
-  fields: FVField[];
-  questions: FVField[];
-}
-
 // --- List Rates ------------------------------------------------------------
-
-export interface FVListRate {
-  _id: string;
-  organization_id: string;
-  event_id: string;
-  name: string;
-  slug: string;
-  valid_from: string;
-  complete: boolean;
-  type: "limited" | "public";
-  available: boolean;
-  min: number;
-  max: number;
-  prices: FVTicketPrice[];
-  current_price: FVTicketPrice;
-  availability: { sold: number; available: number };
-  fields: FVField[];
-}
 
 // --- Checkout --------------------------------------------------------------
 
@@ -131,25 +89,6 @@ export interface FVCheckoutTicket {
   birthday?: string;
   supplements?: { supplement_id: string }[];
   warranty?: boolean;
-}
-
-export interface FVCheckoutRequest {
-  ticket_rate_id: string;
-  tickets: FVCheckoutTicket[];
-  redirect_url: string;
-  error_url: string;
-  send_resources?: boolean;
-  metadata?: Record<string, string>;
-  discount_code?: string;
-}
-
-export interface FVCheckoutResponse {
-  success: boolean;
-  data: {
-    payment_url: string;
-    payment_id: string;
-    conditions_changed: boolean;
-  };
 }
 
 // --- API response wrappers -------------------------------------------------

@@ -56,6 +56,7 @@ export default function EnjoyPage() {
   const menuNavRef = useRef<HTMLDivElement>(null);
   const cartaSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
@@ -67,9 +68,12 @@ export default function EnjoyPage() {
   }, []);
 
   useEffect(() => {
+    // Con prefers-reduced-motion no inyectamos el <source>: sin autoplay,
+    // se queda el poster estático y se ahorra la descarga del mp4
+    if (prefersReduced) return;
     const id = window.setTimeout(() => setLoadVideo(true), 800);
     return () => window.clearTimeout(id);
-  }, []);
+  }, [prefersReduced]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -96,8 +100,6 @@ export default function EnjoyPage() {
     return () => { navObs.disconnect(); sectionObs.disconnect(); };
   }, []);
 
-  const prefersReduced = useReducedMotion();
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -119,7 +121,7 @@ export default function EnjoyPage() {
     <div className="noise-texture relative">
       <AmbientGlow venue="enjoy" />
       <Navbar />
-      <main>
+      <main id="contenido">
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ y, scale }} className="absolute inset-0">
           <Image
@@ -174,7 +176,7 @@ export default function EnjoyPage() {
                 animate={{ filter: "blur(0px)", opacity: 1 }}
                 transition={{ duration: isFirstMount ? 0 : 1.5, delay: isFirstMount ? 0 : 0.2 }}
               >
-                <EnjoyLogo className="h-64 md:h-80 w-auto" />
+                <EnjoyLogo className="h-64 md:h-80 w-auto" priority />
               </motion.div>
             </div>
             <h1 className="sr-only">{t("enjoy.h1")}</h1>

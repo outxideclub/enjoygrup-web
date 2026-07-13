@@ -4,35 +4,12 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Cookie, X, Settings2, Check } from "lucide-react";
 import { useT } from "@/i18n";
-
-type ConsentState = {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-};
-
-const CONSENT_KEY = "ge_cookie_consent";
-const CONSENT_VERSION = "1";
-
-function getStoredConsent(): ConsentState | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(CONSENT_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (parsed.version !== CONSENT_VERSION) return null;
-    return parsed.consent as ConsentState;
-  } catch {
-    return null;
-  }
-}
-
-function storeConsent(consent: ConsentState) {
-  localStorage.setItem(
-    CONSENT_KEY,
-    JSON.stringify({ consent, version: CONSENT_VERSION, timestamp: new Date().toISOString() })
-  );
-}
+import {
+  getStoredConsent,
+  storeConsent,
+  deleteTrackingCookies,
+  type ConsentState,
+} from "@/lib/consent";
 
 function pushConsentToGtag(consent: ConsentState) {
   const w = window as Window & { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
@@ -68,6 +45,9 @@ export function CookieBanner() {
   const accept = useCallback((state: ConsentState) => {
     setConsent(state);
     storeConsent(state);
+    // Si alguna categoría queda denegada, borramos sus cookies ya instaladas
+    // (retirar el consentimiento debe surtir efecto, no solo parar lo nuevo).
+    deleteTrackingCookies(state);
     pushConsentToGtag(state);
     setVisible(false);
     setShowSettings(false);
@@ -81,7 +61,11 @@ export function CookieBanner() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[100] p-4 md:p-6">
-      <div className="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-zinc-950/95 backdrop-blur-xl shadow-2xl">
+      <div
+        role="region"
+        aria-label={t("cookieBanner.title")}
+        className="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-zinc-950/95 backdrop-blur-xl shadow-2xl"
+      >
         {!showSettings ? (
           <div className="p-5 md:p-6">
             <div className="flex items-start gap-4">
@@ -126,9 +110,10 @@ export function CookieBanner() {
               <p className="text-sm font-medium text-white">{t("cookieBanner.configureTitle")}</p>
               <button
                 onClick={() => setShowSettings(false)}
-                className="p-1 text-muted-foreground hover:text-white transition-colors"
+                aria-label={t("cookieBanner.close")}
+                className="p-1 text-muted-foreground hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/60 rounded"
               >
-                <X className="h-4 w-4" />
+                <X className="h-4 w-4" aria-hidden />
               </button>
             </div>
 
@@ -217,7 +202,7 @@ function CookieToggle({
           onChange={(e) => onChange?.(e.target.checked)}
           className="sr-only peer"
         />
-        <div className="h-5 w-9 rounded-full bg-white/10 peer-checked:bg-white/80 transition-colors" />
+        <div className="h-5 w-9 rounded-full bg-white/10 peer-checked:bg-white/80 peer-focus-visible:ring-2 peer-focus-visible:ring-white/70 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-zinc-950 transition-colors" />
         <div className="absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white/40 peer-checked:bg-black peer-checked:translate-x-4 transition-all" />
       </div>
     </label>

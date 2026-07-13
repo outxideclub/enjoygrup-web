@@ -11,10 +11,17 @@ export async function LegalPageContent({ slug }: Props) {
   const locale = await getServerLocale();
   const t = getServerT(locale);
   const fallback: LegalPage = { slug, title: "", lastUpdated: "", sections: [] };
-  const localizedPath = locale !== "es" ? `legal/${slug}.${locale}.json` : `legal/${slug}.json`;
-  let page = await readDataSafe<LegalPage>(localizedPath, fallback);
-  if (!page.title && locale !== "es") {
-    page = await readDataSafe<LegalPage>(`legal/${slug}.json`, fallback);
+  // Orden de preferencia: idioma exacto → inglés (lo entiende el turista de/fr/it) → español.
+  const candidates =
+    locale === "es"
+      ? [`legal/${slug}.json`]
+      : locale === "en"
+        ? [`legal/${slug}.en.json`, `legal/${slug}.json`]
+        : [`legal/${slug}.${locale}.json`, `legal/${slug}.en.json`, `legal/${slug}.json`];
+  let page = fallback;
+  for (const path of candidates) {
+    page = await readDataSafe<LegalPage>(path, fallback);
+    if (page.title) break;
   }
 
   if (!page.title) {

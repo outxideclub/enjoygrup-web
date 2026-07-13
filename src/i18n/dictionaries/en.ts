@@ -70,6 +70,7 @@ export const en: Dictionary = {
   },
   nav: {
     openMenu: "Open menu",
+    skipToContent: "Skip to content",
     closeMenu: "Close menu",
     goToHome: "Go to Grupo Enjoy homepage",
     goToEnjoy: "Go to Enjoy Terrace",
@@ -220,6 +221,9 @@ export const en: Dictionary = {
     newsletterSubmit: "Subscribe",
     newsletterSuccess: "Thanks! We'll keep you updated.",
     newsletterError: "Please enter a valid email.",
+    newsletterPrivacy: "I have read and accept the",
+    newsletterPrivacyLink: "Privacy Policy",
+    newsletterPrivacyRequired: "You must accept the privacy policy.",
     company: "Company",
     aboutUs: "About us",
     blog: "Blog",
@@ -258,6 +262,7 @@ export const en: Dictionary = {
     and: "and",
     privacyPolicy: "Privacy Policy",
     settingsButton: "Cookie Settings",
+    close: "Close",
   },
   ageVerification: {
     title: "Age verification",
@@ -317,6 +322,11 @@ export const en: Dictionary = {
     formSubmit: "Send message",
     formSuccess: "Message sent! We'll get back to you as soon as possible.",
     formError: "Please fill in all fields.",
+    formPrivacy: "I have read and accept the",
+    formPrivacyLink: "Privacy Policy",
+    mapConsentText: "To display the map we load content from Google Maps, which may set Google cookies on your device.",
+    mapConsentButton: "Load map",
+    mapConsentNote: "By loading it you accept Google's cookies. More information in our",
     venuesTitle: "Our Venues",
     enjoyAddress: "Av. Tucán, 1, Port d'Alcúdia",
     enjoyPhone: "+34 657 87 89 17",
@@ -428,5 +438,10 @@ export const en: Dictionary = {
     title: "Page not found",
     description: "Sorry, the page you are looking for does not exist or has been moved.",
     backHome: "Back to home",
+  },
+  gallery: {
+    close: "Close",
+    previous: "Previous",
+    next: "Next",
   },
 } as const;

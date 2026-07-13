@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Save, Loader2, Check } from "lucide-react";
+import { SaveErrorBanner, saveErrorFromResponse, type SaveError } from "../save-error";
 
 interface VenueInfo {
   name: string;
@@ -46,38 +47,49 @@ export default function InfoAdminPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-
-  const loadVenue = useCallback(async (venue: Venue) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/admin/venues?venue=${venue}`);
-      const data = await res.json();
-      setInfo(data);
-    } catch {
-      setInfo(null);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const [saveError, setSaveError] = useState<SaveError | null>(null);
 
   useEffect(() => {
-    loadVenue(activeVenue);
-  }, [activeVenue, loadVenue]);
+    // AbortController evita la carrera al cambiar de local rápido:
+    // la respuesta antigua se cancela y no puede pisar a la nueva
+    const ac = new AbortController();
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/admin/venues?venue=${activeVenue}`, {
+          signal: ac.signal,
+        });
+        const data = await res.json();
+        setInfo(data);
+      } catch (err) {
+        if ((err as Error)?.name === "AbortError") return; // petición cancelada
+        setInfo(null);
+      } finally {
+        if (!ac.signal.aborted) setLoading(false);
+      }
+    })();
+    return () => ac.abort();
+  }, [activeVenue]);
 
   async function handleSave() {
     if (!info) return;
     setSaving(true);
     setSaved(false);
+    setSaveError(null);
     try {
-      await fetch("/api/admin/venues", {
+      const res = await fetch("/api/admin/venues", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ venue: activeVenue, data: info }),
       });
+      if (!res.ok) {
+        setSaveError(await saveErrorFromResponse(res, "Error al guardar"));
+        return;
+      }
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {
-      alert("Error al guardar");
+      setSaveError({ message: "Error de conexión al guardar" });
     } finally {
       setSaving(false);
     }
@@ -106,6 +118,8 @@ export default function InfoAdminPage() {
           {saving ? "Guardando..." : saved ? "Guardado" : "Guardar"}
         </button>
       </div>
+
+      <SaveErrorBanner error={saveError} />
 
       {/* Venue tabs */}
       <div className="flex flex-wrap gap-2 mb-6">

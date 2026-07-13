@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { useT } from "@/i18n";
 
 interface GalleryImage {
   src: string;
@@ -32,6 +33,7 @@ export function GalleryLightbox({
   accentColor = "white",
   categories,
 }: GalleryLightboxProps) {
+  const t = useT();
   const [activeCategory, setActiveCategory] = useState("all");
   const filtered = categories
     ? activeCategory === "all"
@@ -104,7 +106,7 @@ export function GalleryLightbox({
           <button
             onClick={close}
             className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-            aria-label="Cerrar"
+            aria-label={t("gallery.close")}
           >
             <X className="h-6 w-6 text-white" />
           </button>
@@ -117,7 +119,7 @@ export function GalleryLightbox({
                 prev();
               }}
               className="absolute left-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Anterior"
+              aria-label={t("gallery.previous")}
             >
               <ChevronLeft className="h-6 w-6 text-white" />
             </button>
@@ -131,7 +133,7 @@ export function GalleryLightbox({
                 next();
               }}
               className="absolute right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Siguiente"
+              aria-label={t("gallery.next")}
             >
               <ChevronRight className="h-6 w-6 text-white" />
             </button>

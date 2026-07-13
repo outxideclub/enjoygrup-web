@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Save, Loader2, Check, Phone, AtSign, Mail, MapPin, MessageCircle } from "lucide-react";
+import { SaveErrorBanner, saveErrorFromResponse, type SaveError } from "../save-error";
 
 interface VenueContact {
   phone: string;
@@ -68,39 +69,46 @@ export default function ContactoAdminPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<SaveError | null>(null);
 
   useEffect(() => {
+    // Abortar la carga si el componente se desmonta antes de terminar
+    const ac = new AbortController();
     (async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/admin/site");
+        const res = await fetch("/api/admin/site", { signal: ac.signal });
         if (!res.ok) throw new Error();
         setData(await res.json());
-      } catch {
-        setError("No se pudo cargar la información.");
+      } catch (err) {
+        if ((err as Error)?.name === "AbortError") return; // petición cancelada
+        setError({ message: "No se pudo cargar la información." });
       } finally {
-        setLoading(false);
+        if (!ac.signal.aborted) setLoading(false);
       }
     })();
+    return () => ac.abort();
   }, []);
 
   async function handleSave() {
     if (!data) return;
     setSaving(true);
     setSaved(false);
-    setError("");
+    setError(null);
     try {
       const res = await fetch("/api/admin/site", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        setError(await saveErrorFromResponse(res, "Error al guardar"));
+        return;
+      }
       setSaved(true);
       setTimeout(() => setSaved(false), 2500);
     } catch {
-      setError("Error al guardar.");
+      setError({ message: "Error de conexión al guardar" });
     } finally {
       setSaving(false);
     }
@@ -141,11 +149,7 @@ export default function ContactoAdminPage() {
         Teléfonos, WhatsApp, emails y redes sociales que se muestran en toda la web.
       </p>
 
-      {error && (
-        <div className="mb-6 rounded-lg border border-red-900/50 bg-red-950/40 px-4 py-3 text-sm text-red-300">
-          {error}
-        </div>
-      )}
+      <SaveErrorBanner error={error} />
 
       {loading ? (
         <div className="flex items-center justify-center py-20">

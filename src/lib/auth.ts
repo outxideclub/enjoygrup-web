@@ -77,6 +77,36 @@ export async function destroySession(): Promise<void> {
   jar.delete(SESSION_COOKIE);
 }
 
+// Hosts permitidos como Origin en las rutas de escritura del admin.
+// Comparación EXACTA (nada de substring, que era evadible con
+// "https://www.grupoenjoy.es.attacker.com").
+const ALLOWED_ORIGIN_HOSTS = new Set(["grupoenjoy.es", "www.grupoenjoy.es"]);
+
+/**
+ * Comprobación CSRF de origen para las rutas admin de escritura.
+ * - Origin ausente: se permite (clientes no-navegador); la defensa principal
+ *   sigue siendo la cookie de sesión con SameSite=Lax.
+ * - Origin malformado: se rechaza (en vez de lanzar y devolver 500).
+ * - Se acepta la allowlist fija o la igualdad exacta con el Host de la
+ *   petición (cubre los deploys de preview de Vercel).
+ */
+export function isAllowedAdminOrigin(origin: string | null, host: string | null): boolean {
+  if (!origin) return true;
+  try {
+    const originUrl = new URL(origin);
+    if (ALLOWED_ORIGIN_HOSTS.has(originUrl.host)) return true;
+    if (
+      process.env.NODE_ENV !== "production" &&
+      (originUrl.hostname === "localhost" || originUrl.hostname === "127.0.0.1")
+    ) {
+      return true;
+    }
+    return host !== null && originUrl.host === host;
+  } catch {
+    return false;
+  }
+}
+
 export function checkPassword(input: string): boolean {
   const expected = getPassword();
   const inputBuf = Buffer.from(input);

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
-import { validateSession } from "@/lib/auth";
+import { validateSession, isAllowedAdminOrigin } from "@/lib/auth";
 import { commitFile, isGitHubConfigured } from "@/lib/github";
 
 const UPLOAD_DIR = path.join(process.cwd(), "public", "images", "uploads");
@@ -19,9 +19,8 @@ export async function POST(req: NextRequest) {
   if (!(await validateSession())) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
-  const origin = req.headers.get("origin");
-  const host = req.headers.get("host");
-  if (origin && host && !origin.includes(host)) {
+  // Comprobación CSRF: Origin parseado y comparado por igualdad exacta
+  if (!isAllowedAdminOrigin(req.headers.get("origin"), req.headers.get("host"))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   try {

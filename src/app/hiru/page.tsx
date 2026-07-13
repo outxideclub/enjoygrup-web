@@ -58,6 +58,7 @@ export default function HiruPage() {
   const menuNavRef = useRef<HTMLElement>(null);
   const menuSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   const handleVideoReady = useCallback(() => {
     setVideoReady(true);
@@ -69,9 +70,12 @@ export default function HiruPage() {
   }, []);
 
   useEffect(() => {
+    // Con prefers-reduced-motion no inyectamos el <source>: sin autoplay,
+    // se queda el poster estático y se ahorra la descarga del mp4
+    if (prefersReduced) return;
     const id = window.setTimeout(() => setLoadVideo(true), 800);
     return () => window.clearTimeout(id);
-  }, []);
+  }, [prefersReduced]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -98,8 +102,6 @@ export default function HiruPage() {
     return () => { navObs.disconnect(); sectionObs.disconnect(); };
   }, []);
 
-  const prefersReduced = useReducedMotion();
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -119,7 +121,7 @@ export default function HiruPage() {
     <div className="noise-texture relative">
       <AmbientGlow venue="hiru" />
       <Navbar />
-      <main>
+      <main id="contenido">
       <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ scale, borderRadius }} className="absolute inset-0 z-0 origin-center overflow-hidden will-change-transform">
           <Image
@@ -171,7 +173,7 @@ export default function HiruPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: isFirstMount ? 0 : 1, delay: isFirstMount ? 0 : 0.3 }}
               >
-                <HiruLogo className="h-64 md:h-80 w-auto" />
+                <HiruLogo className="h-64 md:h-80 w-auto" priority />
               </motion.div>
             </div>
             <h1 className="sr-only">{t("hiru.h1")}</h1>
