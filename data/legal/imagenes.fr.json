@@ -1,0 +1,52 @@
+{
+  "slug": "imagenes",
+  "title": "Politique de Captation et de Publication d'Images",
+  "lastUpdated": "2026-07",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>Conformément au Règlement (UE) 2016/679 (RGPD), à la Ley Orgánica 1/1982, de 5 de mayo, de Protección Civil del Derecho al Honor, a la Intimidad Personal y Familiar y a la Propia Imagen (loi organique espagnole relative à la protection civile du droit à l'honneur, à la vie privée et familiale et à l'image), et à la Ley Orgánica 3/2018 (LOPDGDD) (loi organique espagnole sur la protection des données personnelles), nous vous informons de notre politique en matière de captation et de publication d'images dans les établissements du Grupo Enjoy.</p>"
+    },
+    {
+      "id": "ambito",
+      "heading": "1. Champ d'application",
+      "content": "<p>La présente politique s'applique aux établissements <strong>Enjoy Terrace</strong>, <strong>Outxide Club</strong> et <strong>Hiru Food & Drinks</strong>, tous exploités par Enjoy Club 78 S.L. et situés à Alcúdia, Majorque.</p>"
+    },
+    {
+      "id": "captacion",
+      "heading": "2. Captation d'images dans les établissements",
+      "content": "<p>Lors des événements, soirées et activités organisés dans nos locaux, le personnel autorisé ou les photographes/vidéastes mandatés par Enjoy Club 78 S.L. pourront réaliser des photographies et des enregistrements vidéo de l'ambiance générale de l'événement.</p><p>Ces images pourront être utilisées aux fins suivantes :</p><ul><li>Publication sur les réseaux sociaux officiels du Grupo Enjoy et de ses établissements (Instagram, TikTok, Facebook).</li><li>Publication sur le site web www.grupoenjoy.es et ses sous-sections.</li><li>Supports promotionnels et publicitaires (numériques et imprimés).</li><li>Communications commerciales et newsletters du groupe.</li></ul>"
+    },
+    {
+      "id": "informacion-previa",
+      "heading": "3. Information préalable du client",
+      "content": "<p>À l'entrée de chaque établissement où des images sont captées, un avis visible sera affiché, comportant au minimum le contenu suivant :</p><blockquote>« Avis : cet établissement réalise des captations d'images photographiques et vidéo à des fins promotionnelles. En accédant aux lieux, vous acceptez la possibilité d'apparaître sur ces images. Si vous ne souhaitez pas être photographié(e), veuillez en informer le personnel. Vous pouvez demander le retrait des images publiées à l'adresse privacidad@grupoenjoy.es. »</blockquote>"
+    },
+    {
+      "id": "base-juridica",
+      "heading": "4. Base juridique",
+      "content": "<p>La captation d'images générales de l'ambiance de l'établissement repose sur l'<strong>intérêt légitime</strong> d'Enjoy Club 78 S.L. à promouvoir ses services (art. 6.1.f du RGPD), dès lors que :</p><ul><li>les images reflètent l'ambiance générale et ne sont pas centrées sur des personnes déterminées ;</li><li>une information préalable est assurée par des affiches visibles aux accès ;</li><li>les participants peuvent faire part de leur opposition au personnel de l'établissement ;</li><li>une procédure accessible permet de demander le retrait des images.</li></ul><p>Pour les images individuelles ou en gros plan permettant d'identifier clairement une personne, le <strong>consentement explicite</strong> de l'intéressé sera recueilli avant toute publication.</p>"
+    },
+    {
+      "id": "derecho-oposicion",
+      "heading": "5. Droit d'opposition et retrait d'images",
+      "content": "<p>Toute personne apparaissant sur des images publiées par le Grupo Enjoy a le droit d'en demander le retrait. À cet effet, elle peut :</p><ol><li>Envoyer un e-mail à <a href=\"mailto:privacidad@grupoenjoy.es\">privacidad@grupoenjoy.es</a> en indiquant :<ul><li>son nom complet ;</li><li>le lien vers l'image ou la publication concernée, ou sa description ;</li><li>une photo de référence ou toute indication permettant de l'identifier sur l'image.</li></ul></li><li>En faire part sur place au personnel de l'établissement pendant l'événement, qui en prendra note et transmettra la demande.</li></ol><p>Nous nous engageons à traiter les demandes de retrait dans un délai maximal de <strong>72 heures ouvrées</strong> à compter de leur réception, en supprimant l'image de nos réseaux sociaux et de notre site web. Nous ne pouvons pas garantir la suppression des copies réalisées par des tiers avant le retrait.</p>"
+    },
+    {
+      "id": "videovigilancia",
+      "heading": "6. Vidéosurveillance",
+      "content": "<p>Nos établissements sont équipés de systèmes de vidéosurveillance à des fins de sécurité, dûment signalés conformément à la réglementation en vigueur. Les enregistrements de sécurité :</p><ul><li>sont conservés pendant une durée maximale de 30 jours, sauf réquisition judiciaire ou policière ;</li><li>ne sont pas utilisés à des fins promotionnelles et ne sont publiés sur aucun support ;</li><li>ne sont accessibles qu'au personnel de sécurité autorisé.</li></ul>"
+    },
+    {
+      "id": "menores",
+      "heading": "7. Mineurs",
+      "content": "<p>Nous ne publions pas sciemment d'images de mineurs. S'il est constaté qu'une image publiée inclut un mineur, elle sera retirée immédiatement dès son identification ou à la demande de son représentant légal.</p>"
+    },
+    {
+      "id": "contacto",
+      "heading": "8. Contact",
+      "content": "<p>Pour toute question relative à la présente politique, contactez-nous à l'adresse <a href=\"mailto:privacidad@grupoenjoy.es\">privacidad@grupoenjoy.es</a>.</p>"
+    }
+  ]
+}

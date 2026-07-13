@@ -1,0 +1,47 @@
+{
+  "slug": "aviso-legal",
+  "title": "Mentions Légales",
+  "lastUpdated": "2026-07",
+  "sections": [
+    {
+      "id": "datos-identificativos",
+      "heading": "1. Identification du responsable",
+      "content": "<p>Conformément à l'article 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE) (loi espagnole relative aux services de la société de l'information et au commerce électronique), l'utilisateur est informé des coordonnées du titulaire du présent site web :</p><ul><li><strong>Dénomination sociale :</strong> Enjoy Club 78 S.L. (NIF : B75300376) — Av. Tucán, 1, 07400 Alcúdia, Illes Balears</li><li><strong>Immatriculation :</strong> Registre du commerce (Registro Mercantil) de Palma de Mallorca</li><li><strong>Téléphone :</strong> +34 971 853 932</li><li><strong>E-mail de contact :</strong> info@grupoenjoy.es</li><li><strong>E-mail confidentialité :</strong> privacidad@grupoenjoy.es</li><li><strong>Site web :</strong> www.grupoenjoy.es</li></ul><p>La société est titulaire et responsable de l'exploitation des établissements commerciaux Hiru Food & Drinks, Enjoy Terrace et Outxide Club, tous situés à Alcúdia, Majorque.</p>"
+    },
+    {
+      "id": "objeto-ambito",
+      "heading": "2. Objet et champ d'application",
+      "content": "<p>Les présentes mentions légales régissent l'accès au site web www.grupoenjoy.es (ci-après le « Site Web ») et son utilisation, y compris l'ensemble de ses sous-domaines, les microsites des établissements (Hiru, Enjoy, Outxide) ainsi que tout contenu, service ou fonctionnalité proposé par son intermédiaire.</p><p>L'accès au Site Web confère la qualité d'utilisateur et emporte l'acceptation pleine et sans réserve de chacune des dispositions figurant dans les présentes Mentions légales, la Politique de confidentialité et la Politique de cookies, en vigueur au moment de l'accès.</p>"
+    },
+    {
+      "id": "condiciones-acceso",
+      "heading": "3. Conditions d'accès et d'utilisation",
+      "content": "<p>L'utilisateur s'engage à utiliser le Site Web, ses contenus et ses services conformément à la loi, aux bonnes mœurs, à l'ordre public et aux présentes conditions. Il est interdit :</p><ul><li>d'utiliser le Site Web à des fins illicites, frauduleuses ou contraires aux présentes Mentions légales ;</li><li>de réaliser toute action causant ou susceptible de causer des dommages ou des altérations aux contenus ;</li><li>d'introduire des virus informatiques, vers, chevaux de Troie ou tout autre logiciel malveillant ;</li><li>de tenter d'accéder aux données d'autres utilisateurs ou aux systèmes de gestion, de les utiliser ou de les manipuler ;</li><li>de reproduire, copier, distribuer ou modifier les contenus sans l'autorisation écrite du titulaire ;</li><li>de supprimer, contourner ou manipuler les mesures de protection ou les avertissements figurant sur le Site Web.</li></ul>"
+    },
+    {
+      "id": "propiedad-intelectual",
+      "heading": "4. Propriété intellectuelle et industrielle",
+      "content": "<p>L'ensemble des contenus du Site Web, y compris, à titre indicatif et non limitatif, les textes, photographies, graphismes, images, vidéos, icônes, logos, marques, noms commerciaux, designs, logiciels, code source et tout autre élément, est protégé par des droits de propriété intellectuelle et industrielle appartenant à Enjoy Club 78 S.L. ou à des tiers ayant autorisé leur intégration.</p><p>Les marques <strong>Grupo Enjoy</strong>, <strong>Enjoy Terrace</strong>, <strong>Outxide Club</strong> et <strong>Hiru Food & Drinks</strong>, ainsi que leurs logos et éléments graphiques associés, sont des marques enregistrées ou en cours d'enregistrement par Enjoy Club 78 S.L.</p><p>Toute reproduction totale ou partielle du Site Web et de l'un quelconque de ses contenus sans l'autorisation expresse et écrite d'Enjoy Club 78 S.L. est formellement interdite.</p>"
+    },
+    {
+      "id": "exclusion-garantias",
+      "heading": "5. Exclusion de garanties et responsabilité",
+      "content": "<p>Enjoy Club 78 S.L. ne saurait en aucun cas être tenue responsable des dommages, de quelque nature que ce soit, pouvant résulter :</p><ul><li>de l'indisponibilité, du défaut de maintenance ou du dysfonctionnement du Site Web ;</li><li>de la présence de virus ou de programmes malveillants ou nuisibles dans les contenus ;</li><li>d'une utilisation illicite, négligente, frauduleuse ou contraire aux présentes conditions par l'utilisateur ;</li><li>du manque de véracité, d'exactitude, d'exhaustivité ou d'actualité des contenus ;</li><li>des informations fournies par des tiers au moyen de liens externes. Les liens vers des sites tiers sont fournis à titre purement informatif et n'impliquent aucune approbation de leur contenu par Enjoy Club 78 S.L.</li></ul>"
+    },
+    {
+      "id": "modificaciones",
+      "heading": "6. Modifications",
+      "content": "<p>Enjoy Club 78 S.L. se réserve le droit de modifier, à tout moment et sans préavis, la présentation, la configuration et les contenus du Site Web, ainsi que les conditions requises pour y accéder et l'utiliser. Il appartient à l'utilisateur de consulter régulièrement les présentes conditions.</p>"
+    },
+    {
+      "id": "legislacion",
+      "heading": "7. Droit applicable et juridiction compétente",
+      "content": "<p>Les présentes conditions sont régies par le droit espagnol. Pour le règlement de tout litige pouvant découler de l'accès au Site Web ou de son utilisation, les parties se soumettent aux cours et tribunaux de Palma de Mallorca et renoncent expressément à tout autre for qui pourrait leur correspondre, sauf disposition impérative contraire de la réglementation applicable.</p>"
+    },
+    {
+      "id": "contacto",
+      "heading": "8. Contact",
+      "content": "<p>Pour toute question relative aux présentes Mentions légales, vous pouvez nous contacter à l'adresse <a href=\"mailto:info@grupoenjoy.es\">info@grupoenjoy.es</a> ou à l'adresse postale indiquée ci-dessus.</p>"
+    }
+  ]
+}

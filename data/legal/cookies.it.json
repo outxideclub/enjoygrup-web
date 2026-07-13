@@ -1,0 +1,47 @@
+{
+  "slug": "cookies",
+  "title": "Politica sui cookie",
+  "lastUpdated": "2026-07",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduzione",
+      "content": "<p>In adempimento dell'articolo 22.2 della Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE, legge spagnola sui servizi della società dell'informazione e sul commercio elettronico), del Regolamento (UE) 2016/679 (GDPR) e della Guida sull'uso dei cookie dell'AEPD (autorità spagnola per la protezione dei dati), La informiamo sui cookie e sulle tecnologie simili (localStorage e sessionStorage) utilizzati da www.grupoenjoy.es.</p>"
+    },
+    {
+      "id": "que-son",
+      "heading": "1. Che cosa sono i cookie?",
+      "content": "<p>I cookie sono piccoli file di testo che vengono memorizzati sul Suo dispositivo quando visita un sito web. Accanto ad essi esistono tecnologie simili, come l'archiviazione locale del browser (localStorage e sessionStorage), che svolgono funzioni analoghe. Consentono di riconoscere l'utente, ricordarne le preferenze e migliorare l'esperienza di navigazione. Possono essere propri (impostati dal nostro dominio) o di terze parti (impostati da altri domini).</p>"
+    },
+    {
+      "id": "tipos",
+      "heading": "2. Cookie e archiviazione che utilizziamo",
+      "content": "<h3>2.1. Strettamente necessari</h3><p>Sono essenziali per il funzionamento del sito web. Non richiedono il consenso (art. 22.2 LSSI-CE) e non possono essere disattivati.</p><table><thead><tr><th>Nome</th><th>Tipo</th><th>Titolare</th><th>Finalità</th><th>Durata</th></tr></thead><tbody><tr><td>ge_cookie_consent</td><td>localStorage</td><td>grupoenjoy.es</td><td>Memorizza la Sua decisione sui cookie (accettazione, rifiuto o configurazione personalizzata), con data e versione</td><td>Finché non lo elimina; Le chiederemo nuovamente il consenso dopo 12 mesi</td></tr><tr><td>ge_locale</td><td>Cookie proprio</td><td>grupoenjoy.es</td><td>Ricorda la lingua scelta (spagnolo, inglese, tedesco, francese o italiano)</td><td>12 mesi</td></tr><tr><td>ge_age_verified</td><td>sessionStorage</td><td>grupoenjoy.es</td><td>Conferma della maggiore età per accedere alla sezione di Outxide Club</td><td>Sessione (viene eliminato alla chiusura del browser)</td></tr><tr><td>ge_admin_session</td><td>Cookie proprio</td><td>grupoenjoy.es</td><td>Sessione del pannello di amministrazione interno (solo personale autorizzato; non viene installato ai visitatori)</td><td>24 ore</td></tr></tbody></table><h3>2.2. Analitici</h3><p>Ci consentono di misurare e analizzare il traffico del sito web in forma aggregata. <strong>Vengono installati soltanto previo Suo consenso esplicito</strong> tramite il banner dei cookie.</p><table><thead><tr><th>Nome</th><th>Tipo</th><th>Titolare</th><th>Finalità</th><th>Durata</th></tr></thead><tbody><tr><td>_ga</td><td>Cookie di terze parti</td><td>Google Analytics 4 (Google Ireland Ltd.)</td><td>Distingue gli utenti unici mediante un identificatore casuale</td><td>13 mesi</td></tr><tr><td>_ga_*</td><td>Cookie di terze parti</td><td>Google Analytics 4 (Google Ireland Ltd.)</td><td>Mantiene lo stato della sessione</td><td>13 mesi</td></tr></tbody></table><h3>2.3. Di marketing</h3><p>Vengono utilizzati per misurare l'efficacia delle campagne pubblicitarie e mostrare annunci pertinenti. <strong>Vengono installati soltanto previo Suo consenso esplicito.</strong></p><table><thead><tr><th>Nome</th><th>Tipo</th><th>Titolare</th><th>Finalità</th><th>Durata</th></tr></thead><tbody><tr><td>_fbp</td><td>Cookie di terze parti</td><td>Meta Platforms Ireland Ltd. (Facebook/Instagram)</td><td>Misurazione delle conversioni e remarketing</td><td>3 mesi</td></tr><tr><td>_fbc</td><td>Cookie di terze parti</td><td>Meta Platforms Ireland Ltd.</td><td>Attribuzione dei clic provenienti dagli annunci</td><td>3 mesi</td></tr><tr><td>_ttp</td><td>Cookie di terze parti</td><td>TikTok Technology Ltd.</td><td>Misurazione delle conversioni e remarketing</td><td>13 mesi</td></tr></tbody></table><h3>2.4. Di terze parti su richiesta (mappa di localizzazione)</h3><p>Nella pagina dei contatti, la mappa di Google Maps <strong>non viene caricata automaticamente</strong>: soltanto se Lei preme il pulsante «Carica mappa». In tal caso, Google può installare i propri cookie:</p><table><thead><tr><th>Nome</th><th>Tipo</th><th>Titolare</th><th>Finalità</th><th>Durata</th></tr></thead><tbody><tr><td>NID, AEC, SOCS</td><td>Cookie di terze parti</td><td>Google Ireland Ltd. (Google Maps)</td><td>Visualizzazione della mappa e preferenze di Google</td><td>Fino a 6 mesi</td></tr></tbody></table><h3>2.5. Servizi esterni collegati</h3><p>L'acquisto dei biglietti di Outxide Club avviene sulla piattaforma esterna <strong>FourVenues</strong> (web.fourvenues.com) e le prenotazioni di Hiru su <strong>Restoo</strong>. Cliccando su tali link uscirà dal nostro sito web e si applicheranno le politiche sui cookie e sulla privacy di dette piattaforme, che Le consigliamo di consultare.</p>"
+    },
+    {
+      "id": "transferencias",
+      "heading": "3. Trasferimenti internazionali",
+      "content": "<p>I fornitori dei cookie analitici e di marketing (Google, Meta e TikTok) possono trasferire dati alle rispettive case madri negli <strong>Stati Uniti</strong>. Tali trasferimenti si fondano sul <strong>Quadro UE-USA per la privacy dei dati</strong> (EU-U.S. Data Privacy Framework), al quale Google LLC e Meta Platforms, Inc. risultano certificate, e/o sulle <strong>clausole contrattuali tipo</strong> approvate dalla Commissione europea. Può consultare i dettagli nelle informative sulla privacy di ciascun fornitore:</p><ul><li><a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Google</a></li><li><a href=\"https://www.facebook.com/privacy/policy\" target=\"_blank\" rel=\"noopener noreferrer\">Meta</a></li><li><a href=\"https://www.tiktok.com/legal/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\">TikTok</a></li></ul>"
+    },
+    {
+      "id": "consent-mode",
+      "heading": "4. Consenso e Consent Mode v2",
+      "content": "<p>Gestiamo il Suo consenso mediante un banner proprio. La Sua decisione viene salvata nell'archiviazione locale del Suo browser (<code>ge_cookie_consent</code>) insieme alla data e alla versione della presente politica e ha una <strong>validità massima di 12 mesi</strong>, trascorsi i quali Le chiederemo nuovamente il consenso.</p><p>Utilizziamo inoltre Google Consent Mode v2. Per impostazione predefinita, tutti i parametri sono configurati come <strong>negati</strong> (<code>denied</code>):</p><ul><li><code>analytics_storage</code>: denied</li><li><code>ad_storage</code>: denied</li><li><code>ad_user_data</code>: denied</li><li><code>ad_personalization</code>: denied</li></ul><p>Gli script di Google Analytics 4, Meta Pixel e TikTok Pixel <strong>non vengono caricati</strong> finché Lei non presta il relativo consenso. Fino a quel momento non viene installato alcun cookie analitico o di marketing e non vengono raccolti dati di navigazione.</p>"
+    },
+    {
+      "id": "gestion",
+      "heading": "5. Gestione e revoca del consenso",
+      "content": "<p>Può modificare o revocare il proprio consenso in qualsiasi momento, con la stessa facilità con cui lo ha prestato, tramite il link <strong>«Configura i cookie»</strong> nel piè di pagina. Alla revoca del consenso, eliminiamo dal Suo browser i cookie di analisi e di marketing installati dal nostro dominio (_ga, _ga_*, _fbp, _fbc, _ttp). Tenga presente che le terze parti possono conservare i dati già raccolti; per esercitare i Suoi diritti nei loro confronti, consulti le rispettive informative sulla privacy (link nella sezione 3).</p><p>Può inoltre configurare il Suo browser per rifiutare o eliminare i cookie:</p><ul><li><a href=\"https://support.google.com/chrome/answer/95647\" target=\"_blank\" rel=\"noopener noreferrer\">Google Chrome</a></li><li><a href=\"https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-\" target=\"_blank\" rel=\"noopener noreferrer\">Mozilla Firefox</a></li><li><a href=\"https://support.apple.com/es-es/guide/safari/sfri11471/mac\" target=\"_blank\" rel=\"noopener noreferrer\">Safari</a></li><li><a href=\"https://support.microsoft.com/es-es/microsoft-edge/eliminar-cookies-en-microsoft-edge\" target=\"_blank\" rel=\"noopener noreferrer\">Microsoft Edge</a></li></ul>"
+    },
+    {
+      "id": "actualizaciones",
+      "heading": "6. Aggiornamenti",
+      "content": "<p>Possiamo aggiornare la presente Politica sui cookie per riflettere modifiche nei cookie che utilizziamo o per motivi legali. La data dell'ultima revisione è indicata nell'intestazione. In caso di modifica sostanziale, il banner Le chiederà nuovamente il consenso.</p>"
+    },
+    {
+      "id": "contacto",
+      "heading": "7. Contatti",
+      "content": "<p>Per qualsiasi domanda relativa all'uso dei cookie o per esercitare i Suoi diritti, può scriverci a <a href=\"mailto:privacidad@grupoenjoy.es\">privacidad@grupoenjoy.es</a>. Ha inoltre il diritto di proporre reclamo dinanzi alla <a href=\"https://www.aepd.es\" target=\"_blank\" rel=\"noopener noreferrer\">Agencia Española de Protección de Datos (AEPD)</a>.</p>"
+    }
+  ]
+}

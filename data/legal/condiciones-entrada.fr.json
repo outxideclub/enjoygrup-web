@@ -1,0 +1,57 @@
+{
+  "slug": "condiciones-entrada",
+  "title": "Conditions d'Entrée et Règles d'Accès",
+  "lastUpdated": "2026-05",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>Les présentes conditions régissent l'accès aux établissements du Grupo Enjoy et le séjour dans ceux-ci, en particulier à l'<strong>Outxide Club</strong>. En accédant à l'un de nos établissements, le client accepte les règles suivantes et s'engage à les respecter.</p>"
+    },
+    {
+      "id": "mayoria-edad",
+      "heading": "1. Condition de majorité",
+      "content": "<p>L'accès à l'<strong>Outxide Club</strong> est réservé aux personnes âgées de 18 ans révolus. Une pièce d'identité officielle en cours de validité (DNI, passeport, NIE ou permis de conduire) sera exigée au contrôle d'accès. Les documents périmés et les photocopies ne seront pas acceptés.</p><p>L'accès à l'<strong>Enjoy Terrace</strong> en tant que bar de nuit est réservé aux personnes majeures (18 ans) à partir de 00:00. Pendant les horaires de terrasse en journée, l'accès des mineurs accompagnés d'un adulte responsable est autorisé.</p><p>L'accès au <strong>Hiru Food & Drinks</strong> n'est soumis à aucune restriction d'âge, s'agissant d'un établissement de restauration.</p>"
+    },
+    {
+      "id": "dress-code",
+      "heading": "2. Code vestimentaire (Dress Code)",
+      "content": "<h3>Outxide Club</h3><p>L'Outxide Club applique un code vestimentaire destiné à préserver une ambiance en accord avec le concept de l'établissement. Une tenue <strong>smart casual</strong> ou plus habillée est recommandée. À titre indicatif :</p><ul><li><strong>Messieurs :</strong> pantalon long, chemise ou polo et chaussures fermées recommandés. Tongs, maillots de bain, débardeurs ou maillots de sport et casquettes sont déconseillés.</li><li><strong>Mesdames :</strong> aucune restriction particulière. Une tenue en accord avec l'ambiance est recommandée.</li></ul><p>La décision finale d'admission appartient au personnel d'accueil à l'entrée, qui appréciera l'adéquation de la tenue au concept de l'événement concerné. Cette appréciation s'applique de manière non discriminatoire et repose exclusivement sur des critères vestimentaires.</p><h3>Enjoy Terrace et Hiru</h3><p>Aucun code vestimentaire formel n'est appliqué. Une tenue correcte, adaptée à un établissement de restauration, est exigée (chaussures obligatoires, vêtements couvrant les parties intimes).</p>"
+    },
+    {
+      "id": "no-discriminacion",
+      "heading": "3. Politique de non-discrimination",
+      "content": "<p>Grupo Enjoy est attaché au principe d'égalité et de non-discrimination. L'accès à nos établissements ne sera pas refusé pour des motifs tenant :</p><ul><li>à la race, à l'origine ethnique ou nationale ;</li><li>au sexe, à l'orientation sexuelle ou à l'identité de genre ;</li><li>à la religion ou aux convictions ;</li><li>au handicap (l'accessibilité sera facilitée dans la mesure des possibilités du local) ;</li><li>à l'âge, sous réserve de l'exigence légale de majorité dans les établissements de nuit.</li></ul><p>Les seuls motifs légitimes de refus ou de retrait de l'accès sont les suivants :</p><ul><li>ne pas justifier de la majorité requise ;</li><li>le non-respect du code vestimentaire de l'établissement ;</li><li>un état manifeste d'ébriété ou d'intoxication par d'autres substances ;</li><li>un comportement agressif, violent ou portant atteinte à la bonne tenue des lieux ;</li><li>le port d'objets dangereux ou de substances illicites ;</li><li>l'atteinte de la capacité d'accueil maximale de l'établissement ;</li><li>le non-respect des conditions attachées au billet acheté.</li></ul>"
+    },
+    {
+      "id": "normas-convivencia",
+      "heading": "4. Règles de conduite et de sécurité",
+      "content": "<p>Pendant son séjour dans nos établissements, le client s'engage à :</p><ul><li>respecter le personnel de l'établissement ainsi que les autres clients ;</li><li>ne pas introduire ni consommer de drogues ou de substances illicites de quelque nature que ce soit ;</li><li>ne pas introduire de boissons ou d'aliments provenant de l'extérieur ;</li><li>ne pas fumer en dehors des zones prévues à cet effet (la législation des Baléares en vigueur s'applique dans son intégralité) ;</li><li>ne pas causer de dommages intentionnels aux installations, au mobilier ou aux équipements ;</li><li>suivre les consignes du personnel de sécurité et de l'établissement ;</li><li>ne pas réaliser d'enregistrements vidéo ou audio non autorisés du spectacle ou des performances.</li></ul><p>Le non-respect de l'une quelconque de ces règles autorise le personnel de l'établissement à demander au client de quitter les lieux, sans droit au remboursement du billet ni des consommations.</p>"
+    },
+    {
+      "id": "aforo",
+      "heading": "5. Capacité d'accueil et contrôle d'accès",
+      "content": "<p>Nos établissements fonctionnent dans les limites de capacité d'accueil autorisées par les autorités compétentes. Lorsque la capacité maximale est atteinte, l'accès est temporairement fermé jusqu'à ce que le niveau d'occupation le permette, même si le client dispose d'un billet ou d'une réservation.</p><p>Les clients titulaires d'une réservation VIP bénéficient d'un accès prioritaire, sous réserve des conditions particulières de leur réservation.</p>"
+    },
+    {
+      "id": "responsabilidad",
+      "heading": "6. Responsabilité",
+      "content": "<p>Grupo Enjoy décline toute responsabilité en cas de perte, de vol ou de détérioration d'effets personnels à l'intérieur de ses établissements. Il est recommandé de ne pas porter d'objets de valeur superflus. Si l'établissement dispose d'un service de vestiaire, les conditions de responsabilité seront indiquées au point de dépôt.</p>"
+    },
+    {
+      "id": "derecho-admision",
+      "heading": "7. Droit d'admission",
+      "content": "<p>Conformément à la réglementation régionale applicable (Ley 7/2013, de 26 de noviembre, de régimen jurídico de instalación, acceso y ejercicio de actividades en las Illes Balears (loi des Îles Baléares relative au régime juridique d'installation, d'accès et d'exercice des activités), et ses textes d'application), l'établissement se réserve le droit d'admission.</p><p>Ce droit sera toujours exercé de manière motivée, non discriminatoire et conformément aux causes objectives énoncées à la section 3 du présent document. En cas de refus d'accès, le client a le droit de demander une explication verbale du motif.</p>"
+    },
+    {
+      "id": "captacion-imagenes",
+      "heading": "8. Captation d'images",
+      "content": "<p>Des photographies et des enregistrements vidéo à des fins promotionnelles sont réalisés dans nos établissements. Consultez notre <a href=\"/legal/imagenes\">Politique de captation d'images</a> pour plus d'informations sur vos droits et la procédure de retrait.</p>"
+    },
+    {
+      "id": "contacto-reclamaciones",
+      "heading": "9. Contact et réclamations",
+      "content": "<p>Pour toute question, suggestion ou réclamation relative à l'accès à nos établissements ou au service qui y est fourni :</p><ul><li><strong>E-mail :</strong> <a href=\"mailto:info@grupoenjoy.es\">info@grupoenjoy.es</a></li><li><strong>Feuilles de réclamation :</strong> disponibles dans chaque établissement conformément à la réglementation des Baléares.</li></ul><p>Tous nos établissements tiennent à la disposition de la clientèle des feuilles de réclamation officielles, conformément au Decreto 55/2011 du Govern de les Illes Balears (décret du gouvernement des Îles Baléares).</p>"
+    }
+  ]
+}

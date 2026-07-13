@@ -1,0 +1,52 @@
+{
+  "slug": "privacidad",
+  "title": "Politique de Confidentialité",
+  "lastUpdated": "2026-07",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Introduction",
+      "content": "<p>Conformément au Règlement (UE) 2016/679 général sur la protection des données (RGPD) et à la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD) (loi organique espagnole relative à la protection des données personnelles et à la garantie des droits numériques), nous vous informons du traitement réservé à vos données personnelles.</p>"
+    },
+    {
+      "id": "responsable",
+      "heading": "1. Responsable du traitement",
+      "content": "<ul><li><strong>Identité :</strong> Enjoy Club 78 S.L. (NIF : B75300376) — Av. Tucán, 1, 07400 Alcúdia, Illes Balears</li><li><strong>E-mail :</strong> privacidad@grupoenjoy.es</li><li><strong>Délégué à la protection des données (DPD) :</strong> non requis au titre de l'art. 37 du RGPD</li></ul>"
+    },
+    {
+      "id": "datos-recogidos",
+      "heading": "2. Données que nous collectons",
+      "content": "<p>Nous collectons des données personnelles en fonction de vos interactions avec nos services :</p><h3>2.1. Données fournies directement</h3><table><thead><tr><th>Contexte</th><th>Données collectées</th></tr></thead><tbody><tr><td>Réservation chez Hiru (restaurant)</td><td>Nom, e-mail, téléphone, date, heure, nombre de convives, occasion, allergies, demandes particulières</td></tr><tr><td>Réservation chez Enjoy (lounge)</td><td>Nom, e-mail, téléphone, date, heure, nombre de personnes, type de zone, occasion</td></tr><tr><td>Achat de billets / Réservation VIP chez Outxide</td><td>Nom, e-mail, téléphone, données de paiement (traitées par une passerelle externe), date de naissance (vérification de la majorité)</td></tr><tr><td>Newsletter du groupe</td><td>E-mail, nom (facultatif), établissement d'origine/de préférence</td></tr><tr><td>Formulaire de contact</td><td>Nom, e-mail, objet, message</td></tr></tbody></table><h3>2.2. Données collectées automatiquement</h3><p>Uniquement après votre acceptation expresse dans le bandeau cookies, nous pouvons collecter des données de navigation au moyen de cookies analytiques et marketing (voir la <a href=\"/legal/cookies\">Politique de cookies</a>) :</p><ul><li>Adresse IP (anonymisée dans GA4)</li><li>Type de navigateur et d'appareil</li><li>Pages consultées et durée de la visite</li><li>Source de trafic et URL de provenance</li></ul>"
+    },
+    {
+      "id": "finalidades",
+      "heading": "3. Finalités et bases juridiques du traitement",
+      "content": "<table><thead><tr><th>Finalité</th><th>Base juridique</th><th>Durée de conservation</th></tr></thead><tbody><tr><td>Gestion des réservations (Hiru / Enjoy)</td><td>Exécution d'un contrat (art. 6.1.b du RGPD)</td><td>Durée de la réservation + 1 an</td></tr><tr><td>Vente de billets et réservations VIP (Outxide)</td><td>Exécution d'un contrat (art. 6.1.b du RGPD)</td><td>Durée de l'événement + 5 ans (obligation fiscale)</td></tr><tr><td>Envoi de la newsletter</td><td>Consentement explicite (art. 6.1.a du RGPD)</td><td>Jusqu'au retrait du consentement</td></tr><tr><td>Analyse d'audience du site (GA4)</td><td>Consentement explicite (art. 6.1.a du RGPD)</td><td>14 mois (paramétrage GA4)</td></tr><tr><td>Marketing et remarketing (Meta Pixel, TikTok Pixel)</td><td>Consentement explicite (art. 6.1.a du RGPD)</td><td>Jusqu'au retrait du consentement</td></tr><tr><td>Traitement des demandes / contact</td><td>Intérêt légitime (art. 6.1.f du RGPD)</td><td>Résolution de la demande + 1 an</td></tr><tr><td>Respect des obligations légales</td><td>Obligation légale (art. 6.1.c du RGPD)</td><td>Délais légaux applicables (fiscal : 5 ans)</td></tr></tbody></table>"
+    },
+    {
+      "id": "destinatarios",
+      "heading": "4. Destinataires des données",
+      "content": "<p>Vos données personnelles pourront être communiquées aux destinataires suivants :</p><table><thead><tr><th>Destinataire</th><th>Finalité</th><th>Localisation</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Hébergement web et edge functions</td><td>États-Unis (Data Privacy Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Analyse d'audience web (uniquement avec consentement)</td><td>États-Unis (Data Privacy Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing et remarketing (uniquement avec consentement)</td><td>États-Unis (Data Privacy Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing et remarketing (uniquement avec consentement)</td><td>États-Unis/Singapour (clauses contractuelles types)</td></tr><tr><td>Resend Inc.</td><td>Envoi d'e-mails transactionnels</td><td>États-Unis (Data Privacy Framework)</td></tr><tr><td>FourVenues S.L.</td><td>Système de billetterie et de réservations (Outxide)</td><td>Espagne (UE)</td></tr></tbody></table><p>Tous les transferts internationaux de données sont effectués dans le cadre de l'EU-US Data Privacy Framework ou sur la base des clauses contractuelles types approuvées par la Commission européenne, garantissant un niveau de protection équivalent à celui du RGPD.</p>"
+    },
+    {
+      "id": "derechos",
+      "heading": "5. Droits de la personne concernée",
+      "content": "<p>Conformément aux articles 15 à 22 du RGPD, vous disposez des droits suivants :</p><ul><li><strong>Accès :</strong> savoir quelles données personnelles vous concernant nous traitons.</li><li><strong>Rectification :</strong> demander la correction de données inexactes ou incomplètes.</li><li><strong>Effacement :</strong> demander la suppression de vos données lorsqu'elles ne sont plus nécessaires.</li><li><strong>Opposition :</strong> vous opposer au traitement de vos données dans certains cas.</li><li><strong>Limitation :</strong> demander la limitation du traitement dans certaines situations.</li><li><strong>Portabilité :</strong> recevoir vos données dans un format structuré et couramment utilisé.</li><li><strong>Retrait du consentement :</strong> retirer à tout moment le consentement que vous avez donné.</li></ul><p>Pour exercer ces droits, vous pouvez adresser une demande à <a href=\"mailto:privacidad@grupoenjoy.es\">privacidad@grupoenjoy.es</a>, en indiquant votre nom complet et en joignant une copie de votre pièce d'identité. Nous vous répondrons dans un délai maximal de 30 jours.</p><p>Si vous estimez que le traitement de vos données n'est pas conforme à la réglementation, vous avez le droit d'introduire une réclamation auprès de l'<strong>Agencia Española de Protección de Datos (AEPD, autorité espagnole de protection des données)</strong> — <a href=\"https://www.aepd.es\" target=\"_blank\" rel=\"noopener noreferrer\">www.aepd.es</a>.</p>"
+    },
+    {
+      "id": "seguridad",
+      "heading": "6. Mesures de sécurité",
+      "content": "<p>Nous mettons en œuvre les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque, notamment :</p><ul><li>Chiffrement TLS/SSL de l'ensemble des communications du Site Web.</li><li>Accès aux données personnelles restreint au seul personnel autorisé.</li><li>Sauvegardes régulières et stockage sécurisé.</li><li>Traitement des paiements délégué à la plateforme externe FourVenues (les billets s'achètent et se paient sur web.fourvenues.com, selon ses propres conditions et sa propre politique de confidentialité).</li><li>Anonymisation des adresses IP dans les outils d'analyse.</li></ul>"
+    },
+    {
+      "id": "menores",
+      "heading": "7. Mineurs",
+      "content": "<p>Nos services ne s'adressent pas aux mineurs de moins de 16 ans. Nous ne collectons pas sciemment de données concernant des mineurs de moins de 16 ans. L'accès au microsite d'Outxide Club exige la confirmation de la majorité (18 ans), conformément à la réglementation applicable aux établissements de divertissement nocturne.</p>"
+    },
+    {
+      "id": "actualizaciones",
+      "heading": "8. Mises à jour de la présente politique",
+      "content": "<p>Nous nous réservons le droit de modifier la présente Politique de confidentialité afin de l'adapter aux évolutions législatives ou aux changements de nos pratiques. Toute modification substantielle sera notifiée via le Site Web. Nous vous recommandons de consulter régulièrement cette page.</p>"
+    }
+  ]
+}

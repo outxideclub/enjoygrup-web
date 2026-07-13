@@ -87,8 +87,11 @@ export function LocaleProvider({ children, initialLocale }: LocaleProviderProps)
     (newLocale: Locale) => {
       setLocaleState(newLocale);
       document.cookie = `${COOKIE_NAME}=${newLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
+      // La navegación cliente no re-renderiza <html>, así que el lang se
+      // sincroniza a mano (los lectores de pantalla lo usan al momento).
+      document.documentElement.lang = newLocale;
       // Re-renderiza los componentes de SERVIDOR con el idioma nuevo (blog,
-      // páginas legales, <html lang>, metadatos); sin esto solo cambia el cliente.
+      // páginas legales, metadatos); sin esto solo cambia el cliente.
       router.refresh();
     },
     [router],

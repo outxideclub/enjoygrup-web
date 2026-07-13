@@ -1,0 +1,62 @@
+{
+  "slug": "condiciones-venta",
+  "title": "Allgemeine Verkaufsbedingungen",
+  "lastUpdated": "2026-07",
+  "sections": [
+    {
+      "id": "intro",
+      "heading": "Einleitung",
+      "content": "<p>Die vorliegenden Bedingungen regeln den Kauf von Tickets, VIP-Tischreservierungen sowie Restaurant- und Lounge-Reservierungen über www.grupoenjoy.es, betrieben von Enjoy Club 78 S.L. (nachfolgend „Grupo Enjoy“).</p>"
+    },
+    {
+      "id": "objeto",
+      "heading": "1. Gegenstand",
+      "content": "<p>Diese Bedingungen gelten für die folgenden über die Website abgewickelten Transaktionen:</p><ul><li><strong>Ticketkauf</strong> für Veranstaltungen im Outxide Club (abgewickelt über FourVenues / Stripe).</li><li><strong>VIP-Tischreservierung</strong> im Outxide Club (mit Mindestverzehr oder vorheriger Anzahlung).</li><li><strong>Tischreservierung</strong> im Hiru Food & Drinks (ggf. mit Anzahlung für Gruppen).</li><li><strong>Bereichsreservierung</strong> in der Enjoy Terrace (ggf. mit Anzahlung für Gruppen).</li></ul>"
+    },
+    {
+      "id": "proceso-compra",
+      "heading": "2. Bestellvorgang",
+      "content": "<ol><li>Der Nutzer wählt Veranstaltung, Datum sowie Ticketart oder Tisch aus.</li><li>Er füllt das Formular mit seinen persönlichen Daten aus.</li><li>Er prüft die Bestellübersicht einschließlich des Gesamtpreises mit Steuern.</li><li>Er akzeptiert die vorliegenden Verkaufsbedingungen und die Datenschutzerklärung.</li><li>Er führt die Zahlung über das sichere Zahlungssystem durch (Stripe / FourVenues).</li><li>Er erhält eine Bestätigungs-E-Mail mit den Details und gegebenenfalls dem QR-Code des Tickets.</li></ol><p>Der Vertrag kommt in dem Moment zustande, in dem der Nutzer die Bestätigungs-E-Mail erhält. Alle angezeigten Preise verstehen sich einschließlich Mehrwertsteuer (IVA bzw. gegebenenfalls IGIC), sofern nicht ausdrücklich etwas anderes angegeben ist.</p>"
+    },
+    {
+      "id": "precios",
+      "heading": "3. Preise und Steuern",
+      "content": "<p>Die Preise für Tickets und Leistungen werden in Euro (EUR) ausgewiesen und enthalten die anwendbaren Steuern. Die Grupo Enjoy behält sich das Recht vor, die Preise jederzeit zu ändern; bereits bestätigte Käufe bleiben davon unberührt.</p>"
+    },
+    {
+      "id": "metodos-pago",
+      "heading": "4. Zahlungsarten",
+      "content": "<p>Über unser sicheres Zahlungssystem Stripe akzeptieren wir folgende Zahlungsarten:</p><ul><li>Kredit- und Debitkarten (Visa, Mastercard, American Express).</li><li>Apple Pay und Google Pay.</li></ul><p>Die Zahlungsdaten werden unmittelbar von Stripe Inc. verarbeitet, zertifiziert nach PCI-DSS Level 1. Die Grupo Enjoy speichert und verarbeitet Ihre vollständigen Kartendaten nicht und hat keinen Zugriff darauf.</p>"
+    },
+    {
+      "id": "cancelaciones",
+      "heading": "5. Storno- und Erstattungsbedingungen",
+      "content": "<h3>5.1. Veranstaltungstickets (Outxide Club)</h3><ul><li><strong>Stornierung durch den Käufer:</strong> Veranstaltungstickets sind nach Bestätigung des Kaufs nicht erstattungsfähig, es sei denn, die Veranstaltung wird vom Veranstalter abgesagt.</li><li><strong>Absage der Veranstaltung:</strong> Sagt die Grupo Enjoy eine Veranstaltung ab, wird der gezahlte Betrag innerhalb von höchstens 14 Kalendertagen vollständig über dieselbe Zahlungsart erstattet.</li><li><strong>Terminverschiebung:</strong> Wird die Veranstaltung verschoben, behalten die Tickets für den neuen Termin ihre Gültigkeit. Kann der Käufer den neuen Termin nicht wahrnehmen, kann er innerhalb von 7 Tagen ab Mitteilung der Änderung die Erstattung verlangen.</li><li><strong>Übertragung:</strong> Die Tickets sind personengebunden, jedoch übertragbar. Der Inhaber kann eine Namensänderung bis 24 Stunden vor der Veranstaltung per E-Mail an info@grupoenjoy.es mitteilen.</li></ul><h3>5.2. VIP-Reservierungen (Outxide Club)</h3><ul><li>VIP-Reservierungen erfordern eine vorherige Anzahlung in Höhe des festgelegten Mindestverzehrs.</li><li><strong>Stornierung mehr als 48 Stunden im Voraus:</strong> Erstattung von 100 % der Anzahlung.</li><li><strong>Stornierung weniger als 48 Stunden im Voraus:</strong> 50 % der Anzahlung werden als Stornogebühr einbehalten.</li><li><strong>Nichterscheinen (No-Show):</strong> 100 % der Anzahlung werden einbehalten.</li></ul><h3>5.3. Restaurant- (Hiru) und Lounge-Reservierungen (Enjoy)</h3><ul><li>Standardreservierungen erfordern keine Anzahlung und können bis 4 Stunden vor der reservierten Uhrzeit kostenfrei storniert werden.</li><li>Für Gruppen ab 6 Gästen kann eine Anzahlung von [XX]EUR pro Gast verlangt werden. Bei Nichterscheinen wird diese Anzahlung einbehalten.</li><li>Für besondere Veranstaltungen (Themenabende, Degustationsmenüs, Private Dining) werden die Stornobedingungen bei der Reservierung gesondert mitgeteilt.</li></ul>"
+    },
+    {
+      "id": "mayoria-edad",
+      "heading": "6. Volljährigkeit",
+      "content": "<p>Der Kauf von Tickets für den Outxide Club und Reservierungen in der Enjoy Terrace sind Personen ab 18 Jahren vorbehalten. Die Grupo Enjoy behält sich das Recht vor, beim Einlass in den Betrieb ein Ausweisdokument zu verlangen. Wird der Zutritt mangels Nachweises der Volljährigkeit verweigert, besteht kein Anspruch auf Erstattung.</p>"
+    },
+    {
+      "id": "desistimiento",
+      "heading": "7. Widerrufsrecht",
+      "content": "<p>Gemäß Artikel 103.l) des Real Decreto Legislativo 1/2007 (Neufassung des spanischen allgemeinen Gesetzes zum Schutz der Verbraucher und Nutzer) sind Tickets für Shows und Veranstaltungen mit festem Termin vom Widerrufsrecht ausgenommen.</p><p>Ebenso sind Restaurant- und Lounge-Reservierungen für ein bestimmtes Datum und eine bestimmte Uhrzeit gemäß Artikel 103.l) vom Widerrufsrecht ausgenommen, da es sich um Beherbergungsleistungen (zu anderen als Wohnzwecken), Bewirtungs- oder Freizeitdienstleistungen mit einem festen Termin oder Ausführungszeitraum handelt.</p>"
+    },
+    {
+      "id": "responsabilidad",
+      "heading": "8. Haftung",
+      "content": "<p>Die Grupo Enjoy haftet nicht, wenn der Käufer aus Gründen, die außerhalb der Verantwortung der Organisation liegen, keinen Zutritt zur Veranstaltung erhält; hierzu zählen unter anderem: Verlust des Tickets, Nichteinhaltung der Kleiderordnung, Trunkenheit oder unangemessenes Verhalten, höhere Gewalt oder behördlich angeordnete Beschränkungen.</p>"
+    },
+    {
+      "id": "atencion-cliente",
+      "heading": "9. Kundenservice",
+      "content": "<p>Bei Problemen im Zusammenhang mit Käufen oder Reservierungen erreichen Sie uns unter <a href=\"mailto:info@grupoenjoy.es\">info@grupoenjoy.es</a> oder telefonisch unter +34 971 853 932. Wir verpflichten uns, innerhalb von höchstens 48 Stunden an Werktagen zu antworten.</p>"
+    },
+    {
+      "id": "legislacion",
+      "heading": "10. Anwendbares Recht",
+      "content": "<p>Die vorliegenden Bedingungen unterliegen spanischem Recht, insbesondere dem Real Decreto Legislativo 1/2007, dem spanischen Zivilgesetzbuch (Código Civil) und der LSSI-CE. Für die Beilegung von Streitigkeiten sind die Gerichte von Palma de Mallorca zuständig, unbeschadet des Verbrauchergerichtsstands, soweit dieser anwendbar ist.</p>"
+    }
+  ]
+}

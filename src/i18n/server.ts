@@ -40,15 +40,21 @@ function negotiateFromHeader(acceptLanguage: string | null): Locale | null {
 }
 
 export async function getServerLocale(): Promise<Locale> {
+  const headerStore = await headers();
+  // 1º: idioma fijado por la RUTA (/de/... → x-locale, lo pone el middleware).
+  // Manda sobre la cookie: una URL /de/enjoy debe renderizar SIEMPRE en alemán
+  // (es lo que la hace indexable y compartible).
+  const forced = headerStore.get("x-locale");
+  if (forced && locales.includes(forced as Locale)) {
+    return forced as Locale;
+  }
+  // 2º: preferencia guardada en cookie.
   const cookieStore = await cookies();
-  const localeCookie = cookieStore.get(COOKIE_NAME);
-  const value = localeCookie?.value;
+  const value = cookieStore.get(COOKIE_NAME)?.value;
   if (value && locales.includes(value as Locale)) {
     return value as Locale;
   }
-  // Primera visita (sin cookie): usar el idioma del navegador en vez de forzar
-  // español a todos los turistas. El cliente fija la cookie tras hidratar.
-  const headerStore = await headers();
+  // 3º: primera visita sin cookie → idioma del navegador (Accept-Language).
   return negotiateFromHeader(headerStore.get("accept-language")) ?? defaultLocale;
 }
 

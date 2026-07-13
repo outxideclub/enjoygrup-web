@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { COOKIE_NAME as LOCALE_COOKIE, defaultLocale, localeFromPath } from "@/i18n/config";
 
 const SESSION_COOKIE = "ge_admin_session";
 const SESSION_MAX_AGE = 86400; // 24 hours in seconds
@@ -68,15 +69,45 @@ function denyAdmin(req: NextRequest, pathname: string): NextResponse {
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // ── Inject x-pathname header for HreflangTags component ──
-  // Needed because Next.js metadata API deduplicates identical
-  // alternate URLs (cookie-based i18n = same URL for all locales).
   const isAdminRoute =
     pathname.startsWith("/admin") || pathname.startsWith("/api/admin");
 
   if (!isAdminRoute) {
+    // ── i18n por rutas ──
+    // /en|de|fr|it/... se reescribe a la ruta sin prefijo fijando el idioma con
+    // la cabecera x-locale (la lee getServerLocale). El español va sin prefijo.
+    // x-pathname (ruta real, con prefijo) alimenta el canonical; x-base-path
+    // (ruta sin prefijo) alimenta los hreflang de HreflangTags.
+
+    // /es/... no existe: el idioma por defecto va sin prefijo → redirección permanente.
+    if (pathname === `/${defaultLocale}` || pathname.startsWith(`/${defaultLocale}/`)) {
+      const url = req.nextUrl.clone();
+      url.pathname = pathname.slice(defaultLocale.length + 1) || "/";
+      return NextResponse.redirect(url, 308);
+    }
+
+    const { locale: pathLocale, basePath } = localeFromPath(pathname);
     const requestHeaders = new Headers(req.headers);
     requestHeaders.set("x-pathname", pathname);
+    requestHeaders.set("x-base-path", basePath);
+
+    if (pathLocale) {
+      requestHeaders.set("x-locale", pathLocale);
+      const url = req.nextUrl.clone();
+      url.pathname = basePath;
+      const res = NextResponse.rewrite(url, { request: { headers: requestHeaders } });
+      // Sincroniza la cookie para que la navegación posterior (enlaces sin
+      // prefijo) siga en el mismo idioma.
+      if (req.cookies.get(LOCALE_COOKIE)?.value !== pathLocale) {
+        res.cookies.set(LOCALE_COOKIE, pathLocale, {
+          path: "/",
+          maxAge: 60 * 60 * 24 * 365,
+          sameSite: "lax",
+        });
+      }
+      return res;
+    }
+
     return NextResponse.next({ request: { headers: requestHeaders } });
   }
 

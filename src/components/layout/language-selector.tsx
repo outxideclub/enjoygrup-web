@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
 import { useLocale, useSetLocale } from "@/i18n";
+import { localeFromPath, localizedPath } from "@/i18n/config";
 import type { Locale } from "@/i18n";
 
 const languageLabels: Record<Locale, string> = {
@@ -26,8 +28,19 @@ const localeOrder: Locale[] = ["es", "en", "de", "fr", "it"];
 export function LanguageSelector() {
   const locale = useLocale();
   const setLocale = useSetLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  // Cambiar de idioma navega a la URL propia de ese idioma (/de/..., /en/...);
+  // además fija cookie y estado de cliente vía setLocale.
+  const changeLocale = (loc: Locale) => {
+    setLocale(loc);
+    setOpen(false);
+    const { basePath } = localeFromPath(pathname || "/");
+    router.push(localizedPath(basePath, loc));
+  };
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -71,10 +84,7 @@ export function LanguageSelector() {
               key={loc}
               role="option"
               aria-selected={locale === loc}
-              onClick={() => {
-                setLocale(loc);
-                setOpen(false);
-              }}
+              onClick={() => changeLocale(loc)}
               className={`flex items-center gap-3 w-full px-3.5 py-2.5 text-left text-sm transition-colors duration-150 ${
                 locale === loc
                   ? "text-white bg-white/10"

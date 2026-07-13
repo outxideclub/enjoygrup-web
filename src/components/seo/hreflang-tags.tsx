@@ -1,24 +1,33 @@
 import { headers } from "next/headers";
+import { locales, localizedPath, type Locale } from "@/i18n/config";
 
 const BASE_URL = "https://www.grupoenjoy.es";
 
 /**
- * Server component that renders the self-referential canonical link tag.
+ * Canonical + hreflang por página (server component en <head>).
  *
- * Next.js metadata API deduplicates identical URLs in alternates,
- * so for cookie-based i18n (same URL, all locales) we render manually.
- * The middleware.ts injects x-pathname so we know the current route.
- *
- * NOTA: no emitimos hreflang alternates a propósito — hreflang requiere una URL
- * distinta por idioma (p. ej. /en/...), y con i18n por cookie todas las variantes
- * comparten la misma URL (Google las considera inválidas). Pendiente de migrar
- * i18n a rutas por idioma antes de reintroducirlas.
+ * Con el i18n por rutas, cada idioma tiene URL propia (/de/enjoy…), así que los
+ * hreflang vuelven a ser válidos: canonical a la URL real de la petición
+ * (x-pathname, con prefijo de idioma si lo hay) y un alternate por idioma sobre
+ * la ruta base (x-base-path, sin prefijo), con x-default en la versión española.
+ * Se emite manualmente porque la metadata API de Next deduplica URLs idénticas.
+ * Ambas cabeceras las inyecta el middleware (src/proxy.ts).
  */
 export async function HreflangTags() {
   const headersList = await headers();
   const pathname = headersList.get("x-pathname") || "/";
+  const basePath = headersList.get("x-base-path") || pathname;
 
-  const canonical = pathname === "/" ? BASE_URL : `${BASE_URL}${pathname}`;
+  const toUrl = (p: string) => (p === "/" ? BASE_URL : `${BASE_URL}${p}`);
+  const canonical = toUrl(pathname);
 
-  return <link rel="canonical" href={canonical} />;
+  return (
+    <>
+      <link rel="canonical" href={canonical} />
+      {locales.map((loc: Locale) => (
+        <link key={loc} rel="alternate" hrefLang={loc} href={toUrl(localizedPath(basePath, loc))} />
+      ))}
+      <link rel="alternate" hrefLang="x-default" href={toUrl(basePath)} />
+    </>
+  );
 }

@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "../../data/blog/posts";
+import { locales, localizedPath } from "@/i18n/config";
 
-// NOTA: sin alternates hreflang a propósito — hreflang requiere una URL distinta
-// por idioma (p. ej. /en/...), y con i18n por cookie todas las variantes comparten
-// la misma URL. Pendiente de migrar i18n a rutas por idioma antes de reintroducirlas.
+// Con el i18n por rutas cada idioma tiene URL propia (/en/..., /de/...), así que
+// el sitemap anuncia los alternates hreflang de cada página. Google indexa las
+// 5 versiones y muestra la del idioma del usuario.
 
 /**
  * Fechas de última edición real por sección — EDITAR a mano cuando cambie el
@@ -19,28 +20,55 @@ const LAST_UPDATED = {
   mundial: new Date("2026-06-11"),
 } as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.grupoenjoy.es";
+const baseUrl = "https://www.grupoenjoy.es";
 
-  const blogPosts = getAllPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+/** Alternates hreflang de una ruta: un idioma por URL + x-default en español. */
+function languageAlternates(path: string): { languages: Record<string, string> } {
+  const base = path === "" ? "/" : path;
+  const entries = locales.map((loc) => {
+    const p = localizedPath(base, loc);
+    return [loc, p === "/" ? baseUrl : `${baseUrl}${p}`] as const;
+  });
+  return {
+    languages: {
+      ...Object.fromEntries(entries),
+      "x-default": path === "" ? baseUrl : `${baseUrl}${path}`,
+    },
+  };
+}
+
+function entry(
+  path: string,
+  lastModified: Date,
+  changeFrequency: "daily" | "weekly" | "monthly",
+  priority: number,
+): MetadataRoute.Sitemap[number] {
+  return {
+    url: path === "" ? baseUrl : `${baseUrl}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+    alternates: languageAlternates(path),
+  };
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const blogPosts = getAllPosts().map((post) =>
+    entry(`/blog/${post.slug}`, new Date(post.date), "monthly", 0.6),
+  );
 
   // Las páginas /legal/* se excluyen a propósito: tienen noindex en su layout
   // y anunciarlas en el sitemap contradice esa directiva.
   return [
-    { url: baseUrl, lastModified: LAST_UPDATED.home, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/enjoy`, lastModified: LAST_UPDATED.venues, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/outxide`, lastModified: LAST_UPDATED.venues, changeFrequency: "daily", priority: 0.9 },
-    { url: `${baseUrl}/hiru`, lastModified: LAST_UPDATED.venues, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/nosotros`, lastModified: LAST_UPDATED.nosotros, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/contacto`, lastModified: LAST_UPDATED.contacto, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/faq`, lastModified: LAST_UPDATED.faq, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/blog`, lastModified: LAST_UPDATED.blog, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/mundial`, lastModified: LAST_UPDATED.mundial, changeFrequency: "daily", priority: 0.8 },
+    entry("", LAST_UPDATED.home, "weekly", 1.0),
+    entry("/enjoy", LAST_UPDATED.venues, "weekly", 0.9),
+    entry("/outxide", LAST_UPDATED.venues, "daily", 0.9),
+    entry("/hiru", LAST_UPDATED.venues, "weekly", 0.9),
+    entry("/nosotros", LAST_UPDATED.nosotros, "monthly", 0.6),
+    entry("/contacto", LAST_UPDATED.contacto, "monthly", 0.7),
+    entry("/faq", LAST_UPDATED.faq, "monthly", 0.6),
+    entry("/blog", LAST_UPDATED.blog, "weekly", 0.7),
+    entry("/mundial", LAST_UPDATED.mundial, "daily", 0.8),
     ...blogPosts,
   ];
 }
