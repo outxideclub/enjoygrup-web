@@ -1223,6 +1223,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["alcudia", "restaurants", "mallorca", "paella", "hiru", "gastronomy"],
     venue: "hiru",
+    faq: [
+      {
+        question: {
+          es: "¿Dónde se come buena paella en Alcúdia?",
+          en: "Where can you eat good paella in Alcúdia?",
+          de: "Wo isst man in Alcúdia gute Paella?",
+          fr: "Où manger une bonne paella à Alcúdia ?",
+          it: "Dove si mangia una buona paella ad Alcúdia?",
+        },
+        answer: {
+          es: "En el Port d'Alcúdia, Hiru (Ctra. d'Artà 40) prepara paella de marisco y arroces junto a sus carnes a la brasa y pescado fresco. Reserva por Restoo.",
+          en: "In Port d'Alcúdia, Hiru (Ctra. d'Artà 40) serves seafood paella and rice dishes alongside its wood-grilled meats and fresh fish. Book through Restoo.",
+          de: "In Port d'Alcúdia bereitet Hiru (Ctra. d'Artà 40) Meeresfrüchte-Paella und Reisgerichte neben Fleisch vom Grill und frischem Fisch zu. Reservierung über Restoo.",
+          fr: "À Port d'Alcúdia, Hiru (Ctra. d'Artà 40) propose une paella aux fruits de mer et des riz, en plus de ses viandes à la braise et son poisson frais. Réservation via Restoo.",
+          it: "A Port d'Alcúdia, Hiru (Ctra. d'Artà 40) prepara paella di mare e risi accanto alle sue carni alla brace e al pesce fresco. Prenota tramite Restoo.",
+        },
+      },
+      {
+        question: {
+          es: "¿Dónde cenar carne a la brasa en Alcúdia?",
+          en: "Where can you have grilled meat for dinner in Alcúdia?",
+          de: "Wo kann man in Alcúdia Fleisch vom Grill zu Abend essen?",
+          fr: "Où dîner d'une viande à la braise à Alcúdia ?",
+          it: "Dove cenare con carne alla brace ad Alcúdia?",
+        },
+        answer: {
+          es: "Hiru, en Ctra. d'Artà 40 (Port d'Alcúdia), es un restaurante a la brasa especializado en carnes dry-aged y pescado fresco. Reserva mesa por Restoo.",
+          en: "Hiru, at Ctra. d'Artà 40 (Port d'Alcúdia), is a grill restaurant specialising in dry-aged meats and fresh fish. Reserve a table through Restoo.",
+          de: "Hiru in der Ctra. d'Artà 40 (Port d'Alcúdia) ist ein Grillrestaurant, das auf Dry-Aged-Fleisch und frischen Fisch spezialisiert ist. Tisch über Restoo reservieren.",
+          fr: "Hiru, Ctra. d'Artà 40 (Port d'Alcúdia), est un restaurant à la braise spécialisé dans les viandes dry-aged et le poisson frais. Réservez une table via Restoo.",
+          it: "Hiru, in Ctra. d'Artà 40 (Port d'Alcúdia), è un ristorante alla brace specializzato in carni dry-aged e pesce fresco. Prenota un tavolo tramite Restoo.",
+        },
+      },
+      {
+        question: {
+          es: "¿Hace falta reservar para cenar en Alcúdia?",
+          en: "Do you need to book to have dinner in Alcúdia?",
+          de: "Muss man in Alcúdia zum Abendessen reservieren?",
+          fr: "Faut-il réserver pour dîner à Alcúdia ?",
+          it: "È necessario prenotare per cenare ad Alcúdia?",
+        },
+        answer: {
+          es: "En temporada alta es muy recomendable reservar, sobre todo los fines de semana. En Hiru puedes reservar mesa online a través de Restoo.",
+          en: "In high season booking is strongly recommended, especially at weekends. At Hiru you can reserve a table online through Restoo.",
+          de: "In der Hochsaison ist eine Reservierung sehr zu empfehlen, besonders am Wochenende. Bei Hiru kannst du online über Restoo einen Tisch reservieren.",
+          fr: "En haute saison, la réservation est vivement conseillée, surtout le week-end. Chez Hiru, vous pouvez réserver une table en ligne via Restoo.",
+          it: "In alta stagione è caldamente consigliato prenotare, soprattutto nei fine settimana. Da Hiru puoi prenotare un tavolo online tramite Restoo.",
+        },
+      },
+      {
+        question: {
+          es: "¿Dónde tomar algo en una terraza en Port d'Alcúdia?",
+          en: "Where can you have a drink on a terrace in Port d'Alcúdia?",
+          de: "Wo kann man in Port d'Alcúdia auf einer Terrasse etwas trinken?",
+          fr: "Où prendre un verre en terrasse à Port d'Alcúdia ?",
+          it: "Dove bere qualcosa in terrazza a Port d'Alcúdia?",
+        },
+        answer: {
+          es: "Enjoy Terrace (Av. Tucán 1) ofrece cócteles de autor y shisha premium en terraza, abierto a diario desde las 17:00 y perfecto para el atardecer.",
+          en: "Enjoy Terrace (Av. Tucán 1) offers signature cocktails and premium shisha on the terrace, open daily from 5 pm and perfect for sunset.",
+          de: "Enjoy Terrace (Av. Tucán 1) bietet Signature-Cocktails und Premium-Shisha auf der Terrasse, täglich ab 17:00 Uhr geöffnet und ideal für den Sonnenuntergang.",
+          fr: "Enjoy Terrace (Av. Tucán 1) propose des cocktails signature et une chicha premium en terrasse, ouvert tous les jours dès 17h00 et parfait pour le coucher du soleil.",
+          it: "Enjoy Terrace (Av. Tucán 1) offre cocktail d'autore e shisha premium in terrazza, aperto tutti i giorni dalle 17:00 e perfetto per il tramonto.",
+        },
+      },
+    ],
     readingTime: 10,
   },
   {
@@ -1948,6 +2014,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["alcudia", "mallorca", "activities", "guide"],
     venue: "general",
+    faq: [
+      {
+        question: {
+          es: "¿Qué ver imprescindible en Alcúdia?",
+          en: "What are the must-see sights in Alcúdia?",
+          de: "Was muss man in Alcúdia unbedingt sehen?",
+          fr: "Que voir absolument à Alcúdia ?",
+          it: "Cosa vedere assolutamente ad Alcúdia?",
+        },
+        answer: {
+          es: "El casco antiguo con sus murallas medievales, la playa de Alcúdia y el Port d'Alcúdia. Al atardecer, una parada por Enjoy Terrace en la Av. Tucán 1 es de las mejores vistas de la zona.",
+          en: "The old town with its medieval walls, Alcúdia beach and the Port d'Alcúdia. At sunset, a stop at Enjoy Terrace on Av. Tucán 1 offers one of the best views in the area.",
+          de: "Die Altstadt mit ihren mittelalterlichen Mauern, der Strand von Alcúdia und der Port d'Alcúdia. Zum Sonnenuntergang bietet ein Stopp in der Enjoy Terrace in der Av. Tucán 1 einen der schönsten Ausblicke der Gegend.",
+          fr: "La vieille ville et ses remparts médiévaux, la plage d'Alcúdia et le Port d'Alcúdia. Au coucher du soleil, une halte à l'Enjoy Terrace, Av. Tucán 1, offre l'une des plus belles vues du secteur.",
+          it: "Il centro storico con le sue mura medievali, la spiaggia di Alcúdia e il Port d'Alcúdia. Al tramonto, una sosta all'Enjoy Terrace in Av. Tucán 1 regala una delle viste più belle della zona.",
+        },
+      },
+      {
+        question: {
+          es: "¿Qué hacer de noche en Port d'Alcúdia?",
+          en: "What is there to do at night in Port d'Alcúdia?",
+          de: "Was kann man abends im Port d'Alcúdia unternehmen?",
+          fr: "Que faire le soir à Port d'Alcúdia ?",
+          it: "Cosa fare la sera a Port d'Alcúdia?",
+        },
+        answer: {
+          es: "Empieza con cócteles de autor y shisha en Enjoy Terrace desde las 17:00 y sigue la fiesta en Outxide Club (jueves a sábado desde las 23:00, +18) con DJs internacionales. Compra tu entrada online en FourVenues.",
+          en: "Start with signature cocktails and shisha at Enjoy Terrace from 5 pm, then keep the party going at Outxide Club (Thursday to Saturday from 11 pm, 18+) with international DJs. Buy your ticket online via FourVenues.",
+          de: "Beginne mit Signature-Cocktails und Shisha in der Enjoy Terrace ab 17 Uhr und feiere weiter im Outxide Club (Donnerstag bis Samstag ab 23 Uhr, ab 18) mit internationalen DJs. Tickets gibt es online bei FourVenues.",
+          fr: "Commencez par des cocktails signature et une chicha à l'Enjoy Terrace dès 17 h, puis prolongez la fête à l'Outxide Club (du jeudi au samedi dès 23 h, +18) avec des DJ internationaux. Achetez votre billet en ligne sur FourVenues.",
+          it: "Inizia con cocktail d'autore e shisha all'Enjoy Terrace dalle 17:00, poi continua la festa all'Outxide Club (dal giovedì al sabato dalle 23:00, +18) con DJ internazionali. Acquista il biglietto online su FourVenues.",
+        },
+      },
+      {
+        question: {
+          es: "¿Qué planes hay en Alcúdia en pareja?",
+          en: "What are some good things to do in Alcúdia as a couple?",
+          de: "Welche Aktivitäten gibt es in Alcúdia für Paare?",
+          fr: "Quelles activités faire en couple à Alcúdia ?",
+          it: "Cosa fare ad Alcúdia in coppia?",
+        },
+        answer: {
+          es: "Un paseo al atardecer por el puerto seguido de cócteles en la terraza de Enjoy es un plan perfecto en pareja. Para cenar, la brasa y las carnes dry-aged de Hiru (Ctra. d'Artà 40) son ideales; reserva por Restoo.",
+          en: "A sunset stroll along the port followed by cocktails on the Enjoy terrace makes a perfect couple's evening. For dinner, the grill and dry-aged meats at Hiru (Ctra. d'Artà 40) are ideal; book through Restoo.",
+          de: "Ein Spaziergang zum Sonnenuntergang am Hafen und anschließend Cocktails auf der Terrasse von Enjoy sind ideal für Paare. Zum Abendessen empfehlen sich Grillgerichte und Dry-Aged-Fleisch im Hiru (Ctra. d'Artà 40); Reservierung über Restoo.",
+          fr: "Une balade au coucher du soleil le long du port suivie de cocktails sur la terrasse d'Enjoy est parfaite en couple. Pour dîner, la grillade et les viandes maturées de Hiru (Ctra. d'Artà 40) sont idéales ; réservez via Restoo.",
+          it: "Una passeggiata al tramonto lungo il porto seguita da cocktail sulla terrazza dell'Enjoy è perfetta in coppia. Per cena, la brace e le carni dry-aged di Hiru (Ctra. d'Artà 40) sono l'ideale; prenota tramite Restoo.",
+        },
+      },
+      {
+        question: {
+          es: "¿Cuántos días hacen falta para ver Alcúdia?",
+          en: "How many days do you need to see Alcúdia?",
+          de: "Wie viele Tage braucht man für Alcúdia?",
+          fr: "Combien de jours faut-il pour visiter Alcúdia ?",
+          it: "Quanti giorni servono per visitare Alcúdia?",
+        },
+        answer: {
+          es: "Con dos o tres días te da tiempo a ver el casco antiguo, disfrutar de la playa y salir de noche. Si buscas un plan más tranquilo entre cala y cala, una semana se aprovecha de sobra.",
+          en: "Two or three days are enough to see the old town, enjoy the beach and go out at night. For a more relaxed pace hopping between coves, a full week is easily worthwhile.",
+          de: "Zwei bis drei Tage reichen, um die Altstadt zu sehen, den Strand zu genießen und abends auszugehen. Für ein entspannteres Tempo von Bucht zu Bucht lohnt sich problemlos eine ganze Woche.",
+          fr: "Deux à trois jours suffisent pour voir la vieille ville, profiter de la plage et sortir le soir. Pour un rythme plus tranquille de crique en crique, une semaine entière se justifie sans peine.",
+          it: "Due o tre giorni bastano per vedere il centro storico, godersi la spiaggia e uscire la sera. Per un ritmo più tranquillo tra una cala e l'altra, una settimana intera vale sicuramente la pena.",
+        },
+      },
+    ],
     readingTime: 12,
   },
   {
@@ -2691,6 +2823,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/outxide/DSCF8230-13.jpg",
     tags: ["nightlife", "alcudia", "mallorca", "outxide"],
     venue: "outxide",
+    faq: [
+      {
+        question: {
+          es: "¿Dónde salir de noche en Alcúdia?",
+          en: "Where can you go out at night in Alcúdia?",
+          de: "Wo kann man in Alcúdia nachts ausgehen?",
+          fr: "Où sortir le soir à Alcúdia ?",
+          it: "Dove uscire la sera ad Alcúdia?",
+        },
+        answer: {
+          es: "En el Port d'Alcúdia se concentra el ambiente: la terraza de Enjoy (Av. Tucán 1) para cócteles de autor y shisha al atardecer, y la discoteca Outxide Club, en la misma dirección, para bailar techno, house y reggaetón con DJs internacionales.",
+          en: "The action is in Port d'Alcúdia: the Enjoy terrace (Av. Tucán 1) for signature cocktails and shisha at sunset, and Outxide Club at the same address for techno, house and reggaeton with international DJs.",
+          de: "Alles spielt sich in Port d'Alcúdia ab: die Enjoy-Terrasse (Av. Tucán 1) für Signature-Cocktails und Shisha bei Sonnenuntergang und der Outxide Club unter derselben Adresse für Techno, House und Reggaeton mit internationalen DJs.",
+          fr: "Tout se passe à Port d'Alcúdia : la terrasse Enjoy (Av. Tucán 1) pour des cocktails signature et la chicha au coucher du soleil, et l'Outxide Club à la même adresse pour techno, house et reggaeton avec des DJs internationaux.",
+          it: "Il cuore della movida è a Port d'Alcúdia: la terrazza Enjoy (Av. Tucán 1) per cocktail d'autore e shisha al tramonto, e l'Outxide Club, allo stesso indirizzo, per techno, house e reggaeton con DJ internazionali.",
+        },
+      },
+      {
+        question: {
+          es: "¿Hasta qué hora hay ambiente de noche en Alcúdia?",
+          en: "How late does the nightlife go in Alcúdia?",
+          de: "Bis wann geht das Nachtleben in Alcúdia?",
+          fr: "Jusqu'à quelle heure dure la vie nocturne à Alcúdia ?",
+          it: "Fino a che ora si fa festa ad Alcúdia?",
+        },
+        answer: {
+          es: "La terraza de Enjoy abre a diario desde las 17:00 para el atardecer y la primera copa. Para seguir de fiesta, Outxide Club abre de jueves a sábado desde las 23:00 y alarga la noche hasta la madrugada.",
+          en: "The Enjoy terrace opens daily from 17:00 for sunset and the first drink. To keep the party going, Outxide Club opens Thursday to Saturday from 23:00 and runs into the early hours.",
+          de: "Die Enjoy-Terrasse öffnet täglich ab 17:00 Uhr für Sonnenuntergang und den ersten Drink. Zum Weiterfeiern öffnet der Outxide Club von Donnerstag bis Samstag ab 23:00 Uhr und geht bis in die frühen Morgenstunden.",
+          fr: "La terrasse Enjoy ouvre tous les jours dès 17h00 pour le coucher du soleil et le premier verre. Pour prolonger la fête, l'Outxide Club ouvre du jeudi au samedi à partir de 23h00 et se poursuit jusqu'au petit matin.",
+          it: "La terrazza Enjoy apre tutti i giorni dalle 17:00 per il tramonto e il primo drink. Per continuare la festa, l'Outxide Club apre da giovedì a sabato dalle 23:00 e va avanti fino a notte fonda.",
+        },
+      },
+      {
+        question: {
+          es: "¿El ambiente de Alcúdia está masificado como Magaluf?",
+          en: "Is Alcúdia as crowded and rowdy as Magaluf?",
+          de: "Ist Alcúdia so überlaufen wie Magaluf?",
+          fr: "L'ambiance d'Alcúdia est-elle aussi bondée que Magaluf ?",
+          it: "Ad Alcúdia c'è la stessa ressa di Magaluf?",
+        },
+        answer: {
+          es: "No. El norte de Mallorca ofrece una noche más selecta y relajada, sin el turismo de excesos de Magaluf. Locales como la terraza de Enjoy y Outxide Club apuestan por un ambiente cuidado, música de calidad y espacio VIP.",
+          en: "No. The north of Mallorca offers a more refined, relaxed night out, without the party-excess tourism of Magaluf. Venues like the Enjoy terrace and Outxide Club focus on a curated atmosphere, quality music and a VIP area.",
+          de: "Nein. Der Norden Mallorcas bietet ein gepflegteres, entspannteres Nachtleben ohne den Exzess-Tourismus von Magaluf. Locations wie die Enjoy-Terrasse und der Outxide Club setzen auf ein stilvolles Ambiente, gute Musik und einen VIP-Bereich.",
+          fr: "Non. Le nord de Majorque offre une nuit plus raffinée et détendue, sans le tourisme d'excès de Magaluf. Des lieux comme la terrasse Enjoy et l'Outxide Club misent sur une ambiance soignée, une musique de qualité et un espace VIP.",
+          it: "No. Il nord di Maiorca offre una serata più ricercata e rilassata, senza il turismo degli eccessi di Magaluf. Locali come la terrazza Enjoy e l'Outxide Club puntano su un'atmosfera curata, musica di qualità e area VIP.",
+        },
+      },
+      {
+        question: {
+          es: "¿Cómo organizar un plan de noche completo en Alcúdia?",
+          en: "How do you plan a full night out in Alcúdia?",
+          de: "Wie plant man einen kompletten Abend in Alcúdia?",
+          fr: "Comment organiser une soirée complète à Alcúdia ?",
+          it: "Come organizzare una serata completa ad Alcúdia?",
+        },
+        answer: {
+          es: "El plan ideal: cena a la brasa en Hiru (Ctra. d'Artà 40), con carnes dry-aged y arroces, reservando por Restoo; sigue con cócteles al atardecer en la terraza de Enjoy; y termina bailando en Outxide Club, con entradas online por FourVenues.",
+          en: "The ideal plan: a grilled dinner at Hiru (Ctra. d'Artà 40), with dry-aged meats and rice dishes, booking via Restoo; then sunset cocktails on the Enjoy terrace; and finish dancing at Outxide Club, with tickets online via FourVenues.",
+          de: "Der ideale Ablauf: ein Grill-Dinner im Hiru (Ctra. d'Artà 40) mit Dry-Aged-Fleisch und Reisgerichten, Reservierung über Restoo; danach Cocktails zum Sonnenuntergang auf der Enjoy-Terrasse; und zum Abschluss Tanzen im Outxide Club, Tickets online über FourVenues.",
+          fr: "Le plan idéal : un dîner à la braise chez Hiru (Ctra. d'Artà 40), avec viandes maturées et riz, en réservant via Restoo ; puis des cocktails au coucher du soleil sur la terrasse Enjoy ; et pour finir, danser à l'Outxide Club, billets en ligne via FourVenues.",
+          it: "Il piano ideale: cena alla brace da Hiru (Ctra. d'Artà 40), con carni dry-aged e risotti, prenotando su Restoo; poi cocktail al tramonto sulla terrazza Enjoy; e per finire si balla all'Outxide Club, biglietti online su FourVenues.",
+        },
+      },
+    ],
     readingTime: 5,
   },
   {
@@ -3117,6 +3315,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/outxide/PIC06225-3.jpg",
     tags: ["nightlife", "alcudia", "mallorca", "clubs"],
     venue: "outxide",
+    faq: [
+      {
+        question: {
+          es: "¿Cuál es la mejor discoteca del norte de Mallorca?",
+          en: "What is the best nightclub in the north of Mallorca?",
+          de: "Was ist der beste Nachtclub im Norden Mallorcas?",
+          fr: "Quelle est la meilleure discothèque du nord de Majorque?",
+          it: "Qual è la migliore discoteca del nord di Maiorca?",
+        },
+        answer: {
+          es: "Outxide Club, en el Port d'Alcúdia, es la referencia de la vida nocturna del norte. Techno, house y reggaetón con DJs internacionales y zona VIP.",
+          en: "Outxide Club, in Port d'Alcúdia, is the benchmark for nightlife in the north. Techno, house and reggaeton with international DJs and a VIP area.",
+          de: "Outxide Club in Port d'Alcúdia ist die Referenz für das Nachtleben im Norden. Techno, House und Reggaeton mit internationalen DJs und VIP-Bereich.",
+          fr: "Outxide Club, à Port d'Alcúdia, est la référence de la vie nocturne du nord. Techno, house et reggaeton avec des DJ internationaux et un espace VIP.",
+          it: "Outxide Club, a Port d'Alcúdia, è il punto di riferimento della vita notturna del nord. Techno, house e reggaeton con DJ internazionali e area VIP.",
+        },
+      },
+      {
+        question: {
+          es: "¿Qué días abre Outxide Club en Alcúdia?",
+          en: "What days is Outxide Club in Alcúdia open?",
+          de: "An welchen Tagen ist der Outxide Club in Alcúdia geöffnet?",
+          fr: "Quels jours le Outxide Club d'Alcúdia est-il ouvert?",
+          it: "Che giorni è aperto l'Outxide Club ad Alcúdia?",
+        },
+        answer: {
+          es: "Outxide abre de jueves a sábado a partir de las 23:00. Es la mejor opción para salir de fiesta el fin de semana en el norte.",
+          en: "Outxide is open Thursday to Saturday from 11 pm. It's the best option for a weekend night out in the north.",
+          de: "Outxide ist von Donnerstag bis Samstag ab 23:00 Uhr geöffnet. Die beste Wahl zum Feiern am Wochenende im Norden.",
+          fr: "Outxide est ouvert du jeudi au samedi à partir de 23h. La meilleure option pour faire la fête le week-end dans le nord.",
+          it: "Outxide è aperto dal giovedì al sabato dalle 23:00. La scelta migliore per uscire nel weekend al nord.",
+        },
+      },
+      {
+        question: {
+          es: "¿Cuál es la edad mínima para entrar a la discoteca?",
+          en: "What is the minimum age to enter the nightclub?",
+          de: "Was ist das Mindestalter für den Einlass in den Club?",
+          fr: "Quel est l'âge minimum pour entrer en discothèque?",
+          it: "Qual è l'età minima per entrare in discoteca?",
+        },
+        answer: {
+          es: "La edad mínima en Outxide Club es 18 años. Lleva siempre un documento de identidad válido para acreditarla en la entrada.",
+          en: "The minimum age at Outxide Club is 18. Always bring valid photo ID to prove your age at the door.",
+          de: "Das Mindestalter im Outxide Club beträgt 18 Jahre. Bring immer einen gültigen Ausweis mit, um es am Eingang nachzuweisen.",
+          fr: "L'âge minimum au Outxide Club est de 18 ans. Munissez-vous toujours d'une pièce d'identité valide pour le prouver à l'entrée.",
+          it: "L'età minima all'Outxide Club è 18 anni. Porta sempre un documento d'identità valido per dimostrarla all'ingresso.",
+        },
+      },
+      {
+        question: {
+          es: "¿Cómo comprar entradas para Outxide Club?",
+          en: "How do I buy tickets for Outxide Club?",
+          de: "Wie kaufe ich Tickets für den Outxide Club?",
+          fr: "Comment acheter des billets pour le Outxide Club?",
+          it: "Come acquistare i biglietti per l'Outxide Club?",
+        },
+        answer: {
+          es: "Las entradas se compran online a través de FourVenues. Reserva con antelación las noches de DJ invitado, ya que suelen agotarse.",
+          en: "Tickets are bought online through FourVenues. Book ahead for guest DJ nights, as they usually sell out.",
+          de: "Tickets gibt es online über FourVenues. Sichere dir für Gast-DJ-Nächte frühzeitig einen Platz, da sie oft ausverkauft sind.",
+          fr: "Les billets s'achètent en ligne via FourVenues. Réservez à l'avance pour les soirées DJ invité, souvent complètes.",
+          it: "I biglietti si acquistano online tramite FourVenues. Prenota in anticipo per le serate con DJ ospite, di solito vanno esaurite.",
+        },
+      },
+    ],
     readingTime: 6,
   },
   {
@@ -4550,6 +4814,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["hiru", "restaurants", "food", "alcudia", "mallorca"],
     venue: "hiru",
+    faq: [
+      {
+        question: {
+          es: "¿Qué tipo de cocina ofrece Hiru?",
+          en: "What kind of cuisine does Hiru serve?",
+          de: "Welche Küche bietet Hiru?",
+          fr: "Quel type de cuisine propose Hiru?",
+          it: "Che tipo di cucina propone Hiru?",
+        },
+        answer: {
+          es: "Hiru es un restaurante a la brasa especializado en carnes dry-aged, arroces y paella de marisco, además de pescado fresco.",
+          en: "Hiru is a charcoal-grill restaurant specialising in dry-aged meats, rice dishes and seafood paella, plus fresh fish.",
+          de: "Hiru ist ein Grillrestaurant, das auf Dry-Aged-Fleisch, Reisgerichte und Meeresfrüchte-Paella sowie frischen Fisch spezialisiert ist.",
+          fr: "Hiru est un restaurant de grillades au feu de bois spécialisé dans les viandes maturées (dry-aged), les riz et la paella de fruits de mer, ainsi que le poisson frais.",
+          it: "Hiru è un ristorante alla brace specializzato in carni dry-aged, risotti e paella di mare, oltre al pesce fresco.",
+        },
+      },
+      {
+        question: {
+          es: "¿Hace falta reservar en Hiru y cómo se hace?",
+          en: "Do I need to book at Hiru, and how?",
+          de: "Muss man bei Hiru reservieren, und wie?",
+          fr: "Faut-il réserver chez Hiru, et comment?",
+          it: "È necessario prenotare da Hiru, e come?",
+        },
+        answer: {
+          es: "Recomendamos reservar, sobre todo en temporada alta. Puedes hacerlo fácilmente online a través de Restoo.",
+          en: "We recommend booking, especially in high season. You can do it easily online through Restoo.",
+          de: "Wir empfehlen eine Reservierung, besonders in der Hochsaison. Ganz einfach online über Restoo.",
+          fr: "Nous recommandons de réserver, surtout en haute saison. Vous pouvez le faire facilement en ligne via Restoo.",
+          it: "Consigliamo di prenotare, soprattutto in alta stagione. Puoi farlo facilmente online tramite Restoo.",
+        },
+      },
+      {
+        question: {
+          es: "¿Dónde está Hiru?",
+          en: "Where is Hiru located?",
+          de: "Wo befindet sich Hiru?",
+          fr: "Où se trouve Hiru?",
+          it: "Dove si trova Hiru?",
+        },
+        answer: {
+          es: "Hiru está en la Ctra. d'Artà 40, en Port d'Alcúdia, al norte de Mallorca.",
+          en: "Hiru is at Ctra. d'Artà 40, in Port d'Alcúdia, in the north of Mallorca.",
+          de: "Hiru liegt an der Ctra. d'Artà 40 in Port d'Alcúdia, im Norden Mallorcas.",
+          fr: "Hiru se situe Ctra. d'Artà 40, à Port d'Alcúdia, dans le nord de Majorque.",
+          it: "Hiru si trova in Ctra. d'Artà 40, a Port d'Alcúdia, nel nord di Maiorca.",
+        },
+      },
+      {
+        question: {
+          es: "¿Qué es la carne dry-aged de Hiru?",
+          en: "What is Hiru's dry-aged meat?",
+          de: "Was ist das Dry-Aged-Fleisch von Hiru?",
+          fr: "Qu'est-ce que la viande dry-aged de Hiru?",
+          it: "Cos'è la carne dry-aged di Hiru?",
+        },
+        answer: {
+          es: "Es carne madurada en seco durante semanas para intensificar su sabor y ternura, y luego cocinada a la brasa.",
+          en: "It is meat dry-aged for weeks to intensify its flavour and tenderness, then cooked over charcoal.",
+          de: "Es ist Fleisch, das wochenlang trocken gereift wird, um Geschmack und Zartheit zu intensivieren, und dann über Holzkohle gegrillt wird.",
+          fr: "C'est une viande maturée à sec pendant plusieurs semaines pour intensifier sa saveur et sa tendreté, puis cuite à la braise.",
+          it: "È carne maturata a secco per settimane per intensificarne sapore e tenerezza, poi cotta alla brace.",
+        },
+      },
+    ],
     readingTime: 8,
   },
   {
@@ -4711,6 +5041,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
     tags: ["enjoy", "cocktails", "shisha", "terrace", "alcudia"],
     venue: "enjoy",
+    faq: [
+      {
+        question: {
+          es: "¿Qué horario tiene Enjoy Terrace?",
+          en: "What are Enjoy Terrace's opening hours?",
+          de: "Welche Öffnungszeiten hat die Enjoy Terrace?",
+          fr: "Quels sont les horaires d'Enjoy Terrace ?",
+          it: "Quali sono gli orari di Enjoy Terrace?",
+        },
+        answer: {
+          es: "Enjoy Terrace abre a diario desde las 17:00, el momento ideal para llegar a tiempo al atardecer con un cóctel.",
+          en: "Enjoy Terrace opens daily from 17:00, the perfect time to arrive for sunset with a cocktail.",
+          de: "Die Enjoy Terrace öffnet täglich ab 17:00 Uhr – perfekt, um rechtzeitig zum Sonnenuntergang mit einem Cocktail da zu sein.",
+          fr: "Enjoy Terrace ouvre tous les jours à partir de 17h00, le moment idéal pour arriver au coucher du soleil avec un cocktail.",
+          it: "Enjoy Terrace apre tutti i giorni dalle 17:00, il momento ideale per arrivare al tramonto con un cocktail.",
+        },
+      },
+      {
+        question: {
+          es: "¿Hace falta reservar en Enjoy Terrace?",
+          en: "Do I need to book at Enjoy Terrace?",
+          de: "Muss man in der Enjoy Terrace reservieren?",
+          fr: "Faut-il réserver à Enjoy Terrace ?",
+          it: "È necessario prenotare a Enjoy Terrace?",
+        },
+        answer: {
+          es: "No es imprescindible, pero en verano y a la hora del atardecer se recomienda reservar mesa en la terraza para asegurar sitio.",
+          en: "It's not essential, but in summer and around sunset we recommend booking a table on the terrace to be sure of a spot.",
+          de: "Nicht zwingend, aber im Sommer und zur Sonnenuntergangszeit empfehlen wir, einen Tisch auf der Terrasse zu reservieren.",
+          fr: "Ce n'est pas indispensable, mais en été et à l'heure du coucher du soleil, nous conseillons de réserver une table en terrasse.",
+          it: "Non è indispensabile, ma in estate e all'ora del tramonto consigliamo di prenotare un tavolo in terrazza.",
+        },
+      },
+      {
+        question: {
+          es: "¿Qué ofrece Enjoy Terrace?",
+          en: "What does Enjoy Terrace offer?",
+          de: "Was bietet die Enjoy Terrace?",
+          fr: "Que propose Enjoy Terrace ?",
+          it: "Cosa offre Enjoy Terrace?",
+        },
+        answer: {
+          es: "Cócteles de autor y shisha premium en una terraza con el mejor ambiente y atardecer de Port d'Alcúdia.",
+          en: "Signature cocktails and premium shisha on a terrace with the best atmosphere and sunset in Port d'Alcúdia.",
+          de: "Signature-Cocktails und Premium-Shisha auf einer Terrasse mit dem besten Ambiente und Sonnenuntergang in Port d'Alcúdia.",
+          fr: "Des cocktails signature et de la chicha premium sur une terrasse avec la meilleure ambiance et le plus beau coucher de soleil de Port d'Alcúdia.",
+          it: "Cocktail d'autore e shisha premium su una terrazza con la migliore atmosfera e il tramonto più bello di Port d'Alcúdia.",
+        },
+      },
+      {
+        question: {
+          es: "¿Dónde está Enjoy Terrace?",
+          en: "Where is Enjoy Terrace located?",
+          de: "Wo befindet sich die Enjoy Terrace?",
+          fr: "Où se trouve Enjoy Terrace ?",
+          it: "Dove si trova Enjoy Terrace?",
+        },
+        answer: {
+          es: "En la Av. Tucán 1, Port d'Alcúdia, la misma ubicación que Outxide Club.",
+          en: "At Av. Tucán 1, Port d'Alcúdia, the same location as Outxide Club.",
+          de: "In der Av. Tucán 1, Port d'Alcúdia, am selben Standort wie der Outxide Club.",
+          fr: "Av. Tucán 1, Port d'Alcúdia, au même endroit que l'Outxide Club.",
+          it: "In Av. Tucán 1, Port d'Alcúdia, nella stessa sede dell'Outxide Club.",
+        },
+      },
+    ],
     readingTime: 7,
   },
   {
