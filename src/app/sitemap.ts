@@ -22,6 +22,37 @@ const LAST_UPDATED = {
 
 const baseUrl = "https://www.grupoenjoy.es";
 
+// Vídeos hero de cada local para la EXTENSIÓN DE VÍDEO del sitemap (Google Video).
+// Sin esto Google no los descubre (tenían VideoObject en la página pero 0
+// impresiones de vídeo). Coincide con VenueVideoJsonLd en components/seo/json-ld.tsx.
+type SitemapVideo = NonNullable<MetadataRoute.Sitemap[number]["videos"]>[number];
+const VENUE_VIDEOS: Record<string, SitemapVideo> = {
+  "/enjoy": {
+    title: "Enjoy Terrace — Cócteles & Shisha en Port d'Alcúdia",
+    thumbnail_loc: `${baseUrl}/videos/enjoy-hero-poster.jpg`,
+    description:
+      "Ambiente de cócteles al atardecer en Enjoy Terrace, terraza premium de cócteles y shisha en Port d'Alcúdia, Mallorca. Abierto a diario desde las 17:00.",
+    content_loc: `${baseUrl}/videos/enjoy-hero.mp4`,
+    player_loc: `${baseUrl}/enjoy`,
+  },
+  "/outxide": {
+    title: "Outxide Club — Discoteca en Port d'Alcúdia, Mallorca",
+    thumbnail_loc: `${baseUrl}/videos/outxide-hero-poster.jpg`,
+    description:
+      "La energía de Outxide Club, la discoteca de referencia del norte de Mallorca: DJs internacionales, servicio VIP y noches inolvidables en Port d'Alcúdia.",
+    content_loc: `${baseUrl}/videos/outxide-hero.mp4`,
+    player_loc: `${baseUrl}/outxide`,
+  },
+  "/hiru": {
+    title: "Hiru Food & Drinks — Restaurante a la brasa en Alcúdia, Mallorca",
+    thumbnail_loc: `${baseUrl}/videos/hiru-hero-poster.jpg`,
+    description:
+      "Hiru Food & Drinks, restaurante mediterráneo a la brasa en Alcúdia, Mallorca: carnes maduradas, paella de marisco fresco y un ambiente vibrante.",
+    content_loc: `${baseUrl}/videos/hiru-hero.mp4`,
+    player_loc: `${baseUrl}/hiru`,
+  },
+};
+
 /** Alternates hreflang de una ruta: un idioma por URL + x-default en español. */
 function languageAlternates(path: string): { languages: Record<string, string> } {
   const base = path === "" ? "/" : path;
@@ -43,12 +74,14 @@ function entry(
   changeFrequency: "daily" | "weekly" | "monthly",
   priority: number,
 ): MetadataRoute.Sitemap[number] {
+  const video = VENUE_VIDEOS[path];
   return {
     url: path === "" ? baseUrl : `${baseUrl}${path}`,
     lastModified,
     changeFrequency,
     priority,
     alternates: languageAlternates(path),
+    ...(video ? { videos: [video] } : {}),
   };
 }
 

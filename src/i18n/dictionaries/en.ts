@@ -2,33 +2,33 @@ import type { Dictionary } from "./es";
 
 export const en: Dictionary = {
   meta: {
-    title: "Grupo Enjoy | Cocktail Bar, Club & Restaurant in Alcudia",
+    title: "Grupo Enjoy — Cocktails, Club & Grill, Port d'Alcúdia",
     description:
-      "Three unique experiences in Alcudia, Mallorca: Enjoy Terrace (cocktails & shisha), Outxide Club (nightclub) and Hiru Food & Drinks (grill restaurant).",
+      "Official site of Grupo Enjoy in Port d'Alcúdia, north Mallorca: cocktails & shisha at Enjoy, clubbing at Outxide, grill dining at Hiru. Book online.",
     keywords:
       "grupo enjoy, cocktail bar alcudia, nightclub alcudia, restaurant alcudia, enjoy terrace, outxide club, hiru food drinks, nightlife mallorca, things to do alcudia",
-    ogTitle: "Grupo Enjoy | Cocktail Bar, Club & Restaurant in Alcudia",
+    ogTitle: "Grupo Enjoy — Cocktails, Club & Grill in Port d'Alcúdia",
     ogDescription:
-      "Enjoy Terrace, Outxide Club and Hiru Food & Drinks — three unique venues in Alcudia, Mallorca.",
-    enjoyTitle: "Enjoy Terrace — Cocktails & Shisha in Port d'Alcúdia",
+      "Cocktails, clubbing and charcoal grill in Port d'Alcúdia, Mallorca: Enjoy Terrace, Outxide Club and Hiru. Your perfect night out starts here.",
+    enjoyTitle: "Enjoy Terrace — Cocktail Bar & Shisha, Alcúdia",
     enjoyDescription:
-      "Enjoy Terrace: cocktail terrace and sunset drinks in Port d'Alcúdia, Mallorca. Signature cocktails, premium shisha and the best sunset views. Open daily from 17:00. Official website.",
+      "Official Enjoy Terrace in Port d'Alcúdia, Mallorca. Signature cocktails, premium shisha and sunset drinks on the best terrace. Open daily from 17:00.",
     enjoyOgDescription:
-      "Where nights begin. Signature cocktails and premium shisha on the best terrace in Alcudia.",
+      "Where nights begin. Signature cocktails & premium shisha on Port d'Alcúdia's best terrace. Open daily from 17:00.",
     enjoyKeywords:
       "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, sunset drinks mallorca, cocktail bar port alcudia, lounge bar mallorca, terrace bar alcudia, shisha bar alcudia, best cocktails alcudia, sunset terrace mallorca, drinks port alcudia, best bars port alcudia",
-    outxideTitle: "Outxide Club — Nightclub in Port d'Alcúdia, Mallorca",
+    outxideTitle: "Outxide Club — Nightclub in Port d'Alcúdia",
     outxideDescription:
-      "Outxide Club: nightclub in Port d'Alcúdia, Mallorca. Techno, house and reggaeton sessions with international DJs. Buy tickets online. Official website.",
+      "Outxide Club, the nightclub in Port d'Alcúdia, north Mallorca. Techno, house & reggaeton with international DJs. Buy tickets online or book a VIP table.",
     outxideOgDescription:
-      "The night continues. Nightclub in Alcudia. Online tickets via FourVenues.",
+      "The night continues. Nightclub in Port d'Alcúdia — techno, house & reggaeton. Tickets online.",
     outxideKeywords:
       "outxide club, outxide club alcudia, outxide alcudia, nightclub alcudia, club alcudia mallorca, techno mallorca, house mallorca, party alcudia, nightlife alcudia, outxide tickets, disco alcudia mallorca, best clubs alcudia, DJ night alcudia, weekend nightlife alcudia, night out alcudia, best nightclub mallorca",
-    hiruTitle: "Hiru Food & Drinks — Grill Restaurant in Alcudia",
+    hiruTitle: "Hiru Food & Drinks — Grill Restaurant, Alcúdia",
     hiruDescription:
-      "Hiru Food & Drinks: grill restaurant in Port d'Alcúdia, Mallorca. Seafood paella, dry-aged meats, fresh fish and Mediterranean rice dishes. Menu and reservations. Official website.",
+      "Charcoal-grill restaurant in Port d'Alcúdia, Mallorca. Seafood paella, dry-aged meats and fresh fish, open daily except Tuesday. Book your table online.",
     hiruOgDescription:
-      "Produce, tradition and flavour. Mallorcan charcoal grill cuisine in Alcudia.",
+      "Charcoal grill in Port d'Alcúdia. Dry-aged meats, seafood paella, fresh fish. Book a table.",
     hiruKeywords:
       "hiru food drinks, hiru food and drinks, hiru alcudia, restaurant alcudia, grill restaurant alcudia, paella alcudia, restaurant port alcudia, eating in alcudia, restaurant mallorca, hiru restaurant, mediterranean restaurant alcudia, where to eat alcudia, dinner alcudia, late dinner alcudia, charcoal grill mallorca",
     aboutTitle: "About Us — Dining, Nightlife & Cocktails in Alcudia",
@@ -46,11 +46,11 @@ export const en: Dictionary = {
       "Answers to frequently asked questions about Enjoy Terrace, Outxide Club and Hiru Food & Drinks. Opening hours, reservations, location and more.",
     faqOgDescription:
       "Grupo Enjoy FAQ: everything you need to know about our venues in Alcudia.",
-    blogTitle: "Blog — Nightlife, Restaurants & Things to Do in Alcudia",
+    blogTitle: "Alcúdia Guide — Nightlife, Bars & Restaurants",
     blogDescription:
-      "Guides, news and tips on nightlife, dining and leisure in Alcudia, Mallorca. Enjoy Terrace, Outxide Club and Hiru Food & Drinks.",
+      "Insider guides to nightlife, restaurants and things to do in Port d'Alcúdia, Mallorca. Tips on the best bars, clubs, food and summer events.",
     blogOgDescription:
-      "Grupo Enjoy blog: guides and news on leisure and dining in Alcudia.",
+      "Insider guides to nightlife, restaurants and things to do in Port d'Alcúdia, Mallorca.",
   },
   common: {
     location: "Alcudia, Mallorca",

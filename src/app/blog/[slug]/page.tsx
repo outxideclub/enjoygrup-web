@@ -75,7 +75,9 @@ export default async function BlogPostPage({ params }: Props) {
   const content = sanitizeHtml(rawContent);
   const excerpt = getPostText(post.excerpt, blogLocale);
 
-  const relatedPosts = getRelatedPosts(slug, 3);
+  // 6 relacionados (antes 3): duplica los enlaces internos por post, lo que
+  // reparte más equity y rescata los posts casi huérfanos (mejora indexación).
+  const relatedPosts = getRelatedPosts(slug, 6);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -332,7 +334,7 @@ export default async function BlogPostPage({ params }: Props) {
                 return (
                   <Link
                     key={rp.slug}
-                    href={`/blog/${rp.slug}`}
+                    href={localizedPath(`/blog/${rp.slug}`, locale)}
                     className={`group glass-card rounded-2xl overflow-hidden border ${borderColor} transition-all duration-300 hover:scale-[1.02] flex flex-col`}
                   >
                     <div className="relative h-40 overflow-hidden">
