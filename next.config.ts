@@ -40,6 +40,23 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // 301 de posts de blog consolidados (evita canibalización; preserva el equity
+  // del enlazado externo hacia el hub más fuerte de cada par). Cubre también las
+  // rutas por idioma (/en, /de, /fr, /it).
+  async redirects() {
+    const consolidations: [string, string][] = [
+      ["mejores-restaurantes-alcudia", "mejores-restaurantes-alcudia-mallorca"],
+      ["planes-alcudia-mallorca", "que-hacer-alcudia-mallorca"],
+    ];
+    return consolidations.flatMap(([from, to]) => [
+      { source: `/blog/${from}`, destination: `/blog/${to}`, permanent: true },
+      {
+        source: `/:lang(en|de|fr|it)/blog/${from}`,
+        destination: `/:lang/blog/${to}`,
+        permanent: true,
+      },
+    ]);
+  },
   async headers() {
     return [
       {

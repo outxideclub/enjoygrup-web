@@ -1904,246 +1904,6 @@ export const blogPosts: BlogPost[] = [
     readingTime: 5,
   },
   {
-    slug: "mejores-restaurantes-alcudia",
-    title: {
-      es: "Los Mejores Restaurantes de Alcúdia: Dónde Comer en 2026",
-      en: "Best Restaurants in Alcudia: Where to Eat in 2026",
-      de: "Die besten Restaurants in Alcudia: Wo man 2026 essen geht",
-      fr: "Les Meilleurs Restaurants d'Alcudia : Ou Manger en 2026",
-      it: "I Migliori Ristoranti di Alcudia: Dove Mangiare nel 2026",
-    },
-    excerpt: {
-      es: "Descubre dónde comer en Alcúdia y Port d'Alcúdia: desde cocina mallorquina a la brasa hasta arroces de lonja, carnes maduradas y gastronomía mediterránea.",
-      en: "Discover where to eat in Alcudia and Port d'Alcudia: from Mallorcan charcoal grill cuisine to fresh-catch rice dishes, aged meats and Mediterranean gastronomy.",
-      de: "Entdecke, wo man in Alcudia und Port d'Alcudia essen geht: von mallorquinischer Grillküche über frische Reisgerichte vom Fischmarkt bis zu gereiftem Fleisch und mediterraner Gastronomie.",
-      fr: "Decouvrez ou manger a Alcudia et Port d'Alcudia : de la cuisine majorquine au grill jusqu'aux riz de la criee, viandes maturees et gastronomie mediterraneenne.",
-      it: "Scopri dove mangiare ad Alcudia e Port d'Alcudia: dalla cucina maiorchina alla brace ai risi di pesce fresco, carni frollate e gastronomia mediterranea.",
-    },
-    content: {
-      es: `<p>Alcúdia no es solo playa y vida nocturna. La oferta gastronómica de Port d'Alcúdia y su casco antiguo ha madurado hasta convertirse en una de las más interesantes del norte de Mallorca. Desde cocina tradicional mallorquina hasta propuestas de autor a la brasa, aquí encontrarás dónde comer bien sea cual sea tu estilo.</p>
-
-<h2>Hiru Food &amp; Drinks: la referencia en cocina a la brasa</h2>
-<p>En Ctra. d'Artà 40, Port d'Alcúdia, <a href="/hiru">Hiru Food &amp; Drinks</a> se ha convertido en el restaurante de referencia para quienes buscan una experiencia gastronómica completa. Su cocina se basa en la brasa de carbón con producto fresco: carnes maduradas seleccionadas, arroces elaborados con pescado y marisco de la lonja local, y pescados del Mediterráneo cocinados al punto perfecto.</p>
-
-<h3>Lo que hace especial a Hiru</h3>
-<ul>
-<li><strong>Carnes maduradas a la brasa:</strong> selección de cortes premium cocinados sobre carbón de leña, con texturas y sabores que solo el fuego real consigue</li>
-<li><strong>Arroces de lonja:</strong> preparados con el pescado y marisco fresco del día, desde arroces caldosos hasta paellas de marisco</li>
-<li><strong>Pescados del Mediterráneo:</strong> lubina, dorada y capturas locales a la parrilla, servidos con guarniciones de temporada</li>
-<li><strong>Cócteles de autor:</strong> la experiencia no termina con el postre. Hiru ofrece una carta de cocktails para alargar la velada</li>
-</ul>
-
-<h3>Datos prácticos</h3>
-<ul>
-<li><strong>Horario:</strong> 12:00 a 23:30 (viernes y sábado hasta la 1:00). Martes cerrado</li>
-<li><strong>Dirección:</strong> Ctra. d'Artà, 40, Port d'Alcúdia</li>
-<li><strong>Valoración:</strong> 4.9/5 en Google (132 opiniones)</li>
-<li><strong>Reservas:</strong> recomendable, especialmente fines de semana. Online o al 971 853 932</li>
-</ul>
-
-<h2>Cocina mallorquina: platos que debes probar</h2>
-<p>Si visitas Alcúdia, hay platos que no puedes dejar de probar. La gastronomía de la isla se basa en producto local, sabores intensos y recetas transmitidas de generación en generación.</p>
-<ul>
-<li><strong>Pa amb oli:</strong> pan rústico con tomate ramallet, aceite de oliva y acompañamiento de jamón, queso o sobrasada</li>
-<li><strong>Tumbet:</strong> la versión mallorquina del ratatouille, con patata, berenjena y pimiento</li>
-<li><strong>Arròs brut:</strong> arroz caldoso con carnes, verduras y especias</li>
-<li><strong>Sobrasada:</strong> el embutido emblemático de Mallorca, perfecto untado en pan caliente</li>
-</ul>
-
-<h2>Restaurantes junto al mar</h2>
-<p>El paseo marítimo de Port d'Alcúdia ofrece restaurantes con vistas al agua donde disfrutar de pescado fresco, paella y cocina mediterránea. La brisa marina y las puestas de sol elevan cualquier cena. El puerto deportivo también alberga opciones más informales, ideales para comidas casuales.</p>
-
-<h2>Cenar hasta tarde y conectar con la noche</h2>
-<p>Una de las grandes ventajas de Alcúdia es que varios restaurantes mantienen horarios amplios, especialmente en verano. Hiru Food &amp; Drinks sirve cenas hasta las 23:30 entre semana y hasta la 1:00 los fines de semana, lo que permite una transición natural hacia el ocio nocturno. Después de cenar, <a href="/enjoy">Enjoy Terrace</a> está a pocos minutos para cócteles y shisha, y <a href="/outxide">Outxide Club</a> para quienes quieran bailar hasta el amanecer.</p>
-
-<h2>Consejos para comer bien en Alcúdia</h2>
-<ul>
-<li>Reserva con antelación en temporada alta, especialmente viernes y sábados</li>
-<li>Pregunta siempre por el pescado del día y el producto de temporada</li>
-<li>Los arroces suelen requerir un pedido mínimo de dos personas</li>
-<li>No te limites a la primera línea: explora el casco antiguo dentro de las murallas medievales</li>
-</ul>`,
-      en: `<p>Alcudia is much more than beach and nightlife. The dining scene in Port d'Alcudia and its old town has matured into one of the most compelling in northern Mallorca. From traditional Mallorcan cooking to signature charcoal grill cuisine, you will find great places to eat whatever your style.</p>
-
-<h2>Hiru Food &amp; Drinks: the benchmark for grill cuisine</h2>
-<p>At Ctra. d'Arta 40, Port d'Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> has become the go-to restaurant for those seeking a complete gastronomic experience. The kitchen centres on charcoal grill cooking with fresh produce: hand-selected aged meats, rice dishes made with fish and shellfish from the local market, and Mediterranean fish cooked to perfection.</p>
-
-<h3>What makes Hiru special</h3>
-<ul>
-<li><strong>Aged meats on the grill:</strong> premium cuts cooked over wood-fired charcoal, delivering textures and flavours only real fire can achieve</li>
-<li><strong>Market-fresh rice dishes:</strong> prepared with the day's freshest fish and shellfish, from brothy rice to seafood paella</li>
-<li><strong>Mediterranean fish:</strong> sea bass, sea bream and local catches grilled and served with seasonal garnishes</li>
-<li><strong>Signature cocktails:</strong> the experience does not end at dessert. Hiru offers a cocktail menu for those who want to linger</li>
-</ul>
-
-<h3>Practical details</h3>
-<ul>
-<li><strong>Hours:</strong> 12:00 to 23:30 (Friday and Saturday until 1:00). Tuesday closed</li>
-<li><strong>Address:</strong> Ctra. d'Arta, 40, Port d'Alcudia</li>
-<li><strong>Rating:</strong> 4.9/5 on Google (132 reviews)</li>
-<li><strong>Reservations:</strong> recommended, especially at weekends. Book online or call 971 853 932</li>
-</ul>
-
-<h2>Mallorcan cuisine: dishes you must try</h2>
-<p>If you are visiting Alcudia, certain dishes are not to be missed. The island's gastronomy is built on local produce, bold flavours and recipes handed down through generations.</p>
-<ul>
-<li><strong>Pa amb oli:</strong> rustic bread with ramallet tomato, olive oil and accompaniments of ham, cheese or sobrasada</li>
-<li><strong>Tumbet:</strong> Mallorca's version of ratatouille with potato, aubergine and pepper</li>
-<li><strong>Arros brut:</strong> a hearty rice broth with mixed meats, vegetables and spices</li>
-<li><strong>Sobrasada:</strong> Mallorca's iconic cured sausage, perfect spread on warm bread</li>
-</ul>
-
-<h2>Restaurants by the sea</h2>
-<p>Port d'Alcudia's promenade offers restaurants with waterfront views serving fresh fish, paella and Mediterranean cuisine. The sea breeze and sunsets elevate any dinner. The marina area also has more informal options, ideal for casual lunches.</p>
-
-<h2>Late dining and connecting with the nightlife</h2>
-<p>One of Alcudia's great advantages is that several restaurants keep extended hours, especially in summer. Hiru Food &amp; Drinks serves dinner until 23:30 on weekdays and until 1:00 at weekends, allowing a natural transition into nightlife. After dinner, <a href="/enjoy">Enjoy Terrace</a> is minutes away for cocktails and shisha, and <a href="/outxide">Outxide Club</a> awaits those who want to dance until sunrise.</p>
-
-<h2>Tips for eating well in Alcudia</h2>
-<ul>
-<li>Book ahead during peak season, especially Fridays and Saturdays</li>
-<li>Always ask about the catch of the day and seasonal produce</li>
-<li>Rice dishes usually require a minimum order for two</li>
-<li>Do not limit yourself to the seafront: explore the old town within the medieval walls</li>
-</ul>`,
-      de: `<p>Alcudia ist nicht nur Strand und Nachtleben. Die Gastronomieszene in Port d'Alcudia und der Altstadt hat sich zu einer der spannendsten im Norden Mallorcas entwickelt. Von traditioneller mallorquinischer Küche bis zu Signature-Grillgerichten -- hier findest du großartige Restaurants, egal welchen Stil du bevorzugst.</p>
-
-<h2>Hiru Food &amp; Drinks: die Referenz für Grillküche</h2>
-<p>In der Ctra. d'Artà 40, Port d'Alcudia, hat sich <a href="/hiru">Hiru Food &amp; Drinks</a> zum Referenzrestaurant für alle entwickelt, die ein komplettes gastronomisches Erlebnis suchen. Die Küche basiert auf Holzkohlegrill mit frischen Zutaten: ausgewähltes gereiftes Fleisch, Reisgerichte mit Fisch und Meeresfrüchten vom lokalen Markt und mediterrane Fische, perfekt auf den Punkt gegart.</p>
-
-<h3>Was Hiru besonders macht</h3>
-<ul>
-<li><strong>Gereiftes Fleisch vom Grill:</strong> Premium-Stücke über Holzkohle gegrillt, mit Texturen und Aromen, die nur echtes Feuer erzeugen kann</li>
-<li><strong>Reisgerichte vom Fischmarkt:</strong> zubereitet mit dem tagesfrischen Fisch und Meeresfrüchten, von brühartigen Reisgerichten bis zur Meeresfrüchte-Paella</li>
-<li><strong>Mediterrane Fische:</strong> Wolfsbarsch, Dorade und lokale Tagesfänge gegrillt und mit saisonalen Beilagen serviert</li>
-<li><strong>Signature-Cocktails:</strong> das Erlebnis endet nicht beim Dessert. Hiru bietet eine Cocktailkarte, um den Abend zu verlängern</li>
-</ul>
-
-<h3>Praktische Infos</h3>
-<ul>
-<li><strong>Öffnungszeiten:</strong> 12:00 bis 23:30 Uhr (Freitag und Samstag bis 1:00 Uhr). Dienstag geschlossen</li>
-<li><strong>Adresse:</strong> Ctra. d'Artà, 40, Port d'Alcudia</li>
-<li><strong>Bewertung:</strong> 4.9/5 bei Google (132 Bewertungen)</li>
-<li><strong>Reservierung:</strong> empfohlen, besonders am Wochenende. Online oder unter 971 853 932</li>
-</ul>
-
-<h2>Mallorquinische Küche: Gerichte, die du probieren musst</h2>
-<p>Wenn du Alcudia besuchst, gibt es Gerichte, die du auf keinen Fall verpassen solltest. Die Gastronomie der Insel basiert auf lokalen Produkten, intensiven Aromen und Rezepten, die von Generation zu Generation weitergegeben werden.</p>
-<ul>
-<li><strong>Pa amb oli:</strong> rustikales Brot mit Ramallet-Tomate, Olivenöl und Beilagen wie Schinken, Käse oder Sobrasada</li>
-<li><strong>Tumbet:</strong> die mallorquinische Version des Ratatouille mit Kartoffel, Aubergine und Paprika</li>
-<li><strong>Arros brut:</strong> ein herzhafter Reis-Eintopf mit verschiedenen Fleischsorten, Gemüse und Gewürzen</li>
-<li><strong>Sobrasada:</strong> die legendäre mallorquinische Rohwurst, perfekt auf warmem Brot gestrichen</li>
-</ul>
-
-<h2>Restaurants am Meer</h2>
-<p>Die Strandpromenade von Port d'Alcudia bietet Restaurants mit Blick aufs Wasser, wo du frischen Fisch, Paella und mediterrane Küche genießen kannst. Die Meeresbrise und die Sonnenuntergänge machen jedes Abendessen zu etwas Besonderem. Der Yachthafen bietet auch ungezwungenere Optionen, ideal für ein lockeres Mittagessen.</p>
-
-<h2>Spät essen und ins Nachtleben eintauchen</h2>
-<p>Einer der großen Vorteile von Alcudia ist, dass viele Restaurants großzügige Öffnungszeiten haben, besonders im Sommer. Hiru Food &amp; Drinks serviert unter der Woche bis 23:30 Uhr und am Wochenende bis 1:00 Uhr -- das ermöglicht einen natürlichen Übergang ins Nachtleben. Nach dem Abendessen ist die <a href="/enjoy">Enjoy Terrace</a> nur wenige Minuten entfernt für Cocktails und Shisha, und der <a href="/outxide">Outxide Club</a> wartet auf alle, die bis zum Morgengrauen tanzen wollen.</p>
-
-<h2>Tipps für gutes Essen in Alcudia</h2>
-<ul>
-<li>Reserviere in der Hochsaison rechtzeitig, besonders freitags und samstags</li>
-<li>Frag immer nach dem Tagesfang und saisonalen Produkten</li>
-<li>Reisgerichte erfordern in der Regel eine Mindestbestellung für zwei Personen</li>
-<li>Beschränke dich nicht auf die erste Reihe am Meer: erkunde die Altstadt innerhalb der mittelalterlichen Mauern</li>
-</ul>`,
-      fr: `<p>Alcudia ne se resume pas a la plage et a la vie nocturne. L'offre gastronomique de Port d'Alcudia et de sa vieille ville a muri jusqu'a devenir l'une des plus interessantes du nord de Majorque. De la cuisine traditionnelle majorquine aux propositions d'auteur au grill, vous trouverez ici ou bien manger quel que soit votre style.</p>
-
-<h2>Hiru Food &amp; Drinks : la reference de la cuisine au grill</h2>
-<p>Au Ctra. d'Arta 40, Port d'Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> s'est impose comme le restaurant de reference pour ceux qui recherchent une experience gastronomique complete. Sa cuisine repose sur la braise au charbon de bois avec des produits frais : viandes maturees selectionnees, riz prepares avec du poisson et des fruits de mer de la criee locale, et poissons de Mediterranee cuits a la perfection.</p>
-
-<h3>Ce qui rend Hiru special</h3>
-<ul>
-<li><strong>Viandes maturees au grill :</strong> selection de pieces premium cuites sur charbon de bois, avec des textures et saveurs que seul le feu veritable permet d'obtenir</li>
-<li><strong>Riz de la criee :</strong> prepares avec le poisson et les fruits de mer frais du jour, des riz en bouillon aux paellas de fruits de mer</li>
-<li><strong>Poissons de Mediterranee :</strong> bar, dorade et prises locales grillees, servis avec des garnitures de saison</li>
-<li><strong>Cocktails signatures :</strong> l'experience ne s'arrete pas au dessert. Hiru propose une carte de cocktails pour prolonger la soiree</li>
-</ul>
-
-<h3>Informations pratiques</h3>
-<ul>
-<li><strong>Horaires :</strong> 12h00 a 23h30 (vendredi et samedi jusqu'a 1h00). Ferme le mardi</li>
-<li><strong>Adresse :</strong> Ctra. d'Arta, 40, Port d'Alcudia</li>
-<li><strong>Note :</strong> 4.9/5 sur Google (132 avis)</li>
-<li><strong>Reservations :</strong> recommandees, surtout le week-end. En ligne ou au 971 853 932</li>
-</ul>
-
-<h2>Cuisine majorquine : les plats a ne pas manquer</h2>
-<p>Si vous visitez Alcudia, certains plats sont incontournables. La gastronomie de l'ile repose sur des produits locaux, des saveurs intenses et des recettes transmises de generation en generation.</p>
-<ul>
-<li><strong>Pa amb oli :</strong> pain rustique avec tomate ramallet, huile d'olive et accompagnement de jambon, fromage ou sobrasada</li>
-<li><strong>Tumbet :</strong> la version majorquine de la ratatouille, avec pomme de terre, aubergine et poivron</li>
-<li><strong>Arros brut :</strong> riz en bouillon avec viandes, legumes et epices</li>
-<li><strong>Sobrasada :</strong> la charcuterie emblematique de Majorque, parfaite tartinee sur du pain chaud</li>
-</ul>
-
-<h2>Restaurants en bord de mer</h2>
-<p>La promenade maritime de Port d'Alcudia offre des restaurants avec vue sur l'eau ou deguster du poisson frais, de la paella et de la cuisine mediterraneenne. La brise marine et les couchers de soleil subliment n'importe quel diner. Le port de plaisance abrite egalement des options plus informelles, ideales pour des repas decontractes.</p>
-
-<h2>Diner tard et enchainer avec la nuit</h2>
-<p>L'un des grands avantages d'Alcudia est que plusieurs restaurants maintiennent des horaires etendus, surtout en ete. Hiru Food &amp; Drinks sert le diner jusqu'a 23h30 en semaine et jusqu'a 1h00 le week-end, ce qui permet une transition naturelle vers les loisirs nocturnes. Apres le diner, <a href="/enjoy">Enjoy Terrace</a> est a quelques minutes pour des cocktails et une chicha, et <a href="/outxide">Outxide Club</a> pour ceux qui veulent danser jusqu'a l'aube.</p>
-
-<h2>Conseils pour bien manger a Alcudia</h2>
-<ul>
-<li>Reservez a l'avance en haute saison, surtout les vendredis et samedis</li>
-<li>Demandez toujours le poisson du jour et les produits de saison</li>
-<li>Les riz necessitent generalement une commande minimum pour deux personnes</li>
-<li>Ne vous limitez pas au front de mer : explorez la vieille ville dans l'enceinte des remparts medievaux</li>
-</ul>`,
-      it: `<p>Alcudia non e' solo spiaggia e vita notturna. L'offerta gastronomica di Port d'Alcudia e del suo centro storico e' maturata fino a diventare una delle piu' interessanti del nord di Maiorca. Dalla cucina tradizionale maiorchina alle proposte d'autore alla brace, qui troverai dove mangiare bene qualunque sia il tuo stile.</p>
-
-<h2>Hiru Food &amp; Drinks: il riferimento nella cucina alla brace</h2>
-<p>In Ctra. d'Arta 40, Port d'Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> e' diventato il ristorante di riferimento per chi cerca un'esperienza gastronomica completa. La sua cucina si basa sulla brace a carbone con prodotto fresco: carni frollate selezionate, risi elaborati con pesce e frutti di mare del mercato locale, e pesci del Mediterraneo cotti alla perfezione.</p>
-
-<h3>Cosa rende speciale Hiru</h3>
-<ul>
-<li><strong>Carni frollate alla brace:</strong> selezione di tagli premium cotti su carbone di legna, con consistenze e sapori che solo il fuoco vero riesce a ottenere</li>
-<li><strong>Risi del mercato:</strong> preparati con il pesce e i frutti di mare freschi del giorno, dai risi brodosi alle paelle di mare</li>
-<li><strong>Pesci del Mediterraneo:</strong> spigola, orata e pescato locale alla griglia, serviti con contorni di stagione</li>
-<li><strong>Cocktail d'autore:</strong> l'esperienza non finisce con il dessert. Hiru offre una carta di cocktail per prolungare la serata</li>
-</ul>
-
-<h3>Informazioni pratiche</h3>
-<ul>
-<li><strong>Orario:</strong> 12:00 - 23:30 (venerdi' e sabato fino all'1:00). Martedi' chiuso</li>
-<li><strong>Indirizzo:</strong> Ctra. d'Arta, 40, Port d'Alcudia</li>
-<li><strong>Valutazione:</strong> 4.9/5 su Google (132 recensioni)</li>
-<li><strong>Prenotazioni:</strong> consigliata, soprattutto nei fine settimana. Online o al 971 853 932</li>
-</ul>
-
-<h2>Cucina maiorchina: piatti da provare assolutamente</h2>
-<p>Se visiti Alcudia, ci sono piatti che non puoi perdere. La gastronomia dell'isola si basa su prodotti locali, sapori intensi e ricette tramandate di generazione in generazione.</p>
-<ul>
-<li><strong>Pa amb oli:</strong> pane rustico con pomodoro ramallet, olio d'oliva e accompagnamento di prosciutto, formaggio o sobrasada</li>
-<li><strong>Tumbet:</strong> la versione maiorchina della ratatouille, con patata, melanzana e peperone</li>
-<li><strong>Arros brut:</strong> riso brodoso con carni, verdure e spezie</li>
-<li><strong>Sobrasada:</strong> l'insaccato emblematico di Maiorca, perfetto spalmato su pane caldo</li>
-</ul>
-
-<h2>Ristoranti sul mare</h2>
-<p>Il lungomare di Port d'Alcudia offre ristoranti con vista sull'acqua dove gustare pesce fresco, paella e cucina mediterranea. La brezza marina e i tramonti elevano qualsiasi cena. Il porto turistico ospita anche opzioni piu' informali, ideali per pranzi casual.</p>
-
-<h2>Cenare fino a tardi e collegarsi con la vita notturna</h2>
-<p>Uno dei grandi vantaggi di Alcudia e' che diversi ristoranti mantengono orari ampi, specialmente in estate. Hiru Food &amp; Drinks serve cene fino alle 23:30 durante la settimana e fino all'1:00 nei fine settimana, permettendo una transizione naturale verso il divertimento notturno. Dopo cena, <a href="/enjoy">Enjoy Terrace</a> e' a pochi minuti per cocktail e shisha, e <a href="/outxide">Outxide Club</a> per chi vuole ballare fino all'alba.</p>
-
-<h2>Consigli per mangiare bene ad Alcudia</h2>
-<ul>
-<li>Prenota con anticipo in alta stagione, specialmente venerdi' e sabato</li>
-<li>Chiedi sempre del pesce del giorno e del prodotto di stagione</li>
-<li>I risi di solito richiedono un ordine minimo di due persone</li>
-<li>Non limitarti alla prima linea: esplora il centro storico all'interno delle mura medievali</li>
-</ul>`,
-    },
-    author: "Grupo Enjoy",
-    date: "2026-03-28",
-    image: "/images/hiru/673547411_122294638466201104_4294441832152685275_n.jpg",
-    tags: ["restaurants", "alcudia", "food", "hiru"],
-    venue: "hiru",
-    readingTime: 5,
-  },
-  {
     slug: "cocteles-shisha-terraza-alcudia",
     title: {
       es: "Cócteles y Shisha en Alcúdia: La Experiencia Enjoy Terrace",
@@ -2365,201 +2125,6 @@ export const blogPosts: BlogPost[] = [
     tags: ["cocktails", "shisha", "enjoy", "terrace"],
     venue: "enjoy",
     readingTime: 5,
-  },
-  {
-    slug: "planes-alcudia-mallorca",
-    title: {
-      es: "Qué Hacer en Alcúdia: 10 Planes Imprescindibles en Mallorca",
-      en: "Things to Do in Alcudia: 10 Must-Do Activities in Mallorca",
-      de: "Was man in Alcudia unternehmen kann: 10 unverzichtbare Aktivitäten auf Mallorca",
-      fr: "Que Faire a Alcudia : 10 Activites Incontournables a Majorque",
-      it: "Cosa Fare ad Alcudia: 10 Attivita' Imperdibili a Maiorca",
-    },
-    excerpt: {
-      es: "Desde la playa de 7 km hasta el casco antiguo medieval, deportes acuáticos y la mejor vida nocturna. Los 10 planes imprescindibles en Alcúdia, Mallorca.",
-      en: "From the 7 km beach to the medieval old town, water sports and the best nightlife. The 10 must-do activities in Alcudia, Mallorca.",
-      de: "Vom 7 km langen Strand über die mittelalterliche Altstadt bis zu Wassersport und dem besten Nachtleben. Die 10 unverzichtbaren Aktivitäten in Alcudia, Mallorca.",
-      fr: "De la plage de 7 km a la vieille ville medievale, sports nautiques et meilleure vie nocturne. Les 10 activites incontournables a Alcudia, Majorque.",
-      it: "Dalla spiaggia di 7 km al centro storico medievale, sport acquatici e la migliore vita notturna. Le 10 attivita' imperdibili ad Alcudia, Maiorca.",
-    },
-    content: {
-      es: `<p>Alcúdia es uno de los destinos más completos de Mallorca. Situada en el norte de la isla, esta localidad combina naturaleza, historia, gastronomía y vida nocturna en un radio sorprendentemente compacto. Aquí tienes los 10 planes imprescindibles si visitas Alcúdia.</p>
-
-<h2>1. La playa de Alcúdia</h2>
-<p>Con más de 7 km de arena fina y aguas cristalinas, la playa de Alcúdia es una de las más extensas de Mallorca. Su pendiente suave la hace perfecta para familias, mientras que la zona norte, más tranquila, es ideal para quienes buscan relax. Los meses de junio a septiembre ofrecen condiciones perfectas para bañarse.</p>
-
-<h2>2. El casco antiguo medieval</h2>
-<p>La Alcúdia histórica, dentro de las murallas medievales del siglo XIV, es un laberinto de calles estrechas, plazas con encanto y edificios de piedra. No te pierdas la iglesia de Sant Jaume, la Porta del Moll y las vistas desde lo alto de la muralla. Los domingos y martes hay mercado con productos locales.</p>
-
-<h2>3. Cap de Formentor</h2>
-<p>A menos de una hora en coche desde Alcúdia, el Cap de Formentor ofrece acantilados espectaculares, calas escondidas y el faro más fotografiado de Mallorca. La carretera es una experiencia en sí misma, con miradores que quitan el aliento. Recomendable ir a primera hora para evitar aglomeraciones.</p>
-
-<h2>4. Deportes acuáticos</h2>
-<p>La bahía de Alcúdia es un paraíso para los deportes náuticos. Desde paddle surf y kayak hasta windsurf y kitesurf, hay opciones para todos los niveles. Varios centros en la playa ofrecen alquiler de material y clases. El snorkel en las zonas rocosas del norte revela una vida marina sorprendente.</p>
-
-<h2>5. Ciclismo por el norte de Mallorca</h2>
-<p>Alcúdia es un punto de partida privilegiado para rutas en bicicleta. La zona llana del puerto es perfecta para paseos familiares, mientras que las carreteras hacia la sierra de Tramuntana ofrecen desafíos para ciclistas experimentados. Hay numerosas empresas de alquiler de bicicletas en la zona.</p>
-
-<h2>6. El parque natural de s'Albufera</h2>
-<p>El humedal más grande de las Islas Baleares está a las afueras de Alcúdia. S'Albufera es un paraíso para los amantes de la naturaleza y la ornitología, con rutas señalizadas que permiten observar más de 200 especies de aves. La entrada es gratuita y el parque abre de 9:00 a 18:00.</p>
-
-<h2>7. Cenar en Hiru Food &amp; Drinks</h2>
-<p>Para una experiencia gastronómica que va más allá de lo convencional, <a href="/hiru">Hiru Food &amp; Drinks</a> en Ctra. d'Artà 40 ofrece cocina mallorquina a la brasa con producto fresco: carnes maduradas, arroces de lonja y pescados del Mediterráneo. Con una valoración de 4.9/5 en Google, es una de las mejores mesas de la zona.</p>
-
-<h2>8. Cócteles y shisha al atardecer</h2>
-<p>El ritual perfecto para la transición del día a la noche. <a href="/enjoy">Enjoy Terrace</a>, en Av. Tucán 1, abre a las 17:00 y ofrece una carta de cócteles de autor y shisha premium con vistas privilegiadas. Es el plan ideal para disfrutar del atardecer mallorquín con una copa en la mano.</p>
-
-<h2>9. Vida nocturna en Outxide Club</h2>
-<p>Para los amantes del clubbing, <a href="/outxide">Outxide Club</a> abre de jueves a sábado a partir de las 23:00 con DJs nacionales e internacionales, producción visual de primer nivel y opciones VIP. Las entradas se pueden comprar online a través de FourVenues o en la puerta.</p>
-
-<h2>10. Mercados locales y compras</h2>
-<p>Los mercados de Alcúdia son una inmersión en la cultura local. El mercado de los domingos y martes en el casco antiguo ofrece productos frescos, artesanía y souvenirs. Para compras más variadas, la zona comercial de Port d'Alcúdia tiene tiendas de moda, deportes y recuerdos.</p>
-
-<h2>Alcúdia: un destino completo</h2>
-<p>Lo que hace especial a Alcúdia es que concentra todo lo que buscas en unas vacaciones en Mallorca: playa, naturaleza, cultura, gastronomía y ocio nocturno. Cada día puede ser diferente, y la transición de planes diurnos a nocturnos es tan natural como dar un paseo por el puerto. Con los tres espacios de <a href="/">Grupo Enjoy</a> (Hiru Food &amp; Drinks, Enjoy Terrace y Outxide Club), las noches están resueltas.</p>`,
-      en: `<p>Alcudia is one of the most complete destinations in Mallorca. Located in the north of the island, this town combines nature, history, gastronomy and nightlife within a surprisingly compact radius. Here are the 10 must-do activities if you are visiting Alcudia.</p>
-
-<h2>1. Alcudia Beach</h2>
-<p>With over 7 km of fine sand and crystal-clear waters, Alcudia beach is one of the longest in Mallorca. Its gentle slope makes it perfect for families, while the quieter northern section is ideal for those seeking relaxation. The months from June to September offer perfect swimming conditions.</p>
-
-<h2>2. The medieval old town</h2>
-<p>Historic Alcudia, within its 14th-century medieval walls, is a labyrinth of narrow streets, charming squares and stone buildings. Do not miss the Sant Jaume church, Porta del Moll gateway and the views from the top of the wall. Sundays and Tuesdays bring a market with local products.</p>
-
-<h2>3. Cap de Formentor</h2>
-<p>Less than an hour's drive from Alcudia, Cap de Formentor offers spectacular cliffs, hidden coves and Mallorca's most photographed lighthouse. The road itself is an experience, with breathtaking viewpoints. Recommended to visit early to avoid crowds.</p>
-
-<h2>4. Water sports</h2>
-<p>Alcudia Bay is a paradise for water sports. From stand-up paddleboarding and kayaking to windsurfing and kitesurfing, there are options for all levels. Several centres on the beach offer equipment hire and lessons. Snorkelling in the rocky areas to the north reveals surprising marine life.</p>
-
-<h2>5. Cycling in northern Mallorca</h2>
-<p>Alcudia is a prime starting point for cycling routes. The flat area around the port is perfect for family rides, while the roads towards the Serra de Tramuntana offer challenges for experienced cyclists. Numerous bike hire shops operate in the area.</p>
-
-<h2>6. S'Albufera Nature Reserve</h2>
-<p>The largest wetland in the Balearic Islands lies just outside Alcudia. S'Albufera is a paradise for nature lovers and birdwatchers, with marked trails offering sightings of over 200 bird species. Entry is free and the park opens from 9:00 to 18:00.</p>
-
-<h2>7. Dinner at Hiru Food &amp; Drinks</h2>
-<p>For a gastronomic experience beyond the ordinary, <a href="/hiru">Hiru Food &amp; Drinks</a> at Ctra. d'Arta 40 serves Mallorcan charcoal grill cuisine with fresh produce: aged meats, market-fresh rice dishes and Mediterranean fish. Rated 4.9/5 on Google, it is one of the best tables in the area.</p>
-
-<h2>8. Cocktails and shisha at sunset</h2>
-<p>The perfect ritual for the day-to-night transition. <a href="/enjoy">Enjoy Terrace</a>, at Av. Tucan 1, opens at 17:00 and offers a signature cocktail menu and premium shisha in a privileged setting. It is the ideal plan for enjoying a Mallorcan sunset with a drink in hand.</p>
-
-<h2>9. Nightlife at Outxide Club</h2>
-<p>For clubbing lovers, <a href="/outxide">Outxide Club</a> opens Thursday to Saturday from 23:00 with national and international DJs, top-tier visual production and VIP options. Tickets can be purchased online through FourVenues or at the door.</p>
-
-<h2>10. Local markets and shopping</h2>
-<p>Alcudia's markets are an immersion in local culture. The Sunday and Tuesday market in the old town offers fresh produce, crafts and souvenirs. For more varied shopping, Port d'Alcudia's commercial area has fashion, sports and gift shops.</p>
-
-<h2>Alcudia: a complete destination</h2>
-<p>What makes Alcudia special is that it concentrates everything you look for on a Mallorca holiday: beach, nature, culture, gastronomy and nightlife. Every day can be different, and the transition from daytime to evening plans is as natural as a stroll along the port. With <a href="/">Grupo Enjoy</a>'s three venues (<a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> and <a href="/outxide">Outxide Club</a>), your evenings are sorted.</p>`,
-      de: `<p>Alcudia ist eines der vielseitigsten Reiseziele auf Mallorca. Im Norden der Insel gelegen, vereint dieser Ort Natur, Geschichte, Gastronomie und Nachtleben auf überraschend kompaktem Raum. Hier sind die 10 unverzichtbaren Aktivitäten, wenn du Alcudia besuchst.</p>
-
-<h2>1. Der Strand von Alcudia</h2>
-<p>Mit über 7 km feinem Sand und kristallklarem Wasser ist der Strand von Alcudia einer der längsten auf Mallorca. Seine sanfte Neigung macht ihn perfekt für Familien, während der ruhigere nördliche Abschnitt ideal für Erholungssuchende ist. Die Monate Juni bis September bieten perfekte Badebedingungen.</p>
-
-<h2>2. Die mittelalterliche Altstadt</h2>
-<p>Das historische Alcudia innerhalb der mittelalterlichen Mauern aus dem 14. Jahrhundert ist ein Labyrinth aus engen Gassen, charmanten Plätzen und Steingebäuden. Verpasse nicht die Kirche Sant Jaume, das Tor Porta del Moll und den Blick von der Mauerkrone. Sonntags und dienstags gibt es einen Markt mit lokalen Produkten.</p>
-
-<h2>3. Cap de Formentor</h2>
-<p>Weniger als eine Autostunde von Alcudia entfernt bietet das Cap de Formentor spektakuläre Klippen, versteckte Buchten und den meistfotografierten Leuchtturm Mallorcas. Die Straße ist ein Erlebnis für sich, mit atemberaubenden Aussichtspunkten. Empfehlenswert ist ein Besuch am frühen Morgen, um Menschenmengen zu vermeiden.</p>
-
-<h2>4. Wassersport</h2>
-<p>Die Bucht von Alcudia ist ein Paradies für Wassersportler. Von Stand-Up-Paddling und Kajakfahren bis zu Windsurfen und Kitesurfen gibt es Angebote für alle Niveaus. Mehrere Zentren am Strand bieten Materialverleih und Kurse an. Schnorcheln in den felsigen Bereichen im Norden offenbart eine erstaunliche Unterwasserwelt.</p>
-
-<h2>5. Radfahren im Norden Mallorcas</h2>
-<p>Alcudia ist ein erstklassiger Ausgangspunkt für Radtouren. Die flache Gegend rund um den Hafen ist perfekt für Familienausflüge, während die Straßen Richtung Serra de Tramuntana Herausforderungen für erfahrene Radfahrer bieten. In der Gegend gibt es zahlreiche Fahrradverleihe.</p>
-
-<h2>6. Der Naturpark S'Albufera</h2>
-<p>Das größte Feuchtgebiet der Balearen liegt direkt vor den Toren Alcudias. S'Albufera ist ein Paradies für Naturliebhaber und Vogelbeobachter, mit markierten Wegen, auf denen über 200 Vogelarten gesichtet werden können. Der Eintritt ist frei und der Park ist von 9:00 bis 18:00 Uhr geöffnet.</p>
-
-<h2>7. Abendessen bei Hiru Food &amp; Drinks</h2>
-<p>Für ein gastronomisches Erlebnis jenseits des Gewöhnlichen bietet <a href="/hiru">Hiru Food &amp; Drinks</a> in der Ctra. d'Artà 40 mallorquinische Grillküche mit frischen Zutaten: gereiftes Fleisch, Reisgerichte vom Fischmarkt und mediterrane Fische. Mit einer Bewertung von 4.9/5 bei Google gehört es zu den besten Tischen der Gegend.</p>
-
-<h2>8. Cocktails und Shisha bei Sonnenuntergang</h2>
-<p>Das perfekte Ritual für den Übergang vom Tag in die Nacht. <a href="/enjoy">Enjoy Terrace</a> in der Av. Tucán 1 öffnet um 17:00 Uhr und bietet eine Karte mit Signature-Cocktails und Premium-Shisha in privilegierter Lage. Der ideale Plan, um den mallorquinischen Sonnenuntergang mit einem Drink in der Hand zu genießen.</p>
-
-<h2>9. Nachtleben im Outxide Club</h2>
-<p>Für Clubbing-Fans öffnet <a href="/outxide">Outxide Club</a> von Donnerstag bis Samstag ab 23:00 Uhr mit nationalen und internationalen DJs, erstklassiger visueller Produktion und VIP-Optionen. Tickets können online über FourVenues oder an der Abendkasse gekauft werden.</p>
-
-<h2>10. Lokale Märkte und Shopping</h2>
-<p>Die Märkte von Alcudia sind ein Eintauchen in die lokale Kultur. Der Sonntags- und Dienstagsmarkt in der Altstadt bietet frische Produkte, Kunsthandwerk und Souvenirs. Für ein breiteres Einkaufsangebot hat das Geschäftsviertel von Port d'Alcudia Mode-, Sport- und Geschenkeläden.</p>
-
-<h2>Alcudia: ein komplettes Reiseziel</h2>
-<p>Was Alcudia besonders macht, ist dass es alles vereint, was man im Mallorca-Urlaub sucht: Strand, Natur, Kultur, Gastronomie und Nachtleben. Jeder Tag kann anders sein, und der Übergang von Tages- zu Abendplänen ist so natürlich wie ein Spaziergang am Hafen. Mit den drei Locations von <a href="/">Grupo Enjoy</a> (Hiru Food &amp; Drinks, Enjoy Terrace und Outxide Club) sind deine Abende bestens versorgt.</p>`,
-      fr: `<p>Alcudia est l'une des destinations les plus completes de Majorque. Situee dans le nord de l'ile, cette localite combine nature, histoire, gastronomie et vie nocturne dans un rayon etonnamment compact. Voici les 10 activites incontournables si vous visitez Alcudia.</p>
-
-<h2>1. La plage d'Alcudia</h2>
-<p>Avec plus de 7 km de sable fin et d'eaux cristallines, la plage d'Alcudia est l'une des plus etendues de Majorque. Sa pente douce la rend parfaite pour les familles, tandis que la partie nord, plus tranquille, est ideale pour ceux qui cherchent la detente. Les mois de juin a septembre offrent des conditions parfaites pour la baignade.</p>
-
-<h2>2. La vieille ville medievale</h2>
-<p>L'Alcudia historique, a l'interieur de ses remparts medievaux du XIVe siecle, est un labyrinthe de ruelles etroites, de places charmantes et de batiments en pierre. Ne manquez pas l'eglise de Sant Jaume, la Porta del Moll et les vues depuis le sommet des remparts. Les dimanches et mardis, un marche propose des produits locaux.</p>
-
-<h2>3. Cap de Formentor</h2>
-<p>A moins d'une heure de route d'Alcudia, le Cap de Formentor offre des falaises spectaculaires, des criques cachees et le phare le plus photographie de Majorque. La route est une experience en soi, avec des belvederes a couper le souffle. Il est recommande d'y aller tot le matin pour eviter la foule.</p>
-
-<h2>4. Sports nautiques</h2>
-<p>La baie d'Alcudia est un paradis pour les sports nautiques. Du paddle et du kayak a la planche a voile et au kitesurf, il y a des options pour tous les niveaux. Plusieurs centres sur la plage proposent la location de materiel et des cours. Le snorkeling dans les zones rocheuses du nord revele une vie marine surprenante.</p>
-
-<h2>5. Cyclisme dans le nord de Majorque</h2>
-<p>Alcudia est un point de depart privilegie pour les circuits a velo. La zone plate du port est parfaite pour les balades en famille, tandis que les routes vers la Serra de Tramuntana offrent des defis pour les cyclistes experimentes. De nombreuses entreprises de location de velos sont presentes dans la zone.</p>
-
-<h2>6. Le parc naturel de S'Albufera</h2>
-<p>La plus grande zone humide des iles Baleares se trouve aux portes d'Alcudia. S'Albufera est un paradis pour les amoureux de la nature et de l'ornithologie, avec des sentiers balises permettant d'observer plus de 200 especes d'oiseaux. L'entree est gratuite et le parc est ouvert de 9h00 a 18h00.</p>
-
-<h2>7. Diner a Hiru Food &amp; Drinks</h2>
-<p>Pour une experience gastronomique qui va au-dela du conventionnel, <a href="/hiru">Hiru Food &amp; Drinks</a> au Ctra. d'Arta 40 propose une cuisine majorquine au grill avec des produits frais : viandes maturees, riz de la criee et poissons de Mediterranee. Avec une note de 4.9/5 sur Google, c'est l'une des meilleures tables de la region.</p>
-
-<h2>8. Cocktails et chicha au coucher du soleil</h2>
-<p>Le rituel parfait pour la transition du jour a la nuit. <a href="/enjoy">Enjoy Terrace</a>, au Av. Tucan 1, ouvre a 17h00 et propose une carte de cocktails signatures et une chicha premium dans un cadre privilegie. C'est le plan ideal pour profiter du coucher de soleil majorquin un verre a la main.</p>
-
-<h2>9. Vie nocturne a Outxide Club</h2>
-<p>Pour les amateurs de clubbing, <a href="/outxide">Outxide Club</a> ouvre du jeudi au samedi a partir de 23h00 avec des DJs nationaux et internationaux, une production visuelle haut de gamme et des options VIP. Les billets peuvent etre achetes en ligne via FourVenues ou sur place.</p>
-
-<h2>10. Marches locaux et shopping</h2>
-<p>Les marches d'Alcudia sont une immersion dans la culture locale. Le marche des dimanches et mardis dans la vieille ville propose des produits frais, de l'artisanat et des souvenirs. Pour des achats plus varies, la zone commerciale de Port d'Alcudia offre des boutiques de mode, de sport et de souvenirs.</p>
-
-<h2>Alcudia : une destination complete</h2>
-<p>Ce qui rend Alcudia speciale, c'est qu'elle concentre tout ce que l'on recherche pour des vacances a Majorque : plage, nature, culture, gastronomie et loisirs nocturnes. Chaque jour peut etre different, et la transition des activites diurnes aux sorties nocturnes est aussi naturelle qu'une promenade le long du port. Avec les trois espaces de <a href="/">Grupo Enjoy</a> (Hiru Food &amp; Drinks, Enjoy Terrace et Outxide Club), vos soirees sont assurees.</p>`,
-      it: `<p>Alcudia e' una delle destinazioni piu' complete di Maiorca. Situata nel nord dell'isola, questa localita' combina natura, storia, gastronomia e vita notturna in un raggio sorprendentemente compatto. Ecco le 10 attivita' imperdibili se visiti Alcudia.</p>
-
-<h2>1. La spiaggia di Alcudia</h2>
-<p>Con piu' di 7 km di sabbia fine e acque cristalline, la spiaggia di Alcudia e' una delle piu' estese di Maiorca. La sua pendenza dolce la rende perfetta per le famiglie, mentre la zona nord, piu' tranquilla, e' ideale per chi cerca relax. I mesi da giugno a settembre offrono condizioni perfette per fare il bagno.</p>
-
-<h2>2. Il centro storico medievale</h2>
-<p>L'Alcudia storica, all'interno delle mura medievali del XIV secolo, e' un labirinto di stradine, piazze incantevoli e edifici in pietra. Da non perdere la chiesa di Sant Jaume, la Porta del Moll e la vista dall'alto delle mura. La domenica e il martedi' c'e' il mercato con prodotti locali.</p>
-
-<h2>3. Cap de Formentor</h2>
-<p>A meno di un'ora di macchina da Alcudia, il Cap de Formentor offre scogliere spettacolari, calette nascoste e il faro piu' fotografato di Maiorca. La strada stessa e' un'esperienza, con belvedere mozzafiato. Si consiglia di andare la mattina presto per evitare la folla.</p>
-
-<h2>4. Sport acquatici</h2>
-<p>La baia di Alcudia e' un paradiso per gli sport nautici. Dal paddle surf e kayak al windsurf e kitesurf, ci sono opzioni per tutti i livelli. Diversi centri sulla spiaggia offrono noleggio attrezzatura e lezioni. Lo snorkeling nelle zone rocciose del nord rivela una vita marina sorprendente.</p>
-
-<h2>5. Ciclismo nel nord di Maiorca</h2>
-<p>Alcudia e' un punto di partenza privilegiato per percorsi in bicicletta. La zona pianeggiante del porto e' perfetta per passeggiate in famiglia, mentre le strade verso la Serra de Tramuntana offrono sfide per ciclisti esperti. Nella zona ci sono numerose attivita' di noleggio biciclette.</p>
-
-<h2>6. Il parco naturale di s'Albufera</h2>
-<p>La zona umida piu' grande delle Isole Baleari si trova alle porte di Alcudia. S'Albufera e' un paradiso per gli amanti della natura e del birdwatching, con percorsi segnalati che permettono di osservare piu' di 200 specie di uccelli. L'ingresso e' gratuito e il parco e' aperto dalle 9:00 alle 18:00.</p>
-
-<h2>7. Cena da Hiru Food &amp; Drinks</h2>
-<p>Per un'esperienza gastronomica che va oltre il convenzionale, <a href="/hiru">Hiru Food &amp; Drinks</a> in Ctra. d'Arta 40 offre cucina maiorchina alla brace con prodotto fresco: carni frollate, risi del mercato e pesci del Mediterraneo. Con una valutazione di 4.9/5 su Google, e' una delle migliori tavole della zona.</p>
-
-<h2>8. Cocktail e shisha al tramonto</h2>
-<p>Il rituale perfetto per la transizione dal giorno alla notte. <a href="/enjoy">Enjoy Terrace</a>, in Av. Tucan 1, apre alle 17:00 e offre una carta di cocktail d'autore e shisha premium in una location privilegiata. E' il piano ideale per godersi il tramonto maiorchino con un drink in mano.</p>
-
-<h2>9. Vita notturna all'Outxide Club</h2>
-<p>Per gli amanti del clubbing, <a href="/outxide">Outxide Club</a> apre da giovedi' a sabato a partire dalle 23:00 con DJ nazionali e internazionali, produzione visiva di primo livello e opzioni VIP. I biglietti si possono acquistare online tramite FourVenues o alla porta.</p>
-
-<h2>10. Mercati locali e shopping</h2>
-<p>I mercati di Alcudia sono un'immersione nella cultura locale. Il mercato della domenica e del martedi' nel centro storico offre prodotti freschi, artigianato e souvenir. Per acquisti piu' vari, la zona commerciale di Port d'Alcudia ha negozi di moda, sport e articoli da regalo.</p>
-
-<h2>Alcudia: una destinazione completa</h2>
-<p>Cio' che rende speciale Alcudia e' che concentra tutto cio' che cerchi in una vacanza a Maiorca: spiaggia, natura, cultura, gastronomia e divertimento notturno. Ogni giorno puo' essere diverso, e la transizione dai programmi diurni a quelli serali e' naturale come una passeggiata al porto. Con i tre spazi di <a href="/">Grupo Enjoy</a> (Hiru Food &amp; Drinks, Enjoy Terrace e Outxide Club), le serate sono assicurate.</p>`,
-    },
-    author: "Grupo Enjoy",
-    date: "2026-05-22",
-    image: "/images/enjoy/488868117_1397746394961697_7225834553688619345_n.jpg",
-    tags: ["alcudia", "mallorca", "activities", "guide"],
-    venue: "general",
-    readingTime: 6,
   },
 
   // ── NEW POSTS ──────────────────────────────────────────────────────────
@@ -4830,7 +4395,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Entradas de Outxide:</strong> Compra tus entradas online con antelacion para evitar colas y a menudo conseguir mejor precio. Disponible en la web de <a href="/outxide">Outxide Club</a>.</p>
 <p><strong>Reservas:</strong> Recomendamos reservar mesa en Hiru, especialmente los viernes y sabados en temporada alta. Para mesas VIP en Outxide, contacta directamente por la web.</p>
 
-<p>Para completar tu planificacion, no te pierdas nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia completa de vida nocturna en Alcudia</a> y el articulo sobre <a href="/blog/planes-alcudia-mallorca">los mejores planes en Alcudia</a>.</p>
+<p>Para completar tu planificacion, no te pierdas nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia completa de vida nocturna en Alcudia</a> y el articulo sobre <a href="/blog/que-hacer-alcudia-mallorca">los mejores planes en Alcudia</a>.</p>
 
 <p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Toda la informacion en nuestra web.</a></strong></p>`,
 
@@ -4875,7 +4440,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Outxide tickets:</strong> Buy your tickets online in advance to skip queues and often get a better price. Available on the <a href="/outxide">Outxide Club</a> website.</p>
 <p><strong>Reservations:</strong> We recommend booking a table at Hiru, especially on Fridays and Saturdays during high season. For VIP tables at Outxide, contact directly through the website.</p>
 
-<p>To complete your planning, don't miss our <a href="/blog/guia-vida-nocturna-alcudia">complete Alcudia nightlife guide</a> and the article on <a href="/blog/planes-alcudia-mallorca">the best plans in Alcudia</a>.</p>
+<p>To complete your planning, don't miss our <a href="/blog/guia-vida-nocturna-alcudia">complete Alcudia nightlife guide</a> and the article on <a href="/blog/que-hacer-alcudia-mallorca">the best plans in Alcudia</a>.</p>
 
 <p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">All information on our website.</a></strong></p>`,
 
@@ -4919,7 +4484,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Outxide-Tickets:</strong> Online im Voraus kaufen, um Warteschlangen zu vermeiden und oft einen besseren Preis zu bekommen. Verfuegbar auf der <a href="/outxide">Outxide Club</a>-Website.</p>
 <p><strong>Reservierungen:</strong> Tischreservierung im Hiru empfohlen, besonders Fr/Sa in der Hochsaison. VIP-Tische im Outxide direkt ueber die Website anfragen.</p>
 
-<p>Fuer die vollstaendige Planung lesen Sie unseren <a href="/blog/guia-vida-nocturna-alcudia">kompletten Alcudia Nachtleben-Guide</a> und den Artikel ueber <a href="/blog/planes-alcudia-mallorca">die besten Plaene in Alcudia</a>.</p>
+<p>Fuer die vollstaendige Planung lesen Sie unseren <a href="/blog/guia-vida-nocturna-alcudia">kompletten Alcudia Nachtleben-Guide</a> und den Artikel ueber <a href="/blog/que-hacer-alcudia-mallorca">die besten Plaene in Alcudia</a>.</p>
 
 <p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Alle Informationen auf unserer Website.</a></strong></p>`,
 
@@ -4963,7 +4528,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Billets Outxide :</strong> Achetez en ligne a l'avance pour eviter les files d'attente et souvent obtenir un meilleur prix. Disponible sur le site d'<a href="/outxide">Outxide Club</a>.</p>
 <p><strong>Reservations :</strong> Reservez votre table au Hiru, surtout ven/sam en haute saison. Tables VIP a l'Outxide sur demande via le site.</p>
 
-<p>Pour completer votre planification, consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide complet de la vie nocturne a Alcudia</a> et l'article sur <a href="/blog/planes-alcudia-mallorca">les meilleurs plans a Alcudia</a>.</p>
+<p>Pour completer votre planification, consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide complet de la vie nocturne a Alcudia</a> et l'article sur <a href="/blog/que-hacer-alcudia-mallorca">les meilleurs plans a Alcudia</a>.</p>
 
 <p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Majorque. <a href="/">Toutes les informations sur notre site.</a></strong></p>`,
 
@@ -5007,7 +4572,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Biglietti Outxide:</strong> Acquistate online in anticipo per evitare code e spesso ottenere un prezzo migliore. Disponibili sul sito di <a href="/outxide">Outxide Club</a>.</p>
 <p><strong>Prenotazioni:</strong> Consigliamo di prenotare al Hiru, soprattutto ven/sab in alta stagione. Tavoli VIP all'Outxide su richiesta tramite il sito.</p>
 
-<p>Per completare la pianificazione, consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida completa alla vita notturna di Alcudia</a> e l'articolo sui <a href="/blog/planes-alcudia-mallorca">migliori piani ad Alcudia</a>.</p>
+<p>Per completare la pianificazione, consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida completa alla vita notturna di Alcudia</a> e l'articolo sui <a href="/blog/que-hacer-alcudia-mallorca">migliori piani ad Alcudia</a>.</p>
 
 <p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Maiorca. <a href="/">Tutte le informazioni sul nostro sito.</a></strong></p>`,
     },
