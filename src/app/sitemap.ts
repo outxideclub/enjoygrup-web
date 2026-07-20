@@ -11,12 +11,15 @@ import { locales, localizedPath } from "@/i18n/config";
  * contenido de cada página (un lastmod falso hace que Google lo ignore).
  */
 const LAST_UPDATED = {
-  home: new Date("2026-07-01"),
-  venues: new Date("2026-07-01"),
+  // 20 jul 2026: reescritos metadatos (title/description) y añadido el sitemap de
+  // vídeo en home, locales y blog → lastmod al día para forzar re-rastreo (ayuda
+  // a que /outxide y /hiru salgan de "descubierta, sin indexar").
+  home: new Date("2026-07-20"),
+  venues: new Date("2026-07-20"),
   nosotros: new Date("2026-05-15"),
   contacto: new Date("2026-05-15"),
   faq: new Date("2026-05-15"),
-  blog: new Date("2026-07-01"),
+  blog: new Date("2026-07-20"),
   mundial: new Date("2026-06-11"),
 } as const;
 
