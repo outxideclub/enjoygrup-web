@@ -28,6 +28,15 @@ const baseUrl = "https://www.grupoenjoy.es";
 // Vídeos hero de cada local para la EXTENSIÓN DE VÍDEO del sitemap (Google Video).
 // Sin esto Google no los descubre (tenían VideoObject en la página pero 0
 // impresiones de vídeo). Coincide con VenueVideoJsonLd en components/seo/json-ld.tsx.
+//
+// IMPORTANTE: Next.js NO escapa las entidades XML en los campos de la extensión
+// de vídeo (video:title / video:description). Un '&' crudo (p. ej. "Hiru Food &
+// Drinks") deja el sitemap ENTERO mal formado y Google no lee nada. Escapamos a
+// mano &, < y > en los campos de texto para que el XML sea siempre válido.
+function xmlText(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 type SitemapVideo = NonNullable<MetadataRoute.Sitemap[number]["videos"]>[number];
 const VENUE_VIDEOS: Record<string, SitemapVideo> = {
   "/enjoy": {
@@ -77,7 +86,12 @@ function entry(
   changeFrequency: "daily" | "weekly" | "monthly",
   priority: number,
 ): MetadataRoute.Sitemap[number] {
-  const video = VENUE_VIDEOS[path];
+  const raw = VENUE_VIDEOS[path];
+  // Escapamos title/description antes de emitirlos (Next no escapa la extensión
+  // de vídeo). Los *_loc son URLs sin caracteres especiales, se dejan igual.
+  const video: SitemapVideo | undefined = raw
+    ? { ...raw, title: xmlText(raw.title), description: xmlText(raw.description) }
+    : undefined;
   return {
     url: path === "" ? baseUrl : `${baseUrl}${path}`,
     lastModified,
