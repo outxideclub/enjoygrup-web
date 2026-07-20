@@ -439,6 +439,7 @@ export const de: Dictionary = {
     title: "Spanien, Weltmeister 2026!",
     text: "La Roja holt den zweiten Stern – das Finale erlebten wir bei Outxide auf der Großleinwand von der Enjoy-Terrasse aus. Danke, dass ihr mitgefiebert habt.",
     cta: "Zum Bericht",
+    finalLabel: "Finale",
   },
   notFound: {
     title: "Seite nicht gefunden",

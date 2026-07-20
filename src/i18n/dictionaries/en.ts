@@ -439,6 +439,7 @@ export const en: Dictionary = {
     title: "Spain, 2026 World Champions!",
     text: "La Roja lifts its second star, and we lived the final at Outxide on the big screen from the Enjoy terrace. Thanks for celebrating with us.",
     cta: "Read the story",
+    finalLabel: "Final",
   },
   notFound: {
     title: "Page not found",

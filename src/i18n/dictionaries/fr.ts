@@ -439,6 +439,7 @@ export const fr: Dictionary = {
     title: "L'Espagne, Championne du Monde 2026 !",
     text: "La Roja décroche sa deuxième étoile, et la finale s'est vécue à l'Outxide sur écran géant depuis la terrasse d'Enjoy. Merci d'avoir vibré avec nous.",
     cta: "Lire le récit",
+    finalLabel: "Finale",
   },
   notFound: {
     title: "Page non trouvée",

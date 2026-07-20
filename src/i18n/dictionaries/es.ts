@@ -437,6 +437,7 @@ export const es = {
     title: "¡España, Campeona del Mundo 2026!",
     text: "La Roja levanta su segunda estrella y la final se vivió en Outxide, en pantalla gigante desde la terraza de Enjoy. Gracias por vibrar con nosotros.",
     cta: "Leer la crónica",
+    finalLabel: "Final",
   },
   notFound: {
     title: "Página no encontrada",

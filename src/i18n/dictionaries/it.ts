@@ -439,6 +439,7 @@ export const it: Dictionary = {
     title: "Spagna, Campione del Mondo 2026!",
     text: "La Roja conquista la seconda stella e la finale si è vissuta all'Outxide sul maxischermo dalla terrazza di Enjoy. Grazie per aver tifato con noi.",
     cta: "Leggi la cronaca",
+    finalLabel: "Finale",
   },
   notFound: {
     title: "Pagina non trovata",
