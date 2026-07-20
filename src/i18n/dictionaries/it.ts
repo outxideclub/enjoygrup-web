@@ -78,6 +78,9 @@ export const it: Dictionary = {
     goToHiru: "Vai a Hiru Food and Drinks",
   },
   home: {
+    guidesTitle: "Guide per la tua visita ad Alcúdia",
+    guidesSubtitle: "Consigli, idee e il meglio di Port d'Alcúdia e Maiorca",
+    guidesCta: "Vedi tutte le guide",
     enjoySubtitle: "Terrace · Cocktail & Shisha",
     enjoyDescription:
       "Where nights begin. Enjoy Terrace offre sunset cocktail, drink d'autore e shisha premium sulla migliore terrazza di Port d'Alcúdia.",

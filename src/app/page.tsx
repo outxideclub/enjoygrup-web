@@ -12,6 +12,7 @@ import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
 import { MundialBanner } from "@/components/ui/mundial-banner";
 import { ChampionBanner } from "@/components/ui/champion-banner";
+import { HomeGuides } from "@/components/blocks/home-guides";
 import { EVENT_PHASE, effectivePhase } from "@/lib/mundial/event-config";
 import dynamic from "next/dynamic";
 
@@ -333,6 +334,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Guías de Alcúdia: enlaza el blog desde la home (SEO + UX) */}
+      <HomeGuides />
 
       </main>
       <Footer />

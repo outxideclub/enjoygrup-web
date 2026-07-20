@@ -76,6 +76,9 @@ export const es = {
     goToHiru: "Ir a Hiru Food and Drinks",
   },
   home: {
+    guidesTitle: "Guías para tu visita a Alcúdia",
+    guidesSubtitle: "Consejos, planes y lo mejor de Port d'Alcúdia y Mallorca",
+    guidesCta: "Ver todas las guías",
     enjoySubtitle: "Terrace · Cocktails & Shisha",
     enjoyDescription:
       "Where nights begin. Enjoy Terrace ofrece sunset cocktails, cócteles de autor y shisha premium en la terraza con más ambiente de Port d'Alcúdia.",
