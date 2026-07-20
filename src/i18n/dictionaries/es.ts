@@ -279,6 +279,7 @@ export const es = {
     readingTime: "de lectura",
     backToBlog: "Volver al blog",
     relatedPosts: "Artículos relacionados",
+    faqTitle: "Preguntas frecuentes",
     publishedOn: "Publicado el",
     allPosts: "Todos los artículos",
     noPostsFound: "No se encontraron artículos.",

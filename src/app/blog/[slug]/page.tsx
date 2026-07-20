@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
-import { getPostBySlug, getAllPosts, getRelatedPosts, toBlogLocale, getPostText, type HowToStep } from "../../../../data/blog/posts";
+import { getPostBySlug, getAllPosts, getRelatedPosts, toBlogLocale, getPostText, type HowToStep, type BlogFaqItem } from "../../../../data/blog/posts";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -217,6 +217,20 @@ export default async function BlogPostPage({ params }: Props) {
           })),
         }} />
       )}
+      {post.faq && post.faq.length > 0 && (
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faq.map((item: BlogFaqItem) => ({
+            "@type": "Question",
+            name: getPostText(item.question, blogLocale),
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: getPostText(item.answer, blogLocale),
+            },
+          })),
+        }} />
+      )}
       <main id="contenido">
       <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end overflow-hidden">
         <Image
@@ -300,6 +314,31 @@ export default async function BlogPostPage({ params }: Props) {
           />
         </div>
       </section>
+
+      {/* FAQ visible (contenido para People Also Ask / fragmentos destacados) */}
+      {post.faq && post.faq.length > 0 && (
+        <section className="mx-auto max-w-3xl px-6 pb-12">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-6">
+            {t("blog.faqTitle")}
+          </h2>
+          <div className="space-y-3">
+            {post.faq.map((item, i) => (
+              <details
+                key={i}
+                className="group glass-card rounded-2xl border border-white/10 px-5 py-4 open:border-white/20"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-white marker:content-['']">
+                  {getPostText(item.question, blogLocale)}
+                  <span className="shrink-0 text-white/40 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                  {getPostText(item.answer, blogLocale)}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Back to blog */}
       <div className="mx-auto max-w-3xl px-6 pb-12">

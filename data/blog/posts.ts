@@ -12,6 +12,13 @@ export interface HowToStep {
   url?: string;
 }
 
+/** Pregunta y respuesta de la sección FAQ visible del post (contenido, para
+ *  People Also Ask / fragmentos destacados; el schema FAQPage es secundario). */
+export interface BlogFaqItem {
+  question: BlogLocalizedText;
+  answer: BlogLocalizedText;
+}
+
 export interface BlogPost {
   slug: string;
   title: BlogLocalizedText;
@@ -24,6 +31,7 @@ export interface BlogPost {
   venue?: "enjoy" | "outxide" | "hiru" | "general";
   readingTime: number;
   howToSteps?: HowToStep[];
+  faq?: BlogFaqItem[];
 }
 
 export type BlogLocale = "es" | "en" | "de" | "fr" | "it";
@@ -823,6 +831,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/outxide/DSCF8103-9.jpg",
     tags: ["nightlife", "mallorca", "outxide", "clubs", "alcudia", "cocktails", "enjoy"],
     venue: "outxide",
+    faq: [
+      {
+        question: {
+          es: "¿Dónde salir de fiesta en el norte de Mallorca?",
+          en: "Where to go out at night in northern Mallorca?",
+          de: "Wo kann man im Norden Mallorcas ausgehen?",
+          fr: "Où sortir le soir dans le nord de Majorque ?",
+          it: "Dove uscire la sera nel nord di Maiorca?",
+        },
+        answer: {
+          es: "Port d'Alcúdia concentra la mejor oferta: discoteca (Outxide Club), cócteles y shisha en terraza (Enjoy Terrace) y cena a la brasa (Hiru), todo a pocos metros.",
+          en: "Port d'Alcúdia has the best options: a nightclub (Outxide Club), terrace cocktails and shisha (Enjoy Terrace) and charcoal-grill dining (Hiru), all within a few metres.",
+          de: "In Port d'Alcúdia gibt es das beste Angebot: Nachtclub (Outxide Club), Cocktails und Shisha auf der Terrasse (Enjoy Terrace) und Grillküche (Hiru) – alles nur wenige Meter entfernt.",
+          fr: "Port d'Alcúdia rassemble le meilleur : discothèque (Outxide Club), cocktails et chicha en terrasse (Enjoy Terrace) et cuisine à la braise (Hiru), le tout à quelques mètres.",
+          it: "Port d'Alcúdia concentra il meglio: discoteca (Outxide Club), cocktail e shisha in terrazza (Enjoy Terrace) e cucina alla brace (Hiru), tutto a pochi metri.",
+        },
+      },
+      {
+        question: {
+          es: "¿Hasta qué hora abren las discotecas en Alcúdia?",
+          en: "How late do nightclubs stay open in Alcúdia?",
+          de: "Bis wann sind die Clubs in Alcúdia geöffnet?",
+          fr: "Jusqu'à quelle heure les discothèques d'Alcúdia sont-elles ouvertes ?",
+          it: "Fino a che ora sono aperte le discoteche ad Alcúdia?",
+        },
+        answer: {
+          es: "Las discotecas como Outxide abren hasta la madrugada, y los locales de cócteles como Enjoy Terrace abren desde las 17:00 hasta bien entrada la noche.",
+          en: "Nightclubs like Outxide stay open into the early hours, while cocktail venues like Enjoy Terrace open from 17:00 until late.",
+          de: "Clubs wie das Outxide haben bis in die frühen Morgenstunden geöffnet, Cocktailbars wie die Enjoy Terrace ab 17:00 Uhr bis spät in die Nacht.",
+          fr: "Les discothèques comme l'Outxide restent ouvertes jusqu'au petit matin, et les bars à cocktails comme l'Enjoy Terrace ouvrent de 17h00 jusque tard dans la nuit.",
+          it: "Le discoteche come l'Outxide restano aperte fino all'alba, mentre i cocktail bar come l'Enjoy Terrace aprono dalle 17:00 fino a tarda notte.",
+        },
+      },
+      {
+        question: {
+          es: "¿Hace falta reservar para salir de noche en Alcúdia?",
+          en: "Do I need to book to go out at night in Alcúdia?",
+          de: "Muss man für einen Abend in Alcúdia reservieren?",
+          fr: "Faut-il réserver pour sortir le soir à Alcúdia ?",
+          it: "Serve prenotare per uscire la sera ad Alcúdia?",
+        },
+        answer: {
+          es: "Para la discoteca conviene comprar la entrada o el reservado online por adelantado, sobre todo en eventos y fines de semana de temporada alta.",
+          en: "For the nightclub it's best to buy your ticket or VIP table online in advance, especially for events and high-season weekends.",
+          de: "Für den Club kaufst du dein Ticket oder deinen VIP-Tisch am besten vorab online, besonders bei Events und an Wochenenden der Hochsaison.",
+          fr: "Pour la discothèque, mieux vaut acheter son billet ou sa table VIP en ligne à l'avance, surtout pour les événements et les week-ends de haute saison.",
+          it: "Per la discoteca conviene acquistare il biglietto o il tavolo VIP online in anticipo, soprattutto per gli eventi e nei weekend di alta stagione.",
+        },
+      },
+      {
+        question: {
+          es: "¿Qué zona de Mallorca tiene buen ambiente nocturno sin masificación?",
+          en: "Which part of Mallorca has good nightlife without the crowds?",
+          de: "Welche Gegend Mallorcas hat gutes Nachtleben ohne Massen?",
+          fr: "Quelle région de Majorque offre une bonne vie nocturne sans la foule ?",
+          it: "Quale zona di Maiorca ha una buona vita notturna senza folla?",
+        },
+        answer: {
+          es: "El norte de la isla, en Alcúdia y Port d'Alcúdia, ofrece buen ambiente y música sin la masificación de Magaluf o Playa de Palma.",
+          en: "The north of the island, in Alcúdia and Port d'Alcúdia, offers a great atmosphere and music without the crowds of Magaluf or Playa de Palma.",
+          de: "Der Norden der Insel, in Alcúdia und Port d'Alcúdia, bietet tolle Stimmung und Musik ohne die Menschenmassen von Magaluf oder Playa de Palma.",
+          fr: "Le nord de l'île, à Alcúdia et Port d'Alcúdia, offre une belle ambiance et de la musique sans la foule de Magaluf ou de Playa de Palma.",
+          it: "Il nord dell'isola, ad Alcúdia e Port d'Alcúdia, offre una bella atmosfera e buona musica senza la folla di Magaluf o Playa de Palma.",
+        },
+      },
+    ],
     readingTime: 12,
   },
   {
@@ -3519,6 +3593,72 @@ export const blogPosts: BlogPost[] = [
     image: "/images/outxide/DSCF8530-21.jpg",
     tags: ["outxide", "clubs", "nightlife", "alcudia", "mallorca"],
     venue: "outxide",
+    faq: [
+      {
+        question: {
+          es: "¿Qué días abre Outxide Club?",
+          en: "What days is Outxide Club open?",
+          de: "An welchen Tagen ist der Outxide Club geöffnet?",
+          fr: "Quels jours l'Outxide Club est-il ouvert ?",
+          it: "In che giorni è aperto l'Outxide Club?",
+        },
+        answer: {
+          es: "Outxide Club abre de jueves a sábado desde las 23:00 en Port d'Alcúdia. Consulta la agenda de eventos para fechas y fiestas especiales.",
+          en: "Outxide Club is open Thursday to Saturday from 23:00 in Port d'Alcúdia. Check the events calendar for special dates and parties.",
+          de: "Der Outxide Club ist von Donnerstag bis Samstag ab 23:00 Uhr in Port d'Alcúdia geöffnet. Termine und Sonderpartys findest du im Veranstaltungskalender.",
+          fr: "L'Outxide Club est ouvert du jeudi au samedi à partir de 23h00 à Port d'Alcúdia. Consultez l'agenda des événements pour les dates et soirées spéciales.",
+          it: "L'Outxide Club è aperto dal giovedì al sabato dalle 23:00 a Port d'Alcúdia. Consulta il calendario eventi per date e feste speciali.",
+        },
+      },
+      {
+        question: {
+          es: "¿Cómo se compran las entradas de Outxide?",
+          en: "How do I buy tickets for Outxide?",
+          de: "Wie kaufe ich Tickets für das Outxide?",
+          fr: "Comment acheter des billets pour l'Outxide ?",
+          it: "Come si comprano i biglietti per l'Outxide?",
+        },
+        answer: {
+          es: "Las entradas y los reservados VIP se compran online a través de FourVenues. El precio varía según el evento y el DJ de cada noche.",
+          en: "Tickets and VIP tables are purchased online through FourVenues. The price varies depending on the event and the DJ of the night.",
+          de: "Tickets und VIP-Tische werden online über FourVenues gekauft. Der Preis variiert je nach Event und DJ des Abends.",
+          fr: "Les billets et les tables VIP s'achètent en ligne via FourVenues. Le prix varie selon l'événement et le DJ de la soirée.",
+          it: "I biglietti e i tavoli VIP si acquistano online tramite FourVenues. Il prezzo varia in base all'evento e al DJ della serata.",
+        },
+      },
+      {
+        question: {
+          es: "¿Cuál es la edad mínima para entrar en Outxide?",
+          en: "What is the minimum age to enter Outxide?",
+          de: "Was ist das Mindestalter für den Eintritt ins Outxide?",
+          fr: "Quel est l'âge minimum pour entrer à l'Outxide ?",
+          it: "Qual è l'età minima per entrare all'Outxide?",
+        },
+        answer: {
+          es: "Outxide es una discoteca para mayores de 18 años. Puede solicitarse un documento de identidad en la puerta.",
+          en: "Outxide is a nightclub for over-18s. Photo ID may be requested at the door.",
+          de: "Das Outxide ist ein Nachtclub ab 18 Jahren. Am Eingang kann ein Ausweis verlangt werden.",
+          fr: "L'Outxide est une discothèque réservée aux plus de 18 ans. Une pièce d'identité peut être demandée à l'entrée.",
+          it: "L'Outxide è una discoteca per maggiori di 18 anni. All'ingresso può essere richiesto un documento d'identità.",
+        },
+      },
+      {
+        question: {
+          es: "¿Dónde está Outxide Club?",
+          en: "Where is Outxide Club located?",
+          de: "Wo befindet sich der Outxide Club?",
+          fr: "Où se trouve l'Outxide Club ?",
+          it: "Dove si trova l'Outxide Club?",
+        },
+        answer: {
+          es: "Outxide Club está en la Av. Tucán 1, Port d'Alcúdia (Mallorca), la misma ubicación que la terraza de Enjoy.",
+          en: "Outxide Club is at Av. Tucán 1, Port d'Alcúdia (Mallorca), the same location as the Enjoy terrace.",
+          de: "Der Outxide Club liegt in der Av. Tucán 1, Port d'Alcúdia (Mallorca), am selben Standort wie die Enjoy-Terrasse.",
+          fr: "L'Outxide Club se trouve Av. Tucán 1, Port d'Alcúdia (Majorque), au même endroit que la terrasse d'Enjoy.",
+          it: "L'Outxide Club si trova in Av. Tucán 1, Port d'Alcúdia (Maiorca), nella stessa sede della terrazza di Enjoy.",
+        },
+      },
+    ],
     readingTime: 8,
   },
   {

@@ -281,6 +281,7 @@ export const fr: Dictionary = {
     readingTime: "de lecture",
     backToBlog: "Retour au blog",
     relatedPosts: "Articles associés",
+    faqTitle: "Questions fréquentes",
     publishedOn: "Publié le",
     allPosts: "Tous les articles",
     noPostsFound: "Aucun article trouvé.",
