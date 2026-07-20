@@ -39,13 +39,14 @@ function xmlText(s: string): string {
 
 type SitemapVideo = NonNullable<MetadataRoute.Sitemap[number]["videos"]>[number];
 const VENUE_VIDEOS: Record<string, SitemapVideo> = {
+  // Solo content_loc (el .mp4 real). NO usamos player_loc: apuntaría a la misma
+  // URL que <loc> (la landing), lo que Google desaconseja; con content_loc basta.
   "/enjoy": {
     title: "Enjoy Terrace — Cócteles & Shisha en Port d'Alcúdia",
     thumbnail_loc: `${baseUrl}/videos/enjoy-hero-poster.jpg`,
     description:
       "Ambiente de cócteles al atardecer en Enjoy Terrace, terraza premium de cócteles y shisha en Port d'Alcúdia, Mallorca. Abierto a diario desde las 17:00.",
     content_loc: `${baseUrl}/videos/enjoy-hero.mp4`,
-    player_loc: `${baseUrl}/enjoy`,
   },
   "/outxide": {
     title: "Outxide Club — Discoteca en Port d'Alcúdia, Mallorca",
@@ -53,7 +54,6 @@ const VENUE_VIDEOS: Record<string, SitemapVideo> = {
     description:
       "La energía de Outxide Club, la discoteca de referencia del norte de Mallorca: DJs internacionales, servicio VIP y noches inolvidables en Port d'Alcúdia.",
     content_loc: `${baseUrl}/videos/outxide-hero.mp4`,
-    player_loc: `${baseUrl}/outxide`,
   },
   "/hiru": {
     title: "Hiru Food & Drinks — Restaurante a la brasa en Alcúdia, Mallorca",
@@ -61,7 +61,6 @@ const VENUE_VIDEOS: Record<string, SitemapVideo> = {
     description:
       "Hiru Food & Drinks, restaurante mediterráneo a la brasa en Alcúdia, Mallorca: carnes maduradas, paella de marisco fresco y un ambiente vibrante.",
     content_loc: `${baseUrl}/videos/hiru-hero.mp4`,
-    player_loc: `${baseUrl}/hiru`,
   },
 };
 
