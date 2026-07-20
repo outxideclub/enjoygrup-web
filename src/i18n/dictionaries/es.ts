@@ -432,6 +432,12 @@ export const es = {
     metaDescription: "Vive el Mundial 2026 en las pantallas gigantes de Enjoy, desde la terraza de Enjoy en Port d'Alcúdia. Calendario completo y los partidos que retransmitimos en directo de 17:00 a 23:00.",
     directoTagline: "Marcador en directo",
   },
+  champion: {
+    badge: "Campeones del Mundo",
+    title: "¡España, Campeona del Mundo 2026!",
+    text: "La Roja levanta su segunda estrella y la final se vivió en Outxide, en pantalla gigante desde la terraza de Enjoy. Gracias por vibrar con nosotros.",
+    cta: "Leer la crónica",
+  },
   notFound: {
     title: "Página no encontrada",
     description: "Lo sentimos, la página que buscas no existe o ha sido movida.",

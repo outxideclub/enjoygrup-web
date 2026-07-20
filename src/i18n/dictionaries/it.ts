@@ -434,6 +434,12 @@ export const it: Dictionary = {
     metaDescription: "Vivi i Mondiali 2026 sui maxi schermi di Enjoy, dalla terrazza di Enjoy a Port d'Alcúdia. Calendario completo e le partite che trasmettiamo in diretta dalle 17 alle 23.",
     directoTagline: "Tabellone in diretta",
   },
+  champion: {
+    badge: "Campioni del Mondo",
+    title: "Spagna, Campione del Mondo 2026!",
+    text: "La Roja conquista la seconda stella e la finale si è vissuta all'Outxide sul maxischermo dalla terrazza di Enjoy. Grazie per aver tifato con noi.",
+    cta: "Leggi la cronaca",
+  },
   notFound: {
     title: "Pagina non trovata",
     description: "Ci dispiace, la pagina che cercate non esiste o è stata spostata.",

@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
 import { MundialBanner } from "@/components/ui/mundial-banner";
+import { ChampionBanner } from "@/components/ui/champion-banner";
+import { EVENT_PHASE, effectivePhase } from "@/lib/mundial/event-config";
 import dynamic from "next/dynamic";
 
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
@@ -60,6 +62,11 @@ const businesses = [
 
 export default function HomePage() {
   const t = useT();
+  // Fase del banner de competición (se degrada a "off" pasada la fecha del campeón).
+  const [phase, setPhase] = useState(EVENT_PHASE);
+  useEffect(() => {
+    setPhase(effectivePhase(Date.now()));
+  }, []);
   const [index, setIndex] = useState(0);
   const [videoReady, setVideoReady] = useState(false);
   const [deferredVideoId, setDeferredVideoId] = useState<string | null>(null);
@@ -255,10 +262,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Banner Mundial 2026 (apartado temporal compartido) — destacado bajo el hero */}
-      <div className="pt-16">
-        <MundialBanner />
-      </div>
+      {/* Banner de competición bajo el hero. Una sola palanca en
+          src/lib/mundial/event-config.ts decide qué se muestra:
+          "featured" → promo del torneo · "champion" → campeón · "off" → nada. */}
+      {phase !== "off" && (
+        <div className="pt-16">
+          {phase === "champion" ? <ChampionBanner /> : <MundialBanner />}
+        </div>
+      )}
 
       {/* Featured Spaces Section */}
       <section id="spaces" className="grain-overlay py-32 relative bg-[radial-gradient(ellipse_at_50%_0%,rgba(236,72,153,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_80%_80%,rgba(6,182,212,0.12)_0%,transparent_60%)]">

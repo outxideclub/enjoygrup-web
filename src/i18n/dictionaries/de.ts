@@ -434,6 +434,12 @@ export const de: Dictionary = {
     metaDescription: "Erlebe die WM 2026 auf den Großleinwänden von Enjoy, von der Enjoy-Terrasse in Port d'Alcúdia. Kompletter Spielplan und die Spiele, die wir von 17 bis 23 Uhr live übertragen.",
     directoTagline: "Live-Anzeigetafel",
   },
+  champion: {
+    badge: "Weltmeister",
+    title: "Spanien, Weltmeister 2026!",
+    text: "La Roja holt den zweiten Stern – das Finale erlebten wir bei Outxide auf der Großleinwand von der Enjoy-Terrasse aus. Danke, dass ihr mitgefiebert habt.",
+    cta: "Zum Bericht",
+  },
   notFound: {
     title: "Seite nicht gefunden",
     description: "Entschuldigung, die gesuchte Seite existiert nicht oder wurde verschoben.",

@@ -45,6 +45,156 @@ export function getPostText(
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "espana-campeona-mundial-2026-outxide-alcudia",
+    title: {
+      es: "España Campeona del Mundo 2026: Así se Vivió la Final en Outxide (Alcúdia)",
+      en: "Spain, 2026 World Champions: How the Final Was Lived at Outxide (Alcúdia)",
+      de: "Spanien ist Weltmeister 2026: So haben wir das Finale im Outxide erlebt (Alcúdia)",
+      fr: "L'Espagne Championne du Monde 2026 : la Finale Vécue à Outxide (Alcúdia)",
+      it: "Spagna Campione del Mondo 2026: Come si è Vissuta la Finale all'Outxide (Alcúdia)",
+    },
+    excerpt: {
+      es: "España es campeona del Mundial 2026 tras ganar 1-0 a Argentina. Te contamos cómo se vivió la final en pantalla gigante en Outxide Club, desde la terraza de Enjoy en Port d'Alcúdia. La segunda estrella de La Roja se celebró en Mallorca.",
+      en: "Spain are the 2026 World Champions after beating Argentina 1-0. Here's how the final was lived on the big screen at Outxide Club, from the Enjoy terrace in Port d'Alcúdia. La Roja's second star was celebrated in Mallorca — the best place to watch football and the matches in Alcúdia.",
+      de: "Spanien ist Weltmeister 2026 nach dem 1:0 gegen Argentinien. Wir erzählen dir, wie das Finale auf der Großleinwand im Outxide Club erlebt wurde, von der Enjoy-Terrasse in Port d'Alcúdia aus. Der zweite Stern von La Roja wurde auf Mallorca gefeiert — der beste Ort, um in Alcúdia Fußball und die Spiele zu schauen.",
+      fr: "L'Espagne est championne du monde 2026 après sa victoire 1-0 contre l'Argentine. On vous raconte comment la finale a été vécue sur écran géant à Outxide Club, depuis la terrasse d'Enjoy à Port d'Alcúdia. La deuxième étoile de La Roja s'est fêtée à Majorque, le meilleur endroit pour regarder le foot et les matchs à Alcúdia.",
+      it: "La Spagna è campione del mondo 2026 dopo la vittoria per 1-0 sull'Argentina. Ti raccontiamo come si è vissuta la finale sul maxischermo all'Outxide Club, dalla terrazza di Enjoy a Port d'Alcúdia. La seconda stella della Roja si è festeggiata a Maiorca, il posto migliore per vedere il calcio e le partite ad Alcúdia.",
+    },
+    content: {
+      es: `<p>Ya es historia: <strong>España es campeona del Mundo 2026</strong>. La Roja se impuso <strong>1-0 a Argentina</strong> en la final y suma su <strong>segunda estrella</strong>, dieciséis años después del título de 2010. Y en Port d'Alcúdia lo vivimos como se merecía: con la final en <strong>pantalla gigante en Outxide Club</strong>, visible desde la terraza de <a href="/enjoy">Enjoy</a> y con un ambientazo que no olvidaremos.</p>
+
+<h2>La final del Mundial, en pantalla gigante en Outxide</h2>
+<p>Durante toda la tarde-noche, <a href="/outxide">Outxide Club</a> se convirtió en el mejor sitio para ver el fútbol en Alcúdia. Montamos las pantallas grandes con el partido y el marcador en directo, y la terraza de Enjoy se llenó de gente con ganas de vibrar. Sin entrada de discoteca, con las copas de siempre y el mejor plan para una noche irrepetible: ver a España jugarse el Mundial rodeado de aficionados de toda la zona.</p>
+<p>El gol de la victoria desató la locura en Port d'Alcúdia. Bengalas de color, cánticos y una celebración que se alargó hasta bien entrada la madrugada en la que Outxide se convirtió en una fiesta por el título. Gracias a todos los que vinisteis a compartirlo con nosotros.</p>
+
+<h2>El camino de España hacia la segunda estrella</h2>
+<p>El título no llegó por casualidad. España firmó un torneo espectacular de principio a fin:</p>
+<ul>
+<li><strong>Fase de grupos:</strong> 0-0 con Cabo Verde, 4-0 a Arabia Saudí y 1-0 a Uruguay.</li>
+<li><strong>Dieciseisavos:</strong> 3-0 a Austria.</li>
+<li><strong>Octavos:</strong> 1-0 a Portugal en un duelo ibérico de altísima tensión.</li>
+<li><strong>Cuartos:</strong> 2-1 a Bélgica, sufriendo hasta el final.</li>
+<li><strong>Semifinal:</strong> 2-0 a Francia, un partidazo que metió a La Roja en la final.</li>
+<li><strong>Final:</strong> 1-0 a Argentina para levantar la copa.</li>
+</ul>
+<p>Muchos de esos partidos también se vivieron en Outxide durante el mes de Mundial, con la terraza de Enjoy como grada de excepción.</p>
+
+<h2>Un mes de Mundial en Port d'Alcúdia</h2>
+<p>Desde el arranque del torneo retransmitimos en directo los partidos que caían en horario de tarde-noche, con el calendario completo, el cuadro de eliminatorias y el marcador en tiempo real en nuestra web. Alcúdia recibe cada verano a miles de turistas de Alemania, Reino Unido, Francia, Italia, Países Bajos y, por supuesto, España, y no hay mejor forma de unir a todos que un buen partido en pantalla gigante con una copa en la mano.</p>
+<p>Si te preguntas <strong>dónde ver el fútbol en Alcúdia</strong> o <strong>dónde ver los partidos en Mallorca</strong>, ya sabes: Grupo Enjoy es tu sitio. Y esto no acaba aquí.</p>
+
+<h2>Lo que viene: eventos todo el verano en Grupo Enjoy</h2>
+<p>El Mundial ha terminado, pero el verano en Port d'Alcúdia no para. En <a href="/outxide">Outxide Club</a> seguimos con nuestras noches de DJ, sesiones y fiestas temáticas; en <a href="/enjoy">Enjoy Terrace</a> te esperan los mejores cócteles de autor y shisha frente al atardecer; y en <a href="/hiru">Hiru Food &amp; Drinks</a> tienes cocina a la brasa para cargar pilas antes de salir.</p>
+<p>Consulta la <a href="/outxide">agenda de Outxide</a> para no perderte ningún evento, y celebra con nosotros lo que queda de temporada. ¡Gracias por hacer de este Mundial una fiesta inolvidable en Alcúdia!</p>`,
+      en: `<p>It's now history: <strong>Spain are the 2026 World Champions</strong>. La Roja beat <strong>Argentina 1-0</strong> in the final to claim their <strong>second star</strong>, sixteen years after the 2010 title. And in Port d'Alcúdia we lived it exactly as it deserved: the final on the <strong>big screen at Outxide Club</strong>, visible from the <a href="/enjoy">Enjoy</a> terrace, with an atmosphere we'll never forget.</p>
+
+<h2>The World Cup final on the big screen at Outxide</h2>
+<p>All evening long, <a href="/outxide">Outxide Club</a> became the best place to watch football in Alcúdia. We set up the big screens with the match and the live score, and the Enjoy terrace filled up with people ready to cheer. No club entry fee, your usual drinks in hand, and the best plan for an unforgettable night: watching Spain fight for the World Cup surrounded by fans from all over the area.</p>
+<p>The winning goal sparked pure joy across Port d'Alcúdia. Coloured flares, chants and a celebration that stretched well into the early hours, with Outxide turned into a party for the title. Thank you to everyone who came to share it with us.</p>
+
+<h2>Spain's road to the second star</h2>
+<p>The title was no accident. Spain put together a spectacular tournament from start to finish:</p>
+<ul>
+<li><strong>Group stage:</strong> 0-0 against Cape Verde, 4-0 against Saudi Arabia and 1-0 against Uruguay.</li>
+<li><strong>Round of 32:</strong> 3-0 against Austria.</li>
+<li><strong>Round of 16:</strong> 1-0 against Portugal in an Iberian derby of the highest tension.</li>
+<li><strong>Quarter-finals:</strong> 2-1 against Belgium, sweating it out to the very end.</li>
+<li><strong>Semi-final:</strong> 2-0 against France, a superb match that sent La Roja into the final.</li>
+<li><strong>Final:</strong> 1-0 against Argentina to lift the trophy.</li>
+</ul>
+<p>Many of those matches were also lived at Outxide during the World Cup month, with the Enjoy terrace as a front-row stand.</p>
+
+<h2>A month of World Cup in Port d'Alcúdia</h2>
+<p>From the tournament's kick-off we broadcast live every match that fell in the evening slot, with the full schedule, the knockout bracket and the real-time score on our website. Every summer Alcúdia welcomes thousands of tourists from Germany, the United Kingdom, France, Italy, the Netherlands and, of course, Spain — and there's no better way to bring everyone together than a great match on the big screen with a drink in hand.</p>
+<p>So if you're wondering <strong>where to watch football in Alcúdia</strong> or <strong>where to watch the matches in Mallorca</strong>, now you know: Grupo Enjoy is your place. And this isn't over.</p>
+
+<h2>What's next: events all summer at Grupo Enjoy</h2>
+<p>The World Cup is over, but summer in Port d'Alcúdia doesn't stop. At <a href="/outxide">Outxide Club</a> we carry on with our DJ nights, sessions and themed parties; at <a href="/enjoy">Enjoy Terrace</a> the best signature cocktails and shisha await you facing the sunset; and at <a href="/hiru">Hiru Food &amp; Drinks</a> you'll find grilled cuisine to recharge before heading out.</p>
+<p>Check the <a href="/outxide">Outxide agenda</a> so you don't miss a single event, and celebrate the rest of the season with us. Thank you for making this World Cup an unforgettable party in Alcúdia!</p>`,
+      de: `<p>Jetzt ist es Geschichte: <strong>Spanien ist Weltmeister 2026</strong>. La Roja gewann das Finale mit <strong>1:0 gegen Argentinien</strong> und holt seinen <strong>zweiten Stern</strong>, sechzehn Jahre nach dem Titel von 2010. Und in Port d'Alcúdia haben wir es so erlebt, wie es sein sollte: das Finale auf der <strong>Großleinwand im Outxide Club</strong>, sichtbar von der <a href="/enjoy">Enjoy</a>-Terrasse, mit einer Stimmung, die wir nie vergessen werden.</p>
+
+<h2>Das WM-Finale auf der Großleinwand im Outxide</h2>
+<p>Den ganzen Abend über war <a href="/outxide">Outxide Club</a> der beste Ort, um in Alcúdia Fußball zu schauen. Wir haben die großen Leinwände mit dem Spiel und dem Live-Spielstand aufgebaut, und die Enjoy-Terrasse füllte sich mit Menschen, die mitfiebern wollten. Ohne Disco-Eintritt, mit euren gewohnten Drinks und dem besten Plan für eine einmalige Nacht: Spanien um die WM kämpfen sehen, umgeben von Fans aus der ganzen Region.</p>
+<p>Das Siegtor löste in Port d'Alcúdia den blanken Jubel aus. Bunte Bengalos, Fangesänge und eine Feier, die bis in die frühen Morgenstunden ging, in der sich das Outxide in eine Party für den Titel verwandelte. Danke an alle, die gekommen sind, um es mit uns zu teilen.</p>
+
+<h2>Spaniens Weg zum zweiten Stern</h2>
+<p>Der Titel kam nicht von ungefähr. Spanien lieferte von Anfang bis Ende ein spektakuläres Turnier ab:</p>
+<ul>
+<li><strong>Gruppenphase:</strong> 0:0 gegen Kap Verde, 4:0 gegen Saudi-Arabien und 1:0 gegen Uruguay.</li>
+<li><strong>Sechzehntelfinale:</strong> 3:0 gegen Österreich.</li>
+<li><strong>Achtelfinale:</strong> 1:0 gegen Portugal in einem iberischen Duell mit höchster Spannung.</li>
+<li><strong>Viertelfinale:</strong> 2:1 gegen Belgien, bis zum Schluss gezittert.</li>
+<li><strong>Halbfinale:</strong> 2:0 gegen Frankreich, ein starkes Spiel, das La Roja ins Finale brachte.</li>
+<li><strong>Finale:</strong> 1:0 gegen Argentinien, um den Pokal zu heben.</li>
+</ul>
+<p>Viele dieser Spiele wurden während des WM-Monats auch im Outxide erlebt, mit der Enjoy-Terrasse als Tribüne der Extraklasse.</p>
+
+<h2>Ein Monat WM in Port d'Alcúdia</h2>
+<p>Vom Anpfiff des Turniers an übertrugen wir jedes Spiel live, das in die Abendzeit fiel — mit dem kompletten Spielplan, dem Turnierbaum und dem Live-Spielstand auf unserer Website. Jeden Sommer empfängt Alcúdia Tausende Touristen aus Deutschland, dem Vereinigten Königreich, Frankreich, Italien, den Niederlanden und natürlich Spanien, und es gibt keine bessere Art, alle zusammenzubringen, als ein großes Spiel auf der Großleinwand mit einem Drink in der Hand.</p>
+<p>Wenn du dich also fragst, <strong>wo man in Alcúdia Fußball schauen kann</strong> oder <strong>wo man die Spiele auf Mallorca sehen kann</strong>, weißt du jetzt Bescheid: Grupo Enjoy ist dein Ort. Und das war noch nicht alles.</p>
+
+<h2>Was kommt: Events den ganzen Sommer bei Grupo Enjoy</h2>
+<p>Die WM ist vorbei, aber der Sommer in Port d'Alcúdia hört nicht auf. Im <a href="/outxide">Outxide Club</a> geht es weiter mit unseren DJ-Nächten, Sessions und Themenpartys; in der <a href="/enjoy">Enjoy Terrace</a> erwarten dich die besten Signature-Cocktails und Shisha mit Blick auf den Sonnenuntergang; und im <a href="/hiru">Hiru Food &amp; Drinks</a> gibt es Grillküche, um vor dem Ausgehen Kraft zu tanken.</p>
+<p>Schau in den <a href="/outxide">Outxide-Kalender</a>, damit dir kein Event entgeht, und feiere mit uns den Rest der Saison. Danke, dass ihr diese WM zu einem unvergesslichen Fest in Alcúdia gemacht habt!</p>`,
+      fr: `<p>C'est désormais dans l'histoire : <strong>l'Espagne est championne du monde 2026</strong>. La Roja s'est imposée <strong>1-0 face à l'Argentine</strong> en finale et décroche sa <strong>deuxième étoile</strong>, seize ans après le titre de 2010. Et à Port d'Alcúdia, nous l'avons vécu comme il se doit : la finale sur <strong>écran géant à Outxide Club</strong>, visible depuis la terrasse d'<a href="/enjoy">Enjoy</a>, avec une ambiance que nous n'oublierons pas.</p>
+
+<h2>La finale de la Coupe du monde sur écran géant à Outxide</h2>
+<p>Toute la soirée, <a href="/outxide">Outxide Club</a> est devenu le meilleur endroit pour regarder le foot à Alcúdia. Nous avons installé les grands écrans avec le match et le score en direct, et la terrasse d'Enjoy s'est remplie de monde, prête à vibrer. Sans billet d'entrée en discothèque, avec vos verres habituels et le meilleur plan pour une soirée unique : voir l'Espagne jouer le Mondial, entouré de supporters de toute la région.</p>
+<p>Le but de la victoire a déclenché la folie à Port d'Alcúdia. Fumigènes colorés, chants de supporters et une célébration qui s'est prolongée jusqu'au petit matin, avec Outxide transformé en fête pour le titre. Merci à toutes et à tous d'être venus le partager avec nous.</p>
+
+<h2>Le parcours de l'Espagne vers la deuxième étoile</h2>
+<p>Le titre n'est pas arrivé par hasard. L'Espagne a signé un tournoi spectaculaire du début à la fin :</p>
+<ul>
+<li><strong>Phase de groupes :</strong> 0-0 contre le Cap-Vert, 4-0 face à l'Arabie Saoudite et 1-0 contre l'Uruguay.</li>
+<li><strong>Seizièmes de finale :</strong> 3-0 face à l'Autriche.</li>
+<li><strong>Huitièmes de finale :</strong> 1-0 face au Portugal, dans un duel ibérique sous très haute tension.</li>
+<li><strong>Quarts de finale :</strong> 2-1 face à la Belgique, dans la souffrance jusqu'au bout.</li>
+<li><strong>Demi-finale :</strong> 2-0 face à la France, un grand match qui a envoyé La Roja en finale.</li>
+<li><strong>Finale :</strong> 1-0 face à l'Argentine pour soulever le trophée.</li>
+</ul>
+<p>Beaucoup de ces matchs se sont aussi vécus à Outxide pendant le mois de Coupe du monde, avec la terrasse d'Enjoy en guise de tribune d'exception.</p>
+
+<h2>Un mois de Coupe du monde à Port d'Alcúdia</h2>
+<p>Dès le coup d'envoi du tournoi, nous avons retransmis en direct les matchs programmés en soirée, avec le calendrier complet, le tableau des éliminatoires et le score en temps réel sur notre site. Chaque été, Alcúdia accueille des milliers de touristes venus d'Allemagne, du Royaume-Uni, de France, d'Italie, des Pays-Bas et, bien sûr, d'Espagne : il n'y a pas de meilleure façon de réunir tout le monde qu'un beau match sur écran géant, un verre à la main.</p>
+<p>Si vous vous demandez <strong>où regarder le foot à Alcúdia</strong> ou <strong>où voir les matchs à Majorque</strong>, vous savez maintenant où aller : Grupo Enjoy, c'est chez nous. Et ce n'est pas fini.</p>
+
+<h2>La suite : des événements tout l'été chez Grupo Enjoy</h2>
+<p>La Coupe du monde est terminée, mais l'été à Port d'Alcúdia ne s'arrête pas. À <a href="/outxide">Outxide Club</a>, on continue avec nos soirées DJ, nos sessions et nos soirées à thème ; à <a href="/enjoy">Enjoy Terrace</a>, les meilleurs cocktails signature et la chicha vous attendent face au coucher du soleil ; et à <a href="/hiru">Hiru Food &amp; Drinks</a>, la cuisine à la braise vous recharge les batteries avant de sortir.</p>
+<p>Consultez l'<a href="/outxide">agenda d'Outxide</a> pour ne manquer aucun événement, et fêtez avec nous tout ce qu'il reste de la saison. Merci d'avoir fait de cette Coupe du monde une fête inoubliable à Alcúdia !</p>`,
+      it: `<p>Ormai è storia: <strong>la Spagna è campione del mondo 2026</strong>. La Roja si è imposta <strong>1-0 sull'Argentina</strong> in finale e conquista la sua <strong>seconda stella</strong>, sedici anni dopo il titolo del 2010. E a Port d'Alcúdia l'abbiamo vissuta come meritava: la finale sul <strong>maxischermo all'Outxide Club</strong>, visibile dalla terrazza di <a href="/enjoy">Enjoy</a>, con un'atmosfera che non dimenticheremo.</p>
+
+<h2>La finale del Mondiale sul maxischermo all'Outxide</h2>
+<p>Per tutta la serata, <a href="/outxide">Outxide Club</a> è diventato il posto migliore per vedere il calcio ad Alcúdia. Abbiamo montato i grandi schermi con la partita e il punteggio in diretta, e la terrazza di Enjoy si è riempita di gente pronta a emozionarsi. Senza ingresso in discoteca, con i drink di sempre e il piano migliore per una notte irripetibile: vedere la Spagna giocarsi il Mondiale circondati da tifosi di tutta la zona.</p>
+<p>Il gol della vittoria ha scatenato la gioia a Port d'Alcúdia. Fumogeni colorati, cori e una festa che si è protratta fino alle prime ore del mattino, con l'Outxide trasformato in una festa per il titolo. Grazie a tutti quelli che sono venuti a condividerla con noi.</p>
+
+<h2>Il cammino della Spagna verso la seconda stella</h2>
+<p>Il titolo non è arrivato per caso. La Spagna ha disputato un torneo spettacolare dall'inizio alla fine:</p>
+<ul>
+<li><strong>Fase a gironi:</strong> 0-0 con Capo Verde, 4-0 all'Arabia Saudita e 1-0 all'Uruguay.</li>
+<li><strong>Sedicesimi:</strong> 3-0 all'Austria.</li>
+<li><strong>Ottavi:</strong> 1-0 al Portogallo in un derby iberico ad altissima tensione.</li>
+<li><strong>Quarti:</strong> 2-1 al Belgio, soffrendo fino alla fine.</li>
+<li><strong>Semifinale:</strong> 2-0 alla Francia, una grande partita che ha portato la Roja in finale.</li>
+<li><strong>Finale:</strong> 1-0 all'Argentina per alzare la coppa.</li>
+</ul>
+<p>Molte di quelle partite si sono vissute anche all'Outxide durante il mese del Mondiale, con la terrazza di Enjoy come tribuna d'eccezione.</p>
+
+<h2>Un mese di Mondiale a Port d'Alcúdia</h2>
+<p>Fin dal fischio d'inizio del torneo abbiamo trasmesso in diretta le partite in programma in fascia serale, con il calendario completo, il tabellone a eliminazione e il punteggio in tempo reale sul nostro sito. Ogni estate Alcúdia accoglie migliaia di turisti da Germania, Regno Unito, Francia, Italia, Paesi Bassi e, naturalmente, Spagna, e non c'è modo migliore per unire tutti di una bella partita sul maxischermo con un drink in mano.</p>
+<p>Se ti stai chiedendo <strong>dove vedere il calcio ad Alcúdia</strong> o <strong>dove vedere le partite a Maiorca</strong>, ora lo sai: Grupo Enjoy è il tuo posto. E non finisce qui.</p>
+
+<h2>Cosa arriva: eventi per tutta l'estate da Grupo Enjoy</h2>
+<p>Il Mondiale è finito, ma l'estate a Port d'Alcúdia non si ferma. All'<a href="/outxide">Outxide Club</a> continuiamo con le nostre serate DJ, i set e le feste a tema; all'<a href="/enjoy">Enjoy Terrace</a> ti aspettano i migliori cocktail d'autore e la shisha di fronte al tramonto; e all'<a href="/hiru">Hiru Food &amp; Drinks</a> trovi la cucina alla brace per ricaricare le pile prima di uscire.</p>
+<p>Consulta l'<a href="/outxide">agenda di Outxide</a> per non perderti nessun evento, e festeggia con noi il resto della stagione. Grazie per aver reso questo Mondiale una festa indimenticabile ad Alcúdia!</p>`,
+    },
+    author: "Grupo Enjoy",
+    date: "2026-07-20",
+    image: "/images/outxide/PIC06234-6.jpg",
+    tags: ["mundial 2026", "españa campeona", "outxide club", "ver futbol alcudia", "eventos alcudia mallorca"],
+    venue: "outxide",
+    readingTime: 5,
+  },
+  {
     slug: "mejores-restaurantes-alcudia-mallorca",
     title: {
       es: "Mejores Restaurantes en Alcudia: Donde Comer Bien en 2026",

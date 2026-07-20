@@ -68,7 +68,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/contacto", LAST_UPDATED.contacto, "monthly", 0.7),
     entry("/faq", LAST_UPDATED.faq, "monthly", 0.6),
     entry("/blog", LAST_UPDATED.blog, "weekly", 0.7),
-    entry("/mundial", LAST_UPDATED.mundial, "daily", 0.8),
+    // Mundial 2026 finalizado: se conserva como archivo (menor prioridad/frecuencia).
+    entry("/mundial", LAST_UPDATED.mundial, "monthly", 0.4),
     ...blogPosts,
   ];
 }

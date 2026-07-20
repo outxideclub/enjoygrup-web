@@ -434,6 +434,12 @@ export const en: Dictionary = {
     metaDescription: "Watch the 2026 World Cup on Enjoy's giant screens, from the Enjoy terrace in Port d'Alcúdia. Full schedule and the matches we broadcast live from 5 pm to 11 pm.",
     directoTagline: "Live scoreboard",
   },
+  champion: {
+    badge: "World Champions",
+    title: "Spain, 2026 World Champions!",
+    text: "La Roja lifts its second star, and we lived the final at Outxide on the big screen from the Enjoy terrace. Thanks for celebrating with us.",
+    cta: "Read the story",
+  },
   notFound: {
     title: "Page not found",
     description: "Sorry, the page you are looking for does not exist or has been moved.",

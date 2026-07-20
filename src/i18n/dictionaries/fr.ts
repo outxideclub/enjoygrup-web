@@ -434,6 +434,12 @@ export const fr: Dictionary = {
     metaDescription: "Vivez la Coupe du Monde 2026 sur écran géant, depuis la terrasse d'Enjoy à Port d'Alcúdia. Calendrier complet et les matchs que nous diffusons en direct de 17h à 23h.",
     directoTagline: "Tableau d'affichage en direct",
   },
+  champion: {
+    badge: "Champions du Monde",
+    title: "L'Espagne, Championne du Monde 2026 !",
+    text: "La Roja décroche sa deuxième étoile, et la finale s'est vécue à l'Outxide sur écran géant depuis la terrasse d'Enjoy. Merci d'avoir vibré avec nous.",
+    cta: "Lire le récit",
+  },
   notFound: {
     title: "Page non trouvée",
     description: "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
