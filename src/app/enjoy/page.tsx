@@ -12,7 +12,11 @@ import { EnjoyLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
-import enjoyGallery from "../../../data/gallery/enjoy.json";
+import enjoyGalleryEs from "../../../data/gallery/enjoy.json";
+import enjoyGalleryEn from "../../../data/gallery/enjoy.en.json";
+import enjoyGalleryDe from "../../../data/gallery/enjoy.de.json";
+import enjoyGalleryFr from "../../../data/gallery/enjoy.fr.json";
+import enjoyGalleryIt from "../../../data/gallery/enjoy.it.json";
 import enjoyDrinksEs from "../../../data/menus/enjoy-drinks.json";
 import enjoyDrinksEn from "../../../data/menus/enjoy-drinks.en.json";
 import enjoyDrinksDe from "../../../data/menus/enjoy-drinks.de.json";
@@ -40,7 +44,13 @@ interface MenuSection {
 }
 interface GalleryImage { src: string; alt: string; }
 
-const galleryImages = enjoyGallery as GalleryImage[];
+const enjoyGalleries: Record<string, typeof enjoyGalleryEs> = {
+  es: enjoyGalleryEs,
+  en: enjoyGalleryEn,
+  de: enjoyGalleryDe,
+  fr: enjoyGalleryFr,
+  it: enjoyGalleryIt,
+};
 const drinkMenus: Record<string, typeof enjoyDrinksEs> = {
   es: enjoyDrinksEs,
   en: enjoyDrinksEn,
@@ -66,9 +76,7 @@ export default function EnjoyPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const drinkSections = (drinkMenus[locale] ?? drinkMenus.en) as unknown as MenuSection[];
   const shishaSections = (shishaMenus[locale] ?? shishaMenus.en) as unknown as MenuSection[];
-  const menuNavRef = useRef<HTMLDivElement>(null);
-  const cartaSectionRef = useRef<HTMLElement>(null);
-  const [showFloatingNav, setShowFloatingNav] = useState(false);
+  const galleryImages = (enjoyGalleries[locale] ?? enjoyGalleries.es) as unknown as GalleryImage[];
   const prefersReduced = useReducedMotion();
 
   const handleVideoReady = useCallback(() => {
@@ -92,26 +100,6 @@ export default function EnjoyPage() {
     const v = videoRef.current;
     if (v && v.readyState >= 3) handleVideoReady();
   }, [handleVideoReady, loadVideo]);
-
-  useEffect(() => {
-    const nav = menuNavRef.current;
-    const section = cartaSectionRef.current;
-    if (!nav || !section) return;
-    let navVisible = true;
-    let sectionVisible = false;
-    const update = () => setShowFloatingNav(!navVisible && sectionVisible);
-    const navObs = new IntersectionObserver(
-      ([entry]) => { navVisible = entry.isIntersecting; update(); },
-      { threshold: 0 },
-    );
-    const sectionObs = new IntersectionObserver(
-      ([entry]) => { sectionVisible = entry.isIntersecting; update(); },
-      { threshold: 0 },
-    );
-    navObs.observe(nav);
-    sectionObs.observe(section);
-    return () => { navObs.disconnect(); sectionObs.disconnect(); };
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -324,7 +312,7 @@ export default function EnjoyPage() {
       </section>
 
       {/* Carta — Shisha + Cocktails & Bebidas */}
-      <section id="carta" ref={cartaSectionRef} className="grain-overlay py-24 md:py-32 relative z-20 overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,rgba(236,72,153,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_20%_80%,rgba(219,39,119,0.10)_0%,transparent_60%)]">
+      <section id="carta" className="grain-overlay py-24 md:py-32 relative z-20 overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,rgba(236,72,153,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_20%_80%,rgba(219,39,119,0.10)_0%,transparent_60%)]">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute top-20 -left-10 w-64 h-64 rounded-full bg-enjoy/[0.03] blur-3xl" />
           <div className="absolute top-1/3 -right-20 w-80 h-80 rounded-full bg-enjoy/[0.02] blur-3xl" />
@@ -369,7 +357,7 @@ export default function EnjoyPage() {
 
           {/* Drinks nav */}
           <ScrollReveal>
-            <div ref={menuNavRef} className="mb-20">
+            <div className="mb-20">
               <h3 className="text-sm font-bold tracking-[0.15em] text-enjoy/50 uppercase mb-3">{t("enjoy.drinksNavTitle")}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
                 {drinkSections.map((section) => {

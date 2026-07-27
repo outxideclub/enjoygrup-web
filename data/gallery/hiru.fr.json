@@ -1,0 +1,100 @@
+{
+  "categories": ["all", "gastronomia", "espacio"],
+  "images": [
+    {
+      "src": "/images/hiru/562670095_17922705096168067_538433746831408588_n.jpg",
+      "alt": "Croquettes maison au jambon ibérique",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/483126770_17896998534168067_192713367724853344_n.jpg",
+      "alt": "Poulpe grillé à la braise au paprika",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/561985811_17922705114168067_7759468155282027217_n.jpg",
+      "alt": "Jambon ibérique et pain frotté à la tomate",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/692122357_122298526610201104_3037346814293072640_n.jpg",
+      "alt": "Steak tartare coupé au couteau",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/677343610_122295454376201104_6995092575868054731_n.jpg",
+      "alt": "Viande maturée sur planche en bois d'olivier",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/680591989_122296608722201104_4494139569567112933_n.jpg",
+      "alt": "Côte de bœuf grillée sur charbon de bois",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/493354205_122229099188201104_3242778805126633840_n.jpg",
+      "alt": "Entrecôte grillée à la braise avec des légumes",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/562533699_17922705087168067_8031846525458491399_n.jpg",
+      "alt": "Burrata au jambon et pain grillé",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/565081301_17922705105168067_7211879157282024966_n.jpg",
+      "alt": "Steak tartare avec pain croustillant",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/667757919_122293639154201104_7376217363999155599_n.jpg",
+      "alt": "Chef préparant des morceaux de viande",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/671119165_122294830352201104_8283524073295182200_n.jpg",
+      "alt": "Assortiment de viandes grillées à la braise",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/489278271_122224698272201104_2709257958875125484_n.jpg",
+      "alt": "Viande maturée en chambre de maturation",
+      "category": "gastronomia"
+    },
+    {
+      "src": "/images/hiru/482801153_17896889463168067_1689101766204329963_n.jpg",
+      "alt": "Intérieur du restaurant Hiru",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/689490512_122297652590201104_2174807540291244064_n.jpg",
+      "alt": "Terrasse dressée pour le dîner",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/475426584_122217376988201104_7624273276245682480_n.jpg",
+      "alt": "Espace lounge de la terrasse",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/476864545_122218990460201104_8345858149750135207_n.jpg",
+      "alt": "Salle intérieure avec mur en briques",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/690599151_122297652584201104_7558221336541313381_n.jpg",
+      "alt": "Bar à cocktails avec étagères",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/496393587_122233779992201104_2951764048642673054_n.jpg",
+      "alt": "Détail de l'intérieur avec des plantes",
+      "category": "espacio"
+    },
+    {
+      "src": "/images/hiru/487956094_122223380948201104_7357494056939042885_n.jpg",
+      "alt": "Carte du restaurant Hiru",
+      "category": "espacio"
+    }
+  ]
+}

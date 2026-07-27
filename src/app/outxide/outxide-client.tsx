@@ -26,7 +26,11 @@ import { OutxideLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
-import outxideGallery from "../../../data/gallery/outxide.json";
+import outxideGalleryEs from "../../../data/gallery/outxide.json";
+import outxideGalleryEn from "../../../data/gallery/outxide.en.json";
+import outxideGalleryDe from "../../../data/gallery/outxide.de.json";
+import outxideGalleryFr from "../../../data/gallery/outxide.fr.json";
+import outxideGalleryIt from "../../../data/gallery/outxide.it.json";
 
 const LaserBeams = dynamic(() => import("@/components/ui/laser-beams").then(m => ({ default: m.LaserBeams })), { ssr: false });
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
@@ -58,11 +62,18 @@ import { useRef, useState, useEffect, useCallback } from "react";
 
 interface GalleryImage { src: string; alt: string; }
 
-const galleryImages = outxideGallery as GalleryImage[];
+const outxideGalleries: Record<string, typeof outxideGalleryEs> = {
+  es: outxideGalleryEs,
+  en: outxideGalleryEn,
+  de: outxideGalleryDe,
+  fr: outxideGalleryFr,
+  it: outxideGalleryIt,
+};
 
 export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
   const t = useT();
   const locale = useLocale();
+  const galleryImages = (outxideGalleries[locale] ?? outxideGalleries.es) as unknown as GalleryImage[];
   const [events] = useState<FVEvent[]>(initialEvents);
 
   const [videoReady, setVideoReady] = useState(false);

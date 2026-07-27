@@ -25,7 +25,11 @@ import { HiruLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
-import hiruGallery from "../../../data/gallery/hiru.json";
+import hiruGalleryEs from "../../../data/gallery/hiru.json";
+import hiruGalleryEn from "../../../data/gallery/hiru.en.json";
+import hiruGalleryDe from "../../../data/gallery/hiru.de.json";
+import hiruGalleryFr from "../../../data/gallery/hiru.fr.json";
+import hiruGalleryIt from "../../../data/gallery/hiru.it.json";
 import hiruMenuEs from "../../../data/menus/hiru.json";
 import hiruMenuEn from "../../../data/menus/hiru.en.json";
 import hiruMenuDe from "../../../data/menus/hiru.de.json";
@@ -44,7 +48,13 @@ interface MenuSection { id: string; category: string; icon: string; subtitle?: s
 interface GalleryImage { src: string; alt: string; category?: string; }
 interface GalleryData { categories: string[]; images: GalleryImage[]; }
 
-const galleryData = hiruGallery as GalleryData;
+const hiruGalleries: Record<string, typeof hiruGalleryEs> = {
+  es: hiruGalleryEs,
+  en: hiruGalleryEn,
+  de: hiruGalleryDe,
+  fr: hiruGalleryFr,
+  it: hiruGalleryIt,
+};
 const menus: Record<string, typeof hiruMenuEs> = {
   es: hiruMenuEs,
   en: hiruMenuEn,
@@ -62,6 +72,7 @@ export default function HiruPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const menuSections = (menus[locale] ?? menus.en) as unknown as MenuSection[];
+  const galleryData = (hiruGalleries[locale] ?? hiruGalleries.es) as unknown as GalleryData;
   const menuNavRef = useRef<HTMLElement>(null);
   const menuSectionRef = useRef<HTMLElement>(null);
   const [showFloatingNav, setShowFloatingNav] = useState(false);

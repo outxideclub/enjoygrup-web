@@ -78,7 +78,9 @@ export function AmbientGlow({ venue, className }: AmbientGlowProps) {
       {orbs.map((orb, i) => (
         <div
           key={i}
-          className="absolute rounded-full animate-ambient-drift"
+          // En móvil solo los 3 primeros orbes (los 2 últimos son los más tenues):
+          // el blur grande es caro y son 5 en cada página. Look intacto en desktop.
+          className={cn("absolute rounded-full animate-ambient-drift", i >= 3 && "hidden sm:block")}
           style={{
             background: `radial-gradient(circle, ${orb.color} 0%, transparent 65%)`,
             width: orb.size,
