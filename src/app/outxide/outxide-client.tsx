@@ -198,7 +198,8 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
               <Button
                 asChild
                 size="lg"
-                className="btn-magnetic rounded-full px-8 bg-outxide hover:bg-outxide/90 text-black shadow-lg shadow-outxide/20"
+                variant="outxide"
+                className="btn-magnetic rounded-full px-8 shadow-lg shadow-outxide/20"
               >
                 <a href="#eventos">
                   <Ticket className="h-4 w-4 mr-2" />

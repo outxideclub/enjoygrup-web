@@ -191,7 +191,8 @@ export default function EnjoyPage() {
               <Button
                 asChild
                 size="lg"
-                className="btn-magnetic rounded-full px-8 bg-enjoy hover:bg-enjoy/80 text-white shadow-lg shadow-enjoy/20"
+                variant="enjoy"
+                className="btn-magnetic rounded-full px-8 shadow-lg shadow-enjoy/20"
               >
                 <a href={waLink(t("cta.whatsappEnjoy"))} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-4 w-4 mr-2" />

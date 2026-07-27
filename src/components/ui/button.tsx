@@ -17,6 +17,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Variantes de marca por local (un unico origen para el color/hover de los CTA).
+        enjoy: "bg-enjoy text-white hover:bg-enjoy/90",
+        outxide: "bg-outxide text-black hover:bg-outxide/90",
+        hiru: "bg-hiru text-white hover:bg-hiru/90",
       },
       size: {
         default: "h-10 px-4 py-2",

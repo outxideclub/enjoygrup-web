@@ -292,7 +292,8 @@ export default function HiruPage() {
           <Button
             asChild
             size="lg"
-            className="btn-magnetic rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
+            variant="hiru"
+            className="btn-magnetic rounded-full px-8 shadow-lg shadow-hiru/20"
           >
             <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-4 w-4 mr-2" />
@@ -493,7 +494,8 @@ export default function HiruPage() {
             <Button
               asChild
               size="lg"
-              className="btn-magnetic rounded-full px-8 bg-hiru hover:bg-hiru/80 text-white shadow-lg shadow-hiru/20"
+              variant="hiru"
+              className="btn-magnetic rounded-full px-8 shadow-lg shadow-hiru/20"
             >
               <a href="https://hirufoodanddrinks.myrestoo.net/es/reservar" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4 mr-2" />
