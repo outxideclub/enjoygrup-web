@@ -352,8 +352,8 @@ export function OutxideJsonLd({ description, locale = "es" }: { description?: st
           {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Thursday", "Friday", "Saturday"],
-            opens: "23:30",
-            closes: "06:00",
+            opens: "23:00",
+            closes: "05:30",
           },
         ],
         amenityFeature: [
@@ -398,113 +398,6 @@ export function OutxideJsonLd({ description, locale = "es" }: { description?: st
   );
 }
 
-export function OutxideEventsJsonLd({ locale = "es" }: { locale?: string } = {}) {
-  // Generate concrete upcoming dates for Google Rich Results validation
-  // Google requires startDate on each Event — Schedule alone is not enough
-  const now = new Date();
-
-  function getNextDay(dayOfWeek: number): Date {
-    const d = new Date(now);
-    d.setHours(23, 30, 0, 0);
-    const diff = (dayOfWeek - d.getDay() + 7) % 7;
-    d.setDate(d.getDate() + (diff === 0 && now.getHours() >= 23 ? 7 : diff === 0 ? 0 : diff));
-    return d;
-  }
-
-  // Format as ISO 8601 with CEST offset (summer Mallorca = +02:00)
-  function fmtDate(d: Date, time: string): string {
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    return `${y}-${m}-${day}T${time}:00+02:00`;
-  }
-
-  const eventDefs = [
-    {
-      name: "Outxide Thursday",
-      dayOfWeek: 4,
-      description:
-        "Weekly club night at Outxide Club, Port d'Alcúdia. Techno, house and the best DJs every Thursday.",
-    },
-    {
-      name: "Outxide Friday",
-      dayOfWeek: 5,
-      description:
-        "Friday night at Outxide Club, Port d'Alcúdia. International DJs, themed parties and VIP bottle service.",
-    },
-    {
-      name: "Outxide Saturday",
-      dayOfWeek: 6,
-      description:
-        "Saturday night at Outxide Club, Port d'Alcúdia. The biggest party of the week with top DJs and special events.",
-    },
-  ];
-
-  const OUTXIDE_IMAGE = "https://www.grupoenjoy.es/images/outxide/DSCF8103-9.jpg";
-  const ORGANIZER = {
-    "@type": "Organization",
-    "@id": "https://www.grupoenjoy.es/#organization",
-    name: "Grupo Enjoy",
-    url: "https://www.grupoenjoy.es",
-  };
-  const LOCATION = {
-    "@type": "NightClub",
-    "@id": "https://www.grupoenjoy.es/outxide#nightclub",
-    name: "Outxide Club",
-    address: ENJOY_ADDRESS,
-    geo: ENJOY_GEO,
-  };
-
-  // Generate next 2 occurrences of each day = 6 concrete events
-  const subEvents = eventDefs.flatMap((e) => {
-    const first = getNextDay(e.dayOfWeek);
-    return [0, 7].map((offset) => {
-      const start = new Date(first);
-      start.setDate(start.getDate() + offset);
-      const end = new Date(start);
-      end.setDate(end.getDate() + 1);
-      return {
-        "@type": "Event",
-        name: e.name,
-        description: e.description,
-        startDate: fmtDate(start, "23:30"),
-        endDate: fmtDate(end, "06:00"),
-        image: OUTXIDE_IMAGE,
-        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        eventStatus: "https://schema.org/EventScheduled",
-        location: LOCATION,
-        organizer: ORGANIZER,
-        offers: {
-          "@type": "Offer",
-          url: fourVenuesOrgUrl(locale),
-          priceCurrency: "EUR",
-          availability: "https://schema.org/InStock",
-        },
-        performer: {
-          "@type": "PerformingGroup",
-          name: "International DJs",
-        },
-      };
-    });
-  });
-
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "EventSeries",
-        name: "Outxide Club Weekly Events",
-        description:
-          "Weekly club nights at Outxide Club in Port d'Alcúdia, Mallorca. Techno, house, reggaetón and international DJs every Thursday, Friday and Saturday.",
-        url: "https://www.grupoenjoy.es/outxide",
-        location: LOCATION,
-        organizer: ORGANIZER,
-        image: OUTXIDE_IMAGE,
-        subEvent: subEvents,
-      }}
-    />
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  Venue hero video schema for Video Rich Results + AI Mode           */

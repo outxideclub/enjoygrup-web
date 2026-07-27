@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { OutxideJsonLd, OutxideEventsJsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
+import { OutxideJsonLd, JsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
+import { getUpcomingOutxideEvents } from "@/lib/events.server";
+import { buildEventsItemList } from "@/lib/event-jsonld";
 import { AgeVerification } from "@/components/legal/age-verification";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
@@ -42,6 +44,8 @@ export default async function OutxideLayout({
 }) {
   const locale = await getServerLocale();
   const t = getServerT(locale);
+  // Eventos REALES (FourVenues) para el markup: nada de eventos sintéticos.
+  const events = await getUpcomingOutxideEvents();
   return (
     <div className="theme-outxide">
       <AgeVerification />
@@ -51,7 +55,7 @@ export default async function OutxideLayout({
         { name: "Outxide Club", url: `https://www.grupoenjoy.es${localizedPath("/outxide", locale)}` },
       ]} />
       <OutxideJsonLd description={t("meta.outxideDescription")} locale={locale} />
-      <OutxideEventsJsonLd locale={locale} />
+      {events.length > 0 && <JsonLd data={buildEventsItemList(events, locale)} />}
       <VenueVideoJsonLd venue="outxide" />
     </div>
   );

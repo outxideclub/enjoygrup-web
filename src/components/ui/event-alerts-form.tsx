@@ -77,6 +77,10 @@ export function EventAlertsForm() {
           </Link>
         </span>
       </label>
+      {/* Información básica de primera capa (art. 11 LOPDGDD) */}
+      <p className="max-w-sm text-left text-[10px] leading-relaxed text-white/45">
+        {t("agenda.alertsInfoLayer")}
+      </p>
       <div aria-live="polite" role="status">
         {status === "success" && (
           <p className="text-xs text-green-400">{t("agenda.alertsSuccess")}</p>

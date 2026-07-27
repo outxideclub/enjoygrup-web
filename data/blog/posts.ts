@@ -5645,7 +5645,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Lo que necesitas saber</h2>
 <p><strong>Horarios:</strong> Hiru abre de 12:00 a 23:30 (viernes y sabado hasta la 1:00, cierra martes). Enjoy Terrace de 17:00 a 05:30 todos los dias. Outxide Club abre jueves, viernes y sabado por la noche (consulta horarios exactos en su web).</p>
 <p><strong>Ubicacion:</strong> Los tres locales estan en la misma zona de Port d'Alcudia, en Av. Tucan y Ctra. d'Arta. Puedes ir andando de uno a otro en menos de dos minutos. No necesitas coche ni taxi.</p>
-<p><strong>Edad:</strong> Outxide Club tiene un requisito de edad de <strong>21+</strong>. Asegurate de llevar DNI o pasaporte. Hiru y Enjoy no tienen restriccion de edad para cenar y tomar cocteles, aunque el servicio de alcohol es solo para mayores de edad.</p>
+<p><strong>Edad:</strong> Outxide Club tiene un requisito de edad de <strong>18+</strong>. Asegurate de llevar DNI o pasaporte. Hiru y Enjoy no tienen restriccion de edad para cenar y tomar cocteles, aunque el servicio de alcohol es solo para mayores de edad.</p>
 <p><strong>Entradas de Outxide:</strong> Compra tus entradas online con antelacion para evitar colas y a menudo conseguir mejor precio. Disponible en la web de <a href="/outxide">Outxide Club</a>.</p>
 <p><strong>Reservas:</strong> Recomendamos reservar mesa en Hiru, especialmente los viernes y sabados en temporada alta. Para mesas VIP en Outxide, contacta directamente por la web.</p>
 
@@ -5690,7 +5690,7 @@ export const blogPosts: BlogPost[] = [
 <h2>What you need to know</h2>
 <p><strong>Opening hours:</strong> Hiru opens 12:00 to 23:30 (Friday and Saturday until 1:00, closed Tuesdays). Enjoy Terrace 17:00 to 05:30 every day. Outxide Club opens Thursday, Friday and Saturday nights (check exact times on their website).</p>
 <p><strong>Location:</strong> All three venues are in the same area of Port d'Alcudia, on Av. Tucan and Ctra. d'Arta. You can walk between them in under two minutes. No car or taxi needed.</p>
-<p><strong>Age requirement:</strong> Outxide Club has a <strong>21+</strong> age policy. Make sure you carry ID or passport. Hiru and Enjoy have no age restriction for dining and cocktails, though alcohol service is for legal adults only.</p>
+<p><strong>Age requirement:</strong> Outxide Club has an <strong>18+</strong> age policy. Make sure you carry ID or passport. Hiru and Enjoy have no age restriction for dining and cocktails, though alcohol service is for legal adults only.</p>
 <p><strong>Outxide tickets:</strong> Buy your tickets online in advance to skip queues and often get a better price. Available on the <a href="/outxide">Outxide Club</a> website.</p>
 <p><strong>Reservations:</strong> We recommend booking a table at Hiru, especially on Fridays and Saturdays during high season. For VIP tables at Outxide, contact directly through the website.</p>
 
@@ -5734,7 +5734,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Was Sie wissen muessen</h2>
 <p><strong>Oeffnungszeiten:</strong> Hiru: 12:00-23:30 (Fr/Sa bis 1:00, Di geschlossen). Enjoy Terrace: 17:00-05:30 taeglich. Outxide Club: Do/Fr/Sa abends (genaue Zeiten auf der Website).</p>
 <p><strong>Lage:</strong> Alle drei Locations liegen im selben Bereich von Port d'Alcudia, auf der Av. Tucan und Ctra. d'Arta. Unter zwei Minuten zu Fuss zwischen allen. Kein Auto oder Taxi noetig.</p>
-<p><strong>Altersanforderung:</strong> Outxide Club hat eine <strong>21+</strong> Altersrichtlinie. Personalausweis oder Reisepass mitbringen. Hiru und Enjoy haben keine Altersbeschraenkung zum Essen und Cocktailtrinken, Alkoholausschank nur fuer Volljaehrige.</p>
+<p><strong>Altersanforderung:</strong> Outxide Club hat eine <strong>18+</strong> Altersrichtlinie. Personalausweis oder Reisepass mitbringen. Hiru und Enjoy haben keine Altersbeschraenkung zum Essen und Cocktailtrinken, Alkoholausschank nur fuer Volljaehrige.</p>
 <p><strong>Outxide-Tickets:</strong> Online im Voraus kaufen, um Warteschlangen zu vermeiden und oft einen besseren Preis zu bekommen. Verfuegbar auf der <a href="/outxide">Outxide Club</a>-Website.</p>
 <p><strong>Reservierungen:</strong> Tischreservierung im Hiru empfohlen, besonders Fr/Sa in der Hochsaison. VIP-Tische im Outxide direkt ueber die Website anfragen.</p>
 
@@ -5778,7 +5778,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Ce qu'il faut savoir</h2>
 <p><strong>Horaires :</strong> Hiru : 12h00-23h30 (ven/sam jusqu'a 1h00, ferme mardi). Enjoy Terrace : 17h00-05h30 tous les jours. Outxide Club : jeu/ven/sam soir (consultez les horaires exacts sur le site).</p>
 <p><strong>Emplacement :</strong> Les trois etablissements sont dans la meme zone de Port d'Alcudia, sur l'Av. Tucan et la Ctra. d'Arta. Moins de deux minutes a pied entre chaque. Pas besoin de voiture ni de taxi.</p>
-<p><strong>Age requis :</strong> Outxide Club exige <strong>21 ans minimum</strong>. Pensez a apporter une piece d'identite. Hiru et Enjoy n'ont pas de restriction d'age pour diner et boire des cocktails, le service d'alcool est reserve aux majeurs.</p>
+<p><strong>Age requis :</strong> Outxide Club exige <strong>18 ans minimum</strong>. Pensez a apporter une piece d'identite. Hiru et Enjoy n'ont pas de restriction d'age pour diner et boire des cocktails, le service d'alcool est reserve aux majeurs.</p>
 <p><strong>Billets Outxide :</strong> Achetez en ligne a l'avance pour eviter les files d'attente et souvent obtenir un meilleur prix. Disponible sur le site d'<a href="/outxide">Outxide Club</a>.</p>
 <p><strong>Reservations :</strong> Reservez votre table au Hiru, surtout ven/sam en haute saison. Tables VIP a l'Outxide sur demande via le site.</p>
 
@@ -5822,7 +5822,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Quello che dovete sapere</h2>
 <p><strong>Orari:</strong> Hiru: 12:00-23:30 (ven/sab fino all'1:00, chiuso martedi'). Enjoy Terrace: 17:00-05:30 tutti i giorni. Outxide Club: gio/ven/sab sera (consultate gli orari esatti sul sito).</p>
 <p><strong>Posizione:</strong> Tutti e tre i locali sono nella stessa zona di Port d'Alcudia, su Av. Tucan e Ctra. d'Arta. Meno di due minuti a piedi tra uno e l'altro. Niente auto o taxi.</p>
-<p><strong>Requisito di eta':</strong> Outxide Club richiede <strong>21+</strong>. Portate documento d'identita' o passaporto. Hiru e Enjoy non hanno restrizioni di eta' per cenare e bere cocktail, il servizio di alcolici e' riservato ai maggiorenni.</p>
+<p><strong>Requisito di eta':</strong> Outxide Club richiede <strong>18+</strong>. Portate documento d'identita' o passaporto. Hiru e Enjoy non hanno restrizioni di eta' per cenare e bere cocktail, il servizio di alcolici e' riservato ai maggiorenni.</p>
 <p><strong>Biglietti Outxide:</strong> Acquistate online in anticipo per evitare code e spesso ottenere un prezzo migliore. Disponibili sul sito di <a href="/outxide">Outxide Club</a>.</p>
 <p><strong>Prenotazioni:</strong> Consigliamo di prenotare al Hiru, soprattutto ven/sab in alta stagione. Tavoli VIP all'Outxide su richiesta tramite il sito.</p>
 

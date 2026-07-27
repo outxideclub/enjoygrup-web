@@ -7,6 +7,7 @@ import { AddToCalendar } from "@/components/ui/add-to-calendar";
 import { EventAlertsForm } from "@/components/ui/event-alerts-form";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
+import { buildEventsItemList } from "@/lib/event-jsonld";
 import {
   formatEventDate,
   formatEventTime,
@@ -73,50 +74,7 @@ export default async function AgendaPage() {
     },
   ];
 
-  const eventsLd =
-    events.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: "Agenda Grupo Enjoy",
-          itemListElement: events.map((e, i) => ({
-            "@type": "ListItem",
-            position: i + 1,
-            item: {
-              "@type": "Event",
-              name: e.name,
-              startDate: e.start_date,
-              endDate: e.end_date,
-              eventStatus: "https://schema.org/EventScheduled",
-              eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-              image: e.image_url,
-              url: eventTicketUrl(e, locale),
-              location: {
-                "@type": "Place",
-                name: "Outxide Club",
-                address: {
-                  "@type": "PostalAddress",
-                  streetAddress: "Av. Tucán 1",
-                  addressLocality: "Alcúdia",
-                  postalCode: "07400",
-                  addressRegion: "Illes Balears",
-                  addressCountry: "ES",
-                },
-              },
-              offers: {
-                "@type": "Offer",
-                url: eventTicketUrl(e, locale),
-                availability: "https://schema.org/InStock",
-              },
-              organizer: {
-                "@type": "Organization",
-                name: "Outxide Club",
-                url: "https://www.grupoenjoy.es/outxide",
-              },
-            },
-          })),
-        }
-      : null;
+  const eventsLd = events.length > 0 ? buildEventsItemList(events, locale) : null;
 
   return (
     <div className="noise-texture relative">

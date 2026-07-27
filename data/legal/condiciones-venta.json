@@ -6,17 +6,17 @@
     {
       "id": "intro",
       "heading": "Introducción",
-      "content": "<p>Las presentes condiciones regulan la compra de entradas, reservas de mesa VIP y reservas de restaurante/lounge realizadas a través de www.grupoenjoy.es, operado por Enjoy Club 78 S.L. (en adelante, \"Grupo Enjoy\").</p>"
+      "content": "<p>Las presentes condiciones regulan la compra de entradas y las reservas en los locales de Grupo Enjoy (Enjoy Terrace, Outxide Club y Hiru Food &amp; Drinks), cuyo organizador y prestador de los servicios es Enjoy Club 78 S.L. La contratación no se completa en www.grupoenjoy.es: este sitio web informa y redirige a las plataformas externas donde se formaliza cada compra o reserva.</p>"
     },
     {
       "id": "objeto",
       "heading": "1. Objeto",
-      "content": "<p>Estas condiciones se aplican a las siguientes transacciones realizadas a través del Sitio Web:</p><ul><li><strong>Compra de entradas</strong> para eventos en Outxide Club (procesadas a través de FourVenues / Stripe).</li><li><strong>Reserva de mesa VIP</strong> en Outxide Club (con consumo mínimo o depósito previo).</li><li><strong>Reserva de mesa</strong> en Hiru Food & Drinks (con posible depósito para grupos).</li><li><strong>Reserva de zona</strong> en Enjoy Terrace (con posible depósito para grupos).</li></ul>"
+      "content": "<p>Estas condiciones se aplican a las siguientes transacciones iniciadas desde el Sitio Web:</p><ul><li><strong>Compra de entradas</strong> para eventos en Outxide Club: se formaliza en la plataforma de venta FourVenues.</li><li><strong>Reserva de mesa VIP</strong> en Outxide Club: se gestiona a través de FourVenues (con consumo mínimo o depósito previo, según el evento).</li><li><strong>Reserva de mesa</strong> en Hiru Food &amp; Drinks: se formaliza en la plataforma de reservas Restoo.</li><li><strong>Reserva de zona</strong> en Enjoy Terrace: se gestiona directamente por WhatsApp o teléfono.</li></ul>"
     },
     {
       "id": "proceso-compra",
       "heading": "2. Proceso de compra",
-      "content": "<ol><li>El usuario selecciona el evento, fecha, tipo de entrada o mesa.</li><li>Completa el formulario con sus datos personales.</li><li>Revisa el resumen del pedido, incluyendo precio total con impuestos.</li><li>Acepta las presentes Condiciones de Venta y la Política de Privacidad.</li><li>Procede al pago a través de la pasarela segura (Stripe / FourVenues).</li><li>Recibe un email de confirmación con los detalles y, en su caso, el código QR de la entrada.</li></ol><p>El contrato se perfecciona en el momento en que el usuario recibe el email de confirmación. Todos los precios mostrados incluyen IVA (IGIC en su caso) salvo indicación expresa en contrario.</p>"
+      "content": "<p>El Sitio Web no dispone de pasarela de pago propia. Al pulsar los botones de compra o reserva, el usuario es redirigido a la plataforma externa correspondiente (FourVenues o Restoo), donde:</p><ol><li>Selecciona el evento, fecha, tipo de entrada o mesa.</li><li>Introduce sus datos y revisa el resumen del pedido con el precio total e impuestos.</li><li>Acepta las condiciones de la plataforma y completa el pago en su pasarela segura.</li><li>Recibe un email de confirmación con los detalles y, en su caso, el código QR de la entrada.</li></ol><p>Las presentes condiciones se complementan con las condiciones propias de la plataforma en la que se complete la transacción, que el usuario debe aceptar durante el proceso.</p>"
     },
     {
       "id": "precios",
@@ -26,7 +26,7 @@
     {
       "id": "metodos-pago",
       "heading": "4. Métodos de pago",
-      "content": "<p>Aceptamos los siguientes métodos de pago a través de nuestra pasarela segura Stripe:</p><ul><li>Tarjetas de crédito y débito (Visa, Mastercard, American Express).</li><li>Apple Pay y Google Pay.</li></ul><p>Los datos de pago son procesados directamente por Stripe Inc., certificado PCI-DSS Nivel 1. Grupo Enjoy no almacena, procesa ni tiene acceso a los datos completos de su tarjeta.</p>"
+      "content": "<p>Los pagos se procesan íntegramente en la pasarela segura de la plataforma externa correspondiente (FourVenues utiliza Stripe como procesador de pagos, certificado PCI-DSS; Restoo, su propio proveedor de pagos). Se aceptan habitualmente tarjetas de crédito y débito (Visa, Mastercard, American Express) y, según la plataforma, Apple Pay y Google Pay. Grupo Enjoy no almacena, procesa ni tiene acceso a los datos completos de su tarjeta.</p>"
     },
     {
       "id": "cancelaciones",

@@ -40,15 +40,56 @@ const COPY: Record<Locale, Record<Status, { title: string; body: string; cta: st
   },
 };
 
+// Paso intermedio del doble opt-in: el email enlaza AQUÍ (GET sin efectos) y la
+// suscripción solo se activa con el POST del botón. Así los escáneres de correo
+// que siguen enlaces (GET) no pueden auto-confirmar, y el clic humano del botón
+// es una prueba de consentimiento sólida (arts. 4.11 y 7.1 RGPD).
+const CONFIRM_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
+  es: { title: "Confirma tu suscripción", body: "Pulsa el botón para confirmar que quieres recibir avisos de eventos y novedades de Grupo Enjoy.", cta: "Confirmar suscripción" },
+  en: { title: "Confirm your subscription", body: "Press the button to confirm you want to receive event alerts and news from Grupo Enjoy.", cta: "Confirm subscription" },
+  de: { title: "Bestätige dein Abo", body: "Klicke auf den Button, um zu bestätigen, dass du Event-Benachrichtigungen und Neuigkeiten von Grupo Enjoy erhalten möchtest.", cta: "Abo bestätigen" },
+  fr: { title: "Confirmez votre inscription", body: "Appuyez sur le bouton pour confirmer que vous souhaitez recevoir les alertes événements et actualités de Grupo Enjoy.", cta: "Confirmer l'inscription" },
+  it: { title: "Conferma la tua iscrizione", body: "Premi il pulsante per confermare che vuoi ricevere avvisi eventi e novità da Grupo Enjoy.", cta: "Conferma iscrizione" },
+};
+
 export default async function NewsletterPage({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string; lang?: string }>;
+  searchParams: Promise<{ status?: string; lang?: string; confirm?: string; token?: string }>;
 }) {
-  const { status, lang } = await searchParams;
+  const { status, lang, confirm, token } = await searchParams;
   // El enlace del email propaga ?lang: tiene prioridad sobre la detección por
   // cookie/Accept-Language (que falla si se abre desde el cliente de correo).
   const locale: Locale = locales.includes(lang as Locale) ? (lang as Locale) : await getServerLocale();
+
+  // Paso de confirmación pendiente (con token): botón que hace POST al endpoint.
+  if ((confirm === "newsletter" || confirm === "waitlist") && token) {
+    const cc = CONFIRM_COPY[locale];
+    const action = confirm === "waitlist" ? "/api/waitlist/confirm" : "/api/newsletter/confirm";
+    return (
+      <div className="noise-texture relative min-h-screen">
+        <Navbar />
+        <main id="contenido" className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center px-6 text-center">
+          <h1 className="font-display text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl">
+            {cc.title}
+          </h1>
+          <p className="mt-5 text-base text-muted-foreground">{cc.body}</p>
+          <form method="post" action={action} className="mt-8">
+            <input type="hidden" name="token" value={token} />
+            <input type="hidden" name="lang" value={locale} />
+            <button
+              type="submit"
+              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {cc.cta}
+            </button>
+          </form>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   const s: Status = status === "ok" || status === "expired" || status === "error" ? status : "ok";
   const c = COPY[locale][s];
 

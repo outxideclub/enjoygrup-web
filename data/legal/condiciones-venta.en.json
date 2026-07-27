@@ -6,17 +6,17 @@
     {
       "id": "intro",
       "heading": "Introduction",
-      "content": "<p>These conditions govern the purchase of tickets, VIP table reservations and restaurant/lounge bookings made through www.grupoenjoy.es, operated by Enjoy Club 78 S.L. (hereinafter \"Grupo Enjoy\").</p>"
+      "content": "<p>These terms govern ticket purchases and reservations at Grupo Enjoy venues (Enjoy Terrace, Outxide Club and Hiru Food &amp; Drinks), organised and provided by Enjoy Club 78 S.L. Contracts are not concluded on www.grupoenjoy.es: this website informs and redirects to the external platforms where each purchase or reservation is completed.</p>"
     },
     {
       "id": "objeto",
       "heading": "1. Purpose",
-      "content": "<p>These conditions apply to the following transactions carried out through the Website:</p><ul><li><strong>Ticket purchases</strong> for events at Outxide Club (processed through FourVenues / Stripe).</li><li><strong>VIP table reservations</strong> at Outxide Club (with minimum spend or prior deposit).</li><li><strong>Table reservations</strong> at Hiru Food & Drinks (deposit may be required for groups).</li><li><strong>Area reservations</strong> at Enjoy Terrace (deposit may be required for groups).</li></ul>"
+      "content": "<p>These terms apply to the following transactions initiated from the Website:</p><ul><li><strong>Ticket purchases</strong> for Outxide Club events: completed on the FourVenues sales platform.</li><li><strong>VIP table bookings</strong> at Outxide Club: handled through FourVenues (with minimum spend or advance deposit, depending on the event).</li><li><strong>Table reservations</strong> at Hiru Food &amp; Drinks: completed on the Restoo booking platform.</li><li><strong>Area reservations</strong> at Enjoy Terrace: arranged directly via WhatsApp or phone.</li></ul>"
     },
     {
       "id": "proceso-compra",
       "heading": "2. Purchase process",
-      "content": "<ol><li>The user selects the event, date, ticket type or table.</li><li>Completes the form with their personal details.</li><li>Reviews the order summary, including total price with taxes.</li><li>Accepts these Sales Conditions and the Privacy Policy.</li><li>Proceeds to payment through the secure gateway (Stripe / FourVenues).</li><li>Receives a confirmation email with details and, where applicable, the QR code for the ticket.</li></ol><p>The contract is concluded when the user receives the confirmation email. All displayed prices include VAT unless expressly stated otherwise.</p>"
+      "content": "<p>The Website has no payment gateway of its own. When pressing the purchase or booking buttons, the user is redirected to the corresponding external platform (FourVenues or Restoo), where they:</p><ol><li>Select the event, date, ticket type or table.</li><li>Enter their details and review the order summary with the total price including taxes.</li><li>Accept the platform’s terms and complete payment in its secure gateway.</li><li>Receive a confirmation email with the details and, where applicable, the ticket QR code.</li></ol><p>These terms are supplemented by the terms of the platform on which the transaction is completed, which the user must accept during the process.</p>"
     },
     {
       "id": "precios",
@@ -26,7 +26,7 @@
     {
       "id": "metodos-pago",
       "heading": "4. Payment methods",
-      "content": "<p>We accept the following payment methods through our secure Stripe gateway:</p><ul><li>Credit and debit cards (Visa, Mastercard, American Express).</li><li>Apple Pay and Google Pay.</li></ul><p>Payment data is processed directly by Stripe Inc., PCI-DSS Level 1 certified. Grupo Enjoy does not store, process or have access to your full card details.</p>"
+      "content": "<p>Payments are processed entirely in the secure gateway of the corresponding external platform (FourVenues uses Stripe as payment processor, PCI-DSS certified; Restoo uses its own payment provider). Credit and debit cards (Visa, Mastercard, American Express) and, depending on the platform, Apple Pay and Google Pay are typically accepted. Grupo Enjoy does not store, process or have access to your full card details.</p>"
     },
     {
       "id": "cancelaciones",

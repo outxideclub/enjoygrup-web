@@ -277,6 +277,11 @@ export default function ContactPage() {
                     </span>
                   </label>
 
+                  {/* Información básica de primera capa (art. 11 LOPDGDD) */}
+                  <p className="text-[10px] leading-relaxed text-white/45">
+                    {t("contact.formInfoLayer")}
+                  </p>
+
                   {/* Submit */}
                   <Button
                     type="submit"

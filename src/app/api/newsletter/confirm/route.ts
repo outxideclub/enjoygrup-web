@@ -4,9 +4,10 @@ import { locales, type Locale } from "@/i18n/config";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { sendWelcomeEmail } from "@/lib/newsletter-emails";
 
-// Paso 2 del doble opt-in: el suscriptor pulsa el enlace del email.
-// Verificamos el token firmado, activamos la suscripción (unsubscribed: false)
-// y enviamos la bienvenida. Redirige a una página de confirmación.
+// Paso 2 del doble opt-in. El enlace del email hace un GET SIN EFECTOS que
+// lleva a una página con botón; solo el POST de ese botón activa la
+// suscripción. Así los escáneres de correo que siguen enlaces (GET) no pueden
+// auto-confirmar, y el POST humano es la prueba de consentimiento (art. 7 RGPD).
 
 const SITE = "https://www.grupoenjoy.es";
 
@@ -22,37 +23,55 @@ function landing(status: "ok" | "expired" | "error", lang: Locale): URL {
   return url;
 }
 
+function parseLang(value: string | null): Locale {
+  return locales.includes(value as Locale) ? (value as Locale) : "es";
+}
+
+/** El enlace del email: solo reenvía a la página de confirmación (sin efectos). */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get("token") ?? "";
-  const langParam = searchParams.get("lang");
-  const lang: Locale = locales.includes(langParam as Locale) ? (langParam as Locale) : "es";
+  const lang = parseLang(searchParams.get("lang"));
 
-  const email = verifyConfirmToken(token, Date.now());
-  if (!email) {
+  // Token inválido/caducado: informar ya, sin paso intermedio.
+  if (!verifyConfirmToken(token, Date.now())) {
     return NextResponse.redirect(landing("expired", lang));
   }
 
-  const resend = getResend();
-  // Sin proveedor de email no se puede activar el contacto: no afirmar éxito
-  // (evita el "confirmado" engañoso si falta configuración).
-  if (!resend) {
-    console.error("Newsletter confirm: RESEND_API_KEY no configurada");
-    return NextResponse.redirect(landing("error", lang));
+  const url = new URL(`${SITE}/newsletter`);
+  url.searchParams.set("confirm", "newsletter");
+  url.searchParams.set("token", token);
+  url.searchParams.set("lang", lang);
+  return NextResponse.redirect(url);
+}
+
+/** El botón de la página de confirmación: aquí sí se activa la suscripción. */
+export async function POST(request: NextRequest) {
+  const form = await request.formData();
+  const token = String(form.get("token") ?? "");
+  const lang = parseLang(form.get("lang") as string | null);
+
+  const email = verifyConfirmToken(token, Date.now());
+  if (!email) {
+    return NextResponse.redirect(landing("expired", lang), 303);
   }
 
-  // Activar la suscripción del contacto pendiente (audiencia única de la cuenta).
+  const resend = getResend();
+  if (!resend) {
+    console.error("Newsletter confirm: RESEND_API_KEY no configurada");
+    return NextResponse.redirect(landing("error", lang), 303);
+  }
+
   const { error } = await resend.contacts.update({
     email,
     unsubscribed: false,
   });
   if (error) {
     console.error("Newsletter confirm: fallo al activar el contacto:", error);
-    return NextResponse.redirect(landing("error", lang));
+    return NextResponse.redirect(landing("error", lang), 303);
   }
-  // Bienvenida (con enlace de baja). Si falla, la suscripción ya quedó activa.
   const { error: welcomeError } = await sendWelcomeEmail(resend, email, lang);
   if (welcomeError) console.error("Newsletter confirm: fallo al enviar bienvenida:", welcomeError);
 
-  return NextResponse.redirect(landing("ok", lang));
+  return NextResponse.redirect(landing("ok", lang), 303);
 }
