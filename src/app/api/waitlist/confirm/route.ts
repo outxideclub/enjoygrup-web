@@ -5,8 +5,8 @@ import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { sendWelcomeEmail } from "@/lib/newsletter-emails";
 
 // Paso 2 del doble opt-in de AVISOS DE EVENTOS: activa el contacto pendiente en
-// la audiencia de avisos (RESEND_WAITLIST_AUDIENCE_ID) y envía la bienvenida.
-// Reutiliza el token firmado y las plantillas del newsletter.
+// la audiencia única de la cuenta y envía la bienvenida. Reutiliza el token
+// firmado y las plantillas del newsletter.
 
 const SITE = "https://www.grupoenjoy.es";
 
@@ -34,17 +34,15 @@ export async function GET(request: NextRequest) {
   }
 
   const resend = getResend();
-  const AUDIENCE_ID = process.env.RESEND_WAITLIST_AUDIENCE_ID;
-  // Sin proveedor de email o sin audiencia no se puede activar el contacto:
-  // no afirmar éxito (evita el "confirmado" engañoso si falta configuración).
-  if (!resend || !AUDIENCE_ID) {
-    console.error("Waitlist confirm: Resend o RESEND_WAITLIST_AUDIENCE_ID no configurados");
+  // Sin proveedor de email no se puede activar el contacto: no afirmar éxito
+  // (evita el "confirmado" engañoso si falta configuración).
+  if (!resend) {
+    console.error("Waitlist confirm: RESEND_API_KEY no configurada");
     return NextResponse.redirect(landing("error", lang));
   }
 
   const { error } = await resend.contacts.update({
     email,
-    audienceId: AUDIENCE_ID,
     unsubscribed: false,
   });
   if (error) {

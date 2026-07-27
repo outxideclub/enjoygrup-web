@@ -55,22 +55,16 @@ export async function POST(request: NextRequest) {
     }
 
     const resend = getResend();
-    const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
     if (!resend) {
       console.warn("RESEND_API_KEY not set — newsletter signup no-op");
       return NextResponse.json({ success: true });
     }
-    // Con proveedor de email pero sin audiencia configurada NO podemos persistir
-    // el alta: fallar de forma visible en vez de fingir éxito y perder el contacto.
-    if (!AUDIENCE_ID) {
-      console.error("RESEND_AUDIENCE_ID no configurada — alta de newsletter no disponible");
-      return NextResponse.json({ error: "Not configured" }, { status: 500 });
-    }
 
     // Alta como PENDIENTE (unsubscribed: true): no recibe nada hasta confirmar.
+    // Resend usa una sola audiencia por cuenta (migró de "Audiences" a "Segments"),
+    // así que ya no se pasa audienceId — el contacto entra en la audiencia por defecto.
     const { error: contactError } = await resend.contacts.create({
       email,
-      audienceId: AUDIENCE_ID,
       unsubscribed: true,
     });
     if (contactError) {

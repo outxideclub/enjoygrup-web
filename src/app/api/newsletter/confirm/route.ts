@@ -34,18 +34,16 @@ export async function GET(request: NextRequest) {
   }
 
   const resend = getResend();
-  const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
-  // Sin proveedor de email o sin audiencia no se puede activar el contacto:
-  // no afirmar éxito (evita el "confirmado" engañoso si falta configuración).
-  if (!resend || !AUDIENCE_ID) {
-    console.error("Newsletter confirm: Resend o RESEND_AUDIENCE_ID no configurados");
+  // Sin proveedor de email no se puede activar el contacto: no afirmar éxito
+  // (evita el "confirmado" engañoso si falta configuración).
+  if (!resend) {
+    console.error("Newsletter confirm: RESEND_API_KEY no configurada");
     return NextResponse.redirect(landing("error", lang));
   }
 
-  // Activar la suscripción del contacto pendiente.
+  // Activar la suscripción del contacto pendiente (audiencia única de la cuenta).
   const { error } = await resend.contacts.update({
     email,
-    audienceId: AUDIENCE_ID,
     unsubscribed: false,
   });
   if (error) {

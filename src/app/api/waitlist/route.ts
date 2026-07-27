@@ -5,11 +5,11 @@ import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { createConfirmToken } from "@/lib/newsletter-token";
 import { sendConfirmEmail } from "@/lib/newsletter-emails";
 
-// Alta en la lista de AVISOS DE EVENTOS con DOBLE OPT-IN, gemela de la
-// newsletter pero sobre una Audience de Resend separada
-// (RESEND_WAITLIST_AUDIENCE_ID) para poder enviar avisos de eventos sin mezclar
-// con los suscriptores generales. Misma prueba de consentimiento (token firmado)
-// y misma política de no persistir PII en el repo.
+// Alta en AVISOS DE EVENTOS con DOBLE OPT-IN, gemela de la newsletter. Resend
+// usa una sola audiencia por cuenta (migró de "Audiences" a "Segments"), así que
+// avisos y newsletter comparten la misma lista; la separación por temas, si se
+// quiere, se hará con Topics. Misma prueba de consentimiento (token firmado) y
+// misma política de no persistir PII en el repo.
 
 const SITE = "https://www.grupoenjoy.es";
 const MAX_EMAIL = 254; // RFC 5321
@@ -51,22 +51,15 @@ export async function POST(request: NextRequest) {
     }
 
     const resend = getResend();
-    const AUDIENCE_ID = process.env.RESEND_WAITLIST_AUDIENCE_ID;
     if (!resend) {
       console.warn("RESEND_API_KEY not set — waitlist signup no-op");
       return NextResponse.json({ success: true });
     }
-    // Con proveedor de email pero sin audiencia configurada NO podemos persistir
-    // el alta: fallar de forma visible en vez de fingir éxito y perder el contacto.
-    if (!AUDIENCE_ID) {
-      console.error("RESEND_WAITLIST_AUDIENCE_ID no configurada — alta de avisos no disponible");
-      return NextResponse.json({ error: "Not configured" }, { status: 500 });
-    }
 
-    // Alta como PENDIENTE (unsubscribed: true) en la audiencia de avisos.
+    // Alta como PENDIENTE (unsubscribed: true) en la audiencia única de la cuenta
+    // (Resend ya no usa audienceId; avisos y newsletter comparten la misma lista).
     const { error: contactError } = await resend.contacts.create({
       email,
-      audienceId: AUDIENCE_ID,
       unsubscribed: true,
     });
     if (contactError) {
