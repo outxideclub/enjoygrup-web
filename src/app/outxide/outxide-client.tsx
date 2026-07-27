@@ -224,7 +224,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
 
       {/* Info bar */}
       <section className="relative z-20 border-y border-white/5 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
+        <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-outxide" />
             <span>{t("outxide.hours")}</span>

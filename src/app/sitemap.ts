@@ -105,7 +105,7 @@ function entry(
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = getAllPosts().map((post) =>
-    entry(`/blog/${post.slug}`, new Date(post.date), "monthly", 0.6),
+    entry(`/blog/${post.slug}`, new Date(post.updated ?? post.date), "monthly", 0.6),
   );
 
   // Las páginas /legal/* se excluyen a propósito: tienen noindex en su layout

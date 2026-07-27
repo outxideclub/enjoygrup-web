@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { LegalPageContent } from "@/components/legal/legal-page-content";
+import { getServerLocale, getServerT } from "@/i18n/server";
 
-export const metadata: Metadata = {
-  title: "Política de Cookies",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
+  return { title: t("legal.titleCookies") };
+}
 
 export default function CookiesPage() {
   return <LegalPageContent slug="cookies" />;

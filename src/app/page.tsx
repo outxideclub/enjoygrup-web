@@ -17,7 +17,8 @@ import { EVENT_PHASE, effectivePhase } from "@/lib/mundial/event-config";
 import dynamic from "next/dynamic";
 
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
-import { useT } from "@/i18n";
+import { useT, useLocale } from "@/i18n";
+import { localizedPath } from "@/i18n/config";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 // Los textos visibles (subtitle/description) salen de t("home.*") en el render;
@@ -63,6 +64,7 @@ const businesses = [
 
 export default function HomePage() {
   const t = useT();
+  const locale = useLocale();
   // Fase del banner de competición (se degrada a "off" pasada la fecha del campeón).
   const [phase, setPhase] = useState(EVENT_PHASE);
   useEffect(() => {
@@ -210,7 +212,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="lg" className="btn-magnetic rounded-full px-8 bg-white text-black hover:bg-white/90">
-                    <Link href={activeBiz.href}>
+                    <Link href={localizedPath(activeBiz.href, locale)}>
                       {t("common.explore")} {activeBiz.name}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
@@ -243,14 +245,14 @@ export default function HomePage() {
           <button
             onClick={() => { prev(); setAutoPlay(false); }}
             aria-label={t("gallery.previous")}
-            className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
+            className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
           >
             <ChevronLeft className="h-6 w-6 text-white" />
           </button>
           <button
             onClick={() => { next(); setAutoPlay(false); }}
             aria-label={t("gallery.next")}
-            className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
+            className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
           >
             <ChevronRight className="h-6 w-6 text-white" />
           </button>
@@ -261,7 +263,7 @@ export default function HomePage() {
                 onClick={() => { setIndex(i); setAutoPlay(false); }}
                 aria-label={businesses[i].name}
                 aria-current={i === index ? "true" : undefined}
-                className={`h-2 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-white' : 'w-3 bg-white/25 hover:bg-white/40'}`}
+                className={`h-2 rounded-full transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 ${i === index ? 'w-10 bg-white' : 'w-3 bg-white/25 hover:bg-white/40'}`}
               />
             ))}
           </div>
@@ -294,8 +296,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {businesses.map((biz, i) => (
               <ScrollReveal key={biz.name} delay={i * 0.15}>
-                <Link href={biz.href} className="group block h-full">
-                  <div className="card-hover relative aspect-[3/4] overflow-hidden rounded-3xl will-change-transform group-hover:scale-[1.02]">
+                <Link href={localizedPath(biz.href, locale)} className="group block h-full">
+                  <div className="card-hover relative aspect-[3/4] overflow-hidden rounded-2xl will-change-transform group-hover:scale-[1.02]">
                     {/* Background photo */}
                     <Image
                       src={biz.cardImage}

@@ -29,22 +29,22 @@ export const es = {
       "Producto, tradición y sabor a la brasa en Alcúdia. Paella de marisco, carnes maduradas y arroces frescos. Reserva mesa en Hiru.",
     hiruKeywords:
       "hiru food drinks, hiru food and drinks, hiru alcudia, restaurante alcudia, restaurante brasa alcudia, paella alcudia, restaurante port alcudia, comer en alcudia, restaurante mallorca, hiru restaurante, restaurante mediterraneo alcudia, donde cenar alcudia, cena alcudia, cenar tarde alcudia, carne a la brasa mallorca",
-    aboutTitle: "Sobre Grupo Enjoy — Ocio y Gastronomía en Alcúdia",
+    aboutTitle: "Sobre Nosotros — Ocio y Gastronomía en Alcúdia",
     aboutDescription:
       "Conoce Grupo Enjoy: Enjoy Terrace, Outxide Club y Hiru Food & Drinks, tres espacios de ocio y gastronomía premium en Port d'Alcúdia, Mallorca.",
     aboutOgDescription:
       "La historia de Grupo Enjoy: cócteles, club y restaurante a la brasa en Port d'Alcúdia, Mallorca.",
-    contactTitle: "Contacto y Reservas — Grupo Enjoy Alcúdia",
+    contactTitle: "Contacto y Reservas — Alcúdia, Mallorca",
     contactDescription:
       "Contacta y reserva en Grupo Enjoy: Enjoy Terrace, Outxide Club y Hiru en Port d'Alcúdia. Dirección, teléfono, horarios y formulario oficial.",
     contactOgDescription:
       "Reserva en Grupo Enjoy, Port d'Alcúdia. Dirección, teléfono, horarios y formulario de contacto.",
-    faqTitle: "Preguntas Frecuentes — Grupo Enjoy Alcúdia",
+    faqTitle: "Preguntas Frecuentes — Ocio y Restaurantes en Alcúdia",
     faqDescription:
       "Horarios, reservas, entradas y ubicación de Enjoy Terrace, Outxide Club y Hiru en Port d'Alcúdia, Mallorca. Todas las respuestas de Grupo Enjoy.",
     faqOgDescription:
       "Todo sobre Grupo Enjoy en Alcúdia: horarios, reservas, entradas y ubicación de nuestros tres locales.",
-    blogTitle: "Blog Grupo Enjoy — Salir en Alcúdia, Mallorca",
+    blogTitle: "Blog — Salir en Alcúdia, Mallorca",
     blogDescription:
       "Guía de ocio en Alcúdia: fiestas, mejores discotecas, cócteles y dónde cenar en Mallorca. Consejos y agenda de Grupo Enjoy. Actualizado 2026.",
     blogOgDescription:
@@ -241,6 +241,12 @@ export const es = {
     salesConditions: "Condiciones de Venta",
     entryConditions: "Condiciones de Entrada",
     lastUpdated: "Última actualización",
+    titleAviso: "Aviso Legal",
+    titlePrivacidad: "Política de Privacidad",
+    titleCookies: "Política de Cookies",
+    titleImagenes: "Política de Captación de Imágenes",
+    titleVenta: "Condiciones de Venta",
+    titleEntrada: "Condiciones de Entrada",
     contentUnavailable: "Contenido no disponible.",
   },
   cookieBanner: {
@@ -483,7 +489,7 @@ export const es = {
     alertsSuccess: "Casi listo: revisa tu correo y confirma la suscripción.",
     alertsError: "No se pudo completar. Inténtalo de nuevo.",
     alertsPrivacyRequired: "Debes aceptar la política de privacidad.",
-    metaTitle: "Agenda de eventos — Grupo Enjoy Alcúdia",
+    metaTitle: "Agenda de Eventos en Alcúdia",
     metaDescription: "Próximos eventos y programa semanal de Outxide Club, Enjoy Terrace y Hiru en Port d'Alcúdia. Compra entradas, reserva mesa y añade los eventos a tu calendario.",
     metaOgDescription: "Todo lo que pasa en Grupo Enjoy: eventos de Outxide, programa de Enjoy y Hiru.",
   },

@@ -50,6 +50,8 @@ export function GalleryLightbox({
 
   // Elemento que abrió el lightbox, para devolverle el foco al cerrar (a11y).
   const triggerRef = useRef<HTMLButtonElement | null>(null);
+  // Swipe táctil (móvil): izquierda/derecha para navegar entre fotos.
+  const touchStartX = useRef<number | null>(null);
   const close = useCallback(() => {
     setActiveIndex(null);
     triggerRef.current?.focus();
@@ -109,6 +111,13 @@ export function GalleryLightbox({
           role="dialog"
           aria-modal="true"
           aria-label={filtered[activeIndex].alt}
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            touchStartX.current = null;
+            if (Math.abs(dx) > 50 && filtered.length > 1) (dx > 0 ? prev : next)();
+          }}
         >
           {/* Close */}
           <button

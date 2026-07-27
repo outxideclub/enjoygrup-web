@@ -26,6 +26,8 @@ export interface BlogPost {
   content: BlogLocalizedText;
   author: string;
   date: string;
+  /** Fecha de última edición real (ISO); si falta, se usa date. */
+  updated?: string;
   image: string;
   tags: string[];
   venue?: "enjoy" | "outxide" | "hiru" | "general";
