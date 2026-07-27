@@ -1,0 +1,53 @@
+[
+  {
+    "id": "shisha",
+    "category": "Chicha",
+    "icon": "Wind",
+    "items": [
+      { "name": "Lemenciaga", "description": "Citron, thé vert, menthe et menthol" },
+      { "name": "Bubblenciaga", "description": "Chewing-gum" },
+      { "name": "White Cake", "description": "Citron, cheesecake au caramel" },
+      { "name": "Kaffayayo", "description": "Coco, vanille et amandes" },
+      { "name": "Big Boy", "description": "Pastèque et glace" },
+      { "name": "Over the Rainbow", "description": "Poire et menthe" },
+      { "name": "Sexy Green", "description": "Menthe" },
+      { "name": "Menthe", "description": "Menthe classique" },
+      { "name": "Magic Love", "description": "Fruit de la passion, melon et menthe" },
+      { "name": "Double Pomme", "description": "Double pomme" },
+      { "name": "Mi Amor", "description": "Ananas, banane et glace" },
+      { "name": "Black Nana", "description": "Raisin menthe" },
+      { "name": "Mulan Sword", "description": "Kiwi et mangue" },
+      { "name": "Eskimo", "description": "Citron glacé" },
+      { "name": "Chao Bella", "description": "Fraise" },
+      { "name": "Love 66", "description": "La recette en or, 6 saveurs et menthe" },
+      { "name": "Hawaii", "description": "Ananas, mangue et menthe" },
+      { "name": "Tynky Wynky", "description": "Raisin, citron et cardamome" },
+      { "name": "Moon Dream", "description": "Vanille, chewing-gum et menthe" },
+      { "name": "Ambrosia", "description": "Melon" },
+      { "name": "Spiced Chai", "description": "Vanille, cannelle, noix de muscade et cardamome" },
+      { "name": "Limoncello", "description": "Citron" },
+      { "name": "Fumari", "description": "Nectarine" },
+      { "name": "Cantalope Chill", "description": "Cantaloup et menthe" },
+      { "name": "Lemon Chill", "description": "Citron et menthe" },
+      { "name": "Baja Blue", "description": "Raisin, fruits des bois et chocolat" },
+      { "name": "Pistachio Breeze", "description": "Pistache" },
+      { "name": "Bono", "description": "Kinder Bueno" },
+      { "name": "Miss Jossy", "description": "Framboise acidulée et fraises sucrées" },
+      { "name": "Ice Kaktuz", "description": "Cactus glacé" }
+    ]
+  },
+  {
+    "id": "shisha-sin-nicotina",
+    "category": "Chicha Sans Nicotine",
+    "icon": "Wind",
+    "items": [
+      { "name": "FML Green", "description": "Menthe" },
+      { "name": "TNT", "description": "Pamplemousse, mangue et menthe" },
+      { "name": "Pinkman", "description": "Orange sanguine et fraise" },
+      { "name": "Pastèque", "description": "Pastèque" },
+      { "name": "Sexy Green", "description": "Menthe forte" },
+      { "name": "Dancing Queen", "description": "Vanille et menthe" },
+      { "name": "Alien Twist", "description": "Citron vert, glace et citron" }
+    ]
+  }
+]

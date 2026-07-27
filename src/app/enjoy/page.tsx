@@ -15,8 +15,14 @@ import dynamic from "next/dynamic";
 import enjoyGallery from "../../../data/gallery/enjoy.json";
 import enjoyDrinksEs from "../../../data/menus/enjoy-drinks.json";
 import enjoyDrinksEn from "../../../data/menus/enjoy-drinks.en.json";
+import enjoyDrinksDe from "../../../data/menus/enjoy-drinks.de.json";
+import enjoyDrinksFr from "../../../data/menus/enjoy-drinks.fr.json";
+import enjoyDrinksIt from "../../../data/menus/enjoy-drinks.it.json";
 import enjoyShishaEs from "../../../data/menus/enjoy-shisha.json";
 import enjoyShishaEn from "../../../data/menus/enjoy-shisha.en.json";
+import enjoyShishaDe from "../../../data/menus/enjoy-shisha.de.json";
+import enjoyShishaFr from "../../../data/menus/enjoy-shisha.fr.json";
+import enjoyShishaIt from "../../../data/menus/enjoy-shisha.it.json";
 
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
@@ -38,10 +44,16 @@ const galleryImages = enjoyGallery as GalleryImage[];
 const drinkMenus: Record<string, typeof enjoyDrinksEs> = {
   es: enjoyDrinksEs,
   en: enjoyDrinksEn,
+  de: enjoyDrinksDe,
+  fr: enjoyDrinksFr,
+  it: enjoyDrinksIt,
 };
 const shishaMenus: Record<string, typeof enjoyShishaEs> = {
   es: enjoyShishaEs,
   en: enjoyShishaEn,
+  de: enjoyShishaDe,
+  fr: enjoyShishaFr,
+  it: enjoyShishaIt,
 };
 
 export default function EnjoyPage() {
@@ -370,7 +382,7 @@ export default function EnjoyPage() {
                     >
                       <Icon className="h-4 w-4 shrink-0 text-enjoy/60 group-hover:text-enjoy transition-colors" />
                       <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors truncate">
-                        {section.category.replace(" · Para compartir", "")}
+                        {section.category.split(" · ")[0]}
                       </span>
                     </button>
                   );

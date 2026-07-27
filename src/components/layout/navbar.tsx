@@ -34,6 +34,7 @@ const navItems = [
 ];
 
 const secondaryItems = [
+  { labelKey: "agenda.title", href: "/agenda" },
   { labelKey: "footer.blog", href: "/blog" },
   { labelKey: "footer.aboutUs", href: "/nosotros" },
   { labelKey: "footer.contactUs", href: "/contacto" },

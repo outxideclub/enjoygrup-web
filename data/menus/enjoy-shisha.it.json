@@ -1,0 +1,53 @@
+[
+  {
+    "id": "shisha",
+    "category": "Shisha",
+    "icon": "Wind",
+    "items": [
+      { "name": "Lemenciaga", "description": "Limone, tè verde, menta e mentolo" },
+      { "name": "Bubblenciaga", "description": "Gomma da masticare" },
+      { "name": "White Cake", "description": "Limone, cheesecake al caramello" },
+      { "name": "Kaffayayo", "description": "Cocco, vaniglia e mandorle" },
+      { "name": "Big Boy", "description": "Anguria e ghiaccio" },
+      { "name": "Over the Rainbow", "description": "Pera e menta" },
+      { "name": "Sexy Green", "description": "Menta" },
+      { "name": "Menta", "description": "Menta classica" },
+      { "name": "Magic Love", "description": "Frutto della passione, melone e menta" },
+      { "name": "Doppia Mela", "description": "Doppia mela" },
+      { "name": "Mi Amor", "description": "Ananas, banana e ghiaccio" },
+      { "name": "Black Nana", "description": "Uva e menta" },
+      { "name": "Mulan Sword", "description": "Kiwi e mango" },
+      { "name": "Eskimo", "description": "Limone ghiacciato" },
+      { "name": "Chao Bella", "description": "Fragola" },
+      { "name": "Love 66", "description": "La ricetta d'oro, 6 gusti e menta" },
+      { "name": "Hawaii", "description": "Ananas, mango e menta" },
+      { "name": "Tynky Wynky", "description": "Uva, limone e cardamomo" },
+      { "name": "Moon Dream", "description": "Vaniglia, gomma da masticare e menta" },
+      { "name": "Ambrosia", "description": "Melone" },
+      { "name": "Spiced Chai", "description": "Vaniglia, cannella, noce moscata e cardamomo" },
+      { "name": "Limoncello", "description": "Limone" },
+      { "name": "Fumari", "description": "Nettarina" },
+      { "name": "Cantalope Chill", "description": "Melone cantalupo e menta" },
+      { "name": "Lemon Chill", "description": "Limone e menta" },
+      { "name": "Baja Blue", "description": "Uva, frutti di bosco e cioccolato" },
+      { "name": "Pistachio Breeze", "description": "Pistacchio" },
+      { "name": "Bono", "description": "Kinder Bueno" },
+      { "name": "Miss Jossy", "description": "Lampone acidulo con fragole dolci" },
+      { "name": "Ice Kaktuz", "description": "Cactus e ghiaccio" }
+    ]
+  },
+  {
+    "id": "shisha-sin-nicotina",
+    "category": "Shisha Senza Nicotina",
+    "icon": "Wind",
+    "items": [
+      { "name": "FML Green", "description": "Menta" },
+      { "name": "TNT", "description": "Pompelmo, mango e menta" },
+      { "name": "Pinkman", "description": "Arancia rossa e fragola" },
+      { "name": "Anguria", "description": "Anguria" },
+      { "name": "Sexy Green", "description": "Menta forte" },
+      { "name": "Dancing Queen", "description": "Vaniglia e menta" },
+      { "name": "Alien Twist", "description": "Lime, ghiaccio e limone" }
+    ]
+  }
+]

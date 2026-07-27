@@ -1,0 +1,153 @@
+[
+  {
+    "id": "aperitivos",
+    "category": "Apéritifs",
+    "icon": "Utensils",
+    "items": [
+      { "name": "Pain de cristal", "description": "Tomate et huile d'olive vierge extra", "price": "5€" },
+      { "name": "Pain, aïoli et olives", "description": "", "price": "2,5€ p.p." }
+    ]
+  },
+  {
+    "id": "para-empezar",
+    "category": "Pour Commencer",
+    "icon": "UtensilsCrossed",
+    "items": [
+      { "name": "Causa limeña", "description": "Thon, avocat et ají amarillo", "price": "9,9€" },
+      { "name": "Steak tartare", "description": "Coupé au couteau, assaisonnement classique", "price": "23€" },
+      { "name": "Gambas à l'ail", "description": "", "price": "15€" },
+      { "name": "Pétoncles grillés", "description": "Ail et persil", "price": "18€" },
+      { "name": "Croquettes de jambon", "description": "", "price": "12,5€" },
+      { "name": "Croquettes de cèpes", "description": "", "price": "13,9€" },
+      { "name": "Calamars à l'andalouse", "description": "", "price": "18,5€" },
+      { "name": "Chipirons", "description": "", "price": "18,5€" },
+      { "name": "Œufs cassés au jambon", "description": "", "price": "19,8€" },
+      { "name": "Œufs cassés aux gambas", "description": "", "price": "20,5€" },
+      { "name": "Jambon ibérique sélectionné", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "verde-y-fresco",
+    "category": "Vert et Frais",
+    "icon": "Leaf",
+    "items": [
+      { "name": "César grillée", "description": "Poulet, parmesan et anchois", "price": "15,9€" },
+      { "name": "Burrata & tomate rose", "description": "Pesto et huile d'olive vierge extra", "price": "16,9€" },
+      { "name": "Tomate rose & thon", "description": "Oignon rouge et huile d'olive vierge extra", "price": "14,9€" }
+    ]
+  },
+  {
+    "id": "pasta",
+    "category": "Pâtes",
+    "icon": "Wheat",
+    "items": [
+      { "name": "Tagliatelles à la bolognaise", "description": "", "price": "14,5€" },
+      { "name": "Raviolis aux légumes", "description": "Pesto ou tomate", "price": "16,2€" }
+    ]
+  },
+  {
+    "id": "street",
+    "category": "Street",
+    "icon": "Flame",
+    "items": [
+      { "name": "Bravas", "description": "", "price": "9,8€" },
+      { "name": "Gyoza & wakamé", "description": "", "price": "9,7€" },
+      { "name": "Poulet croustillant japonais", "description": "", "price": "8,70€" },
+      { "name": "Nachos", "description": "", "price": "12,5€" },
+      { "name": "Taco de poisson", "description": "", "price": "11,8€" },
+      { "name": "Wok de légumes", "description": "", "price": "14,8€" },
+      { "name": "Burger de bœuf", "description": "Cheddar et oignon croustillant", "price": "20,5€" },
+      { "name": "Burger de bœuf maturé", "description": "", "price": "22,80€" },
+      { "name": "Burger classique", "description": "", "price": "18€" }
+    ]
+  },
+  {
+    "id": "entre-panes",
+    "category": "Entre Deux Pains",
+    "icon": "Sandwich",
+    "items": [
+      { "name": "Club au poulet", "description": "", "price": "15€" },
+      { "name": "Club au saumon (sriracha)", "description": "", "price": "16,8€" },
+      { "name": "Brioche au bœuf", "description": "Cuisson lente", "price": "22,8€" }
+    ]
+  },
+  {
+    "id": "brasa",
+    "category": "Braise",
+    "icon": "Beef",
+    "items": [
+      { "name": "Pluma ibérique", "description": "", "price": "24€" },
+      { "name": "Côtes d'agneau à la braise", "description": "", "price": "28€" },
+      { "name": "Côte de bœuf maison", "description": "", "price": "34€" },
+      { "name": "Poulet au feu", "description": "", "price": "20,5€" },
+      { "name": "Entrecôte", "description": "", "price": "24€" },
+      { "name": "Filet de bœuf", "description": "", "price": "29€" },
+      { "name": "T-Bone", "description": "", "price": "32,5€" },
+      { "name": "Côte de bœuf Angus", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "origen",
+    "category": "Origine",
+    "icon": "Crown",
+    "items": [
+      { "name": "Rubia gallega", "description": "", "price": "108,5€/kg" },
+      { "name": "Simmental", "description": "", "price": "98,50€/kg" },
+      { "name": "Frisonne", "description": "", "price": "96,8€/kg" },
+      { "name": "Cebón", "description": "", "price": "89€/kg" }
+    ]
+  },
+  {
+    "id": "mar",
+    "category": "Mer",
+    "icon": "Fish",
+    "items": [
+      { "name": "Saumon à la braise", "description": "Aneth et parmentier", "price": "22,5€" },
+      { "name": "Calamar au feu", "description": "", "price": "24,8€" },
+      { "name": "Bar", "description": "", "price": "38,50€" },
+      { "name": "Morue gratinée", "description": "Aïoli et sobrasada", "price": "22,6€" },
+      { "name": "Chipirons, pomme et pistache", "description": "", "price": "26,6€" }
+    ]
+  },
+  {
+    "id": "arroces",
+    "category": "Riz",
+    "icon": "Soup",
+    "items": [
+      { "name": "Riz à la côte de bœuf maturée", "description": "", "price": "39€" },
+      { "name": "Carabinero", "description": "", "price": "26,8€" },
+      { "name": "Riz noir de seiche et gambas", "description": "", "price": "25€" }
+    ]
+  },
+  {
+    "id": "para-los-peques",
+    "category": "Pour les Petits",
+    "icon": "Baby",
+    "items": [
+      { "name": "Burger au fromage", "description": "", "price": "12,5€" },
+      { "name": "Nuggets de poulet", "description": "", "price": "12,5€" },
+      { "name": "Poisson pané", "description": "", "price": "12,5€" }
+    ]
+  },
+  {
+    "id": "guarniciones",
+    "category": "Accompagnements",
+    "icon": "CirclePlus",
+    "items": [
+      { "name": "Frites", "description": "", "price": "5,8€" },
+      { "name": "Pomme de terre au four", "description": "", "price": "5,8€" }
+    ]
+  },
+  {
+    "id": "dulce-final",
+    "category": "Douceurs",
+    "icon": "Cake",
+    "items": [
+      { "name": "Cheesecake", "description": "", "price": "8€" },
+      { "name": "Brownie", "description": "", "price": "8€" },
+      { "name": "Mousse au fruit de la passion", "description": "", "price": "6,9€" },
+      { "name": "Ananas grillé", "description": "", "price": "6€" },
+      { "name": "Dessert du jour", "description": "", "price": "" }
+    ]
+  }
+]

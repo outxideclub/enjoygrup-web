@@ -43,10 +43,12 @@ const COPY: Record<Locale, Record<Status, { title: string; body: string; cta: st
 export default async function NewsletterPage({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string }>;
+  searchParams: Promise<{ status?: string; lang?: string }>;
 }) {
-  const locale = await getServerLocale();
-  const { status } = await searchParams;
+  const { status, lang } = await searchParams;
+  // El enlace del email propaga ?lang: tiene prioridad sobre la detección por
+  // cookie/Accept-Language (que falla si se abre desde el cliente de correo).
+  const locale: Locale = locales.includes(lang as Locale) ? (lang as Locale) : await getServerLocale();
   const s: Status = status === "ok" || status === "expired" || status === "error" ? status : "ok";
   const c = COPY[locale][s];
 

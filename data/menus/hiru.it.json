@@ -1,0 +1,153 @@
+[
+  {
+    "id": "aperitivos",
+    "category": "Aperitivi",
+    "icon": "Utensils",
+    "items": [
+      { "name": "Pan de cristal", "description": "Pomodoro e olio EVO", "price": "5€" },
+      { "name": "Pane, aïoli e olive", "description": "", "price": "2,5€ p.p." }
+    ]
+  },
+  {
+    "id": "para-empezar",
+    "category": "Per Iniziare",
+    "icon": "UtensilsCrossed",
+    "items": [
+      { "name": "Causa limeña", "description": "Tonno, avocado e ají amarillo", "price": "9,9€" },
+      { "name": "Steak tartar", "description": "Taglio al coltello, condimento classico", "price": "23€" },
+      { "name": "Gambas al ajillo", "description": "", "price": "15€" },
+      { "name": "Zamburiñas alla brace", "description": "Aglio e prezzemolo", "price": "18€" },
+      { "name": "Crocchette di prosciutto", "description": "", "price": "12,5€" },
+      { "name": "Crocchette di porcini", "description": "", "price": "13,9€" },
+      { "name": "Calamari all'andalusa", "description": "", "price": "18,5€" },
+      { "name": "Calamaretti", "description": "", "price": "18,5€" },
+      { "name": "Uova rotte con prosciutto", "description": "", "price": "19,8€" },
+      { "name": "Uova rotte con gamberi", "description": "", "price": "20,5€" },
+      { "name": "Prosciutto iberico selezionato", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "verde-y-fresco",
+    "category": "Verde e Fresco",
+    "icon": "Leaf",
+    "items": [
+      { "name": "Caesar alla brace", "description": "Pollo, parmigiano e acciuga", "price": "15,9€" },
+      { "name": "Burrata & pomodoro rosa", "description": "Pesto e olio EVO", "price": "16,9€" },
+      { "name": "Pomodoro rosa & tonno", "description": "Cipolla rossa e olio EVO", "price": "14,9€" }
+    ]
+  },
+  {
+    "id": "pasta",
+    "category": "Pasta",
+    "icon": "Wheat",
+    "items": [
+      { "name": "Tagliatelle alla bolognese", "description": "", "price": "14,5€" },
+      { "name": "Ravioli di verdure", "description": "Pesto o pomodoro", "price": "16,2€" }
+    ]
+  },
+  {
+    "id": "street",
+    "category": "Street",
+    "icon": "Flame",
+    "items": [
+      { "name": "Bravas", "description": "", "price": "9,8€" },
+      { "name": "Gyoza & wakame", "description": "", "price": "9,7€" },
+      { "name": "Pollo croccante giapponese", "description": "", "price": "8,70€" },
+      { "name": "Nachos", "description": "", "price": "12,5€" },
+      { "name": "Taco di pesce", "description": "", "price": "11,8€" },
+      { "name": "Wok di verdure", "description": "", "price": "14,8€" },
+      { "name": "Burger di manzo", "description": "Cheddar e cipolla croccante", "price": "20,5€" },
+      { "name": "Burger di manzo frollato", "description": "", "price": "22,80€" },
+      { "name": "Burger classico", "description": "", "price": "18€" }
+    ]
+  },
+  {
+    "id": "entre-panes",
+    "category": "Tra i Pani",
+    "icon": "Sandwich",
+    "items": [
+      { "name": "Club di pollo", "description": "", "price": "15€" },
+      { "name": "Club di salmone (sriracha)", "description": "", "price": "16,8€" },
+      { "name": "Brioche di manzo", "description": "Cottura lenta", "price": "22,8€" }
+    ]
+  },
+  {
+    "id": "brasa",
+    "category": "Brace",
+    "icon": "Beef",
+    "items": [
+      { "name": "Pluma iberica", "description": "", "price": "24€" },
+      { "name": "Costolette d'agnello alla brace", "description": "", "price": "28€" },
+      { "name": "Chuletón della casa", "description": "", "price": "34€" },
+      { "name": "Pollo alla fiamma", "description": "", "price": "20,5€" },
+      { "name": "Entrecôte", "description": "", "price": "24€" },
+      { "name": "Filetto di manzo", "description": "", "price": "29€" },
+      { "name": "T-Bone", "description": "", "price": "32,5€" },
+      { "name": "Costata di angus", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "origen",
+    "category": "Origine",
+    "icon": "Crown",
+    "items": [
+      { "name": "Rubia gallega", "description": "", "price": "108,5€/kg" },
+      { "name": "Simmental", "description": "", "price": "98,50€/kg" },
+      { "name": "Frisona", "description": "", "price": "96,8€/kg" },
+      { "name": "Cebón", "description": "", "price": "89€/kg" }
+    ]
+  },
+  {
+    "id": "mar",
+    "category": "Mare",
+    "icon": "Fish",
+    "items": [
+      { "name": "Salmone alla brace", "description": "Aneto e parmentier", "price": "22,5€" },
+      { "name": "Calamaro alla fiamma", "description": "", "price": "24,8€" },
+      { "name": "Branzino", "description": "", "price": "38,50€" },
+      { "name": "Baccalà gratinato", "description": "Aïoli e sobrasada", "price": "22,6€" },
+      { "name": "Calamaretti con mela e pistacchio", "description": "", "price": "26,6€" }
+    ]
+  },
+  {
+    "id": "arroces",
+    "category": "Risi",
+    "icon": "Soup",
+    "items": [
+      { "name": "Riso al chuletón frollato", "description": "", "price": "39€" },
+      { "name": "Carabinero", "description": "", "price": "26,8€" },
+      { "name": "Nero di seppia e gambero", "description": "", "price": "25€" }
+    ]
+  },
+  {
+    "id": "para-los-peques",
+    "category": "Per i Più Piccoli",
+    "icon": "Baby",
+    "items": [
+      { "name": "Burger con formaggio", "description": "", "price": "12,5€" },
+      { "name": "Nuggets di pollo", "description": "", "price": "12,5€" },
+      { "name": "Pesce in pastella", "description": "", "price": "12,5€" }
+    ]
+  },
+  {
+    "id": "guarniciones",
+    "category": "Contorni",
+    "icon": "CirclePlus",
+    "items": [
+      { "name": "Patatine fritte", "description": "", "price": "5,8€" },
+      { "name": "Patata al forno", "description": "", "price": "5,8€" }
+    ]
+  },
+  {
+    "id": "dulce-final",
+    "category": "Dolce Finale",
+    "icon": "Cake",
+    "items": [
+      { "name": "Cheesecake", "description": "", "price": "8€" },
+      { "name": "Brownie", "description": "", "price": "8€" },
+      { "name": "Mousse di maracuja", "description": "", "price": "6,9€" },
+      { "name": "Ananas alla brace", "description": "", "price": "6€" },
+      { "name": "Dolce del giorno", "description": "", "price": "" }
+    ]
+  }
+]

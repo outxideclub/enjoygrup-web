@@ -4,9 +4,9 @@ import { locales, type Locale } from "@/i18n/config";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { sendWelcomeEmail } from "@/lib/newsletter-emails";
 
-// Paso 2 del doble opt-in: el suscriptor pulsa el enlace del email.
-// Verificamos el token firmado, activamos la suscripción (unsubscribed: false)
-// y enviamos la bienvenida. Redirige a una página de confirmación.
+// Paso 2 del doble opt-in de AVISOS DE EVENTOS: activa el contacto pendiente en
+// la audiencia de avisos (RESEND_WAITLIST_AUDIENCE_ID) y envía la bienvenida.
+// Reutiliza el token firmado y las plantillas del newsletter.
 
 const SITE = "https://www.grupoenjoy.es";
 
@@ -34,27 +34,25 @@ export async function GET(request: NextRequest) {
   }
 
   const resend = getResend();
-  const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
+  const AUDIENCE_ID = process.env.RESEND_WAITLIST_AUDIENCE_ID;
   // Sin proveedor de email o sin audiencia no se puede activar el contacto:
   // no afirmar éxito (evita el "confirmado" engañoso si falta configuración).
   if (!resend || !AUDIENCE_ID) {
-    console.error("Newsletter confirm: Resend o RESEND_AUDIENCE_ID no configurados");
+    console.error("Waitlist confirm: Resend o RESEND_WAITLIST_AUDIENCE_ID no configurados");
     return NextResponse.redirect(landing("error", lang));
   }
 
-  // Activar la suscripción del contacto pendiente.
   const { error } = await resend.contacts.update({
     email,
     audienceId: AUDIENCE_ID,
     unsubscribed: false,
   });
   if (error) {
-    console.error("Newsletter confirm: fallo al activar el contacto:", error);
+    console.error("Waitlist confirm: fallo al activar el contacto:", error);
     return NextResponse.redirect(landing("error", lang));
   }
-  // Bienvenida (con enlace de baja). Si falla, la suscripción ya quedó activa.
   const { error: welcomeError } = await sendWelcomeEmail(resend, email, lang);
-  if (welcomeError) console.error("Newsletter confirm: fallo al enviar bienvenida:", welcomeError);
+  if (welcomeError) console.error("Waitlist confirm: fallo al enviar bienvenida:", welcomeError);
 
   return NextResponse.redirect(landing("ok", lang));
 }

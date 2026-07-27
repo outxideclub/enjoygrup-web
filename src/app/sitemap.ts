@@ -21,6 +21,7 @@ const LAST_UPDATED = {
   faq: new Date("2026-05-15"),
   blog: new Date("2026-07-20"),
   mundial: new Date("2026-06-11"),
+  agenda: new Date("2026-07-27"),
 } as const;
 
 const baseUrl = "https://www.grupoenjoy.es";
@@ -113,6 +114,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/enjoy", LAST_UPDATED.venues, "weekly", 0.9),
     entry("/outxide", LAST_UPDATED.venues, "daily", 0.9),
     entry("/hiru", LAST_UPDATED.venues, "weekly", 0.9),
+    entry("/agenda", LAST_UPDATED.agenda, "daily", 0.8),
     entry("/nosotros", LAST_UPDATED.nosotros, "monthly", 0.6),
     entry("/contacto", LAST_UPDATED.contacto, "monthly", 0.7),
     entry("/faq", LAST_UPDATED.faq, "monthly", 0.6),

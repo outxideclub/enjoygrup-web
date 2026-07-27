@@ -1,0 +1,59 @@
+// Helpers PUROS de eventos, seguros para cliente y servidor (no leen env ni
+// importan el cliente de FourVenues). Los comparten la página de Outxide y la
+// agenda unificada para no duplicar formateo de fechas ni construcción de URLs.
+import type { FVEvent } from "@/lib/fourvenues";
+
+export const localeMap: Record<string, string> = {
+  es: "es-ES",
+  en: "en-GB",
+  de: "de-DE",
+  fr: "fr-FR",
+  it: "it-IT",
+};
+
+// Zona horaria del local: sin fijarla, un visitante en UK/Irlanda/Portugal
+// vería el día anterior en eventos que empiezan a medianoche hora de Madrid.
+export const VENUE_TIMEZONE = "Europe/Madrid";
+
+// URL pública de un evento en FourVenues (formato verificado):
+//   https://web.fourvenues.com/es/outxide-club/events/{slug}
+// OJO: event.iframe.tag_url NO sirve como enlace — es una URL para incrustar
+// en iframe cuya cadena de redirecciones acaba en un host inválido.
+export const FOURVENUES_ORG_URL = "https://web.fourvenues.com/es/outxide-club";
+
+export function formatEventDate(isoDate: string, locale: string): string {
+  return new Date(isoDate).toLocaleDateString(localeMap[locale] ?? "es-ES", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    timeZone: VENUE_TIMEZONE,
+  });
+}
+
+export function formatEventTime(isoDate: string, locale: string): string {
+  return new Date(isoDate).toLocaleTimeString(localeMap[locale] ?? "es-ES", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: VENUE_TIMEZONE,
+  });
+}
+
+export function eventTicketUrl(event: FVEvent): string {
+  return event.slug ? `${FOURVENUES_ORG_URL}/events/${event.slug}` : FOURVENUES_ORG_URL;
+}
+
+export function extractGenres(event: FVEvent): string {
+  if (event.music_genres.length > 0) {
+    return event.music_genres
+      .map((g) => g.charAt(0).toUpperCase() + g.slice(1))
+      .join(" / ");
+  }
+  return "";
+}
+
+export function extractArtists(event: FVEvent): string {
+  if (event.artists.length > 0) {
+    return event.artists.map((a) => (typeof a === "string" ? a : a.name)).join(", ");
+  }
+  return "";
+}

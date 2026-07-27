@@ -28,6 +28,9 @@ import dynamic from "next/dynamic";
 import hiruGallery from "../../../data/gallery/hiru.json";
 import hiruMenuEs from "../../../data/menus/hiru.json";
 import hiruMenuEn from "../../../data/menus/hiru.en.json";
+import hiruMenuDe from "../../../data/menus/hiru.de.json";
+import hiruMenuFr from "../../../data/menus/hiru.fr.json";
+import hiruMenuIt from "../../../data/menus/hiru.it.json";
 
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
@@ -45,6 +48,9 @@ const galleryData = hiruGallery as GalleryData;
 const menus: Record<string, typeof hiruMenuEs> = {
   es: hiruMenuEs,
   en: hiruMenuEn,
+  de: hiruMenuDe,
+  fr: hiruMenuFr,
+  it: hiruMenuIt,
 };
 
 export default function HiruPage() {

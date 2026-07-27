@@ -1,0 +1,153 @@
+[
+  {
+    "id": "aperitivos",
+    "category": "Aperitifs",
+    "icon": "Utensils",
+    "items": [
+      { "name": "Pan de Cristal", "description": "Tomate und natives Olivenöl extra", "price": "5€" },
+      { "name": "Brot, Alioli und Oliven", "description": "", "price": "2,5€ p.p." }
+    ]
+  },
+  {
+    "id": "para-empezar",
+    "category": "Zum Auftakt",
+    "icon": "UtensilsCrossed",
+    "items": [
+      { "name": "Causa Limeña", "description": "Thunfisch, Avocado und Ají Amarillo", "price": "9,9€" },
+      { "name": "Steak Tartar", "description": "Mit dem Messer geschnitten, klassisch abgeschmeckt", "price": "23€" },
+      { "name": "Gambas al Ajillo", "description": "", "price": "15€" },
+      { "name": "Gegrillte Jakobsmuscheln", "description": "Knoblauch und Petersilie", "price": "18€" },
+      { "name": "Schinkenkroketten", "description": "", "price": "12,5€" },
+      { "name": "Steinpilzkroketten", "description": "", "price": "13,9€" },
+      { "name": "Tintenfisch nach andalusischer Art", "description": "", "price": "18,5€" },
+      { "name": "Baby-Tintenfische", "description": "", "price": "18,5€" },
+      { "name": "Huevos Rotos mit Schinken", "description": "", "price": "19,8€" },
+      { "name": "Huevos Rotos mit Gambas", "description": "", "price": "20,5€" },
+      { "name": "Ausgewählter Ibérico-Schinken", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "verde-y-fresco",
+    "category": "Grün und Frisch",
+    "icon": "Leaf",
+    "items": [
+      { "name": "Gegrillter Caesar Salat", "description": "Hähnchen, Parmesan und Sardelle", "price": "15,9€" },
+      { "name": "Burrata & rosa Tomate", "description": "Pesto und natives Olivenöl extra", "price": "16,9€" },
+      { "name": "Rosa Tomate & Thunfisch", "description": "Rote Zwiebel und natives Olivenöl extra", "price": "14,9€" }
+    ]
+  },
+  {
+    "id": "pasta",
+    "category": "Pasta",
+    "icon": "Wheat",
+    "items": [
+      { "name": "Tagliatelle Bolognese", "description": "", "price": "14,5€" },
+      { "name": "Gemüse-Ravioli", "description": "Pesto oder Tomate", "price": "16,2€" }
+    ]
+  },
+  {
+    "id": "street",
+    "category": "Street",
+    "icon": "Flame",
+    "items": [
+      { "name": "Patatas Bravas", "description": "", "price": "9,8€" },
+      { "name": "Gyoza & Wakame", "description": "", "price": "9,7€" },
+      { "name": "Japanisches Knusperhähnchen", "description": "", "price": "8,70€" },
+      { "name": "Nachos", "description": "", "price": "12,5€" },
+      { "name": "Fisch-Taco", "description": "", "price": "11,8€" },
+      { "name": "Gemüse-Wok", "description": "", "price": "14,8€" },
+      { "name": "Rinderburger", "description": "Cheddar und knusprige Zwiebeln", "price": "20,5€" },
+      { "name": "Burger vom gereiften Rind", "description": "", "price": "22,80€" },
+      { "name": "Klassischer Burger", "description": "", "price": "18€" }
+    ]
+  },
+  {
+    "id": "entre-panes",
+    "category": "Zwischen Broten",
+    "icon": "Sandwich",
+    "items": [
+      { "name": "Hähnchen-Club", "description": "", "price": "15€" },
+      { "name": "Lachs-Club (Sriracha)", "description": "", "price": "16,8€" },
+      { "name": "Rinder-Brioche", "description": "Langsam gegart", "price": "22,8€" }
+    ]
+  },
+  {
+    "id": "brasa",
+    "category": "Vom Grill",
+    "icon": "Beef",
+    "items": [
+      { "name": "Pluma Ibérica", "description": "", "price": "24€" },
+      { "name": "Gegrillte Lammkoteletts", "description": "", "price": "28€" },
+      { "name": "Chuletón nach Art des Hauses", "description": "", "price": "34€" },
+      { "name": "Hähnchen vom Feuer", "description": "", "price": "20,5€" },
+      { "name": "Entrecôte", "description": "", "price": "24€" },
+      { "name": "Rinderfilet", "description": "", "price": "29€" },
+      { "name": "T-Bone", "description": "", "price": "32,5€" },
+      { "name": "Angus-Rippe", "description": "", "price": "26€" }
+    ]
+  },
+  {
+    "id": "origen",
+    "category": "Herkunft",
+    "icon": "Crown",
+    "items": [
+      { "name": "Rubia Gallega", "description": "", "price": "108,5€/kg" },
+      { "name": "Simmental", "description": "", "price": "98,50€/kg" },
+      { "name": "Frisona", "description": "", "price": "96,8€/kg" },
+      { "name": "Cebón", "description": "", "price": "89€/kg" }
+    ]
+  },
+  {
+    "id": "mar",
+    "category": "Aus dem Meer",
+    "icon": "Fish",
+    "items": [
+      { "name": "Gegrillter Lachs", "description": "Dill und Kartoffelpüree", "price": "22,5€" },
+      { "name": "Tintenfisch vom Feuer", "description": "", "price": "24,8€" },
+      { "name": "Wolfsbarsch", "description": "", "price": "38,50€" },
+      { "name": "Überbackener Kabeljau", "description": "Alioli und Sobrasada", "price": "22,6€" },
+      { "name": "Baby-Tintenfische mit Apfel und Pistazie", "description": "", "price": "26,6€" }
+    ]
+  },
+  {
+    "id": "arroces",
+    "category": "Reisgerichte",
+    "icon": "Soup",
+    "items": [
+      { "name": "Reis mit gereiftem Chuletón", "description": "", "price": "39€" },
+      { "name": "Carabinero", "description": "", "price": "26,8€" },
+      { "name": "Schwarzer Reis mit Sepia und Garnele", "description": "", "price": "25€" }
+    ]
+  },
+  {
+    "id": "para-los-peques",
+    "category": "Für die Kleinen",
+    "icon": "Baby",
+    "items": [
+      { "name": "Burger mit Käse", "description": "", "price": "12,5€" },
+      { "name": "Hähnchen-Nuggets", "description": "", "price": "12,5€" },
+      { "name": "Panierter Fisch", "description": "", "price": "12,5€" }
+    ]
+  },
+  {
+    "id": "guarniciones",
+    "category": "Beilagen",
+    "icon": "CirclePlus",
+    "items": [
+      { "name": "Pommes frites", "description": "", "price": "5,8€" },
+      { "name": "Ofenkartoffel", "description": "", "price": "5,8€" }
+    ]
+  },
+  {
+    "id": "dulce-final",
+    "category": "Süßer Abschluss",
+    "icon": "Cake",
+    "items": [
+      { "name": "Käsekuchen", "description": "", "price": "8€" },
+      { "name": "Brownie", "description": "", "price": "8€" },
+      { "name": "Maracuja-Mousse", "description": "", "price": "6,9€" },
+      { "name": "Gegrillte Ananas", "description": "", "price": "6€" },
+      { "name": "Dessert des Tages", "description": "", "price": "" }
+    ]
+  }
+]

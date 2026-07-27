@@ -1,0 +1,276 @@
+[
+  {
+    "id": "ron",
+    "category": "Rum-Cocktails",
+    "icon": "Wine",
+    "type": "cocktails",
+    "items": [
+      { "name": "Mojito", "description": "Rum, Limette, Minze, brauner Zucker und Soda" },
+      { "name": "Mojito Erdbeere", "description": "Rum, Limette, Erdbeere, Minze, brauner Zucker und Soda" },
+      { "name": "Mojito Mango", "description": "Rum, Limette, Mango, Minze, brauner Zucker und Soda" },
+      { "name": "Mojito Maracuja", "description": "Rum, Limette, Maracuja, Minze, brauner Zucker und Soda" },
+      { "name": "Mojito Palo", "description": "Rum, Limette, Minze, brauner Zucker, Soda und Palo-Likör" },
+      { "name": "Mojito Kräuter Túnel", "description": "Kräutermischung, Minze, Limette, brauner Zucker und Soda" },
+      { "name": "Mojito Jägermeister", "description": "Jägermeister, Limette, Minze, brauner Zucker, Soda und Kräuterlikör" },
+      { "name": "Daiquiri Erdbeere", "description": "Rum, Limette, Erdbeeren und Zucker" },
+      { "name": "Daiquiri Maracuja", "description": "Rum, Limette, Maracuja und Zucker" },
+      { "name": "Daiquiri Himbeere", "description": "Rum, Limette, Himbeere und Zucker" },
+      { "name": "Daiquiri Mango", "description": "Rum, Limette, Mango und Zucker" },
+      { "name": "Piña Colada", "description": "Rum, Kokosmilch und Ananassaft" },
+      { "name": "Coco Loco", "description": "Rum, Kokosmilch und Milch" },
+      { "name": "Banana Mama", "description": "Rum, Kokoslikör, Orangensaft, Ananassaft, Zitronensaft und Grenadine" },
+      { "name": "Blue Hawaiian", "description": "Rum, Kokoslikör, Kokosmilch, Ananassaft und Blue Curaçao" },
+      { "name": "Zombie", "description": "Weißer Rum, brauner Rum, gereifter Rum, Kirschlikör, Orangensaft, Zitronensaft und Grenadine" },
+      { "name": "Mai Tai", "description": "Rum, Cointreau, Aprikosenbrand, Mandelsirup, Ananas, Limette, Orange und Zucker" },
+      { "name": "Kiwi Wiki", "description": "Rum, Kiwi, Cointreau und Ananassaft" },
+      { "name": "Pink Paradise", "description": "Rum, Kokoslikör, Amaretto, Heidelbeeren und Ananas" }
+    ]
+  },
+  {
+    "id": "vodka",
+    "category": "Wodka-Cocktails",
+    "icon": "Martini",
+    "type": "cocktails",
+    "items": [
+      { "name": "Caipiroska", "description": "Wodka, Limette und Zucker" },
+      { "name": "Caipiroska Erdbeere", "description": "Wodka, Limette, Erdbeere und Zucker" },
+      { "name": "Caipiroska Himbeere", "description": "Wodka, Limette, Himbeere und Zucker" },
+      { "name": "Caipiroska Mango", "description": "Wodka, Limette, Mango und Zucker" },
+      { "name": "Caipiroska Maracuja", "description": "Wodka, Limette, Maracuja und Zucker" },
+      { "name": "Cosmopolitan", "description": "Zitronenwodka, Cointreau, Cranberrysaft und Limette" },
+      { "name": "Moscow Mule", "description": "Wodka, Limettensaft und Ginger Beer" },
+      { "name": "Sex on the Beach", "description": "Wodka, Pfirsichlikör, Orange und Grenadine" },
+      { "name": "Blue Lagoon", "description": "Wodka, Blue Curaçao und Zitronenlimonade" },
+      { "name": "Screwdriver", "description": "Wodka und frischer Orangensaft" },
+      { "name": "White Russian", "description": "Wodka, Kaffeelikör und Sahne" }
+    ]
+  },
+  {
+    "id": "clasicos",
+    "category": "Weitere Klassiker",
+    "icon": "Cherry",
+    "type": "cocktails",
+    "items": [
+      { "name": "Pornstar Martini", "description": "Vanillewodka, frische Maracuja, Limette, Passoã und Prosecco" },
+      { "name": "Espresso Martini", "description": "Wodka, Kahlúa, Espresso und Kaffeebohnen" },
+      { "name": "Negroni", "description": "Tanqueray, Martini Rosso und Campari" },
+      { "name": "Amaretto Sour", "description": "Amaretto, frischer Zitronensaft, Eiweiß und Zucker" },
+      { "name": "Long Island Ice Tea", "description": "Gin, Wodka, Rum, Tequila, Cointreau, Zitrone und Cola" },
+      { "name": "Caipirinha", "description": "Cachaça, Limette und brauner Zucker" },
+      { "name": "Tom Collins", "description": "Gin, Zitronensaft, Soda und Zucker" },
+      { "name": "Whisky Sour", "description": "Whisky, Zitronensaft, Zucker und Eiweiß" },
+      { "name": "Southern Belle", "description": "Whisky, Cointreau, Ananassaft, Orangensaft und Grenadine" },
+      { "name": "Tequila Sunrise", "description": "Tequila, Orangensaft und Grenadine" },
+      { "name": "Strawberry Margarita", "description": "Tequila, Cointreau, Erdbeeren und Limettensaft" }
+    ]
+  },
+  {
+    "id": "sparkling",
+    "category": "Sparkling Cocktails",
+    "icon": "Sparkles",
+    "type": "cocktails",
+    "items": [
+      { "name": "Mimosa", "description": "Champagner, Orangensaft und Grand Marnier" },
+      { "name": "Aperol Spritz", "description": "Champagner, Aperol und Soda" }
+    ]
+  },
+  {
+    "id": "tiki",
+    "category": "Tiki Tiki Specials",
+    "icon": "CupSoda",
+    "type": "cocktails",
+    "items": [
+      { "name": "Crazy Tree", "description": "Rum Km1, Kraken Rum, dunkler Kakaolikör, Zitronensaft, Mangopüree und Ananassaft" },
+      { "name": "Tulum", "description": "Tequila clandestina, Ancho Reyes Verde, Limettensaft, Orgeat und Ananaspüree" },
+      { "name": "Tiki Love", "description": "Rum Km1, Kraken Rum, Falernum, Maracujapüree, Limettensaft, Mangosaft und Angostura" },
+      { "name": "White Totem", "description": "Rum Km1, Kaffeelikör, Mangosaft, Kokospüree, Zitronensaft und Crushed Ice" },
+      { "name": "Fidgi", "description": "Rum Km1, Cachaça, Amaretto, Zitronensaft und Maracujasaft" },
+      { "name": "Moana Beach", "description": "Rum Km1, Rum Santísima Trinidad 7 Jahre, weißer Kakaolikör, Maracujapüree, Zitronensaft, Ginger Beer und Angostura" },
+      { "name": "Tiki Mai Tai", "description": "Geräucherter Rum, Rum Km1, Brugal Rum, Amaretto, Brandy, Ananassaft, Limette, Orangensaft und Zucker" },
+      { "name": "Tiki Sex", "description": "Wodka Km1, Pfirsichlikör, Orangensaft, Cranberrysaft und Zucker" },
+      { "name": "Devil Moon", "description": "Tequila clandestina, Canonita, Orgeat, Limettensaft, Maracujasaft und -püree und Angostura" },
+      { "name": "Pineapple Coco Loco", "description": "Rum Km1, Batida de Coco, Malibu, Kokossirup, frische Ananas, Ananassaft und -püree" }
+    ]
+  },
+  {
+    "id": "mega",
+    "category": "Megacocktails · Zum Teilen",
+    "icon": "PartyPopper",
+    "type": "cocktails",
+    "items": [
+      { "name": "Enjoy", "description": "Rum, Bananenlikör, Cointreau, Orangensaft und Grenadine" },
+      { "name": "Piña Colada", "description": "Rum, Kokoslikör, Kokosmilch und Ananassaft" },
+      { "name": "Tequila Sunrise", "description": "Tequila, Orangensaft und Grenadine" },
+      { "name": "Sex on the Beach", "description": "Wodka, Pfirsichlikör, Orange und Grenadine" },
+      { "name": "San Francisco", "description": "Wodka, verschiedene Säfte und Grenadine" },
+      { "name": "Daiquiri Erdbeere", "description": "Rum, Limette, Erdbeere und Zucker" },
+      { "name": "Long Island Ice Tea", "description": "Gin, Wodka, Rum, Tequila, Cointreau, Zitronensaft und Cola" }
+    ]
+  },
+  {
+    "id": "sin-alcohol",
+    "category": "Alkoholfrei",
+    "icon": "BanIcon",
+    "type": "cocktails",
+    "items": [
+      { "name": "San Paco", "description": "Verschiedene Säfte und Grenadine" },
+      { "name": "Piña Baby", "description": "Kokosmilch und Ananassaft" },
+      { "name": "Mojito Baby", "description": "Sprite, Limette, Minze und brauner Zucker" },
+      { "name": "Daiquiri Baby", "description": "Erdbeere, Zitronensaft und Zucker" },
+      { "name": "Erdbeer-Mojito Baby", "description": "Limette, Minze, brauner Zucker, Erdbeeren und Sprite" }
+    ]
+  },
+  {
+    "id": "gins",
+    "category": "Premium-Gins",
+    "icon": "GlassWater",
+    "type": "drinks",
+    "items": [
+      { "name": "Km1 Tramuntana Gin Lemon", "description": "Mallorquinischer Botanical-Gin mit Zitrone aus Sóller" },
+      { "name": "Tanqueray Nº10", "description": "London Dry, frische Zitrusnoten und Kamille" },
+      { "name": "Hendrick's", "description": "Schottisch mit Gurke und Rosenblättern" },
+      { "name": "Gin Mare", "description": "Mediterran mit Basilikum, Thymian und Rosmarin" },
+      { "name": "Monkey 47", "description": "Schwarzwald, 47 Botanicals" },
+      { "name": "Nordes", "description": "Galicisch mit Albariño-Trauben" },
+      { "name": "Citadelle", "description": "Französisch, 19 Botanicals und Brennblasen-Destillation" },
+      { "name": "Citadelle Reserve", "description": "Im Eichenfass gereift" },
+      { "name": "Martin Miller's", "description": "Englisch, verschnitten mit isländischem Wasser" },
+      { "name": "Fifty Pounds", "description": "Klassischer und ausgewogener London Dry" },
+      { "name": "G'Vine", "description": "Französisch, auf Traubenbasis und Weinblüte" },
+      { "name": "Bulldog", "description": "London Dry, Lotus und Mohn" },
+      { "name": "Junípero", "description": "San Francisco, intensiv wacholderbetont" },
+      { "name": "The London Nº1", "description": "London Dry, bläulicher Ton mit Gardenie" },
+      { "name": "Nº 209", "description": "San Francisco, Zitrusnoten und Gewürze" },
+      { "name": "Nº 3 London Dry", "description": "Berry Bros, Wacholder, Kardamom und Grapefruit" },
+      { "name": "William Chase Elegant", "description": "Englisch, Apfel und florale Botanicals" },
+      { "name": "Mombasa Club", "description": "London Dry mit Kreuzkümmel und Koriander" },
+      { "name": "Sipsmith", "description": "Handwerklicher London Dry, Zitrone und Orange" },
+      { "name": "Brockmans", "description": "Weich, Heidelbeeren und Brombeeren" },
+      { "name": "June Gin Birne", "description": "Französisch, fruchtig mit Birne" },
+      { "name": "June Gin Pfirsich", "description": "Französisch, fruchtig mit Pfirsich" },
+      { "name": "Amuerte Coca Leaf Black", "description": "Belgisch, Cocablatt und exotische Botanicals" },
+      { "name": "Gin Dos Perellons", "description": "Mallorquinisch, handwerklich" },
+      { "name": "Tanqueray Rangpur Lime", "description": "London Dry mit Rangpur-Limette" },
+      { "name": "Puerto de Indias Blackberry", "description": "Aus Sevilla mit Brombeeren" },
+      { "name": "Puerto de Indias Strawberry", "description": "Aus Sevilla mit Erdbeeren" },
+      { "name": "Puerto de Indias Lemonberry", "description": "Aus Sevilla mit Zitrone und roten Beeren" },
+      { "name": "Puerto de Indias Sweet Melon", "description": "Aus Sevilla mit Melone" }
+    ]
+  },
+  {
+    "id": "vodka-premium",
+    "category": "Premium-Wodka",
+    "icon": "Martini",
+    "type": "drinks",
+    "items": [
+      { "name": "Belvedere", "description": "Polnisch, Roggen und vierfache Destillation" },
+      { "name": "Grey Goose", "description": "Französisch, Weizen aus der Picardie" },
+      { "name": "Cristal Head Onyx", "description": "Kanadisch, blaue Agave und Wasser aus Neufundland" },
+      { "name": "Ciroc", "description": "Französisch, Mauzac-Blanc-Trauben" },
+      { "name": "Ciroc Mango", "description": "Traubenwodka mit tropischer Mango" },
+      { "name": "Ciroc Apfel", "description": "Traubenwodka mit grünem Apfel" },
+      { "name": "Ciroc Pfirsich", "description": "Traubenwodka mit Pfirsich" },
+      { "name": "Ciroc Ananas", "description": "Traubenwodka mit tropischer Ananas" },
+      { "name": "Ciroc Rote Früchte", "description": "Traubenwodka mit roten Früchten" }
+    ]
+  },
+  {
+    "id": "ron-premium",
+    "category": "Rum",
+    "icon": "Wine",
+    "type": "drinks",
+    "items": [
+      { "name": "Bacardí", "description": "Kubanisch, weiß und leicht" },
+      { "name": "Havana 3 Jahre", "description": "Kubanisch, 3 Jahre gereift" },
+      { "name": "Morgan Spiced", "description": "Karibisch, mit Vanille gewürzt" },
+      { "name": "Cacique", "description": "Venezolanisch, weicher Añejo" },
+      { "name": "Brugal", "description": "Dominikanisch, trocken und klar" },
+      { "name": "Barceló", "description": "Dominikanisch, Añejo und weich" },
+      { "name": "Santa Teresa", "description": "Venezolanisch, Solera mit Kakao und Kaffee" },
+      { "name": "Legendario", "description": "Kubanisch, Honig und tropische Noten" },
+      { "name": "Havana 7 Jahre", "description": "Kubanisch, 7 Jahre, Kakao und süßer Tabak" },
+      { "name": "Botran", "description": "Guatemaltekisch, Solera mit Vanille und Karamell" },
+      { "name": "Ron Kraken", "description": "Karibisch, schwarz und würzig" },
+      { "name": "Matusalén 15 Jahre", "description": "Dominikanisch, Gran Reserva, Vanille und Eiche" },
+      { "name": "Barceló Imperial", "description": "Dominikanisch, Honig, Kakao und Trockenfrüchte" },
+      { "name": "Ron Diplomático", "description": "Venezolanisch, Reserva Exclusiva, Karamell und Orange" },
+      { "name": "Zacapa 23 Jahre", "description": "Guatemaltekisch, Solera 23, Honig und Schokolade" },
+      { "name": "Ron Zacapa XO", "description": "Guatemaltekisch, Gran Reserva, Ingwer und Kakao" },
+      { "name": "Brugal 1888", "description": "Dominikanisch, doppelte Reifung im Eichenfass" },
+      { "name": "Santísima Trinidad", "description": "Kubanisch, 7 Jahre, ausgewogen und aromatisch" }
+    ]
+  },
+  {
+    "id": "whisky",
+    "category": "Whisky",
+    "icon": "GlassWater",
+    "type": "drinks",
+    "items": [
+      { "name": "JB", "description": "Blended Scotch, weich und erschwinglich" },
+      { "name": "Ballantine's", "description": "Blended Scotch, ausgewogen und blumig" },
+      { "name": "Johnnie Walker Red", "description": "Blended Scotch, lebhaft und würzig" },
+      { "name": "Jameson", "description": "Irish Whiskey, dreifach destilliert, weich" },
+      { "name": "Four Roses", "description": "Kentucky Bourbon, blumig und fruchtig" },
+      { "name": "Jack Daniel's", "description": "Tennessee Whiskey, durch Ahornkohle gefiltert" },
+      { "name": "Johnnie Walker Black", "description": "Blended Scotch 12 Jahre, rauchig und fruchtig" },
+      { "name": "Buchanan 12 Jahre", "description": "Blended Scotch, Honig und Zitrusnoten" },
+      { "name": "Glenfiddich 12 Jahre", "description": "Single Malt Speyside, Birne und Eiche" },
+      { "name": "Chivas 12 Jahre", "description": "Blended Scotch, cremig und fruchtig" },
+      { "name": "Cardhu 12 Jahre", "description": "Single Malt Speyside, süßes Malz und Honig" },
+      { "name": "Glenmorangie 10 Jahre", "description": "Single Malt Highland, Zitrusnoten und Vanille" },
+      { "name": "Bulleit 95 Rye", "description": "Rye Whiskey, Roggen, Kirsche und Gewürze" },
+      { "name": "The Glenrothes 12 Jahre", "description": "Single Malt Speyside, Früchte und Sherry" },
+      { "name": "Glenkinchie 12 Jahre", "description": "Single Malt Lowland, leicht und blumig" },
+      { "name": "Togouchi 9 Jahre", "description": "Japanisch, im Tunnel gereift, weich und klar" },
+      { "name": "Macallan 12 Jahre", "description": "Single Malt Speyside, Sherry und Trockenfrüchte" },
+      { "name": "Hibiki Japanese", "description": "Japanisch, Harmonie aus Malz und Getreide" },
+      { "name": "Johnnie Walker Blue", "description": "Blended Scotch Premium, seidig und komplex" },
+      { "name": "Bushmills Original", "description": "Irish Whiskey, leicht und fruchtig" },
+      { "name": "Bushmills Black Bush", "description": "Irish Whiskey, Sherry und dunkle Früchte" },
+      { "name": "Bushmills 10 Jahre", "description": "Single Malt Irish, Honig und Vanille" },
+      { "name": "Lagavulin 16 Jahre", "description": "Single Malt Islay, intensiver Torf und maritim" },
+      { "name": "Laphroaig Select", "description": "Single Malt Islay, rauchig und medizinal" },
+      { "name": "Glenlivet", "description": "Single Malt Speyside, tropisch und weich" },
+      { "name": "Glenlivet 15 Jahre", "description": "Single Malt Speyside, würzig und seidig" }
+    ]
+  },
+  {
+    "id": "cervezas",
+    "category": "Biere",
+    "icon": "Beer",
+    "type": "drinks",
+    "items": [
+      { "name": "Kleines Bier vom Fass", "description": "Fassbier, 20 cl" },
+      { "name": "Großes Bier vom Fass", "description": "Fassbier, 40 cl" },
+      { "name": "Estrella Galicia", "description": "Galicisches Lager, Hopfen und Malz" },
+      { "name": "Estrella Damm", "description": "Mediterranes Lager" },
+      { "name": "Budweiser", "description": "Amerikanisches Lager" },
+      { "name": "Glutenfreies Bier", "description": "Für Zöliakiebetroffene geeignet" },
+      { "name": "Coronita", "description": "Mexikanisches Lager, leicht und erfrischend" },
+      { "name": "Franziskaner", "description": "Deutsches Weißbier" },
+      { "name": "Rosa Blanca", "description": "Mallorquinisches handwerkliches Weizenbier" },
+      { "name": "Mahou", "description": "Klassisches spanisches Lager" },
+      { "name": "Alhambra Reserva", "description": "Lager aus Granada, extra gehopft" },
+      { "name": "Kopparberg", "description": "Schwedischer Frucht-Cider" },
+      { "name": "Magners", "description": "Irischer Apfel-Cider" }
+    ]
+  },
+  {
+    "id": "vinos",
+    "category": "Weine, Sangria & Cavas",
+    "icon": "Grape",
+    "type": "drinks",
+    "items": [
+      { "name": "Weißwein (Glas)", "description": "Auswahl des Hauses" },
+      { "name": "Rotwein (Glas)", "description": "Auswahl des Hauses" },
+      { "name": "Roséwein (Glas)", "description": "Auswahl des Hauses" },
+      { "name": "Sangria", "description": "Rotwein, Früchte der Saison und Gewürze" },
+      { "name": "Champagne Sangria", "description": "Champagner mit frischen Früchten" },
+      { "name": "Anna de Codorníu", "description": "Cava Brut, Chardonnay und Parellada" },
+      { "name": "Moët Chandon", "description": "Champagne Impérial, Pinot Noir und Chardonnay" },
+      { "name": "Moët Ice", "description": "Champagner zum Servieren auf Eis" },
+      { "name": "Veuve Clicquot Ponsardin", "description": "Champagne Brut, Struktur und Finesse" },
+      { "name": "Dom Pérignon", "description": "Jahrgangs-Champagner, Präzision und Komplexität" }
+    ]
+  }
+]

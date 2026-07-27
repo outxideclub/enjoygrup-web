@@ -5,18 +5,15 @@ import { rateLimit, getClientIp } from "@/lib/rate-limit";
 import { createConfirmToken } from "@/lib/newsletter-token";
 import { sendConfirmEmail } from "@/lib/newsletter-emails";
 
-// Alta en la newsletter con DOBLE OPT-IN (confirmed opt-in):
-// 1) POST valida el consentimiento expreso y da de alta al contacto como
-//    "pendiente" (unsubscribed: true) en Resend.
-// 2) Se envía un email con un enlace de confirmación firmado.
-// 3) Solo al pulsarlo (/api/newsletter/confirm) se activa la suscripción y se
-//    envía la bienvenida. El clic, con su marca temporal, es la prueba del
-//    consentimiento (art. 7 RGPD) sin almacenar PII en el repo.
+// Alta en la lista de AVISOS DE EVENTOS con DOBLE OPT-IN, gemela de la
+// newsletter pero sobre una Audience de Resend separada
+// (RESEND_WAITLIST_AUDIENCE_ID) para poder enviar avisos de eventos sin mezclar
+// con los suscriptores generales. Misma prueba de consentimiento (token firmado)
+// y misma política de no persistir PII en el repo.
 
 const SITE = "https://www.grupoenjoy.es";
 const MAX_EMAIL = 254; // RFC 5321
 
-// Rate limit por IP: 3 altas cada 10 minutos (en serverless es por instancia).
 const RL_LIMIT = 3;
 const RL_WINDOW_MS = 10 * 60 * 1000;
 
@@ -34,13 +31,12 @@ function getEmailLocale(request: NextRequest): Locale {
 export async function POST(request: NextRequest) {
   try {
     const ip = getClientIp(request);
-    if (!rateLimit(`newsletter:${ip}`, RL_LIMIT, RL_WINDOW_MS)) {
+    if (!rateLimit(`waitlist:${ip}`, RL_LIMIT, RL_WINDOW_MS)) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 });
     }
 
     const { email, consent } = await request.json();
 
-    // RGPD: sin consentimiento expreso (casilla marcada) no se procesa el alta.
     if (consent !== true) {
       return NextResponse.json({ error: "Consent required" }, { status: 400 });
     }
@@ -55,19 +51,19 @@ export async function POST(request: NextRequest) {
     }
 
     const resend = getResend();
-    const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID;
+    const AUDIENCE_ID = process.env.RESEND_WAITLIST_AUDIENCE_ID;
     if (!resend) {
-      console.warn("RESEND_API_KEY not set — newsletter signup no-op");
+      console.warn("RESEND_API_KEY not set — waitlist signup no-op");
       return NextResponse.json({ success: true });
     }
     // Con proveedor de email pero sin audiencia configurada NO podemos persistir
     // el alta: fallar de forma visible en vez de fingir éxito y perder el contacto.
     if (!AUDIENCE_ID) {
-      console.error("RESEND_AUDIENCE_ID no configurada — alta de newsletter no disponible");
+      console.error("RESEND_WAITLIST_AUDIENCE_ID no configurada — alta de avisos no disponible");
       return NextResponse.json({ error: "Not configured" }, { status: 500 });
     }
 
-    // Alta como PENDIENTE (unsubscribed: true): no recibe nada hasta confirmar.
+    // Alta como PENDIENTE (unsubscribed: true) en la audiencia de avisos.
     const { error: contactError } = await resend.contacts.create({
       email,
       audienceId: AUDIENCE_ID,
@@ -77,24 +73,23 @@ export async function POST(request: NextRequest) {
       const alreadyExists =
         contactError.statusCode === 409 || /already exists/i.test(contactError.message);
       if (!alreadyExists) {
-        console.error("Newsletter: fallo al crear el contacto pendiente:", contactError);
+        console.error("Waitlist: fallo al crear el contacto pendiente:", contactError);
         return NextResponse.json({ error: "Failed to subscribe" }, { status: 502 });
       }
     }
 
-    // Email de confirmación con enlace firmado (caduca a los 7 días).
     const locale = getEmailLocale(request);
     const token = createConfirmToken(email, Date.now());
-    const confirmUrl = `${SITE}/api/newsletter/confirm?token=${encodeURIComponent(token)}&lang=${locale}`;
+    const confirmUrl = `${SITE}/api/waitlist/confirm?token=${encodeURIComponent(token)}&lang=${locale}`;
     const { error: sendError } = await sendConfirmEmail(resend, email, locale, confirmUrl);
     if (sendError) {
-      console.error("Newsletter: fallo al enviar la confirmación:", sendError);
+      console.error("Waitlist: fallo al enviar la confirmación:", sendError);
       return NextResponse.json({ error: "Failed to subscribe" }, { status: 502 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Newsletter error:", error);
+    console.error("Waitlist error:", error);
     return NextResponse.json({ error: "Failed to subscribe" }, { status: 500 });
   }
 }

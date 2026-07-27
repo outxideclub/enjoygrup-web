@@ -1,0 +1,53 @@
+[
+  {
+    "id": "shisha",
+    "category": "Shisha",
+    "icon": "Wind",
+    "items": [
+      { "name": "Lemenciaga", "description": "Zitrone, grüner Tee, Minze und Menthol" },
+      { "name": "Bubblenciaga", "description": "Kaugummi" },
+      { "name": "White Cake", "description": "Zitrone, Käsekuchen mit Karamell" },
+      { "name": "Kaffayayo", "description": "Kokos, Vanille und Mandeln" },
+      { "name": "Big Boy", "description": "Wassermelone und Eis" },
+      { "name": "Over the Rainbow", "description": "Birne und Minze" },
+      { "name": "Sexy Green", "description": "Minze" },
+      { "name": "Minze", "description": "Klassische Minze" },
+      { "name": "Magic Love", "description": "Passionsfrucht, Melone und Minze" },
+      { "name": "Doppelter Apfel", "description": "Doppelter Apfel" },
+      { "name": "Mi Amor", "description": "Ananas, Banane und Eis" },
+      { "name": "Black Nana", "description": "Traube und Minze" },
+      { "name": "Mulan Sword", "description": "Kiwi und Mango" },
+      { "name": "Eskimo", "description": "Eisige Zitrone" },
+      { "name": "Chao Bella", "description": "Erdbeere" },
+      { "name": "Love 66", "description": "Das goldene Rezept, 6 Aromen und Minze" },
+      { "name": "Hawaii", "description": "Ananas, Mango und Minze" },
+      { "name": "Tynky Wynky", "description": "Traube, Zitrone und Kardamom" },
+      { "name": "Moon Dream", "description": "Vanille, Kaugummi und Minze" },
+      { "name": "Ambrosia", "description": "Melone" },
+      { "name": "Spiced Chai", "description": "Vanille, Zimt, Muskatnuss und Kardamom" },
+      { "name": "Limoncello", "description": "Zitrone" },
+      { "name": "Fumari", "description": "Nektarine" },
+      { "name": "Cantalope Chill", "description": "Cantaloupe-Melone und Minze" },
+      { "name": "Lemon Chill", "description": "Zitrone und Minze" },
+      { "name": "Baja Blue", "description": "Traube, Waldbeeren und Schokolade" },
+      { "name": "Pistachio Breeze", "description": "Pistazie" },
+      { "name": "Bono", "description": "Kinder Bueno" },
+      { "name": "Miss Jossy", "description": "Saure Himbeere mit süßen Erdbeeren" },
+      { "name": "Ice Kaktuz", "description": "Kaktus und Eis" }
+    ]
+  },
+  {
+    "id": "shisha-sin-nicotina",
+    "category": "Shisha ohne Nikotin",
+    "icon": "Wind",
+    "items": [
+      { "name": "FML Green", "description": "Minze" },
+      { "name": "TNT", "description": "Grapefruit, Mango und Minze" },
+      { "name": "Pinkman", "description": "Blutorange und Erdbeere" },
+      { "name": "Wassermelone", "description": "Wassermelone" },
+      { "name": "Sexy Green", "description": "Starke Minze" },
+      { "name": "Dancing Queen", "description": "Vanille und Minze" },
+      { "name": "Alien Twist", "description": "Limette, Eis und Zitrone" }
+    ]
+  }
+]
