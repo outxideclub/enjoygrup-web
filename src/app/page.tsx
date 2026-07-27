@@ -75,6 +75,9 @@ export default function HomePage() {
   // Pausa de la rotación automática mientras el puntero está encima o el foco dentro del hero
   const [isHovered, setIsHovered] = useState(false);
   const [isFocusWithin, setIsFocusWithin] = useState(false);
+  // En móvil no hay hover: en cuanto el usuario interactúa (toca o navega) paramos
+  // el auto-avance para que el destino del CTA no cambie bajo el dedo.
+  const [autoPlay, setAutoPlay] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReduced = useReducedMotion();
 
@@ -107,10 +110,10 @@ export default function HomePage() {
 
   useEffect(() => {
     // Sin rotación automática con reduced-motion, ni mientras el usuario interactúa
-    if (prefersReduced || isHovered || isFocusWithin) return;
+    if (prefersReduced || isHovered || isFocusWithin || !autoPlay) return;
     const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
-  }, [prefersReduced, isHovered, isFocusWithin]);
+  }, [prefersReduced, isHovered, isFocusWithin, autoPlay]);
 
   return (
     <div className="noise-texture relative">
@@ -121,6 +124,7 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => setAutoPlay(false)}
         onFocus={() => setIsFocusWithin(true)}
         onBlur={(e) => {
           // Solo reanudamos cuando el foco sale de verdad de la sección
@@ -237,15 +241,15 @@ export default function HomePage() {
         {/* Navigation */}
         <div className="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 z-20">
           <button
-            onClick={prev}
-            aria-label="Previous slide"
+            onClick={() => { prev(); setAutoPlay(false); }}
+            aria-label={t("gallery.previous")}
             className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
           >
             <ChevronLeft className="h-6 w-6 text-white" />
           </button>
           <button
-            onClick={next}
-            aria-label="Next slide"
+            onClick={() => { next(); setAutoPlay(false); }}
+            aria-label={t("gallery.next")}
             className="btn-magnetic p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
           >
             <ChevronRight className="h-6 w-6 text-white" />
@@ -254,8 +258,9 @@ export default function HomePage() {
             {businesses.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setIndex(i)}
-                aria-label={`Slide ${i + 1}`}
+                onClick={() => { setIndex(i); setAutoPlay(false); }}
+                aria-label={businesses[i].name}
+                aria-current={i === index ? "true" : undefined}
                 className={`h-2 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-white' : 'w-3 bg-white/25 hover:bg-white/40'}`}
               />
             ))}
