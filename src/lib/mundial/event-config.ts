@@ -21,7 +21,7 @@
 
 export type EventPhase = "featured" | "champion" | "off";
 
-export const EVENT_PHASE: EventPhase = "champion";
+export const EVENT_PHASE: EventPhase = "off";
 
 /**
  * Campeón a celebrar temporalmente en la home cuando EVENT_PHASE === "champion".

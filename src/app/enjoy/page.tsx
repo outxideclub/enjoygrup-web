@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
+import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star, MessageCircle } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -205,9 +205,9 @@ export default function EnjoyPage() {
                 size="lg"
                 className="btn-magnetic rounded-full px-8 bg-enjoy hover:bg-enjoy/80 text-white shadow-lg shadow-enjoy/20"
               >
-                <a href="tel:+34971853932">
-                  <Phone className="h-4 w-4 mr-2" />
-                  {t("enjoy.reserve")}
+                <a href={waLink(t("cta.whatsappEnjoy"))} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  {t("cta.enjoyReserve")}
                 </a>
               </Button>
               <Button

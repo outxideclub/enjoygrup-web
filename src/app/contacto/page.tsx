@@ -86,7 +86,7 @@ export default function ContactPage() {
     message: "",
   });
   const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
+    "idle" | "loading" | "success" | "error" | "errorNetwork"
   >("idle");
   // El mapa de Google solo se carga si el usuario lo pide (cookies de terceros).
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -116,7 +116,8 @@ export default function ContactPage() {
       setStatus("success");
       setFormState({ name: "", email: "", venue: "", message: "" });
     } catch {
-      setStatus("error");
+      // Fallo de red o del servidor: NO es un error de validación de campos.
+      setStatus("errorNetwork");
     }
   }
 
@@ -164,7 +165,7 @@ export default function ContactPage() {
                       value={formState.name}
                       onChange={(e) => {
                         setFormState((s) => ({ ...s, name: e.target.value }));
-                        if (status === "error") setStatus("idle");
+                        if (status === "error" || status === "errorNetwork") setStatus("idle");
                       }}
                       className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors"
                       placeholder={t("contact.formName")}
@@ -187,7 +188,7 @@ export default function ContactPage() {
                       value={formState.email}
                       onChange={(e) => {
                         setFormState((s) => ({ ...s, email: e.target.value }));
-                        if (status === "error") setStatus("idle");
+                        if (status === "error" || status === "errorNetwork") setStatus("idle");
                       }}
                       className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors"
                       placeholder={t("contact.formEmail")}
@@ -251,7 +252,7 @@ export default function ContactPage() {
                           ...s,
                           message: e.target.value,
                         }));
-                        if (status === "error") setStatus("idle");
+                        if (status === "error" || status === "errorNetwork") setStatus("idle");
                       }}
                       className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors resize-none"
                       placeholder={t("contact.formMessage")}
@@ -301,11 +302,11 @@ export default function ContactPage() {
                         </p>
                       </div>
                     )}
-                    {status === "error" && (
+                    {(status === "error" || status === "errorNetwork") && (
                       <div className="flex items-center gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4">
                         <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0" aria-hidden />
                         <p className="text-sm text-red-300">
-                          {t("contact.formError")}
+                          {status === "errorNetwork" ? t("contact.formErrorNetwork") : t("contact.formError")}
                         </p>
                       </div>
                     )}

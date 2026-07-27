@@ -325,6 +325,7 @@ export const es = {
     formSubmit: "Enviar mensaje",
     formSuccess: "¡Mensaje enviado! Te responderemos lo antes posible.",
     formError: "Por favor, completa todos los campos.",
+    formErrorNetwork: "No se pudo enviar el mensaje. Inténtalo de nuevo en un momento.",
     formPrivacy: "He leído y acepto la",
     formPrivacyLink: "Política de Privacidad",
     mapConsentText: "Para mostrar el mapa cargamos contenido de Google Maps, que puede instalar cookies de Google en tu dispositivo.",
@@ -485,6 +486,11 @@ export const es = {
     metaTitle: "Agenda de eventos — Grupo Enjoy Alcúdia",
     metaDescription: "Próximos eventos y programa semanal de Outxide Club, Enjoy Terrace y Hiru en Port d'Alcúdia. Compra entradas, reserva mesa y añade los eventos a tu calendario.",
     metaOgDescription: "Todo lo que pasa en Grupo Enjoy: eventos de Outxide, programa de Enjoy y Hiru.",
+  },
+  error: {
+    title: "Algo ha ido mal",
+    description: "Ha ocurrido un error inesperado. Puedes reintentar o volver al inicio.",
+    retry: "Reintentar",
   },
   notFound: {
     title: "Página no encontrada",

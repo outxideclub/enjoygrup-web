@@ -43,7 +43,9 @@ export function eventTicketUrl(event: FVEvent): string {
 }
 
 export function extractGenres(event: FVEvent): string {
-  if (event.music_genres.length > 0) {
+  // La respuesta de FourVenues es externa y sin validar: un evento puede venir
+  // sin music_genres/artists (o null). Sin la guarda, un solo registro tira /agenda.
+  if (Array.isArray(event.music_genres) && event.music_genres.length > 0) {
     return event.music_genres
       .map((g) => g.charAt(0).toUpperCase() + g.slice(1))
       .join(" / ");
@@ -52,7 +54,7 @@ export function extractGenres(event: FVEvent): string {
 }
 
 export function extractArtists(event: FVEvent): string {
-  if (event.artists.length > 0) {
+  if (Array.isArray(event.artists) && event.artists.length > 0) {
     return event.artists.map((a) => (typeof a === "string" ? a : a.name)).join(", ");
   }
   return "";

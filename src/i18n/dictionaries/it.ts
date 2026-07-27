@@ -327,6 +327,7 @@ export const it: Dictionary = {
     formSubmit: "Invia messaggio",
     formSuccess: "Messaggio inviato! Vi risponderemo il prima possibile.",
     formError: "Compilate tutti i campi.",
+    formErrorNetwork: "Impossibile inviare il messaggio. Riprova tra un momento.",
     formPrivacy: "Ho letto e accetto la",
     formPrivacyLink: "Politica sulla privacy",
     mapConsentText: "Per mostrare la mappa carichiamo contenuti di Google Maps, che può installare cookie di Google sul tuo dispositivo.",
@@ -487,6 +488,11 @@ export const it: Dictionary = {
     metaTitle: "Calendario eventi — Grupo Enjoy Alcúdia",
     metaDescription: "Prossimi eventi e programma settimanale di Outxide Club, Enjoy Terrace e Hiru a Port d'Alcúdia. Acquista biglietti, prenota un tavolo e aggiungi gli eventi al calendario.",
     metaOgDescription: "Tutto quello che succede al Grupo Enjoy: eventi Outxide, programma di Enjoy e Hiru.",
+  },
+  error: {
+    title: "Qualcosa è andato storto",
+    description: "Si è verificato un errore imprevisto. Puoi riprovare o tornare alla home.",
+    retry: "Riprova",
   },
   notFound: {
     title: "Pagina non trovata",

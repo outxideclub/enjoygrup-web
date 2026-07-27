@@ -24,6 +24,8 @@ export async function generateMetadata(): Promise<Metadata> {
       url: `https://www.grupoenjoy.es${localizedPath("/mundial", locale)}`,
       type: "website",
       locale: ogLocaleMap[locale] || "es_ES",
+      siteName: "Grupo Enjoy",
+      images: [{ url: "/images/outxide/DSCF8103-9.jpg", alt: "Outxide Club — Alcúdia, Mallorca" }],
     },
     twitter: {
       card: "summary_large_image",
