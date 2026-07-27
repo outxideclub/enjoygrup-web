@@ -8,8 +8,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GroupLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
+import { waLink } from "@/components/ui/sticky-cta";
 import { useT, useLocale } from "@/i18n";
 import { localeFromPath, localizedPath } from "@/i18n/config";
+
+// Destino de reserva según el local en pantalla; en el resto (home, blog…),
+// WhatsApp del grupo. El CTA persistente vive en la barra desde el primer scroll.
+function reserveTarget(basePath: string, t: (k: string) => string) {
+  if (basePath.startsWith("/hiru")) {
+    return { href: "https://hirufoodanddrinks.myrestoo.net/es/reservar", accent: "text-white bg-hiru hover:bg-hiru/90" };
+  }
+  if (basePath.startsWith("/outxide")) {
+    return { href: "https://web.fourvenues.com/es/outxide-club", accent: "text-black bg-outxide hover:bg-outxide/90" };
+  }
+  if (basePath.startsWith("/enjoy")) {
+    return { href: waLink(t("cta.whatsappEnjoy")), accent: "text-white bg-enjoy hover:bg-enjoy/90" };
+  }
+  return { href: waLink(t("cta.whatsappGroup")), accent: "text-white bg-enjoy hover:bg-enjoy/90" };
+}
 
 const navItems = [
   { name: "Enjoy Terrace", href: "/enjoy", ariaKey: "nav.goToEnjoy", activeClass: "text-enjoy border-enjoy" },
@@ -31,6 +47,7 @@ export function Navbar() {
   const locale = useLocale();
   // Ruta sin prefijo de idioma para comparar activo y para prefijar los enlaces.
   const { basePath } = localeFromPath(pathname ?? "/");
+  const reserve = reserveTarget(basePath, t);
 
   React.useEffect(() => {
     let ticking = false;
@@ -120,10 +137,32 @@ export function Navbar() {
               );
             })}
             <LanguageSelector />
+            <a
+              href={reserve.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "rounded-full px-5 py-2 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+                reserve.accent,
+              )}
+            >
+              {t("cta.navReserve")}
+            </a>
           </div>
 
           {/* Mobile toggle */}
           <div className="md:hidden flex items-center gap-2">
+            <a
+              href={reserve.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "rounded-full px-4 py-1.5 text-xs font-semibold transition-colors",
+                reserve.accent,
+              )}
+            >
+              {t("cta.navReserve")}
+            </a>
             <LanguageSelector />
             <button
               id="nav-menu-toggle"

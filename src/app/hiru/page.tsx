@@ -32,6 +32,7 @@ import hiruMenuEn from "../../../data/menus/hiru.en.json";
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import { getIcon } from "@/lib/icons";
+import { StickyCta } from "@/components/ui/sticky-cta";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
 
@@ -183,6 +184,25 @@ export default function HiruPage() {
             <p className="mt-8 max-w-lg mx-auto text-muted-foreground">
               {t("hiru.description")}
             </p>
+            {/* CTA de reserva above-the-fold (antes solo estaba al fondo) */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="https://hirufoodanddrinks.myrestoo.net/es/reservar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-hiru px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-hiru/90"
+              >
+                {t("cta.hiruHeroReserve")}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="tel:+34971853932"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
+              >
+                <Phone className="h-4 w-4 text-hiru" />
+                {t("common.call")}
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -237,11 +257,16 @@ export default function HiruPage() {
           <span>TripAdvisor</span>
         </a>
         <span className="text-white/10">|</span>
-        <div className="flex items-center gap-1.5">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Hiru+Food+Drinks+Ctra+Arta+40+Alcudia"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 hover:text-white transition-colors"
+        >
           <Star className="h-3.5 w-3.5 text-hiru fill-hiru" />
           <span className="font-medium text-white">4.9</span>
           <span>Google</span>
-        </div>
+        </a>
       </div>
 
       {/* Reservation buttons */}
@@ -473,22 +498,13 @@ export default function HiruPage() {
         </div>
       </section>
 
-      {/* Floating back-to-menu button */}
-      <AnimatePresence>
-        {showFloatingNav && (
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.25 }}
-            onClick={() => scrollToSection("menu")}
-            className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/80 backdrop-blur-md px-4 py-2.5 text-sm text-white/70 shadow-lg shadow-black/30 transition-colors hover:border-hiru/40 hover:text-white"
-          >
-            <ArrowUp className="h-4 w-4 text-hiru" />
-            {t("common.backToMenu")}
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {/* Barra de conversión fija (reserva online en Restoo + WhatsApp) */}
+      <StickyCta
+        accent="hiru"
+        primary={{ label: t("cta.hiruReserve"), href: "https://hirufoodanddrinks.myrestoo.net/es/reservar", external: true }}
+        whatsappText={t("cta.whatsappHiru")}
+        whatsappLabel={t("cta.whatsappAria")}
+      />
 
       {/* Inline FAQ */}
       <VenueFaq

@@ -65,6 +65,7 @@ export const es = {
     open: "Abierto",
     language: "Idioma",
     backToMenu: "Volver a la carta",
+    call: "Llamar",
   },
   nav: {
     openMenu: "Abrir menú",
@@ -442,6 +443,20 @@ export const es = {
     text: "La Roja levanta su segunda estrella y la final se vivió en Outxide, en pantalla gigante desde la terraza de Enjoy. Gracias por vibrar con nosotros.",
     cta: "Leer la crónica",
     finalLabel: "Final",
+  },
+  cta: {
+    enjoyReserve: "Reservar mesa",
+    outxideTickets: "Comprar entrada",
+    hiruReserve: "Reservar mesa",
+    hiruHeroReserve: "Reservar online",
+    ticketsAll: "Ver todas las entradas",
+    navReserve: "Reservar",
+    whatsappEnjoy: "Hola, quiero reservar una mesa en Enjoy Terrace 🍹",
+    whatsappOutxide: "Hola, quiero información sobre reservados VIP en Outxide Club",
+    whatsappHiru: "Hola, quiero reservar una mesa en Hiru",
+    whatsappAria: "Escríbenos por WhatsApp",
+    googleReviews: "Ver opiniones en Google",
+    whatsappGroup: "Hola, quiero hacer una reserva con Grupo Enjoy",
   },
   notFound: {
     title: "Página no encontrada",

@@ -67,6 +67,7 @@ export const en: Dictionary = {
     open: "Open",
     language: "Language",
     backToMenu: "Back to menu",
+    call: "Call",
   },
   nav: {
     openMenu: "Open menu",
@@ -444,6 +445,20 @@ export const en: Dictionary = {
     text: "La Roja lifts its second star, and we lived the final at Outxide on the big screen from the Enjoy terrace. Thanks for celebrating with us.",
     cta: "Read the story",
     finalLabel: "Final",
+  },
+  cta: {
+    enjoyReserve: "Book a table",
+    outxideTickets: "Buy tickets",
+    hiruReserve: "Book a table",
+    hiruHeroReserve: "Book online",
+    ticketsAll: "See all tickets",
+    navReserve: "Book",
+    whatsappEnjoy: "Hi, I'd like to book a table at Enjoy Terrace 🍹",
+    whatsappOutxide: "Hi, I'd like info about VIP tables at Outxide Club",
+    whatsappHiru: "Hi, I'd like to book a table at Hiru",
+    whatsappAria: "Message us on WhatsApp",
+    googleReviews: "See reviews on Google",
+    whatsappGroup: "Hi, I'd like to make a reservation with Grupo Enjoy",
   },
   notFound: {
     title: "Page not found",

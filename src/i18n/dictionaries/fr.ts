@@ -67,6 +67,7 @@ export const fr: Dictionary = {
     open: "Ouvert",
     language: "Langue",
     backToMenu: "Retour à la carte",
+    call: "Appeler",
   },
   nav: {
     openMenu: "Ouvrir le menu",
@@ -444,6 +445,20 @@ export const fr: Dictionary = {
     text: "La Roja décroche sa deuxième étoile, et la finale s'est vécue à l'Outxide sur écran géant depuis la terrasse d'Enjoy. Merci d'avoir vibré avec nous.",
     cta: "Lire le récit",
     finalLabel: "Finale",
+  },
+  cta: {
+    enjoyReserve: "Réserver une table",
+    outxideTickets: "Billets",
+    hiruReserve: "Réserver une table",
+    hiruHeroReserve: "Réserver en ligne",
+    ticketsAll: "Voir tous les billets",
+    navReserve: "Réserver",
+    whatsappEnjoy: "Bonjour, je souhaite réserver une table à Enjoy Terrace 🍹",
+    whatsappOutxide: "Bonjour, je voudrais des infos sur les tables VIP à l'Outxide Club",
+    whatsappHiru: "Bonjour, je souhaite réserver une table à Hiru",
+    whatsappAria: "Écrivez-nous sur WhatsApp",
+    googleReviews: "Voir les avis sur Google",
+    whatsappGroup: "Bonjour, je souhaite faire une réservation avec Grupo Enjoy",
   },
   notFound: {
     title: "Page non trouvée",

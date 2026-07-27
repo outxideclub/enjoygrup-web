@@ -17,6 +17,7 @@ import {
   Wine,
   Sofa,
   Star,
+  MessageCircle,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -32,6 +33,7 @@ const LaserBeams = dynamic(() => import("@/components/ui/laser-beams").then(m =>
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import type { FVEvent } from "@/lib/fourvenues";
+import { StickyCta, waLink } from "@/components/ui/sticky-cta";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useState, useEffect, useCallback } from "react";
 
@@ -291,8 +293,17 @@ export default function OutxidePage() {
           </a>
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-outxide" />
-            <span>+21</span>
+            <span>+18</span>
           </div>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Outxide+Club+Av+Tucan+1+Alcudia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <Star className="h-4 w-4 text-outxide fill-outxide" />
+            <span>{t("cta.googleReviews")}</span>
+          </a>
           <Link
             href="/hiru"
             className="link-underline flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
@@ -356,6 +367,26 @@ export default function OutxidePage() {
               <p className="text-muted-foreground text-lg">
                 {t("outxide.noEvents")}
               </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={FOURVENUES_ORG_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-outxide px-7 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
+                >
+                  <Ticket className="h-4 w-4" />
+                  {t("cta.ticketsAll")}
+                </a>
+                <a
+                  href={waLink(t("cta.whatsappOutxide"))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
+                >
+                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                  {t("cta.whatsappAria")}
+                </a>
+              </div>
             </div>
           )}
 
@@ -552,6 +583,12 @@ export default function OutxidePage() {
       </section>
 
       </main>
+      <StickyCta
+        accent="outxide"
+        primary={{ label: t("cta.outxideTickets"), href: FOURVENUES_ORG_URL, external: true }}
+        whatsappText={t("cta.whatsappOutxide")}
+        whatsappLabel={t("cta.whatsappAria")}
+      />
       <Footer />
     </div>
   );
