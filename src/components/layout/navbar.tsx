@@ -9,17 +9,18 @@ import { cn } from "@/lib/utils";
 import { GroupLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
 import { waLink } from "@/components/ui/sticky-cta";
+import { fourVenuesOrgUrl, restooReserveUrl } from "@/lib/events";
 import { useT, useLocale } from "@/i18n";
 import { localeFromPath, localizedPath } from "@/i18n/config";
 
 // Destino de reserva según el local en pantalla; en el resto (home, blog…),
 // WhatsApp del grupo. El CTA persistente vive en la barra desde el primer scroll.
-function reserveTarget(basePath: string, t: (k: string) => string) {
+function reserveTarget(basePath: string, t: (k: string) => string, locale: string) {
   if (basePath.startsWith("/hiru")) {
-    return { href: "https://hirufoodanddrinks.myrestoo.net/es/reservar", accent: "text-white bg-hiru hover:bg-hiru/90" };
+    return { href: restooReserveUrl(locale), accent: "text-white bg-hiru hover:bg-hiru/90" };
   }
   if (basePath.startsWith("/outxide")) {
-    return { href: "https://web.fourvenues.com/es/outxide-club", accent: "text-black bg-outxide hover:bg-outxide/90" };
+    return { href: fourVenuesOrgUrl(locale), accent: "text-black bg-outxide hover:bg-outxide/90" };
   }
   if (basePath.startsWith("/enjoy")) {
     return { href: waLink(t("cta.whatsappEnjoy")), accent: "text-white bg-enjoy hover:bg-enjoy/90" };
@@ -48,7 +49,7 @@ export function Navbar() {
   const locale = useLocale();
   // Ruta sin prefijo de idioma para comparar activo y para prefijar los enlaces.
   const { basePath } = localeFromPath(pathname ?? "/");
-  const reserve = reserveTarget(basePath, t);
+  const reserve = reserveTarget(basePath, t, locale);
 
   React.useEffect(() => {
     let ticking = false;

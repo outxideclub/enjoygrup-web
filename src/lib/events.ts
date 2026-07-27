@@ -16,10 +16,27 @@ export const localeMap: Record<string, string> = {
 export const VENUE_TIMEZONE = "Europe/Madrid";
 
 // URL pública de un evento en FourVenues (formato verificado):
-//   https://web.fourvenues.com/es/outxide-club/events/{slug}
+//   https://web.fourvenues.com/{idioma}/outxide-club/events/{slug}
+// FourVenues soporta es/en/de/fr/it en el segmento de idioma (verificado /en y
+// /de en producción): el turista aterriza en el checkout en SU idioma.
 // OJO: event.iframe.tag_url NO sirve como enlace — es una URL para incrustar
 // en iframe cuya cadena de redirecciones acaba en un host inválido.
-export const FOURVENUES_ORG_URL = "https://web.fourvenues.com/es/outxide-club";
+const FOURVENUES_LOCALES = new Set(["es", "en", "de", "fr", "it"]);
+
+export function fourVenuesOrgUrl(locale = "es"): string {
+  const l = FOURVENUES_LOCALES.has(locale) ? locale : "en";
+  return `https://web.fourvenues.com/${l}/outxide-club`;
+}
+
+/** @deprecated Usar fourVenuesOrgUrl(locale) para respetar el idioma del visitante. */
+export const FOURVENUES_ORG_URL = fourVenuesOrgUrl("es");
+
+// Reserva de mesa en Hiru (Restoo). Soporta es/en/de/fr/it (verificado: 200 en
+// los 5 idiomas).
+export function restooReserveUrl(locale = "es"): string {
+  const l = FOURVENUES_LOCALES.has(locale) ? locale : "en";
+  return `https://hirufoodanddrinks.myrestoo.net/${l}/reservar`;
+}
 
 export function formatEventDate(isoDate: string, locale: string): string {
   return new Date(isoDate).toLocaleDateString(localeMap[locale] ?? "es-ES", {
@@ -38,8 +55,9 @@ export function formatEventTime(isoDate: string, locale: string): string {
   });
 }
 
-export function eventTicketUrl(event: FVEvent): string {
-  return event.slug ? `${FOURVENUES_ORG_URL}/events/${event.slug}` : FOURVENUES_ORG_URL;
+export function eventTicketUrl(event: FVEvent, locale = "es"): string {
+  const base = fourVenuesOrgUrl(locale);
+  return event.slug ? `${base}/events/${event.slug}` : base;
 }
 
 export function extractGenres(event: FVEvent): string {

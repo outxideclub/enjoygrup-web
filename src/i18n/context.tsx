@@ -5,17 +5,19 @@ import {
   useContext,
   useState,
   useCallback,
-  useEffect,
   type ReactNode,
 } from "react";
-import { type Locale, defaultLocale, COOKIE_NAME, locales } from "./config";
-import { es, type Dictionary } from "./dictionaries/es";
-import { en } from "./dictionaries/en";
-import { de } from "./dictionaries/de";
-import { fr } from "./dictionaries/fr";
-import { it } from "./dictionaries/it";
+import { type Locale, defaultLocale, COOKIE_NAME } from "./config";
+import type { Dictionary } from "./dictionaries/es";
 
-const dictionaries: Record<Locale, Dictionary> = { es, en, de, fr, it };
+// El diccionario llega como PROP desde el servidor (solo el del idioma activo):
+// los 5 diccionarios ya no viajan en el bundle de cliente de todas las páginas.
+// El tipo Dictionary garantiza paridad de claves entre idiomas, así que el
+// fallback entre idiomas ocurre en servidor (getServerT); aquí basta la clave.
+//
+// El idioma lo determina la URL (middleware): no hay detección en cliente. El
+// selector de idioma navega a la URL del idioma y el nuevo render de servidor
+// trae el diccionario correspondiente.
 
 interface LocaleContextValue {
   locale: Locale;
@@ -24,31 +26,6 @@ interface LocaleContextValue {
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
-
-function readCookieLocale(): Locale | null {
-  if (typeof document === "undefined") return null;
-  const value = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith(`${COOKIE_NAME}=`))
-    ?.split("=")[1];
-  return value && locales.includes(value as Locale) ? (value as Locale) : null;
-}
-
-function detectBrowserLocale(): Locale {
-  if (typeof navigator === "undefined") return defaultLocale;
-  const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
-  for (const lang of languages) {
-    const normalized = lang.toLowerCase();
-    if (normalized.startsWith("es")) return "es";
-    if (normalized.startsWith("en")) return "en";
-    if (normalized.startsWith("de")) return "de";
-    if (normalized.startsWith("fr")) return "fr";
-    if (normalized.startsWith("it")) return "it";
-  }
-  // Mismo fallback que el servidor (getServerLocale) para evitar parpadeo de
-  // hidratación cuando el navegador no coincide con ningún idioma soportado.
-  return defaultLocale;
-}
 
 function getNestedValue(obj: unknown, path: string): string | undefined {
   const keys = path.split(".");
@@ -65,23 +42,11 @@ function getNestedValue(obj: unknown, path: string): string | undefined {
 interface LocaleProviderProps {
   children: ReactNode;
   initialLocale?: Locale;
+  dictionary: Dictionary;
 }
 
-export function LocaleProvider({ children, initialLocale }: LocaleProviderProps) {
+export function LocaleProvider({ children, initialLocale, dictionary }: LocaleProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale ?? defaultLocale);
-
-  useEffect(() => {
-    const id = window.setTimeout(() => {
-      const nextLocale = readCookieLocale() ?? detectBrowserLocale();
-      if (nextLocale !== locale) {
-        setLocaleState(nextLocale);
-      }
-      if (!readCookieLocale()) {
-        document.cookie = `${COOKIE_NAME}=${nextLocale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
-      }
-    }, 0);
-    return () => window.clearTimeout(id);
-  }, [locale]);
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
@@ -95,14 +60,8 @@ export function LocaleProvider({ children, initialLocale }: LocaleProviderProps)
   }, []);
 
   const t = useCallback(
-    (key: string): string => {
-      const value = getNestedValue(dictionaries[locale], key);
-      if (value !== undefined) return value;
-      // Fallback to Spanish
-      const fallback = getNestedValue(dictionaries[defaultLocale], key);
-      return fallback ?? key;
-    },
-    [locale]
+    (key: string): string => getNestedValue(dictionary, key) ?? key,
+    [dictionary]
   );
 
   return (

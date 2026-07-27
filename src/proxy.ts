@@ -1,5 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { COOKIE_NAME as LOCALE_COOKIE, defaultLocale, localeFromPath } from "@/i18n/config";
+import {
+  COOKIE_NAME as LOCALE_COOKIE,
+  defaultLocale,
+  localeFromPath,
+  localizedPath,
+  negotiateLocale,
+  type Locale,
+  locales,
+} from "@/i18n/config";
 
 const SESSION_COOKIE = "ge_admin_session";
 const SESSION_MAX_AGE = 86400; // 24 hours in seconds
@@ -106,6 +114,53 @@ export async function proxy(req: NextRequest) {
       const url = req.nextUrl.clone();
       url.pathname = pathname.slice(defaultLocale.length + 1) || "/";
       return NextResponse.redirect(url, 308);
+    }
+
+    // ── URLs canónicas por idioma ──
+    // Una URL sin prefijo debe renderizar SIEMPRE español (coherente con el
+    // hreflang que la declara versión "es"). Si el visitante prefiere otro
+    // idioma (cookie de preferencia, o Accept-Language en su primera visita),
+    // se le redirige a la URL de SU idioma en vez de variar el contenido de la
+    // URL española. Los bots (sin cookie y normalmente sin Accept-Language)
+    // nunca se redirigen, así que cada URL indexable tiene un solo idioma.
+    if (
+      !pathLocale &&
+      (req.method === "GET" || req.method === "HEAD") &&
+      !basePath.startsWith("/api") &&
+      // Ficheros estáticos de public/ (llms.txt, *.svg…): sin redirección de
+      // idioma — un fichero tiene una única URL, y los fetchers simples de
+      // llms.txt no siguen redirecciones.
+      !/\.[a-z0-9]+$/i.test(basePath)
+    ) {
+      // El enlace del email de confirmación lleva ?lang: manda sobre la cookie
+      // para que la landing del newsletter salga en el idioma del email.
+      const langParam = req.nextUrl.searchParams.get("lang");
+      const explicit: Locale | null =
+        basePath === "/newsletter" && langParam && (locales as readonly string[]).includes(langParam)
+          ? (langParam as Locale)
+          : null;
+      const cookieLoc = req.cookies.get(LOCALE_COOKIE)?.value;
+      const preferred: Locale | null =
+        explicit ??
+        (cookieLoc && (locales as readonly string[]).includes(cookieLoc)
+          ? (cookieLoc as Locale)
+          : cookieLoc
+            ? null // cookie inválida: no negociar, tratar como es
+            : negotiateLocale(req.headers.get("accept-language")));
+      if (preferred && preferred !== defaultLocale) {
+        const url = req.nextUrl.clone();
+        url.pathname = localizedPath(basePath, preferred);
+        const res = NextResponse.redirect(url, 307);
+        // Fija la preferencia en la primera visita para no renegociar.
+        if (!cookieLoc) {
+          res.cookies.set(LOCALE_COOKIE, preferred, {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 365,
+            sameSite: "lax",
+          });
+        }
+        return res;
+      }
     }
 
     const requestHeaders = baseHeaders(req);

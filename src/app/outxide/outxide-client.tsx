@@ -26,11 +26,6 @@ import { OutxideLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
-import outxideGalleryEs from "../../../data/gallery/outxide.json";
-import outxideGalleryEn from "../../../data/gallery/outxide.en.json";
-import outxideGalleryDe from "../../../data/gallery/outxide.de.json";
-import outxideGalleryFr from "../../../data/gallery/outxide.fr.json";
-import outxideGalleryIt from "../../../data/gallery/outxide.it.json";
 
 const LaserBeams = dynamic(() => import("@/components/ui/laser-beams").then(m => ({ default: m.LaserBeams })), { ssr: false });
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
@@ -42,7 +37,7 @@ import {
   eventTicketUrl,
   extractGenres,
   extractArtists,
-  FOURVENUES_ORG_URL,
+  fourVenuesOrgUrl,
 } from "@/lib/events";
 import { AddToCalendar } from "@/components/ui/add-to-calendar";
 import { StickyCta, waLink } from "@/components/ui/sticky-cta";
@@ -60,20 +55,12 @@ import { useRef, useState, useEffect, useCallback } from "react";
 // Page
 // ---------------------------------------------------------------------------
 
-interface GalleryImage { src: string; alt: string; }
+export interface GalleryImage { src: string; alt: string; description?: string; }
 
-const outxideGalleries: Record<string, typeof outxideGalleryEs> = {
-  es: outxideGalleryEs,
-  en: outxideGalleryEn,
-  de: outxideGalleryDe,
-  fr: outxideGalleryFr,
-  it: outxideGalleryIt,
-};
 
-export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
+export function OutxideClient({ initialEvents, galleryImages }: { initialEvents: FVEvent[]; galleryImages: GalleryImage[] }) {
   const t = useT();
   const locale = useLocale();
-  const galleryImages = (outxideGalleries[locale] ?? outxideGalleries.es) as unknown as GalleryImage[];
   const [events] = useState<FVEvent[]>(initialEvents);
 
   const [videoReady, setVideoReady] = useState(false);
@@ -212,7 +199,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
                 variant="outline"
                 className="btn-magnetic rounded-full px-8 border-outxide/40 text-outxide hover:bg-outxide/10"
               >
-                <a href="https://web.fourvenues.com/es/outxide-club" target="_blank" rel="noopener noreferrer">
+                <a href={fourVenuesOrgUrl(locale)} target="_blank" rel="noopener noreferrer">
                   <Crown className="h-4 w-4 mr-2" />
                   {t("outxide.reserveVip")}
                 </a>
@@ -308,9 +295,9 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
               <p className="text-muted-foreground text-lg">
                 {t("outxide.noEvents")}
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href={FOURVENUES_ORG_URL}
+                  href={fourVenuesOrgUrl(locale)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-outxide px-7 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
@@ -372,7 +359,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
                       </p>
 
                       <a
-                        href={eventTicketUrl(event)}
+                        href={eventTicketUrl(event, locale)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`btn-magnetic inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}
@@ -389,7 +376,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
                             end: event.end_date,
                             location: "Outxide Club, Av. Tucán 1, Port d'Alcúdia",
                             description: [artists, genres].filter(Boolean).join(" · "),
-                            url: eventTicketUrl(event),
+                            url: eventTicketUrl(event, locale),
                           }}
                         />
                       </div>
@@ -403,7 +390,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
           <ScrollReveal>
             <div className="mt-12 text-center">
               <a
-                href="https://web.fourvenues.com/es/outxide-club"
+                href={fourVenuesOrgUrl(locale)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 hover:border-outxide/30 transition-colors"
@@ -462,7 +449,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
                 size="lg"
                 className="btn-magnetic rounded-full px-10 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
               >
-                <a href="https://web.fourvenues.com/es/outxide-club" target="_blank" rel="noopener noreferrer">
+                <a href={fourVenuesOrgUrl(locale)} target="_blank" rel="noopener noreferrer">
                   <Crown className="h-4 w-4 mr-2" />
                   {t("outxide.vipReserve")}
                   <ExternalLink className="h-3.5 w-3.5 ml-2 opacity-60" />
@@ -538,7 +525,7 @@ export function OutxideClient({ initialEvents }: { initialEvents: FVEvent[] }) {
       </main>
       <StickyCta
         accent="outxide"
-        primary={{ label: t("cta.outxideTickets"), href: FOURVENUES_ORG_URL, external: true }}
+        primary={{ label: t("cta.outxideTickets"), href: fourVenuesOrgUrl(locale), external: true }}
         whatsappText={t("cta.whatsappOutxide")}
         whatsappLabel={t("cta.whatsappAria")}
       />

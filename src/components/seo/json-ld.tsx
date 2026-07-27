@@ -1,4 +1,5 @@
 import { siteContact } from "@/lib/site";
+import { fourVenuesOrgUrl, restooReserveUrl } from "@/lib/events";
 
 interface JsonLdProps {
   data: Record<string, unknown>;
@@ -126,7 +127,7 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
   );
 }
 
-export function HiruJsonLd({ description }: { description?: string } = {}) {
+export function HiruJsonLd({ description, locale = "es" }: { description?: string; locale?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -169,7 +170,7 @@ export function HiruJsonLd({ description }: { description?: string } = {}) {
           "@type": "ReserveAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://hirufoodanddrinks.myrestoo.net/es/reservar",
+            urlTemplate: restooReserveUrl(locale),
             actionPlatform: [
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/IOSPlatform",
@@ -330,7 +331,7 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
   );
 }
 
-export function OutxideJsonLd({ description }: { description?: string } = {}) {
+export function OutxideJsonLd({ description, locale = "es" }: { description?: string; locale?: string } = {}) {
   return (
     <JsonLd
       data={{
@@ -366,7 +367,7 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
           "@type": "BuyAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://web.fourvenues.com/es/outxide-club",
+            urlTemplate: fourVenuesOrgUrl(locale),
             actionPlatform: [
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/IOSPlatform",
@@ -397,7 +398,7 @@ export function OutxideJsonLd({ description }: { description?: string } = {}) {
   );
 }
 
-export function OutxideEventsJsonLd() {
+export function OutxideEventsJsonLd({ locale = "es" }: { locale?: string } = {}) {
   // Generate concrete upcoming dates for Google Rich Results validation
   // Google requires startDate on each Event — Schedule alone is not enough
   const now = new Date();
@@ -475,7 +476,7 @@ export function OutxideEventsJsonLd() {
         organizer: ORGANIZER,
         offers: {
           "@type": "Offer",
-          url: "https://web.fourvenues.com/es/outxide-club",
+          url: fourVenuesOrgUrl(locale),
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
         },

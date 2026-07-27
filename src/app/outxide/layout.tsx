@@ -50,8 +50,8 @@ export default async function OutxideLayout({
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
         { name: "Outxide Club", url: `https://www.grupoenjoy.es${localizedPath("/outxide", locale)}` },
       ]} />
-      <OutxideJsonLd description={t("meta.outxideDescription")} />
-      <OutxideEventsJsonLd />
+      <OutxideJsonLd description={t("meta.outxideDescription")} locale={locale} />
+      <OutxideEventsJsonLd locale={locale} />
       <VenueVideoJsonLd venue="outxide" />
     </div>
   );

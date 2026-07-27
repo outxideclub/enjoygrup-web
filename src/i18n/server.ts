@@ -20,25 +20,6 @@ function getNestedValue(obj: unknown, path: string): string | undefined {
   return typeof current === "string" ? current : undefined;
 }
 
-/** Negocia el idioma con la cabecera Accept-Language del navegador. */
-function negotiateFromHeader(acceptLanguage: string | null): Locale | null {
-  if (!acceptLanguage) return null;
-  // "de-DE,de;q=0.9,en;q=0.8" → ["de-de", "de", "en"] respetando el orden/q
-  const requested = acceptLanguage
-    .split(",")
-    .map((part) => {
-      const [tag, q] = part.trim().split(";q=");
-      return { tag: tag.toLowerCase(), q: q ? parseFloat(q) : 1 };
-    })
-    .filter((x) => !Number.isNaN(x.q))
-    .sort((a, b) => b.q - a.q);
-  for (const { tag } of requested) {
-    const base = tag.split("-")[0];
-    if (locales.includes(base as Locale)) return base as Locale;
-  }
-  return null;
-}
-
 export async function getServerLocale(): Promise<Locale> {
   const headerStore = await headers();
   // 1º: idioma fijado por la RUTA (/de/... → x-locale, lo pone el middleware).
@@ -48,14 +29,22 @@ export async function getServerLocale(): Promise<Locale> {
   if (forced && locales.includes(forced as Locale)) {
     return forced as Locale;
   }
-  // 2º: preferencia guardada en cookie.
+  // 2º: preferencia guardada en cookie (rutas no cubiertas por la redirección
+  // del middleware, p. ej. la landing de confirmación del newsletter).
   const cookieStore = await cookies();
   const value = cookieStore.get(COOKIE_NAME)?.value;
   if (value && locales.includes(value as Locale)) {
     return value as Locale;
   }
-  // 3º: primera visita sin cookie → idioma del navegador (Accept-Language).
-  return negotiateFromHeader(headerStore.get("accept-language")) ?? defaultLocale;
+  // 3º: español. La negociación por Accept-Language vive en el middleware, que
+  // REDIRIGE a la URL del idioma en vez de variar el contenido de la URL es
+  // (así cada URL indexable sirve siempre el mismo idioma).
+  return defaultLocale;
+}
+
+/** Diccionario completo de un idioma (para pasarlo al LocaleProvider cliente). */
+export function getDictionary(locale: Locale): Dictionary {
+  return dictionaries[locale];
 }
 
 export function getServerT(locale: Locale): (key: string) => string {

@@ -4,7 +4,7 @@ import { CookieBanner } from "@/components/legal/cookie-banner";
 import { AnalyticsScripts } from "@/components/seo/analytics";
 import { LocaleProvider } from "@/i18n/context";
 import MotionConfigProvider from "@/components/ui/motion-config-provider";
-import { getServerLocale, getServerT } from "@/i18n/server";
+import { getServerLocale, getServerT, getDictionary } from "@/i18n/server";
 import { HreflangTags } from "@/components/seo/hreflang-tags";
 import "./globals.css";
 
@@ -100,7 +100,7 @@ export default async function RootLayout({
           {t("nav.skipToContent")}
         </a>
         <MotionConfigProvider>
-          <LocaleProvider initialLocale={locale}>
+          <LocaleProvider initialLocale={locale} dictionary={getDictionary(locale)}>
             {children}
             <CookieBanner />
             <AnalyticsScripts />

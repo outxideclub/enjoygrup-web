@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
@@ -7,8 +5,9 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getAllPosts, toBlogLocale, getPostText, type BlogPost } from "../../../data/blog/posts";
-import { useT, useLocale } from "@/i18n";
+import { getAllPosts, toBlogLocale, getPostText, type BlogPost, type BlogLocale } from "../../../data/blog/posts";
+import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath, type Locale } from "@/i18n/config";
 
 const tagColorMap: Record<string, string> = {
   nightlife: "bg-outxide/15 text-outxide border-outxide/20",
@@ -50,14 +49,11 @@ function formatDate(dateStr: string, locale: string): string {
   });
 }
 
-function BlogCard({ post, index }: { post: BlogPost; index: number }) {
-  const t = useT();
-  const locale = useLocale();
-  const bl = toBlogLocale(locale);
+function BlogCard({ post, index, locale, bl, t }: { post: BlogPost; index: number; locale: Locale; bl: BlogLocale; t: (k: string) => string }) {
 
   return (
     <ScrollReveal delay={index * 0.1}>
-      <Link href={`/blog/${post.slug}`} className="group block h-full">
+      <Link href={localizedPath(`/blog/${post.slug}`, locale)} className="group block h-full">
         <article
           className={`glass-card rounded-2xl overflow-hidden transition-all duration-500 h-full flex flex-col ${venueAccent(post.venue)}`}
         >
@@ -117,9 +113,9 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
   );
 }
 
-export default function BlogPage() {
-  const t = useT();
-  const locale = useLocale();
+export default async function BlogPage() {
+  const locale = await getServerLocale();
+  const t = getServerT(locale);
   const posts = getAllPosts();
   const bl = toBlogLocale(locale);
 
@@ -128,7 +124,7 @@ export default function BlogPage() {
     "@type": "CollectionPage",
     name: "Blog | Grupo Enjoy",
     description: t("meta.blogDescription"),
-    url: "https://www.grupoenjoy.es/blog",
+    url: `https://www.grupoenjoy.es${localizedPath("/blog", locale)}`,
     isPartOf: {
       "@type": "WebSite",
       name: "Grupo Enjoy",
@@ -141,7 +137,7 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: i + 1,
         name: getPostText(post.title, bl),
-        url: `https://www.grupoenjoy.es/blog/${post.slug}`,
+        url: `https://www.grupoenjoy.es${localizedPath(`/blog/${post.slug}`, locale)}`,
       })),
     },
   };
@@ -175,7 +171,7 @@ export default function BlogPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {posts.map((post, i) => (
-              <BlogCard key={post.slug} post={post} index={i} />
+              <BlogCard key={post.slug} post={post} index={i} locale={locale} bl={bl} t={t} />
             ))}
           </div>
         </div>

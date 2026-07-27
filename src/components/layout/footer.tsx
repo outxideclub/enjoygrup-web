@@ -18,6 +18,7 @@ import { CookieSettingsButton } from "@/components/layout/cookie-settings-button
 import { useT, useLocale } from "@/i18n";
 import { localizedPath } from "@/i18n/config";
 import { siteContact, telHref } from "@/lib/site";
+import { EVENT_PHASE } from "@/lib/mundial/event-config";
 
 function NewsletterForm() {
   const t = useT();
@@ -198,14 +199,19 @@ export function Footer() {
               {t("footer.company")}
             </p>
             <ul className="mt-4 space-y-3">
-              <li>
-                <Link
-                  href={localizedPath("/mundial", locale)}
-                  className="link-underline text-sm font-medium text-emerald-300 hover:text-emerald-200 transition-colors"
-                >
-                  {t("mundial.navLabel")}
-                </Link>
-              </li>
+              {/* Enlace a la sección de competición: SOLO visible con torneo
+                  activo (EVENT_PHASE != "off"). El sistema queda listo para
+                  reactivarse con la palanca en futuras competiciones. */}
+              {EVENT_PHASE !== "off" && (
+                <li>
+                  <Link
+                    href={localizedPath("/mundial", locale)}
+                    className="link-underline text-sm font-medium text-emerald-300 hover:text-emerald-200 transition-colors"
+                  >
+                    {t("mundial.navLabel")}
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link
                   href={localizedPath("/nosotros", locale)}

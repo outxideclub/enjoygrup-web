@@ -13,7 +13,8 @@ import {
   eventTicketUrl,
   extractGenres,
   extractArtists,
-  FOURVENUES_ORG_URL,
+  fourVenuesOrgUrl,
+  restooReserveUrl,
 } from "@/lib/events";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
@@ -23,7 +24,6 @@ import { localizedPath } from "@/i18n/config";
 export const revalidate = 60;
 
 const OUTXIDE_LOCATION = "Outxide Club, Av. Tucán 1, 07400 Alcúdia, Mallorca";
-const HIRU_RESERVE = "https://hirufoodanddrinks.myrestoo.net/es/reservar";
 const WHATSAPP = "34657878917";
 
 export default async function AgendaPage() {
@@ -56,7 +56,7 @@ export default async function AgendaPage() {
       icon: CalendarDays,
       schedule: t("agenda.outxideSchedule"),
       cta: t("cta.outxideTickets"),
-      href: FOURVENUES_ORG_URL,
+      href: fourVenuesOrgUrl(locale),
       path: "/outxide",
     },
     {
@@ -68,7 +68,7 @@ export default async function AgendaPage() {
       icon: UtensilsCrossed,
       schedule: t("agenda.hiruSchedule"),
       cta: t("cta.hiruReserve"),
-      href: HIRU_RESERVE,
+      href: restooReserveUrl(locale),
       path: "/hiru",
     },
   ];
@@ -90,7 +90,7 @@ export default async function AgendaPage() {
               eventStatus: "https://schema.org/EventScheduled",
               eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
               image: e.image_url,
-              url: eventTicketUrl(e),
+              url: eventTicketUrl(e, locale),
               location: {
                 "@type": "Place",
                 name: "Outxide Club",
@@ -105,7 +105,7 @@ export default async function AgendaPage() {
               },
               offers: {
                 "@type": "Offer",
-                url: eventTicketUrl(e),
+                url: eventTicketUrl(e, locale),
                 availability: "https://schema.org/InStock",
               },
               organizer: {
@@ -151,7 +151,7 @@ export default async function AgendaPage() {
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] py-16 text-center">
                 <p className="mx-auto max-w-md text-muted-foreground">{t("agenda.noEvents")}</p>
                 <a
-                  href={FOURVENUES_ORG_URL}
+                  href={fourVenuesOrgUrl(locale)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center gap-2 rounded-full bg-outxide px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
@@ -194,7 +194,7 @@ export default async function AgendaPage() {
                         </p>
                         <div className="mt-auto flex flex-col gap-3">
                           <a
-                            href={eventTicketUrl(event)}
+                            href={eventTicketUrl(event, locale)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-magnetic inline-flex w-full items-center justify-center rounded-lg bg-outxide px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-outxide/90"
@@ -210,7 +210,7 @@ export default async function AgendaPage() {
                               end: event.end_date,
                               location: OUTXIDE_LOCATION,
                               description: [artists, genres].filter(Boolean).join(" · "),
-                              url: eventTicketUrl(event),
+                              url: eventTicketUrl(event, locale),
                             }}
                           />
                         </div>

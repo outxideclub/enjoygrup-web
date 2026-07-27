@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
-import { useLocale, useSetLocale, useT } from "@/i18n";
-import { localeFromPath, localizedPath } from "@/i18n/config";
+import { useLocale, useT } from "@/i18n";
+import { localeFromPath, localizedPath, COOKIE_NAME } from "@/i18n/config";
 import type { Locale } from "@/i18n";
 
 const languageLabels: Record<Locale, string> = {
@@ -27,20 +27,24 @@ const localeOrder: Locale[] = ["es", "en", "de", "fr", "it"];
 
 export function LanguageSelector() {
   const locale = useLocale();
-  const setLocale = useSetLocale();
   const t = useT();
-  const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Cambiar de idioma navega a la URL propia de ese idioma (/de/..., /en/...);
-  // además fija cookie y estado de cliente vía setLocale.
+  // Cambiar de idioma navega a la URL propia de ese idioma (/de/..., /en/...)
+  // con NAVEGACIÓN COMPLETA: el diccionario viaja como prop del root layout y
+  // los layouts no se re-renderizan en navegación suave, así que un router.push
+  // dejaría los textos (y metadatos/JSON-LD) en el idioma anterior. La cookie
+  // se fija antes vía setLocale para que el middleware no re-redirija.
   const changeLocale = (loc: Locale) => {
-    setLocale(loc);
     setOpen(false);
+    // Solo cookie + navegación completa: mutar el estado React (locale/html
+    // lang) antes de navegar dejaría un instante la UI con el idioma nuevo
+    // pero el diccionario viejo. El render fresco del servidor lo trae todo.
+    document.cookie = `${COOKIE_NAME}=${loc};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
     const { basePath } = localeFromPath(pathname || "/");
-    router.push(localizedPath(basePath, loc));
+    window.location.assign(localizedPath(basePath, loc));
   };
 
   useEffect(() => {
