@@ -3,6 +3,7 @@ import { BreadcrumbJsonLd, JsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
 import { getMatches, broadcastIds, flagUrl, madridTimeLabel } from "@/lib/mundial";
+import { effectivePhase } from "@/lib/mundial/event-config";
 
 const ogLocaleMap: Record<string, string> = {
   es: "es_ES",
@@ -15,9 +16,14 @@ const ogLocaleMap: Record<string, string> = {
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getServerLocale();
   const t = getServerT(locale);
+  // Sin competición activa (EVENT_PHASE "off"): la página sigue accesible por URL
+  // para reactivarla al instante, pero se marca noindex y se saca del sitemap
+  // para que no aparezca en Google mientras no haya torneo en activo.
+  const hidden = effectivePhase(Date.now()) === "off";
   return {
     title: t("mundial.metaTitle"),
     description: t("mundial.metaDescription"),
+    ...(hidden ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
       title: t("mundial.metaTitle"),
       description: t("mundial.metaDescription"),

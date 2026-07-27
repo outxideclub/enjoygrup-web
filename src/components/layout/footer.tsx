@@ -62,7 +62,7 @@ function NewsletterForm() {
           onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
           placeholder={t("footer.newsletterPlaceholder")}
           aria-label={t("footer.newsletterPlaceholder")}
-          className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/25 transition-colors"
+          className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none focus:border-white/25 transition-colors"
         />
         <button
           type="submit"
@@ -81,7 +81,7 @@ function NewsletterForm() {
           onChange={(e) => { setPrivacyAccepted(e.target.checked); setStatus("idle"); }}
           className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-white"
         />
-        <span className="text-[11px] leading-relaxed text-white/40">
+        <span className="text-[11px] leading-relaxed text-white/60">
           {t("footer.newsletterPrivacy")}{" "}
           <Link href={localizedPath("/legal/privacidad", locale)} className="underline underline-offset-2 hover:text-white">
             {t("footer.newsletterPrivacyLink")}

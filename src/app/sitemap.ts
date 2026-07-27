@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "../../data/blog/posts";
 import { locales, localizedPath } from "@/i18n/config";
+import { effectivePhase } from "@/lib/mundial/event-config";
 
 // Con el i18n por rutas cada idioma tiene URL propia (/en/..., /de/...), así que
 // el sitemap anuncia los alternates hreflang de cada página. Google indexa las
@@ -119,8 +120,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/contacto", LAST_UPDATED.contacto, "monthly", 0.7),
     entry("/faq", LAST_UPDATED.faq, "monthly", 0.6),
     entry("/blog", LAST_UPDATED.blog, "weekly", 0.7),
-    // Mundial 2026 finalizado: se conserva como archivo (menor prioridad/frecuencia).
-    entry("/mundial", LAST_UPDATED.mundial, "monthly", 0.4),
+    // /mundial solo se anuncia mientras hay competición activa (EVENT_PHASE != off).
+    // El sistema se conserva para futuros torneos; sin torneo, fuera del sitemap.
+    ...(effectivePhase(Date.now()) !== "off"
+      ? [entry("/mundial", LAST_UPDATED.mundial, "monthly", 0.4)]
+      : []),
     ...blogPosts,
   ];
 }

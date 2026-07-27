@@ -52,7 +52,7 @@ export function EventAlertsForm() {
           onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
           placeholder={t("agenda.alertsPlaceholder")}
           aria-label={t("agenda.alertsPlaceholder")}
-          className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-outxide/40"
+          className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-outxide/40"
         />
         <button
           type="submit"
@@ -70,7 +70,7 @@ export function EventAlertsForm() {
           onChange={(e) => { setPrivacyAccepted(e.target.checked); setStatus("idle"); }}
           className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-outxide"
         />
-        <span className="text-[11px] leading-relaxed text-white/40">
+        <span className="text-[11px] leading-relaxed text-white/60">
           {t("agenda.alertsPrivacy")}{" "}
           <Link href={localizedPath("/legal/privacidad", locale)} className="underline underline-offset-2 hover:text-white">
             {t("agenda.alertsPrivacyLink")}

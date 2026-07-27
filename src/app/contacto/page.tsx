@@ -167,7 +167,7 @@ export default function ContactPage() {
                         setFormState((s) => ({ ...s, name: e.target.value }));
                         if (status === "error" || status === "errorNetwork") setStatus("idle");
                       }}
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors"
                       placeholder={t("contact.formName")}
                       disabled={isLoading}
                     />
@@ -190,7 +190,7 @@ export default function ContactPage() {
                         setFormState((s) => ({ ...s, email: e.target.value }));
                         if (status === "error" || status === "errorNetwork") setStatus("idle");
                       }}
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors"
                       placeholder={t("contact.formEmail")}
                       disabled={isLoading}
                     />
@@ -254,7 +254,7 @@ export default function ContactPage() {
                         }));
                         if (status === "error" || status === "errorNetwork") setStatus("idle");
                       }}
-                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors resize-none"
+                      className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 outline-none focus:border-enjoy/40 focus:ring-1 focus:ring-enjoy/20 transition-colors resize-none"
                       placeholder={t("contact.formMessage")}
                       disabled={isLoading}
                     />

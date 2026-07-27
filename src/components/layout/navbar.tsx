@@ -158,7 +158,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "rounded-full px-4 py-1.5 text-xs font-semibold transition-colors",
+                "inline-flex min-h-[44px] items-center rounded-full px-4 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
                 reserve.accent,
               )}
             >
@@ -168,7 +168,7 @@ export function Navbar() {
             <button
               id="nav-menu-toggle"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-50 p-2 text-white"
+              className="relative z-50 flex h-11 w-11 items-center justify-center text-white"
               aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
               aria-expanded={menuOpen}
               aria-controls="nav-mobile-menu"

@@ -721,3 +721,15 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* ─── 14. Sin auto-zoom en iOS ───────────────────────────────────
+   Safari iOS hace zoom al enfocar un input con font-size < 16px. Forzamos
+   16px en los controles de formulario en móvil (la doble :not gana en
+   especificidad a las utilidades text-sm/text-xs de Tailwind). */
+@media (max-width: 640px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
