@@ -82,13 +82,13 @@ export const es = {
     guidesCta: "Ver todas las guías",
     enjoySubtitle: "Terrace · Cocktails & Shisha",
     enjoyDescription:
-      "Where nights begin. Enjoy Terrace ofrece sunset cocktails, cócteles de autor y shisha premium en la terraza con más ambiente de Port d'Alcúdia.",
+      "Where nights begin. Enjoy Terrace ofrece cócteles al atardecer, mixología de autor y shisha premium en la terraza con más ambiente de Port d'Alcúdia.",
     outxideSubtitle: "Club",
     outxideDescription:
       "The night continues. Outxide Club es la discoteca con los mejores DJs, techno, house y reggaetón en Port d'Alcúdia, Mallorca.",
     hiruSubtitle: "Food & Drinks",
     hiruDescription:
-      "Brasa, cocktails y buen ambiente. Hiru Food & Drinks ofrece paella de marisco, carnes maduradas y cócteles hasta altas horas en Port d'Alcúdia.",
+      "Brasa, cócteles y buen ambiente. Hiru Food & Drinks ofrece paella de marisco, carnes maduradas y cócteles hasta altas horas en Port d'Alcúdia.",
     threeSpaces: "Tres espacios, una misma excelencia",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -104,7 +104,7 @@ export const es = {
       "Enjoy Terrace es la terraza de cócteles de referencia en Port d'Alcúdia, Mallorca. Abierta desde 2007 cada día a las 17:00 en la Av. Tucán 1, ofrece cócteles de autor, shisha premium y las mejores vistas al atardecer del Mediterráneo. Forma parte de Grupo Enjoy, junto a Outxide Club y Hiru Food & Drinks.",
     aboutHeading2: "¿Qué hace especial la terraza de Enjoy?",
     aboutText2:
-      "La carta de cocktails se renueva cada temporada con creaciones exclusivas de mixología de vanguardia. Enjoy es el punto de encuentro perfecto para un sunset con amigos, una copa tras cenar o el comienzo de la noche en Port d'Alcúdia. Shisha premium y selección musical cuidada completan la experiencia del mejor cocktail bar de Alcúdia.",
+      "La carta de cócteles se renueva cada temporada con creaciones exclusivas de mixología de vanguardia. Enjoy es el punto de encuentro perfecto para un sunset con amigos, una copa tras cenar o el comienzo de la noche en Port d'Alcúdia. Shisha premium y selección musical cuidada completan la experiencia del mejor cocktail bar de Alcúdia.",
     galleryTitle: "La terraza",
     menuTitle: "Nuestra Carta",
     shishaTitle: "Shisha",
@@ -309,7 +309,7 @@ export const es = {
     venuesSubtitle: "Cena en Hiru, cócteles en Enjoy, fiesta en Outxide. Tu noche perfecta empieza aquí.",
     enjoyCard: "Donde empieza la noche. Cócteles de autor y shisha premium en la terraza más vibrante de Alcúdia.",
     outxideCard: "La noche continúa. Club nocturno con los mejores DJs y una energía inigualable.",
-    hiruCard: "Brasa, cocktails y buen ambiente. Cocina mallorquina de autor hasta altas horas.",
+    hiruCard: "Brasa, cócteles y buen ambiente. Cocina mallorquina de autor hasta altas horas.",
   },
   contact: {
     heroTitle: "Contacto",

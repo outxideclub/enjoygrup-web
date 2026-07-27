@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
-import { useLocale, useSetLocale } from "@/i18n";
+import { useLocale, useSetLocale, useT } from "@/i18n";
 import { localeFromPath, localizedPath } from "@/i18n/config";
 import type { Locale } from "@/i18n";
 
@@ -28,6 +28,7 @@ const localeOrder: Locale[] = ["es", "en", "de", "fr", "it"];
 export function LanguageSelector() {
   const locale = useLocale();
   const setLocale = useSetLocale();
+  const t = useT();
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -64,10 +65,10 @@ export function LanguageSelector() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium text-white/80 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 backdrop-blur-sm transition-all duration-300"
-        aria-label={`Language: ${languageNames[locale]}. Click to change.`}
+        className="flex min-h-[36px] items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+        aria-label={`${t("common.language")} (${languageNames[locale]})`}
         aria-expanded={open}
-        aria-haspopup="listbox"
+        aria-haspopup="true"
       >
         <Globe size={14} className="opacity-70" />
         <span className="uppercase tracking-wide">{languageLabels[locale]}</span>
@@ -75,17 +76,15 @@ export function LanguageSelector() {
 
       {open && (
         <div
-          role="listbox"
-          aria-label="Select language"
           className="absolute right-0 top-full mt-2 min-w-[140px] rounded-xl bg-black/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
         >
           {localeOrder.map((loc) => (
             <button
               key={loc}
-              role="option"
-              aria-selected={locale === loc}
+              type="button"
+              aria-current={locale === loc ? "true" : undefined}
               onClick={() => changeLocale(loc)}
-              className={`flex items-center gap-3 w-full px-3.5 py-2.5 text-left text-sm transition-colors duration-150 ${
+              className={`flex items-center gap-3 w-full px-3.5 py-2.5 text-left text-sm transition-colors duration-150 focus-visible:outline focus-visible:-outline-offset-2 focus-visible:outline-2 focus-visible:outline-white/40 ${
                 locale === loc
                   ? "text-white bg-white/10"
                   : "text-white/70 hover:text-white hover:bg-white/5"

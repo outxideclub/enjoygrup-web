@@ -65,7 +65,8 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Accesibilidad del menú móvil: Escape lo cierra y devuelve el foco al botón.
+  // Accesibilidad del menú móvil: Escape lo cierra y devuelve el foco al botón,
+  // y se bloquea el scroll del fondo mientras el overlay está abierto.
   React.useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -75,7 +76,11 @@ export function Navbar() {
       }
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   return (

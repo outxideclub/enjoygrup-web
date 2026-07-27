@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -48,7 +48,12 @@ export function GalleryLightbox({
     setPortalRoot(document.body);
   }, []);
 
-  const close = useCallback(() => setActiveIndex(null), []);
+  // Elemento que abrió el lightbox, para devolverle el foco al cerrar (a11y).
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const close = useCallback(() => {
+    setActiveIndex(null);
+    triggerRef.current?.focus();
+  }, []);
 
   const prev = useCallback(
     () =>
@@ -101,11 +106,15 @@ export function GalleryLightbox({
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
           onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label={filtered[activeIndex].alt}
         >
           {/* Close */}
           <button
             onClick={close}
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            autoFocus
+            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             aria-label={t("gallery.close")}
           >
             <X className="h-6 w-6 text-white" />
@@ -201,7 +210,7 @@ export function GalleryLightbox({
           <ScrollReveal key={i} delay={i * 0.05}>
             <button
               type="button"
-              onClick={() => setActiveIndex(i)}
+              onClick={(e) => { triggerRef.current = e.currentTarget; setActiveIndex(i); }}
               className="group relative w-full overflow-hidden rounded-xl aspect-[3/2] cursor-pointer will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               <Image

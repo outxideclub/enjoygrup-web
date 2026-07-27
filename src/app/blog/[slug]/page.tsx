@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: Props) {
     inLanguage: locale,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${BASE_URL}/blog/${post.slug}`,
+      "@id": `${BASE_URL}${localizedPath(`/blog/${post.slug}`, locale)}`,
     },
     wordCount: rawContent.replace(/<[^>]+>/g, "").split(/\s+/).length,
     articleSection: post.tags[0],
@@ -130,9 +130,9 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   const breadcrumbItems = [
-    { name: t("common.backToGroup"), url: BASE_URL },
-    { name: "Blog", url: `${BASE_URL}/blog` },
-    { name: title, url: `${BASE_URL}/blog/${post.slug}` },
+    { name: t("common.backToGroup"), url: `${BASE_URL}${localizedPath("", locale)}` },
+    { name: "Blog", url: `${BASE_URL}${localizedPath("/blog", locale)}` },
+    { name: title, url: `${BASE_URL}${localizedPath(`/blog/${post.slug}`, locale)}` },
   ];
 
   const dateLocaleMap: Record<string, string> = { es: "es-ES", en: "en-GB", de: "de-DE", fr: "fr-FR", it: "it-IT" };

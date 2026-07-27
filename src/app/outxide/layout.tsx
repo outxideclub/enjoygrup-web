@@ -23,8 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: "/images/outxide/DSCF8103-9.jpg",
-          width: 1200,
-          height: 630,
           alt: "Outxide Club — Alcudia, Mallorca",
         },
       ],

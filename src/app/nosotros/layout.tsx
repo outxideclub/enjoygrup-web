@@ -21,8 +21,6 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
-          width: 1200,
-          height: 630,
           alt: "Grupo Enjoy — Alcudia, Mallorca",
         },
       ],
