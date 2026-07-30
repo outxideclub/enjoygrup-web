@@ -90,7 +90,7 @@ export function Navbar() {
         className={cn(
           "mx-auto mt-3 max-w-6xl px-6 transition-all duration-500",
           scrolled
-            ? "max-w-4xl rounded-2xl border border-white/5 bg-black/60 backdrop-blur-xl px-5"
+            ? "max-w-5xl rounded-2xl border border-white/5 bg-black/60 backdrop-blur-xl px-5"
             : "bg-transparent"
         )}
       >
@@ -104,7 +104,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className={cn("hidden xl:flex items-center", scrolled ? "gap-4" : "gap-6 2xl:gap-8")}>
             {navItems.map((item) => {
               const isActive = basePath === item.href || basePath.startsWith(item.href + "/");
               return (
@@ -112,7 +112,7 @@ export function Navbar() {
                   key={item.name}
                   href={localizedPath(item.href, locale)}
                   className={cn(
-                    "text-sm pb-1 border-b-2 transition-colors duration-300",
+                    "whitespace-nowrap text-sm pb-1 border-b-2 transition-colors duration-300",
                     isActive
                       ? item.activeClass
                       : "link-underline text-muted-foreground border-transparent hover:text-white"
@@ -132,7 +132,7 @@ export function Navbar() {
                   key={item.href}
                   href={localizedPath(item.href, locale)}
                   className={cn(
-                    "text-xs transition-colors duration-300",
+                    "whitespace-nowrap text-xs transition-colors duration-300",
                     isActive
                       ? "text-white"
                       : "text-muted-foreground hover:text-white"
@@ -158,7 +158,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile toggle */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="xl:hidden flex items-center gap-2">
             <a
               href={reserve.href}
               target="_blank"
