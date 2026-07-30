@@ -46,19 +46,16 @@ export function buildGoogleCalendarUrl(evt: CalendarEvent): string {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-/** Contenido de un fichero .ics (una sola VEVENT). */
-export function buildIcsContent(evt: CalendarEvent): string {
+/** Líneas VEVENT de un evento (compartidas por el .ics suelto y el feed). */
+function icsEventLines(evt: CalendarEvent, uid?: string): string[] {
   const description = [evt.description, evt.url].filter(Boolean).join("\n\n");
-  // UID estable a partir del título + inicio (sin depender de random, para SSR).
-  const uid = `${toUtcStamp(evt.start)}-${evt.title.replace(/\s+/g, "-").toLowerCase()}@grupoenjoy.es`;
-  const lines = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Grupo Enjoy//Agenda//ES",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
+  // UID estable (sin random, para SSR): si el evento trae id propio se usa ese
+  // — clave en el feed de suscripción para que las apps actualicen en vez de duplicar.
+  const stableUid =
+    uid ?? `${toUtcStamp(evt.start)}-${evt.title.replace(/\s+/g, "-").toLowerCase()}@grupoenjoy.es`;
+  return [
     "BEGIN:VEVENT",
-    `UID:${uid}`,
+    `UID:${stableUid}`,
     `DTSTAMP:${toUtcStamp(evt.start)}`,
     `DTSTART:${toUtcStamp(evt.start)}`,
     `DTEND:${toUtcStamp(resolveEnd(evt))}`,
@@ -67,8 +64,47 @@ export function buildIcsContent(evt: CalendarEvent): string {
     evt.location ? `LOCATION:${escapeIcsText(evt.location)}` : "",
     evt.url ? `URL:${evt.url}` : "",
     "END:VEVENT",
-    "END:VCALENDAR",
   ].filter(Boolean);
+}
+
+/** Contenido de un fichero .ics (una sola VEVENT). */
+export function buildIcsContent(evt: CalendarEvent): string {
+  const lines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Grupo Enjoy//Agenda//ES",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    ...icsEventLines(evt),
+    "END:VCALENDAR",
+  ];
   // RFC 5545: líneas separadas por CRLF.
+  return lines.join("\r\n");
+}
+
+/**
+ * Feed iCalendar COMPLETO por suscripción (webcal/Google "añadir por URL"):
+ * todos los eventos en un solo VCALENDAR con nombre y sugerencia de refresco.
+ * Las apps de calendario que se suscriben a la URL se actualizan solas cuando
+ * se publican eventos nuevos.
+ */
+export function buildIcsFeed(
+  events: { event: CalendarEvent; uid: string }[],
+  name = "Grupo Enjoy — Agenda",
+): string {
+  const lines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Grupo Enjoy//Agenda//ES",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    `X-WR-CALNAME:${escapeIcsText(name)}`,
+    "X-WR-TIMEZONE:Europe/Madrid",
+    // Sugerencia de refresco para las apps que la respetan (Outlook, Apple).
+    "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
+    "X-PUBLISHED-TTL:PT12H",
+    ...events.flatMap(({ event, uid }) => icsEventLines(event, uid)),
+    "END:VCALENDAR",
+  ];
   return lines.join("\r\n");
 }

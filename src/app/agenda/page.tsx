@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Ticket, ExternalLink, CalendarDays, Clock, Crown, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, Ticket, ExternalLink, CalendarDays, CalendarPlus, Clock, Crown, UtensilsCrossed } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { AddToCalendar } from "@/components/ui/add-to-calendar";
@@ -98,11 +98,35 @@ export default async function AgendaPage() {
         {/* Próximos eventos (Outxide, datos reales) */}
         <section className="relative z-20 py-8 md:py-12">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-10 flex items-center gap-3">
-              <CalendarDays className="h-5 w-5 text-outxide" aria-hidden />
-              <h2 className="font-display text-2xl md:text-3xl font-bold uppercase text-white">
-                {t("agenda.upcoming")}
-              </h2>
+            <div className="mb-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+              <div className="flex items-center gap-3">
+                <CalendarDays className="h-5 w-5 text-outxide" aria-hidden />
+                <h2 className="font-display text-2xl md:text-3xl font-bold uppercase text-white">
+                  {t("agenda.upcoming")}
+                </h2>
+              </div>
+              {/* Suscripción al calendario COMPLETO: las apps se actualizan solas
+                  con cada evento nuevo (feed iCal en /api/calendar). */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="mr-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <CalendarPlus className="h-4 w-4 text-outxide" aria-hidden />
+                  {t("agenda.subscribeCalendar")}
+                </span>
+                <a
+                  href="https://calendar.google.com/calendar/r?cid=https%3A%2F%2Fwww.grupoenjoy.es%2Fapi%2Fcalendar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-white/15 px-4 py-1.5 text-xs font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  Google Calendar
+                </a>
+                <a
+                  href="webcal://www.grupoenjoy.es/api/calendar"
+                  className="rounded-full border border-white/15 px-4 py-1.5 text-xs font-medium text-white/80 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  Apple · Outlook
+                </a>
+              </div>
             </div>
 
             {events.length === 0 ? (

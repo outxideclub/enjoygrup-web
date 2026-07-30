@@ -494,6 +494,7 @@ export const fr: Dictionary = {
     alertsError: "Impossible de finaliser. Veuillez réessayer.",
     alertsPrivacyRequired: "Vous devez accepter la politique de confidentialité.",
     alertsInfoLayer: "Responsable : Enjoy Club 78 S.L. · Finalité : envoi d'alertes événements et actualités · Droits : accès, rectification et suppression à privacidad@grupoenjoy.es",
+    subscribeCalendar: "Suivez tous les événements dans votre calendrier",
     metaTitle: "Agenda des Événements — Alcúdia, Majorque",
     metaDescription: "Prochains événements et programme hebdomadaire d'Outxide Club, Enjoy Terrace et Hiru à Port d'Alcúdia. Achetez des billets, réservez une table et ajoutez les événements à votre agenda.",
     metaOgDescription: "Tout ce qui se passe chez Grupo Enjoy : événements Outxide, programme Enjoy et Hiru.",
