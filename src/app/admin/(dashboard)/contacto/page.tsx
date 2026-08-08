@@ -168,7 +168,7 @@ export default function ContactoAdminPage() {
                 icon={MessageCircle}
                 value={data.general.whatsapp}
                 onChange={(v) => updateGeneral("whatsapp", v)}
-                placeholder="+34 657 87 89 17"
+                placeholder="+34 971 853 932"
                 hint="El enlace de WhatsApp se genera quitando espacios y símbolos."
               />
               <Field

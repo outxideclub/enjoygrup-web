@@ -3,16 +3,16 @@
     "email": "info@grupoenjoy.es",
     "privacyEmail": "privacidad@grupoenjoy.es",
     "phone": "+34 971 853 932",
-    "whatsapp": "+34 657 87 89 17"
+    "whatsapp": ""
   },
   "venues": {
     "enjoy": {
-      "phone": "+34 657 87 89 17",
+      "phone": "+34 971 853 932",
       "instagram": "https://www.instagram.com/enjoy.terrace.alcudia",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Enjoy+Terrace+Av+Tucan+1+Alcudia"
     },
     "outxide": {
-      "phone": "+34 657 87 89 17",
+      "phone": "+34 971 853 932",
       "instagram": "https://www.instagram.com/outxide.club",
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Outxide+Club+Av+Tucan+1+Alcudia"
     },

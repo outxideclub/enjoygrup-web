@@ -31,6 +31,7 @@ const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m 
 import { getIcon } from "@/lib/icons";
 import { StickyCta } from "@/components/ui/sticky-cta";
 import { restooReserveUrl } from "@/lib/events";
+import { siteContact, igDmHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
 
@@ -497,12 +498,12 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
         </div>
       </section>
 
-      {/* Barra de conversión fija (reserva online en Restoo + WhatsApp) */}
+      {/* Barra de conversión fija (reserva online en Restoo + chat de Instagram) */}
       <StickyCta
         accent="hiru"
         primary={{ label: t("cta.hiruReserve"), href: restooReserveUrl(locale), external: true }}
-        whatsappText={t("cta.whatsappHiru")}
-        whatsappLabel={t("cta.whatsappAria")}
+        instagramHref={igDmHref(siteContact.venues.hiru.instagram)}
+        instagramLabel={t("cta.instagramAria")}
       />
 
       {/* Inline FAQ */}

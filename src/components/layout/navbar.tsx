@@ -8,24 +8,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GroupLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
-import { waLink } from "@/components/ui/sticky-cta";
 import { fourVenuesOrgUrl, restooReserveUrl } from "@/lib/events";
+import { siteContact, telHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
 import { localeFromPath, localizedPath } from "@/i18n/config";
 
 // Destino de reserva según el local en pantalla; en el resto (home, blog…),
-// WhatsApp del grupo. El CTA persistente vive en la barra desde el primer scroll.
-function reserveTarget(basePath: string, t: (k: string) => string, locale: string) {
+// llamada al fijo del grupo. El CTA persistente vive en la barra desde el
+// primer scroll. `external` controla el target: los tel: no abren pestaña.
+function reserveTarget(basePath: string, locale: string) {
   if (basePath.startsWith("/hiru")) {
-    return { href: restooReserveUrl(locale), accent: "text-white bg-hiru hover:bg-hiru/90" };
+    return { href: restooReserveUrl(locale), accent: "text-white bg-hiru hover:bg-hiru/90", external: true };
   }
   if (basePath.startsWith("/outxide")) {
-    return { href: fourVenuesOrgUrl(locale), accent: "text-black bg-outxide hover:bg-outxide/90" };
+    return { href: fourVenuesOrgUrl(locale), accent: "text-black bg-outxide hover:bg-outxide/90", external: true };
   }
-  if (basePath.startsWith("/enjoy")) {
-    return { href: waLink(t("cta.whatsappEnjoy")), accent: "text-white bg-enjoy hover:bg-enjoy/90" };
-  }
-  return { href: waLink(t("cta.whatsappGroup")), accent: "text-white bg-enjoy hover:bg-enjoy/90" };
+  return { href: telHref(siteContact.general.phone), accent: "text-white bg-enjoy hover:bg-enjoy/90", external: false };
 }
 
 const navItems = [
@@ -49,7 +47,7 @@ export function Navbar() {
   const locale = useLocale();
   // Ruta sin prefijo de idioma para comparar activo y para prefijar los enlaces.
   const { basePath } = localeFromPath(pathname ?? "/");
-  const reserve = reserveTarget(basePath, t, locale);
+  const reserve = reserveTarget(basePath, locale);
 
   React.useEffect(() => {
     let ticking = false;
@@ -146,8 +144,7 @@ export function Navbar() {
             <LanguageSelector />
             <a
               href={reserve.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(reserve.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={cn(
                 "rounded-full px-5 py-2 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
                 reserve.accent,
@@ -161,8 +158,7 @@ export function Navbar() {
           <div className="xl:hidden flex items-center gap-2">
             <a
               href={reserve.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(reserve.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={cn(
                 "inline-flex min-h-[44px] items-center rounded-full px-4 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
                 reserve.accent,

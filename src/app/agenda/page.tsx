@@ -18,6 +18,7 @@ import {
   restooReserveUrl,
 } from "@/lib/events";
 import { getServerLocale, getServerT } from "@/i18n/server";
+import { siteContact, telHref } from "@/lib/site";
 import { localizedPath } from "@/i18n/config";
 
 // Los eventos reales de Outxide se obtienen en servidor (revalidate 60): la
@@ -25,14 +26,11 @@ import { localizedPath } from "@/i18n/config";
 export const revalidate = 60;
 
 const OUTXIDE_LOCATION = "Outxide Club, Av. Tucán 1, 07400 Alcúdia, Mallorca";
-const WHATSAPP = "34657878917";
 
 export default async function AgendaPage() {
   const locale = await getServerLocale();
   const t = getServerT(locale);
   const events = await getUpcomingOutxideEvents();
-
-  const enjoyReserve = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t("cta.whatsappEnjoy"))}`;
 
   // Programa semanal veraz de los 3 locales (horarios reales; sin inventar noches).
   const venues = [
@@ -45,7 +43,7 @@ export default async function AgendaPage() {
       icon: Crown,
       schedule: t("agenda.enjoySchedule"),
       cta: t("cta.enjoyReserve"),
-      href: enjoyReserve,
+      href: telHref(siteContact.general.phone),
       path: "/enjoy",
     },
     {
@@ -229,8 +227,7 @@ export default async function AgendaPage() {
                   <div className="mt-6 flex flex-col gap-3">
                     <a
                       href={v.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(v.href.startsWith("tel:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                       className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${v.btn}`}
                     >
                       {v.cta}

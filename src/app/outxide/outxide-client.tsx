@@ -16,7 +16,6 @@ import {
   Wine,
   Sofa,
   Star,
-  MessageCircle,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -40,7 +39,9 @@ import {
   fourVenuesOrgUrl,
 } from "@/lib/events";
 import { AddToCalendar } from "@/components/ui/add-to-calendar";
-import { StickyCta, waLink } from "@/components/ui/sticky-cta";
+import { StickyCta } from "@/components/ui/sticky-cta";
+import { InstagramIcon } from "@/components/ui/instagram-icon";
+import { siteContact, igDmHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useState, useEffect, useCallback } from "react";
 
@@ -306,13 +307,13 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                   {t("cta.ticketsAll")}
                 </a>
                 <a
-                  href={waLink(t("cta.whatsappOutxide"))}
+                  href={igDmHref(siteContact.venues.outxide.instagram)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
                 >
-                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
-                  {t("cta.whatsappAria")}
+                  <InstagramIcon className="h-4 w-4 text-outxide" />
+                  {t("cta.instagramAria")}
                 </a>
               </div>
             </div>
@@ -526,8 +527,8 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
       <StickyCta
         accent="outxide"
         primary={{ label: t("cta.outxideTickets"), href: fourVenuesOrgUrl(locale), external: true }}
-        whatsappText={t("cta.whatsappOutxide")}
-        whatsappLabel={t("cta.whatsappAria")}
+        instagramHref={igDmHref(siteContact.venues.outxide.instagram)}
+        instagramLabel={t("cta.instagramAria")}
       />
       <Footer />
     </div>

@@ -2,7 +2,7 @@ import contactData from "../../data/site/contact.json";
 
 /**
  * Site-wide contact / social data. Single source of truth for phone numbers,
- * emails, WhatsApp and Instagram links shown across the public site.
+ * emails and Instagram links shown across the public site.
  *
  * This is the build-time snapshot (imported JSON). The admin panel edits the
  * same file at `data/site/contact.json` and commits it to GitHub, which
@@ -36,7 +36,8 @@ export function telHref(phone: string): string {
   return `tel:${phone.replace(/\s+/g, "")}`;
 }
 
-/** `+34 657 87 89 17` → `https://wa.me/34657878917` */
-export function waHref(phone: string): string {
-  return `https://wa.me/${phone.replace(/[^\d]/g, "")}`;
+/** `https://www.instagram.com/outxide.club/` → `https://ig.me/m/outxide.club` (abre el DM). */
+export function igDmHref(instagramUrl: string): string {
+  const handle = instagramUrl.match(/instagram\.com\/([^/?]+)/)?.[1] ?? "";
+  return handle ? `https://ig.me/m/${handle}` : instagramUrl;
 }

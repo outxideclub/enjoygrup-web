@@ -8,7 +8,7 @@ const FALLBACK: SiteContact = {
     email: "info@grupoenjoy.es",
     privacyEmail: "privacidad@grupoenjoy.es",
     phone: "+34 971 853 932",
-    whatsapp: "+34 657 87 89 17",
+    whatsapp: "",
   },
   venues: {
     enjoy: { phone: "", instagram: "", mapsUrl: "" },

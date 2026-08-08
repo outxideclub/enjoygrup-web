@@ -62,18 +62,18 @@ export default async function ContactLayout({
           name: "Grupo Enjoy",
           url: "https://www.grupoenjoy.es",
           email: siteContact.general.email,
-          telephone: siteContact.general.whatsapp,
+          telephone: siteContact.general.phone,
           contactPoint: [
             {
               "@type": "ContactPoint",
-              telephone: siteContact.general.whatsapp,
+              telephone: siteContact.general.phone,
               contactType: "reservations",
               areaServed: "ES",
               availableLanguage: ["Spanish", "English", "German", "French", "Italian"],
             },
             {
               "@type": "ContactPoint",
-              telephone: siteContact.general.whatsapp,
+              telephone: siteContact.general.phone,
               contactType: "customer service",
               areaServed: "ES",
               availableLanguage: ["Spanish", "English", "German", "French", "Italian"],

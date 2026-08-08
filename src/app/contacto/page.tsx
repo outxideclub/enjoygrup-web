@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { EnjoyLogo, OutxideLogo, HiruLogo } from "@/components/ui/logos";
 import dynamic from "next/dynamic";
 import { useT } from "@/i18n";
-import { siteContact, waHref } from "@/lib/site";
+import { siteContact, telHref, igDmHref } from "@/lib/site";
 
 const AmbientGlow = dynamic(
   () =>
@@ -323,26 +323,40 @@ export default function ContactPage() {
             {/* Quick Contact */}
             <ScrollReveal delay={0.15}>
               <div className="space-y-6">
-                {/* WhatsApp */}
+                {/* Teléfono fijo — contacto principal para consultas generales */}
                 <a
-                  href={waHref(siteContact.general.whatsapp)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={telHref(siteContact.general.phone)}
                   className="flex items-center gap-4 glass-card rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02] group"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <MessageCircle className="h-5 w-5 text-green-400" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-enjoy/20 flex items-center justify-center">
+                    <Phone className="h-5 w-5 text-enjoy" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-white">
-                      {t("contact.whatsappCta")}
+                      {t("contact.callCta")}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {siteContact.general.whatsapp}
+                      {siteContact.general.phone}
                     </p>
                   </div>
-                  <ExternalLink className="ml-auto h-4 w-4 text-white/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
+
+                {/* Chat por Instagram (DM de cada local) */}
+                <div className="flex items-center gap-4 glass-card rounded-2xl p-5">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-tr from-[#f9ce34]/25 via-[#ee2a7b]/25 to-[#6228d7]/25 flex items-center justify-center">
+                    <MessageCircle className="h-5 w-5 text-[#ee2a7b]" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-white">
+                      {t("cta.instagramAria")}
+                    </p>
+                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                      <a href={igDmHref(siteContact.venues.enjoy.instagram)} target="_blank" rel="noopener noreferrer" className="text-enjoy hover:underline">Enjoy</a>
+                      <a href={igDmHref(siteContact.venues.outxide.instagram)} target="_blank" rel="noopener noreferrer" className="text-outxide hover:underline">Outxide</a>
+                      <a href={igDmHref(siteContact.venues.hiru.instagram)} target="_blank" rel="noopener noreferrer" className="text-hiru hover:underline">Hiru</a>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Email */}
                 <a

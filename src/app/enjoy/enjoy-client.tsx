@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -16,7 +16,8 @@ import dynamic from "next/dynamic";
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
 import { getIcon } from "@/lib/icons";
-import { StickyCta, waLink } from "@/components/ui/sticky-cta";
+import { StickyCta } from "@/components/ui/sticky-cta";
+import { siteContact, telHref, igDmHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
 import { useRef, useCallback, useState, useEffect } from "react";
 
@@ -161,8 +162,8 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: En
                 variant="enjoy"
                 className="btn-magnetic rounded-full px-8 shadow-lg shadow-enjoy/20"
               >
-                <a href={waLink(t("cta.whatsappEnjoy"))} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 mr-2" />
+                <a href={telHref(siteContact.general.phone)}>
+                  <Phone className="h-4 w-4 mr-2" />
                   {t("cta.enjoyReserve")}
                 </a>
               </Button>
@@ -416,10 +417,12 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: En
         </div>
       </section>
 
-      {/* Barra de conversión fija (reserva por WhatsApp — el turista no llama) */}
+      {/* Barra de conversión fija (llamada al fijo + chat de Instagram) */}
       <StickyCta
         accent="enjoy"
-        primary={{ label: t("cta.enjoyReserve"), href: waLink(t("cta.whatsappEnjoy")), external: true }}
+        primary={{ label: t("cta.enjoyReserve"), href: telHref(siteContact.general.phone) }}
+        instagramHref={igDmHref(siteContact.venues.enjoy.instagram)}
+        instagramLabel={t("cta.instagramAria")}
       />
 
       {/* Inline FAQ */}

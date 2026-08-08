@@ -1,17 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { InstagramIcon } from "@/components/ui/instagram-icon";
 import { cn } from "@/lib/utils";
-
-// Número de WhatsApp del grupo (móvil con WhatsApp). Deep-link wa.me con mensaje
-// pre-rellenado → canal de alto ticket (reservados, mesa, grupos) y remarketing.
-const WHATSAPP_NUMBER = "34657878917";
-
-/** Enlace wa.me con mensaje pre-rellenado (reutilizable en cualquier CTA). */
-export function waLink(text: string): string {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-}
 
 type Accent = "enjoy" | "outxide" | "hiru";
 
@@ -24,20 +15,20 @@ const ACCENT: Record<Accent, { btn: string; ring: string }> = {
 
 interface StickyCtaProps {
   accent: Accent;
-  /** Acción principal de conversión (reservar / comprar entrada). */
+  /** Acción principal de conversión (reservar / comprar entrada / llamar). */
   primary: { label: string; href: string; external?: boolean };
-  /** Texto pre-rellenado del WhatsApp; si se pasa, muestra el botón de WhatsApp. */
-  whatsappText?: string;
-  /** aria-label del botón de WhatsApp. */
-  whatsappLabel?: string;
+  /** DM de Instagram del local (canal de chat); si se pasa, muestra el botón. */
+  instagramHref?: string;
+  /** aria-label del botón de Instagram. */
+  instagramLabel?: string;
 }
 
 /**
  * Barra de acción FIJA inferior, orientada a móvil (88% del tráfico). Aparece al
  * salir el hero del viewport para no tapar su CTA. Una sola acción de conversión
- * + WhatsApp. Sustituye al antiguo botón flotante que solo hacía scroll a la carta.
+ * + chat por Instagram (el canal de mensajes del grupo).
  */
-export function StickyCta({ accent, primary, whatsappText, whatsappLabel }: StickyCtaProps) {
+export function StickyCta({ accent, primary, instagramHref, instagramLabel }: StickyCtaProps) {
   const [visible, setVisible] = useState(false);
   const a = ACCENT[accent];
 
@@ -56,10 +47,6 @@ export function StickyCta({ accent, primary, whatsappText, whatsappLabel }: Stic
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const waHref = whatsappText
-    ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`
-    : null;
 
   return (
     <div
@@ -80,15 +67,15 @@ export function StickyCta({ accent, primary, whatsappText, whatsappLabel }: Stic
         >
           {primary.label}
         </a>
-        {waHref && (
+        {instagramHref && (
           <a
-            href={waHref}
+            href={instagramHref}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={whatsappLabel ?? "WhatsApp"}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+            aria-label={instagramLabel ?? "Instagram"}
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ee2a7b]"
           >
-            <MessageCircle className="h-5 w-5" aria-hidden />
+            <InstagramIcon className="h-5 w-5" />
           </a>
         )}
       </div>
