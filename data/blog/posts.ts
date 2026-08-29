@@ -167,14 +167,15 @@ export const blogPosts: BlogPost[] = [
       it: "Una guida pratica per vedere LaLiga, Premier League, Champions League, F1 e i grandi eventi sportivi a Port d'Alcúdia: maxischermo all'Outxide, terrazza all'Enjoy e tavolo riservato per le partite importanti.",
     },
     content: {
-      es: `<p>¿De vacaciones en el norte de Mallorca y no quieres perderte ese partido clave? En Port d'Alcúdia puedes ver <strong>fútbol y deporte en directo</strong> con buen ambiente, cócteles de calidad y una pantalla gigante que convierte cualquier encuentro en un plan de noche. Tanto si buscas LaLiga, Premier League, un cruce de Champions o una carrera de Fórmula 1, esta guía evergreen te dice dónde verlo y cómo organizarte para no quedarte sin sitio.</p><h2>Pantalla gigante en Outxide y terraza en Enjoy</h2><p>La referencia para ver deporte en grande en la zona es <a href="/outxide">Outxide Club</a>, en Av. Tucán 1. Su <strong>pantalla gigante</strong> está pensada para los grandes eventos deportivos: la imagen se ve desde prácticamente cualquier punto del local y el ambiente de club (con DJ antes y después) hace que un partido importante se viva casi como un evento. Es el mejor plan si buscas algo parecido a un <strong>sports bar en Alcúdia</strong> pero con energía de discoteca.</p><p>Justo en la misma ubicación tienes <a href="/enjoy">Enjoy Terrace</a>, abierto a diario desde las 17:00. Es la opción más relajada: cócteles de autor y shisha premium en terraza, ideal para llegar temprano, coger el mejor atardecer y calentar motores antes de un partido de noche. Entre los dos espacios cubres toda la velada, desde la caña tranquila en terraza hasta el gol celebrado frente a la pantalla.</p><h2>Qué competiciones se pueden ver y cómo enterarte del calendario</h2><p>La idea es sencilla: los <strong>grandes eventos deportivos</strong> son los que mejor se disfrutan en pantalla gigante. Hablamos de:</p><ul><li><strong>Fútbol</strong>: partidos destacados de LaLiga, Premier League y los cruces de <strong>Champions League</strong>, además de finales y grandes citas de selecciones.</li><li><strong>Fórmula 1</strong>: los grandes premios más seguidos de la temporada.</li><li><strong>Otros grandes eventos</strong>: finales y partidos señalados que muevan a los aficionados, sobre todo en temporada alta de verano.</li></ul><p>No todos los partidos de la jornada se emiten: los locales priorizan los encuentros con más tirón. Por eso, lo más práctico es <strong>confirmar antes qué se va a proyectar</strong>. La forma más fiable de enterarte del calendario y de si ponen tu partido es consultar las redes y los canales oficiales de <a href="/outxide">Outxide</a> o escribir directamente al local. Si te va la marcha después del pitido final, echa un ojo a nuestra <a href="/blog/plan-nocturno-port-alcudia-mallorca">guía del plan nocturno perfecto en Port d'Alcúdia</a> para encadenar partido y fiesta.</p><h2>Reservar mesa o grupo para los partidos grandes</h2><p>Cuando hay un partido importante, el sitio se llena. Si vais en grupo o queréis asegurar buena visibilidad de la pantalla, lo mejor es <strong>reservar con antelación</strong>. En Outxide puedes gestionar entradas y reservados online a través de FourVenues, lo que te garantiza mesa y servicio VIP sin depender de que haya hueco al llegar. Recuerda que el club es para mayores de 18 años y abre de jueves a sábado desde las 23:00; para eventos deportivos en otros horarios, confirma siempre antes.</p><p>Un buen reservado marca la diferencia en las grandes citas: una final de Champions o un derbi con la terraza y el club llenos se disfrutan mucho más con tu sitio garantizado. Ya lo vivimos con la última gran cita de selecciones, como contamos en el resumen de la <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">celebración de España campeona en Outxide</a>: cuando el partido es histórico, la pantalla gigante y el ambiente de club lo elevan todo.</p><h2>Cenar antes en Hiru: llega con el estómago lleno</h2><p>Un partido de noche pide una buena cena previa. A pocos minutos, en Ctra. d'Artà 40, tienes <a href="/hiru">Hiru Food &amp; Drinks</a>, restaurante a la brasa con carnes maduradas dry-aged, arroces, paella de marisco y pescado fresco. Es el plan perfecto para empezar la velada con calma en su terraza y llegar a la pantalla gigante ya cenado, sin prisas ni colas.</p><p>La logística es cómoda: reservas mesa en Hiru a través de Restoo, cenáis tranquilos y después os movéis a la zona de Av. Tucán para el partido. Así encadenáis <strong>cena, deporte y noche</strong> en un radio muy pequeño, algo que en pocos sitios del norte de Mallorca resulta tan fácil.</p><h2>La alternativa tranquila a Magaluf y el Ballermann</h2><p>Frente a la saturación de Magaluf o Playa de Palma, Port d'Alcúdia ofrece una experiencia más cuidada para ver deporte: pantalla grande, buena coctelería y un ambiente internacional (español, inglés, alemán, francés e italiano) sin renunciar a la fiesta. Si quieres exprimir la zona más allá del partido, te ayudarán nuestras guías de <a href="/blog/guia-vida-nocturna-alcudia">vida nocturna en Alcúdia</a> y de <a href="/blog/que-hacer-alcudia-mallorca">qué hacer en Alcúdia</a>.</p><p>En resumen: para <strong>ver fútbol en Alcúdia</strong> con pantalla gigante, cena a la brasa antes y fiesta después, el triángulo Hiru–Enjoy–Outxide lo pone fácil. Confirma qué partido se proyecta, reserva tu mesa y disfruta del deporte como se merece.</p>`,
-      en: `<p>On holiday in northern Majorca and don't want to miss that key match? In Port d'Alcúdia you can watch <strong>live football and sport</strong> with a great atmosphere, quality cocktails and a big screen that turns any game into a proper night out. Whether it's LaLiga, the Premier League, a Champions League tie or a Formula 1 race, this evergreen guide tells you where to watch it and how to plan so you don't end up without a spot.</p><h2>Big screen at Outxide and terrace at Enjoy</h2><p>The go-to place to watch sport on the big screen in the area is <a href="/outxide">Outxide Club</a>, on Av. Tucán 1. Its <strong>giant screen</strong> is designed for major sporting events: you can see the picture from almost anywhere in the venue, and the club vibe (with a DJ before and after) makes a big match feel like a real event. It's the best plan if you're after something like a <strong>sports bar in Alcudia</strong> but with the energy of a nightclub.</p><p>Right in the same location is <a href="/enjoy">Enjoy Terrace</a>, open daily from 17:00. It's the more relaxed option: signature cocktails and premium shisha on the terrace, ideal for arriving early, catching the best sunset and warming up before an evening game. Between the two spaces you've got the whole night covered, from a quiet drink on the terrace to the goal celebrated in front of the screen.</p><h2>Which competitions you can watch and how to check the schedule</h2><p>The idea is simple: <strong>major sporting events</strong> are the ones best enjoyed on the big screen. That means:</p><ul><li><strong>Football</strong>: top LaLiga and Premier League fixtures and the <strong>Champions League</strong> ties, plus finals and big international matches.</li><li><strong>Formula 1</strong>: the season's most-watched grands prix.</li><li><strong>Other big events</strong>: finals and standout matches that get fans moving, especially in the summer high season.</li></ul><p>Not every fixture of the round is shown: the venues prioritise the games with the biggest pull. So the smart move is to <strong>check in advance what's being shown</strong>. The most reliable way to see the schedule and whether your match is on is to check the official social channels of <a href="/outxide">Outxide</a> or message the venue directly. If you're up for more once the final whistle blows, take a look at our <a href="/blog/plan-nocturno-port-alcudia-mallorca">guide to the perfect night out in Port d'Alcúdia</a> to link match and party.</p><h2>Booking a table or group for the big matches</h2><p>When there's a big game on, the place fills up. If you're in a group or want to guarantee a good view of the screen, it's best to <strong>book ahead</strong>. At Outxide you can arrange tickets and VIP tables online through FourVenues, which secures your table and service without relying on there being room when you arrive. Remember the club is for over-18s and opens Thursday to Saturday from 23:00; for sporting events at other times, always confirm first.</p><p>A good table makes all the difference on the big nights: a Champions League final or a derby with the terrace and club packed out are far better enjoyed with your spot guaranteed. We saw it at the last big international occasion, as we described in our recap of the <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">celebration of Spain's title at Outxide</a>: when the match is historic, the big screen and club atmosphere lift everything.</p><h2>Dinner first at Hiru: arrive on a full stomach</h2><p>An evening match calls for a good dinner beforehand. Just minutes away, on Ctra. d'Artà 40, is <a href="/hiru">Hiru Food &amp; Drinks</a>, a grill restaurant with dry-aged matured meats, rice dishes, seafood paella and fresh fish. It's the perfect plan to start the evening calmly on the terrace and reach the big screen already fed, with no rush and no queues.</p><p>The logistics are easy: book a table at Hiru through Restoo, enjoy a relaxed dinner and then head to the Av. Tucán area for the match. That way you link <strong>dinner, sport and nightlife</strong> within a very short radius, something few places in northern Majorca make so easy.</p><h2>The relaxed alternative to Magaluf and the Ballermann</h2><p>Compared with the crowds of Magaluf or Playa de Palma, Port d'Alcúdia offers a more refined way to watch sport: a big screen, good cocktails and an international crowd (Spanish, English, German, French and Italian) without giving up the party. If you want to make the most of the area beyond the match, our guides to <a href="/blog/guia-vida-nocturna-alcudia">nightlife in Alcúdia</a> and <a href="/blog/que-hacer-alcudia-mallorca">things to do in Alcúdia</a> will help.</p><p>In short: to <strong>watch football in Alcúdia</strong> with a big screen, a grill dinner beforehand and a party afterwards, the Hiru–Enjoy–Outxide triangle makes it easy. Confirm which match is being shown, book your table and enjoy the sport as it deserves.</p>`,
-      de: `<p>Urlaub im Norden Mallorcas und du willst das entscheidende Spiel nicht verpassen? In Port d'Alcúdia kannst du <strong>Fußball und Sport live</strong> mit toller Stimmung, guten Cocktails und einer Großbildleinwand schauen, die jedes Spiel in einen richtigen Abend verwandelt. Ob LaLiga, Premier League, ein Champions-League-Duell oder ein Formel-1-Rennen: Dieser Evergreen-Guide sagt dir, wo du es siehst und wie du planst, damit du keinen Platz verpasst.</p><h2>Großbildleinwand im Outxide und Terrasse im Enjoy</h2><p>Die erste Adresse, um Sport groß zu schauen, ist <a href="/outxide">Outxide Club</a> in der Av. Tucán 1. Die <strong>Großbildleinwand</strong> ist für die großen Sportevents gemacht: Das Bild ist von fast jedem Punkt im Lokal zu sehen, und die Club-Atmosphäre (mit DJ davor und danach) lässt ein wichtiges Spiel wie ein echtes Event wirken. Das ist der beste Plan, wenn du so etwas wie eine <strong>Sportsbar in Alcudia</strong> suchst, aber mit der Energie eines Clubs.</p><p>Direkt am selben Standort liegt <a href="/enjoy">Enjoy Terrace</a>, täglich ab 17:00 Uhr geöffnet. Das ist die entspanntere Option: Signature-Cocktails und Premium-Shisha auf der Terrasse, ideal, um früh zu kommen, den besten Sonnenuntergang zu erwischen und sich vor einem Abendspiel warmzumachen. Mit beiden Locations hast du den ganzen Abend abgedeckt, vom ruhigen Drink auf der Terrasse bis zum Tor, das vor der Leinwand gefeiert wird.</p><h2>Welche Wettbewerbe man sehen kann und wie man den Spielplan erfährt</h2><p>Die Idee ist einfach: <strong>Große Sportevents</strong> genießt man am besten auf der Großbildleinwand. Das heißt:</p><ul><li><strong>Fußball</strong>: Topspiele der LaLiga und Premier League sowie die <strong>Champions-League</strong>-Duelle, dazu Finals und große Länderspiele.</li><li><strong>Formel 1</strong>: die meistgesehenen Grands Prix der Saison.</li><li><strong>Weitere Großevents</strong>: Finals und Topspiele, die die Fans bewegen, besonders in der Sommerhochsaison.</li></ul><p>Nicht jedes Spiel des Spieltags wird gezeigt: Die Locations priorisieren die Partien mit der größten Zugkraft. Am schlausten ist es daher, <strong>vorher zu prüfen, was übertragen wird</strong>. Am zuverlässigsten erfährst du den Spielplan und ob dein Spiel läuft über die offiziellen Social-Media-Kanäle von <a href="/outxide">Outxide</a> oder indem du das Lokal direkt anschreibst. Wenn du nach dem Schlusspfiff noch Lust auf mehr hast, wirf einen Blick in unseren <a href="/blog/plan-nocturno-port-alcudia-mallorca">Guide für den perfekten Abend in Port d'Alcúdia</a>, um Spiel und Party zu verbinden.</p><h2>Tisch oder Gruppe für die großen Spiele reservieren</h2><p>Bei einem großen Spiel wird es voll. Wenn ihr in einer Gruppe kommt oder gute Sicht auf die Leinwand sichern wollt, solltet ihr am besten <strong>im Voraus reservieren</strong>. Im Outxide kannst du Tickets und reservierte Bereiche online über FourVenues buchen, was dir Tisch und VIP-Service sichert, ohne auf freien Platz bei Ankunft angewiesen zu sein. Der Club ist ab 18 Jahren und öffnet Donnerstag bis Samstag ab 23:00 Uhr; für Sportevents zu anderen Zeiten bitte immer vorher bestätigen.</p><p>Ein guter Tisch macht bei den großen Abenden den Unterschied: Ein Champions-League-Finale oder ein Derby mit voller Terrasse und vollem Club genießt man mit gesichertem Platz viel mehr. Wir haben es beim letzten großen Länderspiel-Anlass erlebt, wie wir in unserem Rückblick auf die <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">Feier von Spaniens Titel im Outxide</a> beschreiben: Wenn das Spiel historisch ist, heben die Großbildleinwand und die Club-Atmosphäre alles auf ein neues Level.</p><h2>Vorher im Hiru essen: mit vollem Magen ankommen</h2><p>Ein Abendspiel verlangt nach einem guten Essen davor. Nur wenige Minuten entfernt, in der Ctra. d'Artà 40, liegt <a href="/hiru">Hiru Food &amp; Drinks</a>, ein Grillrestaurant mit dry-aged gereiftem Fleisch, Reisgerichten, Meeresfrüchte-Paella und frischem Fisch. Der perfekte Plan, um den Abend in Ruhe auf der Terrasse zu beginnen und schon gegessen an der Großbildleinwand anzukommen, ohne Hektik und ohne Schlange.</p><p>Die Logistik ist bequem: Tisch im Hiru über Restoo reservieren, entspannt essen und dann in die Gegend der Av. Tucán zum Spiel wechseln. So verbindet ihr <strong>Essen, Sport und Nacht</strong> in einem sehr kleinen Radius, was im Norden Mallorcas nur an wenigen Orten so einfach ist.</p><h2>Die entspannte Alternative zu Magaluf und dem Ballermann</h2><p>Gegenüber dem Trubel von Magaluf oder der Playa de Palma bietet Port d'Alcúdia ein gepflegteres Sport-Erlebnis: große Leinwand, gute Cocktails und ein internationales Publikum (spanisch, englisch, deutsch, französisch und italienisch), ohne auf die Party zu verzichten. Wenn du die Gegend über das Spiel hinaus auskosten willst, helfen dir unsere Guides zum <a href="/blog/guia-vida-nocturna-alcudia">Nachtleben in Alcúdia</a> und zu <a href="/blog/que-hacer-alcudia-mallorca">Aktivitäten in Alcúdia</a>.</p><p>Kurz gesagt: Um in <strong>Alcúdia Fußball</strong> auf der Großbildleinwand zu schauen, davor vom Grill zu essen und danach zu feiern, macht es das Dreieck Hiru–Enjoy–Outxide leicht. Bestätige, welches Spiel übertragen wird, reserviere deinen Tisch und genieße den Sport, wie er es verdient.</p>`,
-      fr: `<p>En vacances dans le nord de Majorque et tu ne veux pas rater ce match décisif ? À Port d'Alcúdia, tu peux voir le <strong>football et le sport en direct</strong> dans une bonne ambiance, avec des cocktails de qualité et un écran géant qui transforme n'importe quel match en vraie soirée. Que ce soit la Liga, la Premier League, un choc de Ligue des Champions ou une course de Formule 1, ce guide evergreen te dit où le voir et comment t'organiser pour ne pas te retrouver sans place.</p><h2>Écran géant à l'Outxide et terrasse à l'Enjoy</h2><p>La référence pour voir le sport en grand dans le secteur, c'est <a href="/outxide">Outxide Club</a>, Av. Tucán 1. Son <strong>écran géant</strong> est pensé pour les grands événements sportifs : l'image se voit depuis presque tous les points du club, et l'ambiance de discothèque (avec DJ avant et après) fait vivre un grand match comme un véritable événement. C'est le meilleur plan si tu cherches quelque chose comme un <strong>sports bar à Alcudia</strong> mais avec l'énergie d'un club.</p><p>Au même emplacement se trouve <a href="/enjoy">Enjoy Terrace</a>, ouvert tous les jours dès 17h00. C'est l'option plus détendue : cocktails signature et chicha premium en terrasse, idéal pour arriver tôt, profiter du plus beau coucher de soleil et se chauffer avant un match du soir. Entre les deux espaces, tu couvres toute la soirée, du verre tranquille en terrasse au but célébré devant l'écran.</p><h2>Quelles compétitions voir et comment connaître le calendrier</h2><p>L'idée est simple : les <strong>grands événements sportifs</strong> sont ceux qui se savourent le mieux sur écran géant. C'est-à-dire :</p><ul><li><strong>Football</strong> : les affiches de la Liga et de la Premier League et les chocs de <strong>Ligue des Champions</strong>, ainsi que les finales et les grands matchs de sélections.</li><li><strong>Formule 1</strong> : les grands prix les plus suivis de la saison.</li><li><strong>Autres grands événements</strong> : finales et matchs marquants qui font vibrer les supporters, surtout en haute saison estivale.</li></ul><p>Tous les matchs de la journée ne sont pas diffusés : les établissements privilégient les rencontres les plus attractives. Le plus malin est donc de <strong>vérifier à l'avance ce qui sera projeté</strong>. Le moyen le plus fiable de connaître le calendrier et de savoir si ton match passe est de consulter les réseaux officiels d'<a href="/outxide">Outxide</a> ou d'écrire directement au club. Si tu as encore de l'énergie après le coup de sifflet final, jette un œil à notre <a href="/blog/plan-nocturno-port-alcudia-mallorca">guide de la soirée parfaite à Port d'Alcúdia</a> pour enchaîner match et fête.</p><h2>Réserver une table ou un groupe pour les grands matchs</h2><p>Quand il y a un grand match, ça se remplit vite. Si vous venez en groupe ou voulez garantir une bonne visibilité de l'écran, mieux vaut <strong>réserver à l'avance</strong>. À l'Outxide, tu peux gérer les entrées et les carrés VIP en ligne via FourVenues, ce qui t'assure une table et un service VIP sans dépendre de la place disponible à l'arrivée. Rappelle-toi que le club est réservé aux plus de 18 ans et ouvre du jeudi au samedi dès 23h00 ; pour les événements sportifs à d'autres horaires, confirme toujours au préalable.</p><p>Un bon carré fait toute la différence lors des grands rendez-vous : une finale de Ligue des Champions ou un derby avec la terrasse et le club pleins se savourent bien mieux avec sa place garantie. Nous l'avons vécu lors du dernier grand rendez-vous des sélections, comme raconté dans notre récap de la <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">célébration du titre de l'Espagne à l'Outxide</a> : quand le match est historique, l'écran géant et l'ambiance de club subliment tout.</p><h2>Dîner avant à Hiru : arriver le ventre plein</h2><p>Un match du soir mérite un bon dîner avant. À quelques minutes, Ctra. d'Artà 40, se trouve <a href="/hiru">Hiru Food &amp; Drinks</a>, un restaurant à la braise avec des viandes maturées dry-aged, des riz, une paella de fruits de mer et du poisson frais. C'est le plan parfait pour commencer la soirée tranquillement en terrasse et arriver à l'écran géant déjà rassasié, sans stress ni file d'attente.</p><p>La logistique est simple : réserve une table chez Hiru via Restoo, dînez tranquillement, puis rejoignez le secteur de l'Av. Tucán pour le match. Ainsi tu enchaînes <strong>dîner, sport et soirée</strong> dans un rayon très réduit, ce que peu d'endroits du nord de Majorque rendent aussi facile.</p><h2>L'alternative tranquille à Magaluf et au Ballermann</h2><p>Face à la foule de Magaluf ou de Playa de Palma, Port d'Alcúdia propose une façon plus soignée de voir le sport : grand écran, bons cocktails et une clientèle internationale (espagnole, anglaise, allemande, française et italienne) sans renoncer à la fête. Pour profiter du secteur au-delà du match, nos guides de la <a href="/blog/guia-vida-nocturna-alcudia">vie nocturne à Alcúdia</a> et des <a href="/blog/que-hacer-alcudia-mallorca">choses à faire à Alcúdia</a> t'aideront.</p><p>En bref : pour <strong>voir le football à Alcúdia</strong> sur écran géant, dîner à la braise avant et faire la fête après, le triangle Hiru–Enjoy–Outxide rend tout facile. Confirme quel match est diffusé, réserve ta table et profite du sport comme il se doit.</p>`,
-      it: `<p>In vacanza nel nord di Maiorca e non vuoi perderti quella partita decisiva? A Port d'Alcúdia puoi vedere <strong>calcio e sport in diretta</strong> con una bella atmosfera, cocktail di qualità e un maxischermo che trasforma qualsiasi partita in una vera serata. Che si tratti di LaLiga, Premier League, un incrocio di Champions League o un Gran Premio di Formula 1, questa guida evergreen ti dice dove vederlo e come organizzarti per non restare senza posto.</p><h2>Maxischermo all'Outxide e terrazza all'Enjoy</h2><p>Il punto di riferimento per vedere lo sport in grande nella zona è <a href="/outxide">Outxide Club</a>, in Av. Tucán 1. Il suo <strong>maxischermo</strong> è pensato per i grandi eventi sportivi: l'immagine si vede praticamente da ogni punto del locale e l'atmosfera da club (con DJ prima e dopo) fa vivere una partita importante come un vero evento. È il piano migliore se cerchi qualcosa di simile a uno <strong>sports bar ad Alcudia</strong> ma con l'energia di una discoteca.</p><p>Nella stessa posizione trovi <a href="/enjoy">Enjoy Terrace</a>, aperto tutti i giorni dalle 17:00. È l'opzione più rilassata: cocktail d'autore e shisha premium in terrazza, ideale per arrivare presto, godersi il miglior tramonto e scaldarsi prima di una partita serale. Tra i due spazi copri tutta la serata, dal drink tranquillo in terrazza al gol festeggiato davanti allo schermo.</p><h2>Quali competizioni si possono vedere e come conoscere il calendario</h2><p>L'idea è semplice: i <strong>grandi eventi sportivi</strong> sono quelli che si godono meglio sul maxischermo. Cioè:</p><ul><li><strong>Calcio</strong>: le partite di punta di LaLiga e Premier League e gli incroci di <strong>Champions League</strong>, oltre a finali e grandi sfide delle nazionali.</li><li><strong>Formula 1</strong>: i Gran Premi più seguiti della stagione.</li><li><strong>Altri grandi eventi</strong>: finali e partite di rilievo che fanno muovere i tifosi, soprattutto in alta stagione estiva.</li></ul><p>Non tutte le partite della giornata vengono trasmesse: i locali danno priorità agli incontri di maggiore richiamo. Perciò la mossa più furba è <strong>verificare in anticipo cosa verrà proiettato</strong>. Il modo più affidabile per conoscere il calendario e sapere se trasmettono la tua partita è consultare i canali social ufficiali di <a href="/outxide">Outxide</a> o scrivere direttamente al locale. Se dopo il fischio finale hai ancora voglia di continuare, dai un'occhiata alla nostra <a href="/blog/plan-nocturno-port-alcudia-mallorca">guida alla serata perfetta a Port d'Alcúdia</a> per unire partita e festa.</p><h2>Prenotare tavolo o gruppo per le partite importanti</h2><p>Quando c'è una partita importante, il locale si riempie. Se venite in gruppo o volete garantirvi una buona visuale dello schermo, la cosa migliore è <strong>prenotare in anticipo</strong>. All'Outxide puoi gestire biglietti e tavoli riservati online tramite FourVenues, così assicuri tavolo e servizio VIP senza dipendere dallo spazio disponibile all'arrivo. Ricorda che il club è per maggiori di 18 anni e apre dal giovedì al sabato dalle 23:00; per eventi sportivi in altri orari, conferma sempre prima.</p><p>Un buon tavolo riservato fa la differenza nelle grandi serate: una finale di Champions o un derby con terrazza e club pieni si godono molto di più con il posto garantito. Lo abbiamo vissuto nell'ultimo grande appuntamento delle nazionali, come raccontiamo nel resoconto della <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">festa per il titolo della Spagna all'Outxide</a>: quando la partita è storica, il maxischermo e l'atmosfera da club elevano tutto.</p><h2>Cenare prima da Hiru: arriva a stomaco pieno</h2><p>Una partita serale merita una buona cena prima. A pochi minuti, in Ctra. d'Artà 40, c'è <a href="/hiru">Hiru Food &amp; Drinks</a>, ristorante alla brace con carni frollate dry-aged, risotti, paella di mare e pesce fresco. È il piano perfetto per iniziare la serata con calma in terrazza e arrivare al maxischermo già a cena fatta, senza fretta e senza code.</p><p>La logistica è comoda: prenoti un tavolo da Hiru tramite Restoo, cenate con calma e poi vi spostate nella zona di Av. Tucán per la partita. Così unisci <strong>cena, sport e notte</strong> in un raggio molto ridotto, cosa che in pochi posti del nord di Maiorca risulta così facile.</p><h2>L'alternativa tranquilla a Magaluf e al Ballermann</h2><p>Rispetto alla ressa di Magaluf o Playa de Palma, Port d'Alcúdia offre un modo più curato di vedere lo sport: schermo grande, buoni cocktail e un pubblico internazionale (spagnolo, inglese, tedesco, francese e italiano) senza rinunciare alla festa. Se vuoi sfruttare la zona oltre la partita, ti aiutano le nostre guide alla <a href="/blog/guia-vida-nocturna-alcudia">vita notturna ad Alcúdia</a> e alle <a href="/blog/que-hacer-alcudia-mallorca">cose da fare ad Alcúdia</a>.</p><p>In sintesi: per <strong>vedere il calcio ad Alcúdia</strong> con il maxischermo, cena alla brace prima e festa dopo, il triangolo Hiru–Enjoy–Outxide rende tutto semplice. Conferma quale partita viene trasmessa, prenota il tuo tavolo e goditi lo sport come merita.</p>`,
+      es: `<p>¿De vacaciones en el norte de Mallorca y no quieres perderte ese partido clave? En Port d'Alcúdia puedes ver <strong>fútbol y deporte en directo</strong> con buen ambiente, cócteles de calidad y una pantalla gigante que convierte cualquier encuentro en un plan de noche. Tanto si buscas LaLiga, Premier League, un cruce de Champions o una carrera de Fórmula 1, esta guía evergreen te dice dónde verlo y cómo organizarte para no quedarte sin sitio.</p><h2>Pantalla gigante en Outxide y terraza en Enjoy</h2><p>La referencia para ver deporte en grande en la zona es <a href="/outxide">Outxide Club</a>, en Av. Tucán 1. Su <strong>pantalla gigante</strong> está pensada para los grandes eventos deportivos: la imagen se ve desde prácticamente cualquier punto del local y el ambiente de club (con DJ antes y después) hace que un partido importante se viva casi como un evento. Es el mejor plan si buscas algo parecido a un <strong>sports bar en Alcúdia</strong> pero con energía de discoteca.</p><p>Justo en la misma ubicación tienes <a href="/enjoy">Enjoy Terrace</a>, abierto a diario desde las 17:00. Es la opción más relajada: cócteles de autor y shisha premium en terraza, ideal para llegar temprano, coger el mejor atardecer y calentar motores antes de un partido de noche. Entre los dos espacios cubres toda la velada, desde la caña tranquila en terraza hasta el gol celebrado frente a la pantalla.</p><h2>Qué competiciones se pueden ver y cómo enterarte del calendario</h2><p>La idea es sencilla: los <strong>grandes eventos deportivos</strong> son los que mejor se disfrutan en pantalla gigante. Hablamos de:</p><ul><li><strong>Fútbol</strong>: partidos destacados de LaLiga, Premier League y los cruces de <strong>Champions League</strong>, además de finales y grandes citas de selecciones.</li><li><strong>Fórmula 1</strong>: los grandes premios más seguidos de la temporada.</li><li><strong>Otros grandes eventos</strong>: finales y partidos señalados que muevan a los aficionados, sobre todo en temporada alta de verano.</li></ul><p>No todos los partidos de la jornada se emiten: los locales priorizan los encuentros con más tirón. Por eso, lo más práctico es <strong>confirmar antes qué se va a proyectar</strong>. La forma más fiable de enterarte del calendario y de si ponen tu partido es consultar las redes y los canales oficiales de <a href="/outxide">Outxide</a> o escribir directamente al local. Si te va la marcha después del pitido final, echa un ojo a nuestra <a href="/blog/plan-nocturno-port-alcudia-mallorca">guía del plan nocturno perfecto en Port d'Alcúdia</a> para encadenar partido y fiesta.</p><h2>Reservar mesa o grupo para los partidos grandes</h2><p>Cuando hay un partido importante, el sitio se llena. Si vais en grupo o queréis asegurar buena visibilidad de la pantalla, lo mejor es <strong>reservar con antelación</strong>. En Outxide puedes gestionar entradas y reservados online a través de FourVenues, lo que te garantiza mesa y servicio VIP sin depender de que haya hueco al llegar. Recuerda que el club es para mayores de 18 años y abre de jueves a sábado desde las 23:00; para eventos deportivos en otros horarios, confirma siempre antes.</p><p>Un buen reservado marca la diferencia en las grandes citas: una final de Champions o un derbi con la terraza y el club llenos se disfrutan mucho más con tu sitio garantizado. Ya lo vivimos con la última gran cita de selecciones, como contamos en el resumen de la <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">celebración de España campeona en Outxide</a>: cuando el partido es histórico, la pantalla gigante y el ambiente de club lo elevan todo.</p><h2>Cena antes del partido: llega con el estómago lleno</h2><p>Un partido de noche pide una buena cena previa. En el puerto tienes mesas para todos los gustos —arroces, brasa, cocina internacional—; en nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> encontrarás dónde elegir. Reserva con antelación en temporada alta y llegarás a la pantalla gigante ya cenado, sin prisas ni colas.</p><p>La logística es cómoda: cenáis tranquilos en el puerto y después os movéis a la zona de Av. Tucán para el partido. Así encadenáis <strong>cena, deporte y noche</strong> en un radio muy pequeño, algo que en pocos sitios del norte de Mallorca resulta tan fácil.</p><h2>La alternativa tranquila a Magaluf y el Ballermann</h2><p>Frente a la saturación de Magaluf o Playa de Palma, Port d'Alcúdia ofrece una experiencia más cuidada para ver deporte: pantalla grande, buena coctelería y un ambiente internacional (español, inglés, alemán, francés e italiano) sin renunciar a la fiesta. Si quieres exprimir la zona más allá del partido, te ayudarán nuestras guías de <a href="/blog/guia-vida-nocturna-alcudia">vida nocturna en Alcúdia</a> y de <a href="/blog/que-hacer-alcudia-mallorca">qué hacer en Alcúdia</a>.</p><p>En resumen: para <strong>ver fútbol en Alcúdia</strong> con pantalla gigante, cena a la brasa antes y fiesta después, el tándem Enjoy–Outxide lo pone fácil. Confirma qué partido se proyecta, reserva tu mesa y disfruta del deporte como se merece.</p>`,
+      en: `<p>On holiday in northern Majorca and don't want to miss that key match? In Port d'Alcúdia you can watch <strong>live football and sport</strong> with a great atmosphere, quality cocktails and a big screen that turns any game into a proper night out. Whether it's LaLiga, the Premier League, a Champions League tie or a Formula 1 race, this evergreen guide tells you where to watch it and how to plan so you don't end up without a spot.</p><h2>Big screen at Outxide and terrace at Enjoy</h2><p>The go-to place to watch sport on the big screen in the area is <a href="/outxide">Outxide Club</a>, on Av. Tucán 1. Its <strong>giant screen</strong> is designed for major sporting events: you can see the picture from almost anywhere in the venue, and the club vibe (with a DJ before and after) makes a big match feel like a real event. It's the best plan if you're after something like a <strong>sports bar in Alcudia</strong> but with the energy of a nightclub.</p><p>Right in the same location is <a href="/enjoy">Enjoy Terrace</a>, open daily from 17:00. It's the more relaxed option: signature cocktails and premium shisha on the terrace, ideal for arriving early, catching the best sunset and warming up before an evening game. Between the two spaces you've got the whole night covered, from a quiet drink on the terrace to the goal celebrated in front of the screen.</p><h2>Which competitions you can watch and how to check the schedule</h2><p>The idea is simple: <strong>major sporting events</strong> are the ones best enjoyed on the big screen. That means:</p><ul><li><strong>Football</strong>: top LaLiga and Premier League fixtures and the <strong>Champions League</strong> ties, plus finals and big international matches.</li><li><strong>Formula 1</strong>: the season's most-watched grands prix.</li><li><strong>Other big events</strong>: finals and standout matches that get fans moving, especially in the summer high season.</li></ul><p>Not every fixture of the round is shown: the venues prioritise the games with the biggest pull. So the smart move is to <strong>check in advance what's being shown</strong>. The most reliable way to see the schedule and whether your match is on is to check the official social channels of <a href="/outxide">Outxide</a> or message the venue directly. If you're up for more once the final whistle blows, take a look at our <a href="/blog/plan-nocturno-port-alcudia-mallorca">guide to the perfect night out in Port d'Alcúdia</a> to link match and party.</p><h2>Booking a table or group for the big matches</h2><p>When there's a big game on, the place fills up. If you're in a group or want to guarantee a good view of the screen, it's best to <strong>book ahead</strong>. At Outxide you can arrange tickets and VIP tables online through FourVenues, which secures your table and service without relying on there being room when you arrive. Remember the club is for over-18s and opens Thursday to Saturday from 23:00; for sporting events at other times, always confirm first.</p><p>A good table makes all the difference on the big nights: a Champions League final or a derby with the terrace and club packed out are far better enjoyed with your spot guaranteed. We saw it at the last big international occasion, as we described in our recap of the <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">celebration of Spain's title at Outxide</a>: when the match is historic, the big screen and club atmosphere lift everything.</p><h2>Dinner before the match: arrive on a full stomach</h2><p>An evening match calls for a proper dinner first. The port has tables for every taste — rice dishes, charcoal grill, international cooking — and our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> will help you choose. Book ahead in high season and you'll reach the big screen already fed, with no rush or queues.</p><p>The logistics are easy: enjoy a relaxed dinner by the port and then head to the Av. Tucán area for the match. That way you chain <strong>dinner, sport and nightlife</strong> within a tiny radius — few places in northern Mallorca make it this easy.</p><h2>The relaxed alternative to Magaluf and the Ballermann</h2><p>Compared with the crowds of Magaluf or Playa de Palma, Port d'Alcúdia offers a more refined way to watch sport: a big screen, good cocktails and an international crowd (Spanish, English, German, French and Italian) without giving up the party. If you want to make the most of the area beyond the match, our guides to <a href="/blog/guia-vida-nocturna-alcudia">nightlife in Alcúdia</a> and <a href="/blog/que-hacer-alcudia-mallorca">things to do in Alcúdia</a> will help.</p><p>In short: to <strong>watch football in Alcúdia</strong> with a big screen, a grill dinner beforehand and a party afterwards, the Enjoy–Outxide duo makes it easy. Confirm which match is being shown, book your table and enjoy the sport as it deserves.</p>`,
+      de: `<p>Urlaub im Norden Mallorcas und du willst das entscheidende Spiel nicht verpassen? In Port d'Alcúdia kannst du <strong>Fußball und Sport live</strong> mit toller Stimmung, guten Cocktails und einer Großbildleinwand schauen, die jedes Spiel in einen richtigen Abend verwandelt. Ob LaLiga, Premier League, ein Champions-League-Duell oder ein Formel-1-Rennen: Dieser Evergreen-Guide sagt dir, wo du es siehst und wie du planst, damit du keinen Platz verpasst.</p><h2>Großbildleinwand im Outxide und Terrasse im Enjoy</h2><p>Die erste Adresse, um Sport groß zu schauen, ist <a href="/outxide">Outxide Club</a> in der Av. Tucán 1. Die <strong>Großbildleinwand</strong> ist für die großen Sportevents gemacht: Das Bild ist von fast jedem Punkt im Lokal zu sehen, und die Club-Atmosphäre (mit DJ davor und danach) lässt ein wichtiges Spiel wie ein echtes Event wirken. Das ist der beste Plan, wenn du so etwas wie eine <strong>Sportsbar in Alcudia</strong> suchst, aber mit der Energie eines Clubs.</p><p>Direkt am selben Standort liegt <a href="/enjoy">Enjoy Terrace</a>, täglich ab 17:00 Uhr geöffnet. Das ist die entspanntere Option: Signature-Cocktails und Premium-Shisha auf der Terrasse, ideal, um früh zu kommen, den besten Sonnenuntergang zu erwischen und sich vor einem Abendspiel warmzumachen. Mit beiden Locations hast du den ganzen Abend abgedeckt, vom ruhigen Drink auf der Terrasse bis zum Tor, das vor der Leinwand gefeiert wird.</p><h2>Welche Wettbewerbe man sehen kann und wie man den Spielplan erfährt</h2><p>Die Idee ist einfach: <strong>Große Sportevents</strong> genießt man am besten auf der Großbildleinwand. Das heißt:</p><ul><li><strong>Fußball</strong>: Topspiele der LaLiga und Premier League sowie die <strong>Champions-League</strong>-Duelle, dazu Finals und große Länderspiele.</li><li><strong>Formel 1</strong>: die meistgesehenen Grands Prix der Saison.</li><li><strong>Weitere Großevents</strong>: Finals und Topspiele, die die Fans bewegen, besonders in der Sommerhochsaison.</li></ul><p>Nicht jedes Spiel des Spieltags wird gezeigt: Die Locations priorisieren die Partien mit der größten Zugkraft. Am schlausten ist es daher, <strong>vorher zu prüfen, was übertragen wird</strong>. Am zuverlässigsten erfährst du den Spielplan und ob dein Spiel läuft über die offiziellen Social-Media-Kanäle von <a href="/outxide">Outxide</a> oder indem du das Lokal direkt anschreibst. Wenn du nach dem Schlusspfiff noch Lust auf mehr hast, wirf einen Blick in unseren <a href="/blog/plan-nocturno-port-alcudia-mallorca">Guide für den perfekten Abend in Port d'Alcúdia</a>, um Spiel und Party zu verbinden.</p><h2>Tisch oder Gruppe für die großen Spiele reservieren</h2><p>Bei einem großen Spiel wird es voll. Wenn ihr in einer Gruppe kommt oder gute Sicht auf die Leinwand sichern wollt, solltet ihr am besten <strong>im Voraus reservieren</strong>. Im Outxide kannst du Tickets und reservierte Bereiche online über FourVenues buchen, was dir Tisch und VIP-Service sichert, ohne auf freien Platz bei Ankunft angewiesen zu sein. Der Club ist ab 18 Jahren und öffnet Donnerstag bis Samstag ab 23:00 Uhr; für Sportevents zu anderen Zeiten bitte immer vorher bestätigen.</p><p>Ein guter Tisch macht bei den großen Abenden den Unterschied: Ein Champions-League-Finale oder ein Derby mit voller Terrasse und vollem Club genießt man mit gesichertem Platz viel mehr. Wir haben es beim letzten großen Länderspiel-Anlass erlebt, wie wir in unserem Rückblick auf die <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">Feier von Spaniens Titel im Outxide</a> beschreiben: Wenn das Spiel historisch ist, heben die Großbildleinwand und die Club-Atmosphäre alles auf ein neues Level.</p><h2>Vorher essen: mit vollem Magen ankommen</h2><p>Ein Abendspiel verlangt nach einem guten Abendessen vorab. Am Hafen gibt es Tische für jeden Geschmack — Reisgerichte, Grill, internationale Küche —; unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> hilft bei der Wahl. Reserviere in der Hochsaison rechtzeitig, und du kommst schon gesättigt zur Großbildleinwand, ohne Eile und Schlangen.</p><p>Die Logistik ist bequem: entspannt am Hafen essen und dann in die Gegend der Av. Tucán zum Spiel. So verbindest du <strong>Abendessen, Sport und Nachtleben</strong> in einem sehr kleinen Radius — kaum ein Ort im Norden Mallorcas macht das so einfach.</p><h2>Die entspannte Alternative zu Magaluf und dem Ballermann</h2><p>Gegenüber dem Trubel von Magaluf oder der Playa de Palma bietet Port d'Alcúdia ein gepflegteres Sport-Erlebnis: große Leinwand, gute Cocktails und ein internationales Publikum (spanisch, englisch, deutsch, französisch und italienisch), ohne auf die Party zu verzichten. Wenn du die Gegend über das Spiel hinaus auskosten willst, helfen dir unsere Guides zum <a href="/blog/guia-vida-nocturna-alcudia">Nachtleben in Alcúdia</a> und zu <a href="/blog/que-hacer-alcudia-mallorca">Aktivitäten in Alcúdia</a>.</p><p>Kurz gesagt: Um in <strong>Alcúdia Fußball</strong> auf der Großbildleinwand zu schauen, davor vom Grill zu essen und danach zu feiern, macht es das Duo Enjoy–Outxide leicht. Bestätige, welches Spiel übertragen wird, reserviere deinen Tisch und genieße den Sport, wie er es verdient.</p>`,
+      fr: `<p>En vacances dans le nord de Majorque et tu ne veux pas rater ce match décisif ? À Port d'Alcúdia, tu peux voir le <strong>football et le sport en direct</strong> dans une bonne ambiance, avec des cocktails de qualité et un écran géant qui transforme n'importe quel match en vraie soirée. Que ce soit la Liga, la Premier League, un choc de Ligue des Champions ou une course de Formule 1, ce guide evergreen te dit où le voir et comment t'organiser pour ne pas te retrouver sans place.</p><h2>Écran géant à l'Outxide et terrasse à l'Enjoy</h2><p>La référence pour voir le sport en grand dans le secteur, c'est <a href="/outxide">Outxide Club</a>, Av. Tucán 1. Son <strong>écran géant</strong> est pensé pour les grands événements sportifs : l'image se voit depuis presque tous les points du club, et l'ambiance de discothèque (avec DJ avant et après) fait vivre un grand match comme un véritable événement. C'est le meilleur plan si tu cherches quelque chose comme un <strong>sports bar à Alcudia</strong> mais avec l'énergie d'un club.</p><p>Au même emplacement se trouve <a href="/enjoy">Enjoy Terrace</a>, ouvert tous les jours dès 17h00. C'est l'option plus détendue : cocktails signature et chicha premium en terrasse, idéal pour arriver tôt, profiter du plus beau coucher de soleil et se chauffer avant un match du soir. Entre les deux espaces, tu couvres toute la soirée, du verre tranquille en terrasse au but célébré devant l'écran.</p><h2>Quelles compétitions voir et comment connaître le calendrier</h2><p>L'idée est simple : les <strong>grands événements sportifs</strong> sont ceux qui se savourent le mieux sur écran géant. C'est-à-dire :</p><ul><li><strong>Football</strong> : les affiches de la Liga et de la Premier League et les chocs de <strong>Ligue des Champions</strong>, ainsi que les finales et les grands matchs de sélections.</li><li><strong>Formule 1</strong> : les grands prix les plus suivis de la saison.</li><li><strong>Autres grands événements</strong> : finales et matchs marquants qui font vibrer les supporters, surtout en haute saison estivale.</li></ul><p>Tous les matchs de la journée ne sont pas diffusés : les établissements privilégient les rencontres les plus attractives. Le plus malin est donc de <strong>vérifier à l'avance ce qui sera projeté</strong>. Le moyen le plus fiable de connaître le calendrier et de savoir si ton match passe est de consulter les réseaux officiels d'<a href="/outxide">Outxide</a> ou d'écrire directement au club. Si tu as encore de l'énergie après le coup de sifflet final, jette un œil à notre <a href="/blog/plan-nocturno-port-alcudia-mallorca">guide de la soirée parfaite à Port d'Alcúdia</a> pour enchaîner match et fête.</p><h2>Réserver une table ou un groupe pour les grands matchs</h2><p>Quand il y a un grand match, ça se remplit vite. Si vous venez en groupe ou voulez garantir une bonne visibilité de l'écran, mieux vaut <strong>réserver à l'avance</strong>. À l'Outxide, tu peux gérer les entrées et les carrés VIP en ligne via FourVenues, ce qui t'assure une table et un service VIP sans dépendre de la place disponible à l'arrivée. Rappelle-toi que le club est réservé aux plus de 18 ans et ouvre du jeudi au samedi dès 23h00 ; pour les événements sportifs à d'autres horaires, confirme toujours au préalable.</p><p>Un bon carré fait toute la différence lors des grands rendez-vous : une finale de Ligue des Champions ou un derby avec la terrasse et le club pleins se savourent bien mieux avec sa place garantie. Nous l'avons vécu lors du dernier grand rendez-vous des sélections, comme raconté dans notre récap de la <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">célébration du titre de l'Espagne à l'Outxide</a> : quand le match est historique, l'écran géant et l'ambiance de club subliment tout.</p><h2>Dîner avant le match : arriver le ventre plein</h2><p>Un match en soirée appelle un bon dîner au préalable. Le port offre des tables pour tous les goûts — riz, braise, cuisine internationale — ; notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> vous aidera à choisir. Réservez à l'avance en haute saison et vous arriverez devant l'écran géant déjà rassasié, sans hâte ni files.</p><p>La logistique est simple : dînez tranquillement au port, puis rejoignez le secteur de l'Av. Tucán pour le match. Vous enchaînez ainsi <strong>dîner, sport et soirée</strong> dans un rayon très réduit — peu d'endroits du nord de Majorque rendent cela aussi facile.</p><h2>L'alternative tranquille à Magaluf et au Ballermann</h2><p>Face à la foule de Magaluf ou de Playa de Palma, Port d'Alcúdia propose une façon plus soignée de voir le sport : grand écran, bons cocktails et une clientèle internationale (espagnole, anglaise, allemande, française et italienne) sans renoncer à la fête. Pour profiter du secteur au-delà du match, nos guides de la <a href="/blog/guia-vida-nocturna-alcudia">vie nocturne à Alcúdia</a> et des <a href="/blog/que-hacer-alcudia-mallorca">choses à faire à Alcúdia</a> t'aideront.</p><p>En bref : pour <strong>voir le football à Alcúdia</strong> sur écran géant, dîner à la braise avant et faire la fête après, le tandem Enjoy–Outxide rend tout facile. Confirme quel match est diffusé, réserve ta table et profite du sport comme il se doit.</p>`,
+      it: `<p>In vacanza nel nord di Maiorca e non vuoi perderti quella partita decisiva? A Port d'Alcúdia puoi vedere <strong>calcio e sport in diretta</strong> con una bella atmosfera, cocktail di qualità e un maxischermo che trasforma qualsiasi partita in una vera serata. Che si tratti di LaLiga, Premier League, un incrocio di Champions League o un Gran Premio di Formula 1, questa guida evergreen ti dice dove vederlo e come organizzarti per non restare senza posto.</p><h2>Maxischermo all'Outxide e terrazza all'Enjoy</h2><p>Il punto di riferimento per vedere lo sport in grande nella zona è <a href="/outxide">Outxide Club</a>, in Av. Tucán 1. Il suo <strong>maxischermo</strong> è pensato per i grandi eventi sportivi: l'immagine si vede praticamente da ogni punto del locale e l'atmosfera da club (con DJ prima e dopo) fa vivere una partita importante come un vero evento. È il piano migliore se cerchi qualcosa di simile a uno <strong>sports bar ad Alcudia</strong> ma con l'energia di una discoteca.</p><p>Nella stessa posizione trovi <a href="/enjoy">Enjoy Terrace</a>, aperto tutti i giorni dalle 17:00. È l'opzione più rilassata: cocktail d'autore e shisha premium in terrazza, ideale per arrivare presto, godersi il miglior tramonto e scaldarsi prima di una partita serale. Tra i due spazi copri tutta la serata, dal drink tranquillo in terrazza al gol festeggiato davanti allo schermo.</p><h2>Quali competizioni si possono vedere e come conoscere il calendario</h2><p>L'idea è semplice: i <strong>grandi eventi sportivi</strong> sono quelli che si godono meglio sul maxischermo. Cioè:</p><ul><li><strong>Calcio</strong>: le partite di punta di LaLiga e Premier League e gli incroci di <strong>Champions League</strong>, oltre a finali e grandi sfide delle nazionali.</li><li><strong>Formula 1</strong>: i Gran Premi più seguiti della stagione.</li><li><strong>Altri grandi eventi</strong>: finali e partite di rilievo che fanno muovere i tifosi, soprattutto in alta stagione estiva.</li></ul><p>Non tutte le partite della giornata vengono trasmesse: i locali danno priorità agli incontri di maggiore richiamo. Perciò la mossa più furba è <strong>verificare in anticipo cosa verrà proiettato</strong>. Il modo più affidabile per conoscere il calendario e sapere se trasmettono la tua partita è consultare i canali social ufficiali di <a href="/outxide">Outxide</a> o scrivere direttamente al locale. Se dopo il fischio finale hai ancora voglia di continuare, dai un'occhiata alla nostra <a href="/blog/plan-nocturno-port-alcudia-mallorca">guida alla serata perfetta a Port d'Alcúdia</a> per unire partita e festa.</p><h2>Prenotare tavolo o gruppo per le partite importanti</h2><p>Quando c'è una partita importante, il locale si riempie. Se venite in gruppo o volete garantirvi una buona visuale dello schermo, la cosa migliore è <strong>prenotare in anticipo</strong>. All'Outxide puoi gestire biglietti e tavoli riservati online tramite FourVenues, così assicuri tavolo e servizio VIP senza dipendere dallo spazio disponibile all'arrivo. Ricorda che il club è per maggiori di 18 anni e apre dal giovedì al sabato dalle 23:00; per eventi sportivi in altri orari, conferma sempre prima.</p><p>Un buon tavolo riservato fa la differenza nelle grandi serate: una finale di Champions o un derby con terrazza e club pieni si godono molto di più con il posto garantito. Lo abbiamo vissuto nell'ultimo grande appuntamento delle nazionali, come raccontiamo nel resoconto della <a href="/blog/espana-campeona-mundial-2026-outxide-alcudia">festa per il titolo della Spagna all'Outxide</a>: quando la partita è storica, il maxischermo e l'atmosfera da club elevano tutto.</p><h2>Cena prima della partita: arriva a stomaco pieno</h2><p>Una partita serale chiede una buona cena prima. Al porto ci sono tavoli per tutti i gusti — risi, brace, cucina internazionale —; la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> ti aiuta a scegliere. Prenota in anticipo in alta stagione e arriverai al maxischermo già cenato, senza fretta né code.</p><p>La logistica è comoda: cenate con calma al porto e poi vi spostate nella zona di Av. Tucán per la partita. Così concateni <strong>cena, sport e notte</strong> in un raggio molto piccolo, cosa che in pochi posti del nord di Maiorca è così facile.</p><h2>L'alternativa tranquilla a Magaluf e al Ballermann</h2><p>Rispetto alla ressa di Magaluf o Playa de Palma, Port d'Alcúdia offre un modo più curato di vedere lo sport: schermo grande, buoni cocktail e un pubblico internazionale (spagnolo, inglese, tedesco, francese e italiano) senza rinunciare alla festa. Se vuoi sfruttare la zona oltre la partita, ti aiutano le nostre guide alla <a href="/blog/guia-vida-nocturna-alcudia">vita notturna ad Alcúdia</a> e alle <a href="/blog/que-hacer-alcudia-mallorca">cose da fare ad Alcúdia</a>.</p><p>In sintesi: per <strong>vedere il calcio ad Alcúdia</strong> con il maxischermo, cena alla brace prima e festa dopo, il tandem Enjoy–Outxide rende tutto semplice. Conferma quale partita viene trasmessa, prenota il tuo tavolo e goditi lo sport come merita.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-07-15",
+    updated: "2026-08-29",
     image: "/images/outxide/668998962_1705308414205492_561026873108522450_n.jpg",
     tags: ["ver futbol alcudia", "where to watch football mallorca", "pantalla gigante alcudia", "deporte en directo mallorca", "outxide club"],
     venue: "outxide",
@@ -237,11 +238,11 @@ export const blogPosts: BlogPost[] = [
           it: "Dove posso cenare prima della partita?",
         },
         answer: {
-          es: "En Hiru Food & Drinks, restaurante a la brasa en Ctra. d'Artà 40, con carnes dry-aged y arroces. Reservas por Restoo y luego te acercas a la zona de Av. Tucán para ver el partido.",
-          en: "At Hiru Food & Drinks, a grill restaurant on Ctra. d'Artà 40, with dry-aged meats and rice dishes. Book through Restoo and then head to the Av. Tucán area to watch the match.",
-          de: "Im Hiru Food & Drinks, einem Grillrestaurant in der Ctra. d'Artà 40, mit dry-aged Fleisch und Reisgerichten. Über Restoo reservieren und dann in die Gegend der Av. Tucán zum Spiel gehen.",
-          fr: "Chez Hiru Food & Drinks, restaurant à la braise Ctra. d'Artà 40, avec viandes dry-aged et riz. Réserve via Restoo puis rejoins le secteur de l'Av. Tucán pour voir le match.",
-          it: "Da Hiru Food & Drinks, ristorante alla brace in Ctra. d'Artà 40, con carni dry-aged e risotti. Prenota tramite Restoo e poi raggiungi la zona di Av. Tucán per vedere la partita.",
+          es: "En cualquiera de los restaurantes del puerto: reserva con antelación en temporada alta y luego acércate a la zona de Av. Tucán para ver el partido. Nuestra guía de restaurantes de Alcúdia te ayuda a elegir.",
+          en: "At any of the restaurants by the port: book ahead in high season and then head to the Av. Tucán area to watch the match. Our guide to restaurants in Alcúdia will help you choose.",
+          de: "In einem der Restaurants am Hafen: In der Hochsaison rechtzeitig reservieren und dann in die Gegend der Av. Tucán zum Spiel gehen. Unser Restaurant-Guide für Alcúdia hilft bei der Wahl.",
+          fr: "Dans l'un des restaurants du port : réservez à l'avance en haute saison, puis rejoignez le secteur de l'Av. Tucán pour voir le match. Notre guide des restaurants d'Alcúdia vous aidera à choisir.",
+          it: "In uno dei ristoranti del porto: prenota in anticipo in alta stagione e poi raggiungi la zona di Av. Tucán per vedere la partita. La nostra guida ai ristoranti di Alcúdia ti aiuta a scegliere.",
         },
       },
     ],
@@ -263,14 +264,15 @@ export const blogPosts: BlogPost[] = [
       it: "Confronto onesto tra la vita notturna del sud (Ballermann, Magaluf) e il nord di Maiorca, e com'è la serata perfetta a Port d'Alcúdia senza ressa.",
     },
     content: {
-      es: `<p>Mallorca no es una sola isla de fiesta. Cuando alguien piensa en salir de noche, casi siempre le vienen a la cabeza el <strong>Ballermann</strong> de la Playa de Palma o el bullicio de <strong>Magaluf</strong>. Pero hay otra Mallorca, la del norte, donde se puede disfrutar de una gran noche sin colas interminables, sin gritos y sin sentir que estás en una atracción de feria. Si buscas una <strong>alternativa al Ballermann en el norte de Mallorca</strong>, Port d'Alcúdia es la respuesta. Aquí te lo contamos con honestidad, sin vender humo.</p><h2>Qué ofrece cada zona: sur vs. norte</h2><p>Ninguna zona es mejor en abstracto; depende de lo que busques. El sur tiene un tipo de fiesta y el norte otro. Esta es la comparación sincera:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> ambiente alemán muy marcado, música schlager, cerveza a litros, mega-discotecas y una fiesta que empieza de día y no para. Muy divertido si quieres desfase absoluto, pero también masificación, ruido constante y precios de zona turística intensiva.</li><li><strong>Magaluf:</strong> el clásico destino británico de despedidas y turismo joven. Bares de shots, pub crawls, mucho volumen. Energía altísima, pero también aglomeración y un ambiente que no todo el mundo busca.</li><li><strong>Port d'Alcúdia / norte:</strong> ocio nocturno de calidad a escala humana. Cocteles de autor, buena gastronomía, discoteca con DJs internacionales y ambiente internacional (alemán, británico, francés, italiano y español) sin la sensación de estar en una lata de sardinas. Ideal para quien quiere salir bien, no solo salir mucho.</li></ul><h2>Por qué elegir el norte para salir sin masificación</h2><p>El norte de Mallorca ha crecido como destino precisamente para el viajero que quiere ambiente pero valora su espacio. En Alcúdia encuentras playas enormes de arena fina, un casco histórico medieval y una oferta nocturna que ha subido mucho de nivel en los últimos años. Puedes tomar un cóctel viendo el atardecer, cenar sin prisas y acabar bailando, todo en la misma zona y a pocos minutos a pie. Si además quieres ideas para el resto del día, echa un vistazo a <a href="/blog/que-hacer-alcudia-mallorca">qué hacer en Alcúdia</a>.</p><p>La clave es la <strong>calidad frente a la cantidad</strong>: en lugar de mega-locales de miles de personas, aquí prima el servicio, la coctelería cuidada, la buena mesa y una pista donde suena buena música sin perder el trato cercano. Si quieres profundizar, tenemos una guía completa en <a href="/blog/guia-vida-nocturna-alcudia">vida nocturna de Alcúdia</a> y una panorámica de toda la isla en <a href="/blog/vida-nocturna-mallorca-guia">vida nocturna de Mallorca</a>.</p><h2>La noche tipo en Port d'Alcúdia</h2><p>Así es como muchos visitantes montan su noche perfecta con los tres locales de Grupo Enjoy, todos en Port d'Alcúdia.</p><h3>1. Cena a la brasa en Hiru</h3><p>Empieza con producto de verdad. En <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40) la cocina gira en torno a la brasa: carnes maduradas dry-aged, paella de marisco, arroces y pescado fresco, con terraza para cenar tranquilo. Su lema lo resume: producto, tradición, sabor. Reserva a través de Restoo para asegurar mesa en temporada alta.</p><h3>2. Cóctel y atardecer en Enjoy Terrace</h3><p>Después, cruza a la Av. Tucán 1 y sube el ritmo con calma en <a href="/enjoy">Enjoy Terrace</a>. Cócteles de autor y shisha premium en una terraza pensada para el mejor atardecer del Port. Abre a diario desde las 17:00 y su lema, "Where nights begin", no es casualidad: es el punto de partida perfecto antes de la fiesta.</p><h3>3. Club hasta tarde en Outxide</h3><p>Cuando cae la noche, la fiesta continúa en el mismo edificio. <a href="/outxide">Outxide Club</a> (Av. Tucán 1) es la discoteca de referencia del norte: techno, house y reggaetón, DJs internacionales, servicio VIP y reservados. Abre de jueves a sábado desde las 23:00, es solo para mayores de 18 y puedes sacar entradas y reservar mesa online en FourVenues. Su lema lo dice todo: "The night continues". Además tiene pantalla gigante para grandes eventos deportivos.</p><h2>Entonces, ¿norte o sur?</h2><p>Si tu plan ideal es fiesta extrema, precios bajos y no dormir, el sur cumple. Pero si quieres una noche redonda (buena cena, buen cóctel, buena música) en un entorno cuidado y sin masificación, el norte gana por goleada. Port d'Alcúdia te da todo eso a pocos metros de la playa y con un ambiente internacional relajado. Es, sencillamente, la mejor <strong>alternativa al Ballermann y a Magaluf</strong> para quien quiere salir sin renunciar a la calidad.</p>`,
-      en: `<p>Majorca is not a single party island. When people think about going out, the first things that come to mind are usually the <strong>Ballermann</strong> in Playa de Palma or the buzz of <strong>Magaluf</strong>. But there is another Majorca, the north, where you can enjoy a great night out without endless queues, without the shouting and without feeling like you are inside a fairground ride. If you are looking for a <strong>quieter alternative to the Ballermann in northern Majorca</strong>, Port d'Alcúdia is the answer. Here is our honest take, no hype.</p><h2>What each area offers: south vs. north</h2><p>Neither area is better in the abstract; it depends on what you want. The south delivers one kind of party, the north another. Here is the honest comparison:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> a very strong German scene, schlager music, beer by the litre, mega-clubs and a party that starts in daylight and never stops. Great fun if you want total mayhem, but also huge crowds, constant noise and intense-tourist-zone prices.</li><li><strong>Magaluf:</strong> the classic British destination for stag and hen dos and young travellers. Shot bars, pub crawls, high volume. Massive energy, but also crowds and a vibe that is not for everyone.</li><li><strong>Port d'Alcúdia / north:</strong> quality nightlife on a human scale. Signature cocktails, good food, a club with international DJs and an international crowd (German, British, French, Italian and Spanish) without feeling packed like sardines. Ideal for people who want to go out well, not just go out a lot.</li></ul><h2>Why choose the north for nightlife without the crowds</h2><p>Northern Majorca has grown as a destination precisely for the traveller who wants atmosphere but values their space. In Alcúdia you find huge fine-sand beaches, a medieval old town and a nightlife scene that has raised its game in recent years. You can enjoy a cocktail watching the sunset, have a relaxed dinner and end up dancing, all in the same area and just a few minutes on foot. For daytime ideas too, take a look at <a href="/blog/que-hacer-alcudia-mallorca">what to do in Alcúdia</a>.</p><p>The key is <strong>quality over quantity</strong>: instead of mega-venues holding thousands, here the focus is on service, careful mixology, good food and a dancefloor with great music that keeps a personal touch. To dig deeper, see our full guide to <a href="/blog/guia-vida-nocturna-alcudia">Alcúdia nightlife</a> and our island-wide overview of <a href="/blog/vida-nocturna-mallorca-guia">Majorca nightlife</a>.</p><h2>A typical night in Port d'Alcúdia</h2><p>This is how many visitors build their perfect night with the three Grupo Enjoy venues, all in Port d'Alcúdia.</p><h3>1. Grilled dinner at Hiru</h3><p>Start with real produce. At <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40) the kitchen revolves around the grill: dry-aged matured meats, seafood paella, rice dishes and fresh fish, with a terrace for a relaxed dinner. Its motto sums it up: produce, tradition, flavour. Book through Restoo to secure a table in high season.</p><h3>2. Cocktails and sunset at Enjoy Terrace</h3><p>Next, cross to Av. Tucán 1 and ease into the evening at <a href="/enjoy">Enjoy Terrace</a>. Signature cocktails and premium shisha on a terrace made for the best sunset in the Port. Open daily from 5:00 pm, and its motto, "Where nights begin", is no accident: it is the perfect launchpad before the party.</p><h3>3. Late-night clubbing at Outxide</h3><p>When night falls, the party continues in the same building. <a href="/outxide">Outxide Club</a> (Av. Tucán 1) is the north's leading club: techno, house and reggaeton, international DJs, VIP service and private tables. Open Thursday to Saturday from 11:00 pm, over-18s only, with tickets and table bookings online via FourVenues. Its motto says it all: "The night continues". It also has a giant screen for major sporting events.</p><h2>So, north or south?</h2><p>If your ideal plan is extreme partying, low prices and no sleep, the south delivers. But if you want a complete night (good dinner, good cocktail, good music) in a well-cared-for setting without the crowds, the north wins hands down. Port d'Alcúdia gives you all of that a few metres from the beach with a relaxed international atmosphere. It is, quite simply, the best <strong>alternative to the Ballermann and Magaluf</strong> for anyone who wants to go out without giving up on quality.</p>`,
-      de: `<p>Mallorca ist nicht nur eine einzige Partyinsel. Wenn man ans Ausgehen denkt, kommen einem meist zuerst der <strong>Ballermann</strong> an der Playa de Palma oder der Trubel von <strong>Magaluf</strong> in den Sinn. Doch es gibt ein anderes Mallorca, den Norden, wo man eine großartige Nacht genießen kann, ohne endlose Schlangen, ohne Gebrüll und ohne das Gefühl, in einem Rummelplatz zu stecken. Wenn du eine <strong>ruhigere Alternative zum Ballermann im Norden Mallorcas</strong> suchst, ist Port d'Alcúdia die Antwort. Hier unsere ehrliche Einschätzung, ganz ohne leere Versprechen.</p><h2>Was jede Zone bietet: Süden vs. Norden</h2><p>Keine Zone ist grundsätzlich besser; es hängt davon ab, was du suchst. Der Süden bietet die eine Art Party, der Norden die andere. Hier der ehrliche Vergleich:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> sehr deutsch geprägte Stimmung, Schlagermusik, Bier literweise, Mega-Discos und eine Party, die schon tagsüber beginnt und nicht aufhört. Riesig viel Spaß, wenn du den totalen Ausnahmezustand willst, aber auch Massenandrang, ständiger Lärm und Preise einer intensiven Touristenzone.</li><li><strong>Magaluf:</strong> das klassische britische Ziel für Junggesellenabschiede und junge Reisende. Shot-Bars, Pub-Crawls, hohe Lautstärke. Enorme Energie, aber auch Gedränge und eine Atmosphäre, die nicht jedem liegt.</li><li><strong>Port d'Alcúdia / Norden:</strong> hochwertiges Nachtleben auf menschlichem Maßstab. Signature-Cocktails, gute Gastronomie, ein Club mit internationalen DJs und internationalem Publikum (deutsch, britisch, französisch, italienisch und spanisch), ohne wie Sardinen zusammengepfercht zu sein. Ideal für alle, die gut ausgehen wollen, nicht nur viel.</li></ul><h2>Warum der Norden für Nachtleben ohne Massen</h2><p>Der Norden Mallorcas ist gerade für den Reisenden gewachsen, der Atmosphäre will, aber seinen Freiraum schätzt. In Alcúdia findest du riesige feinsandige Strände, eine mittelalterliche Altstadt und ein Nachtleben, das in den letzten Jahren deutlich an Niveau gewonnen hat. Du kannst einen Cocktail beim Sonnenuntergang genießen, in Ruhe zu Abend essen und schließlich tanzen gehen, alles in derselben Zone und wenige Gehminuten entfernt. Wenn du auch Ideen für den Tag suchst, wirf einen Blick auf <a href="/blog/que-hacer-alcudia-mallorca">was man in Alcúdia unternehmen kann</a>.</p><p>Der Schlüssel ist <strong>Qualität statt Quantität</strong>: Statt Mega-Locations für Tausende stehen hier Service, sorgfältige Cocktailkunst, gute Küche und eine Tanzfläche mit guter Musik und persönlicher Note im Vordergrund. Wenn du tiefer einsteigen möchtest, haben wir einen kompletten Guide zum <a href="/blog/guia-vida-nocturna-alcudia">Nachtleben von Alcúdia</a> und einen Überblick über die ganze Insel im <a href="/blog/vida-nocturna-mallorca-guia">Nachtleben von Mallorca</a>.</p><h2>Eine typische Nacht in Port d'Alcúdia</h2><p>So bauen sich viele Besucher ihre perfekte Nacht mit den drei Locations von Grupo Enjoy auf, alle in Port d'Alcúdia.</p><h3>1. Abendessen vom Grill im Hiru</h3><p>Beginne mit echtem Produkt. Im <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40) dreht sich die Küche um den Grill: dry-aged gereifte Fleischsorten, Meeresfrüchte-Paella, Reisgerichte und frischer Fisch, mit Terrasse für ein entspanntes Abendessen. Das Motto bringt es auf den Punkt: Produkt, Tradition, Geschmack. Reserviere über Restoo, um in der Hochsaison einen Tisch zu sichern.</p><h3>2. Cocktail und Sonnenuntergang im Enjoy Terrace</h3><p>Danach geht es zur Av. Tucán 1, wo du im <a href="/enjoy">Enjoy Terrace</a> gemächlich das Tempo steigerst. Signature-Cocktails und Premium-Shisha auf einer Terrasse, gemacht für den schönsten Sonnenuntergang im Port. Täglich ab 17:00 Uhr geöffnet, und das Motto "Where nights begin" ist kein Zufall: der perfekte Startpunkt vor der Party.</p><h3>3. Club bis spät im Outxide</h3><p>Wenn die Nacht hereinbricht, geht die Party im selben Gebäude weiter. <a href="/outxide">Outxide Club</a> (Av. Tucán 1) ist der führende Club des Nordens: Techno, House und Reggaeton, internationale DJs, VIP-Service und reservierte Bereiche. Geöffnet von Donnerstag bis Samstag ab 23:00 Uhr, nur für Personen ab 18 Jahren, mit Tickets und Tischreservierung online über FourVenues. Das Motto sagt alles: "The night continues". Außerdem gibt es eine Großleinwand für große Sportevents.</p><h2>Also, Norden oder Süden?</h2><p>Wenn dein Idealplan extremes Feiern, niedrige Preise und kein Schlaf ist, liefert der Süden. Aber wenn du eine runde Nacht willst (gutes Essen, guter Cocktail, gute Musik) in einem gepflegten Umfeld ohne Massen, gewinnt der Norden haushoch. Port d'Alcúdia bietet dir all das wenige Meter vom Strand entfernt, mit entspannter internationaler Atmosphäre. Es ist schlichtweg die beste <strong>Alternative zum Ballermann und zu Magaluf</strong> für alle, die ausgehen wollen, ohne auf Qualität zu verzichten.</p>`,
-      fr: `<p>Majorque n'est pas qu'une seule île de fête. Quand on pense à sortir le soir, ce sont surtout le <strong>Ballermann</strong> de la Playa de Palma ou l'effervescence de <strong>Magaluf</strong> qui viennent à l'esprit. Mais il existe une autre Majorque, celle du nord, où l'on peut passer une superbe soirée sans files interminables, sans cris et sans avoir l'impression d'être dans une fête foraine. Si tu cherches une <strong>alternative plus tranquille au Ballermann dans le nord de Majorque</strong>, Port d'Alcúdia est la réponse. Voici notre avis honnête, sans esbroufe.</p><h2>Ce que chaque zone propose : sud vs. nord</h2><p>Aucune zone n'est meilleure dans l'absolu ; tout dépend de ce que tu recherches. Le sud offre un type de fête, le nord un autre. Voici la comparaison sincère :</p><ul><li><strong>Playa de Palma / Ballermann :</strong> ambiance très allemande, musique schlager, bière au litre, méga-discothèques et une fête qui commence en plein jour et ne s'arrête jamais. Très amusant si tu veux le débordement total, mais aussi foule immense, bruit constant et prix de zone touristique intensive.</li><li><strong>Magaluf :</strong> la destination britannique classique des enterrements de vie de garçon et de jeune fille et du tourisme jeune. Bars à shots, pub crawls, gros volume. Énergie énorme, mais aussi cohue et une ambiance qui ne convient pas à tout le monde.</li><li><strong>Port d'Alcúdia / nord :</strong> une vie nocturne de qualité à échelle humaine. Cocktails signature, bonne gastronomie, une discothèque avec des DJ internationaux et un public international (allemand, britannique, français, italien et espagnol) sans être serré comme des sardines. Idéal pour ceux qui veulent bien sortir, pas seulement sortir beaucoup.</li></ul><h2>Pourquoi choisir le nord pour sortir sans la foule</h2><p>Le nord de Majorque s'est développé précisément pour le voyageur qui veut de l'ambiance mais tient à son espace. À Alcúdia, tu trouves d'immenses plages de sable fin, une vieille ville médiévale et une offre nocturne qui a beaucoup monté en gamme ces dernières années. Tu peux prendre un cocktail face au coucher de soleil, dîner sans te presser et finir en dansant, le tout dans la même zone et à quelques minutes à pied. Pour des idées de journée, jette aussi un œil à <a href="/blog/que-hacer-alcudia-mallorca">que faire à Alcúdia</a>.</p><p>La clé, c'est la <strong>qualité plutôt que la quantité</strong> : au lieu de méga-établissements de plusieurs milliers de personnes, ici priment le service, la mixologie soignée, la bonne table et une piste où l'on passe de la bonne musique sans perdre le contact humain. Pour aller plus loin, consulte notre guide complet de la <a href="/blog/guia-vida-nocturna-alcudia">vie nocturne d'Alcúdia</a> et notre panorama de toute l'île sur la <a href="/blog/vida-nocturna-mallorca-guia">vie nocturne de Majorque</a>.</p><h2>Une soirée type à Port d'Alcúdia</h2><p>Voici comment de nombreux visiteurs organisent leur soirée parfaite avec les trois établissements de Grupo Enjoy, tous à Port d'Alcúdia.</p><h3>1. Dîner à la braise chez Hiru</h3><p>Commence par du vrai produit. Chez <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40), la cuisine tourne autour de la braise : viandes maturées dry-aged, paella de fruits de mer, riz et poisson frais, avec une terrasse pour dîner tranquillement. Sa devise résume tout : produit, tradition, saveur. Réserve via Restoo pour assurer une table en haute saison.</p><h3>2. Cocktail et coucher de soleil à l'Enjoy Terrace</h3><p>Ensuite, traverse jusqu'à l'Av. Tucán 1 et monte doucement en régime à l'<a href="/enjoy">Enjoy Terrace</a>. Cocktails signature et chicha premium sur une terrasse pensée pour le plus beau coucher de soleil du Port. Ouvert tous les jours dès 17h00, et sa devise, "Where nights begin", n'est pas un hasard : c'est le point de départ parfait avant la fête.</p><h3>3. Club jusqu'au bout de la nuit à l'Outxide</h3><p>Quand la nuit tombe, la fête continue dans le même bâtiment. L'<a href="/outxide">Outxide Club</a> (Av. Tucán 1) est la discothèque de référence du nord : techno, house et reggaeton, DJ internationaux, service VIP et carrés privés. Ouvert du jeudi au samedi dès 23h00, réservé aux plus de 18 ans, avec billets et réservation de table en ligne via FourVenues. Sa devise dit tout : "The night continues". Il dispose aussi d'un écran géant pour les grands événements sportifs.</p><h2>Alors, nord ou sud ?</h2><p>Si ton plan idéal, c'est la fête extrême, les prix bas et zéro sommeil, le sud fait le job. Mais si tu veux une soirée réussie de bout en bout (bon dîner, bon cocktail, bonne musique) dans un cadre soigné et sans la foule, le nord gagne haut la main. Port d'Alcúdia t'offre tout cela à quelques mètres de la plage, avec une ambiance internationale détendue. C'est, tout simplement, la meilleure <strong>alternative au Ballermann et à Magaluf</strong> pour qui veut sortir sans renoncer à la qualité.</p>`,
-      it: `<p>Maiorca non è una sola isola della festa. Quando si pensa a uscire la sera, la prima cosa che viene in mente sono di solito il <strong>Ballermann</strong> di Playa de Palma o il fermento di <strong>Magaluf</strong>. Ma c'è un'altra Maiorca, quella del nord, dove si può godere di una gran serata senza code interminabili, senza urla e senza sentirsi dentro un luna park. Se cerchi un'<strong>alternativa più tranquilla al Ballermann nel nord di Maiorca</strong>, Port d'Alcúdia è la risposta. Ecco il nostro parere onesto, senza fumo negli occhi.</p><h2>Cosa offre ciascuna zona: sud vs. nord</h2><p>Nessuna zona è migliore in assoluto; dipende da cosa cerchi. Il sud offre un tipo di festa, il nord un altro. Ecco il confronto sincero:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> atmosfera molto tedesca, musica schlager, birra a litri, mega-discoteche e una festa che comincia di giorno e non si ferma mai. Divertentissimo se vuoi lo sballo totale, ma anche folla enorme, rumore continuo e prezzi da zona turistica intensiva.</li><li><strong>Magaluf:</strong> la classica meta britannica per addii al celibato e al nubilato e turismo giovane. Bar di shot, pub crawl, volume altissimo. Energia enorme, ma anche ressa e un'atmosfera che non è per tutti.</li><li><strong>Port d'Alcúdia / nord:</strong> vita notturna di qualità a misura d'uomo. Cocktail d'autore, buona gastronomia, una discoteca con DJ internazionali e un pubblico internazionale (tedesco, britannico, francese, italiano e spagnolo) senza essere stipati come sardine. Ideale per chi vuole uscire bene, non solo uscire tanto.</li></ul><h2>Perché scegliere il nord per uscire senza ressa</h2><p>Il nord di Maiorca è cresciuto proprio per il viaggiatore che vuole atmosfera ma tiene ai propri spazi. Ad Alcúdia trovi enormi spiagge di sabbia fine, un centro storico medievale e un'offerta notturna che negli ultimi anni ha alzato molto il livello. Puoi bere un cocktail guardando il tramonto, cenare con calma e finire ballando, tutto nella stessa zona e a pochi minuti a piedi. Per idee anche di giorno, dai un'occhiata a <a href="/blog/que-hacer-alcudia-mallorca">cosa fare ad Alcúdia</a>.</p><p>La chiave è la <strong>qualità sulla quantità</strong>: invece di mega-locali da migliaia di persone, qui contano il servizio, la mixology curata, la buona tavola e una pista con buona musica senza perdere il rapporto umano. Per approfondire, abbiamo una guida completa sulla <a href="/blog/guia-vida-nocturna-alcudia">vita notturna di Alcúdia</a> e una panoramica dell'intera isola sulla <a href="/blog/vida-nocturna-mallorca-guia">vita notturna di Maiorca</a>.</p><h2>Una serata tipo a Port d'Alcúdia</h2><p>Ecco come molti visitatori costruiscono la loro serata perfetta con i tre locali di Grupo Enjoy, tutti a Port d'Alcúdia.</p><h3>1. Cena alla brace da Hiru</h3><p>Inizia con il prodotto vero. Da <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40) la cucina ruota intorno alla brace: carni maturate dry-aged, paella di mare, risi e pesce fresco, con terrazza per cenare in tranquillità. Il motto lo riassume: prodotto, tradizione, sapore. Prenota tramite Restoo per assicurarti un tavolo in alta stagione.</p><h3>2. Cocktail e tramonto all'Enjoy Terrace</h3><p>Poi attraversa fino ad Av. Tucán 1 e alza il ritmo con calma all'<a href="/enjoy">Enjoy Terrace</a>. Cocktail d'autore e shisha premium su una terrazza pensata per il miglior tramonto del Port. Aperto tutti i giorni dalle 17:00, e il suo motto, "Where nights begin", non è un caso: è il punto di partenza perfetto prima della festa.</p><h3>3. Club fino a tardi all'Outxide</h3><p>Quando cala la notte, la festa continua nello stesso edificio. L'<a href="/outxide">Outxide Club</a> (Av. Tucán 1) è la discoteca di riferimento del nord: techno, house e reggaeton, DJ internazionali, servizio VIP e privé. Aperto dal giovedì al sabato dalle 23:00, solo per maggiori di 18 anni, con biglietti e prenotazione tavoli online tramite FourVenues. Il motto dice tutto: "The night continues". Dispone inoltre di un maxischermo per i grandi eventi sportivi.</p><h2>Quindi, nord o sud?</h2><p>Se il tuo piano ideale è festa estrema, prezzi bassi e niente sonno, il sud fa al caso tuo. Ma se vuoi una serata completa (buona cena, buon cocktail, buona musica) in un contesto curato e senza ressa, il nord vince a mani basse. Port d'Alcúdia ti offre tutto questo a pochi metri dalla spiaggia, con un'atmosfera internazionale rilassata. È, semplicemente, la migliore <strong>alternativa al Ballermann e a Magaluf</strong> per chi vuole uscire senza rinunciare alla qualità.</p>`,
+      es: `<p>Mallorca no es una sola isla de fiesta. Cuando alguien piensa en salir de noche, casi siempre le vienen a la cabeza el <strong>Ballermann</strong> de la Playa de Palma o el bullicio de <strong>Magaluf</strong>. Pero hay otra Mallorca, la del norte, donde se puede disfrutar de una gran noche sin colas interminables, sin gritos y sin sentir que estás en una atracción de feria. Si buscas una <strong>alternativa al Ballermann en el norte de Mallorca</strong>, Port d'Alcúdia es la respuesta. Aquí te lo contamos con honestidad, sin vender humo.</p><h2>Qué ofrece cada zona: sur vs. norte</h2><p>Ninguna zona es mejor en abstracto; depende de lo que busques. El sur tiene un tipo de fiesta y el norte otro. Esta es la comparación sincera:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> ambiente alemán muy marcado, música schlager, cerveza a litros, mega-discotecas y una fiesta que empieza de día y no para. Muy divertido si quieres desfase absoluto, pero también masificación, ruido constante y precios de zona turística intensiva.</li><li><strong>Magaluf:</strong> el clásico destino británico de despedidas y turismo joven. Bares de shots, pub crawls, mucho volumen. Energía altísima, pero también aglomeración y un ambiente que no todo el mundo busca.</li><li><strong>Port d'Alcúdia / norte:</strong> ocio nocturno de calidad a escala humana. Cocteles de autor, buena gastronomía, discoteca con DJs internacionales y ambiente internacional (alemán, británico, francés, italiano y español) sin la sensación de estar en una lata de sardinas. Ideal para quien quiere salir bien, no solo salir mucho.</li></ul><h2>Por qué elegir el norte para salir sin masificación</h2><p>El norte de Mallorca ha crecido como destino precisamente para el viajero que quiere ambiente pero valora su espacio. En Alcúdia encuentras playas enormes de arena fina, un casco histórico medieval y una oferta nocturna que ha subido mucho de nivel en los últimos años. Puedes tomar un cóctel viendo el atardecer, cenar sin prisas y acabar bailando, todo en la misma zona y a pocos minutos a pie. Si además quieres ideas para el resto del día, echa un vistazo a <a href="/blog/que-hacer-alcudia-mallorca">qué hacer en Alcúdia</a>.</p><p>La clave es la <strong>calidad frente a la cantidad</strong>: en lugar de mega-locales de miles de personas, aquí prima el servicio, la coctelería cuidada, la buena mesa y una pista donde suena buena música sin perder el trato cercano. Si quieres profundizar, tenemos una guía completa en <a href="/blog/guia-vida-nocturna-alcudia">vida nocturna de Alcúdia</a> y una panorámica de toda la isla en <a href="/blog/vida-nocturna-mallorca-guia">vida nocturna de Mallorca</a>.</p><h2>La noche tipo en Port d'Alcúdia</h2><p>Así es como muchos visitantes montan su noche perfecta con los tres locales de Grupo Enjoy, todos en Port d'Alcúdia.</p><h3>1. Cena tranquila en el puerto</h3><p>Empieza con una buena mesa. En Port d'Alcúdia tienes arroces, brasa y cocina para todos los gustos: nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> te ayuda a elegir. Reserva con antelación para asegurar mesa en temporada alta.</p><h3>2. Cóctel y atardecer en Enjoy Terrace</h3><p>Después, cruza a la Av. Tucán 1 y sube el ritmo con calma en <a href="/enjoy">Enjoy Terrace</a>. Cócteles de autor y shisha premium en una terraza pensada para el mejor atardecer del Port. Abre a diario desde las 17:00 y su lema, "Where nights begin", no es casualidad: es el punto de partida perfecto antes de la fiesta.</p><h3>3. Club hasta tarde en Outxide</h3><p>Cuando cae la noche, la fiesta continúa en el mismo edificio. <a href="/outxide">Outxide Club</a> (Av. Tucán 1) es la discoteca de referencia del norte: techno, house y reggaetón, DJs internacionales, servicio VIP y reservados. Abre de jueves a sábado desde las 23:00, es solo para mayores de 18 y puedes sacar entradas y reservar mesa online en FourVenues. Su lema lo dice todo: "The night continues". Además tiene pantalla gigante para grandes eventos deportivos.</p><h2>Entonces, ¿norte o sur?</h2><p>Si tu plan ideal es fiesta extrema, precios bajos y no dormir, el sur cumple. Pero si quieres una noche redonda (buena cena, buen cóctel, buena música) en un entorno cuidado y sin masificación, el norte gana por goleada. Port d'Alcúdia te da todo eso a pocos metros de la playa y con un ambiente internacional relajado. Es, sencillamente, la mejor <strong>alternativa al Ballermann y a Magaluf</strong> para quien quiere salir sin renunciar a la calidad.</p>`,
+      en: `<p>Majorca is not a single party island. When people think about going out, the first things that come to mind are usually the <strong>Ballermann</strong> in Playa de Palma or the buzz of <strong>Magaluf</strong>. But there is another Majorca, the north, where you can enjoy a great night out without endless queues, without the shouting and without feeling like you are inside a fairground ride. If you are looking for a <strong>quieter alternative to the Ballermann in northern Majorca</strong>, Port d'Alcúdia is the answer. Here is our honest take, no hype.</p><h2>What each area offers: south vs. north</h2><p>Neither area is better in the abstract; it depends on what you want. The south delivers one kind of party, the north another. Here is the honest comparison:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> a very strong German scene, schlager music, beer by the litre, mega-clubs and a party that starts in daylight and never stops. Great fun if you want total mayhem, but also huge crowds, constant noise and intense-tourist-zone prices.</li><li><strong>Magaluf:</strong> the classic British destination for stag and hen dos and young travellers. Shot bars, pub crawls, high volume. Massive energy, but also crowds and a vibe that is not for everyone.</li><li><strong>Port d'Alcúdia / north:</strong> quality nightlife on a human scale. Signature cocktails, good food, a club with international DJs and an international crowd (German, British, French, Italian and Spanish) without feeling packed like sardines. Ideal for people who want to go out well, not just go out a lot.</li></ul><h2>Why choose the north for nightlife without the crowds</h2><p>Northern Majorca has grown as a destination precisely for the traveller who wants atmosphere but values their space. In Alcúdia you find huge fine-sand beaches, a medieval old town and a nightlife scene that has raised its game in recent years. You can enjoy a cocktail watching the sunset, have a relaxed dinner and end up dancing, all in the same area and just a few minutes on foot. For daytime ideas too, take a look at <a href="/blog/que-hacer-alcudia-mallorca">what to do in Alcúdia</a>.</p><p>The key is <strong>quality over quantity</strong>: instead of mega-venues holding thousands, here the focus is on service, careful mixology, good food and a dancefloor with great music that keeps a personal touch. To dig deeper, see our full guide to <a href="/blog/guia-vida-nocturna-alcudia">Alcúdia nightlife</a> and our island-wide overview of <a href="/blog/vida-nocturna-mallorca-guia">Majorca nightlife</a>.</p><h2>A typical night in Port d'Alcúdia</h2><p>This is how many visitors build their perfect night with the three Grupo Enjoy venues, all in Port d'Alcúdia.</p><h3>1. A relaxed dinner by the port</h3><p>Start with a good table. Port d'Alcúdia offers rice dishes, charcoal grill and cooking for every taste: our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> will help you choose. Book ahead to secure a table in high season.</p><h3>2. Cocktails and sunset at Enjoy Terrace</h3><p>Next, cross to Av. Tucán 1 and ease into the evening at <a href="/enjoy">Enjoy Terrace</a>. Signature cocktails and premium shisha on a terrace made for the best sunset in the Port. Open daily from 5:00 pm, and its motto, "Where nights begin", is no accident: it is the perfect launchpad before the party.</p><h3>3. Late-night clubbing at Outxide</h3><p>When night falls, the party continues in the same building. <a href="/outxide">Outxide Club</a> (Av. Tucán 1) is the north's leading club: techno, house and reggaeton, international DJs, VIP service and private tables. Open Thursday to Saturday from 11:00 pm, over-18s only, with tickets and table bookings online via FourVenues. Its motto says it all: "The night continues". It also has a giant screen for major sporting events.</p><h2>So, north or south?</h2><p>If your ideal plan is extreme partying, low prices and no sleep, the south delivers. But if you want a complete night (good dinner, good cocktail, good music) in a well-cared-for setting without the crowds, the north wins hands down. Port d'Alcúdia gives you all of that a few metres from the beach with a relaxed international atmosphere. It is, quite simply, the best <strong>alternative to the Ballermann and Magaluf</strong> for anyone who wants to go out without giving up on quality.</p>`,
+      de: `<p>Mallorca ist nicht nur eine einzige Partyinsel. Wenn man ans Ausgehen denkt, kommen einem meist zuerst der <strong>Ballermann</strong> an der Playa de Palma oder der Trubel von <strong>Magaluf</strong> in den Sinn. Doch es gibt ein anderes Mallorca, den Norden, wo man eine großartige Nacht genießen kann, ohne endlose Schlangen, ohne Gebrüll und ohne das Gefühl, in einem Rummelplatz zu stecken. Wenn du eine <strong>ruhigere Alternative zum Ballermann im Norden Mallorcas</strong> suchst, ist Port d'Alcúdia die Antwort. Hier unsere ehrliche Einschätzung, ganz ohne leere Versprechen.</p><h2>Was jede Zone bietet: Süden vs. Norden</h2><p>Keine Zone ist grundsätzlich besser; es hängt davon ab, was du suchst. Der Süden bietet die eine Art Party, der Norden die andere. Hier der ehrliche Vergleich:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> sehr deutsch geprägte Stimmung, Schlagermusik, Bier literweise, Mega-Discos und eine Party, die schon tagsüber beginnt und nicht aufhört. Riesig viel Spaß, wenn du den totalen Ausnahmezustand willst, aber auch Massenandrang, ständiger Lärm und Preise einer intensiven Touristenzone.</li><li><strong>Magaluf:</strong> das klassische britische Ziel für Junggesellenabschiede und junge Reisende. Shot-Bars, Pub-Crawls, hohe Lautstärke. Enorme Energie, aber auch Gedränge und eine Atmosphäre, die nicht jedem liegt.</li><li><strong>Port d'Alcúdia / Norden:</strong> hochwertiges Nachtleben auf menschlichem Maßstab. Signature-Cocktails, gute Gastronomie, ein Club mit internationalen DJs und internationalem Publikum (deutsch, britisch, französisch, italienisch und spanisch), ohne wie Sardinen zusammengepfercht zu sein. Ideal für alle, die gut ausgehen wollen, nicht nur viel.</li></ul><h2>Warum der Norden für Nachtleben ohne Massen</h2><p>Der Norden Mallorcas ist gerade für den Reisenden gewachsen, der Atmosphäre will, aber seinen Freiraum schätzt. In Alcúdia findest du riesige feinsandige Strände, eine mittelalterliche Altstadt und ein Nachtleben, das in den letzten Jahren deutlich an Niveau gewonnen hat. Du kannst einen Cocktail beim Sonnenuntergang genießen, in Ruhe zu Abend essen und schließlich tanzen gehen, alles in derselben Zone und wenige Gehminuten entfernt. Wenn du auch Ideen für den Tag suchst, wirf einen Blick auf <a href="/blog/que-hacer-alcudia-mallorca">was man in Alcúdia unternehmen kann</a>.</p><p>Der Schlüssel ist <strong>Qualität statt Quantität</strong>: Statt Mega-Locations für Tausende stehen hier Service, sorgfältige Cocktailkunst, gute Küche und eine Tanzfläche mit guter Musik und persönlicher Note im Vordergrund. Wenn du tiefer einsteigen möchtest, haben wir einen kompletten Guide zum <a href="/blog/guia-vida-nocturna-alcudia">Nachtleben von Alcúdia</a> und einen Überblick über die ganze Insel im <a href="/blog/vida-nocturna-mallorca-guia">Nachtleben von Mallorca</a>.</p><h2>Eine typische Nacht in Port d'Alcúdia</h2><p>So bauen sich viele Besucher ihre perfekte Nacht mit den drei Locations von Grupo Enjoy auf, alle in Port d'Alcúdia.</p><h3>1. Entspanntes Abendessen am Hafen</h3><p>Beginne mit einem guten Tisch. Port d'Alcúdia bietet Reisgerichte, Grill und Küche für jeden Geschmack: Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> hilft bei der Wahl. Reserviere frühzeitig, um in der Hochsaison einen Tisch zu sichern.</p><h3>2. Cocktail und Sonnenuntergang im Enjoy Terrace</h3><p>Danach geht es zur Av. Tucán 1, wo du im <a href="/enjoy">Enjoy Terrace</a> gemächlich das Tempo steigerst. Signature-Cocktails und Premium-Shisha auf einer Terrasse, gemacht für den schönsten Sonnenuntergang im Port. Täglich ab 17:00 Uhr geöffnet, und das Motto "Where nights begin" ist kein Zufall: der perfekte Startpunkt vor der Party.</p><h3>3. Club bis spät im Outxide</h3><p>Wenn die Nacht hereinbricht, geht die Party im selben Gebäude weiter. <a href="/outxide">Outxide Club</a> (Av. Tucán 1) ist der führende Club des Nordens: Techno, House und Reggaeton, internationale DJs, VIP-Service und reservierte Bereiche. Geöffnet von Donnerstag bis Samstag ab 23:00 Uhr, nur für Personen ab 18 Jahren, mit Tickets und Tischreservierung online über FourVenues. Das Motto sagt alles: "The night continues". Außerdem gibt es eine Großleinwand für große Sportevents.</p><h2>Also, Norden oder Süden?</h2><p>Wenn dein Idealplan extremes Feiern, niedrige Preise und kein Schlaf ist, liefert der Süden. Aber wenn du eine runde Nacht willst (gutes Essen, guter Cocktail, gute Musik) in einem gepflegten Umfeld ohne Massen, gewinnt der Norden haushoch. Port d'Alcúdia bietet dir all das wenige Meter vom Strand entfernt, mit entspannter internationaler Atmosphäre. Es ist schlichtweg die beste <strong>Alternative zum Ballermann und zu Magaluf</strong> für alle, die ausgehen wollen, ohne auf Qualität zu verzichten.</p>`,
+      fr: `<p>Majorque n'est pas qu'une seule île de fête. Quand on pense à sortir le soir, ce sont surtout le <strong>Ballermann</strong> de la Playa de Palma ou l'effervescence de <strong>Magaluf</strong> qui viennent à l'esprit. Mais il existe une autre Majorque, celle du nord, où l'on peut passer une superbe soirée sans files interminables, sans cris et sans avoir l'impression d'être dans une fête foraine. Si tu cherches une <strong>alternative plus tranquille au Ballermann dans le nord de Majorque</strong>, Port d'Alcúdia est la réponse. Voici notre avis honnête, sans esbroufe.</p><h2>Ce que chaque zone propose : sud vs. nord</h2><p>Aucune zone n'est meilleure dans l'absolu ; tout dépend de ce que tu recherches. Le sud offre un type de fête, le nord un autre. Voici la comparaison sincère :</p><ul><li><strong>Playa de Palma / Ballermann :</strong> ambiance très allemande, musique schlager, bière au litre, méga-discothèques et une fête qui commence en plein jour et ne s'arrête jamais. Très amusant si tu veux le débordement total, mais aussi foule immense, bruit constant et prix de zone touristique intensive.</li><li><strong>Magaluf :</strong> la destination britannique classique des enterrements de vie de garçon et de jeune fille et du tourisme jeune. Bars à shots, pub crawls, gros volume. Énergie énorme, mais aussi cohue et une ambiance qui ne convient pas à tout le monde.</li><li><strong>Port d'Alcúdia / nord :</strong> une vie nocturne de qualité à échelle humaine. Cocktails signature, bonne gastronomie, une discothèque avec des DJ internationaux et un public international (allemand, britannique, français, italien et espagnol) sans être serré comme des sardines. Idéal pour ceux qui veulent bien sortir, pas seulement sortir beaucoup.</li></ul><h2>Pourquoi choisir le nord pour sortir sans la foule</h2><p>Le nord de Majorque s'est développé précisément pour le voyageur qui veut de l'ambiance mais tient à son espace. À Alcúdia, tu trouves d'immenses plages de sable fin, une vieille ville médiévale et une offre nocturne qui a beaucoup monté en gamme ces dernières années. Tu peux prendre un cocktail face au coucher de soleil, dîner sans te presser et finir en dansant, le tout dans la même zone et à quelques minutes à pied. Pour des idées de journée, jette aussi un œil à <a href="/blog/que-hacer-alcudia-mallorca">que faire à Alcúdia</a>.</p><p>La clé, c'est la <strong>qualité plutôt que la quantité</strong> : au lieu de méga-établissements de plusieurs milliers de personnes, ici priment le service, la mixologie soignée, la bonne table et une piste où l'on passe de la bonne musique sans perdre le contact humain. Pour aller plus loin, consulte notre guide complet de la <a href="/blog/guia-vida-nocturna-alcudia">vie nocturne d'Alcúdia</a> et notre panorama de toute l'île sur la <a href="/blog/vida-nocturna-mallorca-guia">vie nocturne de Majorque</a>.</p><h2>Une soirée type à Port d'Alcúdia</h2><p>Voici comment de nombreux visiteurs organisent leur soirée parfaite avec les trois établissements de Grupo Enjoy, tous à Port d'Alcúdia.</p><h3>1. Dîner tranquille au port</h3><p>Commencez par une bonne table. Port d'Alcúdia offre des riz, de la braise et une cuisine pour tous les goûts : notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> vous aidera à choisir. Réservez à l'avance pour assurer une table en haute saison.</p><h3>2. Cocktail et coucher de soleil à l'Enjoy Terrace</h3><p>Ensuite, traverse jusqu'à l'Av. Tucán 1 et monte doucement en régime à l'<a href="/enjoy">Enjoy Terrace</a>. Cocktails signature et chicha premium sur une terrasse pensée pour le plus beau coucher de soleil du Port. Ouvert tous les jours dès 17h00, et sa devise, "Where nights begin", n'est pas un hasard : c'est le point de départ parfait avant la fête.</p><h3>3. Club jusqu'au bout de la nuit à l'Outxide</h3><p>Quand la nuit tombe, la fête continue dans le même bâtiment. L'<a href="/outxide">Outxide Club</a> (Av. Tucán 1) est la discothèque de référence du nord : techno, house et reggaeton, DJ internationaux, service VIP et carrés privés. Ouvert du jeudi au samedi dès 23h00, réservé aux plus de 18 ans, avec billets et réservation de table en ligne via FourVenues. Sa devise dit tout : "The night continues". Il dispose aussi d'un écran géant pour les grands événements sportifs.</p><h2>Alors, nord ou sud ?</h2><p>Si ton plan idéal, c'est la fête extrême, les prix bas et zéro sommeil, le sud fait le job. Mais si tu veux une soirée réussie de bout en bout (bon dîner, bon cocktail, bonne musique) dans un cadre soigné et sans la foule, le nord gagne haut la main. Port d'Alcúdia t'offre tout cela à quelques mètres de la plage, avec une ambiance internationale détendue. C'est, tout simplement, la meilleure <strong>alternative au Ballermann et à Magaluf</strong> pour qui veut sortir sans renoncer à la qualité.</p>`,
+      it: `<p>Maiorca non è una sola isola della festa. Quando si pensa a uscire la sera, la prima cosa che viene in mente sono di solito il <strong>Ballermann</strong> di Playa de Palma o il fermento di <strong>Magaluf</strong>. Ma c'è un'altra Maiorca, quella del nord, dove si può godere di una gran serata senza code interminabili, senza urla e senza sentirsi dentro un luna park. Se cerchi un'<strong>alternativa più tranquilla al Ballermann nel nord di Maiorca</strong>, Port d'Alcúdia è la risposta. Ecco il nostro parere onesto, senza fumo negli occhi.</p><h2>Cosa offre ciascuna zona: sud vs. nord</h2><p>Nessuna zona è migliore in assoluto; dipende da cosa cerchi. Il sud offre un tipo di festa, il nord un altro. Ecco il confronto sincero:</p><ul><li><strong>Playa de Palma / Ballermann:</strong> atmosfera molto tedesca, musica schlager, birra a litri, mega-discoteche e una festa che comincia di giorno e non si ferma mai. Divertentissimo se vuoi lo sballo totale, ma anche folla enorme, rumore continuo e prezzi da zona turistica intensiva.</li><li><strong>Magaluf:</strong> la classica meta britannica per addii al celibato e al nubilato e turismo giovane. Bar di shot, pub crawl, volume altissimo. Energia enorme, ma anche ressa e un'atmosfera che non è per tutti.</li><li><strong>Port d'Alcúdia / nord:</strong> vita notturna di qualità a misura d'uomo. Cocktail d'autore, buona gastronomia, una discoteca con DJ internazionali e un pubblico internazionale (tedesco, britannico, francese, italiano e spagnolo) senza essere stipati come sardine. Ideale per chi vuole uscire bene, non solo uscire tanto.</li></ul><h2>Perché scegliere il nord per uscire senza ressa</h2><p>Il nord di Maiorca è cresciuto proprio per il viaggiatore che vuole atmosfera ma tiene ai propri spazi. Ad Alcúdia trovi enormi spiagge di sabbia fine, un centro storico medievale e un'offerta notturna che negli ultimi anni ha alzato molto il livello. Puoi bere un cocktail guardando il tramonto, cenare con calma e finire ballando, tutto nella stessa zona e a pochi minuti a piedi. Per idee anche di giorno, dai un'occhiata a <a href="/blog/que-hacer-alcudia-mallorca">cosa fare ad Alcúdia</a>.</p><p>La chiave è la <strong>qualità sulla quantità</strong>: invece di mega-locali da migliaia di persone, qui contano il servizio, la mixology curata, la buona tavola e una pista con buona musica senza perdere il rapporto umano. Per approfondire, abbiamo una guida completa sulla <a href="/blog/guia-vida-nocturna-alcudia">vita notturna di Alcúdia</a> e una panoramica dell'intera isola sulla <a href="/blog/vida-nocturna-mallorca-guia">vita notturna di Maiorca</a>.</p><h2>Una serata tipo a Port d'Alcúdia</h2><p>Ecco come molti visitatori costruiscono la loro serata perfetta con i tre locali di Grupo Enjoy, tutti a Port d'Alcúdia.</p><h3>1. Cena tranquilla al porto</h3><p>Inizia con un buon tavolo. Port d'Alcúdia offre risi, brace e cucina per tutti i gusti: la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> ti aiuta a scegliere. Prenota in anticipo per assicurarti un tavolo in alta stagione.</p><h3>2. Cocktail e tramonto all'Enjoy Terrace</h3><p>Poi attraversa fino ad Av. Tucán 1 e alza il ritmo con calma all'<a href="/enjoy">Enjoy Terrace</a>. Cocktail d'autore e shisha premium su una terrazza pensata per il miglior tramonto del Port. Aperto tutti i giorni dalle 17:00, e il suo motto, "Where nights begin", non è un caso: è il punto di partenza perfetto prima della festa.</p><h3>3. Club fino a tardi all'Outxide</h3><p>Quando cala la notte, la festa continua nello stesso edificio. L'<a href="/outxide">Outxide Club</a> (Av. Tucán 1) è la discoteca di riferimento del nord: techno, house e reggaeton, DJ internazionali, servizio VIP e privé. Aperto dal giovedì al sabato dalle 23:00, solo per maggiori di 18 anni, con biglietti e prenotazione tavoli online tramite FourVenues. Il motto dice tutto: "The night continues". Dispone inoltre di un maxischermo per i grandi eventi sportivi.</p><h2>Quindi, nord o sud?</h2><p>Se il tuo piano ideale è festa estrema, prezzi bassi e niente sonno, il sud fa al caso tuo. Ma se vuoi una serata completa (buona cena, buon cocktail, buona musica) in un contesto curato e senza ressa, il nord vince a mani basse. Port d'Alcúdia ti offre tutto questo a pochi metri dalla spiaggia, con un'atmosfera internazionale rilassata. È, semplicemente, la migliore <strong>alternativa al Ballermann e a Magaluf</strong> per chi vuole uscire senza rinunciare alla qualità.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-07-16",
+    updated: "2026-08-29",
     image: "/images/outxide/669619110_1705310767538590_886514651058288141_n.jpg",
     tags: ["ocio nocturno norte mallorca", "alternativa ballermann", "nightlife north mallorca", "alcudia vs magaluf", "salir de fiesta mallorca"],
     venue: "general",
@@ -301,11 +303,11 @@ export const blogPosts: BlogPost[] = [
           it: "Quali locali compongono la serata a Port d'Alcúdia?",
         },
         answer: {
-          es: "Cena a la brasa en Hiru Food &amp; Drinks (Ctra. d'Artà 40), cóctel y atardecer en Enjoy Terrace (Av. Tucán 1) y discoteca en Outxide Club (Av. Tucán 1).",
-          en: "A grilled dinner at Hiru Food &amp; Drinks (Ctra. d'Artà 40), cocktails and sunset at Enjoy Terrace (Av. Tucán 1) and clubbing at Outxide Club (Av. Tucán 1).",
-          de: "Grill-Abendessen im Hiru Food &amp; Drinks (Ctra. d'Artà 40), Cocktail und Sonnenuntergang im Enjoy Terrace (Av. Tucán 1) und Club im Outxide Club (Av. Tucán 1).",
-          fr: "Dîner à la braise chez Hiru Food &amp; Drinks (Ctra. d'Artà 40), cocktail et coucher de soleil à l'Enjoy Terrace (Av. Tucán 1) et discothèque à l'Outxide Club (Av. Tucán 1).",
-          it: "Cena alla brace da Hiru Food &amp; Drinks (Ctra. d'Artà 40), cocktail e tramonto all'Enjoy Terrace (Av. Tucán 1) e discoteca all'Outxide Club (Av. Tucán 1).",
+          es: "Cena en uno de los restaurantes del puerto, cóctel y atardecer en Enjoy Terrace (Av. Tucán 1) y discoteca en Outxide Club (Av. Tucán 1).",
+          en: "Dinner at one of the restaurants by the port, cocktails and sunset at Enjoy Terrace (Av. Tucán 1) and clubbing at Outxide Club (Av. Tucán 1).",
+          de: "Abendessen in einem der Restaurants am Hafen, Cocktail und Sonnenuntergang im Enjoy Terrace (Av. Tucán 1) und Club im Outxide Club (Av. Tucán 1).",
+          fr: "Dîner dans l'un des restaurants du port, cocktail et coucher de soleil à l'Enjoy Terrace (Av. Tucán 1) et discothèque à l'Outxide Club (Av. Tucán 1).",
+          it: "Cena in uno dei ristoranti del porto, cocktail e tramonto all'Enjoy Terrace (Av. Tucán 1) e discoteca all'Outxide Club (Av. Tucán 1).",
         },
       },
       {
@@ -595,14 +597,15 @@ export const blogPosts: BlogPost[] = [
       it: "Una giornata di pioggia nel nord di Maiorca non rovina la vacanza. Centro storico, cucina alla brace, shisha in terrazza coperta e nottata in discoteca: piani al coperto a Port d'Alcúdia per quando il tempo non aiuta.",
     },
     content: {
-      es: `<p>Mallorca tiene más de 300 días de sol al año, pero cuando el norte de la isla se despierta con nubes y un chaparrón de verano, no hace falta quedarse encerrado en el hotel mirando por la ventana. Alcúdia y su Port ofrecen planes estupendos bajo techo, de la mañana a la madrugada. Aquí tienes una guía práctica de <strong>qué hacer en Alcúdia si llueve</strong>, con ideas para el día y para la noche que no dependen del cielo.</p><h2>Planes de día bajo techo: casco antiguo, cultura y gastronomía</h2><p>El <strong>casco antiguo de Alcúdia</strong> es el mejor refugio para un día gris. Sus calles empedradas dentro de la muralla medieval están llenas de tiendecitas, galerías y cafeterías donde puedes pasar horas resguardado. Piérdete entre los soportales, entra a curiosear en las boutiques y hazte con un buen café mientras esperas a que escampe.</p><p>Para los amantes de la cultura, Alcúdia guarda un pasado romano en el <strong>Museo Monográfico de Pol·lèntia</strong>, que recoge las piezas halladas en la antigua ciudad romana. Y si el respiro de lluvia lo permite, el yacimiento y el teatro romano están a un paso. También merece la pena la iglesia de Sant Jaume, adosada a la muralla, un plan tranquilo y a cubierto.</p><p>Cuando la mañana se alarga, la gastronomía toma el relevo. Los mercados cubiertos, las panaderías con ensaimada recién hecha y las cafeterías del centro convierten un día lluvioso en una excusa perfecta para comer sin prisa. Si quieres más ideas para llenar la jornada, echa un vistazo a nuestra guía de <a href="/blog/que-hacer-alcudia-mallorca">qué hacer en Alcúdia</a>.</p><h2>Comer a la brasa sin depender del tiempo</h2><p>Si hay un plan que sabe igual de bien llueva o haga sol, es una buena comida. En <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40, Port d'Alcúdia) la brasa es la protagonista, y su comedor interior es el sitio ideal para refugiarse mientras fuera cae el agua.</p><p>La especialidad son las <strong>carnes maduradas dry-aged</strong>, cocinadas a la brasa hasta el punto justo, pero la carta va mucho más allá: <strong>paella de marisco</strong>, arroces melosos, pescado fresco del día y una terraza para cuando vuelva el buen tiempo. El lema de la casa lo resume bien: producto, tradición y sabor. Es la clase de comida que convierte un día de lluvia en uno de los mejores recuerdos del viaje.</p><p>¿Buscas más sitios donde comer resguardado? Nuestra selección de <a href="/blog/mejores-restaurantes-alcudia-mallorca">los mejores restaurantes de Alcúdia</a> te da alternativas para cualquier antojo y presupuesto.</p><h2>La noche no se moja: shisha en terraza cubierta y club</h2><p>La lluvia de verano suele dar tregua al caer la tarde, y aunque no lo haga, la noche de Port d'Alcúdia sigue en marcha bajo techo. En <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) puedes disfrutar de <strong>cócteles de autor y shisha premium</strong> en un ambiente cuidado, con zonas cubiertas donde la lluvia se convierte en banda sonora en lugar de en problema. Abre a diario desde las 17:00 y su lema, "Where nights begin", no es casualidad: es el punto de partida perfecto.</p><p>Cuando quieras subir el ritmo, el <a href="/outxide">Outxide Club</a> (misma dirección, Av. Tucán 1) toma el testigo de jueves a sábado desde las 23:00. Techno, house y reggaetón, DJs internacionales, servicio VIP con reservados y una pantalla gigante para eventos deportivos: aquí el tiempo que haga fuera da exactamente igual. Entradas y reservados se gestionan online a través de FourVenues, así que puedes asegurar tu sitio sin mojarte. Solo para mayores de 18.</p><p>Para montar tu noche perfecta, te ayudarán nuestra <a href="/blog/guia-vida-nocturna-alcudia">guía de vida nocturna en Alcúdia</a> y las ideas de <a href="/blog/cocteles-shisha-terraza-alcudia">cócteles y shisha en terraza</a>.</p><h2>Consejos para días de lluvia en Alcúdia</h2><ul><li><strong>Reserva con antelación:</strong> en días de lluvia los locales cubiertos se llenan antes. Reserva mesa en Hiru por Restoo y tu entrada o reservado en Outxide por FourVenues.</li><li><strong>Aprovecha las treguas:</strong> los chaparrones de verano en el norte de Mallorca suelen ser breves. Ten un plan de interior y otro de exterior por si escampa.</li><li><strong>Muévete cómodo:</strong> el casco antiguo y el Port están cerca; con un paraguas y calzado adecuado encadenas cultura, comida y copas sin complicarte.</li><li><strong>La noche no entiende de nubes:</strong> Enjoy y Outxide funcionan igual de bien con lluvia, así que tu plan nocturno está garantizado pase lo que pase.</li></ul><p>Un día gris en Alcúdia no es un día perdido: es una oportunidad para descubrir el lado más acogedor del norte de Mallorca, del café en el casco antiguo a la brasa de <a href="/hiru">Hiru</a> y la noche interminable de Port d'Alcúdia.</p>`,
-      en: `<p>Majorca enjoys more than 300 days of sun a year, but when the north of the island wakes up cloudy with a summer downpour, there's no need to stay cooped up in your hotel staring out the window. Alcúdia and its Port offer great indoor plans, from morning to the small hours. Here's a practical guide to <strong>what to do in Alcúdia when it rains</strong>, with ideas for day and night that don't depend on the sky.</p><h2>Daytime indoor plans: old town, culture and food</h2><p>Alcúdia's <strong>old town</strong> is the best shelter for a grey day. Its cobbled streets inside the medieval walls are full of little shops, galleries and cafés where you can spend hours under cover. Wander beneath the arcades, browse the boutiques and grab a good coffee while you wait for the rain to ease.</p><p>For culture lovers, Alcúdia holds a Roman past at the <strong>Pol·lèntia Museum</strong>, home to the finds from the ancient Roman city. And if the rain lets up, the archaeological site and Roman theatre are just steps away. The church of Sant Jaume, built into the walls, is another calm, sheltered option.</p><p>When the morning stretches on, food takes over. Covered markets, bakeries with freshly made ensaïmada and the cafés of the centre turn a rainy day into the perfect excuse for a long, unhurried meal. For more ideas to fill your day, take a look at our guide to <a href="/blog/que-hacer-alcudia-mallorca">what to do in Alcúdia</a>.</p><h2>Char-grilled dining, whatever the weather</h2><p>If there's one plan that tastes just as good rain or shine, it's a great meal. At <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40, Port d'Alcúdia) the grill is the star, and its indoor dining room is the ideal spot to take shelter while the rain falls outside.</p><p>The house specialty is <strong>dry-aged matured meats</strong>, char-grilled to perfection, but the menu goes far beyond that: <strong>seafood paella</strong>, creamy rice dishes, fresh fish of the day and a terrace for when the sun comes back. The motto sums it up nicely: produce, tradition and flavour. It's the kind of meal that turns a rainy day into one of the best memories of your trip.</p><p>Looking for more sheltered places to eat? Our pick of <a href="/blog/mejores-restaurantes-alcudia-mallorca">the best restaurants in Alcúdia</a> offers options for every craving and budget.</p><h2>The night doesn't get wet: shisha on a covered terrace and a club</h2><p>Summer rain usually eases off by evening, and even when it doesn't, Port d'Alcúdia's nightlife carries on under cover. At <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) you can enjoy <strong>signature cocktails and premium shisha</strong> in a stylish setting, with covered areas where the rain becomes a soundtrack rather than a problem. It opens daily from 5 pm, and its motto, "Where nights begin", is no accident: it's the perfect starting point.</p><p>When you want to raise the tempo, <a href="/outxide">Outxide Club</a> (same address, Av. Tucán 1) takes over from Thursday to Saturday from 11 pm. Techno, house and reggaeton, international DJs, VIP table service and a giant screen for sporting events: here the weather outside makes absolutely no difference. Tickets and tables are handled online through FourVenues, so you can secure your spot without getting wet. Over-18s only.</p><p>To plan your perfect night, our <a href="/blog/guia-vida-nocturna-alcudia">guide to Alcúdia nightlife</a> and our ideas for <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails and shisha on the terrace</a> will help.</p><h2>Tips for rainy days in Alcúdia</h2><ul><li><strong>Book ahead:</strong> on rainy days covered venues fill up sooner. Reserve a table at Hiru via Restoo and your ticket or table at Outxide via FourVenues.</li><li><strong>Make the most of the breaks:</strong> summer showers in northern Majorca are usually brief. Keep an indoor plan and an outdoor plan ready in case it clears.</li><li><strong>Travel comfortably:</strong> the old town and the Port are close together; with an umbrella and the right shoes you can chain culture, food and drinks with no hassle.</li><li><strong>The night ignores the clouds:</strong> Enjoy and Outxide work just as well in the rain, so your night out is guaranteed whatever happens.</li></ul><p>A grey day in Alcúdia is not a day wasted: it's a chance to discover the cosiest side of northern Majorca, from coffee in the old town to the grill at <a href="/hiru">Hiru</a> and the endless night of Port d'Alcúdia.</p>`,
-      de: `<p>Mallorca hat mehr als 300 Sonnentage im Jahr, doch wenn der Norden der Insel bewölkt und mit einem Sommerschauer erwacht, muss man nicht im Hotel sitzen und aus dem Fenster starren. Alcúdia und sein Hafen bieten großartige Indoor-Pläne, vom Morgen bis in die frühen Morgenstunden. Hier ist ein praktischer Leitfaden, <strong>was man in Alcúdia bei Regen unternehmen kann</strong>, mit Ideen für Tag und Nacht, die nicht vom Himmel abhängen.</p><h2>Tagespläne unter Dach: Altstadt, Kultur und Gastronomie</h2><p>Die <strong>Altstadt von Alcúdia</strong> ist der beste Unterschlupf für einen grauen Tag. Die gepflasterten Gassen innerhalb der mittelalterlichen Stadtmauer sind voller kleiner Läden, Galerien und Cafés, in denen man Stunden geschützt verbringen kann. Bummle unter den Arkaden, stöbere in den Boutiquen und gönn dir einen guten Kaffee, während du wartest, dass der Regen nachlässt.</p><p>Für Kulturliebhaber bewahrt Alcúdia im <strong>Museum von Pol·lèntia</strong> seine römische Vergangenheit, mit den Funden der antiken Römerstadt. Und wenn der Regen eine Pause macht, sind die Ausgrabungsstätte und das römische Theater nur einen Schritt entfernt. Auch die in die Stadtmauer eingelassene Kirche Sant Jaume ist ein ruhiges, überdachtes Ziel.</p><p>Zieht sich der Vormittag in die Länge, übernimmt die Gastronomie. Überdachte Märkte, Bäckereien mit frischer Ensaïmada und die Cafés des Zentrums machen aus einem Regentag den perfekten Vorwand für ein gemütliches Essen. Für weitere Ideen wirf einen Blick in unseren Guide, <a href="/blog/que-hacer-alcudia-mallorca">was man in Alcúdia unternehmen kann</a>.</p><h2>Grillküche, ganz gleich bei welchem Wetter</h2><p>Wenn ein Plan bei Regen genauso gut schmeckt wie bei Sonne, dann ist es ein gutes Essen. Im <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40, Port d'Alcúdia) ist der Grill der Star, und der Innenraum ist der ideale Ort, um sich unterzustellen, während draußen der Regen fällt.</p><p>Die Spezialität sind <strong>dry-aged gereifte Fleischsorten</strong>, auf dem Grill auf den Punkt gegart, doch die Karte geht weit darüber hinaus: <strong>Meeresfrüchte-Paella</strong>, cremige Reisgerichte, fangfrischer Fisch und eine Terrasse für die Rückkehr der Sonne. Das Motto bringt es auf den Punkt: Produkt, Tradition und Geschmack. Es ist die Art von Essen, die einen Regentag in eine der schönsten Erinnerungen der Reise verwandelt.</p><p>Suchst du weitere überdachte Orte zum Essen? Unsere Auswahl der <a href="/blog/mejores-restaurantes-alcudia-mallorca">besten Restaurants in Alcúdia</a> bietet Optionen für jeden Geschmack und jedes Budget.</p><h2>Die Nacht wird nicht nass: Shisha auf der überdachten Terrasse und Club</h2><p>Sommerregen lässt am Abend meist nach, und selbst wenn nicht, geht das Nachtleben von Port d'Alcúdia unter Dach weiter. In der <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) genießt du <strong>Signature-Cocktails und Premium-Shisha</strong> in stilvollem Ambiente, mit überdachten Bereichen, in denen der Regen zum Soundtrack statt zum Problem wird. Täglich ab 17:00 Uhr geöffnet, und das Motto "Where nights begin" kommt nicht von ungefähr: der perfekte Ausgangspunkt.</p><p>Wenn du das Tempo erhöhen willst, übernimmt der <a href="/outxide">Outxide Club</a> (gleiche Adresse, Av. Tucán 1) von Donnerstag bis Samstag ab 23:00 Uhr. Techno, House und Reggaeton, internationale DJs, VIP-Service mit Reservierungen und eine Großleinwand für Sportevents: Hier ist das Wetter draußen völlig egal. Tickets und Reservierungen laufen online über FourVenues, sodass du dir deinen Platz sichern kannst, ohne nass zu werden. Nur für Personen ab 18 Jahren.</p><p>Für deine perfekte Nacht helfen dir unser <a href="/blog/guia-vida-nocturna-alcudia">Guide zum Nachtleben in Alcúdia</a> und die Ideen zu <a href="/blog/cocteles-shisha-terraza-alcudia">Cocktails und Shisha auf der Terrasse</a>.</p><h2>Tipps für Regentage in Alcúdia</h2><ul><li><strong>Frühzeitig reservieren:</strong> An Regentagen füllen sich überdachte Lokale schneller. Reserviere einen Tisch im Hiru über Restoo und dein Ticket oder deinen Reservierten im Outxide über FourVenues.</li><li><strong>Nutze die Regenpausen:</strong> Sommerschauer im Norden Mallorcas sind meist kurz. Halte einen Indoor- und einen Outdoor-Plan bereit, falls es aufklart.</li><li><strong>Bequem unterwegs:</strong> Altstadt und Hafen liegen nah beieinander; mit Schirm und passenden Schuhen reihst du Kultur, Essen und Drinks mühelos aneinander.</li><li><strong>Die Nacht kennt keine Wolken:</strong> Enjoy und Outxide funktionieren bei Regen genauso gut, dein Nachtprogramm ist also garantiert, egal was passiert.</li></ul><p>Ein grauer Tag in Alcúdia ist kein verlorener Tag: Es ist die Gelegenheit, die gemütlichste Seite des Nordens von Mallorca zu entdecken, vom Kaffee in der Altstadt über den Grill im <a href="/hiru">Hiru</a> bis zur endlosen Nacht von Port d'Alcúdia.</p>`,
-      fr: `<p>Majorque compte plus de 300 jours de soleil par an, mais quand le nord de l'île se réveille sous les nuages avec une averse d'été, inutile de rester enfermé à l'hôtel à regarder par la fenêtre. Alcúdia et son Port proposent d'excellents plans d'intérieur, du matin jusqu'au bout de la nuit. Voici un guide pratique de <strong>que faire à Alcúdia quand il pleut</strong>, avec des idées pour le jour et la nuit qui ne dépendent pas du ciel.</p><h2>Plans de journée à l'abri : vieille ville, culture et gastronomie</h2><p>La <strong>vieille ville d'Alcúdia</strong> est le meilleur refuge pour un jour gris. Ses ruelles pavées à l'intérieur des remparts médiévaux regorgent de petites boutiques, de galeries et de cafés où l'on peut passer des heures à l'abri. Flânez sous les arcades, chinez dans les boutiques et offrez-vous un bon café en attendant que la pluie faiblisse.</p><p>Pour les amateurs de culture, Alcúdia conserve son passé romain au <strong>musée de Pol·lèntia</strong>, qui rassemble les pièces découvertes dans l'ancienne cité romaine. Et si la pluie fait une pause, le site archéologique et le théâtre romain sont à deux pas. L'église Sant Jaume, adossée aux remparts, est une autre option calme et couverte.</p><p>Quand la matinée s'étire, la gastronomie prend le relais. Les marchés couverts, les boulangeries avec leur ensaïmada fraîche et les cafés du centre transforment un jour de pluie en prétexte idéal pour un repas sans hâte. Pour d'autres idées, jetez un œil à notre guide sur <a href="/blog/que-hacer-alcudia-mallorca">que faire à Alcúdia</a>.</p><h2>La cuisine à la braise, quel que soit le temps</h2><p>S'il y a un plan aussi bon sous la pluie qu'au soleil, c'est un bon repas. Chez <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40, Port d'Alcúdia), la braise est la vedette, et sa salle intérieure est l'endroit idéal pour s'abriter pendant que la pluie tombe dehors.</p><p>La spécialité, ce sont les <strong>viandes maturées dry-aged</strong>, grillées à la braise à la perfection, mais la carte va bien plus loin : <strong>paella aux fruits de mer</strong>, riz crémeux, poisson frais du jour et une terrasse pour le retour du beau temps. La devise résume bien l'esprit : produit, tradition et saveur. C'est le genre de repas qui transforme un jour de pluie en l'un des meilleurs souvenirs du voyage.</p><p>Vous cherchez d'autres endroits couverts où manger ? Notre sélection des <a href="/blog/mejores-restaurantes-alcudia-mallorca">meilleurs restaurants d'Alcúdia</a> propose des options pour toutes les envies et tous les budgets.</p><h2>La nuit ne se mouille pas : chicha en terrasse couverte et club</h2><p>La pluie d'été faiblit généralement en soirée, et même quand ce n'est pas le cas, la vie nocturne de Port d'Alcúdia continue à couvert. À l'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), vous pouvez savourer des <strong>cocktails signature et une chicha premium</strong> dans un cadre soigné, avec des zones couvertes où la pluie devient une bande-son plutôt qu'un problème. Ouvert tous les jours dès 17h, et sa devise "Where nights begin" n'a rien d'un hasard : c'est le point de départ parfait.</p><p>Quand vous voulez monter le rythme, l'<a href="/outxide">Outxide Club</a> (même adresse, Av. Tucán 1) prend le relais du jeudi au samedi dès 23h. Techno, house et reggaeton, DJs internationaux, service VIP avec carrés réservés et un écran géant pour les événements sportifs : ici, le temps qu'il fait dehors n'a aucune importance. Billets et réservations se gèrent en ligne via FourVenues, vous pouvez donc assurer votre place sans vous mouiller. Réservé aux plus de 18 ans.</p><p>Pour composer votre nuit parfaite, notre <a href="/blog/guia-vida-nocturna-alcudia">guide de la vie nocturne à Alcúdia</a> et nos idées de <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails et chicha en terrasse</a> vous seront utiles.</p><h2>Conseils pour les jours de pluie à Alcúdia</h2><ul><li><strong>Réservez à l'avance :</strong> les jours de pluie, les lieux couverts se remplissent plus vite. Réservez une table chez Hiru via Restoo et votre billet ou carré à l'Outxide via FourVenues.</li><li><strong>Profitez des accalmies :</strong> les averses d'été dans le nord de Majorque sont généralement brèves. Gardez un plan intérieur et un plan extérieur au cas où ça se dégage.</li><li><strong>Déplacez-vous à l'aise :</strong> la vieille ville et le Port sont proches ; avec un parapluie et de bonnes chaussures, vous enchaînez culture, repas et verres sans souci.</li><li><strong>La nuit ignore les nuages :</strong> Enjoy et Outxide fonctionnent aussi bien sous la pluie, votre soirée est donc garantie quoi qu'il arrive.</li></ul><p>Un jour gris à Alcúdia n'est pas un jour perdu : c'est l'occasion de découvrir le côté le plus chaleureux du nord de Majorque, du café dans la vieille ville à la braise de <a href="/hiru">Hiru</a> et à la nuit sans fin de Port d'Alcúdia.</p>`,
-      it: `<p>Maiorca gode di più di 300 giorni di sole all'anno, ma quando il nord dell'isola si sveglia nuvoloso con un acquazzone estivo, non serve restare chiusi in hotel a guardare fuori dalla finestra. Alcúdia e il suo Port offrono ottimi piani al coperto, dalla mattina fino a notte fonda. Ecco una guida pratica su <strong>cosa fare ad Alcúdia se piove</strong>, con idee per il giorno e per la notte che non dipendono dal cielo.</p><h2>Piani diurni al coperto: centro storico, cultura e gastronomia</h2><p>Il <strong>centro storico di Alcúdia</strong> è il miglior rifugio per una giornata grigia. I suoi vicoli acciottolati all'interno delle mura medievali sono pieni di botteghe, gallerie e caffè dove passare ore al riparo. Perditi tra i portici, curiosa nelle boutique e concediti un buon caffè aspettando che la pioggia diminuisca.</p><p>Per gli amanti della cultura, Alcúdia custodisce il suo passato romano nel <strong>Museo di Pol·lèntia</strong>, che raccoglie i reperti dell'antica città romana. E se la pioggia concede una tregua, il sito archeologico e il teatro romano sono a due passi. Anche la chiesa di Sant Jaume, addossata alle mura, è un'opzione tranquilla e al coperto.</p><p>Quando la mattinata si allunga, tocca alla gastronomia. I mercati coperti, i forni con l'ensaïmada appena sfornata e i caffè del centro trasformano una giornata di pioggia nella scusa perfetta per un pasto senza fretta. Per altre idee, dai un'occhiata alla nostra guida su <a href="/blog/que-hacer-alcudia-mallorca">cosa fare ad Alcúdia</a>.</p><h2>Mangiare alla brace, con qualsiasi tempo</h2><p>Se c'è un piano che è buono sia con la pioggia che con il sole, è un bel pranzo. Da <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Artà 40, Port d'Alcúdia) la brace è la protagonista, e la sala interna è il posto ideale per ripararsi mentre fuori cade l'acqua.</p><p>La specialità sono le <strong>carni maturate dry-aged</strong>, cotte alla brace al punto giusto, ma il menù va ben oltre: <strong>paella di mare</strong>, risotti cremosi, pesce fresco del giorno e una terrazza per quando torna il bel tempo. Il motto della casa lo riassume bene: prodotto, tradizione e sapore. È il tipo di pasto che trasforma una giornata di pioggia in uno dei ricordi più belli del viaggio.</p><p>Cerchi altri posti al coperto dove mangiare? La nostra selezione dei <a href="/blog/mejores-restaurantes-alcudia-mallorca">migliori ristoranti di Alcúdia</a> offre alternative per ogni voglia e budget.</p><h2>La notte non si bagna: shisha in terrazza coperta e club</h2><p>La pioggia estiva di solito dà tregua verso sera, e anche quando non lo fa, la vita notturna di Port d'Alcúdia continua al coperto. All'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) puoi goderti <strong>cocktail d'autore e shisha premium</strong> in un ambiente curato, con zone coperte dove la pioggia diventa colonna sonora anziché un problema. Aperto tutti i giorni dalle 17:00, e il suo motto "Where nights begin" non è un caso: è il punto di partenza perfetto.</p><p>Quando vuoi alzare il ritmo, l'<a href="/outxide">Outxide Club</a> (stesso indirizzo, Av. Tucán 1) prende il testimone dal giovedì al sabato dalle 23:00. Techno, house e reggaeton, DJ internazionali, servizio VIP con privé e un maxischermo per gli eventi sportivi: qui il tempo che fa fuori non conta affatto. Biglietti e privé si gestiscono online tramite FourVenues, così puoi assicurarti il posto senza bagnarti. Solo per maggiori di 18 anni.</p><p>Per organizzare la tua notte perfetta, ti saranno utili la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida alla vita notturna di Alcúdia</a> e le idee su <a href="/blog/cocteles-shisha-terraza-alcudia">cocktail e shisha in terrazza</a>.</p><h2>Consigli per le giornate di pioggia ad Alcúdia</h2><ul><li><strong>Prenota in anticipo:</strong> nei giorni di pioggia i locali al coperto si riempiono prima. Prenota un tavolo da Hiru tramite Restoo e il tuo biglietto o privé all'Outxide tramite FourVenues.</li><li><strong>Sfrutta le tregue:</strong> gli acquazzoni estivi nel nord di Maiorca sono di solito brevi. Tieni pronto un piano al coperto e uno all'aperto nel caso schiarisca.</li><li><strong>Muoviti comodo:</strong> il centro storico e il Port sono vicini; con un ombrello e le scarpe giuste concateni cultura, cibo e drink senza complicazioni.</li><li><strong>La notte non conosce nuvole:</strong> Enjoy e Outxide funzionano ugualmente bene con la pioggia, quindi la tua serata è garantita qualunque cosa accada.</li></ul><p>Una giornata grigia ad Alcúdia non è una giornata persa: è l'occasione per scoprire il lato più accogliente del nord di Maiorca, dal caffè nel centro storico alla brace di <a href="/hiru">Hiru</a> e alla notte infinita di Port d'Alcúdia.</p>`,
+      es: `<p>Mallorca tiene más de 300 días de sol al año, pero cuando el norte de la isla se despierta con nubes y un chaparrón de verano, no hace falta quedarse encerrado en el hotel mirando por la ventana. Alcúdia y su Port ofrecen planes estupendos bajo techo, de la mañana a la madrugada. Aquí tienes una guía práctica de <strong>qué hacer en Alcúdia si llueve</strong>, con ideas para el día y para la noche que no dependen del cielo.</p><h2>Planes de día bajo techo: casco antiguo, cultura y gastronomía</h2><p>El <strong>casco antiguo de Alcúdia</strong> es el mejor refugio para un día gris. Sus calles empedradas dentro de la muralla medieval están llenas de tiendecitas, galerías y cafeterías donde puedes pasar horas resguardado. Piérdete entre los soportales, entra a curiosear en las boutiques y hazte con un buen café mientras esperas a que escampe.</p><p>Para los amantes de la cultura, Alcúdia guarda un pasado romano en el <strong>Museo Monográfico de Pol·lèntia</strong>, que recoge las piezas halladas en la antigua ciudad romana. Y si el respiro de lluvia lo permite, el yacimiento y el teatro romano están a un paso. También merece la pena la iglesia de Sant Jaume, adosada a la muralla, un plan tranquilo y a cubierto.</p><p>Cuando la mañana se alarga, la gastronomía toma el relevo. Los mercados cubiertos, las panaderías con ensaimada recién hecha y las cafeterías del centro convierten un día lluvioso en una excusa perfecta para comer sin prisa. Si quieres más ideas para llenar la jornada, echa un vistazo a nuestra guía de <a href="/blog/que-hacer-alcudia-mallorca">qué hacer en Alcúdia</a>.</p><h2>Comer a la brasa sin depender del tiempo</h2><p>Si hay un plan que sabe igual de bien llueva o haga sol, es una buena comida. En el puerto y el casco antiguo encontrarás comedores interiores acogedores donde refugiarte mientras fuera cae el agua: nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> te ayuda a elegir mesa.</p><p>La especialidad son las <strong>carnes maduradas dry-aged</strong>, cocinadas a la brasa hasta el punto justo, pero la carta va mucho más allá: <strong>paella de marisco</strong>, arroces melosos, pescado fresco del día y una terraza para cuando vuelva el buen tiempo. El lema de la casa lo resume bien: producto, tradición y sabor. Es la clase de comida que convierte un día de lluvia en uno de los mejores recuerdos del viaje.</p><p>¿Buscas más sitios donde comer resguardado? Nuestra selección de <a href="/blog/mejores-restaurantes-alcudia-mallorca">los mejores restaurantes de Alcúdia</a> te da alternativas para cualquier antojo y presupuesto.</p><h2>La noche no se moja: shisha en terraza cubierta y club</h2><p>La lluvia de verano suele dar tregua al caer la tarde, y aunque no lo haga, la noche de Port d'Alcúdia sigue en marcha bajo techo. En <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) puedes disfrutar de <strong>cócteles de autor y shisha premium</strong> en un ambiente cuidado, con zonas cubiertas donde la lluvia se convierte en banda sonora en lugar de en problema. Abre a diario desde las 17:00 y su lema, "Where nights begin", no es casualidad: es el punto de partida perfecto.</p><p>Cuando quieras subir el ritmo, el <a href="/outxide">Outxide Club</a> (misma dirección, Av. Tucán 1) toma el testigo de jueves a sábado desde las 23:00. Techno, house y reggaetón, DJs internacionales, servicio VIP con reservados y una pantalla gigante para eventos deportivos: aquí el tiempo que haga fuera da exactamente igual. Entradas y reservados se gestionan online a través de FourVenues, así que puedes asegurar tu sitio sin mojarte. Solo para mayores de 18.</p><p>Para montar tu noche perfecta, te ayudarán nuestra <a href="/blog/guia-vida-nocturna-alcudia">guía de vida nocturna en Alcúdia</a> y las ideas de <a href="/blog/cocteles-shisha-terraza-alcudia">cócteles y shisha en terraza</a>.</p><h2>Consejos para días de lluvia en Alcúdia</h2><ul><li><strong>Reserva con antelación:</strong> en días de lluvia los locales cubiertos se llenan antes. Reserva mesa con antelación en el restaurante que elijas y tu entrada o reservado en Outxide por FourVenues.</li><li><strong>Aprovecha las treguas:</strong> los chaparrones de verano en el norte de Mallorca suelen ser breves. Ten un plan de interior y otro de exterior por si escampa.</li><li><strong>Muévete cómodo:</strong> el casco antiguo y el Port están cerca; con un paraguas y calzado adecuado encadenas cultura, comida y copas sin complicarte.</li><li><strong>La noche no entiende de nubes:</strong> Enjoy y Outxide funcionan igual de bien con lluvia, así que tu plan nocturno está garantizado pase lo que pase.</li></ul><p>Un día gris en Alcúdia no es un día perdido: es una oportunidad para descubrir el lado más acogedor del norte de Mallorca, del café en el casco antiguo a la noche interminable de Port d'Alcúdia.</p>`,
+      en: `<p>Majorca enjoys more than 300 days of sun a year, but when the north of the island wakes up cloudy with a summer downpour, there's no need to stay cooped up in your hotel staring out the window. Alcúdia and its Port offer great indoor plans, from morning to the small hours. Here's a practical guide to <strong>what to do in Alcúdia when it rains</strong>, with ideas for day and night that don't depend on the sky.</p><h2>Daytime indoor plans: old town, culture and food</h2><p>Alcúdia's <strong>old town</strong> is the best shelter for a grey day. Its cobbled streets inside the medieval walls are full of little shops, galleries and cafés where you can spend hours under cover. Wander beneath the arcades, browse the boutiques and grab a good coffee while you wait for the rain to ease.</p><p>For culture lovers, Alcúdia holds a Roman past at the <strong>Pol·lèntia Museum</strong>, home to the finds from the ancient Roman city. And if the rain lets up, the archaeological site and Roman theatre are just steps away. The church of Sant Jaume, built into the walls, is another calm, sheltered option.</p><p>When the morning stretches on, food takes over. Covered markets, bakeries with freshly made ensaïmada and the cafés of the centre turn a rainy day into the perfect excuse for a long, unhurried meal. For more ideas to fill your day, take a look at our guide to <a href="/blog/que-hacer-alcudia-mallorca">what to do in Alcúdia</a>.</p><h2>Char-grilled dining, whatever the weather</h2><p>If there's one plan that tastes just as good come rain or shine, it's a good meal. Around the port and the old town you'll find cosy indoor dining rooms to shelter in while the rain falls outside: our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> will help you pick a table.</p><p>The house specialty is <strong>dry-aged matured meats</strong>, char-grilled to perfection, but the menu goes far beyond that: <strong>seafood paella</strong>, creamy rice dishes, fresh fish of the day and a terrace for when the sun comes back. The motto sums it up nicely: produce, tradition and flavour. It's the kind of meal that turns a rainy day into one of the best memories of your trip.</p><p>Looking for more sheltered places to eat? Our pick of <a href="/blog/mejores-restaurantes-alcudia-mallorca">the best restaurants in Alcúdia</a> offers options for every craving and budget.</p><h2>The night doesn't get wet: shisha on a covered terrace and a club</h2><p>Summer rain usually eases off by evening, and even when it doesn't, Port d'Alcúdia's nightlife carries on under cover. At <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) you can enjoy <strong>signature cocktails and premium shisha</strong> in a stylish setting, with covered areas where the rain becomes a soundtrack rather than a problem. It opens daily from 5 pm, and its motto, "Where nights begin", is no accident: it's the perfect starting point.</p><p>When you want to raise the tempo, <a href="/outxide">Outxide Club</a> (same address, Av. Tucán 1) takes over from Thursday to Saturday from 11 pm. Techno, house and reggaeton, international DJs, VIP table service and a giant screen for sporting events: here the weather outside makes absolutely no difference. Tickets and tables are handled online through FourVenues, so you can secure your spot without getting wet. Over-18s only.</p><p>To plan your perfect night, our <a href="/blog/guia-vida-nocturna-alcudia">guide to Alcúdia nightlife</a> and our ideas for <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails and shisha on the terrace</a> will help.</p><h2>Tips for rainy days in Alcúdia</h2><ul><li><strong>Book ahead:</strong> on rainy days covered venues fill up sooner. Book a table ahead at the restaurant of your choice and your ticket or table at Outxide via FourVenues.</li><li><strong>Make the most of the breaks:</strong> summer showers in northern Majorca are usually brief. Keep an indoor plan and an outdoor plan ready in case it clears.</li><li><strong>Travel comfortably:</strong> the old town and the Port are close together; with an umbrella and the right shoes you can chain culture, food and drinks with no hassle.</li><li><strong>The night ignores the clouds:</strong> Enjoy and Outxide work just as well in the rain, so your night out is guaranteed whatever happens.</li></ul><p>A grey day in Alcúdia is not a day wasted: it's a chance to discover the cosiest side of northern Majorca, from coffee in the old town to the endless night of Port d'Alcúdia.</p>`,
+      de: `<p>Mallorca hat mehr als 300 Sonnentage im Jahr, doch wenn der Norden der Insel bewölkt und mit einem Sommerschauer erwacht, muss man nicht im Hotel sitzen und aus dem Fenster starren. Alcúdia und sein Hafen bieten großartige Indoor-Pläne, vom Morgen bis in die frühen Morgenstunden. Hier ist ein praktischer Leitfaden, <strong>was man in Alcúdia bei Regen unternehmen kann</strong>, mit Ideen für Tag und Nacht, die nicht vom Himmel abhängen.</p><h2>Tagespläne unter Dach: Altstadt, Kultur und Gastronomie</h2><p>Die <strong>Altstadt von Alcúdia</strong> ist der beste Unterschlupf für einen grauen Tag. Die gepflasterten Gassen innerhalb der mittelalterlichen Stadtmauer sind voller kleiner Läden, Galerien und Cafés, in denen man Stunden geschützt verbringen kann. Bummle unter den Arkaden, stöbere in den Boutiquen und gönn dir einen guten Kaffee, während du wartest, dass der Regen nachlässt.</p><p>Für Kulturliebhaber bewahrt Alcúdia im <strong>Museum von Pol·lèntia</strong> seine römische Vergangenheit, mit den Funden der antiken Römerstadt. Und wenn der Regen eine Pause macht, sind die Ausgrabungsstätte und das römische Theater nur einen Schritt entfernt. Auch die in die Stadtmauer eingelassene Kirche Sant Jaume ist ein ruhiges, überdachtes Ziel.</p><p>Zieht sich der Vormittag in die Länge, übernimmt die Gastronomie. Überdachte Märkte, Bäckereien mit frischer Ensaïmada und die Cafés des Zentrums machen aus einem Regentag den perfekten Vorwand für ein gemütliches Essen. Für weitere Ideen wirf einen Blick in unseren Guide, <a href="/blog/que-hacer-alcudia-mallorca">was man in Alcúdia unternehmen kann</a>.</p><h2>Grillküche, ganz gleich bei welchem Wetter</h2><p>Wenn es einen Plan gibt, der bei Regen wie bei Sonne gleich gut schmeckt, dann ist es ein gutes Essen. Am Hafen und in der Altstadt findest du gemütliche Innenbereiche, in denen du dich unterstellen kannst, während draußen der Regen fällt: Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> hilft bei der Tischwahl.</p><p>Die Spezialität sind <strong>dry-aged gereifte Fleischsorten</strong>, auf dem Grill auf den Punkt gegart, doch die Karte geht weit darüber hinaus: <strong>Meeresfrüchte-Paella</strong>, cremige Reisgerichte, fangfrischer Fisch und eine Terrasse für die Rückkehr der Sonne. Das Motto bringt es auf den Punkt: Produkt, Tradition und Geschmack. Es ist die Art von Essen, die einen Regentag in eine der schönsten Erinnerungen der Reise verwandelt.</p><p>Suchst du weitere überdachte Orte zum Essen? Unsere Auswahl der <a href="/blog/mejores-restaurantes-alcudia-mallorca">besten Restaurants in Alcúdia</a> bietet Optionen für jeden Geschmack und jedes Budget.</p><h2>Die Nacht wird nicht nass: Shisha auf der überdachten Terrasse und Club</h2><p>Sommerregen lässt am Abend meist nach, und selbst wenn nicht, geht das Nachtleben von Port d'Alcúdia unter Dach weiter. In der <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) genießt du <strong>Signature-Cocktails und Premium-Shisha</strong> in stilvollem Ambiente, mit überdachten Bereichen, in denen der Regen zum Soundtrack statt zum Problem wird. Täglich ab 17:00 Uhr geöffnet, und das Motto "Where nights begin" kommt nicht von ungefähr: der perfekte Ausgangspunkt.</p><p>Wenn du das Tempo erhöhen willst, übernimmt der <a href="/outxide">Outxide Club</a> (gleiche Adresse, Av. Tucán 1) von Donnerstag bis Samstag ab 23:00 Uhr. Techno, House und Reggaeton, internationale DJs, VIP-Service mit Reservierungen und eine Großleinwand für Sportevents: Hier ist das Wetter draußen völlig egal. Tickets und Reservierungen laufen online über FourVenues, sodass du dir deinen Platz sichern kannst, ohne nass zu werden. Nur für Personen ab 18 Jahren.</p><p>Für deine perfekte Nacht helfen dir unser <a href="/blog/guia-vida-nocturna-alcudia">Guide zum Nachtleben in Alcúdia</a> und die Ideen zu <a href="/blog/cocteles-shisha-terraza-alcudia">Cocktails und Shisha auf der Terrasse</a>.</p><h2>Tipps für Regentage in Alcúdia</h2><ul><li><strong>Frühzeitig reservieren:</strong> An Regentagen füllen sich überdachte Lokale schneller. Reserviere im Restaurant deiner Wahl im Voraus einen Tisch und dein Ticket oder deinen Reservierten im Outxide über FourVenues.</li><li><strong>Nutze die Regenpausen:</strong> Sommerschauer im Norden Mallorcas sind meist kurz. Halte einen Indoor- und einen Outdoor-Plan bereit, falls es aufklart.</li><li><strong>Bequem unterwegs:</strong> Altstadt und Hafen liegen nah beieinander; mit Schirm und passenden Schuhen reihst du Kultur, Essen und Drinks mühelos aneinander.</li><li><strong>Die Nacht kennt keine Wolken:</strong> Enjoy und Outxide funktionieren bei Regen genauso gut, dein Nachtprogramm ist also garantiert, egal was passiert.</li></ul><p>Ein grauer Tag in Alcúdia ist kein verlorener Tag: Es ist die Gelegenheit, die gemütlichste Seite des Nordens von Mallorca zu entdecken, vom Kaffee in der Altstadt bis zur endlosen Nacht von Port d'Alcúdia.</p>`,
+      fr: `<p>Majorque compte plus de 300 jours de soleil par an, mais quand le nord de l'île se réveille sous les nuages avec une averse d'été, inutile de rester enfermé à l'hôtel à regarder par la fenêtre. Alcúdia et son Port proposent d'excellents plans d'intérieur, du matin jusqu'au bout de la nuit. Voici un guide pratique de <strong>que faire à Alcúdia quand il pleut</strong>, avec des idées pour le jour et la nuit qui ne dépendent pas du ciel.</p><h2>Plans de journée à l'abri : vieille ville, culture et gastronomie</h2><p>La <strong>vieille ville d'Alcúdia</strong> est le meilleur refuge pour un jour gris. Ses ruelles pavées à l'intérieur des remparts médiévaux regorgent de petites boutiques, de galeries et de cafés où l'on peut passer des heures à l'abri. Flânez sous les arcades, chinez dans les boutiques et offrez-vous un bon café en attendant que la pluie faiblisse.</p><p>Pour les amateurs de culture, Alcúdia conserve son passé romain au <strong>musée de Pol·lèntia</strong>, qui rassemble les pièces découvertes dans l'ancienne cité romaine. Et si la pluie fait une pause, le site archéologique et le théâtre romain sont à deux pas. L'église Sant Jaume, adossée aux remparts, est une autre option calme et couverte.</p><p>Quand la matinée s'étire, la gastronomie prend le relais. Les marchés couverts, les boulangeries avec leur ensaïmada fraîche et les cafés du centre transforment un jour de pluie en prétexte idéal pour un repas sans hâte. Pour d'autres idées, jetez un œil à notre guide sur <a href="/blog/que-hacer-alcudia-mallorca">que faire à Alcúdia</a>.</p><h2>La cuisine à la braise, quel que soit le temps</h2><p>S'il y a un plan qui a le même goût qu'il pleuve ou qu'il fasse beau, c'est un bon repas. Autour du port et dans la vieille ville, vous trouverez des salles intérieures chaleureuses où vous abriter pendant que la pluie tombe dehors : notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> vous aidera à choisir votre table.</p><p>La spécialité, ce sont les <strong>viandes maturées dry-aged</strong>, grillées à la braise à la perfection, mais la carte va bien plus loin : <strong>paella aux fruits de mer</strong>, riz crémeux, poisson frais du jour et une terrasse pour le retour du beau temps. La devise résume bien l'esprit : produit, tradition et saveur. C'est le genre de repas qui transforme un jour de pluie en l'un des meilleurs souvenirs du voyage.</p><p>Vous cherchez d'autres endroits couverts où manger ? Notre sélection des <a href="/blog/mejores-restaurantes-alcudia-mallorca">meilleurs restaurants d'Alcúdia</a> propose des options pour toutes les envies et tous les budgets.</p><h2>La nuit ne se mouille pas : chicha en terrasse couverte et club</h2><p>La pluie d'été faiblit généralement en soirée, et même quand ce n'est pas le cas, la vie nocturne de Port d'Alcúdia continue à couvert. À l'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), vous pouvez savourer des <strong>cocktails signature et une chicha premium</strong> dans un cadre soigné, avec des zones couvertes où la pluie devient une bande-son plutôt qu'un problème. Ouvert tous les jours dès 17h, et sa devise "Where nights begin" n'a rien d'un hasard : c'est le point de départ parfait.</p><p>Quand vous voulez monter le rythme, l'<a href="/outxide">Outxide Club</a> (même adresse, Av. Tucán 1) prend le relais du jeudi au samedi dès 23h. Techno, house et reggaeton, DJs internationaux, service VIP avec carrés réservés et un écran géant pour les événements sportifs : ici, le temps qu'il fait dehors n'a aucune importance. Billets et réservations se gèrent en ligne via FourVenues, vous pouvez donc assurer votre place sans vous mouiller. Réservé aux plus de 18 ans.</p><p>Pour composer votre nuit parfaite, notre <a href="/blog/guia-vida-nocturna-alcudia">guide de la vie nocturne à Alcúdia</a> et nos idées de <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails et chicha en terrasse</a> vous seront utiles.</p><h2>Conseils pour les jours de pluie à Alcúdia</h2><ul><li><strong>Réservez à l'avance :</strong> les jours de pluie, les lieux couverts se remplissent plus vite. Réservez une table à l'avance dans le restaurant de votre choix et votre billet ou carré à l'Outxide via FourVenues.</li><li><strong>Profitez des accalmies :</strong> les averses d'été dans le nord de Majorque sont généralement brèves. Gardez un plan intérieur et un plan extérieur au cas où ça se dégage.</li><li><strong>Déplacez-vous à l'aise :</strong> la vieille ville et le Port sont proches ; avec un parapluie et de bonnes chaussures, vous enchaînez culture, repas et verres sans souci.</li><li><strong>La nuit ignore les nuages :</strong> Enjoy et Outxide fonctionnent aussi bien sous la pluie, votre soirée est donc garantie quoi qu'il arrive.</li></ul><p>Un jour gris à Alcúdia n'est pas un jour perdu : c'est l'occasion de découvrir le côté le plus chaleureux du nord de Majorque, du café dans la vieille ville à la nuit sans fin de Port d'Alcúdia.</p>`,
+      it: `<p>Maiorca gode di più di 300 giorni di sole all'anno, ma quando il nord dell'isola si sveglia nuvoloso con un acquazzone estivo, non serve restare chiusi in hotel a guardare fuori dalla finestra. Alcúdia e il suo Port offrono ottimi piani al coperto, dalla mattina fino a notte fonda. Ecco una guida pratica su <strong>cosa fare ad Alcúdia se piove</strong>, con idee per il giorno e per la notte che non dipendono dal cielo.</p><h2>Piani diurni al coperto: centro storico, cultura e gastronomia</h2><p>Il <strong>centro storico di Alcúdia</strong> è il miglior rifugio per una giornata grigia. I suoi vicoli acciottolati all'interno delle mura medievali sono pieni di botteghe, gallerie e caffè dove passare ore al riparo. Perditi tra i portici, curiosa nelle boutique e concediti un buon caffè aspettando che la pioggia diminuisca.</p><p>Per gli amanti della cultura, Alcúdia custodisce il suo passato romano nel <strong>Museo di Pol·lèntia</strong>, che raccoglie i reperti dell'antica città romana. E se la pioggia concede una tregua, il sito archeologico e il teatro romano sono a due passi. Anche la chiesa di Sant Jaume, addossata alle mura, è un'opzione tranquilla e al coperto.</p><p>Quando la mattinata si allunga, tocca alla gastronomia. I mercati coperti, i forni con l'ensaïmada appena sfornata e i caffè del centro trasformano una giornata di pioggia nella scusa perfetta per un pasto senza fretta. Per altre idee, dai un'occhiata alla nostra guida su <a href="/blog/que-hacer-alcudia-mallorca">cosa fare ad Alcúdia</a>.</p><h2>Mangiare alla brace, con qualsiasi tempo</h2><p>Se c'è un piano che è buono con la pioggia come con il sole, è un buon pasto. Al porto e nel centro storico troverai sale interne accoglienti dove ripararti mentre fuori piove: la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> ti aiuta a scegliere il tavolo.</p><p>La specialità sono le <strong>carni maturate dry-aged</strong>, cotte alla brace al punto giusto, ma il menù va ben oltre: <strong>paella di mare</strong>, risotti cremosi, pesce fresco del giorno e una terrazza per quando torna il bel tempo. Il motto della casa lo riassume bene: prodotto, tradizione e sapore. È il tipo di pasto che trasforma una giornata di pioggia in uno dei ricordi più belli del viaggio.</p><p>Cerchi altri posti al coperto dove mangiare? La nostra selezione dei <a href="/blog/mejores-restaurantes-alcudia-mallorca">migliori ristoranti di Alcúdia</a> offre alternative per ogni voglia e budget.</p><h2>La notte non si bagna: shisha in terrazza coperta e club</h2><p>La pioggia estiva di solito dà tregua verso sera, e anche quando non lo fa, la vita notturna di Port d'Alcúdia continua al coperto. All'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1) puoi goderti <strong>cocktail d'autore e shisha premium</strong> in un ambiente curato, con zone coperte dove la pioggia diventa colonna sonora anziché un problema. Aperto tutti i giorni dalle 17:00, e il suo motto "Where nights begin" non è un caso: è il punto di partenza perfetto.</p><p>Quando vuoi alzare il ritmo, l'<a href="/outxide">Outxide Club</a> (stesso indirizzo, Av. Tucán 1) prende il testimone dal giovedì al sabato dalle 23:00. Techno, house e reggaeton, DJ internazionali, servizio VIP con privé e un maxischermo per gli eventi sportivi: qui il tempo che fa fuori non conta affatto. Biglietti e privé si gestiscono online tramite FourVenues, così puoi assicurarti il posto senza bagnarti. Solo per maggiori di 18 anni.</p><p>Per organizzare la tua notte perfetta, ti saranno utili la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida alla vita notturna di Alcúdia</a> e le idee su <a href="/blog/cocteles-shisha-terraza-alcudia">cocktail e shisha in terrazza</a>.</p><h2>Consigli per le giornate di pioggia ad Alcúdia</h2><ul><li><strong>Prenota in anticipo:</strong> nei giorni di pioggia i locali al coperto si riempiono prima. Prenota in anticipo un tavolo nel ristorante che preferisci e il tuo biglietto o privé all'Outxide tramite FourVenues.</li><li><strong>Sfrutta le tregue:</strong> gli acquazzoni estivi nel nord di Maiorca sono di solito brevi. Tieni pronto un piano al coperto e uno all'aperto nel caso schiarisca.</li><li><strong>Muoviti comodo:</strong> il centro storico e il Port sono vicini; con un ombrello e le scarpe giuste concateni cultura, cibo e drink senza complicazioni.</li><li><strong>La notte non conosce nuvole:</strong> Enjoy e Outxide funzionano ugualmente bene con la pioggia, quindi la tua serata è garantita qualunque cosa accada.</li></ul><p>Una giornata grigia ad Alcúdia non è una giornata persa: è l'occasione per scoprire il lato più accogliente del nord di Maiorca, dal caffè nel centro storico alla notte infinita di Port d'Alcúdia.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-07-18",
+    updated: "2026-08-29",
     image: "/images/hiru/475426584_122217376988201104_7624273276245682480_n.jpg",
     tags: ["que hacer alcudia si llueve", "alcudia con lluvia", "planes interior mallorca", "rainy day alcudia", "restaurante alcudia"],
     venue: "hiru",
@@ -617,11 +620,11 @@ export const blogPosts: BlogPost[] = [
           it: "Cosa si può fare ad Alcúdia in una giornata di pioggia?",
         },
         answer: {
-          es: "Puedes recorrer el casco antiguo amurallado y sus tiendas, visitar el Museo de Pol·lèntia, comer a la brasa en Hiru Food &amp; Drinks y por la noche disfrutar de shisha en la terraza cubierta de Enjoy o del Outxide Club.",
-          en: "You can explore the walled old town and its shops, visit the Pol·lèntia Museum, dine char-grilled at Hiru Food &amp; Drinks and, at night, enjoy shisha on Enjoy's covered terrace or the Outxide Club.",
-          de: "Du kannst die von Mauern umgebene Altstadt und ihre Läden erkunden, das Pol·lèntia-Museum besuchen, im Hiru Food &amp; Drinks vom Grill essen und abends Shisha auf der überdachten Terrasse des Enjoy oder im Outxide Club genießen.",
-          fr: "Vous pouvez parcourir la vieille ville fortifiée et ses boutiques, visiter le musée de Pol·lèntia, manger à la braise chez Hiru Food &amp; Drinks et, le soir, savourer une chicha sur la terrasse couverte de l'Enjoy ou à l'Outxide Club.",
-          it: "Puoi girare il centro storico fortificato e le sue botteghe, visitare il Museo di Pol·lèntia, mangiare alla brace da Hiru Food &amp; Drinks e la sera goderti la shisha nella terrazza coperta dell'Enjoy o all'Outxide Club.",
+          es: "Puedes recorrer el casco antiguo amurallado y sus tiendas, visitar el Museo de Pol·lèntia, comer en alguno de los restaurantes del puerto y por la noche disfrutar de shisha en la terraza cubierta de Enjoy o del Outxide Club.",
+          en: "You can explore the walled old town and its shops, visit the Pol·lèntia Museum, have a good meal at one of the port's restaurants and, at night, enjoy shisha on Enjoy's covered terrace or the Outxide Club.",
+          de: "Du kannst die von Mauern umgebene Altstadt und ihre Läden erkunden, das Pol·lèntia-Museum besuchen, in einem der Restaurants am Hafen essen und abends Shisha auf der überdachten Terrasse des Enjoy oder im Outxide Club genießen.",
+          fr: "Vous pouvez parcourir la vieille ville fortifiée et ses boutiques, visiter le musée de Pol·lèntia, manger dans l'un des restaurants du port et, le soir, savourer une chicha sur la terrasse couverte de l'Enjoy ou à l'Outxide Club.",
+          it: "Puoi girare il centro storico fortificato e le sue botteghe, visitare il Museo di Pol·lèntia, mangiare in uno dei ristoranti del porto e la sera goderti la shisha nella terrazza coperta dell'Enjoy o all'Outxide Club.",
         },
       },
       {
@@ -633,11 +636,11 @@ export const blogPosts: BlogPost[] = [
           it: "Ci sono ristoranti con spazio interno a Port d'Alcúdia?",
         },
         answer: {
-          es: "Sí. Hiru Food &amp; Drinks (Ctra. d'Artà 40) cuenta con comedor interior además de terraza, ideal para comer a la brasa sin depender del tiempo. Se reserva a través de Restoo.",
-          en: "Yes. Hiru Food &amp; Drinks (Ctra. d'Artà 40) has an indoor dining room as well as a terrace, perfect for char-grilled dining whatever the weather. Book via Restoo.",
-          de: "Ja. Das Hiru Food &amp; Drinks (Ctra. d'Artà 40) hat neben der Terrasse einen Innenbereich, ideal für Grillküche unabhängig vom Wetter. Reservierung über Restoo.",
-          fr: "Oui. Hiru Food &amp; Drinks (Ctra. d'Artà 40) dispose d'une salle intérieure en plus de la terrasse, idéale pour manger à la braise quel que soit le temps. Réservation via Restoo.",
-          it: "Sì. Hiru Food &amp; Drinks (Ctra. d'Artà 40) ha una sala interna oltre alla terrazza, ideale per mangiare alla brace con qualsiasi tempo. Si prenota tramite Restoo.",
+          es: "Sí. Muchos restaurantes del puerto y del casco antiguo cuentan con comedor interior, ideal para comer sin depender del tiempo. Reserva con antelación en temporada alta.",
+          en: "Yes. Many restaurants around the port and the old town have indoor dining rooms, perfect for a good meal whatever the weather. Book ahead in high season.",
+          de: "Ja. Viele Restaurants am Hafen und in der Altstadt haben einen Innenbereich, ideal zum Essen unabhängig vom Wetter. In der Hochsaison rechtzeitig reservieren.",
+          fr: "Oui. De nombreux restaurants du port et de la vieille ville disposent d'une salle intérieure, idéale pour bien manger quel que soit le temps. Réservez à l'avance en haute saison.",
+          it: "Sì. Molti ristoranti del porto e del centro storico hanno una sala interna, ideale per mangiare con qualsiasi tempo. Prenota in anticipo in alta stagione.",
         },
       },
       {
@@ -810,7 +813,7 @@ export const blogPosts: BlogPost[] = [
 <p>Si te preguntas <strong>dónde ver el fútbol en Alcúdia</strong> o <strong>dónde ver los partidos en Mallorca</strong>, ya sabes: Grupo Enjoy es tu sitio. Y esto no acaba aquí.</p>
 
 <h2>Lo que viene: eventos todo el verano en Grupo Enjoy</h2>
-<p>El Mundial ha terminado, pero el verano en Port d'Alcúdia no para. En <a href="/outxide">Outxide Club</a> seguimos con nuestras noches de DJ, sesiones y fiestas temáticas; en <a href="/enjoy">Enjoy Terrace</a> te esperan los mejores cócteles de autor y shisha frente al atardecer; y en <a href="/hiru">Hiru Food &amp; Drinks</a> tienes cocina a la brasa para cargar pilas antes de salir.</p>
+<p>El Mundial ha terminado, pero el verano en Port d'Alcúdia no para. En <a href="/outxide">Outxide Club</a> seguimos con nuestras noches de DJ, sesiones y fiestas temáticas; en <a href="/enjoy">Enjoy Terrace</a> te esperan los mejores cócteles de autor y shisha frente al atardecer.</p>
 <p>Consulta la <a href="/outxide">agenda de Outxide</a> para no perderte ningún evento, y celebra con nosotros lo que queda de temporada. ¡Gracias por hacer de este Mundial una fiesta inolvidable en Alcúdia!</p>`,
       en: `<p>It's now history: <strong>Spain are the 2026 World Champions</strong>. La Roja beat <strong>Argentina 1-0</strong> in the final to claim their <strong>second star</strong>, sixteen years after the 2010 title. And in Port d'Alcúdia we lived it exactly as it deserved: the final on the <strong>big screen at Outxide Club</strong>, visible from the <a href="/enjoy">Enjoy</a> terrace, with an atmosphere we'll never forget.</p>
 
@@ -835,7 +838,7 @@ export const blogPosts: BlogPost[] = [
 <p>So if you're wondering <strong>where to watch football in Alcúdia</strong> or <strong>where to watch the matches in Mallorca</strong>, now you know: Grupo Enjoy is your place. And this isn't over.</p>
 
 <h2>What's next: events all summer at Grupo Enjoy</h2>
-<p>The World Cup is over, but summer in Port d'Alcúdia doesn't stop. At <a href="/outxide">Outxide Club</a> we carry on with our DJ nights, sessions and themed parties; at <a href="/enjoy">Enjoy Terrace</a> the best signature cocktails and shisha await you facing the sunset; and at <a href="/hiru">Hiru Food &amp; Drinks</a> you'll find grilled cuisine to recharge before heading out.</p>
+<p>The World Cup is over, but summer in Port d'Alcúdia doesn't stop. At <a href="/outxide">Outxide Club</a> we carry on with our DJ nights, sessions and themed parties; at <a href="/enjoy">Enjoy Terrace</a> the best signature cocktails and shisha await you facing the sunset.</p>
 <p>Check the <a href="/outxide">Outxide agenda</a> so you don't miss a single event, and celebrate the rest of the season with us. Thank you for making this World Cup an unforgettable party in Alcúdia!</p>`,
       de: `<p>Jetzt ist es Geschichte: <strong>Spanien ist Weltmeister 2026</strong>. La Roja gewann das Finale mit <strong>1:0 gegen Argentinien</strong> und holt seinen <strong>zweiten Stern</strong>, sechzehn Jahre nach dem Titel von 2010. Und in Port d'Alcúdia haben wir es so erlebt, wie es sein sollte: das Finale auf der <strong>Großleinwand im Outxide Club</strong>, sichtbar von der <a href="/enjoy">Enjoy</a>-Terrasse, mit einer Stimmung, die wir nie vergessen werden.</p>
 
@@ -860,7 +863,7 @@ export const blogPosts: BlogPost[] = [
 <p>Wenn du dich also fragst, <strong>wo man in Alcúdia Fußball schauen kann</strong> oder <strong>wo man die Spiele auf Mallorca sehen kann</strong>, weißt du jetzt Bescheid: Grupo Enjoy ist dein Ort. Und das war noch nicht alles.</p>
 
 <h2>Was kommt: Events den ganzen Sommer bei Grupo Enjoy</h2>
-<p>Die WM ist vorbei, aber der Sommer in Port d'Alcúdia hört nicht auf. Im <a href="/outxide">Outxide Club</a> geht es weiter mit unseren DJ-Nächten, Sessions und Themenpartys; in der <a href="/enjoy">Enjoy Terrace</a> erwarten dich die besten Signature-Cocktails und Shisha mit Blick auf den Sonnenuntergang; und im <a href="/hiru">Hiru Food &amp; Drinks</a> gibt es Grillküche, um vor dem Ausgehen Kraft zu tanken.</p>
+<p>Die WM ist vorbei, aber der Sommer in Port d'Alcúdia hört nicht auf. Im <a href="/outxide">Outxide Club</a> geht es weiter mit unseren DJ-Nächten, Sessions und Themenpartys; in der <a href="/enjoy">Enjoy Terrace</a> erwarten dich die besten Signature-Cocktails und Shisha mit Blick auf den Sonnenuntergang.</p>
 <p>Schau in den <a href="/outxide">Outxide-Kalender</a>, damit dir kein Event entgeht, und feiere mit uns den Rest der Saison. Danke, dass ihr diese WM zu einem unvergesslichen Fest in Alcúdia gemacht habt!</p>`,
       fr: `<p>C'est désormais dans l'histoire : <strong>l'Espagne est championne du monde 2026</strong>. La Roja s'est imposée <strong>1-0 face à l'Argentine</strong> en finale et décroche sa <strong>deuxième étoile</strong>, seize ans après le titre de 2010. Et à Port d'Alcúdia, nous l'avons vécu comme il se doit : la finale sur <strong>écran géant à Outxide Club</strong>, visible depuis la terrasse d'<a href="/enjoy">Enjoy</a>, avec une ambiance que nous n'oublierons pas.</p>
 
@@ -885,7 +888,7 @@ export const blogPosts: BlogPost[] = [
 <p>Si vous vous demandez <strong>où regarder le foot à Alcúdia</strong> ou <strong>où voir les matchs à Majorque</strong>, vous savez maintenant où aller : Grupo Enjoy, c'est chez nous. Et ce n'est pas fini.</p>
 
 <h2>La suite : des événements tout l'été chez Grupo Enjoy</h2>
-<p>La Coupe du monde est terminée, mais l'été à Port d'Alcúdia ne s'arrête pas. À <a href="/outxide">Outxide Club</a>, on continue avec nos soirées DJ, nos sessions et nos soirées à thème ; à <a href="/enjoy">Enjoy Terrace</a>, les meilleurs cocktails signature et la chicha vous attendent face au coucher du soleil ; et à <a href="/hiru">Hiru Food &amp; Drinks</a>, la cuisine à la braise vous recharge les batteries avant de sortir.</p>
+<p>La Coupe du monde est terminée, mais l'été à Port d'Alcúdia ne s'arrête pas. À <a href="/outxide">Outxide Club</a>, on continue avec nos soirées DJ, nos sessions et nos soirées à thème ; à <a href="/enjoy">Enjoy Terrace</a>, les meilleurs cocktails signature et la chicha vous attendent face au coucher du soleil .</p>
 <p>Consultez l'<a href="/outxide">agenda d'Outxide</a> pour ne manquer aucun événement, et fêtez avec nous tout ce qu'il reste de la saison. Merci d'avoir fait de cette Coupe du monde une fête inoubliable à Alcúdia !</p>`,
       it: `<p>Ormai è storia: <strong>la Spagna è campione del mondo 2026</strong>. La Roja si è imposta <strong>1-0 sull'Argentina</strong> in finale e conquista la sua <strong>seconda stella</strong>, sedici anni dopo il titolo del 2010. E a Port d'Alcúdia l'abbiamo vissuta come meritava: la finale sul <strong>maxischermo all'Outxide Club</strong>, visibile dalla terrazza di <a href="/enjoy">Enjoy</a>, con un'atmosfera che non dimenticheremo.</p>
 
@@ -910,11 +913,12 @@ export const blogPosts: BlogPost[] = [
 <p>Se ti stai chiedendo <strong>dove vedere il calcio ad Alcúdia</strong> o <strong>dove vedere le partite a Maiorca</strong>, ora lo sai: Grupo Enjoy è il tuo posto. E non finisce qui.</p>
 
 <h2>Cosa arriva: eventi per tutta l'estate da Grupo Enjoy</h2>
-<p>Il Mondiale è finito, ma l'estate a Port d'Alcúdia non si ferma. All'<a href="/outxide">Outxide Club</a> continuiamo con le nostre serate DJ, i set e le feste a tema; all'<a href="/enjoy">Enjoy Terrace</a> ti aspettano i migliori cocktail d'autore e la shisha di fronte al tramonto; e all'<a href="/hiru">Hiru Food &amp; Drinks</a> trovi la cucina alla brace per ricaricare le pile prima di uscire.</p>
+<p>Il Mondiale è finito, ma l'estate a Port d'Alcúdia non si ferma. All'<a href="/outxide">Outxide Club</a> continuiamo con le nostre serate DJ, i set e le feste a tema; all'<a href="/enjoy">Enjoy Terrace</a> ti aspettano i migliori cocktail d'autore e la shisha di fronte al tramonto.</p>
 <p>Consulta l'<a href="/outxide">agenda di Outxide</a> per non perderti nessun evento, e festeggia con noi il resto della stagione. Grazie per aver reso questo Mondiale una festa indimenticabile ad Alcúdia!</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-07-20",
+    updated: "2026-08-29",
     image: "/images/outxide/PIC06234-6.jpg",
     tags: ["mundial 2026", "españa campeona", "outxide club", "ver futbol alcudia", "eventos alcudia mallorca"],
     venue: "outxide",
@@ -939,289 +943,245 @@ export const blogPosts: BlogPost[] = [
     content: {
       es: `<p>Si te preguntas donde comer en Alcudia, estas en el lugar correcto. El norte de Mallorca se ha consolidado como uno de los destinos gastronomicos mas interesantes de la isla, con una oferta que va desde arroces y paellas frente al mar hasta cocina de autor con producto local de primera. En esta guia repasamos los mejores restaurantes en Alcudia y Port d'Alcudia para que aciertes en cada comida de tus vacaciones.</p>
 
-<h2>1. Hiru Food &amp; Drinks: la referencia gastronomica de Alcudia</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> se ha convertido en el restaurante imprescindible de Port d'Alcudia. Ubicado en la Ctra. d'Arta 40, Hiru combina cocina a la brasa de alto nivel con un ambiente moderno y relajado que funciona tanto para una comida familiar como para una cena romantica o una celebracion con amigos.</p>
-<h3>Que hace especial a Hiru</h3>
-<p>La cocina de Hiru gira en torno al fuego y al producto de calidad. Sus carnes maduradas dry-aged son una de las grandes especialidades: piezas seleccionadas que se maduran durante semanas para conseguir un sabor y una textura excepcionales. Los arroces son otro pilar fundamental de la carta. La paella de marisco, elaborada con producto fresco de la lonja, es uno de los platos mas demandados. Tambien destacan los arroces caldosos con bogavante y los arroces negros. El pescado del Mediterraneo, cocinado a la brasa, completa una propuesta gastronomica redonda.</p>
-<h3>Terraza y ambiente</h3>
-<p>Hiru cuenta con una amplia terraza que es el lugar perfecto para una cena de verano al aire libre. El interior mantiene una estetica contemporanea y acogedora. Ademas, su cocktail bar ofrece combinados de autor y una carta de vinos bien pensada. El restaurante esta abierto hasta tarde, lo que lo convierte en el punto de partida ideal para continuar la noche en Port d'Alcudia.</p>
-<p><strong>Horario:</strong> De 12:00 a 23:30 (viernes y sabado hasta la 1:00). Cierra los martes. Reservar mesa en Alcudia es muy recomendable, especialmente en temporada alta.</p>
-
 <h2>Donde Comer Paella en Alcudia</h2>
 <p>La paella es, sin duda, uno de los platos que todo visitante quiere probar en Mallorca. En Alcudia hay varias opciones para disfrutar de un buen arroz, pero no todos los restaurantes la preparan con el mismo cuidado. Aqui van nuestras recomendaciones para comer paella en Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> encabeza la lista por una razon clara: sus arroces se preparan con caldo casero, marisco fresco de la lonja local y el punto justo de coccion que marca la diferencia entre una paella correcta y una memorable. La paella de marisco y el arroz caldoso con bogavante son los favoritos de quienes repiten.</p>
+<p>Un apunte honesto: durante años, la paella de marisco de <a href="/hiru">Hiru Food &amp; Drinks</a> encabezó esta lista, pero el restaurante cerró definitivamente en agosto de 2026. Hoy el mejor consejo es elegir un restaurante del puerto que prepare el arroz al momento, preguntar por el arroz del día y pedirlo al llegar: la espera es la mejor señal.</p>
 
-<h3>2. Can Costa</h3>
+<h3>1. Can Costa</h3>
 <p>Un clasico de la zona con anos de trayectoria. Especializado en cocina mallorquina y arroces. Buen sitio para probar platos tipicos de la isla en un ambiente familiar. Se encuentra en el casco antiguo de Alcudia.</p>
 
-<h3>3. Bistro Mar</h3>
+<h3>2. Bistro Mar</h3>
 <p>Restaurante frente al paseo maritimo de Port d'Alcudia con vistas al mar. Ofrece paellas y fideuaes con marisco ademas de pescado fresco. Terraza agradable para comidas con brisa marina. Cocina de perfil mediterraneo.</p>
 
 <h2>Restaurantes con Terraza en Alcudia</h2>
 <p>Comer en terraza es casi obligatorio cuando visitas Mallorca. El buen clima del norte de la isla permite disfrutar de comidas y cenas al aire libre desde abril hasta bien entrado octubre. Estos son los mejores restaurantes con terraza en Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> tiene una de las terrazas mas agradables de Port d'Alcudia: espaciosa, bien ambientada y perfecta tanto para comidas como para cenas. Combinar una cena en su terraza con cocteles en <a href="/enjoy">Enjoy Terrace</a> es uno de los mejores planes de la zona.</p>
+<p>Y un plan que sigue funcionando: cena en cualquiera de las terrazas de esta lista y remata la velada con un cóctel al atardecer en <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), la terraza de referencia de Port d'Alcúdia.</p>
 
-<h3>4. Sa Plaça</h3>
+<h3>3. Sa Plaça</h3>
 <p>Situado en la plaza principal del casco antiguo de Alcudia, ofrece cocina mediterranea con toques mallorquines. La terraza con vistas a la muralla medieval es especialmente encantadora al atardecer. Tapas, ensaladas y platos de temporada.</p>
 
-<h3>5. El Patio de Alcudia</h3>
+<h3>4. El Patio de Alcudia</h3>
 <p>Restaurante con un bonito patio interior ajardinado en el centro historico. Cocina fusion con base mediterranea. Ambiente intimo y cuidado. Ideal para cenas especiales o citas romanticas.</p>
 
 <h2>Cocina Internacional en Port d'Alcudia</h2>
 
-<h3>6. Ristorante Da Vinci</h3>
+<h3>5. Ristorante Da Vinci</h3>
 <p>Un restaurante italiano con buena pasta fresca, pizzas en horno de lena y una carta de vinos italianos. Ubicado cerca del puerto, tiene terraza y un ambiente familiar. Buena opcion para quienes buscan algo distinto al mediterraneo.</p>
 
-<h3>7. Sushi Alcudia</h3>
+<h3>6. Sushi Alcudia</h3>
 <p>Para los amantes de la cocina asiatica, esta opcion ofrece sushi, sashimi y platos wok en un local moderno del paseo maritimo. Calidad decente del pescado y buena relacion calidad-precio para la zona.</p>
 
 <h2>Tapas y Raciones</h2>
 
-<h3>8. Bar Ponent</h3>
+<h3>7. Bar Ponent</h3>
 <p>Bar de tapas con sabor local en el casco antiguo. Raciones generosas de jamon iberico, pulpo a la gallega, gambas al ajillo y quesos artesanos. Terraza pequena pero con mucho encanto en una callejuela tranquila.</p>
 
-<h3>9. Bodega d'es Port</h3>
+<h3>8. Bodega d'es Port</h3>
 <p>Una bodega con caracter marinero junto al puerto deportivo. Especializada en tapas de marisco y vinos locales. Buena opcion para un aperitivo antes de una cena mas formal. Ambiente informal y animado.</p>
 
 <h2>Marisquerias y Pescado Fresco</h2>
 
-<h3>10. Ca'n Lliro</h3>
+<h3>9. Ca'n Lliro</h3>
 <p>Restaurante familiar con decadas de historia en Port d'Alcudia. Pescado fresco del dia cocinado de forma sencilla pero eficaz: a la plancha, al horno o frito. Los calderetas de langosta y las fritures de peix son sus platos estrella. Ambiente tradicional y precio medio-alto.</p>
 
-<h2>Por que Hiru es la mejor opcion para una experiencia completa</h2>
-<p>Si tuvieras que elegir un solo restaurante en Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> ofrece la experiencia gastronomica mas completa del norte de Mallorca. Combina cocina a la brasa con producto premium, arroces elaborados con marisco fresco, una carta de cocteles de autor, terraza para cenar al aire libre y un horario amplio que permite desde comidas familiares hasta cenas tardias.</p>
-<p>Ademas, su ubicacion en Port d'Alcudia lo convierte en el punto de partida perfecto para una noche redonda: cena en Hiru, cocteles al atardecer en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sabado, fiesta en <a href="/outxide">Outxide Club</a>. Es la combinacion que los locales ya conocen y que cada vez mas visitantes descubren.</p>
-<p>No olvides reservar mesa en Alcudia con antelacion, especialmente en junio, julio y agosto. La mejor forma de asegurar tu sitio en los mejores restaurantes de Port d'Alcudia es planificar con tiempo.</p>
+<h2>Una despedida: Hiru Food &amp; Drinks (cerrado en 2026)</h2>
+<p>Durante años, <a href="/hiru">Hiru Food &amp; Drinks</a> fue la referencia gastronómica de esta guía: brasa, carnes dry-aged, arroces y una terraza inolvidable en la Ctra. d'Artà 40. En agosto de 2026 sirvió su último servicio y cerró definitivamente sus puertas. Gracias por todo; el espacio queda reservado para futuros proyectos de <a href="/">Grupo Enjoy</a>, aún sin confirmar. Le hemos dedicado una <a href="/blog/hiru-food-drinks-restaurante-alcudia">carta de homenaje y despedida</a>.</p>
+<p>El plan nocturno del grupo sigue muy vivo: cócteles al atardecer en <a href="/enjoy">Enjoy Terrace</a> y fiesta en <a href="/outxide">Outxide Club</a>, ambos en Av. Tucán 1 de Port d'Alcúdia.</p>
 
 <h2>Lectura Recomendada</h2>
-<p>Lee nuestro articulo completo sobre <a href="/blog/hiru-food-drinks-restaurante-alcudia">Hiru Food &amp; Drinks: el restaurante de referencia en Alcudia</a>. Tambien te puede interesar nuestra guia de <a href="/blog/donde-cenar-tarde-port-alcudia">donde cenar tarde en Port d'Alcudia</a> y la seleccion de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a> para despues de cenar.</p>`,
+<p>Lee nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">despedida y homenaje a Hiru Food &amp; Drinks</a>. Tambien te puede interesar nuestra guia de <a href="/blog/donde-cenar-tarde-port-alcudia">donde cenar tarde en Port d'Alcudia</a> y la seleccion de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a> para despues de cenar.</p>`,
 
       en: `<p>If you are wondering where to eat in Alcudia, you are in the right place. Northern Mallorca has established itself as one of the island's most exciting dining destinations, offering everything from seafood paella by the sea to creative cuisine with top-quality local produce. This guide covers the best restaurants in Alcudia and Port d'Alcudia so you can eat well on every meal of your holiday.</p>
 
-<h2>1. Hiru Food &amp; Drinks: Alcudia's Culinary Benchmark</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> has become the must-visit restaurant in Port d'Alcudia. Located on Ctra. d'Arta 40, Hiru pairs high-level charcoal-grill cooking with a modern, relaxed atmosphere that works equally well for a family lunch, a romantic dinner or a celebration with friends.</p>
-<h3>What Makes Hiru Special</h3>
-<p>Hiru's kitchen revolves around fire and quality produce. Their dry-aged meats are one of the standout specialities: hand-selected cuts matured for weeks to achieve exceptional flavour and tenderness. Rice dishes are another cornerstone of the menu. The seafood paella, made with fish-market-fresh shellfish, is one of the most requested plates. The lobster caldoso rice and black rice also draw consistent praise. Mediterranean fish cooked over charcoal rounds out a rock-solid culinary offering.</p>
-<h3>Terrace and Atmosphere</h3>
-<p>Hiru boasts a generous terrace that is the perfect setting for an al-fresco summer dinner. The interior keeps a contemporary, welcoming aesthetic. The cocktail bar serves signature drinks alongside a well-curated wine list. The restaurant stays open late, making it the ideal starting point for a night out in Port d'Alcudia.</p>
-<p><strong>Hours:</strong> 12:00 to 23:30 (Friday and Saturday until 01:00). Closed on Tuesdays. Booking a table is highly recommended, especially in high season.</p>
-
 <h2>Where to Eat Paella in Alcudia</h2>
 <p>Paella is undoubtedly one of the dishes every visitor wants to try in Mallorca. Alcudia has several options, but not every restaurant prepares it with the same care. Here are our recommendations for paella in Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> leads the list for a clear reason: their rice dishes are prepared with homemade stock, fresh seafood from the local fish market and the precise cooking point that separates a good paella from a memorable one. The seafood paella and lobster caldoso rice are favourites among returning guests.</p>
+<p>An honest note: for years the seafood paella at <a href="/hiru">Hiru Food &amp; Drinks</a> topped this list, but the restaurant closed for good in August 2026. Today the best advice is to pick a restaurant by the port that cooks its rice to order, ask about the rice of the day and order it as soon as you sit down — the wait is the best sign.</p>
 
-<h3>2. Can Costa</h3>
+<h3>1. Can Costa</h3>
 <p>A long-established classic in the area specialising in Mallorcan cuisine and rice dishes. Good spot for trying traditional island dishes in a family-friendly setting. Located in Alcudia's old town.</p>
 
-<h3>3. Bistro Mar</h3>
+<h3>2. Bistro Mar</h3>
 <p>A seafront restaurant on Port d'Alcudia's promenade with sea views. Offers paellas and seafood fideuaes alongside fresh fish. Pleasant terrace for meals with a sea breeze. Mediterranean profile.</p>
 
 <h2>Best Terrace Restaurants in Alcudia</h2>
 <p>Dining al fresco is practically mandatory when visiting Mallorca. The northern coast's mild climate allows for outdoor meals from April well into October. These are the best terrace restaurants in Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> has one of the finest terraces in Port d'Alcudia: spacious, well-designed and perfect for both lunch and dinner. Pairing a terrace dinner at Hiru with cocktails at <a href="/enjoy">Enjoy Terrace</a> is one of the best plans in the area.</p>
+<p>And a plan that still works: have dinner on any of the terraces on this list and round off the evening with a sunset cocktail at <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), Port d'Alcúdia's go-to terrace.</p>
 
-<h3>4. Sa Placa</h3>
+<h3>3. Sa Placa</h3>
 <p>Set on Alcudia old town's main square, serving Mediterranean cuisine with Mallorcan touches. The terrace overlooking the medieval walls is especially charming at sunset. Tapas, salads and seasonal plates.</p>
 
-<h3>5. El Patio de Alcudia</h3>
+<h3>4. El Patio de Alcudia</h3>
 <p>A restaurant with a lovely garden courtyard in the historic centre. Fusion cuisine with a Mediterranean base. Intimate, carefully designed setting. Ideal for special dinners or romantic dates.</p>
 
 <h2>International Cuisine in Port d'Alcudia</h2>
 
-<h3>6. Ristorante Da Vinci</h3>
+<h3>5. Ristorante Da Vinci</h3>
 <p>An Italian restaurant with good fresh pasta, wood-fired pizzas and an Italian wine list. Located near the port, it has a terrace and a family-friendly feel. A solid choice for those seeking something beyond Mediterranean.</p>
 
-<h3>7. Sushi Alcudia</h3>
+<h3>6. Sushi Alcudia</h3>
 <p>For Asian-food enthusiasts, this spot offers sushi, sashimi and wok dishes in a modern promenade venue. Decent fish quality and good value for the area.</p>
 
 <h2>Tapas and Small Plates</h2>
 
-<h3>8. Bar Ponent</h3>
+<h3>7. Bar Ponent</h3>
 <p>A local-flavoured tapas bar in the old town. Generous portions of Iberian ham, Galician-style octopus, garlic prawns and artisan cheeses. Small terrace with plenty of charm on a quiet lane.</p>
 
-<h3>9. Bodega d'es Port</h3>
+<h3>8. Bodega d'es Port</h3>
 <p>A bodega with nautical character beside the marina. Specialising in seafood tapas and local wines. Great option for an aperitif before a more formal dinner. Casual, lively atmosphere.</p>
 
 <h2>Seafood Restaurants</h2>
 
-<h3>10. Ca'n Lliro</h3>
+<h3>9. Ca'n Lliro</h3>
 <p>A family-run restaurant with decades of history in Port d'Alcudia. Daily-fresh fish cooked simply but effectively: grilled, oven-baked or fried. The lobster stew and mixed fish fry are their signature dishes. Traditional setting, mid-to-high price range.</p>
 
-<h2>Why Hiru Is the Best Choice for a Complete Dining Experience</h2>
-<p>If you had to pick just one restaurant in Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> delivers the most complete culinary experience in northern Mallorca. It combines charcoal-grill cooking with premium produce, rice dishes made with fresh seafood, a signature cocktail menu, a terrace for outdoor dining and long opening hours that accommodate everything from family lunches to late dinners.</p>
-<p>Its Port d'Alcudia location also makes it the perfect launchpad for a stellar night: dinner at Hiru, sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and, on Thursday, Friday or Saturday, dancing at <a href="/outxide">Outxide Club</a>. It is the combination locals already know and more visitors discover every season.</p>
-<p>Remember to book your table in advance, especially in June, July and August. Planning ahead is the best way to secure your spot at the best restaurants in Port d'Alcudia.</p>`,
+<h2>A farewell: Hiru Food &amp; Drinks (closed in 2026)</h2>
+<p>For years, <a href="/hiru">Hiru Food &amp; Drinks</a> was the gastronomic benchmark of this guide: charcoal grill, dry-aged meats, rice dishes and an unforgettable terrace at Ctra. d'Artà 40. In August 2026 it served its last service and closed its doors for good. Thank you for everything; the space is being kept for future <a href="/">Grupo Enjoy</a> projects, still unconfirmed. We've dedicated a <a href="/blog/hiru-food-drinks-restaurante-alcudia">farewell tribute</a> to it.</p>
+<p>The group's night plan is still going strong: sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and partying at <a href="/outxide">Outxide Club</a>, both at Av. Tucán 1 in Port d'Alcúdia.</p>`,
 
       de: `<p>Sie fragen sich, wo man in Alcudia gut essen kann? Dann sind Sie hier genau richtig. Der Norden Mallorcas hat sich zu einem der spannendsten gastronomischen Ziele der Insel entwickelt. Das Angebot reicht von Paella mit Meeresfruechten direkt am Meer bis hin zu kreativer Kueche mit erstklassigen lokalen Produkten. In diesem Guide stellen wir Ihnen die besten Restaurants in Alcudia und Port d'Alcudia vor, damit Sie bei jedem Essen im Urlaub die richtige Wahl treffen.</p>
 
-<h2>1. Hiru Food &amp; Drinks: Das beste Restaurant in Alcudia</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> hat sich zum gastronomischen Pflichtbesuch in Port d'Alcudia entwickelt. An der Ctra. d'Arta 40 gelegen, verbindet Hiru Grillkueche auf hoechstem Niveau mit einer modernen, entspannten Atmosphaere, die sowohl fuer ein Familienessen als auch fuer ein romantisches Dinner oder eine Feier mit Freunden perfekt passt.</p>
-<h3>Was Hiru besonders macht</h3>
-<p>Hirus Kueche dreht sich um Feuer und Qualitaetsprodukte. Die Dry-Aged-Fleischspezialitaeten gehoeren zu den absoluten Highlights: handverlesene Stuecke, die wochenlang gereift werden, um einen aussergewoehnlichen Geschmack und eine perfekte Textur zu erreichen. Reisgerichte sind eine weitere Saeuele der Speisekarte. Die Meeresfruechte-Paella, zubereitet mit fangfrischen Produkten vom lokalen Fischmarkt, ist eines der meistbestellten Gerichte. Der Hummer-Reistopf (Arroz Caldoso) und der schwarze Reis ueberzeugen ebenfalls. Mediterraner Fisch vom Holzkohlegrill rundet das erstklassige kulinarische Angebot ab.</p>
-<h3>Terrasse und Ambiente</h3>
-<p>Hiru verfuegt ueber eine grosszuegige Terrasse, die den perfekten Rahmen fuer ein Sommerabendessen unter freiem Himmel bietet. Der Innenbereich besticht durch zeitgenoessisches, einladendes Design. Die Cocktailbar serviert Signature-Drinks und eine durchdachte Weinkarte. Das Restaurant hat bis spaet abends geoeffnet und ist damit der ideale Ausgangspunkt fuer einen Abend in Port d'Alcudia.</p>
-<p><strong>Oeffnungszeiten:</strong> 12:00 bis 23:30 Uhr (Freitag und Samstag bis 01:00 Uhr). Dienstags geschlossen. Eine Tischreservierung wird dringend empfohlen, besonders in der Hochsaison.</p>
-
 <h2>Wo kann man Paella in Alcudia essen?</h2>
 <p>Paella ist zweifellos eines der Gerichte, das jeder Mallorca-Besucher probieren moechte. In Alcudia gibt es mehrere Moeglichkeiten, aber nicht jedes Restaurant bereitet sie mit der gleichen Sorgfalt zu. Hier sind unsere Empfehlungen fuer Paella in Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> fuehrt die Liste aus gutem Grund an: Die Reisgerichte werden mit hausgemachter Bruehe, frischen Meeresfruechten vom lokalen Fischmarkt und dem praezisen Garpunkt zubereitet, der eine gute Paella von einer unvergesslichen unterscheidet. Die Meeresfruechte-Paella und der Hummer-Reistopf sind die Favoriten der Stammgaeste.</p>
+<p>Eine ehrliche Anmerkung: Jahrelang führte die Meeresfrüchte-Paella von <a href="/hiru">Hiru Food &amp; Drinks</a> diese Liste an, doch das Restaurant hat im August 2026 endgültig geschlossen. Heute lautet der beste Rat: Wähle ein Restaurant am Hafen, das seinen Reis frisch zubereitet, frage nach dem Reis des Tages und bestelle ihn gleich bei der Ankunft — die Wartezeit ist das beste Zeichen.</p>
 
-<h3>2. Can Costa</h3>
+<h3>1. Can Costa</h3>
 <p>Ein etablierter Klassiker in der Gegend, spezialisiert auf mallorquinische Kueche und Reisgerichte. Guter Ort, um traditionelle Inselgerichte in familiaerer Atmosphaere zu probieren. Im Altstadtkern von Alcudia gelegen.</p>
 
-<h3>3. Bistro Mar</h3>
+<h3>2. Bistro Mar</h3>
 <p>Restaurant an der Strandpromenade von Port d'Alcudia mit Meerblick. Bietet Paellas und Meeresfruechte-Fideuas neben frischem Fisch. Angenehme Terrasse fuer Mahlzeiten mit Meeresbrise. Mediterranes Profil.</p>
 
 <h2>Beste Terrassen-Restaurants in Alcudia</h2>
 <p>Draussen essen gehoert auf Mallorca praktisch zum Pflichtprogramm. Das milde Klima an der Nordkueste ermoeglicht Mahlzeiten im Freien von April bis weit in den Oktober hinein. Das sind die besten Terrassen-Restaurants in Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> bietet eine der schoensten Terrassen in Port d'Alcudia: weitlaeufig, stilvoll gestaltet und perfekt sowohl fuer Mittag- als auch Abendessen. Ein Terrassenabendessen bei Hiru mit anschliessendem Cocktailgenuss in der <a href="/enjoy">Enjoy Terrace</a> ist einer der besten Plaene, die die Region zu bieten hat.</p>
+<p>Und ein Plan, der weiterhin funktioniert: Abendessen auf einer der Terrassen dieser Liste und danach ein Sonnenuntergangs-Cocktail im <a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), der Terrasse der Referenz in Port d'Alcúdia.</p>
 
-<h3>4. Sa Placa</h3>
+<h3>3. Sa Placa</h3>
 <p>Am Hauptplatz der Altstadt von Alcudia gelegen, mit mediterraner Kueche und mallorquinischen Akzenten. Die Terrasse mit Blick auf die mittelalterliche Stadtmauer ist besonders bei Sonnenuntergang bezaubernd. Tapas, Salate und saisonale Gerichte.</p>
 
-<h3>5. El Patio de Alcudia</h3>
+<h3>4. El Patio de Alcudia</h3>
 <p>Restaurant mit einem huebschen Garteninnenhof im historischen Zentrum. Fusionskueche auf mediterraner Basis. Intimes, sorgfaeltig gestaltetes Ambiente. Ideal fuer besondere Abendessen oder romantische Dates.</p>
 
 <h2>Internationale Kueche in Port d'Alcudia</h2>
 
-<h3>6. Ristorante Da Vinci</h3>
+<h3>5. Ristorante Da Vinci</h3>
 <p>Italienisches Restaurant mit guter frischer Pasta, Holzofenpizzen und italienischer Weinkarte. In Hafennaehe gelegen, mit Terrasse und familienfreundlichem Flair. Eine solide Wahl fuer alle, die ueber die mediterrane Kueche hinausschauen moechten.</p>
 
-<h3>7. Sushi Alcudia</h3>
+<h3>6. Sushi Alcudia</h3>
 <p>Fuer Liebhaber der asiatischen Kueche bietet dieses Lokal Sushi, Sashimi und Wok-Gerichte in einem modernen Ambiente an der Promenade. Ordentliche Fischqualitaet und gutes Preis-Leistungs-Verhaeltnis fuer die Gegend.</p>
 
 <h2>Tapas und kleine Gerichte</h2>
 
-<h3>8. Bar Ponent</h3>
+<h3>7. Bar Ponent</h3>
 <p>Tapas-Bar mit lokalem Flair in der Altstadt. Grosszuegige Portionen Iberico-Schinken, Pulpo a la Gallega, Knoblauchgarnelen und handwerklich hergestellter Kaese. Kleine Terrasse mit viel Charme in einer ruhigen Gasse.</p>
 
-<h3>9. Bodega d'es Port</h3>
+<h3>8. Bodega d'es Port</h3>
 <p>Bodega mit maritimem Charakter am Yachthafen. Spezialisiert auf Meeresfruechte-Tapas und lokale Weine. Tolle Option fuer einen Aperitif vor einem gehobeneren Abendessen. Ungezwungene, lebhafte Atmosphaere.</p>
 
 <h2>Fischrestaurants und Meeresfruechte</h2>
 
-<h3>10. Ca'n Lliro</h3>
+<h3>9. Ca'n Lliro</h3>
 <p>Familienrestaurant mit jahrzehntelanger Geschichte in Port d'Alcudia. Tagesfrischer Fisch, schlicht aber wirkungsvoll zubereitet: gegrillt, aus dem Ofen oder frittiert. Der Hummereintopf und die gemischte Fischplatte sind die Spezialitaeten des Hauses. Traditionelles Ambiente, mittlere bis gehobene Preisklasse.</p>
 
-<h2>Warum Hiru die beste Wahl fuer ein vollstaendiges Restauranterlebnis ist</h2>
-<p>Wenn Sie nur ein Restaurant in Alcudia waehlen koennten, bietet <a href="/hiru">Hiru Food &amp; Drinks</a> das umfassendste kulinarische Erlebnis im Norden Mallorcas. Es vereint Grillkueche mit Premium-Produkten, Reisgerichte mit frischen Meeresfruechten, eine Signature-Cocktailkarte, eine Terrasse fuer Mahlzeiten unter freiem Himmel und grosszuegige Oeffnungszeiten, die vom Familienmittagessen bis zum spaeten Abendessen alles abdecken.</p>
-<p>Die Lage in Port d'Alcudia macht Hiru ausserdem zum perfekten Startpunkt fuer einen grossartigen Abend auf Mallorca: Abendessen bei Hiru, Cocktails bei Sonnenuntergang in der <a href="/enjoy">Enjoy Terrace</a> und donnerstags, freitags oder samstags Tanzen im <a href="/outxide">Outxide Club</a>. Es ist die Kombination, die Einheimische laengst kennen und die immer mehr Urlauber entdecken.</p>
-<p>Denken Sie daran, Ihren Tisch rechtzeitig zu reservieren, besonders im Juni, Juli und August. Vorausplanung ist der beste Weg, um sich Ihren Platz in den besten Restaurants von Port d'Alcudia zu sichern.</p>`,
+<h2>Ein Abschied: Hiru Food &amp; Drinks (2026 geschlossen)</h2>
+<p>Jahrelang war <a href="/hiru">Hiru Food &amp; Drinks</a> die gastronomische Referenz dieses Guides: Glut, Dry-Aged-Fleisch, Reisgerichte und eine unvergessliche Terrasse in der Ctra. d'Artà 40. Im August 2026 servierte es seinen letzten Service und schloss endgültig. Danke für alles; der Raum bleibt künftigen Projekten von <a href="/">Grupo Enjoy</a> vorbehalten, noch unbestätigt. Wir haben ihm eine <a href="/blog/hiru-food-drinks-restaurante-alcudia">Abschieds-Hommage</a> gewidmet.</p>
+<p>Der Abendplan der Gruppe lebt weiter: Cocktails zum Sonnenuntergang im <a href="/enjoy">Enjoy Terrace</a> und Party im <a href="/outxide">Outxide Club</a>, beide in der Av. Tucán 1 in Port d'Alcúdia.</p>`,
 
       fr: `<p>Vous vous demandez ou manger a Alcudia ? Vous etes au bon endroit. Le nord de Majorque s'est impose comme l'une des destinations gastronomiques les plus interessantes de l'ile, avec une offre allant de la paella aux fruits de mer face a la mer jusqu'a la cuisine creative a base de produits locaux de premier choix. Ce guide passe en revue les meilleurs restaurants d'Alcudia et de Port d'Alcudia pour que chaque repas de vos vacances soit une reussite.</p>
 
-<h2>1. Hiru Food &amp; Drinks : la reference gastronomique d'Alcudia</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> s'est impose comme le restaurant incontournable de Port d'Alcudia. Situe Ctra. d'Arta 40, Hiru allie cuisine au grill de haut niveau et ambiance moderne et decontractee, aussi adaptee a un dejeuner en famille qu'a un diner romantique ou une fete entre amis.</p>
-<h3>Ce qui rend Hiru special</h3>
-<p>La cuisine d'Hiru tourne autour du feu et des produits de qualite. Les viandes maturees dry-aged comptent parmi les grandes specialites : des pieces selectionnees muries pendant des semaines pour obtenir une saveur et une texture exceptionnelles. Les plats de riz constituent un autre pilier de la carte. La paella aux fruits de mer, preparee avec des produits frais de la criee locale, est l'un des plats les plus demandes. Le riz caldoso au homard et le riz noir sont egalement excellents. Le poisson mediterraneen grille au charbon de bois complete une offre culinaire remarquable.</p>
-<h3>Terrasse et ambiance</h3>
-<p>Hiru dispose d'une grande terrasse, cadre ideal pour un diner estival en plein air. L'interieur conserve une esthetique contemporaine et accueillante. Le bar a cocktails sert des creations maison et une carte des vins bien pensee. Le restaurant reste ouvert tard, ce qui en fait le point de depart ideal pour prolonger la soiree a Port d'Alcudia.</p>
-<p><strong>Horaires :</strong> 12h00 a 23h30 (vendredi et samedi jusqu'a 01h00). Ferme le mardi. La reservation est vivement conseillee, surtout en haute saison.</p>
-
 <h2>Ou manger une paella a Alcudia</h2>
 <p>La paella est sans doute le plat que tout visiteur souhaite gouter a Majorque. Alcudia offre plusieurs possibilites, mais tous les restaurants ne la preparent pas avec le meme soin. Voici nos recommandations pour la paella a Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> arrive en tete pour une raison simple : les plats de riz sont prepares avec un bouillon maison, des fruits de mer frais du marche local et le point de cuisson precis qui fait la difference entre une bonne paella et une paella inoubliable. La paella aux fruits de mer et le riz caldoso au homard sont les favoris des habitues.</p>
+<p>Une note honnête : pendant des années, la paella de fruits de mer de <a href="/hiru">Hiru Food &amp; Drinks</a> a été en tête de cette liste, mais le restaurant a définitivement fermé en août 2026. Aujourd'hui, le meilleur conseil est de choisir un restaurant du port qui prépare son riz à la minute, de demander le riz du jour et de le commander dès votre arrivée — l'attente est le meilleur signe.</p>
 
-<h3>2. Can Costa</h3>
+<h3>1. Can Costa</h3>
 <p>Un classique bien etabli dans la zone, specialise dans la cuisine majorquine et les plats de riz. Bon endroit pour gouter les plats traditionnels de l'ile dans un cadre familial. Situe dans la vieille ville d'Alcudia.</p>
 
-<h3>3. Bistro Mar</h3>
+<h3>2. Bistro Mar</h3>
 <p>Restaurant en front de mer sur la promenade de Port d'Alcudia avec vue sur la mer. Propose des paellas et des fideuaes aux fruits de mer ainsi que du poisson frais. Terrasse agreable pour des repas avec la brise marine. Profil mediterraneen.</p>
 
 <h2>Meilleurs restaurants avec terrasse a Alcudia</h2>
 <p>Manger en terrasse est quasiment obligatoire a Majorque. Le climat doux de la cote nord permet de profiter de repas en plein air d'avril a octobre. Voici les meilleurs restaurants avec terrasse a Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> possede l'une des plus belles terrasses de Port d'Alcudia : spacieuse, bien amenagee et parfaite tant pour le dejeuner que pour le diner. Combiner un diner en terrasse chez Hiru avec des cocktails a l'<a href="/enjoy">Enjoy Terrace</a> est l'un des meilleurs plans de la region.</p>
+<p>Et un plan qui fonctionne toujours : dînez sur l'une des terrasses de cette liste et terminez la soirée par un cocktail au coucher du soleil à l'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), la terrasse de référence de Port d'Alcúdia.</p>
 
-<h3>4. Sa Placa</h3>
+<h3>3. Sa Placa</h3>
 <p>Sur la place principale de la vieille ville d'Alcudia, cuisine mediterraneenne avec des touches majorquines. La terrasse face aux remparts medievaux est particulierement charmante au coucher du soleil. Tapas, salades et plats de saison.</p>
 
-<h3>5. El Patio de Alcudia</h3>
+<h3>4. El Patio de Alcudia</h3>
 <p>Restaurant avec un joli patio-jardin dans le centre historique. Cuisine fusion a base mediterraneenne. Ambiance intime et soignee. Ideal pour un diner special ou une soiree romantique.</p>
 
 <h2>Cuisine internationale a Port d'Alcudia</h2>
 
-<h3>6. Ristorante Da Vinci</h3>
+<h3>5. Ristorante Da Vinci</h3>
 <p>Restaurant italien avec de bonnes pates fraiches, des pizzas au feu de bois et une carte de vins italiens. Situe pres du port, avec terrasse et ambiance familiale. Bonne option pour ceux qui cherchent autre chose que le mediterraneen.</p>
 
-<h3>7. Sushi Alcudia</h3>
+<h3>6. Sushi Alcudia</h3>
 <p>Pour les amateurs de cuisine asiatique, cette adresse propose sushis, sashimis et plats au wok dans un local moderne sur la promenade. Qualite correcte du poisson et bon rapport qualite-prix pour la zone.</p>
 
 <h2>Tapas et portions a partager</h2>
 
-<h3>8. Bar Ponent</h3>
+<h3>7. Bar Ponent</h3>
 <p>Bar a tapas au caractere local dans la vieille ville. Portions genereuses de jambon iberique, poulpe a la galicienne, crevettes a l'ail et fromages artisanaux. Petite terrasse pleine de charme dans une ruelle tranquille.</p>
 
-<h3>9. Bodega d'es Port</h3>
+<h3>8. Bodega d'es Port</h3>
 <p>Bodega au caractere marin pres du port de plaisance. Specialisee dans les tapas de fruits de mer et les vins locaux. Bonne option pour un aperitif avant un diner plus formel. Ambiance decontractee et animee.</p>
 
 <h2>Poissons et fruits de mer</h2>
 
-<h3>10. Ca'n Lliro</h3>
+<h3>9. Ca'n Lliro</h3>
 <p>Restaurant familial avec des decennies d'histoire a Port d'Alcudia. Poisson frais du jour cuisine simplement mais efficacement : grille, au four ou frit. Le ragoet de homard et la friture de poissons sont les specialites. Cadre traditionnel, gamme de prix moyenne a elevee.</p>
 
-<h2>Pourquoi Hiru est le meilleur choix pour une experience complete</h2>
-<p>Si vous ne deviez choisir qu'un seul restaurant a Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> offre l'experience culinaire la plus complete du nord de Majorque. Il allie cuisine au grill avec des produits premium, plats de riz aux fruits de mer frais, carte de cocktails signatures, terrasse pour diner en plein air et horaires etendus qui conviennent aussi bien aux dejeuners familiaux qu'aux diners tardifs.</p>
-<p>Sa situation a Port d'Alcudia en fait aussi le point de depart ideal pour une soiree reussie : diner chez Hiru, cocktails au coucher du soleil a l'<a href="/enjoy">Enjoy Terrace</a> et, le jeudi, vendredi ou samedi, danse a l'<a href="/outxide">Outxide Club</a>. C'est la combinaison que les locaux connaissent deja et que de plus en plus de visiteurs decouvrent.</p>
-<p>N'oubliez pas de reserver votre table a l'avance, surtout en juin, juillet et aout. Anticiper est la meilleure facon de s'assurer une place dans les meilleurs restaurants de Port d'Alcudia.</p>`,
+<h2>Un adieu : Hiru Food &amp; Drinks (fermé en 2026)</h2>
+<p>Pendant des années, <a href="/hiru">Hiru Food &amp; Drinks</a> a été la référence gastronomique de ce guide : braise, viandes dry-aged, riz et une terrasse inoubliable au Ctra. d'Artà 40. En août 2026, il a assuré son dernier service et fermé définitivement ses portes. Merci pour tout ; l'espace est réservé aux futurs projets de <a href="/">Grupo Enjoy</a>, encore non confirmés. Nous lui avons dédié un <a href="/blog/hiru-food-drinks-restaurante-alcudia">hommage d'adieu</a>.</p>
+<p>Le plan nocturne du groupe reste bien vivant : cocktails au coucher du soleil à l'<a href="/enjoy">Enjoy Terrace</a> et fête à l'<a href="/outxide">Outxide Club</a>, tous deux Av. Tucán 1 à Port d'Alcúdia.</p>`,
 
       it: `<p>Vi state chiedendo dove mangiare ad Alcudia? Siete nel posto giusto. Il nord di Maiorca si e' affermato come una delle destinazioni gastronomiche piu' interessanti dell'isola, con un'offerta che spazia dalla paella di pesce in riva al mare alla cucina creativa con prodotti locali di prima qualita'. Questa guida passa in rassegna i migliori ristoranti di Alcudia e Port d'Alcudia perche' ogni pasto delle vostre vacanze sia azzeccato.</p>
 
-<h2>1. Hiru Food &amp; Drinks: il punto di riferimento gastronomico di Alcudia</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> e' diventato il ristorante imprescindibile di Port d'Alcudia. Situato in Ctra. d'Arta 40, Hiru unisce cucina alla brace di alto livello con un'atmosfera moderna e rilassata, perfetta sia per un pranzo in famiglia sia per una cena romantica o una festa tra amici.</p>
-<h3>Cosa rende speciale Hiru</h3>
-<p>La cucina di Hiru ruota attorno al fuoco e ai prodotti di qualita'. Le carni frollate dry-aged sono una delle grandi specialita': tagli selezionati a mano, maturati per settimane per raggiungere un sapore e una consistenza eccezionali. I piatti di riso sono un altro pilastro del menu. La paella di frutti di mare, preparata con prodotto fresco della pescheria locale, e' uno dei piatti piu' richiesti. Eccellenti anche il riso brodoso all'astice e il riso nero. Il pesce mediterraneo cotto alla brace completa un'offerta culinaria di prim'ordine.</p>
-<h3>Terrazza e atmosfera</h3>
-<p>Hiru dispone di un'ampia terrazza, cornice ideale per una cena estiva all'aperto. L'interno mantiene un design contemporaneo e accogliente. Il cocktail bar serve drink d'autore e una carta dei vini ben curata. Il ristorante resta aperto fino a tardi, il che lo rende il punto di partenza ideale per una serata a Port d'Alcudia.</p>
-<p><strong>Orari:</strong> dalle 12:00 alle 23:30 (venerdi' e sabato fino all'01:00). Chiuso il martedi'. La prenotazione e' fortemente consigliata, soprattutto in alta stagione.</p>
-
 <h2>Dove mangiare la paella ad Alcudia</h2>
 <p>La paella e' senza dubbio uno dei piatti che ogni visitatore vuole assaggiare a Maiorca. Ad Alcudia ci sono diverse opzioni, ma non tutti i ristoranti la preparano con la stessa cura. Ecco le nostre raccomandazioni per la paella ad Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> guida la classifica per un motivo chiaro: i piatti di riso sono preparati con brodo fatto in casa, frutti di mare freschi dal mercato ittico locale e il punto di cottura preciso che fa la differenza tra una buona paella e una indimenticabile. La paella di frutti di mare e il riso all'astice sono i preferiti di chi torna.</p>
+<p>Una nota onesta: per anni la paella di frutti di mare di <a href="/hiru">Hiru Food &amp; Drinks</a> ha guidato questa lista, ma il ristorante ha chiuso definitivamente nell'agosto 2026. Oggi il consiglio migliore è scegliere un ristorante del porto che prepari il riso al momento, chiedere del riso del giorno e ordinarlo appena arrivati: l'attesa è il segnale migliore.</p>
 
-<h3>2. Can Costa</h3>
+<h3>1. Can Costa</h3>
 <p>Un classico consolidato nella zona, specializzato in cucina maiorchina e piatti di riso. Buon posto per provare i piatti tradizionali dell'isola in un ambiente familiare. Situato nel centro storico di Alcudia.</p>
 
-<h3>3. Bistro Mar</h3>
+<h3>2. Bistro Mar</h3>
 <p>Ristorante sul lungomare di Port d'Alcudia con vista sul mare. Offre paellas e fideuaes di frutti di mare oltre a pesce fresco. Terrazza piacevole per pasti con brezza marina. Profilo mediterraneo.</p>
 
 <h2>Migliori ristoranti con terrazza ad Alcudia</h2>
 <p>Mangiare all'aperto e' praticamente obbligatorio quando si visita Maiorca. Il clima mite della costa nord consente pasti en plein air da aprile fino a ottobre inoltrato. Questi sono i migliori ristoranti con terrazza ad Alcudia.</p>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> vanta una delle terrazze piu' belle di Port d'Alcudia: spaziosa, curata nel design e perfetta sia per il pranzo che per la cena. Abbinare una cena in terrazza da Hiru con cocktail all'<a href="/enjoy">Enjoy Terrace</a> e' uno dei migliori piani della zona.</p>
+<p>E un piano che funziona ancora: cena su una delle terrazze di questa lista e concludi la serata con un cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucán 1), la terrazza di riferimento di Port d'Alcúdia.</p>
 
-<h3>4. Sa Placa</h3>
+<h3>3. Sa Placa</h3>
 <p>Nella piazza principale del centro storico di Alcudia, con cucina mediterranea e tocchi maiorchini. La terrazza affacciata sulle mura medievali e' particolarmente affascinante al tramonto. Tapas, insalate e piatti stagionali.</p>
 
-<h3>5. El Patio de Alcudia</h3>
+<h3>4. El Patio de Alcudia</h3>
 <p>Ristorante con un grazioso cortile-giardino nel centro storico. Cucina fusion su base mediterranea. Ambiente intimo e curato. Ideale per cene speciali o appuntamenti romantici.</p>
 
 <h2>Cucina internazionale a Port d'Alcudia</h2>
 
-<h3>6. Ristorante Da Vinci</h3>
+<h3>5. Ristorante Da Vinci</h3>
 <p>Ristorante italiano con buona pasta fresca, pizze cotte nel forno a legna e carta dei vini italiani. Situato vicino al porto, con terrazza e atmosfera familiare. Buona scelta per chi cerca qualcosa oltre il mediterraneo.</p>
 
-<h3>7. Sushi Alcudia</h3>
+<h3>6. Sushi Alcudia</h3>
 <p>Per gli amanti della cucina asiatica, questo locale offre sushi, sashimi e piatti al wok in un ambiente moderno sul lungomare. Qualita' discreta del pesce e buon rapporto qualita'-prezzo per la zona.</p>
 
 <h2>Tapas e piatti da condividere</h2>
 
-<h3>8. Bar Ponent</h3>
+<h3>7. Bar Ponent</h3>
 <p>Tapas bar dal sapore locale nel centro storico. Porzioni generose di prosciutto iberico, polpo alla galiziana, gamberi all'aglio e formaggi artigianali. Piccola terrazza ricca di fascino in una viuzza tranquilla.</p>
 
-<h3>9. Bodega d'es Port</h3>
+<h3>8. Bodega d'es Port</h3>
 <p>Bodega dal carattere marinaro accanto al porto turistico. Specializzata in tapas di pesce e vini locali. Ottima opzione per un aperitivo prima di una cena piu' formale. Atmosfera informale e vivace.</p>
 
 <h2>Pesce e frutti di mare</h2>
 
-<h3>10. Ca'n Lliro</h3>
+<h3>9. Ca'n Lliro</h3>
 <p>Ristorante familiare con decenni di storia a Port d'Alcudia. Pesce fresco del giorno cucinato in modo semplice ma efficace: alla griglia, al forno o fritto. Lo stufato di aragosta e il fritto misto di pesce sono i piatti simbolo. Ambiente tradizionale, fascia di prezzo media-alta.</p>
 
-<h2>Perche' Hiru e' la scelta migliore per un'esperienza completa</h2>
-<p>Se doveste scegliere un solo ristorante ad Alcudia, <a href="/hiru">Hiru Food &amp; Drinks</a> offre l'esperienza culinaria piu' completa del nord di Maiorca. Unisce cucina alla brace con prodotti premium, piatti di riso con frutti di mare freschi, una carta cocktail d'autore, una terrazza per cenare all'aperto e orari ampi che vanno dal pranzo in famiglia alla cena tardiva.</p>
-<p>La sua posizione a Port d'Alcudia lo rende inoltre il punto di partenza perfetto per una serata indimenticabile: cena da Hiru, cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a> e, il giovedi', venerdi' o sabato, ballo all'<a href="/outxide">Outxide Club</a>. E' la combinazione che i locali gia' conoscono e che sempre piu' turisti scoprono.</p>
-<p>Ricordatevi di prenotare il tavolo in anticipo, soprattutto a giugno, luglio e agosto. Pianificare in anticipo e' il modo migliore per assicurarsi un posto nei migliori ristoranti di Port d'Alcudia.</p>`,
+<h2>Un addio: Hiru Food &amp; Drinks (chiuso nel 2026)</h2>
+<p>Per anni <a href="/hiru">Hiru Food &amp; Drinks</a> è stato il riferimento gastronomico di questa guida: brace, carni dry-aged, risi e una terrazza indimenticabile in Ctra. d'Artà 40. Nell'agosto 2026 ha servito il suo ultimo servizio e ha chiuso definitivamente. Grazie di tutto; lo spazio resta riservato ai futuri progetti di <a href="/">Grupo Enjoy</a>, ancora da confermare. Gli abbiamo dedicato un <a href="/blog/hiru-food-drinks-restaurante-alcudia">omaggio d'addio</a>.</p>
+<p>Il piano serale del gruppo è più vivo che mai: cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a> e festa all'<a href="/outxide">Outxide Club</a>, entrambi in Av. Tucán 1 a Port d'Alcúdia.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-27",
+    updated: "2026-08-29",
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["alcudia", "restaurants", "mallorca", "paella", "hiru", "gastronomy"],
     venue: "hiru",
@@ -1235,11 +1195,11 @@ export const blogPosts: BlogPost[] = [
           it: "Dove si mangia una buona paella ad Alcúdia?",
         },
         answer: {
-          es: "En el Port d'Alcúdia, Hiru (Ctra. d'Artà 40) prepara paella de marisco y arroces junto a sus carnes a la brasa y pescado fresco. Reserva por Restoo.",
-          en: "In Port d'Alcúdia, Hiru (Ctra. d'Artà 40) serves seafood paella and rice dishes alongside its wood-grilled meats and fresh fish. Book through Restoo.",
-          de: "In Port d'Alcúdia bereitet Hiru (Ctra. d'Artà 40) Meeresfrüchte-Paella und Reisgerichte neben Fleisch vom Grill und frischem Fisch zu. Reservierung über Restoo.",
-          fr: "À Port d'Alcúdia, Hiru (Ctra. d'Artà 40) propose une paella aux fruits de mer et des riz, en plus de ses viandes à la braise et son poisson frais. Réservation via Restoo.",
-          it: "A Port d'Alcúdia, Hiru (Ctra. d'Artà 40) prepara paella di mare e risi accanto alle sue carni alla brace e al pesce fresco. Prenota tramite Restoo.",
+          es: "Varios restaurantes del Port d'Alcúdia preparan buenos arroces al momento. La histórica paella de marisco de Hiru ya no está disponible: el restaurante cerró definitivamente en agosto de 2026.",
+          en: "Several restaurants in Port d'Alcúdia cook good rice dishes to order. Hiru's famous seafood paella is no longer available: the restaurant closed for good in August 2026.",
+          de: "Mehrere Restaurants in Port d'Alcúdia bereiten gute Reisgerichte frisch zu. Die berühmte Meeresfrüchte-Paella von Hiru gibt es nicht mehr: Das Restaurant hat im August 2026 endgültig geschlossen.",
+          fr: "Plusieurs restaurants de Port d'Alcúdia préparent de bons riz à la minute. La célèbre paella de fruits de mer de Hiru n'est plus disponible : le restaurant a définitivement fermé en août 2026.",
+          it: "Diversi ristoranti di Port d'Alcúdia preparano buoni risi al momento. La famosa paella di frutti di mare di Hiru non è più disponibile: il ristorante ha chiuso definitivamente nell'agosto 2026.",
         },
       },
       {
@@ -1251,11 +1211,11 @@ export const blogPosts: BlogPost[] = [
           it: "Dove cenare con carne alla brace ad Alcúdia?",
         },
         answer: {
-          es: "Hiru, en Ctra. d'Artà 40 (Port d'Alcúdia), es un restaurante a la brasa especializado en carnes dry-aged y pescado fresco. Reserva mesa por Restoo.",
-          en: "Hiru, at Ctra. d'Artà 40 (Port d'Alcúdia), is a grill restaurant specialising in dry-aged meats and fresh fish. Reserve a table through Restoo.",
-          de: "Hiru in der Ctra. d'Artà 40 (Port d'Alcúdia) ist ein Grillrestaurant, das auf Dry-Aged-Fleisch und frischen Fisch spezialisiert ist. Tisch über Restoo reservieren.",
-          fr: "Hiru, Ctra. d'Artà 40 (Port d'Alcúdia), est un restaurant à la braise spécialisé dans les viandes dry-aged et le poisson frais. Réservez une table via Restoo.",
-          it: "Hiru, in Ctra. d'Artà 40 (Port d'Alcúdia), è un ristorante alla brace specializzato in carni dry-aged e pesce fresco. Prenota un tavolo tramite Restoo.",
+          es: "Hiru, el asador de referencia del puerto, cerró definitivamente en agosto de 2026. Hoy lo mejor es elegir entre los restaurantes de esta guía y preguntar por las carnes a la brasa del día.",
+          en: "Hiru, the port's benchmark grill house, closed for good in August 2026. Today your best bet is to pick from the restaurants in this guide and ask about the day's grilled meats.",
+          de: "Hiru, das Grillrestaurant der Referenz am Hafen, hat im August 2026 endgültig geschlossen. Am besten wählst du heute eines der Restaurants aus diesem Guide und fragst nach dem Grillfleisch des Tages.",
+          fr: "Hiru, le grill de référence du port, a définitivement fermé en août 2026. Le mieux aujourd'hui est de choisir parmi les restaurants de ce guide et de demander les viandes à la braise du jour.",
+          it: "Hiru, la griglia di riferimento del porto, ha chiuso definitivamente nell'agosto 2026. Oggi conviene scegliere tra i ristoranti di questa guida e chiedere delle carni alla brace del giorno.",
         },
       },
       {
@@ -1267,11 +1227,11 @@ export const blogPosts: BlogPost[] = [
           it: "È necessario prenotare per cenare ad Alcúdia?",
         },
         answer: {
-          es: "En temporada alta es muy recomendable reservar, sobre todo los fines de semana. En Hiru puedes reservar mesa online a través de Restoo.",
-          en: "In high season booking is strongly recommended, especially at weekends. At Hiru you can reserve a table online through Restoo.",
-          de: "In der Hochsaison ist eine Reservierung sehr zu empfehlen, besonders am Wochenende. Bei Hiru kannst du online über Restoo einen Tisch reservieren.",
-          fr: "En haute saison, la réservation est vivement conseillée, surtout le week-end. Chez Hiru, vous pouvez réserver une table en ligne via Restoo.",
-          it: "In alta stagione è caldamente consigliato prenotare, soprattutto nei fine settimana. Da Hiru puoi prenotare un tavolo online tramite Restoo.",
+          es: "En temporada alta es muy recomendable reservar, sobre todo los fines de semana. La mayoría de restaurantes del puerto aceptan reservas por teléfono o desde su web.",
+          en: "In high season booking is strongly recommended, especially at weekends. Most restaurants by the port take reservations by phone or through their websites.",
+          de: "In der Hochsaison ist eine Reservierung sehr zu empfehlen, besonders am Wochenende. Die meisten Restaurants am Hafen nehmen Reservierungen telefonisch oder über ihre Website an.",
+          fr: "En haute saison, la réservation est vivement conseillée, surtout le week-end. La plupart des restaurants du port prennent les réservations par téléphone ou via leur site web.",
+          it: "In alta stagione è caldamente consigliato prenotare, soprattutto nei fine settimana. La maggior parte dei ristoranti del porto accetta prenotazioni per telefono o dal proprio sito.",
         },
       },
       {
@@ -1344,8 +1304,8 @@ export const blogPosts: BlogPost[] = [
 <h2>Como Organizar Tu Noche Perfecta en Mallorca</h2>
 <p>Organizar una buena noche en Mallorca es cuestion de combinar los momentos adecuados. Aqui va nuestra recomendacion para la noche perfecta en el norte de la isla, la formula que los que saben ya han adoptado.</p>
 
-<h3>Paso 1: Cena en Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
-<p>Empieza la noche con una cena memorable. <a href="/hiru">Hiru Food &amp; Drinks</a> ofrece carnes maduradas dry-aged, paella de marisco, arroces caldosos y pescado a la brasa en un ambiente moderno y relajado. Su terraza es ideal para cenar al aire libre en las noches de verano. Reserva mesa con antelacion, especialmente viernes y sabado.</p>
+<h3>Paso 1: Cena en el puerto (20:00 - 22:00)</h3>
+<p>Empieza la noche con una cena memorable. En Port d'Alcudia tienes arroces, carnes a la brasa y pescado fresco en varios restaurantes con terraza, ideales para cenar al aire libre en las noches de verano: nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guia de restaurantes de Alcudia</a> te ayuda a elegir. Reserva mesa con antelacion, especialmente viernes y sabado.</p>
 
 <h3>Paso 2: Cocteles en Enjoy Terrace (22:00 - 00:00)</h3>
 <p>Tras la cena, un paseo corto te lleva a <a href="/enjoy">Enjoy Terrace</a>. Aqui es donde la noche empieza a tomar forma: cocteles de autor, shisha, buena musica y un ambiente que sube progresivamente. Es el pre-party perfecto y el lugar donde los grupos se reencuentran antes de ir al club.</p>
@@ -1359,7 +1319,7 @@ export const blogPosts: BlogPost[] = [
 <p>En la mayoria de clubs de calidad en Mallorca, el dress code es smart casual. Evita chanclas, camisetas de tirantes y ropa de playa. En Outxide Club, se espera un look cuidado pero sin excesiva formalidad. Zapatillas limpias, pantalon largo o corto elegante y camisa o camiseta de calidad funcionan bien.</p>
 
 <h3>Transporte</h3>
-<p>En Port d'Alcudia todo esta cerca y se puede ir andando entre Hiru, Enjoy Terrace y Outxide Club. Para volver al hotel, taxis y VTCs estan disponibles toda la noche. Si vienes desde Palma o Magaluf, el coche es la opcion mas practica (designa un conductor o usa un servicio de conductor privado). En verano hay servicios de bus nocturno en algunas rutas.</p>
+<p>En Port d'Alcudia todo esta cerca y se puede ir andando entre los restaurantes del puerto, Enjoy Terrace y Outxide Club. Para volver al hotel, taxis y VTCs estan disponibles toda la noche. Si vienes desde Palma o Magaluf, el coche es la opcion mas practica (designa un conductor o usa un servicio de conductor privado). En verano hay servicios de bus nocturno en algunas rutas.</p>
 
 <h3>Mejores noches</h3>
 <p>En el norte de Mallorca, los sabados son la noche grande. Los jueves y viernes en verano tambien tienen muy buen ambiente, especialmente en julio y agosto. En Palma, hay opciones cada noche de la semana en temporada alta.</p>
@@ -1368,7 +1328,7 @@ export const blogPosts: BlogPost[] = [
 <p>Cena completa con bebida en un buen restaurante: 30-60 EUR por persona. Cocteles: 10-15 EUR cada uno. Entrada a club: 15-30 EUR dependiendo de la noche y si compras online o en puerta. Una noche completa de cena, cocteles y club puede rondar los 80-120 EUR por persona, una inversion razonable para una experiencia de primer nivel.</p>
 
 <h2>Por que el norte de Mallorca es la mejor opcion para salir de fiesta</h2>
-<p>Mientras que Magaluf y Palma tienen su publico, cada vez mas personas descubren que el norte de Mallorca ofrece una experiencia nocturna superior. Menos aglomeraciones, mejor calidad en todos los aspectos, un ambiente mas autentico y maduro, y la posibilidad de combinar gastronomia de alto nivel con fiesta de calidad en un radio de pocos minutos a pie. La combinacion de <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> y <a href="/outxide">Outxide Club</a> ofrece todo lo que necesitas para una noche perfecta en Mallorca, sin masificaciones y con mucho estilo.</p>`,
+<p>Mientras que Magaluf y Palma tienen su publico, cada vez mas personas descubren que el norte de Mallorca ofrece una experiencia nocturna superior. Menos aglomeraciones, mejor calidad en todos los aspectos, un ambiente mas autentico y maduro, y la posibilidad de combinar gastronomia de alto nivel con fiesta de calidad en un radio de pocos minutos a pie. La combinacion de una buena cena en el puerto, <a href="/enjoy">Enjoy Terrace</a> y <a href="/outxide">Outxide Club</a> ofrece todo lo que necesitas para una noche perfecta en Mallorca, sin masificaciones y con mucho estilo.</p>`,
 
       en: `<p>Mallorca is not just beaches and culture. When the sun goes down, the island transforms into one of the most vibrant party destinations in the Mediterranean. From the mega-clubs of Magaluf to the character-filled venues up north, taking in terrace cocktail bars and boat parties along the way, there is nightlife in Mallorca for every taste. This guide tells you everything you need to know to enjoy the Mallorcan night in 2026.</p>
 
@@ -1404,8 +1364,8 @@ export const blogPosts: BlogPost[] = [
 <h2>How to Plan Your Perfect Night in Mallorca</h2>
 <p>Planning a great night in Mallorca comes down to combining the right moments. Here is our recommendation for the perfect night in the north of the island, the formula those in the know have already adopted.</p>
 
-<h3>Step 1: Dinner at Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
-<p>Start your night with a memorable dinner. <a href="/hiru">Hiru Food &amp; Drinks</a> serves dry-aged meats, seafood paella, caldoso rice and charcoal-grilled fish in a modern, relaxed setting. The terrace is ideal for outdoor dining on summer nights. Book ahead, especially on Fridays and Saturdays.</p>
+<h3>Step 1: Dinner by the port (20:00 - 22:00)</h3>
+<p>Start the night with a memorable dinner. Port d'Alcudia offers rice dishes, charcoal-grilled meats and fresh fish at several restaurants with terraces, perfect for open-air summer dinners: our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcudia</a> will help you choose. Book a table in advance, especially on Fridays and Saturdays.</p>
 
 <h3>Step 2: Cocktails at Enjoy Terrace (22:00 - 00:00)</h3>
 <p>After dinner, a short walk brings you to <a href="/enjoy">Enjoy Terrace</a>. This is where the night starts to take shape: signature cocktails, shisha, great music and an atmosphere that builds steadily. It is the perfect pre-party and the spot where groups reunite before heading to the club.</p>
@@ -1419,7 +1379,7 @@ export const blogPosts: BlogPost[] = [
 <p>At most quality clubs in Mallorca, the dress code is smart casual. Skip flip-flops, vest tops and beachwear. At Outxide Club, a polished look is expected but without excessive formality. Clean trainers, smart shorts or trousers and a quality shirt or tee work well.</p>
 
 <h3>Getting Around</h3>
-<p>In Port d'Alcudia everything is within walking distance between Hiru, Enjoy Terrace and Outxide Club. Taxis and ride-hailing services are available all night for the journey back to your hotel. If coming from Palma or Magaluf, driving is the most practical option (designate a driver or use a private driver service). Some night bus services run on certain routes during summer.</p>
+<p>In Port d'Alcudia everything is within walking distance between the port's restaurants, Enjoy Terrace and Outxide Club. Taxis and ride-hailing services are available all night for the journey back to your hotel. If coming from Palma or Magaluf, driving is the most practical option (designate a driver or use a private driver service). Some night bus services run on certain routes during summer.</p>
 
 <h3>Best Nights</h3>
 <p>In northern Mallorca, Saturday is the big night. Thursdays and Fridays during summer also have a strong atmosphere, especially in July and August. In Palma, there are options every night of the week in high season.</p>
@@ -1428,7 +1388,7 @@ export const blogPosts: BlogPost[] = [
 <p>A full dinner with drinks at a good restaurant: 30-60 EUR per person. Cocktails: 10-15 EUR each. Club entry: 15-30 EUR depending on the night and whether you buy online or at the door. A complete night of dinner, cocktails and clubbing can come to around 80-120 EUR per person, a reasonable investment for a top-level experience.</p>
 
 <h2>Why Northern Mallorca Is the Best Place to Party</h2>
-<p>While Magaluf and Palma have their audience, more and more people are discovering that northern Mallorca offers a superior night out. Fewer crowds, better quality across the board, a more authentic and mature atmosphere, and the ability to combine high-level dining with quality clubbing within a few minutes' walk. The combination of <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> and <a href="/outxide">Outxide Club</a> delivers everything you need for a perfect night in Mallorca, without the masses and with plenty of style.</p>`,
+<p>While Magaluf and Palma have their audience, more and more people are discovering that northern Mallorca offers a superior night out. Fewer crowds, better quality across the board, a more authentic and mature atmosphere, and the ability to combine high-level dining with quality clubbing within a few minutes' walk. The combination of a good dinner by the port, <a href="/enjoy">Enjoy Terrace</a> and <a href="/outxide">Outxide Club</a> delivers everything you need for a perfect night in Mallorca, without the masses and with plenty of style.</p>`,
 
       de: `<p>Mallorca ist nicht nur Straende und Kultur. Wenn die Sonne untergeht, verwandelt sich die Insel in eines der lebendigsten Partyziele im Mittelmeerraum. Von den Mega-Clubs in Magaluf ueber die charaktervollen Clubs im Norden bis hin zu Cocktailbars mit Terrasse und Bootspartys gibt es Nachtleben auf Mallorca fuer jeden Geschmack. Dieser Guide verraet Ihnen alles, was Sie wissen muessen, um die mallorquinische Nacht 2026 in vollen Zuegen zu geniessen.</p>
 
@@ -1464,8 +1424,8 @@ export const blogPosts: BlogPost[] = [
 <h2>So Planen Sie Ihre Perfekte Nacht auf Mallorca</h2>
 <p>Eine grossartige Nacht auf Mallorca zu planen bedeutet, die richtigen Momente zu kombinieren. Hier ist unsere Empfehlung fuer die perfekte Nacht im Norden der Insel, die Formel, die Kenner laengst fuer sich entdeckt haben.</p>
 
-<h3>Schritt 1: Abendessen im Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
-<p>Starten Sie die Nacht mit einem unvergesslichen Abendessen. <a href="/hiru">Hiru Food &amp; Drinks</a> serviert Dry-Aged-Fleisch, Meeresfruechte-Paella, Arroz Caldoso und Holzkohlegrillfish in einem modernen, entspannten Ambiente. Die Terrasse ist ideal fuer Sommerabende unter freiem Himmel. Reservieren Sie vorab, besonders freitags und samstags.</p>
+<h3>Schritt 1: Abendessen am Hafen (20:00 - 22:00)</h3>
+<p>Beginne die Nacht mit einem denkwürdigen Abendessen. Port d'Alcudia bietet Reisgerichte, Fleisch vom Grill und frischen Fisch in mehreren Restaurants mit Terrasse, ideal für Sommerabende im Freien: Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcudia</a> hilft bei der Wahl. Reserviere im Voraus, besonders freitags und samstags.</p>
 
 <h3>Schritt 2: Cocktails in der Enjoy Terrace (22:00 - 00:00)</h3>
 <p>Nach dem Essen fuehrt ein kurzer Spaziergang zur <a href="/enjoy">Enjoy Terrace</a>. Hier nimmt die Nacht Gestalt an: Signature-Cocktails, Shisha, gute Musik und eine Atmosphaere, die stetig aufbaut. Es ist das perfekte Pre-Party und der Ort, an dem sich Gruppen treffen, bevor es in den Club geht.</p>
@@ -1479,7 +1439,7 @@ export const blogPosts: BlogPost[] = [
 <p>In den meisten Qualitaets-Clubs auf Mallorca gilt Smart Casual als Dresscode. Vermeiden Sie Flipflops, Traegershirts und Strandkleidung. Im Outxide Club wird ein gepflegter Look erwartet, aber ohne uebertriebene Formalitaet. Saubere Sneaker, eine elegante Hose oder Shorts und ein hochwertiges Hemd oder T-Shirt passen bestens.</p>
 
 <h3>Anreise und Transport</h3>
-<p>In Port d'Alcudia liegt alles in Gehdistanz: Hiru, Enjoy Terrace und Outxide Club. Fuer die Rueckfahrt zum Hotel stehen die ganze Nacht Taxis und Fahrdienstleister zur Verfuegung. Wenn Sie aus Palma oder Magaluf kommen, ist das Auto die praktischste Option (bestimmen Sie einen Fahrer oder nutzen Sie einen privaten Fahrservice). Im Sommer verkehren auf einigen Strecken Nachtbusse.</p>
+<p>In Port d'Alcudia liegt alles in Gehdistanz: die Restaurants am Hafen, Enjoy Terrace und Outxide Club. Fuer die Rueckfahrt zum Hotel stehen die ganze Nacht Taxis und Fahrdienstleister zur Verfuegung. Wenn Sie aus Palma oder Magaluf kommen, ist das Auto die praktischste Option (bestimmen Sie einen Fahrer oder nutzen Sie einen privaten Fahrservice). Im Sommer verkehren auf einigen Strecken Nachtbusse.</p>
 
 <h3>Beste Naechte</h3>
 <p>Im Norden Mallorcas ist der Samstag die grosse Nacht. Donnerstage und Freitage im Sommer haben ebenfalls eine starke Atmosphaere, besonders im Juli und August. In Palma gibt es in der Hochsaison jeden Abend der Woche Angebote.</p>
@@ -1488,7 +1448,7 @@ export const blogPosts: BlogPost[] = [
 <p>Komplettes Abendessen mit Getraenk in einem guten Restaurant: 30-60 EUR pro Person. Cocktails: 10-15 EUR pro Stueck. Clubeintritt: 15-30 EUR je nach Abend und ob online oder an der Abendkasse gekauft. Eine komplette Nacht mit Abendessen, Cocktails und Club liegt bei etwa 80-120 EUR pro Person, eine vernuenftige Investition fuer ein erstklassiges Erlebnis.</p>
 
 <h2>Warum der Norden Mallorcas der beste Ort zum Feiern ist</h2>
-<p>Waehrend Magaluf und Palma ihr Publikum haben, entdecken immer mehr Menschen, dass der Norden Mallorcas ein ueberlegenes Nachtleben bietet. Weniger Gedraenge, bessere Qualitaet in allen Bereichen, eine authentischere und reifere Atmosphaere und die Moeglichkeit, gehobene Gastronomie mit erstklassigem Clubbing innerhalb weniger Gehminuten zu verbinden. Die Kombination aus <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> und <a href="/outxide">Outxide Club</a> bietet alles, was Sie fuer eine perfekte Nacht auf Mallorca brauchen, ohne Massentourismus und mit viel Stil. Fuer deutsche Urlauber, die Mallorca abseits der Ballermann-Klischees erleben wollen, ist der Norden die klare Nummer eins.</p>`,
+<p>Waehrend Magaluf und Palma ihr Publikum haben, entdecken immer mehr Menschen, dass der Norden Mallorcas ein ueberlegenes Nachtleben bietet. Weniger Gedraenge, bessere Qualitaet in allen Bereichen, eine authentischere und reifere Atmosphaere und die Moeglichkeit, gehobene Gastronomie mit erstklassigem Clubbing innerhalb weniger Gehminuten zu verbinden. Die Kombination aus einem guten Abendessen am Hafen, <a href="/enjoy">Enjoy Terrace</a> und <a href="/outxide">Outxide Club</a> bietet alles, was Sie fuer eine perfekte Nacht auf Mallorca brauchen, ohne Massentourismus und mit viel Stil. Fuer deutsche Urlauber, die Mallorca abseits der Ballermann-Klischees erleben wollen, ist der Norden die klare Nummer eins.</p>`,
 
       fr: `<p>Majorque ne se resume pas aux plages et a la culture. Quand le soleil se couche, l'ile se transforme en l'une des destinations festives les plus vibrantes de la Mediterranee. Des mega-clubs de Magaluf aux clubs a forte personnalite du nord, en passant par les bars a cocktails en terrasse et les soirees en bateau, la vie nocturne a Majorque a de quoi satisfaire tous les gouts. Ce guide vous dit tout ce qu'il faut savoir pour profiter de la nuit majorquine en 2026.</p>
 
@@ -1524,8 +1484,8 @@ export const blogPosts: BlogPost[] = [
 <h2>Comment Organiser Votre Soiree Parfaite a Majorque</h2>
 <p>Organiser une grande soiree a Majorque revient a combiner les bons moments. Voici notre recommandation pour la soiree parfaite dans le nord de l'ile, la formule que les connaisseurs ont deja adoptee.</p>
 
-<h3>Etape 1 : Diner au Hiru Food &amp; Drinks (20h00 - 22h00)</h3>
-<p>Commencez la soiree par un diner memorable. <a href="/hiru">Hiru Food &amp; Drinks</a> propose viandes maturees dry-aged, paella aux fruits de mer, riz caldoso et poisson grille au charbon dans un cadre moderne et decontracte. La terrasse est ideale pour diner en plein air les soirs d'ete. Reservez a l'avance, surtout les vendredis et samedis.</p>
+<h3>Etape 1 : Diner au port (20h00 - 22h00)</h3>
+<p>Commencez la nuit par un diner memorable. Port d'Alcudia offre riz, viandes a la braise et poisson frais dans plusieurs restaurants avec terrasse, parfaits pour diner en plein air les soirs d'ete : notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcudia</a> vous aidera a choisir. Reservez a l'avance, surtout le vendredi et le samedi.</p>
 
 <h3>Etape 2 : Cocktails a l'Enjoy Terrace (22h00 - 00h00)</h3>
 <p>Apres le diner, une courte promenade vous mene a l'<a href="/enjoy">Enjoy Terrace</a>. C'est la que la nuit prend forme : cocktails signatures, chicha, bonne musique et une ambiance qui monte progressivement. C'est le pre-party parfait et le lieu ou les groupes se retrouvent avant d'aller au club.</p>
@@ -1539,7 +1499,7 @@ export const blogPosts: BlogPost[] = [
 <p>Dans la plupart des clubs de qualite a Majorque, le dress code est smart casual. Evitez les tongs, les debardeurs et les vetements de plage. A l'Outxide Club, un look soigne est attendu mais sans formalite excessive. Des baskets propres, un pantalon ou bermuda elegant et une chemise ou un t-shirt de qualite conviennent parfaitement.</p>
 
 <h3>Se deplacer</h3>
-<p>A Port d'Alcudia, tout est a distance de marche entre Hiru, Enjoy Terrace et Outxide Club. Taxis et VTC sont disponibles toute la nuit pour le retour a l'hotel. Si vous venez de Palma ou Magaluf, la voiture est l'option la plus pratique (designez un conducteur ou utilisez un service de chauffeur prive). En ete, des services de bus de nuit fonctionnent sur certains itineraires.</p>
+<p>A Port d'Alcudia, tout est a distance de marche entre les restaurants du port, Enjoy Terrace et Outxide Club. Taxis et VTC sont disponibles toute la nuit pour le retour a l'hotel. Si vous venez de Palma ou Magaluf, la voiture est l'option la plus pratique (designez un conducteur ou utilisez un service de chauffeur prive). En ete, des services de bus de nuit fonctionnent sur certains itineraires.</p>
 
 <h3>Meilleures nuits</h3>
 <p>Dans le nord de Majorque, le samedi est la grande nuit. Les jeudis et vendredis en ete ont egalement une tres bonne ambiance, surtout en juillet et aout. A Palma, des options existent tous les soirs de la semaine en haute saison.</p>
@@ -1548,7 +1508,7 @@ export const blogPosts: BlogPost[] = [
 <p>Diner complet avec boisson dans un bon restaurant : 30-60 EUR par personne. Cocktails : 10-15 EUR piece. Entree en club : 15-30 EUR selon la nuit et l'achat en ligne ou sur place. Une nuit complete diner, cocktails et club revient a environ 80-120 EUR par personne, un investissement raisonnable pour une experience haut de gamme.</p>
 
 <h2>Pourquoi le nord de Majorque est le meilleur endroit pour sortir</h2>
-<p>Alors que Magaluf et Palma ont leur public, de plus en plus de personnes decouvrent que le nord de Majorque offre une experience nocturne superieure. Moins de foule, meilleure qualite a tous les niveaux, une ambiance plus authentique et mature, et la possibilite de combiner gastronomie de haut niveau et clubbing de qualite en quelques minutes a pied. La combinaison <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> et <a href="/outxide">Outxide Club</a> offre tout ce qu'il faut pour une nuit parfaite a Majorque, sans les masses et avec beaucoup de style.</p>`,
+<p>Alors que Magaluf et Palma ont leur public, de plus en plus de personnes decouvrent que le nord de Majorque offre une experience nocturne superieure. Moins de foule, meilleure qualite a tous les niveaux, une ambiance plus authentique et mature, et la possibilite de combiner gastronomie de haut niveau et clubbing de qualite en quelques minutes a pied. La combinaison d'une bonne table au port, de l'<a href="/enjoy">Enjoy Terrace</a> et de l'<a href="/outxide">Outxide Club</a> offre tout ce qu'il faut pour une nuit parfaite a Majorque, sans les masses et avec beaucoup de style.</p>`,
 
       it: `<p>Maiorca non e' solo spiagge e cultura. Quando il sole tramonta, l'isola si trasforma in una delle destinazioni festive piu' vibranti del Mediterraneo. Dalle mega-discoteche di Magaluf ai club dal forte carattere del nord, passando per cocktail bar con terrazza e feste in barca, la vita notturna a Maiorca ha qualcosa per tutti i gusti. Questa guida vi racconta tutto cio' che dovete sapere per godervi la notte maiorchina nel 2026.</p>
 
@@ -1584,8 +1544,8 @@ export const blogPosts: BlogPost[] = [
 <h2>Come Organizzare la Vostra Serata Perfetta a Maiorca</h2>
 <p>Organizzare una grande serata a Maiorca significa combinare i momenti giusti. Ecco la nostra raccomandazione per la serata perfetta nel nord dell'isola, la formula che chi sa ha gia' adottato.</p>
 
-<h3>Passo 1: Cena da Hiru Food &amp; Drinks (20:00 - 22:00)</h3>
-<p>Iniziate la serata con una cena memorabile. <a href="/hiru">Hiru Food &amp; Drinks</a> serve carni frollate dry-aged, paella di frutti di mare, riso caldoso e pesce alla brace in un ambiente moderno e rilassato. La terrazza e' ideale per cenare all'aperto nelle sere d'estate. Prenotate in anticipo, specialmente il venerdi' e il sabato.</p>
+<h3>Passo 1: Cena al porto (20:00 - 22:00)</h3>
+<p>Inizia la notte con una cena memorabile. Port d'Alcudia offre risi, carni alla brace e pesce fresco in diversi ristoranti con terrazza, ideali per cenare all'aperto nelle sere d'estate: la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcudia</a> ti aiuta a scegliere. Prenota in anticipo, soprattutto venerdi e sabato.</p>
 
 <h3>Passo 2: Cocktail all'Enjoy Terrace (22:00 - 00:00)</h3>
 <p>Dopo cena, una breve passeggiata vi porta all'<a href="/enjoy">Enjoy Terrace</a>. E' qui che la serata inizia a prendere forma: cocktail d'autore, shisha, buona musica e un'atmosfera che sale progressivamente. E' il pre-party perfetto e il luogo dove i gruppi si ritrovano prima di andare in discoteca.</p>
@@ -1599,7 +1559,7 @@ export const blogPosts: BlogPost[] = [
 <p>Nella maggior parte dei club di qualita' a Maiorca, il dress code e' smart casual. Evitate infradito, canottiere e abbigliamento da spiaggia. All'Outxide Club ci si aspetta un look curato ma senza eccessiva formalita'. Sneakers pulite, pantaloni o bermuda eleganti e una camicia o maglietta di qualita' vanno benissimo.</p>
 
 <h3>Come muoversi</h3>
-<p>A Port d'Alcudia tutto e' raggiungibile a piedi: Hiru, Enjoy Terrace e Outxide Club. Taxi e servizi di noleggio con conducente sono disponibili tutta la notte per il rientro in hotel. Se venite da Palma o Magaluf, l'auto e' l'opzione piu' pratica (designate un guidatore o usate un servizio di autista privato). In estate funzionano servizi di bus notturno su alcuni percorsi.</p>
+<p>A Port d'Alcudia tutto e' raggiungibile a piedi: i ristoranti del porto, Enjoy Terrace e Outxide Club. Taxi e servizi di noleggio con conducente sono disponibili tutta la notte per il rientro in hotel. Se venite da Palma o Magaluf, l'auto e' l'opzione piu' pratica (designate un guidatore o usate un servizio di autista privato). In estate funzionano servizi di bus notturno su alcuni percorsi.</p>
 
 <h3>Serate migliori</h3>
 <p>Nel nord di Maiorca il sabato e' la serata clou. Giovedi' e venerdi' in estate hanno anch'essi un'ottima atmosfera, specialmente a luglio e agosto. A Palma ci sono opzioni ogni sera della settimana in alta stagione.</p>
@@ -1608,10 +1568,11 @@ export const blogPosts: BlogPost[] = [
 <p>Cena completa con bevanda in un buon ristorante: 30-60 EUR a persona. Cocktail: 10-15 EUR ciascuno. Ingresso in discoteca: 15-30 EUR a seconda della serata e dell'acquisto online o alla porta. Una notte completa di cena, cocktail e discoteca si aggira intorno agli 80-120 EUR a persona, un investimento ragionevole per un'esperienza di primo livello.</p>
 
 <h2>Perche' il nord di Maiorca e' il posto migliore per uscire la sera</h2>
-<p>Mentre Magaluf e Palma hanno il loro pubblico, sempre piu' persone scoprono che il nord di Maiorca offre un'esperienza notturna superiore. Meno folla, qualita' migliore sotto ogni aspetto, un'atmosfera piu' autentica e matura, e la possibilita' di combinare alta gastronomia e clubbing di qualita' nel raggio di pochi minuti a piedi. La combinazione di <a href="/hiru">Hiru Food &amp; Drinks</a>, <a href="/enjoy">Enjoy Terrace</a> e <a href="/outxide">Outxide Club</a> offre tutto cio' che serve per una notte perfetta a Maiorca, senza masse e con molto stile.</p>`,
+<p>Mentre Magaluf e Palma hanno il loro pubblico, sempre piu' persone scoprono che il nord di Maiorca offre un'esperienza notturna superiore. Meno folla, qualita' migliore sotto ogni aspetto, un'atmosfera piu' autentica e matura, e la possibilita' di combinare alta gastronomia e clubbing di qualita' nel raggio di pochi minuti a piedi. La combinazione di una buona cena al porto, <a href="/enjoy">Enjoy Terrace</a> e <a href="/outxide">Outxide Club</a> offre tutto cio' che serve per una notte perfetta a Maiorca, senza masse e con molto stile.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-25",
+    updated: "2026-08-29",
     image: "/images/outxide/DSCF8103-9.jpg",
     tags: ["nightlife", "mallorca", "outxide", "clubs", "alcudia", "cocktails", "enjoy"],
     venue: "outxide",
@@ -1625,11 +1586,11 @@ export const blogPosts: BlogPost[] = [
           it: "Dove uscire la sera nel nord di Maiorca?",
         },
         answer: {
-          es: "Port d'Alcúdia concentra la mejor oferta: discoteca (Outxide Club), cócteles y shisha en terraza (Enjoy Terrace) y cena a la brasa (Hiru), todo a pocos metros.",
-          en: "Port d'Alcúdia has the best options: a nightclub (Outxide Club), terrace cocktails and shisha (Enjoy Terrace) and charcoal-grill dining (Hiru), all within a few metres.",
-          de: "In Port d'Alcúdia gibt es das beste Angebot: Nachtclub (Outxide Club), Cocktails und Shisha auf der Terrasse (Enjoy Terrace) und Grillküche (Hiru) – alles nur wenige Meter entfernt.",
-          fr: "Port d'Alcúdia rassemble le meilleur : discothèque (Outxide Club), cocktails et chicha en terrasse (Enjoy Terrace) et cuisine à la braise (Hiru), le tout à quelques mètres.",
-          it: "Port d'Alcúdia concentra il meglio: discoteca (Outxide Club), cocktail e shisha in terrazza (Enjoy Terrace) e cucina alla brace (Hiru), tutto a pochi metri.",
+          es: "Port d'Alcúdia concentra la mejor oferta: discoteca (Outxide Club) y cócteles y shisha en terraza (Enjoy Terrace), con buenos restaurantes para cenar a pocos metros.",
+          en: "Port d'Alcúdia has the best options: a nightclub (Outxide Club) and terrace cocktails and shisha (Enjoy Terrace), with good restaurants for dinner within a few metres.",
+          de: "In Port d'Alcúdia gibt es das beste Angebot: Nachtclub (Outxide Club) sowie Cocktails und Shisha auf der Terrasse (Enjoy Terrace) – mit guten Restaurants zum Abendessen nur wenige Meter entfernt.",
+          fr: "Port d'Alcúdia rassemble le meilleur : discothèque (Outxide Club) et cocktails et chicha en terrasse (Enjoy Terrace), avec de bonnes tables à quelques mètres.",
+          it: "Port d'Alcúdia concentra il meglio: discoteca (Outxide Club) e cocktail e shisha in terrazza (Enjoy Terrace), con buoni ristoranti a pochi metri.",
         },
       },
       {
@@ -1739,7 +1700,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Consejo:</strong> Las primeras horas de la manana y el atardecer son los mejores momentos para ver aves. Lleva prismaticos si puedes.</p>
 
 <h2>10. Cenar a la brasa con producto local</h2>
-<p>Despues de un dia explorando Alcudia, nada mejor que una buena cena con producto fresco y cocinado a la brasa. <a href="/hiru">Hiru Food &amp; Drinks</a>, en la Ctra. d'Arta 40 de Port d'Alcudia, se ha convertido en la referencia gastronomica de la zona. Su cocina se basa en carnes maduradas seleccionadas, arroces elaborados con pescado y marisco de la lonja local, y pescados del Mediterraneo cocinados al punto perfecto sobre carbon. El ambiente es moderno y relajado, perfecto para una cena larga con buena compania.</p>
+<p>Despues de un dia explorando Alcudia, nada mejor que una buena cena con producto fresco. En Port d'Alcudia encontraras arroces de lonja, cocina a la brasa y pescados del Mediterraneo en varios buenos restaurantes, con ambientes perfectos para una cena larga con buena compania: nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guia de los mejores restaurantes de Alcudia</a> te ayuda a elegir.</p>
 <p><strong>Horario:</strong> Abierto de 12:00 a 23:30 (viernes y sabado hasta la 1:00). Cierra los martes. Reservar mesa es recomendable, especialmente en fin de semana.</p>
 
 <h2>11. Cocteles al atardecer con vistas</h2>
@@ -1747,7 +1708,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Consejo:</strong> Llega unos 30 minutos antes del atardecer para coger buen sitio. Los bartenders te pueden recomendar combinaciones segun tus gustos.</p>
 
 <h2>12. Vida nocturna de nivel</h2>
-<p>La noche en Port d'Alcudia tiene un nombre propio: <a href="/outxide">Outxide Club</a>. Es la referencia del clubbing en el norte de Mallorca, con sonido profesional de primer nivel, DJs nacionales e internacionales y una produccion visual espectacular. Abre de jueves a sabado a partir de las 23:00, de mayo a octubre. La ubicacion es perfecta para combinar con una cena en Hiru y cocteles en Enjoy Terrace antes de entrar al club.</p>
+<p>La noche en Port d'Alcudia tiene un nombre propio: <a href="/outxide">Outxide Club</a>. Es la referencia del clubbing en el norte de Mallorca, con sonido profesional de primer nivel, DJs nacionales e internacionales y una produccion visual espectacular. Abre de jueves a sabado a partir de las 23:00, de mayo a octubre. La ubicacion es perfecta para combinar con una cena en el puerto y cocteles en Enjoy Terrace antes de entrar al club.</p>
 <p><strong>Entradas:</strong> Disponibles a traves de FourVenues (plataforma oficial) o en la puerta. Comprar online suele tener mejor precio.</p>
 
 <h2>13. Visitar la Cueva de Sant Marti</h2>
@@ -1761,7 +1722,7 @@ export const blogPosts: BlogPost[] = [
 <p>Para quienes prefieren una actividad mas relajada, los tours en segway o bicicleta electrica son una forma divertida de explorar Port d'Alcudia, el paseo maritimo y los alrededores del parque de s'Albufera sin esfuerzo. Varias empresas ofrecen rutas guiadas que incluyen paradas en miradores y puntos de interes historico.</p>
 
 <h2>Tu dia perfecto en Alcudia</h2>
-<p>Si tuvieras que elegir un solo dia, aqui va nuestra recomendacion: empieza con una visita al casco antiguo y el mercado (si es martes o domingo), banate en la playa de Alcudia por la manana, come un arroz de lonja en <a href="/hiru">Hiru Food &amp; Drinks</a>, dedica la tarde a una excursion en barco o senderismo en la Victoria, disfruta del atardecer con cocteles en <a href="/enjoy">Enjoy Terrace</a>, y si es jueves, viernes o sabado, cierra la noche bailando en <a href="/outxide">Outxide Club</a>. Alcudia lo tiene todo, concentrado y a tu alcance.</p>`,
+<p>Si tuvieras que elegir un solo dia, aqui va nuestra recomendacion: empieza con una visita al casco antiguo y el mercado (si es martes o domingo), banate en la playa de Alcudia por la manana, come un arroz de lonja en el puerto, dedica la tarde a una excursion en barco o senderismo en la Victoria, disfruta del atardecer con cocteles en <a href="/enjoy">Enjoy Terrace</a>, y si es jueves, viernes o sabado, cierra la noche bailando en <a href="/outxide">Outxide Club</a>. Alcudia lo tiene todo, concentrado y a tu alcance.</p>`,
       en: `<p>Alcudia is one of the most complete destinations in Mallorca. Perched on the northern tip of the island, this town blends medieval history, spectacular beaches, protected natural areas and an ever-growing food and entertainment scene. If you are wondering what to do in Alcudia, here are 15 essential plans that cover everything from early morning to late at night.</p>
 
 <h2>1. Walk the medieval walled old town</h2>
@@ -1801,7 +1762,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Tip:</strong> Early morning and late afternoon are the best times for birdwatching. Bring binoculars if you can.</p>
 
 <h2>10. Dine on charcoal-grilled local produce</h2>
-<p>After a day exploring Alcudia, nothing beats a proper sit-down dinner with fresh local ingredients cooked over charcoal. <a href="/hiru">Hiru Food &amp; Drinks</a>, on Ctra. d'Arta 40 in Port d'Alcudia, has become the gastronomic benchmark of the area. The kitchen revolves around hand-selected aged meats, rice dishes prepared with fish and shellfish from the local market, and Mediterranean fish grilled to perfection over charcoal. The atmosphere is modern and relaxed, ideal for a long dinner with good company.</p>
+<p>After a day exploring Alcudia, nothing beats a good dinner with fresh produce. In Port d'Alcudia you'll find market rice dishes, charcoal-grilled cooking and Mediterranean fish at several good restaurants, perfect for a long dinner in good company: our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to the best restaurants in Alcudia</a> will help you choose.</p>
 <p><strong>Hours:</strong> Open 12:00 to 23:30 (Friday and Saturday until 01:00). Closed Tuesdays. Booking is recommended, especially at weekends.</p>
 
 <h2>11. Sunset cocktails with a view</h2>
@@ -1809,7 +1770,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Tip:</strong> Arrive about 30 minutes before sunset to grab a good spot. The bartenders are happy to recommend combinations based on your taste.</p>
 
 <h2>12. World-class nightlife</h2>
-<p>When it comes to after-dark action in Port d'Alcudia, <a href="/outxide">Outxide Club</a> is the undisputed reference. It is the top clubbing destination in northern Mallorca, with professional-grade sound, national and international DJs and spectacular visual production. Open Thursday to Saturday from 23:00, May through October. The location is perfect for combining a dinner at Hiru and cocktails at Enjoy Terrace before heading into the club.</p>
+<p>When it comes to after-dark action in Port d'Alcudia, <a href="/outxide">Outxide Club</a> is the undisputed reference. It is the top clubbing destination in northern Mallorca, with professional-grade sound, national and international DJs and spectacular visual production. Open Thursday to Saturday from 23:00, May through October. The location is perfect for combining a dinner by the port and cocktails at Enjoy Terrace before heading into the club.</p>
 <p><strong>Tickets:</strong> Available through FourVenues (the official platform) or at the door. Buying online usually means a better price.</p>
 
 <h2>13. Visit the Cave of Sant Marti</h2>
@@ -1823,7 +1784,7 @@ export const blogPosts: BlogPost[] = [
 <p>For a more laid-back activity, Segway or electric-bike tours are a fun way to explore Port d'Alcudia, the seafront promenade and the s'Albufera surroundings without breaking a sweat. Several operators run guided routes with stops at viewpoints and historical landmarks.</p>
 
 <h2>Your perfect day in Alcudia</h2>
-<p>If you only had one day, here is our recommendation: start with the old town and the market (if it is Tuesday or Sunday), swim at Alcudia beach in the morning, have a seafood rice dish for lunch at <a href="/hiru">Hiru Food &amp; Drinks</a>, spend the afternoon on a boat trip or hiking on the Victoria peninsula, enjoy sunset cocktails at <a href="/enjoy">Enjoy Terrace</a>, and if it is Thursday, Friday or Saturday, close the night dancing at <a href="/outxide">Outxide Club</a>. Alcudia has it all, compact and within reach.</p>`,
+<p>If you only had one day, here is our recommendation: start with the old town and the market (if it is Tuesday or Sunday), swim at Alcudia beach in the morning, have a seafood rice dish for lunch by the port, spend the afternoon on a boat trip or hiking on the Victoria peninsula, enjoy sunset cocktails at <a href="/enjoy">Enjoy Terrace</a>, and if it is Thursday, Friday or Saturday, close the night dancing at <a href="/outxide">Outxide Club</a>. Alcudia has it all, compact and within reach.</p>`,
       de: `<p>Alcudia ist eines der vielseitigsten Reiseziele auf Mallorca. An der Nordspitze der Insel gelegen, vereint die Stadt mittelalterliche Geschichte, spektakulare Strande, geschutzte Naturgebiete und ein stetig wachsendes Gastronomie- und Freizeitangebot. Wenn du dich fragst, was man in Alcudia unternehmen kann, findest du hier 15 unverzichtbare Aktivitaten, die vom fruhen Morgen bis tief in die Nacht reichen.</p>
 
 <h2>1. Die mittelalterliche Altstadt erkunden</h2>
@@ -1863,7 +1824,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Tipp:</strong> Die fruehen Morgenstunden und der spaete Nachmittag sind die besten Zeiten zur Vogelbeobachtung. Bring ein Fernglas mit, wenn moeglich.</p>
 
 <h2>10. Am Holzkohlegrill dinieren mit lokalen Produkten</h2>
-<p>Nach einem Tag voller Erkundungen in Alcudia gibt es nichts Besseres als ein ordentliches Abendessen mit frischen, regionalen Zutaten vom Holzkohlegrill. <a href="/hiru">Hiru Food &amp; Drinks</a> an der Ctra. d'Arta 40 in Port d'Alcudia hat sich zum gastronomischen Massstab der Gegend entwickelt. Die Kueche dreht sich um handverlesenes gereiftes Fleisch, Reisgerichte mit Fisch und Meeresfruechten vom lokalen Fischmarkt und mediterrane Fische, die ueber Holzkohle perfekt gegrillt werden. Das Ambiente ist modern und entspannt, ideal fur ein langes Abendessen in guter Gesellschaft.</p>
+<p>Nach einem Tag voller Entdeckungen in Alcudia geht nichts über ein gutes Abendessen mit frischen Produkten. In Port d'Alcudia findest du Reisgerichte, Grillküche und Mittelmeerfisch in mehreren guten Restaurants, perfekt für ein langes Abendessen in guter Gesellschaft: Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Guide zu den besten Restaurants in Alcudia</a> hilft bei der Wahl.</p>
 <p><strong>Oeffnungszeiten:</strong> 12:00 bis 23:30 Uhr (Freitag und Samstag bis 1:00 Uhr). Dienstags geschlossen. Reservierung empfohlen, besonders am Wochenende.</p>
 
 <h2>11. Cocktails bei Sonnenuntergang mit Aussicht</h2>
@@ -1871,7 +1832,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Tipp:</strong> Komm etwa 30 Minuten vor Sonnenuntergang, um einen guten Platz zu ergattern. Die Bartender empfehlen dir gerne Kombinationen nach deinem Geschmack.</p>
 
 <h2>12. Nachtleben auf Top-Niveau</h2>
-<p>Wenn es um Nachtleben in Port d'Alcudia geht, ist <a href="/outxide">Outxide Club</a> die unangefochtene Nummer eins. Er ist die Top-Clubbing-Adresse im Norden Mallorcas mit professionellem Sound, nationalen und internationalen DJs und spektakulaerer visueller Produktion. Geoeffnet Donnerstag bis Samstag ab 23:00 Uhr, von Mai bis Oktober. Die Lage ist perfekt, um ein Abendessen im Hiru und Cocktails in der Enjoy Terrace mit einem Clubbesuch zu kombinieren.</p>
+<p>Wenn es um Nachtleben in Port d'Alcudia geht, ist <a href="/outxide">Outxide Club</a> die unangefochtene Nummer eins. Er ist die Top-Clubbing-Adresse im Norden Mallorcas mit professionellem Sound, nationalen und internationalen DJs und spektakulaerer visueller Produktion. Geoeffnet Donnerstag bis Samstag ab 23:00 Uhr, von Mai bis Oktober. Die Lage ist perfekt, um ein Abendessen am Hafen und Cocktails in der Enjoy Terrace mit einem Clubbesuch zu kombinieren.</p>
 <p><strong>Tickets:</strong> Erhaeltlich ueber FourVenues (offizielle Plattform) oder an der Abendkasse. Online-Kauf bietet in der Regel einen besseren Preis.</p>
 
 <h2>13. Die Hoehle von Sant Marti besuchen</h2>
@@ -1885,7 +1846,7 @@ export const blogPosts: BlogPost[] = [
 <p>Fur eine entspanntere Aktivitaet sind Segway- oder E-Bike-Touren eine unterhaltsame Moeglichkeit, Port d'Alcudia, die Strandpromenade und die Umgebung von s'Albufera ohne Anstrengung zu erkunden. Mehrere Anbieter bieten gefuehrte Routen mit Stopps an Aussichtspunkten und historischen Sehenswuerdigkeiten an.</p>
 
 <h2>Dein perfekter Tag in Alcudia</h2>
-<p>Wenn du nur einen Tag haettest, hier ist unsere Empfehlung: Starte mit der Altstadt und dem Markt (falls Dienstag oder Sonntag), schwimm am Strand von Alcudia am Vormittag, iss mittags ein Reisgericht mit Fisch und Meeresfruechten im <a href="/hiru">Hiru Food &amp; Drinks</a>, verbringe den Nachmittag mit einem Bootsausflug oder einer Wanderung auf der Victoria-Halbinsel, geniesse Cocktails bei Sonnenuntergang auf der <a href="/enjoy">Enjoy Terrace</a>, und wenn es Donnerstag, Freitag oder Samstag ist, lass die Nacht tanzend im <a href="/outxide">Outxide Club</a> ausklingen. Alcudia hat alles, kompakt und in Reichweite.</p>`,
+<p>Wenn du nur einen Tag haettest, hier ist unsere Empfehlung: Starte mit der Altstadt und dem Markt (falls Dienstag oder Sonntag), schwimm am Strand von Alcudia am Vormittag, iss mittags ein Reisgericht mit Fisch und Meeresfruechten am Hafen, verbringe den Nachmittag mit einem Bootsausflug oder einer Wanderung auf der Victoria-Halbinsel, geniesse Cocktails bei Sonnenuntergang auf der <a href="/enjoy">Enjoy Terrace</a>, und wenn es Donnerstag, Freitag oder Samstag ist, lass die Nacht tanzend im <a href="/outxide">Outxide Club</a> ausklingen. Alcudia hat alles, kompakt und in Reichweite.</p>`,
       fr: `<p>Alcudia est l'une des destinations les plus completes de Majorque. Situee a la pointe nord de l'ile, cette ville allie histoire medievale, plages spectaculaires, espaces naturels proteges et une offre gastronomique et de loisirs en pleine expansion. Si vous vous demandez que faire a Alcudia, voici 15 activites incontournables, du petit matin jusqu'au bout de la nuit.</p>
 
 <h2>1. Parcourir la vieille ville fortifiee</h2>
@@ -1925,7 +1886,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Conseil :</strong> Le petit matin et la fin d'apres-midi sont les meilleurs moments pour l'observation. Apportez des jumelles si possible.</p>
 
 <h2>10. Diner au grill avec des produits locaux</h2>
-<p>Apres une journee d'exploration a Alcudia, rien de mieux qu'un diner de qualite avec des ingredients frais cuits au charbon de bois. <a href="/hiru">Hiru Food &amp; Drinks</a>, sur la Ctra. d'Arta 40 a Port d'Alcudia, s'est impose comme la reference gastronomique de la zone. La cuisine tourne autour de viandes maturees selectionnees, de plats de riz prepares avec le poisson et les fruits de mer du marche local, et de poissons mediterraneens grilles a la perfection sur charbon. L'ambiance est moderne et decontractee, ideale pour un diner prolonge en bonne compagnie.</p>
+<p>Apres une journee a explorer Alcudia, rien de mieux qu'un bon diner avec des produits frais. A Port d'Alcudia, vous trouverez riz de la criee, cuisine a la braise et poissons de Mediterranee dans plusieurs bons restaurants, parfaits pour un long diner en bonne compagnie : notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des meilleurs restaurants d'Alcudia</a> vous aidera a choisir.</p>
 <p><strong>Horaires :</strong> 12h00 a 23h30 (vendredi et samedi jusqu'a 1h00). Ferme le mardi. Reservation recommandee, surtout le week-end.</p>
 
 <h2>11. Cocktails au coucher du soleil</h2>
@@ -1933,7 +1894,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Conseil :</strong> Arrivez environ 30 minutes avant le coucher du soleil pour avoir une bonne place. Les bartenders se feront un plaisir de vous recommander des combinaisons selon vos gouts.</p>
 
 <h2>12. Vie nocturne haut de gamme</h2>
-<p>Cote nuit a Port d'Alcudia, <a href="/outxide">Outxide Club</a> est la reference incontestee. C'est la premiere destination clubbing du nord de Majorque, avec un son professionnel, des DJ nationaux et internationaux et une production visuelle spectaculaire. Ouvert du jeudi au samedi a partir de 23h00, de mai a octobre. L'emplacement est parfait pour enchaîner un diner chez Hiru, des cocktails a l'Enjoy Terrace puis une soiree au club.</p>
+<p>Cote nuit a Port d'Alcudia, <a href="/outxide">Outxide Club</a> est la reference incontestee. C'est la premiere destination clubbing du nord de Majorque, avec un son professionnel, des DJ nationaux et internationaux et une production visuelle spectaculaire. Ouvert du jeudi au samedi a partir de 23h00, de mai a octobre. L'emplacement est parfait pour enchaîner un diner au port, des cocktails a l'Enjoy Terrace puis une soiree au club.</p>
 <p><strong>Billets :</strong> Disponibles via FourVenues (plateforme officielle) ou sur place. L'achat en ligne offre generalement un meilleur tarif.</p>
 
 <h2>13. Visiter la grotte de Sant Marti</h2>
@@ -1947,7 +1908,7 @@ export const blogPosts: BlogPost[] = [
 <p>Pour une activite plus tranquille, les tours en Segway ou velo electrique sont une facon amusante d'explorer Port d'Alcudia, le front de mer et les alentours de s'Albufera sans effort. Plusieurs operateurs proposent des circuits guides avec des arrets aux points de vue et sites historiques.</p>
 
 <h2>Votre journee parfaite a Alcudia</h2>
-<p>Si vous n'aviez qu'une journee, voici notre recommandation : commencez par la vieille ville et le marche (si c'est mardi ou dimanche), baignez-vous a la plage d'Alcudia le matin, dejeuner d'un riz aux fruits de mer au <a href="/hiru">Hiru Food &amp; Drinks</a>, passez l'apres-midi en excursion en bateau ou en randonnee sur la Victoria, savourez des cocktails au coucher du soleil a la <a href="/enjoy">Enjoy Terrace</a>, et si c'est jeudi, vendredi ou samedi, terminez la nuit en dansant a l'<a href="/outxide">Outxide Club</a>. Alcudia a tout, compact et a portee de main.</p>`,
+<p>Si vous n'aviez qu'une journee, voici notre recommandation : commencez par la vieille ville et le marche (si c'est mardi ou dimanche), baignez-vous a la plage d'Alcudia le matin, dejeuner d'un riz aux fruits de mer au port, passez l'apres-midi en excursion en bateau ou en randonnee sur la Victoria, savourez des cocktails au coucher du soleil a la <a href="/enjoy">Enjoy Terrace</a>, et si c'est jeudi, vendredi ou samedi, terminez la nuit en dansant a l'<a href="/outxide">Outxide Club</a>. Alcudia a tout, compact et a portee de main.</p>`,
       it: `<p>Alcudia e' una delle destinazioni piu' complete di Maiorca. Situata sulla punta settentrionale dell'isola, questa citta' unisce storia medievale, spiagge spettacolari, aree naturali protette e un'offerta gastronomica e di svago in continua crescita. Se ti chiedi cosa fare ad Alcudia, ecco 15 attivita' imperdibili che coprono dalla mattina presto fino a notte fonda.</p>
 
 <h2>1. Passeggiare nel centro storico medievale</h2>
@@ -1987,7 +1948,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Consiglio:</strong> Le prime ore del mattino e il tardo pomeriggio sono i momenti migliori per il birdwatching. Porta un binocolo se puoi.</p>
 
 <h2>10. Cenare alla griglia con prodotti locali</h2>
-<p>Dopo una giornata di esplorazioni ad Alcudia, niente batte una cena come si deve con ingredienti freschi locali cotti alla brace. <a href="/hiru">Hiru Food &amp; Drinks</a>, in Ctra. d'Arta 40 a Port d'Alcudia, e' diventato il punto di riferimento gastronomico della zona. La cucina ruota attorno a carni frollate selezionate, risotti preparati con pesce e frutti di mare del mercato locale e pesci mediterranei grigliati alla perfezione su carbone. L'atmosfera e' moderna e rilassata, ideale per una cena lunga in buona compagnia.</p>
+<p>Dopo una giornata a esplorare Alcudia, niente di meglio di una buona cena con prodotti freschi. A Port d'Alcudia troverai risi di mercato, cucina alla brace e pesci del Mediterraneo in diversi buoni ristoranti, perfetti per una cena lunga in buona compagnia: la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai migliori ristoranti di Alcudia</a> ti aiuta a scegliere.</p>
 <p><strong>Orari:</strong> 12:00-23:30 (venerdi' e sabato fino all'1:00). Chiuso il martedi'. Prenotazione consigliata, specialmente nel fine settimana.</p>
 
 <h2>11. Cocktail al tramonto con vista</h2>
@@ -1995,7 +1956,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>Consiglio:</strong> Arriva circa 30 minuti prima del tramonto per assicurarti un buon posto. I bartender saranno felici di consigliarti combinazioni in base ai tuoi gusti.</p>
 
 <h2>12. Vita notturna di alto livello</h2>
-<p>Quando si parla di notte a Port d'Alcudia, <a href="/outxide">Outxide Club</a> e' il riferimento indiscusso. E' la prima destinazione per il clubbing nel nord di Maiorca, con impianto audio professionale, DJ nazionali e internazionali e una produzione visiva spettacolare. Aperto da giovedi' a sabato dalle 23:00, da maggio a ottobre. La posizione e' perfetta per combinare una cena da Hiru e cocktail all'Enjoy Terrace prima di entrare in discoteca.</p>
+<p>Quando si parla di notte a Port d'Alcudia, <a href="/outxide">Outxide Club</a> e' il riferimento indiscusso. E' la prima destinazione per il clubbing nel nord di Maiorca, con impianto audio professionale, DJ nazionali e internazionali e una produzione visiva spettacolare. Aperto da giovedi' a sabato dalle 23:00, da maggio a ottobre. La posizione e' perfetta per combinare una cena al porto e cocktail all'Enjoy Terrace prima di entrare in discoteca.</p>
 <p><strong>Biglietti:</strong> Disponibili tramite FourVenues (piattaforma ufficiale) o alla porta. L'acquisto online offre di solito un prezzo migliore.</p>
 
 <h2>13. Visitare la grotta di Sant Marti</h2>
@@ -2009,10 +1970,11 @@ export const blogPosts: BlogPost[] = [
 <p>Per un'attivita' piu' rilassata, i tour in Segway o bici elettrica sono un modo divertente di esplorare Port d'Alcudia, il lungomare e i dintorni di s'Albufera senza fatica. Diversi operatori propongono percorsi guidati con soste ai punti panoramici e ai siti storici.</p>
 
 <h2>La tua giornata perfetta ad Alcudia</h2>
-<p>Se avessi un solo giorno, ecco il nostro consiglio: inizia con il centro storico e il mercato (se e' martedi' o domenica), fai il bagno alla spiaggia di Alcudia la mattina, pranza con un riso ai frutti di mare da <a href="/hiru">Hiru Food &amp; Drinks</a>, dedica il pomeriggio a un'escursione in barca o al trekking sulla Victoria, goditi i cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a>, e se e' giovedi', venerdi' o sabato, chiudi la notte ballando all'<a href="/outxide">Outxide Club</a>. Alcudia ha tutto, compatto e a portata di mano.</p>`,
+<p>Se avessi un solo giorno, ecco il nostro consiglio: inizia con il centro storico e il mercato (se e' martedi' o domenica), fai il bagno alla spiaggia di Alcudia la mattina, pranza con un riso ai frutti di mare al porto, dedica il pomeriggio a un'escursione in barca o al trekking sulla Victoria, goditi i cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a>, e se e' giovedi', venerdi' o sabato, chiudi la notte ballando all'<a href="/outxide">Outxide Club</a>. Alcudia ha tutto, compatto e a portata di mano.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["alcudia", "mallorca", "activities", "guide"],
     venue: "general",
@@ -2058,11 +2020,11 @@ export const blogPosts: BlogPost[] = [
           it: "Cosa fare ad Alcúdia in coppia?",
         },
         answer: {
-          es: "Un paseo al atardecer por el puerto seguido de cócteles en la terraza de Enjoy es un plan perfecto en pareja. Para cenar, la brasa y las carnes dry-aged de Hiru (Ctra. d'Artà 40) son ideales; reserva por Restoo.",
-          en: "A sunset stroll along the port followed by cocktails on the Enjoy terrace makes a perfect couple's evening. For dinner, the grill and dry-aged meats at Hiru (Ctra. d'Artà 40) are ideal; book through Restoo.",
-          de: "Ein Spaziergang zum Sonnenuntergang am Hafen und anschließend Cocktails auf der Terrasse von Enjoy sind ideal für Paare. Zum Abendessen empfehlen sich Grillgerichte und Dry-Aged-Fleisch im Hiru (Ctra. d'Artà 40); Reservierung über Restoo.",
-          fr: "Une balade au coucher du soleil le long du port suivie de cocktails sur la terrasse d'Enjoy est parfaite en couple. Pour dîner, la grillade et les viandes maturées de Hiru (Ctra. d'Artà 40) sont idéales ; réservez via Restoo.",
-          it: "Una passeggiata al tramonto lungo il porto seguita da cocktail sulla terrazza dell'Enjoy è perfetta in coppia. Per cena, la brace e le carni dry-aged di Hiru (Ctra. d'Artà 40) sono l'ideale; prenota tramite Restoo.",
+          es: "Un paseo al atardecer por el puerto seguido de cócteles en la terraza de Enjoy es un plan perfecto en pareja. Para cenar, elige una de las terrazas del puerto y reserva con antelación en temporada alta.",
+          en: "A sunset stroll along the port followed by cocktails on the Enjoy terrace makes a perfect couple's evening. For dinner, pick one of the terraces by the port and book ahead in high season.",
+          de: "Ein Spaziergang zum Sonnenuntergang am Hafen und anschließend Cocktails auf der Terrasse von Enjoy sind ideal für Paare. Zum Abendessen wählst du am besten eine der Terrassen am Hafen; in der Hochsaison rechtzeitig reservieren.",
+          fr: "Une balade au coucher du soleil le long du port suivie de cocktails sur la terrasse d'Enjoy est parfaite en couple. Pour dîner, choisissez l'une des terrasses du port et réservez à l'avance en haute saison.",
+          it: "Una passeggiata al tramonto lungo il porto seguita da cocktail sulla terrazza dell'Enjoy è perfetta in coppia. Per cena, scegli una delle terrazze del porto e prenota in anticipo in alta stagione.",
         },
       },
       {
@@ -2187,7 +2149,7 @@ export const blogPosts: BlogPost[] = [
 <p>Un gran dia de playa merece un gran final. Aqui van nuestras recomendaciones para completar la jornada:</p>
 
 <h3>Para comer o cenar</h3>
-<p>Despues de horas al sol, el cuerpo pide una buena comida. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) es la eleccion perfecta: arroces elaborados con pescado y marisco de la lonja, carnes maduradas a la brasa y pescados del Mediterraneo. Abierto desde las 12:00, es ideal tanto para un almuerzo largo como para una cena relajada despues de la playa. Cierra los martes.</p>
+<p>Después de horas al sol, el cuerpo pide una buena comida. En Port d'Alcúdia hay arroces, cocina a la brasa y opciones para todos los gustos, tanto para un almuerzo largo como para una cena tranquila: encuentra nuestra selección al día en la <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de los mejores restaurantes de Alcúdia</a>.</p>
 
 <h3>Para tomar algo al atardecer</h3>
 <p>Sal de la playa, date una ducha y dirigete a <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Cocteles de autor, shisha premium y un ambiente que combina perfectamente con el atardecer de Alcudia. Abre a las 17:00 cada dia y es el lugar donde la tarde se convierte en noche de forma natural.</p>
@@ -2289,7 +2251,7 @@ export const blogPosts: BlogPost[] = [
 <p>A great beach day deserves a great finish. Here are our recommendations for rounding off the day:</p>
 
 <h3>For lunch or dinner</h3>
-<p>After hours in the sun, your body craves a proper meal. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) is the ideal choice: rice dishes prepared with fish and seafood from the local market, charcoal-grilled aged meats and Mediterranean fish. Open from 12:00, it works perfectly for a long lunch or a relaxed post-beach dinner. Closed Tuesdays.</p>
+<p>After hours in the sun, you'll have earned a proper meal. Port d'Alcúdia has rice dishes, charcoal-grilled cooking and options for every taste, whether it's a long lunch or a relaxed dinner: find our up-to-date selection in the <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to the best restaurants in Alcúdia</a>.</p>
 
 <h3>For sunset drinks</h3>
 <p>Leave the beach, take a shower and head to <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Signature cocktails, premium shisha and an ambiance that pairs perfectly with an Alcudia sunset. Open from 17:00 daily, it is the place where the afternoon naturally turns into evening.</p>
@@ -2391,7 +2353,7 @@ export const blogPosts: BlogPost[] = [
 <p>Ein grossartiger Strandtag verdient einen grossartigen Abschluss. Hier sind unsere Empfehlungen, um den Tag abzurunden:</p>
 
 <h3>Zum Mittag- oder Abendessen</h3>
-<p>Nach Stunden in der Sonne verlangt der Koerper nach einer ordentlichen Mahlzeit. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) ist die ideale Wahl: Reisgerichte mit Fisch und Meeresfruechten vom lokalen Markt, gereiftes Fleisch vom Holzkohlegrill und mediterrane Fische. Ab 12:00 Uhr geoeffnet, perfekt sowohl fuer ein ausgiebiges Mittagessen als auch fuer ein entspanntes Abendessen nach dem Strand. Dienstags geschlossen.</p>
+<p>Nach Stunden in der Sonne hat man sich ein gutes Essen verdient. Port d'Alcúdia bietet Reisgerichte, Grillküche und Optionen für jeden Geschmack, ob langes Mittagessen oder entspanntes Abendessen: Unsere aktuelle Auswahl findest du im <a href="/blog/mejores-restaurantes-alcudia-mallorca">Guide zu den besten Restaurants in Alcúdia</a>.</p>
 
 <h3>Fuer Drinks bei Sonnenuntergang</h3>
 <p>Verlasse den Strand, dusche dich und geh zur <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Signature-Cocktails, Premium-Shisha und ein Ambiente, das perfekt zum Sonnenuntergang in Alcudia passt. Taeglich ab 17:00 Uhr geoeffnet, ist es der Ort, an dem der Nachmittag ganz natuerlich in den Abend uebergeht.</p>
@@ -2493,7 +2455,7 @@ export const blogPosts: BlogPost[] = [
 <p>Une belle journee de plage merite une belle fin. Voici nos recommandations pour terminer la journee en beaute :</p>
 
 <h3>Pour dejeuner ou diner</h3>
-<p>Apres des heures au soleil, le corps reclame un bon repas. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) est le choix ideal : plats de riz prepares avec le poisson et les fruits de mer du marche local, viandes maturees au grill et poissons mediterraneens. Ouvert des 12h00, parfait aussi bien pour un long dejeuner que pour un diner decontracte apres la plage. Ferme le mardi.</p>
+<p>Après des heures au soleil, un bon repas s'impose. Port d'Alcúdia offre des riz, une cuisine à la braise et des options pour tous les goûts, pour un long déjeuner comme pour un dîner tranquille : retrouvez notre sélection à jour dans le <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des meilleurs restaurants d'Alcúdia</a>.</p>
 
 <h3>Pour un verre au coucher du soleil</h3>
 <p>Quittez la plage, prenez une douche et dirigez-vous vers <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Cocktails signatures, chicha premium et une ambiance qui s'accorde parfaitement avec le coucher du soleil d'Alcudia. Ouvert tous les jours a partir de 17h00, c'est l'endroit ou l'apres-midi se transforme naturellement en soiree.</p>
@@ -2595,7 +2557,7 @@ export const blogPosts: BlogPost[] = [
 <p>Una grande giornata di mare merita un gran finale. Ecco i nostri consigli per completare la giornata:</p>
 
 <h3>Per pranzo o cena</h3>
-<p>Dopo ore al sole, il corpo chiede un pasto come si deve. <a href="/hiru">Hiru Food &amp; Drinks</a> (Ctra. d'Arta 40, Port d'Alcudia) e' la scelta ideale: risotti preparati con pesce e frutti di mare del mercato locale, carni frollate alla brace e pesci mediterranei. Aperto dalle 12:00, perfetto sia per un pranzo lungo sia per una cena rilassata dopo la spiaggia. Chiuso il martedi'.</p>
+<p>Dopo ore al sole, un buon pasto è d'obbligo. Port d'Alcúdia offre risi, cucina alla brace e opzioni per tutti i gusti, per un pranzo lungo o una cena tranquilla: trovi la nostra selezione aggiornata nella <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai migliori ristoranti di Alcúdia</a>.</p>
 
 <h3>Per un drink al tramonto</h3>
 <p>Esci dalla spiaggia, fatti una doccia e dirigiti all'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, Port d'Alcudia). Cocktail d'autore, shisha premium e un'atmosfera che si sposa perfettamente con il tramonto di Alcudia. Aperto tutti i giorni dalle 17:00, e' il luogo dove il pomeriggio si trasforma naturalmente in serata.</p>
@@ -2614,6 +2576,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Grupo Enjoy",
     date: "2026-05-26",
+    updated: "2026-08-29",
     image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
     tags: ["alcudia", "mallorca", "activities", "guide"],
     venue: "general",
@@ -2671,7 +2634,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Por qué Alcúdia es diferente</h2>
-<p>Lo que hace única la noche en Port d'Alcúdia es la proximidad de todo. Puedes empezar con cócteles al atardecer, cenar en un restaurante a la brasa como <a href="/hiru">Hiru Food &amp; Drinks</a>, volver a la terraza para una shisha y terminar bailando en el club. Todo en la misma zona, a pocos pasos. Eso, combinado con la brisa del Mediterráneo, el ambiente internacional y una oferta de calidad, convierte a Alcúdia en un destino nocturno que no tiene nada que envidiar al sur de la isla.</p>
+<p>Lo que hace única la noche en Port d'Alcúdia es la proximidad de todo. Puedes empezar con cócteles al atardecer, cenar en uno de los restaurantes del puerto, volver a la terraza para una shisha y terminar bailando en el club. Todo en la misma zona, a pocos pasos. Eso, combinado con la brisa del Mediterráneo, el ambiente internacional y una oferta de calidad, convierte a Alcúdia en un destino nocturno que no tiene nada que envidiar al sur de la isla.</p>
 
 <h2>Sigue leyendo</h2>
 <p>Conoce a fondo <a href="/blog/outxide-club-discoteca-alcudia-mallorca">Outxide Club: la discoteca de referencia en Alcudia</a>, descubre todo sobre <a href="/blog/enjoy-terrace-cocktails-shisha-port-alcudia">Enjoy Terrace: cocteles y shisha en Port d'Alcudia</a> y consulta los <a href="/blog/fiestas-eventos-verano-alcudia-2026">mejores eventos del verano 2026</a>.</p>`,
@@ -2710,7 +2673,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Why Alcudia is different</h2>
-<p>What makes Port d'Alcudia's nightlife unique is the proximity of everything. You can start with sunset cocktails, dine at a charcoal grill restaurant like <a href="/hiru">Hiru Food &amp; Drinks</a>, return to the terrace for shisha and end up dancing at the club. All in the same area, just steps apart. That, combined with the Mediterranean breeze, the international atmosphere and a quality offering, makes Alcudia a nightlife destination that rivals the south of the island.</p>`,
+<p>What makes Port d'Alcudia's nightlife unique is the proximity of everything. You can start with sunset cocktails, dine at one of the restaurants by the port, return to the terrace for shisha and end up dancing at the club. All in the same area, just steps apart. That, combined with the Mediterranean breeze, the international atmosphere and a quality offering, makes Alcudia a nightlife destination that rivals the south of the island.</p>`,
       de: `<p>Port d'Alcudia hat sich als das attraktivste Nachtleben-Ziel im Norden Mallorcas etabliert. Direkt an 7 km weißem Sandstrand gelegen, bietet diese Ecke der Insel ein Nachtleben-Ökosystem, das von Cocktailterrassen bis zum besten Club der Gegend reicht. Wenn du eine Nacht in Alcudia planst, findest du hier alles, was du wissen musst.</p>
 
 <h2>Wo die Nacht beginnt: Enjoy Terrace</h2>
@@ -2746,7 +2709,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Warum Alcudia anders ist</h2>
-<p>Was die Nacht in Port d'Alcudia einzigartig macht, ist die Nähe von allem. Du kannst mit Cocktails bei Sonnenuntergang starten, in einem Grillrestaurant wie <a href="/hiru">Hiru Food &amp; Drinks</a> essen, zurück auf die Terrasse für eine Shisha und den Abend tanzend im Club ausklingen lassen. Alles in der gleichen Gegend, nur wenige Schritte voneinander entfernt. Das, kombiniert mit der Mittelmeerbrise, der internationalen Atmosphäre und einem hochwertigen Angebot, macht Alcudia zu einem Nachtleben-Ziel, das dem Süden der Insel in nichts nachsteht.</p>`,
+<p>Was die Nacht in Port d'Alcudia einzigartig macht, ist die Nähe von allem. Du kannst mit Cocktails bei Sonnenuntergang starten, in einem der Restaurants am Hafen essen, zurück auf die Terrasse für eine Shisha und den Abend tanzend im Club ausklingen lassen. Alles in der gleichen Gegend, nur wenige Schritte voneinander entfernt. Das, kombiniert mit der Mittelmeerbrise, der internationalen Atmosphäre und einem hochwertigen Angebot, macht Alcudia zu einem Nachtleben-Ziel, das dem Süden der Insel in nichts nachsteht.</p>`,
       fr: `<p>Port d'Alcudia s'est impose comme la destination de vie nocturne la plus attractive du nord de Majorque. Situe le long de 7 km de plage de sable blanc, ce coin de l'ile offre un ecosysteme de loisirs nocturnes allant des terrasses a cocktails au meilleur club de la region. Si vous prevoyez une sortie nocturne a Alcudia, ce guide vous dit tout ce que vous devez savoir.</p>
 
 <h2>Ou commence la nuit : Enjoy Terrace</h2>
@@ -2782,7 +2745,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Pourquoi Alcudia est differente</h2>
-<p>Ce qui rend la nuit a Port d'Alcudia unique, c'est la proximite de tout. Vous pouvez commencer par des cocktails au coucher du soleil, diner dans un restaurant au grill comme <a href="/hiru">Hiru Food &amp; Drinks</a>, revenir sur la terrasse pour une chicha et terminer en dansant au club. Le tout dans la meme zone, a quelques pas. Cela, combine a la brise mediterraneenne, a l'ambiance internationale et a une offre de qualite, fait d'Alcudia une destination nocturne qui n'a rien a envier au sud de l'ile.</p>`,
+<p>Ce qui rend la nuit a Port d'Alcudia unique, c'est la proximite de tout. Vous pouvez commencer par des cocktails au coucher du soleil, diner dans l'un des restaurants du port, revenir sur la terrasse pour une chicha et terminer en dansant au club. Le tout dans la meme zone, a quelques pas. Cela, combine a la brise mediterraneenne, a l'ambiance internationale et a une offre de qualite, fait d'Alcudia une destination nocturne qui n'a rien a envier au sud de l'ile.</p>`,
       it: `<p>Port d'Alcudia si e' affermata come la destinazione piu' attraente per la vita notturna nel nord di Maiorca. Situata lungo 7 km di spiaggia di sabbia bianca, questo angolo dell'isola offre un ecosistema di divertimento notturno che spazia dalle terrazze con cocktail al miglior club della zona. Se stai pianificando una serata ad Alcudia, questa guida ti racconta tutto quello che devi sapere.</p>
 
 <h2>Dove inizia la serata: Enjoy Terrace</h2>
@@ -2818,10 +2781,11 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Perche' Alcudia e' diversa</h2>
-<p>Cio' che rende unica la notte a Port d'Alcudia e' la vicinanza di tutto. Puoi iniziare con cocktail al tramonto, cenare in un ristorante alla brace come <a href="/hiru">Hiru Food &amp; Drinks</a>, tornare in terrazza per una shisha e finire ballando in discoteca. Tutto nella stessa zona, a pochi passi. Questo, unito alla brezza del Mediterraneo, all'atmosfera internazionale e a un'offerta di qualita', rende Alcudia una destinazione notturna che non ha nulla da invidiare al sud dell'isola.</p>`,
+<p>Cio' che rende unica la notte a Port d'Alcudia e' la vicinanza di tutto. Puoi iniziare con cocktail al tramonto, cenare in uno dei ristoranti del porto, tornare in terrazza per una shisha e finire ballando in discoteca. Tutto nella stessa zona, a pochi passi. Questo, unito alla brezza del Mediterraneo, all'atmosfera internazionale e a un'offerta di qualita', rende Alcudia una destinazione notturna che non ha nulla da invidiare al sud dell'isola.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-04-15",
+    updated: "2026-08-29",
     image: "/images/outxide/DSCF8230-13.jpg",
     tags: ["nightlife", "alcudia", "mallorca", "outxide"],
     venue: "outxide",
@@ -2883,11 +2847,11 @@ export const blogPosts: BlogPost[] = [
           it: "Come organizzare una serata completa ad Alcúdia?",
         },
         answer: {
-          es: "El plan ideal: cena a la brasa en Hiru (Ctra. d'Artà 40), con carnes dry-aged y arroces, reservando por Restoo; sigue con cócteles al atardecer en la terraza de Enjoy; y termina bailando en Outxide Club, con entradas online por FourVenues.",
-          en: "The ideal plan: a grilled dinner at Hiru (Ctra. d'Artà 40), with dry-aged meats and rice dishes, booking via Restoo; then sunset cocktails on the Enjoy terrace; and finish dancing at Outxide Club, with tickets online via FourVenues.",
-          de: "Der ideale Ablauf: ein Grill-Dinner im Hiru (Ctra. d'Artà 40) mit Dry-Aged-Fleisch und Reisgerichten, Reservierung über Restoo; danach Cocktails zum Sonnenuntergang auf der Enjoy-Terrasse; und zum Abschluss Tanzen im Outxide Club, Tickets online über FourVenues.",
-          fr: "Le plan idéal : un dîner à la braise chez Hiru (Ctra. d'Artà 40), avec viandes maturées et riz, en réservant via Restoo ; puis des cocktails au coucher du soleil sur la terrasse Enjoy ; et pour finir, danser à l'Outxide Club, billets en ligne via FourVenues.",
-          it: "Il piano ideale: cena alla brace da Hiru (Ctra. d'Artà 40), con carni dry-aged e risotti, prenotando su Restoo; poi cocktail al tramonto sulla terrazza Enjoy; e per finire si balla all'Outxide Club, biglietti online su FourVenues.",
+          es: "El plan ideal: cena en uno de los restaurantes del puerto; sigue con cócteles al atardecer en la terraza de Enjoy; y termina bailando en Outxide Club, con entradas online por FourVenues.",
+          en: "The ideal plan: dinner at one of the restaurants by the port; then sunset cocktails on the Enjoy terrace; and finish dancing at Outxide Club, with tickets online via FourVenues.",
+          de: "Der ideale Ablauf: Abendessen in einem der Restaurants am Hafen; danach Cocktails zum Sonnenuntergang auf der Enjoy-Terrasse; und zum Abschluss Tanzen im Outxide Club, Tickets online über FourVenues.",
+          fr: "Le plan idéal : dîner dans l'un des restaurants du port ; puis des cocktails au coucher du soleil sur la terrasse Enjoy ; et pour finir, danser à l'Outxide Club, billets en ligne via FourVenues.",
+          it: "Il piano ideale: cena in uno dei ristoranti del porto; poi cocktail al tramonto sulla terrazza Enjoy; e per finire si balla all'Outxide Club, biglietti online su FourVenues.",
         },
       },
     ],
@@ -3158,7 +3122,7 @@ export const blogPosts: BlogPost[] = [
 <p>La mejor forma de empezar la noche es en <a href="/enjoy">Enjoy Terrace</a>, justo al lado de Outxide Club. Abre desde las 17:00 con cócteles de autor, shisha premium y un ambiente que va subiendo de intensidad. Muchos combinan una sesión de terraza con la entrada al club a partir de las 23:00, la transición más natural de la noche alcudiense.</p>
 
 <h2>Cenar antes de salir</h2>
-<p>Si buscas cenar antes de la discoteca, <a href="/hiru">Hiru Food &amp; Drinks</a> en Ctra. d'Artà 40 sirve cenas hasta las 23:30 entre semana y hasta la 1:00 los viernes y sábados. Su cocina a la brasa con carnes maduradas y arroces de lonja es la opción perfecta para cargar energías antes de la noche.</p>
+<p>Si buscas cenar antes de la discoteca, en el puerto hay opciones para todos los gustos, de arroces a cocina internacional: consulta nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> y reserva con tiempo en temporada alta para llegar al club sin prisas.</p>
 
 <h2>Consejos prácticos para salir de noche en Alcúdia</h2>
 <ul>
@@ -3193,7 +3157,7 @@ export const blogPosts: BlogPost[] = [
 <p>The best way to start the night is at <a href="/enjoy">Enjoy Terrace</a>, right next to Outxide Club. It opens from 17:00 with signature cocktails, premium shisha and an atmosphere that builds in intensity. Many combine a terrace session with club entry from 23:00 onwards, the most natural transition of the Alcudia night.</p>
 
 <h2>Dinner before going out</h2>
-<p>If you want dinner before the club, <a href="/hiru">Hiru Food &amp; Drinks</a> at Ctra. d'Arta 40 serves dinner until 23:30 on weekdays and until 1:00 on Fridays and Saturdays. Their charcoal grill cuisine with aged meats and market-fresh rice dishes is the perfect way to fuel up before the night ahead.</p>
+<p>If you want dinner before the club, the port has options for every taste, from rice dishes to international cooking: check our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> and book ahead in high season so you reach the club without rushing.</p>
 
 <h2>Practical tips for a night out in Alcudia</h2>
 <ul>
@@ -3228,7 +3192,7 @@ export const blogPosts: BlogPost[] = [
 <p>Der beste Einstieg in die Nacht ist die <a href="/enjoy">Enjoy Terrace</a> direkt neben dem Outxide Club. Ab 17:00 Uhr gibt es Signature-Cocktails, Premium-Shisha und eine Atmosphäre, die sich stetig steigert. Viele kombinieren einen Terrassenabend mit dem Clubeintritt ab 23:00 -- der natürlichste Übergang der Nacht in Alcudia.</p>
 
 <h2>Abendessen vor dem Ausgehen</h2>
-<p>Wenn du vor der Disco essen möchtest, serviert <a href="/hiru">Hiru Food &amp; Drinks</a> in der Ctra. d'Artà 40 unter der Woche bis 23:30 Uhr und freitags und samstags bis 1:00 Uhr. Die Grillküche mit gereiftem Fleisch und frischen Reisgerichten ist die perfekte Stärkung für die Nacht.</p>
+<p>Wer vor dem Club zu Abend essen möchte, findet am Hafen Optionen für jeden Geschmack, von Reisgerichten bis internationaler Küche: Wirf einen Blick in unseren <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> und reserviere in der Hochsaison rechtzeitig, um entspannt in den Club zu kommen.</p>
 
 <h2>Praktische Tipps für eine Partynacht in Alcudia</h2>
 <ul>
@@ -3263,7 +3227,7 @@ export const blogPosts: BlogPost[] = [
 <p>La meilleure facon de commencer la soiree est a <a href="/enjoy">Enjoy Terrace</a>, juste a cote d'Outxide Club. Ouvert des 17h00 avec des cocktails signatures, une chicha premium et une ambiance qui monte en intensite. Beaucoup combinent une session en terrasse avec l'entree au club a partir de 23h00, la transition la plus naturelle de la nuit a Alcudia.</p>
 
 <h2>Diner avant de sortir</h2>
-<p>Si vous cherchez a diner avant la discotheque, <a href="/hiru">Hiru Food &amp; Drinks</a> au Ctra. d'Arta 40 sert le diner jusqu'a 23h30 en semaine et jusqu'a 1h00 les vendredis et samedis. Sa cuisine au grill avec viandes maturees et riz de la criee est l'option parfaite pour faire le plein d'energie avant la nuit.</p>
+<p>Pour dîner avant la discothèque, le port offre des options pour tous les goûts, des riz à la cuisine internationale : consultez notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> et réservez à l'avance en haute saison pour arriver au club sans stress.</p>
 
 <h2>Conseils pratiques pour sortir la nuit a Alcudia</h2>
 <ul>
@@ -3298,7 +3262,7 @@ export const blogPosts: BlogPost[] = [
 <p>Il modo migliore per iniziare la serata e' da <a href="/enjoy">Enjoy Terrace</a>, proprio accanto a Outxide Club. Apre dalle 17:00 con cocktail d'autore, shisha premium e un'atmosfera che cresce di intensita'. Molti combinano una sessione in terrazza con l'ingresso al club a partire dalle 23:00, la transizione piu' naturale della notte alcudiana.</p>
 
 <h2>Cenare prima di uscire</h2>
-<p>Se cerchi di cenare prima della discoteca, <a href="/hiru">Hiru Food &amp; Drinks</a> in Ctra. d'Arta 40 serve cene fino alle 23:30 durante la settimana e fino all'1:00 il venerdi' e il sabato. La sua cucina alla brace con carni frollate e risi del mercato e' l'opzione perfetta per ricaricare le energie prima della serata.</p>
+<p>Se vuoi cenare prima della discoteca, il porto offre opzioni per tutti i gusti, dai risi alla cucina internazionale: consulta la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> e prenota per tempo in alta stagione per arrivare al club senza fretta.</p>
 
 <h2>Consigli pratici per uscire la sera ad Alcudia</h2>
 <ul>
@@ -3314,6 +3278,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Grupo Enjoy",
     date: "2026-04-20",
+    updated: "2026-08-29",
     image: "/images/outxide/PIC06225-3.jpg",
     tags: ["nightlife", "alcudia", "mallorca", "clubs"],
     venue: "outxide",
@@ -3395,151 +3360,107 @@ export const blogPosts: BlogPost[] = [
       it: "Ristorante alla Brace e Griglia a Maiorca: Cucina Mediterranea",
     },
     excerpt: {
-      es: "Descubre por qué la cocina a la brasa es especial en Mallorca. Carnes maduradas, arroces de lonja y producto fresco mediterráneo en Hiru Food & Drinks.",
-      en: "Discover why charcoal grill cooking is special in Mallorca. Aged meats, market-fresh rice dishes and Mediterranean produce at Hiru Food & Drinks.",
-      de: "Entdecke, warum die Holzkohlegrillküche auf Mallorca so besonders ist. Gereiftes Fleisch, Reisgerichte vom Fischmarkt und frische mediterrane Zutaten bei Hiru Food & Drinks.",
-      fr: "Decouvrez pourquoi la cuisine au grill est speciale a Majorque. Viandes maturees, riz de la criee et produits frais mediterraneens chez Hiru Food & Drinks.",
-      it: "Scopri perche' la cucina alla brace e' speciale a Maiorca. Carni frollate, risi del mercato e prodotto fresco mediterraneo da Hiru Food & Drinks.",
+      es: "La cocina a la brasa hizo grande a Hiru Food & Drinks, cerrado en agosto de 2026. Recordamos su fuego — carnes maduradas, arroces de lonja y producto mallorquín — y te contamos dónde comer hoy en Alcúdia.",
+      en: "Charcoal-grill cooking made Hiru Food & Drinks great; it closed in August 2026. We look back at its fire — aged meats, market rice dishes and Mallorcan produce — and point you to where to eat in Alcúdia today.",
+      de: "Die Holzkohlegrillküche machte Hiru Food & Drinks groß; im August 2026 hat es geschlossen. Wir erinnern an sein Feuer — gereiftes Fleisch, Reisgerichte vom Markt, mallorquinische Produkte — und zeigen, wo man heute in Alcúdia isst.",
+      fr: "La cuisine à la braise a fait la grandeur de Hiru Food & Drinks, fermé en août 2026. Retour sur son feu — viandes maturées, riz de la criée, produits majorquins — et nos adresses où manger aujourd'hui à Alcúdia.",
+      it: "La cucina alla brace ha reso grande Hiru Food & Drinks, chiuso nell'agosto 2026. Ricordiamo il suo fuoco — carni frollate, risi del mercato, prodotti maiorchini — e ti diciamo dove mangiare oggi ad Alcúdia.",
     },
     content: {
-      es: `<p>La cocina a la brasa es mucho más que un método de cocción: es una filosofía gastronómica que conecta con lo más primitivo del acto de cocinar. En Mallorca, donde el producto fresco del Mediterráneo se combina con tradiciones centenarias, cocinar a la brasa de carbón eleva cada ingrediente a su máxima expresión. Y en Port d'Alcúdia, hay un restaurante que ha convertido esta técnica en su seña de identidad.</p>
+      es: `<p><strong>Nota: Hiru Food &amp; Drinks, el restaurante a la brasa que protagonizaba esta pieza, cerró definitivamente en agosto de 2026.</strong> Mantenemos este artículo como homenaje a su manera de entender el fuego y como pequeña guía de lo que hace especial a la cocina a la brasa en Mallorca. Para mesas abiertas hoy, consulta nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de los mejores restaurantes de Alcúdia</a>.</p>
 
-<h2>Hiru Food &amp; Drinks: la brasa como arte</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a>, en Ctra. d'Artà 40, Port d'Alcúdia, ha construido su cocina en torno al fuego real. No hay atajos: carbón de leña seleccionado, temperaturas controladas con precisión y producto fresco que llega cada día. El resultado son platos con sabores intensos, texturas que solo el fuego directo consigue y una experiencia gastronómica que apela a todos los sentidos.</p>
+<h2>La magia del carbón de leña</h2>
+<p>La diferencia entre cocinar a la brasa de carbón y cualquier otro método es el sabor. El carbón de leña aporta matices ahumados sutiles que impregnan la carne y el pescado sin dominarlos. La alta temperatura sella el exterior, creando una costra caramelizada mientras el interior se mantiene jugoso y tierno. Es una técnica que exige experiencia y atención constante — y que en <a href="/hiru">Hiru</a> se ejecutó con maestría hasta su último servicio.</p>
 
-<h3>La magia del carbón de leña</h3>
-<p>La diferencia entre cocinar a la brasa de carbón y cualquier otro método es el sabor. El carbón de leña aporta matices ahumados sutiles que impregnan la carne y el pescado sin dominarlos. La alta temperatura sella el exterior, creando una costra caramelizada mientras el interior se mantiene jugoso y tierno. Es una técnica que requiere experiencia y atención constante, y que en Hiru se ejecuta con maestría.</p>
-
-<h2>Los pilares de la carta</h2>
-
-<h3>Carnes maduradas a la brasa</h3>
-<p>La selección de carnes de Hiru se basa en cortes premium sometidos a un proceso de maduración cuidadoso. Este proceso concentra los sabores y mejora la textura, y al combinarse con la brasa de carbón, el resultado es espectacular. Desde chuletones hasta cortes más selectos, cada pieza se cocina respetando su punto óptimo.</p>
-
+<h2>Así era la brasa de Hiru</h2>
+<h3>Carnes maduradas</h3>
+<p>La selección de carnes de Hiru se basaba en cortes premium sometidos a una maduración cuidadosa que concentraba los sabores y afinaba la textura. Al combinarse con la brasa de carbón, el resultado era espectacular: del chuletón a los cortes más selectos, cada pieza cocinada en su punto óptimo.</p>
 <h3>Arroces de lonja</h3>
-<p>El pescado y el marisco llegan cada día de la lonja local de Alcúdia. Los arroces de Hiru aprovechan esta frescura al máximo: caldosos, melosos o secos, cada arroz se prepara con caldo casero y el producto más fresco del Mediterráneo. Los arroces de marisco son una experiencia que merece cada minuto de espera.</p>
+<p>El pescado y el marisco llegaban cada día de la lonja de Alcúdia. Los arroces de Hiru aprovechaban esa frescura al máximo: caldosos, melosos o secos, cada uno preparado con caldo casero y el producto más fresco del Mediterráneo. Los arroces de marisco merecían cada minuto de espera.</p>
+<h3>Pescados del Mediterráneo y producto local</h3>
+<p>Los tomates ramallet, el aceite de oliva de la sierra de Tramuntana, las almendras de la isla y las hierbas aromáticas del campo mallorquín eran protagonistas en la cocina de Hiru. Esa filosofía de proximidad se notaba en cada plato: ingredientes que no necesitaban esconderse porque su calidad hablaba por sí sola.</p>
 
-<h3>Pescados del Mediterráneo</h3>
-<p>Lubina, dorada y las capturas del día se cocinan a la parrilla con sencillez y respeto por el producto. Guarniciones de temporada acompañan cada plato, desde verduras asadas hasta ensaladas frescas con ingredientes locales.</p>
-
-<h2>Producto local, cocina honesta</h2>
-<p>Mallorca es una isla privilegiada en cuanto a producto. Los tomates ramallet, el aceite de oliva de la sierra de Tramuntana, las almendras de la isla y las hierbas aromáticas del campo mallorquín son protagonistas en la cocina de Hiru. Esta filosofía de proximidad se nota en cada plato: ingredientes que no necesitan esconderse porque su calidad habla por sí sola.</p>
-
-<h2>La experiencia completa</h2>
-<p>Hiru no es solo un restaurante de brasa. La carta de cócteles permite alargar la velada después del postre, y el ambiente del local combina calidez y diseño contemporáneo. Con una valoración de 4.9/5 en Google y horarios amplios (hasta la 1:00 los viernes y sábados), es un lugar para tomarse la cena con calma.</p>
+<h2>El legado — y lo que viene</h2>
+<p>Hiru sirvió su último servicio en agosto de 2026. El espacio de la Ctra. d'Artà 40 queda reservado para futuros proyectos de <a href="/">Grupo Enjoy</a> — nada confirmado todavía. Hemos escrito una <a href="/blog/hiru-food-drinks-restaurante-alcudia">carta de despedida y homenaje</a> para quien quiera recordarlo.</p>
 
 <h2>De la cena a la noche</h2>
-<p>Después de cenar en Hiru, la noche en Alcúdia está al alcance de la mano. <a href="/enjoy">Enjoy Terrace</a> ofrece cócteles de autor y shisha premium a pocos minutos, y <a href="/outxide">Outxide Club</a> abre sus puertas para quienes quieran seguir la fiesta hasta el amanecer. La transición de una cena memorable a una gran noche nunca fue tan fácil.</p>`,
-      en: `<p>Charcoal grill cooking is much more than a method: it is a gastronomic philosophy that connects with the most primal act of cooking. In Mallorca, where fresh Mediterranean produce meets centuries-old traditions, cooking over charcoal elevates every ingredient to its fullest expression. And in Port d'Alcudia, one restaurant has made this technique its defining feature.</p>
+<p>La noche en Port d'Alcúdia sigue: cócteles de autor y shisha en <a href="/enjoy">Enjoy Terrace</a> y fiesta hasta el amanecer en <a href="/outxide">Outxide Club</a>. Y para elegir dónde cenar hoy, nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes</a> está al día.</p>`,
+      en: `<p><strong>Note: Hiru Food &amp; Drinks, the charcoal-grill restaurant at the heart of this piece, closed for good in August 2026.</strong> We keep this article as a tribute to its way of understanding fire, and as a short guide to what makes charcoal-grill cooking in Mallorca special. For tables open today, see our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to the best restaurants in Alcúdia</a>.</p>
 
-<h2>Hiru Food &amp; Drinks: the grill as art</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a>, at Ctra. d'Arta 40, Port d'Alcudia, has built its kitchen around real fire. There are no shortcuts: hand-selected wood charcoal, precisely controlled temperatures and fresh produce that arrives daily. The result is dishes with intense flavours, textures that only direct fire can achieve and a gastronomic experience that engages every sense.</p>
+<h2>The magic of wood charcoal</h2>
+<p>The difference between cooking over charcoal embers and any other method is flavour. Wood charcoal adds subtle smoky notes that permeate meat and fish without overpowering them. The high heat sears the outside, creating a caramelised crust while the inside stays juicy and tender. It's a technique that demands experience and constant attention — and one that <a href="/hiru">Hiru</a> executed masterfully until its very last service.</p>
 
-<h3>The magic of wood charcoal</h3>
-<p>The difference between cooking over wood charcoal and any other method is flavour. Wood charcoal imparts subtle smoky nuances that infuse meat and fish without overpowering them. The high temperature sears the exterior, creating a caramelised crust while the interior stays juicy and tender. It is a technique that demands experience and constant attention, and at Hiru it is executed with mastery.</p>
+<h2>What Hiru's grill was like</h2>
+<h3>Matured meats</h3>
+<p>Hiru's meat selection was built on premium cuts put through a careful dry-ageing process that concentrated flavour and refined texture. Combined with the charcoal embers, the result was spectacular: from chuletones to more select cuts, every piece cooked to its precise point.</p>
+<h3>Market rice dishes</h3>
+<p>Fish and seafood arrived daily from Alcúdia's fish market. Hiru's rice dishes made the most of that freshness: brothy, creamy or dry, each cooked with homemade stock and the freshest Mediterranean produce. The seafood rices were worth every minute of the wait.</p>
+<h3>Mediterranean fish and local produce</h3>
+<p>Ramallet tomatoes, olive oil from the Tramuntana mountains, island almonds and aromatic herbs from the Mallorcan countryside starred in Hiru's kitchen. That philosophy of proximity showed in every dish: ingredients that had nothing to hide because their quality spoke for itself.</p>
 
-<h2>The pillars of the menu</h2>
-
-<h3>Aged meats on the grill</h3>
-<p>Hiru's meat selection is built on premium cuts subjected to a careful ageing process. This process concentrates flavours and improves texture, and when combined with the charcoal grill, the result is spectacular. From ribeye to more select cuts, each piece is cooked to its optimal point.</p>
-
-<h3>Market-fresh rice dishes</h3>
-<p>Fish and shellfish arrive daily from the local Alcudia market. Hiru's rice dishes make the most of this freshness: brothy, creamy or dry, each rice is prepared with homemade stock and the freshest Mediterranean produce. The seafood rice dishes are an experience worth every minute of the wait.</p>
-
-<h3>Mediterranean fish</h3>
-<p>Sea bass, sea bream and the catch of the day are grilled simply and with respect for the ingredient. Seasonal garnishes accompany each dish, from roasted vegetables to fresh salads with local produce.</p>
-
-<h2>Local produce, honest cooking</h2>
-<p>Mallorca is a privileged island when it comes to produce. Ramallet tomatoes, olive oil from the Serra de Tramuntana, island-grown almonds and aromatic herbs from the Mallorcan countryside all play starring roles in Hiru's kitchen. This philosophy of locality shows in every dish: ingredients that need no disguise because their quality speaks for itself.</p>
-
-<h2>The complete experience</h2>
-<p>Hiru is not just a grill restaurant. The cocktail menu allows you to extend the evening after dessert, and the restaurant's ambience blends warmth with contemporary design. With a 4.9/5 rating on Google and extended hours (until 1:00 on Fridays and Saturdays), it is a place to take your time over dinner.</p>
+<h2>The legacy — and what comes next</h2>
+<p>Hiru served its last service in August 2026. The space at Ctra. d'Artà 40 is being kept for future <a href="/">Grupo Enjoy</a> projects — nothing confirmed yet. We've written a <a href="/blog/hiru-food-drinks-restaurante-alcudia">farewell letter and tribute</a> for anyone who wants to remember it.</p>
 
 <h2>From dinner to the night</h2>
-<p>After dining at Hiru, the Alcudia night is within easy reach. <a href="/enjoy">Enjoy Terrace</a> offers signature cocktails and premium shisha just minutes away, and <a href="/outxide">Outxide Club</a> opens its doors for those who want to continue the party until sunrise. The transition from a memorable dinner to a great night out has never been easier.</p>`,
-      de: `<p>Kochen über Holzkohle ist viel mehr als eine Garmethode -- es ist eine gastronomische Philosophie, die an den ursprünglichsten Akt des Kochens anknüpft. Auf Mallorca, wo frische mediterrane Produkte auf jahrhundertealte Traditionen treffen, bringt das Grillen über Holzkohle jede Zutat zu ihrer vollen Entfaltung. Und in Port d'Alcudia hat ein Restaurant diese Technik zu seinem Markenzeichen gemacht.</p>
+<p>The night in Port d'Alcúdia goes on: signature cocktails and shisha at <a href="/enjoy">Enjoy Terrace</a> and partying until dawn at <a href="/outxide">Outxide Club</a>. And to choose where to eat today, our <a href="/blog/mejores-restaurantes-alcudia-mallorca">restaurant guide</a> is up to date.</p>`,
+      de: `<p><strong>Hinweis: Hiru Food &amp; Drinks, das Grillrestaurant im Mittelpunkt dieses Artikels, hat im August 2026 endgültig geschlossen.</strong> Wir behalten diesen Text als Hommage an seine Art, das Feuer zu verstehen — und als kleinen Guide dazu, was die Grillküche auf Mallorca besonders macht. Für heute geöffnete Tische siehe unseren <a href="/blog/mejores-restaurantes-alcudia-mallorca">Guide zu den besten Restaurants in Alcúdia</a>.</p>
 
-<h2>Hiru Food &amp; Drinks: der Grill als Kunst</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> in der Ctra. d'Artà 40, Port d'Alcudia, hat seine Küche rund um echtes Feuer aufgebaut. Keine Abkürzungen: handverlesene Holzkohle, präzise kontrollierte Temperaturen und frische Zutaten, die täglich geliefert werden. Das Ergebnis sind Gerichte mit intensivem Geschmack, Texturen, die nur direktes Feuer erzeugen kann, und ein gastronomisches Erlebnis, das alle Sinne anspricht.</p>
+<h2>Die Magie der Holzkohle</h2>
+<p>Der Unterschied zwischen dem Garen über Holzkohleglut und jeder anderen Methode ist der Geschmack. Holzkohle bringt subtile Rauchnoten, die Fleisch und Fisch durchdringen, ohne sie zu dominieren. Die hohe Hitze versiegelt das Äußere und schafft eine karamellisierte Kruste, während das Innere saftig und zart bleibt. Eine Technik, die Erfahrung und ständige Aufmerksamkeit verlangt — und die im <a href="/hiru">Hiru</a> bis zum allerletzten Service meisterhaft ausgeführt wurde.</p>
 
-<h3>Die Magie der Holzkohle</h3>
-<p>Der Unterschied zwischen dem Grillen über Holzkohle und jeder anderen Methode ist der Geschmack. Holzkohle verleiht subtile Rauchnuancen, die Fleisch und Fisch durchdringen, ohne sie zu überdecken. Die hohe Temperatur versiegelt die Außenseite und erzeugt eine karamellisierte Kruste, während das Innere saftig und zart bleibt. Es ist eine Technik, die Erfahrung und ständige Aufmerksamkeit erfordert -- und bei Hiru meisterhaft beherrscht wird.</p>
+<h2>So war die Glut von Hiru</h2>
+<h3>Gereiftes Fleisch</h3>
+<p>Hirus Fleischauswahl basierte auf Premium-Cuts, die einen sorgfältigen Dry-Aging-Prozess durchliefen, der den Geschmack konzentrierte und die Textur verfeinerte. In Kombination mit der Holzkohleglut war das Ergebnis spektakulär: vom Chuletón bis zu edleren Cuts, jedes Stück auf den Punkt gegart.</p>
+<h3>Reisgerichte vom Markt</h3>
+<p>Fisch und Meeresfrüchte kamen täglich von der Fischauktion in Alcúdia. Hirus Reisgerichte nutzten diese Frische maximal: brühig, cremig oder trocken, jeder Reis mit hausgemachtem Fond und dem frischesten Produkt des Mittelmeers. Die Meeresfrüchte-Reise waren jede Minute des Wartens wert.</p>
+<h3>Mittelmeerfisch und lokales Produkt</h3>
+<p>Ramallet-Tomaten, Olivenöl aus der Tramuntana, Mandeln der Insel und aromatische Kräuter vom mallorquinischen Land spielten die Hauptrolle in Hirus Küche. Diese Philosophie der Nähe zeigte sich in jedem Gericht: Zutaten, die sich nicht verstecken mussten, weil ihre Qualität für sich sprach.</p>
 
-<h2>Die Säulen der Speisekarte</h2>
-
-<h3>Gereiftes Fleisch vom Grill</h3>
-<p>Die Fleischauswahl bei Hiru basiert auf Premium-Stücken, die einem sorgfältigen Reifungsprozess unterzogen werden. Dieser Prozess konzentriert die Aromen und verbessert die Textur -- kombiniert mit dem Holzkohlegrill ist das Ergebnis spektakulär. Vom Ribeye bis zu ausgesuchten Teilstücken wird jedes Stück auf den optimalen Punkt gegart.</p>
-
-<h3>Reisgerichte vom Fischmarkt</h3>
-<p>Fisch und Meeresfrüchte kommen täglich frisch vom lokalen Markt in Alcudia. Hirus Reisgerichte nutzen diese Frische maximal: brühartig, cremig oder trocken -- jeder Reis wird mit hausgemachter Brühe und den frischesten mediterranen Zutaten zubereitet. Die Meeresfrüchte-Reisgerichte sind ein Erlebnis, das jede Minute Wartezeit wert ist.</p>
-
-<h3>Mediterrane Fische</h3>
-<p>Wolfsbarsch, Dorade und der Tagesfang werden schlicht und respektvoll gegrillt. Saisonale Beilagen begleiten jedes Gericht, von geröstetem Gemüse bis hin zu frischen Salaten mit lokalen Zutaten.</p>
-
-<h2>Lokale Produkte, ehrliche Küche</h2>
-<p>Mallorca ist eine privilegierte Insel, was Produkte betrifft. Ramallet-Tomaten, Olivenöl aus der Serra de Tramuntana, Inselmandeln und aromatische Kräuter vom mallorquinischen Land spielen Hauptrollen in Hirus Küche. Diese Philosophie der Regionalität zeigt sich in jedem Gericht: Zutaten, die sich nicht verstecken müssen, weil ihre Qualität für sich spricht.</p>
-
-<h2>Das komplette Erlebnis</h2>
-<p>Hiru ist nicht nur ein Grillrestaurant. Die Cocktailkarte ermöglicht es, den Abend nach dem Dessert zu verlängern, und das Ambiente verbindet Wärme mit zeitgenössischem Design. Mit einer Bewertung von 4.9/5 bei Google und langen Öffnungszeiten (bis 1:00 Uhr freitags und samstags) ist es ein Ort, an dem man sich beim Abendessen Zeit lassen kann.</p>
+<h2>Das Vermächtnis — und was kommt</h2>
+<p>Hiru servierte seinen letzten Service im August 2026. Der Raum in der Ctra. d'Artà 40 bleibt künftigen Projekten von <a href="/">Grupo Enjoy</a> vorbehalten — noch ist nichts bestätigt. Wir haben einen <a href="/blog/hiru-food-drinks-restaurante-alcudia">Abschiedsbrief und eine Hommage</a> geschrieben, für alle, die sich erinnern möchten.</p>
 
 <h2>Vom Abendessen in die Nacht</h2>
-<p>Nach dem Essen bei Hiru liegt die Nacht in Alcudia zum Greifen nah. Die <a href="/enjoy">Enjoy Terrace</a> bietet nur wenige Minuten entfernt Signature-Cocktails und Premium-Shisha, und der <a href="/outxide">Outxide Club</a> öffnet seine Türen für alle, die bis zum Sonnenaufgang weiterfeiern wollen. Der Übergang von einem unvergesslichen Abendessen zu einer großartigen Nacht war noch nie so einfach.</p>`,
-      fr: `<p>La cuisine au grill est bien plus qu'une methode de cuisson : c'est une philosophie gastronomique qui renoue avec l'acte le plus primitif de cuisiner. A Majorque, ou les produits frais de la Mediterranee se combinent avec des traditions centenaires, la cuisson au charbon de bois sublime chaque ingredient a son expression maximale. Et a Port d'Alcudia, un restaurant a fait de cette technique sa marque de fabrique.</p>
+<p>Die Nacht in Port d'Alcúdia geht weiter: Signature-Cocktails und Shisha im <a href="/enjoy">Enjoy Terrace</a> und Party bis zum Morgengrauen im <a href="/outxide">Outxide Club</a>. Und wer heute einen Tisch sucht: Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide</a> ist auf dem neuesten Stand.</p>`,
+      fr: `<p><strong>Note : Hiru Food &amp; Drinks, le restaurant de braise au cœur de cet article, a définitivement fermé en août 2026.</strong> Nous conservons ce texte en hommage à sa manière de comprendre le feu — et comme petit guide de ce qui rend la cuisine à la braise si spéciale à Majorque. Pour des tables ouvertes aujourd'hui, consultez notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des meilleurs restaurants d'Alcúdia</a>.</p>
 
-<h2>Hiru Food &amp; Drinks : la braise comme art</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a>, au Ctra. d'Arta 40, Port d'Alcudia, a construit sa cuisine autour du feu veritable. Pas de raccourcis : charbon de bois selectionne, temperatures controlees avec precision et produits frais livres chaque jour. Le resultat : des plats aux saveurs intenses, des textures que seul le feu direct permet d'obtenir et une experience gastronomique qui fait appel a tous les sens.</p>
+<h2>La magie du charbon de bois</h2>
+<p>La différence entre cuisiner sur des braises de charbon et toute autre méthode, c'est la saveur. Le charbon de bois apporte des nuances fumées subtiles qui imprègnent la viande et le poisson sans les dominer. La haute température saisit l'extérieur, créant une croûte caramélisée tandis que l'intérieur reste juteux et tendre. Une technique qui exige expérience et attention constante — et que <a href="/hiru">Hiru</a> a exécutée avec maestria jusqu'à son tout dernier service.</p>
 
-<h3>La magie du charbon de bois</h3>
-<p>La difference entre la cuisson au charbon de bois et toute autre methode, c'est la saveur. Le charbon de bois apporte des nuances fumees subtiles qui impregnent la viande et le poisson sans les dominer. La haute temperature saisit l'exterieur, creant une croute caramelisee tandis que l'interieur reste juteux et tendre. C'est une technique qui exige de l'experience et une attention constante, et qui chez Hiru est executee avec maitrise.</p>
+<h2>Ce qu'était la braise de Hiru</h2>
+<h3>Viandes maturées</h3>
+<p>La sélection de viandes de Hiru reposait sur des pièces premium soumises à une maturation soignée qui concentrait les saveurs et affinait la texture. Combinée à la braise de charbon, le résultat était spectaculaire : du chuletón aux pièces les plus select, chaque morceau cuit à son point optimal.</p>
+<h3>Riz de la criée</h3>
+<p>Poissons et fruits de mer arrivaient chaque jour de la criée d'Alcúdia. Les riz de Hiru exploitaient cette fraîcheur au maximum : caldosos, crémeux ou secs, chacun préparé avec un bouillon maison et le produit le plus frais de la Méditerranée. Les riz aux fruits de mer valaient chaque minute d'attente.</p>
+<h3>Poissons de Méditerranée et produits locaux</h3>
+<p>Tomates ramallet, huile d'olive de la Tramuntana, amandes de l'île et herbes aromatiques de la campagne majorquine étaient les protagonistes de la cuisine de Hiru. Cette philosophie de proximité se voyait dans chaque plat : des ingrédients qui n'avaient rien à cacher, parce que leur qualité parlait d'elle-même.</p>
 
-<h2>Les piliers de la carte</h2>
+<h2>L'héritage — et la suite</h2>
+<p>Hiru a assuré son dernier service en août 2026. Le local du Ctra. d'Artà 40 est réservé aux futurs projets de <a href="/">Grupo Enjoy</a> — rien de confirmé pour l'instant. Nous avons écrit une <a href="/blog/hiru-food-drinks-restaurante-alcudia">lettre d'adieu et un hommage</a> pour ceux qui veulent s'en souvenir.</p>
 
-<h3>Viandes maturees au grill</h3>
-<p>La selection de viandes de Hiru repose sur des pieces premium soumises a un processus de maturation soigneux. Ce processus concentre les saveurs et ameliore la texture, et combine au grill au charbon de bois, le resultat est spectaculaire. De la cote de boeuf aux pieces les plus selectes, chaque morceau est cuit a son point optimal.</p>
+<h2>Du dîner à la nuit</h2>
+<p>La nuit à Port d'Alcúdia continue : cocktails signature et chicha à l'<a href="/enjoy">Enjoy Terrace</a> et fête jusqu'à l'aube à l'<a href="/outxide">Outxide Club</a>. Et pour choisir où manger aujourd'hui, notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants</a> est à jour.</p>`,
+      it: `<p><strong>Nota: Hiru Food &amp; Drinks, il ristorante alla brace al centro di questo articolo, ha chiuso definitivamente nell'agosto 2026.</strong> Manteniamo questo testo come omaggio al suo modo di intendere il fuoco — e come piccola guida a ciò che rende speciale la cucina alla brace a Maiorca. Per tavoli aperti oggi, consulta la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai migliori ristoranti di Alcúdia</a>.</p>
 
-<h3>Riz de la criee</h3>
-<p>Le poisson et les fruits de mer arrivent chaque jour de la criee locale d'Alcudia. Les riz de Hiru exploitent cette fraicheur au maximum : en bouillon, cremeux ou secs, chaque riz est prepare avec un fond maison et les produits les plus frais de la Mediterranee. Les riz aux fruits de mer sont une experience qui merite chaque minute d'attente.</p>
+<h2>La magia del carbone di legna</h2>
+<p>La differenza tra cucinare sulla brace di carbone e qualsiasi altro metodo è il sapore. Il carbone di legna aggiunge sfumature affumicate sottili che impregnano carne e pesce senza dominarli. L'alta temperatura sigilla l'esterno, creando una crosta caramellata mentre l'interno resta succoso e tenero. Una tecnica che esige esperienza e attenzione costante — e che da <a href="/hiru">Hiru</a> è stata eseguita con maestria fino all'ultimo servizio.</p>
 
-<h3>Poissons de Mediterranee</h3>
-<p>Bar, dorade et prises du jour sont grilles avec simplicite et respect du produit. Des garnitures de saison accompagnent chaque plat, des legumes rotis aux salades fraiches avec des ingredients locaux.</p>
-
-<h2>Produit local, cuisine honnete</h2>
-<p>Majorque est une ile privilegiee en matiere de produits. Les tomates ramallet, l'huile d'olive de la Serra de Tramuntana, les amandes de l'ile et les herbes aromatiques de la campagne majorquine sont les vedettes de la cuisine de Hiru. Cette philosophie de proximite se retrouve dans chaque plat : des ingredients qui n'ont pas besoin de se cacher car leur qualite parle d'elle-meme.</p>
-
-<h2>L'experience complete</h2>
-<p>Hiru n'est pas seulement un restaurant grill. La carte de cocktails permet de prolonger la soiree apres le dessert, et l'ambiance du lieu associe chaleur et design contemporain. Avec une note de 4.9/5 sur Google et des horaires etendus (jusqu'a 1h00 les vendredis et samedis), c'est un endroit ou prendre le temps de savourer son diner.</p>
-
-<h2>Du diner a la nuit</h2>
-<p>Apres avoir dine chez Hiru, la nuit a Alcudia est a portee de main. <a href="/enjoy">Enjoy Terrace</a> propose des cocktails signatures et une chicha premium a quelques minutes, et <a href="/outxide">Outxide Club</a> ouvre ses portes pour ceux qui veulent prolonger la fete jusqu'a l'aube. La transition d'un diner memorable a une grande soiree n'a jamais ete aussi facile.</p>`,
-      it: `<p>La cucina alla brace e' molto piu' di un metodo di cottura: e' una filosofia gastronomica che si ricollega all'atto piu' primitivo del cucinare. A Maiorca, dove il prodotto fresco del Mediterraneo si combina con tradizioni centenarie, cucinare sulla brace di carbone esalta ogni ingrediente alla sua massima espressione. E a Port d'Alcudia, c'e' un ristorante che ha fatto di questa tecnica il suo marchio di fabbrica.</p>
-
-<h2>Hiru Food &amp; Drinks: la brace come arte</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a>, in Ctra. d'Arta 40, Port d'Alcudia, ha costruito la sua cucina attorno al fuoco vero. Non ci sono scorciatoie: carbone di legna selezionato, temperature controllate con precisione e prodotto fresco che arriva ogni giorno. Il risultato sono piatti dai sapori intensi, consistenze che solo il fuoco diretto riesce a ottenere e un'esperienza gastronomica che coinvolge tutti i sensi.</p>
-
-<h3>La magia del carbone di legna</h3>
-<p>La differenza tra cucinare sulla brace di carbone e qualsiasi altro metodo e' il sapore. Il carbone di legna apporta sfumature affumicate sottili che impregnano la carne e il pesce senza sovrastarli. L'alta temperatura sigilla l'esterno, creando una crosta caramellata mentre l'interno resta succoso e tenero. E' una tecnica che richiede esperienza e attenzione costante, e che da Hiru viene eseguita con maestria.</p>
-
-<h2>I pilastri del menu</h2>
-
-<h3>Carni frollate alla brace</h3>
-<p>La selezione di carni di Hiru si basa su tagli premium sottoposti a un accurato processo di frollatura. Questo processo concentra i sapori e migliora la consistenza, e combinandosi con la brace di carbone, il risultato e' spettacolare. Dalla costata ai tagli piu' selezionati, ogni pezzo viene cotto rispettando il suo punto ottimale.</p>
-
+<h2>Com'era la brace di Hiru</h2>
+<h3>Carni frollate</h3>
+<p>La selezione di carni di Hiru si basava su tagli premium sottoposti a una frollatura attenta che concentrava i sapori e affinava la consistenza. Combinata con la brace di carbone, il risultato era spettacolare: dal chuletón ai tagli più pregiati, ogni pezzo cotto al punto giusto.</p>
 <h3>Risi del mercato</h3>
-<p>Il pesce e i frutti di mare arrivano ogni giorno dal mercato locale di Alcudia. I risi di Hiru sfruttano al massimo questa freschezza: brodosi, cremosi o asciutti, ogni riso viene preparato con brodo fatto in casa e il prodotto piu' fresco del Mediterraneo. I risi di mare sono un'esperienza che vale ogni minuto di attesa.</p>
+<p>Pesce e frutti di mare arrivavano ogni giorno dal mercato del pesce di Alcúdia. I risi di Hiru sfruttavano al massimo quella freschezza: brodosi, cremosi o secchi, ognuno preparato con brodo fatto in casa e il prodotto più fresco del Mediterraneo. I risi ai frutti di mare valevano ogni minuto d'attesa.</p>
+<h3>Pesci del Mediterraneo e prodotto locale</h3>
+<p>Pomodori ramallet, olio d'oliva della Tramuntana, mandorle dell'isola ed erbe aromatiche della campagna maiorchina erano protagonisti nella cucina di Hiru. Quella filosofia di prossimità si notava in ogni piatto: ingredienti che non dovevano nascondersi, perché la loro qualità parlava da sola.</p>
 
-<h3>Pesci del Mediterraneo</h3>
-<p>Spigola, orata e il pescato del giorno vengono cotti alla griglia con semplicita' e rispetto per il prodotto. Contorni di stagione accompagnano ogni piatto, dalle verdure arrostite alle insalate fresche con ingredienti locali.</p>
-
-<h2>Prodotto locale, cucina onesta</h2>
-<p>Maiorca e' un'isola privilegiata in quanto a prodotti. I pomodori ramallet, l'olio d'oliva della Serra de Tramuntana, le mandorle dell'isola e le erbe aromatiche della campagna maiorchina sono protagonisti nella cucina di Hiru. Questa filosofia di prossimita' si nota in ogni piatto: ingredienti che non hanno bisogno di nascondersi perche' la loro qualita' parla da sola.</p>
-
-<h2>L'esperienza completa</h2>
-<p>Hiru non e' solo un ristorante alla brace. La carta dei cocktail permette di prolungare la serata dopo il dessert, e l'ambiente del locale combina calore e design contemporaneo. Con una valutazione di 4.9/5 su Google e orari ampi (fino all'1:00 il venerdi' e il sabato), e' un luogo dove prendersi il tempo per cenare con calma.</p>
+<h2>L'eredità — e ciò che verrà</h2>
+<p>Hiru ha servito il suo ultimo servizio nell'agosto 2026. Lo spazio di Ctra. d'Artà 40 resta riservato ai futuri progetti di <a href="/">Grupo Enjoy</a> — nulla di confermato per ora. Abbiamo scritto una <a href="/blog/hiru-food-drinks-restaurante-alcudia">lettera di addio e un omaggio</a> per chi vuole ricordarlo.</p>
 
 <h2>Dalla cena alla notte</h2>
-<p>Dopo aver cenato da Hiru, la notte ad Alcudia e' a portata di mano. <a href="/enjoy">Enjoy Terrace</a> offre cocktail d'autore e shisha premium a pochi minuti, e <a href="/outxide">Outxide Club</a> apre le sue porte per chi vuole continuare la festa fino all'alba. Il passaggio da una cena memorabile a una grande serata non e' mai stato cosi' facile.</p>`,
+<p>La notte a Port d'Alcúdia continua: cocktail d'autore e shisha all'<a href="/enjoy">Enjoy Terrace</a> e festa fino all'alba all'<a href="/outxide">Outxide Club</a>. E per scegliere dove mangiare oggi, la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti</a> è aggiornata.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-04-05",
+    updated: "2026-08-29",
     image: "/images/hiru/489278271_122224698272201104_2709257958875125484_n.jpg",
     tags: ["food", "restaurants", "mallorca", "hiru"],
     venue: "hiru",
@@ -3596,7 +3517,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Cómo disfrutar los eventos al máximo</h2>
 <ul>
 <li><strong>Alojamiento:</strong> reserva con meses de antelación para Sant Jaume y la temporada alta de julio-agosto</li>
-<li><strong>Cenar:</strong> <a href="/hiru">Hiru Food &amp; Drinks</a> es perfecto para cenar antes de cualquier evento nocturno, con horarios amplios y cocina mediterránea a la brasa</li>
+<li><strong>Cenar:</strong> reserva mesa con antelación en el puerto; en nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> encontrarás opciones para cenar antes de cualquier evento nocturno</li>
 <li><strong>Pre-evento:</strong> <a href="/enjoy">Enjoy Terrace</a> abre desde las 17:00, ideal para cócteles y shisha antes de las fiestas</li>
 <li><strong>Transporte:</strong> durante las fiestas principales, se amplía el servicio de autobuses y taxis</li>
 <li><strong>Idioma:</strong> Alcúdia es muy internacional, te manejarás bien en español, inglés y alemán</li>
@@ -3638,7 +3559,7 @@ export const blogPosts: BlogPost[] = [
 <h2>How to make the most of the events</h2>
 <ul>
 <li><strong>Accommodation:</strong> book months ahead for Sant Jaume and the July-August high season</li>
-<li><strong>Dinner:</strong> <a href="/hiru">Hiru Food &amp; Drinks</a> is perfect for dining before any evening event, with extended hours and Mediterranean charcoal grill cuisine</li>
+<li><strong>Dinner:</strong> book a table ahead by the port; our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> has options for dinner before any evening event</li>
 <li><strong>Pre-event:</strong> <a href="/enjoy">Enjoy Terrace</a> opens from 17:00, ideal for cocktails and shisha before the festivities</li>
 <li><strong>Transport:</strong> during the main festivals, bus and taxi services are extended</li>
 <li><strong>Language:</strong> Alcudia is very international; you will manage well in Spanish, English and German</li>
@@ -3680,7 +3601,7 @@ export const blogPosts: BlogPost[] = [
 <h2>So holst du das Beste aus den Events</h2>
 <ul>
 <li><strong>Unterkunft:</strong> buche Monate im Voraus für Sant Jaume und die Hochsaison Juli-August</li>
-<li><strong>Abendessen:</strong> <a href="/hiru">Hiru Food &amp; Drinks</a> ist perfekt für ein Essen vor abendlichen Events, mit langen Öffnungszeiten und mediterraner Grillküche</li>
+<li><strong>Abendessen:</strong> reserviere frühzeitig einen Tisch am Hafen; unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> bietet Optionen für das Abendessen vor jedem Abend-Event</li>
 <li><strong>Vor dem Event:</strong> die <a href="/enjoy">Enjoy Terrace</a> öffnet ab 17:00 Uhr, ideal für Cocktails und Shisha vor den Festlichkeiten</li>
 <li><strong>Transport:</strong> während der Hauptfeste werden Bus- und Taxidienste erweitert</li>
 <li><strong>Sprache:</strong> Alcudia ist sehr international; du kommst gut mit Spanisch, Englisch und Deutsch zurecht</li>
@@ -3722,7 +3643,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Comment profiter au maximum des evenements</h2>
 <ul>
 <li><strong>Hebergement :</strong> reservez des mois a l'avance pour Sant Jaume et la haute saison de juillet-aout</li>
-<li><strong>Diner :</strong> <a href="/hiru">Hiru Food &amp; Drinks</a> est parfait pour diner avant tout evenement nocturne, avec des horaires etendus et une cuisine mediterraneenne au grill</li>
+<li><strong>Dîner :</strong> réservez une table à l'avance au port ; notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> propose des options pour dîner avant tout événement nocturne</li>
 <li><strong>Avant l'evenement :</strong> <a href="/enjoy">Enjoy Terrace</a> ouvre des 17h00, ideal pour des cocktails et une chicha avant les festivites</li>
 <li><strong>Transport :</strong> pendant les fetes principales, les services de bus et de taxi sont renforces</li>
 <li><strong>Langue :</strong> Alcudia est tres internationale, vous vous en sortirez bien en espagnol, anglais et allemand</li>
@@ -3764,7 +3685,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Come goderti gli eventi al massimo</h2>
 <ul>
 <li><strong>Alloggio:</strong> prenota con mesi di anticipo per Sant Jaume e l'alta stagione di luglio-agosto</li>
-<li><strong>Cena:</strong> <a href="/hiru">Hiru Food &amp; Drinks</a> e' perfetto per cenare prima di qualsiasi evento serale, con orari ampi e cucina mediterranea alla brace</li>
+<li><strong>Cena:</strong> prenota un tavolo in anticipo al porto; la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> offre opzioni per cenare prima di qualsiasi evento serale</li>
 <li><strong>Pre-evento:</strong> <a href="/enjoy">Enjoy Terrace</a> apre dalle 17:00, ideale per cocktail e shisha prima delle feste</li>
 <li><strong>Trasporto:</strong> durante le feste principali, il servizio di autobus e taxi viene ampliato</li>
 <li><strong>Lingua:</strong> Alcudia e' molto internazionale, ti muoverai bene in spagnolo, inglese e tedesco</li>
@@ -3775,6 +3696,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Grupo Enjoy",
     date: "2026-05-25",
+    updated: "2026-08-29",
     image: "/images/enjoy/487828104_1394995181903485_876093983168073158_n.jpg",
     tags: ["activities", "alcudia", "mallorca", "events"],
     venue: "general",
@@ -3799,35 +3721,24 @@ export const blogPosts: BlogPost[] = [
     content: {
       es: `<p>Uno de los grandes desafíos de las vacaciones de verano es encontrar dónde cenar tarde. Muchos restaurantes cierran la cocina a las 22:00 o incluso antes, justo cuando la noche empieza a despertar. En Port d'Alcúdia, sin embargo, hay opciones para quienes prefieren cenar con calma, sin prisas y a horas que el resto del mundo considera tardías.</p>
 
-<h2>Hiru Food &amp; Drinks: cenas hasta la 1:00 los fines de semana</h2>
-<p>Si buscas cenar tarde en Port d'Alcúdia sin sacrificar calidad, <a href="/hiru">Hiru Food &amp; Drinks</a> es la respuesta. Situado en Ctra. d'Artà 40, este restaurante mantiene la cocina abierta hasta las 23:30 de domingo a jueves y hasta la 1:00 de la madrugada los viernes y sábados. Eso significa que puedes llegar a las 23:00 un sábado y sentarte a disfrutar de una cena completa sin que nadie te meta prisa.</p>
-
-<h3>La carta nocturna</h3>
-<p>La carta de Hiru está disponible en su totalidad durante todo el horario de servicio. No hay carta reducida ni versión nocturna limitada: puedes pedir las mismas carnes maduradas a la brasa, los mismos arroces de lonja con pescado y marisco fresco, y los mismos pescados del Mediterráneo a la parrilla que a cualquier otra hora. Eso es una rareza en una zona turística donde muchos locales simplifican su oferta por la noche.</p>
-
-<h3>Datos prácticos de Hiru</h3>
-<ul>
-<li><strong>Horario de cocina:</strong> 12:00 a 23:30 (viernes y sábado hasta 1:00). Martes cerrado</li>
-<li><strong>Dirección:</strong> Ctra. d'Artà, 40, Port d'Alcúdia</li>
-<li><strong>Reservas:</strong> muy recomendable para cenas tardías los fines de semana. Online o al 971 853 932</li>
-<li><strong>Valoración:</strong> 4.9/5 en Google (132 opiniones)</li>
-</ul>
+<h2>Un aviso: Hiru, la referencia de las cenas tardias, cerro en 2026</h2>
+<p>Durante anos, <a href="/hiru">Hiru Food &amp; Drinks</a> fue la respuesta facil a esta pregunta: cocina completa hasta las 23:30 entre semana y hasta la 1:00 los viernes y sabados, con la carta integra a cualquier hora. En agosto de 2026 cerro definitivamente sus puertas; le hemos dedicado una <a href="/blog/hiru-food-drinks-restaurante-alcudia">despedida y homenaje</a>. Las opciones que siguen estan actualizadas a dia de hoy.</p>
 
 <h2>Por qué cenar tarde tiene sentido en Mallorca</h2>
 <p>El ritmo de vida en Mallorca durante el verano invita a cenar tarde. Los días son largos, el sol no se pone hasta las 21:30, y la temperatura es más agradable a partir de las 22:00. Cenar a las 23:00 no es una excentricidad: es adaptarse al ritmo natural de la isla. Además, si planeas salir de noche, cenar tarde te permite disfrutar del día completo en la playa o de excursión sin interrupciones.</p>
 
 <h2>La cena como preludio de la noche</h2>
-<p>Cenar tarde en Port d'Alcúdia es también una estrategia inteligente para la noche. Después de una buena cena, el siguiente paso natural es un cóctel o una copa. <a href="/enjoy">Enjoy Terrace</a>, a pocos minutos de Hiru, está abierta hasta las 05:30 con cócteles de autor y shisha premium. Y si la noche pide más, <a href="/outxide">Outxide Club</a> abre a las 23:00 de jueves a sábado.</p>
+<p>Cenar tarde en Port d'Alcudia es tambien una estrategia inteligente para la noche. Despues de una buena cena, el siguiente paso natural es un coctel o una copa. <a href="/enjoy">Enjoy Terrace</a>, en Av. Tucan 1, esta abierta hasta las 05:30 con cocteles de autor y shisha premium. Y si la noche pide mas, <a href="/outxide">Outxide Club</a> abre a las 23:00 de jueves a sabado.</p>
 
 <h3>La secuencia perfecta para un viernes o sábado</h3>
 <ul>
-<li><strong>22:30 - 00:00:</strong> cena en Hiru Food &amp; Drinks con carnes a la brasa y un buen vino</li>
+<li><strong>22:30 - 00:00:</strong> cena tardia en uno de los restaurantes del paseo maritimo</li>
 <li><strong>00:00 - 01:30:</strong> cócteles y shisha en Enjoy Terrace</li>
 <li><strong>01:30 en adelante:</strong> baile en Outxide Club hasta el amanecer</li>
 </ul>
 
 <h2>Otras opciones para cenar tarde en la zona</h2>
-<p>El paseo marítimo de Port d'Alcúdia tiene varios restaurantes que mantienen horarios amplios durante el verano, aunque pocos ofrecen cocina de la calidad de Hiru hasta tan tarde. Los bares de tapas y algunos restaurantes italianos de la zona también sirven platos ligeros hasta tarde. La zona del puerto deportivo tiene opciones informales para quienes buscan algo rápido.</p>
+<p>El paseo maritimo de Port d'Alcudia tiene varios restaurantes que mantienen horarios amplios durante el verano. Los bares de tapas y algunos restaurantes italianos de la zona tambien sirven platos ligeros hasta tarde, y la zona del puerto deportivo tiene opciones informales para quienes buscan algo rapido. En temporada alta, pregunta siempre hasta que hora sirve la cocina antes de sentarte.</p>
 
 <h2>Consejos para cenar tarde en Alcúdia</h2>
 <ul>
@@ -3838,35 +3749,24 @@ export const blogPosts: BlogPost[] = [
 </ul>`,
       en: `<p>One of the great challenges of a summer holiday is finding somewhere to eat late. Many restaurants close the kitchen at 22:00 or even earlier, just when the night is starting to come alive. In Port d'Alcudia, however, there are options for those who prefer to dine at a relaxed pace, without rushing, at hours the rest of the world considers late.</p>
 
-<h2>Hiru Food &amp; Drinks: dinner until 1:00 at weekends</h2>
-<p>If you are looking for a late dinner in Port d'Alcudia without sacrificing quality, <a href="/hiru">Hiru Food &amp; Drinks</a> is the answer. Located at Ctra. d'Arta 40, this restaurant keeps the kitchen open until 23:30 Sunday to Thursday and until 1:00 on Fridays and Saturdays. That means you can arrive at 23:00 on a Saturday and sit down to a full dinner without anyone rushing you.</p>
-
-<h3>The evening menu</h3>
-<p>Hiru's full menu is available throughout all service hours. There is no reduced menu or limited late-night version: you can order the same aged meats from the charcoal grill, the same market-fresh rice dishes with fish and shellfish, and the same Mediterranean fish from the grill as at any other hour. That is a rarity in a tourist area where many places simplify their offering at night.</p>
-
-<h3>Practical details</h3>
-<ul>
-<li><strong>Kitchen hours:</strong> 12:00 to 23:30 (Friday and Saturday until 1:00). Tuesday closed</li>
-<li><strong>Address:</strong> Ctra. d'Arta, 40, Port d'Alcudia</li>
-<li><strong>Reservations:</strong> highly recommended for late weekend dinners. Book online or call 971 853 932</li>
-<li><strong>Rating:</strong> 4.9/5 on Google (132 reviews)</li>
-</ul>
+<h2>A heads-up: Hiru, the late-dinner reference, closed in 2026</h2>
+<p>For years, <a href="/hiru">Hiru Food &amp; Drinks</a> was the easy answer to this question: full kitchen until 23:30 on weekdays and until 1:00 on Fridays and Saturdays, with the complete menu at any hour. In August 2026 it closed its doors for good; we've dedicated a <a href="/blog/hiru-food-drinks-restaurante-alcudia">farewell tribute</a> to it. The options below are up to date.</p>
 
 <h2>Why late dining makes sense in Mallorca</h2>
 <p>The pace of life in Mallorca during summer invites late dining. Days are long, the sun does not set until 21:30, and the temperature is more pleasant from 22:00 onwards. Eating at 23:00 is not eccentric: it is adapting to the island's natural rhythm. Moreover, if you are planning a night out, eating late allows you to enjoy a full day at the beach or on an excursion without interruption.</p>
 
 <h2>Dinner as a prelude to the night</h2>
-<p>Eating late in Port d'Alcudia is also a smart strategy for the night ahead. After a great dinner, the next natural step is a cocktail or a drink. <a href="/enjoy">Enjoy Terrace</a>, just minutes from Hiru, is open until 05:30 with signature cocktails and premium shisha. And if the night calls for more, <a href="/outxide">Outxide Club</a> opens at 23:00 from Thursday to Saturday.</p>
+<p>Eating late in Port d'Alcudia is also a smart strategy for the night. After a good dinner, the natural next step is a cocktail or a drink. <a href="/enjoy">Enjoy Terrace</a>, at Av. Tucan 1, is open until 05:30 with signature cocktails and premium shisha. And if the night calls for more, <a href="/outxide">Outxide Club</a> opens at 23:00 from Thursday to Saturday.</p>
 
 <h3>The perfect Friday or Saturday sequence</h3>
 <ul>
-<li><strong>22:30 - 00:00:</strong> dinner at Hiru Food &amp; Drinks with grilled meats and a fine wine</li>
+<li><strong>22:30 - 00:00:</strong> late dinner at one of the seafront restaurants</li>
 <li><strong>00:00 - 01:30:</strong> cocktails and shisha at Enjoy Terrace</li>
 <li><strong>01:30 onwards:</strong> dancing at Outxide Club until sunrise</li>
 </ul>
 
 <h2>Other late dining options in the area</h2>
-<p>Port d'Alcudia's promenade has several restaurants that keep extended hours during summer, though few offer cuisine of Hiru's quality until that late. Tapas bars and some Italian restaurants in the area also serve lighter dishes late. The marina area has informal options for those seeking something quick.</p>
+<p>The Port d'Alcudia seafront has several restaurants that keep long hours during the summer. The area's tapas bars and some Italian restaurants also serve light dishes late, and the marina area has informal options for those after something quick. In high season, always ask how late the kitchen serves before sitting down.</p>
 
 <h2>Tips for late dining in Alcudia</h2>
 <ul>
@@ -3877,35 +3777,24 @@ export const blogPosts: BlogPost[] = [
 </ul>`,
       de: `<p>Eine der großen Herausforderungen im Sommerurlaub ist es, spät am Abend noch ein gutes Restaurant zu finden. Viele Küchen schließen um 22:00 Uhr oder sogar früher -- genau dann, wenn die Nacht erst beginnt. In Port d'Alcudia gibt es jedoch Optionen für alle, die lieber in Ruhe und ohne Hektik zu Abend essen, auch zu Uhrzeiten, die anderswo als spät gelten.</p>
 
-<h2>Hiru Food &amp; Drinks: Abendessen bis 1:00 Uhr am Wochenende</h2>
-<p>Wenn du in Port d'Alcudia spät essen möchtest, ohne auf Qualität zu verzichten, ist <a href="/hiru">Hiru Food &amp; Drinks</a> die Antwort. In der Ctra. d'Artà 40 gelegen, hält dieses Restaurant die Küche von Sonntag bis Donnerstag bis 23:30 Uhr und freitags und samstags bis 1:00 Uhr offen. Das bedeutet, du kannst am Samstagabend um 23:00 Uhr kommen und dich ohne Zeitdruck an ein vollständiges Abendessen setzen.</p>
-
-<h3>Die Abendkarte</h3>
-<p>Die komplette Speisekarte von Hiru ist während der gesamten Servicezeit verfügbar. Es gibt keine reduzierte Karte und keine eingeschränkte Nachtversion: du kannst das gleiche gereifte Fleisch vom Holzkohlegrill bestellen, die gleichen frischen Reisgerichte mit Fisch und Meeresfrüchten und den gleichen mediterranen Grillfisch wie zu jeder anderen Uhrzeit. Das ist eine Seltenheit in einer Touristenregion, wo viele Lokale ihr Angebot abends vereinfachen.</p>
-
-<h3>Praktische Details</h3>
-<ul>
-<li><strong>Küchenzeiten:</strong> 12:00 bis 23:30 Uhr (Freitag und Samstag bis 1:00 Uhr). Dienstag geschlossen</li>
-<li><strong>Adresse:</strong> Ctra. d'Artà, 40, Port d'Alcudia</li>
-<li><strong>Reservierung:</strong> sehr empfehlenswert für späte Wochenendessen. Online buchen oder anrufen: 971 853 932</li>
-<li><strong>Bewertung:</strong> 4.9/5 bei Google (132 Bewertungen)</li>
-</ul>
+<h2>Ein Hinweis: Hiru, die Referenz für späte Abendessen, hat 2026 geschlossen</h2>
+<p>Jahrelang war <a href="/hiru">Hiru Food &amp; Drinks</a> die einfache Antwort auf diese Frage: volle Küche bis 23:30 Uhr unter der Woche und bis 1:00 Uhr freitags und samstags, mit der kompletten Karte zu jeder Stunde. Im August 2026 hat es endgültig geschlossen; wir haben ihm eine <a href="/blog/hiru-food-drinks-restaurante-alcudia">Abschieds-Hommage</a> gewidmet. Die folgenden Optionen sind auf dem aktuellen Stand.</p>
 
 <h2>Warum spätes Essen auf Mallorca Sinn macht</h2>
 <p>Der Lebensrhythmus auf Mallorca im Sommer lädt zum späten Essen ein. Die Tage sind lang, die Sonne geht erst um 21:30 Uhr unter, und die Temperatur wird ab 22:00 Uhr angenehmer. Um 23:00 Uhr zu essen ist keine Extravaganz: es ist die Anpassung an den natürlichen Rhythmus der Insel. Außerdem kannst du, wenn du abends ausgehen willst, den ganzen Tag am Strand oder bei einem Ausflug genießen, ohne Unterbrechung.</p>
 
 <h2>Das Abendessen als Auftakt der Nacht</h2>
-<p>Spät in Port d'Alcudia zu essen ist auch eine kluge Strategie für die Nacht. Nach einem guten Abendessen ist der nächste natürliche Schritt ein Cocktail oder ein Drink. Die <a href="/enjoy">Enjoy Terrace</a>, nur wenige Minuten von Hiru entfernt, hat bis 05:30 Uhr geöffnet mit Signature-Cocktails und Premium-Shisha. Und wenn die Nacht nach mehr ruft, öffnet der <a href="/outxide">Outxide Club</a> von Donnerstag bis Samstag ab 23:00 Uhr.</p>
+<p>Spät zu Abend zu essen ist in Port d'Alcudia auch eine kluge Strategie für die Nacht. Nach einem guten Essen ist der nächste natürliche Schritt ein Cocktail oder ein Drink. Das <a href="/enjoy">Enjoy Terrace</a> in der Av. Tucan 1 hat bis 05:30 Uhr geöffnet, mit Signature-Cocktails und Premium-Shisha. Und wenn die Nacht mehr verlangt, öffnet der <a href="/outxide">Outxide Club</a> von Donnerstag bis Samstag um 23:00 Uhr.</p>
 
 <h3>Der perfekte Freitag- oder Samstagabend</h3>
 <ul>
-<li><strong>22:30 - 00:00:</strong> Abendessen bei Hiru Food &amp; Drinks mit Grillspezialitäten und einem guten Wein</li>
+<li><strong>22:30 - 00:00:</strong> spätes Abendessen in einem der Restaurants an der Promenade</li>
 <li><strong>00:00 - 01:30:</strong> Cocktails und Shisha in der Enjoy Terrace</li>
 <li><strong>Ab 01:30:</strong> tanzen im Outxide Club bis zum Sonnenaufgang</li>
 </ul>
 
 <h2>Weitere Möglichkeiten für spätes Essen in der Umgebung</h2>
-<p>Die Strandpromenade von Port d'Alcudia hat einige Restaurants mit langen Öffnungszeiten im Sommer, obwohl nur wenige Küche von Hirus Qualität bis so spät anbieten. Tapas-Bars und einige italienische Restaurants in der Gegend servieren ebenfalls leichte Gerichte bis spät. Das Yachthafenviertel bietet informelle Optionen für alle, die etwas Schnelles suchen.</p>
+<p>An der Promenade von Port d'Alcudia halten mehrere Restaurants im Sommer lange Öffnungszeiten. Die Tapas-Bars und einige italienische Restaurants der Gegend servieren ebenfalls bis spät leichte Gerichte, und rund um den Sporthafen gibt es informelle Optionen für alle, die etwas Schnelles suchen. Frag in der Hochsaison immer, bis wann die Küche serviert, bevor du dich setzt.</p>
 
 <h2>Tipps für spätes Essen in Alcudia</h2>
 <ul>
@@ -3916,35 +3805,24 @@ export const blogPosts: BlogPost[] = [
 </ul>`,
       fr: `<p>L'un des grands defis des vacances d'ete est de trouver ou diner tard. De nombreux restaurants ferment la cuisine a 22h00 voire plus tot, juste au moment ou la nuit commence a s'animer. A Port d'Alcudia, cependant, il existe des options pour ceux qui preferent diner tranquillement, sans se presser, a des heures que le reste du monde considere comme tardives.</p>
 
-<h2>Hiru Food &amp; Drinks : diners jusqu'a 1h00 le week-end</h2>
-<p>Si vous cherchez a diner tard a Port d'Alcudia sans sacrifier la qualite, <a href="/hiru">Hiru Food &amp; Drinks</a> est la reponse. Situe au Ctra. d'Arta 40, ce restaurant maintient la cuisine ouverte jusqu'a 23h30 du dimanche au jeudi et jusqu'a 1h00 du matin les vendredis et samedis. Cela signifie que vous pouvez arriver a 23h00 un samedi et vous installer pour un diner complet sans que personne ne vous presse.</p>
-
-<h3>La carte du soir</h3>
-<p>La carte de Hiru est disponible dans son integralite pendant toute la duree du service. Il n'y a pas de carte reduite ni de version nocturne limitee : vous pouvez commander les memes viandes maturees au grill, les memes riz de la criee avec poisson et fruits de mer frais, et les memes poissons de Mediterranee grilles qu'a n'importe quelle autre heure. C'est une rarete dans une zone touristique ou de nombreux etablissements simplifient leur offre le soir.</p>
-
-<h3>Informations pratiques sur Hiru</h3>
-<ul>
-<li><strong>Horaires cuisine :</strong> 12h00 a 23h30 (vendredi et samedi jusqu'a 1h00). Ferme le mardi</li>
-<li><strong>Adresse :</strong> Ctra. d'Arta, 40, Port d'Alcudia</li>
-<li><strong>Reservations :</strong> tres recommandees pour les diners tardifs le week-end. En ligne ou au 971 853 932</li>
-<li><strong>Note :</strong> 4.9/5 sur Google (132 avis)</li>
-</ul>
+<h2>Un avertissement : Hiru, la référence du dîner tardif, a fermé en 2026</h2>
+<p>Pendant des années, <a href="/hiru">Hiru Food &amp; Drinks</a> a été la réponse facile à cette question : cuisine complète jusqu'à 23h30 en semaine et jusqu'à 1h00 les vendredis et samedis, avec la carte intégrale à toute heure. En août 2026, il a définitivement fermé ses portes ; nous lui avons dédié un <a href="/blog/hiru-food-drinks-restaurante-alcudia">hommage d'adieu</a>. Les options ci-dessous sont à jour.</p>
 
 <h2>Pourquoi diner tard a du sens a Majorque</h2>
 <p>Le rythme de vie a Majorque en ete invite a diner tard. Les journees sont longues, le soleil ne se couche qu'a 21h30 et la temperature devient plus agreable a partir de 22h00. Diner a 23h00 n'est pas une excentricite : c'est s'adapter au rythme naturel de l'ile. De plus, si vous prevoyez de sortir le soir, diner tard vous permet de profiter pleinement de la journee a la plage ou en excursion sans interruption.</p>
 
 <h2>Le diner comme prelude a la nuit</h2>
-<p>Diner tard a Port d'Alcudia est aussi une strategie intelligente pour la nuit. Apres un bon diner, l'etape suivante naturelle est un cocktail ou un verre. <a href="/enjoy">Enjoy Terrace</a>, a quelques minutes de Hiru, est ouvert jusqu'a 05h30 avec des cocktails signatures et une chicha premium. Et si la nuit en redemande, <a href="/outxide">Outxide Club</a> ouvre a 23h00 du jeudi au samedi.</p>
+<p>Dîner tard à Port d'Alcudia est aussi une stratégie intelligente pour la nuit. Après un bon dîner, l'étape naturelle suivante est un cocktail ou un verre. L'<a href="/enjoy">Enjoy Terrace</a>, Av. Tucan 1, est ouverte jusqu'à 05h30 avec cocktails signature et chicha premium. Et si la nuit en demande plus, l'<a href="/outxide">Outxide Club</a> ouvre à 23h00 du jeudi au samedi.</p>
 
 <h3>La sequence parfaite pour un vendredi ou samedi</h3>
 <ul>
-<li><strong>22h30 - 00h00 :</strong> diner chez Hiru Food &amp; Drinks avec viandes grillees et un bon vin</li>
+<li><strong>22h30 - 00h00 :</strong> dîner tardif dans l'un des restaurants du front de mer</li>
 <li><strong>00h00 - 01h30 :</strong> cocktails et chicha a Enjoy Terrace</li>
 <li><strong>A partir de 01h30 :</strong> danser a Outxide Club jusqu'a l'aube</li>
 </ul>
 
 <h2>Autres options pour diner tard dans la zone</h2>
-<p>La promenade maritime de Port d'Alcudia compte plusieurs restaurants aux horaires etendus pendant l'ete, bien que peu offrent une cuisine de la qualite de Hiru aussi tard. Les bars a tapas et certains restaurants italiens de la zone servent egalement des plats legers tard le soir. La zone du port de plaisance propose des options informelles pour ceux qui cherchent quelque chose de rapide.</p>
+<p>Le front de mer de Port d'Alcudia compte plusieurs restaurants aux horaires étendus pendant l'été. Les bars à tapas et certains restaurants italiens de la zone servent aussi des plats légers jusqu'à tard, et le port de plaisance offre des options informelles pour ceux qui cherchent quelque chose de rapide. En haute saison, demandez toujours jusqu'à quelle heure la cuisine sert avant de vous installer.</p>
 
 <h2>Conseils pour diner tard a Alcudia</h2>
 <ul>
@@ -3955,35 +3833,24 @@ export const blogPosts: BlogPost[] = [
 </ul>`,
       it: `<p>Una delle grandi sfide delle vacanze estive e' trovare dove cenare tardi. Molti ristoranti chiudono la cucina alle 22:00 o addirittura prima, proprio quando la notte inizia a prendere vita. A Port d'Alcudia, tuttavia, ci sono opzioni per chi preferisce cenare con calma, senza fretta e ad orari che il resto del mondo considera tardivi.</p>
 
-<h2>Hiru Food &amp; Drinks: cene fino all'1:00 nel fine settimana</h2>
-<p>Se cerchi di cenare tardi a Port d'Alcudia senza sacrificare la qualita', <a href="/hiru">Hiru Food &amp; Drinks</a> e' la risposta. Situato in Ctra. d'Arta 40, questo ristorante mantiene la cucina aperta fino alle 23:30 da domenica a giovedi' e fino all'1:00 di notte il venerdi' e il sabato. Questo significa che puoi arrivare alle 23:00 di sabato e sederti a gustare una cena completa senza che nessuno ti metta fretta.</p>
-
-<h3>Il menu serale</h3>
-<p>Il menu di Hiru e' disponibile nella sua totalita' durante tutto l'orario di servizio. Non c'e' menu ridotto ne' versione notturna limitata: puoi ordinare le stesse carni frollate alla brace, gli stessi risi del mercato con pesce e frutti di mare freschi, e gli stessi pesci del Mediterraneo alla griglia che a qualsiasi altra ora. Questa e' una rarita' in una zona turistica dove molti locali semplificano la loro offerta di sera.</p>
-
-<h3>Informazioni pratiche su Hiru</h3>
-<ul>
-<li><strong>Orario cucina:</strong> 12:00 - 23:30 (venerdi' e sabato fino all'1:00). Martedi' chiuso</li>
-<li><strong>Indirizzo:</strong> Ctra. d'Arta, 40, Port d'Alcudia</li>
-<li><strong>Prenotazioni:</strong> molto consigliate per le cene tardive nel fine settimana. Online o al 971 853 932</li>
-<li><strong>Valutazione:</strong> 4.9/5 su Google (132 recensioni)</li>
-</ul>
+<h2>Un avviso: Hiru, la referenza delle cene tardive, ha chiuso nel 2026</h2>
+<p>Per anni <a href="/hiru">Hiru Food &amp; Drinks</a> è stato la risposta facile a questa domanda: cucina completa fino alle 23:30 in settimana e fino all'1:00 venerdì e sabato, con il menu integrale a qualsiasi ora. Nell'agosto 2026 ha chiuso definitivamente; gli abbiamo dedicato un <a href="/blog/hiru-food-drinks-restaurante-alcudia">omaggio d'addio</a>. Le opzioni che seguono sono aggiornate.</p>
 
 <h2>Perche' cenare tardi ha senso a Maiorca</h2>
 <p>Il ritmo di vita a Maiorca durante l'estate invita a cenare tardi. Le giornate sono lunghe, il sole non tramonta fino alle 21:30, e la temperatura e' piu' gradevole a partire dalle 22:00. Cenare alle 23:00 non e' un'eccentricita': e' adattarsi al ritmo naturale dell'isola. Inoltre, se hai in programma di uscire la sera, cenare tardi ti permette di goderti l'intera giornata in spiaggia o in escursione senza interruzioni.</p>
 
 <h2>La cena come preludio della serata</h2>
-<p>Cenare tardi a Port d'Alcudia e' anche una strategia intelligente per la serata. Dopo una buona cena, il passo successivo naturale e' un cocktail o un drink. <a href="/enjoy">Enjoy Terrace</a>, a pochi minuti da Hiru, e' aperta fino alle 05:30 con cocktail d'autore e shisha premium. E se la serata chiede di piu', <a href="/outxide">Outxide Club</a> apre alle 23:00 da giovedi' a sabato.</p>
+<p>Cenare tardi a Port d'Alcudia è anche una strategia intelligente per la notte. Dopo una buona cena, il passo successivo naturale è un cocktail o un drink. L'<a href="/enjoy">Enjoy Terrace</a>, in Av. Tucan 1, è aperta fino alle 05:30 con cocktail d'autore e shisha premium. E se la notte chiede di più, l'<a href="/outxide">Outxide Club</a> apre alle 23:00 dal giovedì al sabato.</p>
 
 <h3>La sequenza perfetta per un venerdi' o sabato</h3>
 <ul>
-<li><strong>22:30 - 00:00:</strong> cena da Hiru Food &amp; Drinks con carni alla brace e un buon vino</li>
+<li><strong>22:30 - 00:00:</strong> cena tardiva in uno dei ristoranti del lungomare</li>
 <li><strong>00:00 - 01:30:</strong> cocktail e shisha da Enjoy Terrace</li>
 <li><strong>Dall'01:30 in poi:</strong> ballare all'Outxide Club fino all'alba</li>
 </ul>
 
 <h2>Altre opzioni per cenare tardi nella zona</h2>
-<p>Il lungomare di Port d'Alcudia ha diversi ristoranti che mantengono orari ampi durante l'estate, anche se pochi offrono cucina della qualita' di Hiru fino a cosi' tardi. I bar di tapas e alcuni ristoranti italiani della zona servono anche piatti leggeri fino a tardi. La zona del porto turistico ha opzioni informali per chi cerca qualcosa di veloce.</p>
+<p>Il lungomare di Port d'Alcudia ha diversi ristoranti con orari lunghi durante l'estate. I bar di tapas e alcuni ristoranti italiani della zona servono piatti leggeri fino a tardi, e la zona del porto turistico offre opzioni informali per chi cerca qualcosa di veloce. In alta stagione, chiedi sempre fino a che ora serve la cucina prima di sederti.</p>
 
 <h2>Consigli per cenare tardi ad Alcudia</h2>
 <ul>
@@ -3995,6 +3862,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Grupo Enjoy",
     date: "2026-05-01",
+    updated: "2026-08-29",
     image: "/images/hiru/496940399_122233184186201104_8598588797519462132_n.jpg",
     tags: ["food", "restaurants", "alcudia", "nightlife"],
     venue: "hiru",
@@ -4052,7 +3920,7 @@ export const blogPosts: BlogPost[] = [
 <p>La shisha es, por naturaleza, una experiencia compartida. En Enjoy Terrace, verás grupos de amigos, parejas y familias disfrutando juntos de una cachimba mientras conversan y se relajan. Es una forma diferente de socializar, más pausada y sensorial que simplemente tomar una copa. El equipo siempre está disponible para guiarte en la elección del sabor y ayudarte a sacar el máximo partido de tu sesión.</p>
 
 <h2>Después de la shisha: la noche continúa</h2>
-<p>Una de las grandes ventajas de Enjoy Terrace es su ubicación estratégica. Para quienes quieran cenar, <a href="/hiru">Hiru Food &amp; Drinks</a> ofrece cocina mediterránea a la brasa a poca distancia. Y para los que buscan alargar la noche, <a href="/outxide">Outxide Club</a> está justo al lado, con las mejores sesiones de DJ del norte de Mallorca de jueves a sábado.</p>`,
+<p>Una de las grandes ventajas de Enjoy Terrace es su ubicación estratégica. Para quienes quieran cenar, el puerto ofrece buenas mesas a poca distancia: nuestra <a href="/blog/donde-cenar-tarde-port-alcudia">guía para cenar tarde en Port d'Alcúdia</a> te ayuda a elegir. Y para los que buscan alargar la noche, <a href="/outxide">Outxide Club</a> está justo al lado, con las mejores sesiones de DJ del norte de Mallorca de jueves a sábado.</p>`,
       en: `<p>Shisha culture has become an essential part of the leisure scene in Mallorca. More and more travellers look for a place to enjoy quality shisha at sunset, paired with excellent cocktails and a carefully curated atmosphere. In Port d'Alcudia, <a href="/enjoy">Enjoy Terrace</a> has created exactly that experience: the best shisha bar with terrace lounge in northern Mallorca.</p>
 
 <h2>The shisha experience at Enjoy Terrace</h2>
@@ -4088,7 +3956,7 @@ export const blogPosts: BlogPost[] = [
 <p>Shisha is, by nature, a shared experience. At Enjoy Terrace you will see groups of friends, couples and families enjoying a hookah together while they talk and unwind. It is a different way of socialising, more unhurried and sensory than simply having a drink. The team is always available to guide your flavour choice and help you get the most out of your session.</p>
 
 <h2>After shisha: the night continues</h2>
-<p>One of Enjoy Terrace's great advantages is its strategic location. For those wanting dinner, <a href="/hiru">Hiru Food &amp; Drinks</a> offers Mediterranean charcoal grill cuisine a short walk away. And for those looking to extend the night, <a href="/outxide">Outxide Club</a> is right next door, with the best DJ sessions in northern Mallorca from Thursday to Saturday.</p>`,
+<p>One of Enjoy Terrace's great advantages is its strategic location. If you fancy dinner, there are good tables a short walk away: our <a href="/blog/donde-cenar-tarde-port-alcudia">guide to late dinners in Port d'Alcúdia</a> will help you choose. And for those looking to extend the night, <a href="/outxide">Outxide Club</a> is right next door, with the best DJ sessions in northern Mallorca from Thursday to Saturday.</p>`,
       de: `<p>Die Shisha-Kultur ist ein fester Bestandteil der Freizeitszene auf Mallorca geworden. Immer mehr Reisende suchen einen Ort, an dem sie bei Sonnenuntergang eine hochwertige Shisha genießen können, kombiniert mit erstklassigen Cocktails und einer sorgfältig gestalteten Atmosphäre. In Port d'Alcudia hat die <a href="/enjoy">Enjoy Terrace</a> genau dieses Erlebnis geschaffen: die beste Shisha-Bar mit Terrassen-Lounge im Norden Mallorcas.</p>
 
 <h2>Das Shisha-Erlebnis in der Enjoy Terrace</h2>
@@ -4124,7 +3992,7 @@ export const blogPosts: BlogPost[] = [
 <p>Shisha ist von Natur aus ein gemeinsames Erlebnis. In der Enjoy Terrace siehst du Freundesgruppen, Paare und Familien, die zusammen eine Wasserpfeife genießen, sich unterhalten und entspannen. Es ist eine andere Art des Zusammenseins, ruhiger und sinnlicher als einfach nur etwas trinken zu gehen. Das Team steht immer bereit, dich bei der Geschmackswahl zu beraten und dir zu helfen, das Beste aus deiner Session herauszuholen.</p>
 
 <h2>Nach der Shisha: die Nacht geht weiter</h2>
-<p>Einer der großen Vorteile der Enjoy Terrace ist ihre strategische Lage. Wer Abendessen möchte, findet bei <a href="/hiru">Hiru Food &amp; Drinks</a> nur wenige Gehminuten entfernt mediterrane Grillküche. Und wer die Nacht verlängern will, hat mit dem <a href="/outxide">Outxide Club</a> direkt nebenan die besten DJ-Sessions im Norden Mallorcas, von Donnerstag bis Samstag.</p>`,
+<p>Einer der großen Vorteile der Enjoy Terrace ist ihre strategische Lage. Wer zu Abend essen möchte, findet gute Restaurants in kurzer Entfernung: Unser <a href="/blog/donde-cenar-tarde-port-alcudia">Guide zum späten Abendessen in Port d'Alcúdia</a> hilft bei der Wahl. Und wer die Nacht verlängern will, hat mit dem <a href="/outxide">Outxide Club</a> direkt nebenan die besten DJ-Sessions im Norden Mallorcas, von Donnerstag bis Samstag.</p>`,
       fr: `<p>La culture de la chicha est devenue un element essentiel de la scene de loisirs a Majorque. De plus en plus de voyageurs recherchent un lieu ou profiter d'une bonne chicha au coucher du soleil, accompagnee de cocktails de qualite et d'une ambiance soignee. A Port d'Alcudia, <a href="/enjoy">Enjoy Terrace</a> a cree exactement cette experience : le meilleur shisha bar avec terrasse lounge du nord de Majorque.</p>
 
 <h2>L'experience chicha a Enjoy Terrace</h2>
@@ -4160,7 +4028,7 @@ export const blogPosts: BlogPost[] = [
 <p>La chicha est, par nature, une experience partagee. A Enjoy Terrace, vous verrez des groupes d'amis, des couples et des familles profiter ensemble d'un narguile tout en discutant et en se detendant. C'est une facon differente de socialiser, plus posee et sensorielle que simplement prendre un verre. L'equipe est toujours disponible pour vous guider dans le choix de la saveur et vous aider a tirer le meilleur parti de votre session.</p>
 
 <h2>Apres la chicha : la nuit continue</h2>
-<p>L'un des grands avantages d'Enjoy Terrace est son emplacement strategique. Pour ceux qui souhaitent diner, <a href="/hiru">Hiru Food &amp; Drinks</a> propose une cuisine mediterraneenne au grill a quelques pas. Et pour ceux qui veulent prolonger la nuit, <a href="/outxide">Outxide Club</a> est juste a cote, avec les meilleures sessions DJ du nord de Majorque du jeudi au samedi.</p>`,
+<p>L'un des grands avantages d'Enjoy Terrace est son emplacement strategique. Pour dîner, de bonnes tables se trouvent à quelques pas : notre <a href="/blog/donde-cenar-tarde-port-alcudia">guide pour dîner tard à Port d'Alcúdia</a> vous aidera à choisir. Et pour ceux qui veulent prolonger la nuit, <a href="/outxide">Outxide Club</a> est juste a cote, avec les meilleures sessions DJ du nord de Majorque du jeudi au samedi.</p>`,
       it: `<p>La cultura della shisha e' diventata una parte essenziale della scena del tempo libero a Maiorca. Sempre piu' viaggiatori cercano un luogo dove godersi una buona shisha al tramonto, abbinata a cocktail di qualita' e un'atmosfera curata. A Port d'Alcudia, <a href="/enjoy">Enjoy Terrace</a> ha creato esattamente questa esperienza: il miglior shisha bar con terrazza lounge del nord di Maiorca.</p>
 
 <h2>L'esperienza shisha da Enjoy Terrace</h2>
@@ -4196,10 +4064,11 @@ export const blogPosts: BlogPost[] = [
 <p>La shisha e', per sua natura, un'esperienza condivisa. Da Enjoy Terrace vedrai gruppi di amici, coppie e famiglie che si godono insieme un narghile' mentre chiacchierano e si rilassano. E' un modo diverso di socializzare, piu' rilassato e sensoriale rispetto al semplice bere un drink. Il team e' sempre disponibile per guidarti nella scelta del gusto e aiutarti a ottenere il massimo dalla tua sessione.</p>
 
 <h2>Dopo la shisha: la serata continua</h2>
-<p>Uno dei grandi vantaggi di Enjoy Terrace e' la sua posizione strategica. Per chi desidera cenare, <a href="/hiru">Hiru Food &amp; Drinks</a> offre cucina mediterranea alla brace a poca distanza. E per chi cerca di prolungare la serata, <a href="/outxide">Outxide Club</a> e' proprio accanto, con le migliori sessioni DJ del nord di Maiorca da giovedi' a sabato.</p>`,
+<p>Uno dei grandi vantaggi di Enjoy Terrace e' la sua posizione strategica. Per chi vuole cenare, ci sono buoni tavoli a pochi passi: la nostra <a href="/blog/donde-cenar-tarde-port-alcudia">guida per cenare tardi a Port d'Alcúdia</a> ti aiuta a scegliere. E per chi cerca di prolungare la serata, <a href="/outxide">Outxide Club</a> e' proprio accanto, con le migliori sessioni DJ del nord di Maiorca da giovedi' a sabato.</p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-15",
+    updated: "2026-08-29",
     image: "/images/enjoy/490779000_1404590464277290_104140296793100193_n.jpg",
     tags: ["shisha", "cocktails", "enjoy", "mallorca"],
     venue: "enjoy",
@@ -4230,8 +4099,8 @@ export const blogPosts: BlogPost[] = [
 <h3>17:00 - Cócteles al atardecer en Enjoy Terrace</h3>
 <p>La noche empieza en <a href="/enjoy">Enjoy Terrace</a>, en Av. Tucán 1. Abre a las 17:00 y es el lugar perfecto para empezar con un cóctel de autor y una shisha premium mientras el sol baja sobre Port d'Alcúdia. El ambiente es sofisticado pero relajado, con música chill y una terraza diseñada para disfrutar sin prisa.</p>
 
-<h3>21:00 - Cena mediterránea en Hiru Food &amp; Drinks</h3>
-<p>Para cenar, <a href="/hiru">Hiru Food &amp; Drinks</a> en Ctra. d'Artà 40 ofrece la mejor cocina a la brasa de la zona. Carnes maduradas, arroces de lonja y pescados del Mediterráneo en un restaurante con 4.9/5 en Google. Los viernes y sábados la cocina sirve hasta la 1:00.</p>
+<h3>21:00 - Cena mediterránea en el puerto</h3>
+<p>Para cenar, el puerto ofrece cocina a la brasa, arroces y pescados del Mediterráneo en varios restaurantes con comedor interior y terraza. Consulta nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> y reserva con antelación en temporada alta.</p>
 
 <h3>23:00 - Clubbing en Outxide Club</h3>
 <p><a href="/outxide">Outxide Club</a>, justo al lado de Enjoy Terrace, abre de jueves a sábado a las 23:00. Sonido profesional de primer nivel, DJs nacionales e internacionales y una producción visual espectacular. Las entradas se compran en FourVenues o en la puerta.</p>
@@ -4263,8 +4132,8 @@ export const blogPosts: BlogPost[] = [
 <h3>17:00 - Sunset cocktails at Enjoy Terrace</h3>
 <p>The night begins at <a href="/enjoy">Enjoy Terrace</a>, at Av. Tucan 1. It opens at 17:00 and is the perfect place to start with a signature cocktail and premium shisha as the sun drops over Port d'Alcudia. The vibe is sophisticated yet relaxed, with chill music and a terrace designed for unhurried enjoyment.</p>
 
-<h3>21:00 - Mediterranean dinner at Hiru Food &amp; Drinks</h3>
-<p>For dinner, <a href="/hiru">Hiru Food &amp; Drinks</a> at Ctra. d'Arta 40 offers the best charcoal grill cuisine in the area. Aged meats, market-fresh rice dishes and Mediterranean fish in a restaurant rated 4.9/5 on Google. On Fridays and Saturdays the kitchen serves until 1:00.</p>
+<h3>21:00 - Mediterranean dinner by the port</h3>
+<p>For dinner, the port offers charcoal-grilled cooking, rice dishes and Mediterranean fish at several restaurants with indoor dining and terraces. Check our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> and book ahead in high season.</p>
 
 <h3>23:00 - Clubbing at Outxide Club</h3>
 <p><a href="/outxide">Outxide Club</a>, right next to Enjoy Terrace, opens Thursday to Saturday at 23:00. Top-tier professional sound, national and international DJs and spectacular visual production. Tickets available on FourVenues or at the door.</p>
@@ -4296,8 +4165,8 @@ export const blogPosts: BlogPost[] = [
 <h3>17:00 Uhr -- Cocktails zum Sonnenuntergang in der Enjoy Terrace</h3>
 <p>Die Nacht beginnt in der <a href="/enjoy">Enjoy Terrace</a> in der Av. Tucán 1. Sie öffnet um 17:00 Uhr und ist der perfekte Ort, um mit einem Signature-Cocktail und Premium-Shisha zu starten, während die Sonne über Port d'Alcudia untergeht. Die Atmosphäre ist anspruchsvoll und trotzdem entspannt, mit Chillout-Musik und einer Terrasse, die zum Genießen ohne Zeitdruck einlädt.</p>
 
-<h3>21:00 Uhr -- Mediterranes Abendessen bei Hiru Food &amp; Drinks</h3>
-<p>Zum Abendessen bietet <a href="/hiru">Hiru Food &amp; Drinks</a> in der Ctra. d'Artà 40 die beste Grillküche der Gegend. Gereiftes Fleisch, Reisgerichte vom Fischmarkt und Mittelmeerfisch in einem Restaurant mit 4.9/5 bei Google. Freitags und samstags serviert die Küche bis 1:00 Uhr.</p>
+<h3>21:00 Uhr -- Mediterranes Abendessen am Hafen</h3>
+<p>Zum Abendessen bietet der Hafen Grillküche, Reisgerichte und Mittelmeerfisch in mehreren Restaurants mit Innenbereich und Terrasse. Wirf einen Blick in unseren <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> und reserviere in der Hochsaison rechtzeitig.</p>
 
 <h3>23:00 Uhr -- Clubbing im Outxide Club</h3>
 <p>Der <a href="/outxide">Outxide Club</a>, direkt neben der Enjoy Terrace, öffnet von Donnerstag bis Samstag um 23:00 Uhr. Erstklassiger professioneller Sound, nationale und internationale DJs sowie eine spektakuläre visuelle Produktion. Tickets gibt es über FourVenues oder an der Abendkasse.</p>
@@ -4323,7 +4192,7 @@ export const blogPosts: BlogPost[] = [
 <p>Der große Vorteil von Alcudia gegenüber anderen Nightlife-Zielen auf Mallorca ist die Konzentration und Qualität. Terrasse, Restaurant und Club liegen nur Meter voneinander entfernt. Du brauchst keine Taxis zwischen den Lokalen und keine komplizierten Fahrpläne. Die Nacht fließt ganz natürlich vom ersten Cocktail bis zum letzten Track auf der Tanzfläche. Das ist der Geist von <a href="/">Grupo Enjoy</a>: drei Orte, ein komplettes Erlebnis.</p>
 
 <h2>Alcudia vs. Palma und Magaluf</h2>
-<p>Viele deutsche Urlauber fragen sich, ob sie für das Nachtleben nach Palma oder Magaluf fahren müssen. Die kurze Antwort: Nein. Alcudia bietet eine eigenständige Ausgehszene, die alles hat, was du brauchst -- ohne die Massen und langen Wege des Südens. Der Outxide Club bringt erstklassige DJs in den Norden, und die Kombination aus Enjoy Terrace, Hiru und dem Club macht eine Nacht komplett, ohne dass du je ein Taxi rufen musst.</p>
+<p>Viele deutsche Urlauber fragen sich, ob sie für das Nachtleben nach Palma oder Magaluf fahren müssen. Die kurze Antwort: Nein. Alcudia bietet eine eigenständige Ausgehszene, die alles hat, was du brauchst -- ohne die Massen und langen Wege des Südens. Der Outxide Club bringt erstklassige DJs in den Norden, und die Kombination aus Enjoy Terrace und dem Club macht eine Nacht komplett, ohne dass du je ein Taxi rufen musst.</p>
 
 <h2>Für deutsche Urlauber: gut zu wissen</h2>
 <p>Alcudia ist seit Jahrzehnten ein beliebtes Ziel für deutsche Urlauber, und das Nachtleben spiegelt das wider. Viele Lokale haben deutschsprachiges Personal, und du wirst dich sprachlich problemlos zurechtfinden. Die Direktflüge aus vielen deutschen Städten nach Palma machen die Anreise einfach, und vom Flughafen nach Alcudia sind es etwa 50 Minuten mit dem Transfer. Mallorca ist mehr als nur Ballermann -- und Alcudia beweist das jeden Abend.</p>`,
@@ -4335,8 +4204,8 @@ export const blogPosts: BlogPost[] = [
 <h3>17h00 - Cocktails au coucher du soleil a Enjoy Terrace</h3>
 <p>La nuit commence a <a href="/enjoy">Enjoy Terrace</a>, au Av. Tucan 1. Ouverture a 17h00, c'est l'endroit ideal pour commencer avec un cocktail signature et une chicha premium tandis que le soleil descend sur Port d'Alcudia. L'ambiance est sophistiquee mais decontractee, avec de la musique chill et une terrasse concue pour profiter sans se presser.</p>
 
-<h3>21h00 - Diner mediterraneen a Hiru Food &amp; Drinks</h3>
-<p>Pour le diner, <a href="/hiru">Hiru Food &amp; Drinks</a> au Ctra. d'Arta 40 propose la meilleure cuisine au grill de la region. Viandes maturees, riz de la criee et poissons de Mediterranee dans un restaurant note 4.9/5 sur Google. Les vendredis et samedis, la cuisine sert jusqu'a 1h00.</p>
+<h3>21h00 - Diner mediterraneen au port</h3>
+<p>Pour le diner, le port offre cuisine a la braise, riz et poissons de Mediterranee dans plusieurs restaurants avec salle et terrasse. Consultez notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcudia</a> et reservez a l'avance en haute saison.</p>
 
 <h3>23h00 - Clubbing a Outxide Club</h3>
 <p><a href="/outxide">Outxide Club</a>, juste a cote d'Enjoy Terrace, ouvre du jeudi au samedi a 23h00. Son professionnel haut de gamme, DJs nationaux et internationaux et production visuelle spectaculaire. Billets disponibles sur FourVenues ou sur place.</p>
@@ -4368,8 +4237,8 @@ export const blogPosts: BlogPost[] = [
 <h3>17:00 - Cocktail al tramonto da Enjoy Terrace</h3>
 <p>La serata inizia da <a href="/enjoy">Enjoy Terrace</a>, in Av. Tucan 1. Apre alle 17:00 ed e' il luogo perfetto per iniziare con un cocktail d'autore e una shisha premium mentre il sole scende su Port d'Alcudia. L'atmosfera e' sofisticata ma rilassata, con musica chill e una terrazza progettata per godersi il momento senza fretta.</p>
 
-<h3>21:00 - Cena mediterranea da Hiru Food &amp; Drinks</h3>
-<p>Per cena, <a href="/hiru">Hiru Food &amp; Drinks</a> in Ctra. d'Arta 40 offre la migliore cucina alla brace della zona. Carni frollate, risi del mercato e pesci del Mediterraneo in un ristorante con 4.9/5 su Google. Il venerdi' e il sabato la cucina serve fino all'1:00.</p>
+<h3>21:00 - Cena mediterranea al porto</h3>
+<p>Per cena, il porto offre cucina alla brace, risi e pesci del Mediterraneo in diversi ristoranti con sala interna e terrazza. Consulta la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcudia</a> e prenota in anticipo in alta stagione.</p>
 
 <h3>23:00 - Clubbing all'Outxide Club</h3>
 <p><a href="/outxide">Outxide Club</a>, proprio accanto a Enjoy Terrace, apre da giovedi' a sabato alle 23:00. Impianto audio professionale di primo livello, DJ nazionali e internazionali e una produzione visiva spettacolare. I biglietti si acquistano su FourVenues o alla porta.</p>
@@ -4396,6 +4265,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Grupo Enjoy",
     date: "2026-05-20",
+    updated: "2026-08-29",
     image: "/images/outxide/DSCF8271-14.jpg",
     tags: ["nightlife", "alcudia", "mallorca", "guide"],
     venue: "general",
@@ -4421,7 +4291,7 @@ export const blogPosts: BlogPost[] = [
       es: `<p>Si buscas informacion sobre <strong>Outxide Club</strong>, has llegado al sitio correcto. Esta es la pagina oficial de Grupo Enjoy, la empresa que gestiona Outxide Club en Port d'Alcudia, Mallorca. Aqui encontraras todo lo que necesitas saber antes de visitarnos: desde como llegar hasta que esperar de una noche en Outxide.</p>
 
 <h2>Que es Outxide Club</h2>
-<p><a href="/outxide">Outxide Club</a> es la discoteca de referencia en el norte de Mallorca. Ubicada en la Av. Tucan 1, Port d'Alcudia, Outxide ofrece una experiencia de club premium que combina un sistema de sonido de primer nivel, produccion visual profesional y una seleccion musical cuidada que abarca house, tech house, techno y reggaeton. El club forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/enjoy">Enjoy Terrace</a> y <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+<p><a href="/outxide">Outxide Club</a> es la discoteca de referencia en el norte de Mallorca. Ubicada en la Av. Tucan 1, Port d'Alcudia, Outxide ofrece una experiencia de club premium que combina un sistema de sonido de primer nivel, produccion visual profesional y una seleccion musical cuidada que abarca house, tech house, techno y reggaeton. El club forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/enjoy">Enjoy Terrace</a>.</p>
 
 <h2>Horarios y Dias de Apertura</h2>
 <p>Outxide Club abre jueves, viernes y sabado de 23:30 a 06:00. En temporada alta (junio a septiembre) puede haber eventos especiales entre semana que se anuncian en nuestras redes sociales. Los horarios pueden variar en funcion de la programacion, asi que te recomendamos consultar nuestra pagina de <a href="/outxide">Outxide</a> antes de tu visita.</p>
@@ -4445,7 +4315,7 @@ export const blogPosts: BlogPost[] = [
 <p>A lo largo de la temporada, Outxide organiza fiestas tematicas, noches de artistas invitados especiales y eventos de apertura y cierre de temporada que se convierten en citas ineludibles del verano mallorquin. Siguenos en Instagram (<a href="https://www.instagram.com/enjoy.club.alcudia/" target="_blank" rel="noopener noreferrer">@enjoy.club.alcudia</a>) para no perderte ninguno.</p>
 
 <h2>La Noche Perfecta en Port d'Alcudia</h2>
-<p>La combinacion ganadora es empezar la noche con una cena en <a href="/hiru">Hiru Food &amp; Drinks</a>, continuar con cocktails al atardecer en <a href="/enjoy">Enjoy Terrace</a> y terminar la noche bailando en Outxide Club. Los tres locales estan a pocos metros de distancia, lo que hace que la noche fluya de forma natural sin necesidad de coches ni taxis entre locales.</p>
+<p>La combinación ganadora es empezar con una cena tranquila en el puerto (nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> te ayuda a elegir), continuar con cocktails al atardecer en <a href="/enjoy">Enjoy Terrace</a> y terminar la noche bailando en Outxide Club. Enjoy y Outxide comparten ubicación en Av. Tucán 1, así que la noche fluye de forma natural sin coches ni taxis.</p>
 
 <h2>Outxide Club vs Otras Discotecas de Mallorca</h2>
 <p>Frente a las macrodiscotecas de Magaluf o Palma, Outxide Club ofrece una alternativa premium: sonido de calidad, ambiente selecto, produccion cuidada y una ubicacion privilegiada junto al mar en Port d'Alcudia. No es una fiesta masiva; es una experiencia de club pensada para quienes valoran la calidad por encima de la cantidad.</p>
@@ -4458,7 +4328,7 @@ export const blogPosts: BlogPost[] = [
       en: `<p>Looking for information about <strong>Outxide Club</strong>? You are on the official website of Grupo Enjoy, the company behind Outxide Club in Port d'Alcudia, Mallorca. Here you will find everything you need to know before your visit: from how to get here to what to expect from a night at Outxide.</p>
 
 <h2>What Is Outxide Club</h2>
-<p><a href="/outxide">Outxide Club</a> is the premier nightclub in northern Mallorca. Located at Av. Tucan 1, Port d'Alcudia, Outxide delivers a premium clubbing experience combining a top-tier sound system, professional visual production and a carefully curated music selection spanning house, tech house, techno and reggaeton. The club is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/enjoy">Enjoy Terrace</a> and <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+<p><a href="/outxide">Outxide Club</a> is the premier nightclub in northern Mallorca. Located at Av. Tucan 1, Port d'Alcudia, Outxide delivers a premium clubbing experience combining a top-tier sound system, professional visual production and a carefully curated music selection spanning house, tech house, techno and reggaeton. The club is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/enjoy">Enjoy Terrace</a>.</p>
 
 <h2>Opening Hours and Days</h2>
 <p>Outxide Club opens Thursday, Friday and Saturday from 23:30 to 06:00. During peak season (June to September) there may be midweek special events announced on our social media. Times may vary depending on the line-up, so we recommend checking our <a href="/outxide">Outxide page</a> before your visit.</p>
@@ -4482,7 +4352,7 @@ export const blogPosts: BlogPost[] = [
 <p>Throughout the season, Outxide hosts themed parties, special guest nights and opening and closing events that become unmissable dates on the Mallorcan summer calendar. Follow us on Instagram (<a href="https://www.instagram.com/enjoy.club.alcudia/" target="_blank" rel="noopener noreferrer">@enjoy.club.alcudia</a>) so you do not miss any of them.</p>
 
 <h2>The Perfect Night Out in Port d'Alcudia</h2>
-<p>The winning combination is to start the evening with dinner at <a href="/hiru">Hiru Food &amp; Drinks</a>, continue with sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and end the night dancing at Outxide Club. All three venues are just metres apart, making the night flow naturally without needing cars or taxis between spots.</p>
+<p>The winning combination is to start with a relaxed dinner by the port (our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> will help you choose), carry on with sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and end the night dancing at Outxide Club. Enjoy and Outxide share the same spot at Av. Tucán 1, so the night flows naturally with no cars or taxis needed.</p>
 
 <h2>Outxide Club vs Other Mallorca Nightclubs</h2>
 <p>Compared to the mega-clubs of Magaluf or Palma, Outxide Club offers a premium alternative: quality sound, a selective atmosphere, polished production and a privileged location by the sea in Port d'Alcudia. It is not a massive rave; it is a club experience designed for those who value quality over quantity.</p>
@@ -4495,7 +4365,7 @@ export const blogPosts: BlogPost[] = [
       de: `<p>Sie suchen Informationen ueber <strong>Outxide Club</strong>? Sie sind auf der offiziellen Website von Grupo Enjoy, dem Unternehmen hinter dem Outxide Club in Port d'Alcudia, Mallorca. Hier finden Sie alles, was Sie vor Ihrem Besuch wissen muessen: von der Anreise bis zu dem, was Sie bei einer Nacht im Outxide erwartet.</p>
 
 <h2>Was ist der Outxide Club</h2>
-<p><a href="/outxide">Outxide Club</a> ist der fuehrende Nachtclub im Norden Mallorcas. In der Av. Tucan 1, Port d'Alcudia gelegen, bietet Outxide ein Premium-Cluberlebnis mit erstklassigem Soundsystem, professioneller visueller Produktion und sorgfaeltig kuratierter Musik von House ueber Tech House und Techno bis Reggaeton. Der Club gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/enjoy">Enjoy Terrace</a> und <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+<p><a href="/outxide">Outxide Club</a> ist der fuehrende Nachtclub im Norden Mallorcas. In der Av. Tucan 1, Port d'Alcudia gelegen, bietet Outxide ein Premium-Cluberlebnis mit erstklassigem Soundsystem, professioneller visueller Produktion und sorgfaeltig kuratierter Musik von House ueber Tech House und Techno bis Reggaeton. Der Club gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/enjoy">Enjoy Terrace</a>.</p>
 
 <h2>Oeffnungszeiten</h2>
 <p>Outxide Club oeffnet Donnerstag, Freitag und Samstag von 23:30 bis 06:00 Uhr. In der Hochsaison (Juni bis September) kann es unter der Woche Sonderveranstaltungen geben, die in unseren sozialen Medien angekuendigt werden. Die Zeiten koennen je nach Programm variieren — informieren Sie sich auf unserer <a href="/outxide">Outxide-Seite</a>.</p>
@@ -4516,14 +4386,14 @@ export const blogPosts: BlogPost[] = [
 <p>Tickets fuer den Outxide Club koennen online ueber FourVenues erworben werden — ohne Warteschlange und oft guenstiger als an der Abendkasse. Einlass an der Tuer ist ebenfalls moeglich. Preise variieren je nach Event. Wir empfehlen, im Voraus zu kaufen, um sich Ihren Platz an den beliebtesten Abenden zu sichern.</p>
 
 <h2>Die perfekte Nacht in Port d'Alcudia</h2>
-<p>Die Gewinner-Kombination: Abendessen im <a href="/hiru">Hiru Food &amp; Drinks</a>, Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> und danach tanzen im Outxide Club. Alle drei Locations liegen nur wenige Meter voneinander entfernt — die Nacht fliesst ganz natuerlich.</p>
+<p>Die Gewinnerkombination: Beginne mit einem entspannten Abendessen am Hafen (unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> hilft bei der Wahl), weiter mit Cocktails zum Sonnenuntergang im <a href="/enjoy">Enjoy Terrace</a> und zum Abschluss Tanzen im Outxide Club. Enjoy und Outxide teilen sich den Standort in der Av. Tucán 1 — die Nacht fließt ganz natürlich, ohne Auto oder Taxi.</p>
 
 <p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Mallorca. Donnerstag, Freitag und Samstag. <a href="/outxide">Besuchen Sie unsere Website fuer weitere Informationen und Tickets.</a></strong></p>`,
 
       fr: `<p>Vous cherchez des informations sur <strong>Outxide Club</strong> ? Vous etes sur le site officiel de Grupo Enjoy, l'entreprise derrière Outxide Club à Port d'Alcudia, Majorque. Voici tout ce que vous devez savoir avant votre visite : de comment y arriver à ce qui vous attend lors d'une soiree à Outxide.</p>
 
 <h2>Qu'est-ce que Outxide Club</h2>
-<p><a href="/outxide">Outxide Club</a> est la discothèque de reference dans le nord de Majorque. Situe Av. Tucan 1, Port d'Alcudia, Outxide offre une experience clubbing premium combinant un système sonore de premier plan, une production visuelle professionnelle et une selection musicale soignee allant de la house au tech house, techno et reggaeton. Le club fait partie de <a href="/">Grupo Enjoy</a>, aux cotes de <a href="/enjoy">Enjoy Terrace</a> et <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+<p><a href="/outxide">Outxide Club</a> est la discothèque de reference dans le nord de Majorque. Situe Av. Tucan 1, Port d'Alcudia, Outxide offre une experience clubbing premium combinant un système sonore de premier plan, une production visuelle professionnelle et une selection musicale soignee allant de la house au tech house, techno et reggaeton. Le club fait partie de <a href="/">Grupo Enjoy</a>, aux cotes de <a href="/enjoy">Enjoy Terrace</a>.</p>
 
 <h2>Horaires d'ouverture</h2>
 <p>Outxide Club ouvre jeudi, vendredi et samedi de 23h30 à 06h00. En haute saison (juin à septembre), des evenements speciaux en semaine peuvent etre annonces sur nos reseaux sociaux. Consultez notre <a href="/outxide">page Outxide</a> avant votre visite.</p>
@@ -4541,14 +4411,14 @@ export const blogPosts: BlogPost[] = [
 <p>Outxide propose un service VIP avec tables reservees et service bouteille. Les tables VIP incluent un accès prioritaire, une zone exclusive surplombant la piste et un service personalise. Ideal pour les celebrations. Reservez directement chez nous ou via notre site.</p>
 
 <h2>La soiree parfaite à Port d'Alcudia</h2>
-<p>La combinaison gagnante : diner au <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails au coucher du soleil sur la <a href="/enjoy">Enjoy Terrace</a> puis danser jusqu'au bout de la nuit à Outxide Club. Les trois etablissements sont à quelques mètres les uns des autres.</p>
+<p>La combinaison gagnante : commencez par un dîner tranquille au port (notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> vous aidera à choisir), poursuivez avec des cocktails au coucher du soleil à l'<a href="/enjoy">Enjoy Terrace</a> et terminez la nuit en dansant à l'Outxide Club. Enjoy et Outxide partagent la même adresse, Av. Tucán 1 : la soirée s'enchaîne naturellement, sans voiture ni taxi.</p>
 
 <p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Majorque. Jeudi, vendredi et samedi. <a href="/outxide">Visitez notre site pour plus d'informations et billets.</a></strong></p>`,
 
       it: `<p>Cercate informazioni su <strong>Outxide Club</strong>? Siete sul sito ufficiale di Grupo Enjoy, l'azienda che gestisce Outxide Club a Port d'Alcudia, Maiorca. Qui troverete tutto cio' che dovete sapere prima della vostra visita: da come arrivare a cosa aspettarvi da una serata all'Outxide.</p>
 
 <h2>Cos'e' Outxide Club</h2>
-<p><a href="/outxide">Outxide Club</a> e' la discoteca di riferimento nel nord di Maiorca. Situato in Av. Tucan 1, Port d'Alcudia, Outxide offre un'esperienza di clubbing premium che combina un impianto audio di primo livello, produzione visiva professionale e una selezione musicale curata che spazia da house, tech house, techno e reggaeton. Il club fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/enjoy">Enjoy Terrace</a> e <a href="/hiru">Hiru Food &amp; Drinks</a>.</p>
+<p><a href="/outxide">Outxide Club</a> e' la discoteca di riferimento nel nord di Maiorca. Situato in Av. Tucan 1, Port d'Alcudia, Outxide offre un'esperienza di clubbing premium che combina un impianto audio di primo livello, produzione visiva professionale e una selezione musicale curata che spazia da house, tech house, techno e reggaeton. Il club fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/enjoy">Enjoy Terrace</a>.</p>
 
 <h2>Orari di apertura</h2>
 <p>Outxide Club apre giovedi', venerdi' e sabato dalle 23:30 alle 06:00. In alta stagione (giugno-settembre) possono esserci eventi speciali infrasettimanali annunciati sui nostri social media. Consultate la nostra <a href="/outxide">pagina Outxide</a> prima della visita.</p>
@@ -4566,12 +4436,13 @@ export const blogPosts: BlogPost[] = [
 <p>Outxide offre un servizio VIP con tavoli riservati e servizio bottiglia. I tavoli VIP includono accesso prioritario, un'area esclusiva con vista sulla pista e attenzione personalizzata. Ideale per celebrazioni. Prenotate direttamente con noi o tramite il nostro sito.</p>
 
 <h2>La serata perfetta a Port d'Alcudia</h2>
-<p>La combinazione vincente: cena al <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktail al tramonto sulla <a href="/enjoy">Enjoy Terrace</a> e poi ballare tutta la notte all'Outxide Club. I tre locali sono a pochi metri l'uno dall'altro.</p>
+<p>La combinazione vincente: inizia con una cena tranquilla al porto (la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> ti aiuta a scegliere), prosegui con i cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a> e chiudi la notte ballando all'Outxide Club. Enjoy e Outxide condividono la posizione in Av. Tucán 1: la serata scorre naturale, senza auto né taxi.</p>
 
 <p><strong>Outxide Club — Av. Tucan 1, Port d'Alcudia, Maiorca. Giovedi', venerdi' e sabato. <a href="/outxide">Visitate il nostro sito per maggiori informazioni e biglietti.</a></strong></p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/outxide/DSCF8530-21.jpg",
     tags: ["outxide", "clubs", "nightlife", "alcudia", "mallorca"],
     venue: "outxide",
@@ -4646,243 +4517,188 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "hiru-food-drinks-restaurante-alcudia",
     title: {
-      es: "Hiru Food & Drinks: El Restaurante a la Brasa de Referencia en Alcudia",
-      en: "Hiru Food & Drinks: Alcudia's Premier Charcoal Grill Restaurant",
-      de: "Hiru Food & Drinks: Das Top-Grillrestaurant in Alcudia, Mallorca",
-      fr: "Hiru Food & Drinks : Le Restaurant Grill de Référence à Alcudia",
-      it: "Hiru Food & Drinks: Il Ristorante alla Brace di Riferimento ad Alcudia",
+      es: "Hiru Food & Drinks: despedida y homenaje a nuestro restaurante a la brasa en Alcúdia",
+      en: "Hiru Food & Drinks: A Farewell Tribute to Our Charcoal Grill Restaurant in Alcúdia",
+      de: "Hiru Food & Drinks: Abschied und Hommage an unser Grillrestaurant in Alcúdia",
+      fr: "Hiru Food & Drinks : adieu et hommage à notre restaurant de braise à Alcúdia",
+      it: "Hiru Food & Drinks: addio e omaggio al nostro ristorante alla brace ad Alcúdia",
     },
     excerpt: {
-      es: "Descubre Hiru Food & Drinks, el restaurante de referencia en Alcudia. Carnes maduradas dry-aged, paella de marisco, terraza al aire libre, cocktails de autor y reservas en Port d'Alcudia.",
-      en: "Discover Hiru Food & Drinks, the benchmark restaurant in Alcudia. Dry-aged meats, seafood paella, open-air terrace, signature cocktails and reservations in Port d'Alcudia.",
-      de: "Entdecken Sie Hiru Food & Drinks, das Referenzrestaurant in Alcudia. Dry-Aged-Fleisch, Meeresfruechte-Paella, Terrasse, Signature-Cocktails und Reservierungen in Port d'Alcudia.",
-      fr: "Decouvrez Hiru Food & Drinks, le restaurant de reference à Alcudia. Viandes maturees dry-aged, paella de fruits de mer, terrasse en plein air, cocktails signature et reservations à Port d'Alcudia.",
-      it: "Scoprite Hiru Food & Drinks, il ristorante di riferimento ad Alcudia. Carni frollate dry-aged, paella di frutti di mare, terrazza all'aperto, cocktail d'autore e prenotazioni a Port d'Alcudia.",
+      es: "Hiru Food & Drinks cerró definitivamente sus puertas en agosto de 2026. Recordamos lo que hizo especial a nuestro restaurante a la brasa de Port d'Alcúdia: carnes dry-aged, paella de marisco y una terraza inolvidable. Gracias por todo.",
+      en: "Hiru Food & Drinks closed its doors for good in August 2026. We look back at what made our charcoal grill restaurant in Port d'Alcúdia special: dry-aged meats, seafood paella and an unforgettable terrace. Thank you for everything.",
+      de: "Hiru Food & Drinks hat im August 2026 endgültig seine Türen geschlossen. Wir erinnern uns an das, was unser Grillrestaurant in Port d'Alcúdia besonders machte: Dry-Aged-Fleisch, Meeresfrüchte-Paella und eine unvergessliche Terrasse. Danke für alles.",
+      fr: "Hiru Food & Drinks a définitivement fermé ses portes en août 2026. Retour sur ce qui rendait notre restaurant de braise de Port d'Alcúdia si spécial : viandes dry-aged, paella de fruits de mer et une terrasse inoubliable. Merci pour tout.",
+      it: "Hiru Food & Drinks ha chiuso definitivamente le sue porte nell'agosto 2026. Ricordiamo ciò che rendeva speciale il nostro ristorante alla brace di Port d'Alcúdia: carni dry-aged, paella di frutti di mare e una terrazza indimenticabile. Grazie di tutto.",
     },
     content: {
-      es: `<p>Si buscas donde comer bien en Alcudia, <strong>Hiru Food &amp; Drinks</strong> es la respuesta. Esta es la web oficial de Grupo Enjoy, la empresa que gestiona Hiru en Port d'Alcudia, Mallorca. Aqui encontraras toda la informacion que necesitas: carta, horarios, ubicacion, terraza y como reservar mesa.</p>
+      es: `<p><strong>Nota: Hiru Food &amp; Drinks cerró definitivamente sus puertas en agosto de 2026.</strong> Esta página se queda como homenaje a lo que fue nuestro restaurante a la brasa en Port d'Alcúdia. Ya no es posible reservar mesa; si buscas dónde comer hoy en la zona, consulta nuestra guía de los <a href="/blog/mejores-restaurantes-alcudia-mallorca">mejores restaurantes de Alcúdia</a>.</p>
 
-<h2>Que es Hiru Food &amp; Drinks</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> es un restaurante de cocina a la brasa ubicado en la Carretera d'Arta 40, Alcudia. El nombre Hiru significa "tres" en euskera, reflejando la filosofia de tres pilares que define el restaurante: producto de primera, fuego como tecnica de coccion y un ambiente donde la gastronomia y el buen rato van de la mano. Hiru forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/enjoy">Enjoy Terrace</a> y <a href="/outxide">Outxide Club</a>.</p>
+<h2>Gracias por todo, Hiru</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> nació en la Carretera d'Artà 40 de Alcúdia con una idea sencilla: fuego, buen producto y buena gente. El nombre —"tres" en euskera— resumía sus tres pilares: producto de primera, la brasa como técnica y un ambiente donde la gastronomía y el buen rato iban de la mano. Formó parte de la familia de <a href="/">Grupo Enjoy</a> hasta su último servicio, en agosto de 2026.</p>
 
-<h2>La Carta: Cocina a la Brasa con Producto Premium</h2>
-<h3>Carnes Maduradas Dry-Aged</h3>
-<p>La gran especialidad de Hiru son las carnes maduradas dry-aged. Seleccionamos piezas de primera calidad que se maduran durante semanas en condiciones controladas para lograr un sabor concentrado y una textura excepcional. Chuleton, tomahawk, entrana y costilla son algunas de las opciones que encontraras en nuestra carta, todas cocinadas a la brasa con madera natural.</p>
+<h2>Lo que hizo especial a Hiru</h2>
+<h3>La brasa y las carnes dry-aged</h3>
+<p>Su gran especialidad fueron las carnes maduradas dry-aged: chuletón, tomahawk, entraña y costilla, piezas seleccionadas que se maduraban durante semanas y se terminaban a la brasa con madera natural. Ese sabor concentrado, a fuego lento y sin prisas, fue la seña de identidad de la casa.</p>
 
-<h3>Arroces y Paella de Marisco</h3>
-<p>Los arroces son otro pilar de la cocina de Hiru. La paella de marisco, elaborada con caldo casero y producto fresco de la lonja de Alcudia, es uno de nuestros platos mas solicitados. Tambien ofrecemos arroz caldoso con bogavante, arroz negro con chipirones y arroz de verduras. Cada arroz se prepara al momento, por lo que te recomendamos pedirlo al llegar.</p>
+<h3>Arroces y paella de marisco</h3>
+<p>La paella de marisco, con caldo casero y producto fresco de la lonja de Alcúdia, fue durante años uno de los platos más pedidos, junto al arroz caldoso con bogavante y el arroz negro con chipirones. Cada arroz se preparaba al momento, y esa espera formaba parte del ritual.</p>
 
-<h3>Pescado del Mediterraneo</h3>
-<p>Pescado fresco del Mediterraneo cocinado a la brasa: lubina, dorada, pulpo y otros ejemplares que varian segun la temporada y la captura del dia. La sencillez del fuego aplicada a un producto excepcional.</p>
+<h3>La terraza y las sobremesas</h3>
+<p>Y luego estaba la terraza: comidas familiares al mediodía, cenas de verano al aire libre, cócteles de autor y sobremesas que se alargaban hasta la madrugada. Más que un restaurante, Hiru fue un punto de encuentro en el norte de Mallorca.</p>
 
-<h3>Cocktails de Autor</h3>
-<p>Hiru no es solo un restaurante. Nuestra barra de cocteles ofrece una carta de combinados de autor elaborados con destilados premium, jugos naturales e ingredientes de temporada. Desde clasicos revisitados hasta creaciones originales de nuestro equipo de cocteleria.</p>
+<h2>El espacio descansa: se está cocinando algo nuevo</h2>
+<p>No lo llamamos adiós. El fuego se apaga, pero las brasas siguen calientes: el local de la Ctra. d'Artà 40 se toma un respiro mientras en Grupo Enjoy imaginamos el próximo proyecto para este rincón de Alcúdia. Todavía no hay nada confirmado; cuando lo haya, lo contaremos en esta web y en la <a href="/hiru">página de despedida de Hiru</a>.</p>
 
-<h2>Terraza al Aire Libre</h2>
-<p>La terraza de Hiru es uno de sus grandes atractivos. Amplia, bien ambientada y perfecta tanto para comidas familiares como para cenas romanticas o reuniones de amigos. En verano, cenar al aire libre en Hiru es una experiencia que no te puedes perder.</p>
+<h2>La experiencia Grupo Enjoy continúa</h2>
+<p>Aunque Hiru haya cerrado, el plan en Port d'Alcúdia sigue muy vivo: cócteles de autor y shisha al atardecer en <a href="/enjoy">Enjoy Terrace</a> y fiesta hasta la madrugada en <a href="/outxide">Outxide Club</a>, ambos en Av. Tucán 1. Y si lo que buscas es mesa, nuestras guías de <a href="/blog/donde-cenar-tarde-port-alcudia">dónde cenar tarde en Port d'Alcúdia</a> y de <a href="/blog/cena-romantica-alcudia-mallorca">cenas románticas en Alcúdia</a> están actualizadas con alternativas abiertas.</p>
 
-<h2>Horarios y Dias de Apertura</h2>
-<p>Hiru Food &amp; Drinks esta abierto de lunes a domingo excepto los martes. Horarios: de 12:00 a 23:30 (viernes y sabado hasta la 01:00). Recomendamos reservar mesa con antelacion, especialmente en temporada alta (junio a septiembre).</p>
+<p><strong>Gracias a cada persona que se sentó a nuestra mesa y al equipo que dejó el alma en cada plato. Hasta pronto.</strong></p>`,
+      en: `<p><strong>Note: Hiru Food &amp; Drinks closed its doors for good in August 2026.</strong> This page remains as a tribute to what our charcoal grill restaurant in Port d'Alcúdia used to be. Table reservations are no longer possible; if you're looking for somewhere to eat in the area today, see our guide to the <a href="/blog/mejores-restaurantes-alcudia-mallorca">best restaurants in Alcúdia</a>.</p>
 
-<h2>Ubicacion y Como Llegar</h2>
-<p>Hiru se encuentra en la Carretera d'Arta 40, Alcudia 07400, Illes Balears. Esta a 5 minutos en coche del centro historico de Alcudia y a 2 minutos del paseo maritimo de Port d'Alcudia. Aparcamiento disponible en las cercanias. Si vienes desde Palma, toma la autopista Ma-13 (unos 50 minutos).</p>
+<h2>Thank you for everything, Hiru</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> was born at Carretera d'Artà 40 in Alcúdia with a simple idea: fire, great produce and good people. The name — "three" in Basque — summed up its three pillars: top-quality produce, charcoal grilling as a technique and an atmosphere where good food and good times went hand in hand. It was part of the <a href="/">Grupo Enjoy</a> family until its very last service, in August 2026.</p>
 
-<h2>Como Reservar Mesa</h2>
-<p>Puedes reservar mesa en Hiru a traves de nuestra pagina de <a href="/contacto">contacto</a> o llamando al +34 971 85 39 32. En temporada alta la reserva es practicamente imprescindible, especialmente para cenas de viernes y sabado y para comidas en terraza los fines de semana.</p>
+<h2>What made Hiru special</h2>
+<h3>The grill and dry-aged meats</h3>
+<p>Its great speciality was dry-aged meat: chuletón, tomahawk, skirt steak and ribs, selected cuts matured for weeks and finished over natural wood embers. That concentrated, slow-fire flavour was the house signature.</p>
 
-<h2>Por Que Elegir Hiru</h2>
-<p>Hiru Food &amp; Drinks no es solo un restaurante: es el punto de partida para una experiencia gastronomica y de ocio completa en Port d'Alcudia. Cena en Hiru, cocktails en <a href="/enjoy">Enjoy Terrace</a> y, si la noche lo pide, fiesta en <a href="/outxide">Outxide Club</a>. Todo a pocos metros de distancia, sin necesidad de coche. Ese es el espiritu de <a href="/">Grupo Enjoy</a>.</p>
+<h3>Rice dishes and seafood paella</h3>
+<p>The seafood paella, made with homemade stock and fresh produce from Alcúdia's fish market, was one of the most requested dishes for years, alongside the lobster rice stew and the black rice with baby squid. Every rice dish was cooked to order, and that wait was part of the ritual.</p>
 
-<h2>Mas Guias Gastronomicas de Alcudia</h2>
-<p>Si buscas mas opciones donde comer, consulta nuestra guia de los <a href="/blog/mejores-restaurantes-alcudia-mallorca">mejores restaurantes en Alcudia</a>, descubre las mejores opciones para una <a href="/blog/donde-cenar-tarde-port-alcudia">cena tardia en Port d'Alcudia</a> o conoce lo mejor de la <a href="/blog/restaurante-brasa-parrilla-mallorca">cocina a la brasa en Mallorca</a>. Y si despues de cenar quieres cocktails, lee nuestra guia de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a>.</p>
+<h3>The terrace and long after-dinner hours</h3>
+<p>And then there was the terrace: family lunches, open-air summer dinners, signature cocktails and after-dinner conversations that stretched into the early hours. More than a restaurant, Hiru was a meeting point in northern Mallorca.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Abierto a diario excepto martes. <a href="/hiru">Visita nuestra web para ver la carta y reservar.</a></strong></p>`,
+<h2>The space takes a rest: something new is cooking</h2>
+<p>We're not calling it goodbye. The fire goes out, but the embers stay warm: the premises at Ctra. d'Artà 40 are taking a break while Grupo Enjoy dreams up the next project for this corner of Alcúdia. Nothing is confirmed yet; when it is, we'll share it on this website and on the <a href="/hiru">Hiru farewell page</a>.</p>
 
-      en: `<p>Looking for a great place to eat in Alcudia? <strong>Hiru Food &amp; Drinks</strong> is your answer. This is the official website of Grupo Enjoy, the company behind Hiru in Port d'Alcudia, Mallorca. Here you will find everything you need: menu, opening hours, location, terrace and how to book a table.</p>
+<h2>The Grupo Enjoy experience continues</h2>
+<p>Even with Hiru closed, the Port d'Alcúdia plan is very much alive: signature cocktails and shisha at sunset at <a href="/enjoy">Enjoy Terrace</a> and partying into the early hours at <a href="/outxide">Outxide Club</a>, both at Av. Tucán 1. And if what you need is a table, our guides to <a href="/blog/donde-cenar-tarde-port-alcudia">late dinners in Port d'Alcúdia</a> and <a href="/blog/cena-romantica-alcudia-mallorca">romantic dinners in Alcúdia</a> are up to date with open alternatives.</p>
 
-<h2>What Is Hiru Food &amp; Drinks</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> is a charcoal-grill restaurant located on Carretera d'Arta 40, Alcudia. The name Hiru means "three" in Basque, reflecting the three-pillar philosophy that defines the restaurant: top-quality produce, fire as the cooking method and an atmosphere where great food and good times go hand in hand. Hiru is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/enjoy">Enjoy Terrace</a> and <a href="/outxide">Outxide Club</a>.</p>
+<p><strong>Thank you to every person who sat at our table and to the team who poured their soul into every dish. See you soon.</strong></p>`,
+      de: `<p><strong>Hinweis: Hiru Food &amp; Drinks hat im August 2026 endgültig seine Türen geschlossen.</strong> Diese Seite bleibt als Hommage an das, was unser Grillrestaurant in Port d'Alcúdia einmal war. Tischreservierungen sind nicht mehr möglich; wer heute in der Gegend essen gehen möchte, findet Alternativen in unserem Guide zu den <a href="/blog/mejores-restaurantes-alcudia-mallorca">besten Restaurants in Alcúdia</a>.</p>
 
-<h2>The Menu: Charcoal-Grill Cuisine with Premium Produce</h2>
-<h3>Dry-Aged Meats</h3>
-<p>Hiru's star speciality is dry-aged meat. We select premium cuts matured for weeks under controlled conditions to achieve concentrated flavour and exceptional texture. Ribeye, tomahawk, skirt steak and ribs are some of the options on our menu, all cooked over a natural-wood charcoal grill.</p>
+<h2>Danke für alles, Hiru</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> entstand in der Carretera d'Artà 40 in Alcúdia mit einer einfachen Idee: Feuer, gutes Produkt und gute Menschen. Der Name — „drei" auf Baskisch — stand für seine drei Säulen: erstklassiges Produkt, die Glut als Technik und eine Atmosphäre, in der Gastronomie und gute Zeiten Hand in Hand gingen. Bis zu seinem allerletzten Service im August 2026 war es Teil der Familie von <a href="/">Grupo Enjoy</a>.</p>
 
-<h3>Rice Dishes and Seafood Paella</h3>
-<p>Rice dishes are another cornerstone of Hiru's kitchen. The seafood paella, made with homemade stock and fresh produce from Alcudia's fish market, is one of our most requested dishes. We also serve lobster caldoso rice, black rice with baby squid and vegetable rice. Each rice dish is prepared to order, so we recommend ordering on arrival.</p>
+<h2>Was Hiru besonders machte</h2>
+<h3>Die Glut und das Dry-Aged-Fleisch</h3>
+<p>Seine große Spezialität war Dry-Aged-Fleisch: Chuletón, Tomahawk, Entraña und Rippe — ausgewählte Stücke, die wochenlang reiften und über natürlicher Holzglut vollendet wurden. Dieser konzentrierte Geschmack, langsam und ohne Eile, war das Markenzeichen des Hauses.</p>
 
-<h3>Mediterranean Fish</h3>
-<p>Fresh Mediterranean fish grilled over charcoal: sea bass, bream, octopus and other catches that vary with the season. The simplicity of fire applied to exceptional produce.</p>
+<h3>Reisgerichte und Meeresfrüchte-Paella</h3>
+<p>Die Meeresfrüchte-Paella mit hausgemachtem Fond und frischem Produkt aus der Fischauktion von Alcúdia war jahrelang eines der meistbestellten Gerichte, neben dem Reistopf mit Hummer und dem schwarzen Reis mit Tintenfisch. Jeder Reis wurde frisch zubereitet, und dieses Warten gehörte zum Ritual.</p>
 
-<h3>Signature Cocktails</h3>
-<p>Hiru is not just a restaurant. Our cocktail bar offers a menu of signature drinks made with premium spirits, fresh juices and seasonal ingredients. From reimagined classics to original creations by our mixology team.</p>
+<h3>Die Terrasse und die langen Abende</h3>
+<p>Und dann war da die Terrasse: Familienessen am Mittag, Sommerabende unter freiem Himmel, Signature-Cocktails und Gespräche, die sich bis in die frühen Morgenstunden zogen. Hiru war mehr als ein Restaurant — es war ein Treffpunkt im Norden Mallorcas.</p>
 
-<h2>Open-Air Terrace</h2>
-<p>Hiru's terrace is one of its biggest draws. Spacious, well-designed and perfect for family lunches, romantic dinners or gatherings with friends. In summer, dining al fresco at Hiru is an experience you simply cannot miss.</p>
+<h2>Der Ort ruht sich aus: Etwas Neues wird gekocht</h2>
+<p>Wir nennen es nicht Abschied. Das Feuer erlischt, aber die Glut bleibt warm: Das Lokal in der Ctra. d'Artà 40 gönnt sich eine Pause, während Grupo Enjoy das nächste Projekt für diese Ecke von Alcúdia erdenkt. Noch ist nichts bestätigt; sobald es so weit ist, erfahrt ihr es auf dieser Website und auf der <a href="/hiru">Abschiedsseite von Hiru</a>.</p>
 
-<h2>Opening Hours</h2>
-<p>Hiru Food &amp; Drinks is open Monday to Sunday except Tuesdays. Hours: 12:00 to 23:30 (Friday and Saturday until 01:00). We recommend booking in advance, especially in high season (June to September).</p>
+<h2>Das Grupo-Enjoy-Erlebnis geht weiter</h2>
+<p>Auch ohne Hiru ist Port d'Alcúdia sehr lebendig: Signature-Cocktails und Shisha zum Sonnenuntergang im <a href="/enjoy">Enjoy Terrace</a> und Party bis in die Morgenstunden im <a href="/outxide">Outxide Club</a>, beide in der Av. Tucán 1. Und wer einen Tisch sucht: Unsere Guides zum <a href="/blog/donde-cenar-tarde-port-alcudia">späten Abendessen in Port d'Alcúdia</a> und zu <a href="/blog/cena-romantica-alcudia-mallorca">romantischen Dinners in Alcúdia</a> sind mit geöffneten Alternativen auf dem neuesten Stand.</p>
 
-<h2>Location and How to Get Here</h2>
-<p>Hiru is located on Carretera d'Arta 40, Alcudia 07400, Balearic Islands. It is a 5-minute drive from Alcudia's historic old town and 2 minutes from Port d'Alcudia's promenade. Parking is available nearby. From Palma, take the Ma-13 motorway (approximately 50 minutes).</p>
+<p><strong>Danke an jede Person, die an unserem Tisch saß, und an das Team, das in jedes Gericht seine Seele legte. Bis bald.</strong></p>`,
+      fr: `<p><strong>Note : Hiru Food &amp; Drinks a définitivement fermé ses portes en août 2026.</strong> Cette page demeure en hommage à ce que fut notre restaurant de braise à Port d'Alcúdia. Il n'est plus possible de réserver une table ; si vous cherchez où manger aujourd'hui dans la zone, consultez notre guide des <a href="/blog/mejores-restaurantes-alcudia-mallorca">meilleurs restaurants d'Alcúdia</a>.</p>
 
-<h2>How to Book a Table</h2>
-<p>You can reserve a table at Hiru through our <a href="/contacto">contact page</a> or by calling +34 971 85 39 32. In high season, booking is practically essential, especially for Friday and Saturday dinners and weekend terrace lunches.</p>
+<h2>Merci pour tout, Hiru</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> est né au Carretera d'Artà 40, à Alcúdia, avec une idée simple : le feu, le bon produit et les bonnes personnes. Son nom — « trois » en basque — résumait ses trois piliers : un produit de première qualité, la braise comme technique et une ambiance où gastronomie et bons moments allaient de pair. Il a fait partie de la famille <a href="/">Grupo Enjoy</a> jusqu'à son tout dernier service, en août 2026.</p>
 
-<h2>Why Choose Hiru</h2>
-<p>Hiru Food &amp; Drinks is not just a restaurant: it is the starting point for a complete dining and leisure experience in Port d'Alcudia. Dinner at Hiru, cocktails at <a href="/enjoy">Enjoy Terrace</a> and, if the night calls for it, dancing at <a href="/outxide">Outxide Club</a>. All just metres apart, no car needed. That is the spirit of <a href="/">Grupo Enjoy</a>.</p>
+<h2>Ce qui rendait Hiru spécial</h2>
+<h3>La braise et les viandes dry-aged</h3>
+<p>Sa grande spécialité : les viandes maturées dry-aged — chuletón, tomahawk, entraña et côte — des pièces sélectionnées, maturées pendant des semaines et finies sur des braises de bois naturel. Cette saveur concentrée, à feu lent et sans hâte, était la signature de la maison.</p>
 
-<h2>More Restaurant Guides for Alcudia</h2>
-<p>Explore more dining options in our guide to the <a href="/blog/mejores-restaurantes-alcudia-mallorca">best restaurants in Alcudia</a>, find the best spots for a <a href="/blog/donde-cenar-tarde-port-alcudia">late dinner in Port d'Alcudia</a> or discover top <a href="/blog/restaurante-brasa-parrilla-mallorca">charcoal grill restaurants in Mallorca</a>. After dinner, check out our <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails and shisha guide for Alcudia</a>.</p>
+<h3>Riz et paella de fruits de mer</h3>
+<p>La paella de fruits de mer, au bouillon maison et aux produits frais de la criée d'Alcúdia, fut pendant des années l'un des plats les plus demandés, aux côtés du riz crémeux au homard et du riz noir aux chipirons. Chaque riz était préparé à la minute, et cette attente faisait partie du rituel.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Open daily except Tuesday. <a href="/hiru">Visit our website to see the menu and book.</a></strong></p>`,
+<h3>La terrasse et les longues soirées</h3>
+<p>Et puis il y avait la terrasse : déjeuners en famille, dîners d'été en plein air, cocktails signature et conversations qui s'étiraient jusqu'au petit matin. Plus qu'un restaurant, Hiru était un point de rencontre du nord de Majorque.</p>
 
-      de: `<p>Sie suchen ein erstklassiges Restaurant in Alcudia? <strong>Hiru Food &amp; Drinks</strong> ist Ihre Antwort. Dies ist die offizielle Website von Grupo Enjoy, dem Unternehmen hinter Hiru in Port d'Alcudia, Mallorca. Hier finden Sie alles: Speisekarte, Oeffnungszeiten, Lage, Terrasse und Tischreservierung.</p>
+<h2>Le lieu se repose : quelque chose de nouveau mijote</h2>
+<p>Nous ne disons pas adieu. Le feu s'éteint, mais les braises restent chaudes : le local du Ctra. d'Artà 40 fait une pause pendant que Grupo Enjoy imagine le prochain projet pour ce coin d'Alcúdia. Rien n'est encore confirmé ; dès que ce sera le cas, nous l'annoncerons sur ce site et sur la <a href="/hiru">page d'adieu de Hiru</a>.</p>
 
-<h2>Was ist Hiru Food &amp; Drinks</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> ist ein Grillrestaurant an der Carretera d'Arta 40, Alcudia. Der Name Hiru bedeutet "drei" auf Baskisch und spiegelt die Drei-Saeulen-Philosophie wider: erstklassige Produkte, Feuer als Garmethode und eine Atmosphaere, in der gutes Essen und gute Laune zusammengehoeren. Hiru gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/enjoy">Enjoy Terrace</a> und <a href="/outxide">Outxide Club</a>.</p>
+<h2>L'expérience Grupo Enjoy continue</h2>
+<p>Même sans Hiru, Port d'Alcúdia reste bien vivant : cocktails signature et chicha au coucher du soleil à l'<a href="/enjoy">Enjoy Terrace</a> et fête jusqu'au bout de la nuit à l'<a href="/outxide">Outxide Club</a>, tous deux Av. Tucán 1. Et s'il vous faut une table, nos guides pour <a href="/blog/donde-cenar-tarde-port-alcudia">dîner tard à Port d'Alcúdia</a> et pour un <a href="/blog/cena-romantica-alcudia-mallorca">dîner romantique à Alcúdia</a> sont à jour avec des alternatives ouvertes.</p>
 
-<h2>Die Karte: Grillkueche mit Premiumprodukten</h2>
-<h3>Dry-Aged-Fleisch</h3>
-<p>Die grosse Spezialitaet von Hiru ist Dry-Aged-Fleisch. Wir waehlen Premium-Stuecke aus, die wochenlang unter kontrollierten Bedingungen reifen, um konzentrierten Geschmack und aussergewoehnliche Textur zu erzielen. Ribeye, Tomahawk, Skirt Steak und Ribs, alles auf dem Holzkohlegrill zubereitet.</p>
+<p><strong>Merci à chaque personne qui s'est assise à notre table et à l'équipe qui a mis son âme dans chaque plat. À bientôt.</strong></p>`,
+      it: `<p><strong>Nota: Hiru Food &amp; Drinks ha chiuso definitivamente le sue porte nell'agosto 2026.</strong> Questa pagina resta come omaggio a ciò che è stato il nostro ristorante alla brace di Port d'Alcúdia. Non è più possibile prenotare un tavolo; se cerchi dove mangiare oggi in zona, consulta la nostra guida ai <a href="/blog/mejores-restaurantes-alcudia-mallorca">migliori ristoranti di Alcúdia</a>.</p>
 
-<h3>Reisgerichte und Meeresfruechte-Paella</h3>
-<p>Reisgerichte sind ein weiterer Eckpfeiler der Hiru-Kueche. Die Meeresfruechte-Paella, mit hausgemachter Bruehe und frischen Produkten vom Fischmarkt in Alcudia, ist eines unserer beliebtesten Gerichte. Dazu Hummer-Caldoso-Reis, schwarzer Reis mit Tintenfisch und Gemuesereis.</p>
+<h2>Grazie di tutto, Hiru</h2>
+<p><a href="/hiru">Hiru Food &amp; Drinks</a> è nato in Carretera d'Artà 40 ad Alcúdia con un'idea semplice: fuoco, buon prodotto e buona gente. Il nome — "tre" in basco — riassumeva i suoi tre pilastri: prodotto di prima qualità, la brace come tecnica e un ambiente dove gastronomia e bei momenti andavano di pari passo. Ha fatto parte della famiglia di <a href="/">Grupo Enjoy</a> fino al suo ultimo servizio, nell'agosto 2026.</p>
 
-<h3>Mittelmeer-Fisch</h3>
-<p>Frischer Mittelmeerfisch vom Holzkohlegrill: Wolfsbarsch, Goldbrasse, Oktopus und weitere saisonale Faenge. Die Einfachheit des Feuers auf aussergewoehnliche Produkte angewendet.</p>
+<h2>Cosa rendeva speciale Hiru</h2>
+<h3>La brace e le carni dry-aged</h3>
+<p>La sua grande specialità erano le carni frollate dry-aged: chuletón, tomahawk, entraña e costata, tagli selezionati maturati per settimane e finiti sulla brace di legna naturale. Quel sapore concentrato, a fuoco lento e senza fretta, era la firma della casa.</p>
 
-<h2>Terrasse</h2>
-<p>Die Terrasse von Hiru ist einer der groessten Anziehungspunkte. Geraeumig, stilvoll und perfekt fuer Familienessen, romantische Abendessen oder Treffen mit Freunden. Im Sommer ist Essen im Freien bei Hiru ein unvergessliches Erlebnis.</p>
+<h3>Risi e paella di frutti di mare</h3>
+<p>La paella di frutti di mare, con brodo fatto in casa e prodotto fresco del mercato del pesce di Alcúdia, è stata per anni uno dei piatti più richiesti, insieme al riso brodoso con astice e al riso nero con calamaretti. Ogni riso era preparato al momento, e quell'attesa faceva parte del rituale.</p>
 
-<h2>Oeffnungszeiten</h2>
-<p>Hiru Food &amp; Drinks ist Montag bis Sonntag ausser Dienstag geoeffnet. Zeiten: 12:00 bis 23:30 (Freitag und Samstag bis 01:00). In der Hochsaison (Juni-September) empfehlen wir eine Reservierung.</p>
+<h3>La terrazza e i lunghi dopocena</h3>
+<p>E poi c'era la terrazza: pranzi in famiglia, cene estive all'aperto, cocktail d'autore e dopocena che si allungavano fino a notte fonda. Più che un ristorante, Hiru era un punto d'incontro del nord di Maiorca.</p>
 
-<h2>Lage und Anfahrt</h2>
-<p>Hiru befindet sich an der Carretera d'Arta 40, Alcudia 07400, Balearen. 5 Autominuten von Alcudias Altstadt, 2 Minuten von der Strandpromenade von Port d'Alcudia. Von Palma nehmen Sie die Ma-13 (ca. 50 Min.).</p>
+<h2>Lo spazio riposa: qualcosa di nuovo bolle in pentola</h2>
+<p>Non lo chiamiamo addio. Il fuoco si spegne, ma le braci restano calde: il locale di Ctra. d'Artà 40 si prende una pausa mentre Grupo Enjoy immagina il prossimo progetto per questo angolo di Alcúdia. Non c'è ancora nulla di confermato; quando ci sarà, lo racconteremo su questo sito e sulla <a href="/hiru">pagina di addio di Hiru</a>.</p>
 
-<h2>Warum Hiru waehlen</h2>
-<p>Hiru Food &amp; Drinks ist nicht nur ein Restaurant: Es ist der Startpunkt fuer ein komplettes kulinarisches und Freizeiterlebnis in Port d'Alcudia. Abendessen bei Hiru, Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> und dann Tanzen im <a href="/outxide">Outxide Club</a>. Alles nur Meter voneinander entfernt. Das ist der Geist von <a href="/">Grupo Enjoy</a>.</p>
+<h2>L'esperienza Grupo Enjoy continua</h2>
+<p>Anche senza Hiru, Port d'Alcúdia resta vivissima: cocktail d'autore e shisha al tramonto all'<a href="/enjoy">Enjoy Terrace</a> e festa fino all'alba all'<a href="/outxide">Outxide Club</a>, entrambi in Av. Tucán 1. E se cerchi un tavolo, le nostre guide su <a href="/blog/donde-cenar-tarde-port-alcudia">dove cenare tardi a Port d'Alcúdia</a> e sulla <a href="/blog/cena-romantica-alcudia-mallorca">cena romantica ad Alcúdia</a> sono aggiornate con alternative aperte.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Mallorca. Taeglich ausser Dienstag geoeffnet. <a href="/hiru">Besuchen Sie unsere Website fuer Speisekarte und Reservierung.</a></strong></p>`,
-
-      fr: `<p>Vous cherchez un bon restaurant à Alcudia ? <strong>Hiru Food &amp; Drinks</strong> est la reponse. Ceci est le site officiel de Grupo Enjoy, l'entreprise derrière Hiru à Port d'Alcudia, Majorque. Voici tout ce dont vous avez besoin : carte, horaires, emplacement, terrasse et reservations.</p>
-
-<h2>Qu'est-ce que Hiru Food &amp; Drinks</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> est un restaurant grill situe sur la Carretera d'Arta 40, Alcudia. Le nom Hiru signifie "trois" en basque, refletant la philosophie à trois piliers : produits de premiere qualite, le feu comme methode de cuisson et une ambiance ou gastronomie et convivialite vont de pair. Hiru fait partie de <a href="/">Grupo Enjoy</a>, avec <a href="/enjoy">Enjoy Terrace</a> et <a href="/outxide">Outxide Club</a>.</p>
-
-<h2>La Carte : Cuisine au Grill avec Produits Premium</h2>
-<h3>Viandes Maturees Dry-Aged</h3>
-<p>La grande specialite de Hiru est la viande maturee dry-aged. Nous selectionnons des pièces premium maturees pendant des semaines pour une saveur concentree et une texture exceptionnelle. Entrecote, tomahawk, onglet et travers, le tout grille au charbon de bois naturel.</p>
-
-<h3>Riz et Paella de Fruits de Mer</h3>
-<p>Les riz sont un autre pilier de la cuisine de Hiru. La paella de fruits de mer, preparee avec un bouillon maison et des produits frais du marche aux poissons d'Alcudia, est l'un de nos plats les plus demandes.</p>
-
-<h2>Terrasse en Plein Air</h2>
-<p>La terrasse de Hiru est l'un de ses plus grands atouts. Spacieuse, bien amenagee et parfaite pour les dejeuners en famille, diners romantiques ou retrouvailles entre amis.</p>
-
-<h2>Horaires</h2>
-<p>Hiru Food &amp; Drinks est ouvert du lundi au dimanche sauf le mardi. Horaires : 12h00 à 23h30 (vendredi et samedi jusqu'à 01h00). Reservation recommandee en haute saison (juin à septembre).</p>
-
-<h2>Pourquoi choisir Hiru</h2>
-<p>Hiru Food &amp; Drinks n'est pas qu'un restaurant : c'est le point de depart d'une experience gastronomique et de loisirs complète à Port d'Alcudia. Diner au Hiru, cocktails à la <a href="/enjoy">Enjoy Terrace</a> puis danser à l'<a href="/outxide">Outxide Club</a>. Tout à quelques mètres. C'est l'esprit de <a href="/">Grupo Enjoy</a>.</p>
-
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Majorque. Ouvert tous les jours sauf mardi. <a href="/hiru">Visitez notre site pour la carte et les reservations.</a></strong></p>`,
-
-      it: `<p>Cercate un ottimo ristorante ad Alcudia? <strong>Hiru Food &amp; Drinks</strong> e' la risposta. Questo e' il sito ufficiale di Grupo Enjoy, l'azienda che gestisce Hiru a Port d'Alcudia, Maiorca. Qui troverete tutto: menu, orari, posizione, terrazza e come prenotare un tavolo.</p>
-
-<h2>Cos'e' Hiru Food &amp; Drinks</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> e' un ristorante alla brace situato sulla Carretera d'Arta 40, Alcudia. Il nome Hiru significa "tre" in basco, riflettendo la filosofia a tre pilastri: prodotti di prima qualita', il fuoco come metodo di cottura e un'atmosfera dove gastronomia e buon umore vanno a braccetto. Hiru fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/enjoy">Enjoy Terrace</a> e <a href="/outxide">Outxide Club</a>.</p>
-
-<h2>Il Menu: Cucina alla Brace con Prodotti Premium</h2>
-<h3>Carni Frollate Dry-Aged</h3>
-<p>La grande specialita' di Hiru sono le carni frollate dry-aged. Selezioniamo tagli premium frollati per settimane in condizioni controllate per ottenere un sapore concentrato e una consistenza eccezionale. Ribeye, tomahawk, skirt steak e costolette, tutto cotto alla griglia con carbone naturale.</p>
-
-<h3>Risi e Paella di Frutti di Mare</h3>
-<p>I piatti di riso sono un altro pilastro della cucina di Hiru. La paella di frutti di mare, preparata con brodo fatto in casa e prodotti freschi dal mercato del pesce di Alcudia, e' uno dei nostri piatti piu' richiesti.</p>
-
-<h2>Terrazza all'Aperto</h2>
-<p>La terrazza di Hiru e' uno dei suoi punti di forza. Spaziosa, elegante e perfetta per pranzi in famiglia, cene romantiche o incontri con amici.</p>
-
-<h2>Orari</h2>
-<p>Hiru Food &amp; Drinks e' aperto dal lunedi' alla domenica escluso il martedi'. Orari: dalle 12:00 alle 23:30 (venerdi' e sabato fino alle 01:00). Prenotazione consigliata in alta stagione (giugno-settembre).</p>
-
-<h2>Perche' Scegliere Hiru</h2>
-<p>Hiru Food &amp; Drinks non e' solo un ristorante: e' il punto di partenza per un'esperienza gastronomica e di svago completa a Port d'Alcudia. Cena da Hiru, cocktail sulla <a href="/enjoy">Enjoy Terrace</a> e poi ballare all'<a href="/outxide">Outxide Club</a>. Tutto a pochi metri di distanza. Questo e' lo spirito di <a href="/">Grupo Enjoy</a>.</p>
-
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Alcudia, Maiorca. Aperto tutti i giorni tranne martedi'. <a href="/hiru">Visitate il nostro sito per il menu e le prenotazioni.</a></strong></p>`,
+<p><strong>Grazie a ogni persona che si è seduta alla nostra tavola e al team che ha messo l'anima in ogni piatto. A presto.</strong></p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["hiru", "restaurants", "food", "alcudia", "mallorca"],
     venue: "hiru",
     faq: [
       {
         question: {
-          es: "¿Qué tipo de cocina ofrece Hiru?",
-          en: "What kind of cuisine does Hiru serve?",
-          de: "Welche Küche bietet Hiru?",
-          fr: "Quel type de cuisine propose Hiru?",
-          it: "Che tipo di cucina propone Hiru?",
+          es: "¿Ha cerrado Hiru Food & Drinks?",
+          en: "Has Hiru Food & Drinks closed?",
+          de: "Hat Hiru Food & Drinks geschlossen?",
+          fr: "Hiru Food & Drinks a-t-il fermé ?",
+          it: "Hiru Food & Drinks ha chiuso?",
         },
         answer: {
-          es: "Hiru es un restaurante a la brasa especializado en carnes dry-aged, arroces y paella de marisco, además de pescado fresco.",
-          en: "Hiru is a charcoal-grill restaurant specialising in dry-aged meats, rice dishes and seafood paella, plus fresh fish.",
-          de: "Hiru ist ein Grillrestaurant, das auf Dry-Aged-Fleisch, Reisgerichte und Meeresfrüchte-Paella sowie frischen Fisch spezialisiert ist.",
-          fr: "Hiru est un restaurant de grillades au feu de bois spécialisé dans les viandes maturées (dry-aged), les riz et la paella de fruits de mer, ainsi que le poisson frais.",
-          it: "Hiru è un ristorante alla brace specializzato in carni dry-aged, risotti e paella di mare, oltre al pesce fresco.",
+          es: "Sí. Hiru cerró definitivamente sus puertas en agosto de 2026 y ya no acepta reservas ni sirve comidas o cenas.",
+          en: "Yes. Hiru closed its doors for good in August 2026 and no longer takes reservations or serves lunch or dinner.",
+          de: "Ja. Hiru hat im August 2026 endgültig geschlossen und nimmt keine Reservierungen mehr an.",
+          fr: "Oui. Hiru a définitivement fermé ses portes en août 2026 et ne prend plus de réservations.",
+          it: "Sì. Hiru ha chiuso definitivamente nell'agosto 2026 e non accetta più prenotazioni.",
         },
       },
       {
         question: {
-          es: "¿Hace falta reservar en Hiru y cómo se hace?",
-          en: "Do I need to book at Hiru, and how?",
-          de: "Muss man bei Hiru reservieren, und wie?",
-          fr: "Faut-il réserver chez Hiru, et comment?",
-          it: "È necessario prenotare da Hiru, e come?",
+          es: "¿Qué pasará con el local de la Ctra. d'Artà 40?",
+          en: "What will happen to the premises at Ctra. d'Artà 40?",
+          de: "Was passiert mit dem Lokal in der Ctra. d'Artà 40?",
+          fr: "Que va devenir le local du Ctra. d'Artà 40 ?",
+          it: "Cosa succederà al locale di Ctra. d'Artà 40?",
         },
         answer: {
-          es: "Recomendamos reservar, sobre todo en temporada alta. Puedes hacerlo fácilmente online a través de Restoo.",
-          en: "We recommend booking, especially in high season. You can do it easily online through Restoo.",
-          de: "Wir empfehlen eine Reservierung, besonders in der Hochsaison. Ganz einfach online über Restoo.",
-          fr: "Nous recommandons de réserver, surtout en haute saison. Vous pouvez le faire facilement en ligne via Restoo.",
-          it: "Consigliamo di prenotare, soprattutto in alta stagione. Puoi farlo facilmente online tramite Restoo.",
+          es: "El espacio queda reservado para futuros proyectos de Grupo Enjoy. Todavía no hay nada confirmado; lo anunciaremos en la web y en la newsletter cuando llegue el momento.",
+          en: "The space is being kept for future Grupo Enjoy projects. Nothing is confirmed yet; we'll announce it on the website and newsletter when the time comes.",
+          de: "Der Raum bleibt künftigen Projekten von Grupo Enjoy vorbehalten. Noch ist nichts bestätigt; wir kündigen es auf der Website und im Newsletter an, wenn es so weit ist.",
+          fr: "L'espace est réservé aux futurs projets de Grupo Enjoy. Rien n'est encore confirmé ; nous l'annoncerons sur le site et la newsletter le moment venu.",
+          it: "Lo spazio resta riservato ai futuri progetti di Grupo Enjoy. Non c'è ancora nulla di confermato; lo annunceremo sul sito e nella newsletter quando sarà il momento.",
         },
       },
       {
         question: {
-          es: "¿Dónde está Hiru?",
-          en: "Where is Hiru located?",
-          de: "Wo befindet sich Hiru?",
-          fr: "Où se trouve Hiru?",
-          it: "Dove si trova Hiru?",
+          es: "¿Dónde puedo comer ahora en Alcúdia?",
+          en: "Where can I eat in Alcúdia now?",
+          de: "Wo kann ich jetzt in Alcúdia essen?",
+          fr: "Où manger à Alcúdia maintenant ?",
+          it: "Dove posso mangiare adesso ad Alcúdia?",
         },
         answer: {
-          es: "Hiru está en la Ctra. d'Artà 40, en Port d'Alcúdia, al norte de Mallorca.",
-          en: "Hiru is at Ctra. d'Artà 40, in Port d'Alcúdia, in the north of Mallorca.",
-          de: "Hiru liegt an der Ctra. d'Artà 40 in Port d'Alcúdia, im Norden Mallorcas.",
-          fr: "Hiru se situe Ctra. d'Artà 40, à Port d'Alcúdia, dans le nord de Majorque.",
-          it: "Hiru si trova in Ctra. d'Artà 40, a Port d'Alcúdia, nel nord di Maiorca.",
-        },
-      },
-      {
-        question: {
-          es: "¿Qué es la carne dry-aged de Hiru?",
-          en: "What is Hiru's dry-aged meat?",
-          de: "Was ist das Dry-Aged-Fleisch von Hiru?",
-          fr: "Qu'est-ce que la viande dry-aged de Hiru?",
-          it: "Cos'è la carne dry-aged di Hiru?",
-        },
-        answer: {
-          es: "Es carne madurada en seco durante semanas para intensificar su sabor y ternura, y luego cocinada a la brasa.",
-          en: "It is meat dry-aged for weeks to intensify its flavour and tenderness, then cooked over charcoal.",
-          de: "Es ist Fleisch, das wochenlang trocken gereift wird, um Geschmack und Zartheit zu intensivieren, und dann über Holzkohle gegrillt wird.",
-          fr: "C'est une viande maturée à sec pendant plusieurs semaines pour intensifier sa saveur et sa tendreté, puis cuite à la braise.",
-          it: "È carne maturata a secco per settimane per intensificarne sapore e tenerezza, poi cotta alla brace.",
+          es: "En nuestra guía de los mejores restaurantes de Alcúdia encontrarás alternativas abiertas. Y para el plan de tarde-noche, Enjoy Terrace sigue sirviendo cócteles y shisha a diario en Av. Tucán 1.",
+          en: "Our guide to the best restaurants in Alcúdia lists open alternatives. And for the evening plan, Enjoy Terrace still serves cocktails and shisha daily at Av. Tucán 1.",
+          de: "Unser Guide zu den besten Restaurants in Alcúdia listet geöffnete Alternativen. Und für den Abend serviert das Enjoy Terrace weiterhin täglich Cocktails und Shisha in der Av. Tucán 1.",
+          fr: "Notre guide des meilleurs restaurants d'Alcúdia recense des alternatives ouvertes. Et pour la soirée, l'Enjoy Terrace sert toujours cocktails et chicha tous les jours, Av. Tucán 1.",
+          it: "La nostra guida ai migliori ristoranti di Alcúdia elenca alternative aperte. E per la sera, l'Enjoy Terrace serve ancora cocktail e shisha tutti i giorni in Av. Tucán 1.",
         },
       },
     ],
-    readingTime: 8,
+    readingTime: 5,
   },
   {
     slug: "enjoy-terrace-cocktails-shisha-port-alcudia",
@@ -4904,7 +4720,7 @@ export const blogPosts: BlogPost[] = [
       es: `<p>Si buscas la mejor terraza de cocteles en Port d'Alcudia, <strong>Enjoy Terrace</strong> es el lugar. Esta es la web oficial de Grupo Enjoy, la empresa que gestiona Enjoy Terrace en Mallorca. Aqui tienes toda la informacion que necesitas para visitarnos.</p>
 
 <h2>Que es Enjoy Terrace</h2>
-<p><a href="/enjoy">Enjoy Terrace</a> es un cocktail lounge y shisha bar premium ubicado en la Av. Tucan 1, Port d'Alcudia. Es el lugar donde las noches comienzan en el norte de Mallorca: una terraza al aire libre con ambiente sofisticado, los mejores cocteles de la zona y shisha premium mientras disfrutas del atardecer mediterraneo. Enjoy Terrace forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/hiru">Hiru Food &amp; Drinks</a> y <a href="/outxide">Outxide Club</a>.</p>
+<p><a href="/enjoy">Enjoy Terrace</a> es un cocktail lounge y shisha bar premium ubicado en la Av. Tucan 1, Port d'Alcudia. Es el lugar donde las noches comienzan en el norte de Mallorca: una terraza al aire libre con ambiente sofisticado, los mejores cocteles de la zona y shisha premium mientras disfrutas del atardecer mediterraneo. Enjoy Terrace forma parte de <a href="/">Grupo Enjoy</a>, junto con <a href="/outxide">Outxide Club</a>.</p>
 
 <h2>Carta de Cocteles</h2>
 <p>La carta de cocteles de Enjoy Terrace es una de las mas completas de Alcudia. Nuestro equipo de cocteleria elabora combinados de autor con destilados premium, jugos naturales frescos, siropes artesanales e ingredientes de temporada. Desde clasicos como el Aperol Spritz o el Mojito hasta creaciones originales que solo encontraras aqui. La carta rota por temporada para ofrecerte siempre algo nuevo.</p>
@@ -4928,7 +4744,7 @@ export const blogPosts: BlogPost[] = [
 <p>La filosofia de Enjoy Terrace es sencilla: ser el lugar donde quieres estar cuando cae el sol en Mallorca. No es un bar mas; es una experiencia. La combinacion de cocteles de calidad, shisha premium, musica ambiente y una terraza que invita a quedarse hacen de Enjoy el punto de encuentro natural antes de cualquier noche en Port d'Alcudia.</p>
 
 <h2>El Plan Perfecto en Port d'Alcudia</h2>
-<p>Los locales lo tienen claro: cena en <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails y shisha en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sabado, la noche continua en <a href="/outxide">Outxide Club</a>. Todo a pocos metros, todo parte de la misma experiencia <a href="/">Grupo Enjoy</a>. Este es el plan que cada vez mas gente repite verano tras verano.</p>
+<p>Los locales lo tienen claro: cena tranquila en el puerto (en nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guía de restaurantes de Alcúdia</a> tienes dónde elegir), cocktails y shisha en <a href="/enjoy">Enjoy Terrace</a> y, si es jueves, viernes o sábado, la noche continúa en <a href="/outxide">Outxide Club</a>, justo al lado. Todo parte de la misma experiencia <a href="/">Grupo Enjoy</a>, y es el plan que cada vez más gente repite.</p>
 
 <h2>Mas Guias de Ocio en Alcudia</h2>
 <p>Explora mas planes en nuestra guia de <a href="/blog/cocteles-shisha-terraza-alcudia">cocteles y shisha en Alcudia</a>, descubre la <a href="/blog/guia-vida-nocturna-alcudia">vida nocturna de Alcudia al completo</a> o planifica tu dia con nuestra guia de <a href="/blog/que-hacer-alcudia-mallorca">que hacer en Alcudia</a>. Si buscas un plan con shisha, te gustara nuestra seleccion de los <a href="/blog/shisha-bar-terraza-lounge-mallorca">mejores shisha bars de Mallorca</a>.</p>
@@ -4938,7 +4754,7 @@ export const blogPosts: BlogPost[] = [
       en: `<p>Looking for the best cocktail terrace in Port d'Alcudia? <strong>Enjoy Terrace</strong> is the place. This is the official website of Grupo Enjoy, the company behind Enjoy Terrace in Mallorca. Here is everything you need to know before your visit.</p>
 
 <h2>What Is Enjoy Terrace</h2>
-<p><a href="/enjoy">Enjoy Terrace</a> is a premium cocktail lounge and shisha bar located at Av. Tucan 1, Port d'Alcudia. It is where nights begin in northern Mallorca: an open-air terrace with a sophisticated atmosphere, the best cocktails in the area and premium shisha while you enjoy the Mediterranean sunset. Enjoy Terrace is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/hiru">Hiru Food &amp; Drinks</a> and <a href="/outxide">Outxide Club</a>.</p>
+<p><a href="/enjoy">Enjoy Terrace</a> is a premium cocktail lounge and shisha bar located at Av. Tucan 1, Port d'Alcudia. It is where nights begin in northern Mallorca: an open-air terrace with a sophisticated atmosphere, the best cocktails in the area and premium shisha while you enjoy the Mediterranean sunset. Enjoy Terrace is part of <a href="/">Grupo Enjoy</a>, alongside <a href="/outxide">Outxide Club</a>.</p>
 
 <h2>Cocktail Menu</h2>
 <p>Enjoy Terrace's cocktail menu is one of the most comprehensive in Alcudia. Our mixology team creates signature drinks with premium spirits, fresh natural juices, artisanal syrups and seasonal ingredients. From classics like Aperol Spritz and Mojito to original creations you will only find here. The menu rotates seasonally to always offer something new.</p>
@@ -4962,7 +4778,7 @@ export const blogPosts: BlogPost[] = [
 <p>Enjoy Terrace's philosophy is simple: be the place you want to be when the sun goes down in Mallorca. It is not just another bar; it is an experience. Quality cocktails, premium shisha, ambient music and a terrace that makes you want to stay — that is what makes Enjoy the natural meeting point before any night out in Port d'Alcudia.</p>
 
 <h2>The Perfect Plan in Port d'Alcudia</h2>
-<p>The locals have it figured out: dinner at <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails and shisha at <a href="/enjoy">Enjoy Terrace</a> and, on Thursday, Friday or Saturday, the night continues at <a href="/outxide">Outxide Club</a>. All within walking distance, all part of the same <a href="/">Grupo Enjoy</a> experience. This is the plan more and more people repeat summer after summer.</p>
+<p>Locals know the drill: a relaxed dinner by the port (our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcúdia</a> gives you plenty to choose from), cocktails and shisha at <a href="/enjoy">Enjoy Terrace</a> and, on Thursdays, Fridays and Saturdays, the night carries on at <a href="/outxide">Outxide Club</a> right next door. It's all part of the same <a href="/">Grupo Enjoy</a> experience — and a plan more and more people repeat.</p>
 
 <h2>More Leisure Guides for Alcudia</h2>
 <p>Explore more plans in our <a href="/blog/cocteles-shisha-terraza-alcudia">cocktails and shisha guide for Alcudia</a>, discover <a href="/blog/guia-vida-nocturna-alcudia">the complete Alcudia nightlife scene</a> or plan your day with our <a href="/blog/que-hacer-alcudia-mallorca">things to do in Alcudia guide</a>. If you love shisha, check out the <a href="/blog/shisha-bar-terraza-lounge-mallorca">best shisha bars in Mallorca</a>.</p>
@@ -4972,7 +4788,7 @@ export const blogPosts: BlogPost[] = [
       de: `<p>Suchen Sie die beste Cocktail-Terrasse in Port d'Alcudia? <strong>Enjoy Terrace</strong> ist der richtige Ort. Dies ist die offizielle Website von Grupo Enjoy, dem Unternehmen hinter Enjoy Terrace auf Mallorca. Hier finden Sie alles Wissenswerte fuer Ihren Besuch.</p>
 
 <h2>Was ist Enjoy Terrace</h2>
-<p><a href="/enjoy">Enjoy Terrace</a> ist eine Premium-Cocktailbar und Shisha-Lounge an der Av. Tucan 1, Port d'Alcudia. Hier beginnen die Naechte im Norden Mallorcas: eine Freiluft-Terrasse mit gehobener Atmosphaere, die besten Cocktails der Gegend und Premium-Shisha zum mediterranen Sonnenuntergang. Enjoy Terrace gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/hiru">Hiru Food &amp; Drinks</a> und <a href="/outxide">Outxide Club</a>.</p>
+<p><a href="/enjoy">Enjoy Terrace</a> ist eine Premium-Cocktailbar und Shisha-Lounge an der Av. Tucan 1, Port d'Alcudia. Hier beginnen die Naechte im Norden Mallorcas: eine Freiluft-Terrasse mit gehobener Atmosphaere, die besten Cocktails der Gegend und Premium-Shisha zum mediterranen Sonnenuntergang. Enjoy Terrace gehoert zu <a href="/">Grupo Enjoy</a>, zusammen mit <a href="/outxide">Outxide Club</a>.</p>
 
 <h2>Cocktailkarte</h2>
 <p>Die Cocktailkarte von Enjoy Terrace ist eine der umfangreichsten in Alcudia. Unser Mixologie-Team kreiert Signature-Drinks mit Premium-Spirituosen, frischen Saeften, hausgemachten Sirups und saisonalen Zutaten. Von Klassikern wie Aperol Spritz und Mojito bis zu exklusiven Eigenkreationen.</p>
@@ -4990,14 +4806,14 @@ export const blogPosts: BlogPost[] = [
 <p>Enjoy Terrace ist taeglich von 17:00 bis 05:30 Uhr geoeffnet. Ja, richtig gelesen: bis in die fruehen Morgenstunden, was es zur perfekten Bruecke zwischen Abendessen und Tanzflaeche macht. Beginnen Sie mit Sunset-Cocktails und bleiben Sie so lange Sie moechten — oder setzen Sie die Nacht im <a href="/outxide">Outxide Club</a> direkt nebenan fort.</p>
 
 <h2>Der perfekte Plan in Port d'Alcudia</h2>
-<p>Die Einheimischen wissen es: Abendessen im <a href="/hiru">Hiru Food &amp; Drinks</a>, Cocktails und Shisha auf der <a href="/enjoy">Enjoy Terrace</a> und donnerstags, freitags oder samstags geht die Nacht im <a href="/outxide">Outxide Club</a> weiter. Alles in Gehweite, alles Teil derselben <a href="/">Grupo Enjoy</a>-Erfahrung.</p>
+<p>Die Einheimischen wissen es längst: entspanntes Abendessen am Hafen (unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcúdia</a> bietet reichlich Auswahl), Cocktails und Shisha im <a href="/enjoy">Enjoy Terrace</a>, und donnerstags, freitags und samstags geht die Nacht direkt nebenan im <a href="/outxide">Outxide Club</a> weiter. Alles Teil desselben <a href="/">Grupo-Enjoy</a>-Erlebnisses — ein Plan, den immer mehr Leute wiederholen.</p>
 
 <p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Mallorca. Taeglich ab 17:00 Uhr geoeffnet. <a href="/enjoy">Besuchen Sie unsere Website fuer weitere Informationen.</a></strong></p>`,
 
       fr: `<p>Vous cherchez la meilleure terrasse cocktails à Port d'Alcudia ? <strong>Enjoy Terrace</strong> est l'endroit ideal. Ceci est le site officiel de Grupo Enjoy, l'entreprise derrière Enjoy Terrace à Majorque. Voici tout ce que vous devez savoir.</p>
 
 <h2>Qu'est-ce qu'Enjoy Terrace</h2>
-<p><a href="/enjoy">Enjoy Terrace</a> est un cocktail lounge et bar à chicha premium situe Av. Tucan 1, Port d'Alcudia. C'est là que les nuits commencent dans le nord de Majorque : une terrasse en plein air avec une ambiance sophistiquee, les meilleurs cocktails de la zone et une chicha premium face au coucher de soleil mediterraneen. Enjoy Terrace fait partie de <a href="/">Grupo Enjoy</a>, avec <a href="/hiru">Hiru Food &amp; Drinks</a> et <a href="/outxide">Outxide Club</a>.</p>
+<p><a href="/enjoy">Enjoy Terrace</a> est un cocktail lounge et bar à chicha premium situe Av. Tucan 1, Port d'Alcudia. C'est là que les nuits commencent dans le nord de Majorque : une terrasse en plein air avec une ambiance sophistiquee, les meilleurs cocktails de la zone et une chicha premium face au coucher de soleil mediterraneen. Enjoy Terrace fait partie de <a href="/">Grupo Enjoy</a>, avec <a href="/outxide">Outxide Club</a>.</p>
 
 <h2>Carte des Cocktails</h2>
 <p>La carte de cocktails d'Enjoy Terrace est l'une des plus complètes d'Alcudia. Notre equipe de mixologie cree des boissons signature avec des spiritueux premium, des jus frais, des sirops artisanaux et des ingredients de saison.</p>
@@ -5012,14 +4828,14 @@ export const blogPosts: BlogPost[] = [
 <p>Enjoy Terrace est ouvert tous les jours de 17h00 à 05h30. Le pont parfait entre le diner et le dancefloor. Commencez au coucher du soleil et prolongez au <a href="/outxide">Outxide Club</a> juste à cote.</p>
 
 <h2>Le plan parfait à Port d'Alcudia</h2>
-<p>Les habitues le savent : diner au <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktails et chicha à la <a href="/enjoy">Enjoy Terrace</a>, puis la nuit continue à l'<a href="/outxide">Outxide Club</a>. Tout à quelques mètres. L'experience <a href="/">Grupo Enjoy</a>.</p>
+<p>Les habitués le savent : dîner tranquille au port (notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcúdia</a> offre l'embarras du choix), cocktails et chicha à l'<a href="/enjoy">Enjoy Terrace</a> et, du jeudi au samedi, la nuit continue à l'<a href="/outxide">Outxide Club</a>, juste à côté. Le tout fait partie de la même expérience <a href="/">Grupo Enjoy</a> — un plan que de plus en plus de monde répète.</p>
 
 <p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Majorque. Ouvert tous les jours dès 17h00. <a href="/enjoy">Visitez notre site pour plus d'informations.</a></strong></p>`,
 
       it: `<p>Cercate la miglior terrazza cocktail a Port d'Alcudia? <strong>Enjoy Terrace</strong> e' il posto giusto. Questo e' il sito ufficiale di Grupo Enjoy, l'azienda che gestisce Enjoy Terrace a Maiorca. Ecco tutto quello che dovete sapere.</p>
 
 <h2>Cos'e' Enjoy Terrace</h2>
-<p><a href="/enjoy">Enjoy Terrace</a> e' un cocktail lounge e shisha bar premium situato in Av. Tucan 1, Port d'Alcudia. E' qui che le serate iniziano nel nord di Maiorca: una terrazza all'aperto con atmosfera sofisticata, i migliori cocktail della zona e shisha premium mentre godetevi il tramonto mediterraneo. Enjoy Terrace fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/hiru">Hiru Food &amp; Drinks</a> e <a href="/outxide">Outxide Club</a>.</p>
+<p><a href="/enjoy">Enjoy Terrace</a> e' un cocktail lounge e shisha bar premium situato in Av. Tucan 1, Port d'Alcudia. E' qui che le serate iniziano nel nord di Maiorca: una terrazza all'aperto con atmosfera sofisticata, i migliori cocktail della zona e shisha premium mentre godetevi il tramonto mediterraneo. Enjoy Terrace fa parte di <a href="/">Grupo Enjoy</a>, insieme a <a href="/outxide">Outxide Club</a>.</p>
 
 <h2>Carta Cocktail</h2>
 <p>La carta cocktail di Enjoy Terrace e' una delle piu' complete di Alcudia. Il nostro team di mixology crea drink d'autore con distillati premium, succhi freschi, sciroppi artigianali e ingredienti stagionali.</p>
@@ -5034,12 +4850,13 @@ export const blogPosts: BlogPost[] = [
 <p>Enjoy Terrace e' aperto tutti i giorni dalle 17:00 alle 05:30. Il ponte perfetto tra la cena e la pista da ballo. Iniziate al tramonto e proseguite all'<a href="/outxide">Outxide Club</a> proprio accanto.</p>
 
 <h2>Il piano perfetto a Port d'Alcudia</h2>
-<p>I locali lo sanno: cena al <a href="/hiru">Hiru Food &amp; Drinks</a>, cocktail e shisha sulla <a href="/enjoy">Enjoy Terrace</a>, poi la notte continua all'<a href="/outxide">Outxide Club</a>. Tutto a pochi metri. L'esperienza <a href="/">Grupo Enjoy</a>.</p>
+<p>I local lo sanno bene: cena tranquilla al porto (la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcúdia</a> offre ampia scelta), cocktail e shisha all'<a href="/enjoy">Enjoy Terrace</a> e, giovedì, venerdì e sabato, la notte continua all'<a href="/outxide">Outxide Club</a>, proprio accanto. Tutto parte della stessa esperienza <a href="/">Grupo Enjoy</a> — un piano che sempre più gente ripete.</p>
 
 <p><strong>Enjoy Terrace — Av. Tucan 1, Port d'Alcudia, Maiorca. Aperto tutti i giorni dalle 17:00. <a href="/enjoy">Visitate il nostro sito per maggiori informazioni.</a></strong></p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/enjoy/489390658_1397879798281690_242980700226707519_n.jpg",
     tags: ["enjoy", "cocktails", "shisha", "terrace", "alcudia"],
     venue: "enjoy",
@@ -5136,10 +4953,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Los mejores planes de despedida de soltera y soltero en Port d'Alcudia siguen una formula que funciona siempre: <strong>cena en grupo, cocteles y fiesta</strong>. Los tres locales de <a href="/">Grupo Enjoy</a> estan uno al lado del otro, asi que la logistica no es un problema.</p>
 
-<h3>Paso 1: Cena en Hiru Food &amp; Drinks</h3>
-<p>Toda buena despedida empieza con una gran cena. <a href="/hiru">Hiru Food &amp; Drinks</a> es el restaurante ideal para grupos grandes que quieren comer bien sin renunciar al ambiente festivo. Su terraza tiene capacidad para mesas amplias y el servicio esta acostumbrado a gestionar celebraciones.</p>
-<p>Para despedidas, la <strong>paella de marisco para compartir</strong> es una de las opciones mas populares: un arrozon generoso que se sirve en el centro de la mesa y que siempre arranca aplausos. Tambien puedes optar por carnes a la brasa para compartir o por un menu de tapas variadas para que todo el grupo pique de todo. Hiru esta abierto hasta tarde, asi que no hay prisa.</p>
-<p>Consejo: reserva mesa con antelacion e indica que sois un grupo de celebracion. El equipo de Hiru os ayudara a organizar la disposicion. Lee mas sobre la carta en nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guia completa de Hiru</a>.</p>
+<h3>Paso 1: Cena de grupo en el puerto</h3>
+<p>Toda buena despedida empieza con una gran cena. En Port d'Alcudia hay restaurantes acostumbrados a mesas grandes y ambiente festivo: arroces y paellas para compartir, carnes a la brasa y menus de picoteo para que todo el grupo pruebe de todo. Nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guia de restaurantes de Alcudia</a> te ayuda a elegir.</p>
+<p>Consejo: reserva mesa con antelacion e indica que sois un grupo de celebracion, asi el equipo del restaurante os prepara la disposicion perfecta.</p>
 
 <h3>Paso 2: Cocteles en Enjoy Terrace</h3>
 <p>Despues de cenar, el siguiente paso natural es cruzar a <a href="/enjoy">Enjoy Terrace</a>. Este cocktail lounge con terraza al aire libre es el sitio perfecto para que el grupo se relaje con cocteles de autor y shisha premium mientras la noche va subiendo de temperatura.</p>
@@ -5159,19 +4975,18 @@ export const blogPosts: BlogPost[] = [
 <p>La <a href="/enjoy">Enjoy Terrace</a> es mucho mas que un bar de cocteles. Para grupos de celebracion, el equipo de Enjoy puede preparar rondas de cocteles especiales, shots de bienvenida y combinaciones personalizadas. La terraza permite que grupos de 10, 15 o 20 personas esten juntos en un ambiente elegante, con musica de fondo y las mejores shishas de Alcudia.</p>
 <p>Si la despedida es en verano, llegar a Enjoy al atardecer es un acierto: los colores del cielo sobre Port d'Alcudia son el mejor decorado que puedas imaginar para las fotos del grupo.</p>
 
-<h2>Cena de grupo en Hiru: paella de marisco para todos</h2>
-<p>Una de las grandes ventajas de <a href="/hiru">Hiru Food &amp; Drinks</a> para despedidas es su capacidad de servir mesas grandes sin perder calidad. La <strong>paella de marisco</strong> se prepara con producto fresco de la lonja y se sirve en formato para compartir, ideal para que todo el grupo coma del mismo plato. Tambien hay opciones de carnes maduradas a la brasa y una seleccion de entrantes para picar entre todos.</p>
-<p>El restaurante tiene cocktail bar propio, asi que los que quieran empezar con un gin-tonic o un combinado antes de cenar pueden hacerlo sin moverse de sitio.</p>
+<h2>Cena de grupo: paella para compartir</h2>
+<p>Para despedidas, la <strong>paella de marisco para compartir</strong> es un clasico que siempre arranca aplausos: un arrozon generoso servido en el centro de la mesa. Varios restaurantes del puerto la preparan por encargo para grupos; pidela al reservar y pregunta tambien por carnes a la brasa para compartir o menus de tapas variadas.</p>
 
 <h2>Consejos practicos para tu despedida en Alcudia</h2>
 <p><strong>Alojamiento:</strong> Port d'Alcudia tiene una gran oferta de hoteles y apartamentos. Para despedidas, los apartamentos tipo villa con piscina son los mas populares, ya que permiten que el grupo este junto durante el dia. La zona de Bellevue y la Playa de Muro tienen buenas opciones.</p>
-<p><strong>Transporte:</strong> La gran ventaja de organizar tu despedida con Grupo Enjoy es que <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> y <a href="/outxide">Outxide</a> estan en la misma calle, a pocos pasos el uno del otro. No necesitas taxis ni coches para moverte entre locales.</p>
+<p><strong>Transporte:</strong> La gran ventaja de organizar tu despedida en Port d'Alcudia es que todo queda cerca: <a href="/enjoy">Enjoy</a> y <a href="/outxide">Outxide</a> comparten direccion en Av. Tucan 1 y los restaurantes del puerto estan a pocos pasos. No necesitas taxis ni coches para moverte entre locales.</p>
 <p><strong>Reservas:</strong> Reserva la mesa del restaurante y la zona VIP del club con antelacion. En temporada alta (junio-septiembre), la demanda es muy alta y los grupos grandes necesitan planificacion previa.</p>
 <p><strong>Dia de la semana:</strong> Los viernes y sabados son los dias con mas ambiente en Outxide. Si prefieres algo mas relajado, los jueves tambien hay sesion y suele haber menos gente.</p>
 
 <p>Si quieres mas ideas sobre que hacer en la zona, consulta nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia de vida nocturna en Alcudia</a> y nuestro articulo sobre <a href="/blog/fiestas-eventos-verano-alcudia-2026">fiestas y eventos de verano 2026</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Todo en Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Visita nuestra web para mas informacion.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Mallorca. <a href="/">Visita nuestra web para mas informacion.</a></strong></p>`,
 
       en: `<p>If you're planning a bachelor or bachelorette party and want a destination that combines great food, terrace cocktails and a memorable night of clubbing, <strong>Alcudia and Port d'Alcudia</strong> have everything you need. Northern Mallorca offers quality venues, incredible atmosphere and the convenience of having everything within walking distance.</p>
 
@@ -5181,10 +4996,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>The best celebration plans in Port d'Alcudia follow a proven formula: <strong>group dinner, cocktails and party</strong>. The three venues run by <a href="/">Grupo Enjoy</a> are right next to each other, so logistics are effortless.</p>
 
-<h3>Step 1: Dinner at Hiru Food &amp; Drinks</h3>
-<p>Every great celebration starts with a great meal. <a href="/hiru">Hiru Food &amp; Drinks</a> is the ideal restaurant for large groups who want excellent food in a festive atmosphere. Their terrace accommodates big tables and the staff is experienced with celebration groups.</p>
-<p>For parties, the <strong>seafood paella to share</strong> is one of the most popular choices: a generous rice dish served in the centre of the table that always gets a round of applause. You can also go for grilled meats to share or a selection of varied tapas so everyone can try everything. Hiru is open late, so there's no rush.</p>
-<p>Tip: book your table in advance and mention you're a celebration group. The Hiru team will help organise the seating. Read more about their menu in our <a href="/blog/hiru-food-drinks-restaurante-alcudia">complete Hiru guide</a>.</p>
+<h3>Step 1: Group dinner by the port</h3>
+<p>Every good send-off starts with a great dinner. Port d'Alcudia has restaurants used to big tables and a festive mood: rice dishes and paellas to share, charcoal-grilled meats and picking menus so the whole group can try everything. Our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcudia</a> will help you choose.</p>
+<p>Tip: book ahead and mention you're a celebration group, so the restaurant team can set up the perfect table arrangement.</p>
 
 <h3>Step 2: Cocktails at Enjoy Terrace</h3>
 <p>After dinner, the natural next step is to walk over to <a href="/enjoy">Enjoy Terrace</a>. This open-air cocktail lounge is the perfect spot for the group to unwind with signature cocktails and premium shisha while the night builds momentum.</p>
@@ -5204,19 +5018,18 @@ export const blogPosts: BlogPost[] = [
 <p><a href="/enjoy">Enjoy Terrace</a> is much more than a cocktail bar. For celebration groups, the Enjoy team can prepare special cocktail rounds, welcome shots and customised combinations. The terrace comfortably fits groups of 10, 15 or 20 people in an elegant setting with background music and the finest shisha in Alcudia.</p>
 <p>If your party is in summer, arriving at Enjoy at sunset is a winning move: the colours over Port d'Alcudia provide the best backdrop you could wish for.</p>
 
-<h2>Group dinner at Hiru: seafood paella for everyone</h2>
-<p>One of the great advantages of <a href="/hiru">Hiru Food &amp; Drinks</a> for celebrations is its ability to serve large tables without compromising on quality. The <strong>seafood paella</strong> is made with fresh produce from the local fish market and served family-style, perfect for the whole group to share. There are also dry-aged grilled meats and a selection of starters for everyone to pick from.</p>
-<p>The restaurant has its own cocktail bar, so anyone who wants to start with a gin and tonic or a mixed drink before dinner can do so without leaving the venue.</p>
+<h2>Group dinner: paella to share</h2>
+<p>For send-offs, a <strong>seafood paella to share</strong> is a classic that always gets applause: a generous pan served in the middle of the table. Several restaurants by the port prepare it to order for groups; ask for it when booking, along with charcoal-grilled meats to share or mixed tapas menus.</p>
 
 <h2>Practical tips for your party in Alcudia</h2>
 <p><strong>Accommodation:</strong> Port d'Alcudia has a wide range of hotels and apartments. For bachelor and bachelorette parties, villa-style apartments with a pool are the most popular, allowing the group to stay together during the day. The Bellevue area and Playa de Muro have great options.</p>
-<p><strong>Transport:</strong> The big advantage of celebrating with Grupo Enjoy is that <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> and <a href="/outxide">Outxide</a> are on the same street, steps apart. No taxis or cars needed to move between venues.</p>
+<p><strong>Transport:</strong> The big advantage of organising your send-off in Port d'Alcudia is that everything is close: <a href="/enjoy">Enjoy</a> and <a href="/outxide">Outxide</a> share the same address at Av. Tucan 1, and the port's restaurants are a short walk away. No taxis or cars needed between venues.</p>
 <p><strong>Bookings:</strong> Reserve your restaurant table and club VIP area in advance. During high season (June to September), demand is very high and large groups need forward planning.</p>
 <p><strong>Day of the week:</strong> Fridays and Saturdays have the biggest atmosphere at Outxide. If you prefer something more relaxed, Thursdays also have sessions and tend to be less crowded.</p>
 
 <p>For more ideas on what to do in the area, check out our <a href="/blog/guia-vida-nocturna-alcudia">Alcudia nightlife guide</a> and our article on <a href="/blog/fiestas-eventos-verano-alcudia-2026">summer events and parties 2026</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. All located on Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Visit our website for more information.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Mallorca. <a href="/">Visit our website for more information.</a></strong></p>`,
 
       de: `<p>Ihr plant einen Junggesellenabschied oder Junggesellinnenabschied und sucht ein Reiseziel, das grossartiges Essen, Cocktails auf der Terrasse und eine unvergessliche Clubnacht vereint? <strong>Alcudia und Port d'Alcudia</strong> im Norden Mallorcas bieten alles, was ihr braucht: hochwertige Locations, tolle Atmosphaere und den Vorteil, dass alles zu Fuss erreichbar ist.</p>
 
@@ -5226,10 +5039,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Die besten Feier-Plaene in Port d'Alcudia folgen einer bewaehrten Formel: <strong>Gruppenessen, Cocktails und Party</strong>. Die drei Locations von <a href="/">Grupo Enjoy</a> liegen direkt nebeneinander, sodass die Logistik mueheloss ist.</p>
 
-<h3>Schritt 1: Abendessen im Hiru Food &amp; Drinks</h3>
-<p>Jede grosse Feier beginnt mit einem grossartigen Essen. <a href="/hiru">Hiru Food &amp; Drinks</a> ist das ideale Restaurant fuer grosse Gruppen, die hervorragend essen moechten und dabei eine festliche Atmosphaere geniessen wollen. Die Terrasse bietet Platz fuer grosse Tische und das Personal ist erfahren mit Feiergruppen.</p>
-<p>Fuer Gruppen ist die <strong>Meeresfrueechte-Paella zum Teilen</strong> eine der beliebtesten Optionen: ein grosszuegiges Reisgericht, das in der Mitte des Tisches serviert wird. Alternativ koennt ihr gegrilltes Fleisch zum Teilen oder eine Auswahl an Tapas bestellen. Hiru hat bis spaet geoeffnet, also gibt es keinen Zeitdruck.</p>
-<p>Tipp: Reserviert euren Tisch im Voraus und erwaehnt, dass ihr eine Feiergruppe seid. Mehr ueber die Speisekarte erfahrt ihr in unserem <a href="/blog/hiru-food-drinks-restaurante-alcudia">kompletten Hiru-Guide</a>.</p>
+<h3>Schritt 1: Gruppendinner am Hafen</h3>
+<p>Jeder gute Junggesellenabschied beginnt mit einem großartigen Abendessen. In Port d'Alcudia gibt es Restaurants, die an große Tische und Feierstimmung gewöhnt sind: Reisgerichte und Paellas zum Teilen, Fleisch vom Grill und Häppchen-Menüs, damit die ganze Gruppe alles probieren kann. Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide für Alcudia</a> hilft bei der Wahl.</p>
+<p>Tipp: Reserviere frühzeitig und gib an, dass ihr eine Feiergruppe seid — so bereitet das Team die perfekte Tischordnung vor.</p>
 
 <h3>Schritt 2: Cocktails auf der Enjoy Terrace</h3>
 <p>Nach dem Essen ist der naechste Schritt ein Spaziergang zur <a href="/enjoy">Enjoy Terrace</a>. Diese Open-Air-Cocktail-Lounge ist der perfekte Ort, um mit Signature-Cocktails und Premium-Shisha zu entspannen, waehrend der Abend an Fahrt aufnimmt.</p>
@@ -5249,18 +5061,18 @@ export const blogPosts: BlogPost[] = [
 <p>Die <a href="/enjoy">Enjoy Terrace</a> ist viel mehr als eine Cocktailbar. Fuer Feiergruppen kann das Enjoy-Team spezielle Cocktailrunden, Willkommens-Shots und individuelle Kreationen vorbereiten. Die Terrasse bietet bequem Platz fuer Gruppen von 10, 15 oder 20 Personen in eleganter Umgebung.</p>
 <p>Wenn eure Feier im Sommer stattfindet, ist die Ankunft bei Sonnenuntergang ein Volltreffer: Die Farben ueber Port d'Alcudia sind die perfekte Kulisse fuer Gruppenfotos.</p>
 
-<h2>Gruppenessen im Hiru</h2>
-<p>Einer der grossen Vorteile von <a href="/hiru">Hiru Food &amp; Drinks</a> fuer Feiern ist die Faehigkeit, grosse Tische zu bedienen, ohne bei der Qualitaet Kompromisse zu machen. Die <strong>Meeresfrueechte-Paella</strong> wird mit frischen Produkten vom lokalen Fischmarkt zubereitet und im Familienstil serviert. Dazu gibt es gereifte Grillstuecke und eine Auswahl an Vorspeisen.</p>
+<h2>Gruppendinner: Paella zum Teilen</h2>
+<p>Für Abschiedsfeiern ist eine <strong>Meeresfrüchte-Paella zum Teilen</strong> ein Klassiker, der immer Applaus bekommt: eine großzügige Pfanne, serviert in der Tischmitte. Mehrere Restaurants am Hafen bereiten sie auf Vorbestellung für Gruppen zu; frag bei der Reservierung danach, ebenso nach Grillfleisch zum Teilen oder gemischten Tapas-Menüs.</p>
 
 <h2>Praktische Tipps fuer euren Junggesellenabschied</h2>
 <p><strong>Unterkunft:</strong> Port d'Alcudia bietet eine grosse Auswahl an Hotels und Apartments. Fuer Junggesellenabschiede sind Villa-Apartments mit Pool am beliebtesten. Die Gegend um Bellevue und Playa de Muro hat gute Optionen.</p>
-<p><strong>Transport:</strong> Der grosse Vorteil ist, dass <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> und <a href="/outxide">Outxide</a> in derselben Strasse liegen. Keine Taxis noetig.</p>
+<p><strong>Transport:</strong> Der große Vorteil, deinen Abschied in Port d'Alcudia zu organisieren: Alles liegt nah beieinander. <a href="/enjoy">Enjoy</a> und <a href="/outxide">Outxide</a> teilen sich die Adresse Av. Tucan 1, und die Restaurants am Hafen sind wenige Schritte entfernt. Keine Taxis oder Autos zwischen den Locations nötig.</p>
 <p><strong>Reservierungen:</strong> Reserviert Restauranttisch und Club-VIP-Bereich im Voraus. In der Hochsaison (Juni bis September) ist die Nachfrage sehr hoch.</p>
 <p><strong>Wochentag:</strong> Freitage und Samstage bieten die groesste Atmosphaere im Outxide. Donnerstage sind etwas ruhiger, aber es gibt ebenfalls Sessions.</p>
 
 <p>Fuer weitere Ideen schaut euch unseren <a href="/blog/guia-vida-nocturna-alcudia">Alcudia Nachtleben-Guide</a> und unseren Artikel ueber <a href="/blog/fiestas-eventos-verano-alcudia-2026">Sommer-Events und Partys 2026</a> an.</p>
 
-<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Alles in Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Besucht unsere Website fuer weitere Informationen.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Mallorca. <a href="/">Alle Infos auf unserer Website.</a></strong></p>`,
 
       fr: `<p>Vous organisez un enterrement de vie de jeune fille ou de garcon et cherchez une destination qui combine gastronomie, cocktails en terrasse et une nuit de fete memorable ? <strong>Alcudia et Port d'Alcudia</strong> dans le nord de Majorque offrent tout ce qu'il faut : des etablissements de qualite, une ambiance exceptionnelle et la commodite d'avoir tout a distance de marche.</p>
 
@@ -5270,10 +5082,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>Les meilleurs plans de fete a Port d'Alcudia suivent une formule eprouvee : <strong>diner en groupe, cocktails et fete</strong>. Les trois etablissements de <a href="/">Grupo Enjoy</a> sont cote a cote, donc la logistique est simple.</p>
 
-<h3>Etape 1 : Diner au Hiru Food &amp; Drinks</h3>
-<p>Toute grande celebration commence par un excellent repas. <a href="/hiru">Hiru Food &amp; Drinks</a> est le restaurant ideal pour les grands groupes qui veulent bien manger dans une ambiance festive. La terrasse accueille de grandes tables et le personnel est habitue aux groupes de celebration.</p>
-<p>Pour les fetes, la <strong>paella aux fruits de mer a partager</strong> est l'un des choix les plus populaires : un plat genereux servi au centre de la table. Vous pouvez aussi opter pour des viandes grillees a partager ou une selection de tapas variees. Hiru est ouvert tard, donc pas de pression.</p>
-<p>Conseil : reservez votre table a l'avance et mentionnez que vous etes un groupe de celebration. Decouvrez le menu dans notre <a href="/blog/hiru-food-drinks-restaurante-alcudia">guide complet de Hiru</a>.</p>
+<h3>Etape 1 : Diner de groupe au port</h3>
+<p>Tout bon enterrement de vie de celibataire commence par un grand diner. Port d'Alcudia compte des restaurants habitues aux grandes tablees et a l'ambiance festive : riz et paellas a partager, viandes a la braise et menus a picorer pour que tout le groupe goute a tout. Notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcudia</a> vous aidera a choisir.</p>
+<p>Conseil : reservez a l'avance et precisez que vous etes un groupe en fete, l'equipe preparera la disposition parfaite.</p>
 
 <h3>Etape 2 : Cocktails a l'Enjoy Terrace</h3>
 <p>Apres le diner, direction naturelle : la <a href="/enjoy">Enjoy Terrace</a>. Ce lounge cocktail en plein air est l'endroit parfait pour que le groupe se detende avec des cocktails signatures et du chicha premium pendant que la soiree monte en intensite.</p>
@@ -5293,18 +5104,18 @@ export const blogPosts: BlogPost[] = [
 <p>L'<a href="/enjoy">Enjoy Terrace</a> est bien plus qu'un bar a cocktails. Pour les groupes, l'equipe peut preparer des tournees speciales, des shots de bienvenue et des creations personnalisees. La terrasse accueille confortablement des groupes de 10, 15 ou 20 personnes dans un cadre elegant.</p>
 <p>Si votre fete est en ete, arrivez au coucher du soleil : les couleurs sur Port d'Alcudia sont le meilleur decor possible pour les photos de groupe.</p>
 
-<h2>Diner de groupe au Hiru</h2>
-<p>L'un des grands avantages de <a href="/hiru">Hiru Food &amp; Drinks</a> pour les celebrations est sa capacite a servir de grandes tables sans compromettre la qualite. La <strong>paella aux fruits de mer</strong> est preparee avec des produits frais du marche local et servie a partager. Il y a aussi des viandes grillees maturees et une selection d'entrees.</p>
+<h2>Diner de groupe : paella a partager</h2>
+<p>Pour les enterrements de vie de celibataire, la <strong>paella de fruits de mer a partager</strong> est un classique qui fait toujours son effet : une poele genereuse servie au centre de la table. Plusieurs restaurants du port la preparent sur commande pour les groupes ; demandez-la a la reservation, ainsi que des viandes a la braise a partager ou des menus de tapas varies.</p>
 
 <h2>Conseils pratiques</h2>
 <p><strong>Hebergement :</strong> Port d'Alcudia offre un large choix d'hotels et d'appartements. Les villas avec piscine sont les plus populaires pour les groupes. La zone de Bellevue et Playa de Muro offrent de bonnes options.</p>
-<p><strong>Transport :</strong> <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> et <a href="/outxide">Outxide</a> sont dans la meme rue, a quelques pas. Pas besoin de taxi.</p>
+<p><strong>Transport :</strong> Le grand avantage d'organiser votre soiree a Port d'Alcudia, c'est que tout est proche : <a href="/enjoy">Enjoy</a> et <a href="/outxide">Outxide</a> partagent la meme adresse, Av. Tucan 1, et les restaurants du port sont a quelques pas. Pas besoin de taxis ni de voitures entre les lieux.</p>
 <p><strong>Reservations :</strong> Reservez table et espace VIP a l'avance. En haute saison (juin-septembre), la demande est tres elevee.</p>
 <p><strong>Jour de la semaine :</strong> Les vendredis et samedis offrent la meilleure ambiance a l'Outxide. Les jeudis sont plus tranquilles mais il y a aussi des sessions.</p>
 
 <p>Pour plus d'idees, consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide de la vie nocturne a Alcudia</a> et notre article sur les <a href="/blog/fiestas-eventos-verano-alcudia-2026">evenements et fetes de l'ete 2026</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Le tout sur l'Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Majorque. <a href="/">Visitez notre site pour plus d'informations.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Majorque. <a href="/">Toutes les infos sur notre site.</a></strong></p>`,
 
       it: `<p>State organizzando un addio al nubilato o al celibato e cercate una destinazione che combini ottima gastronomia, cocktail in terrazza e una notte di festa memorabile? <strong>Alcudia e Port d'Alcudia</strong> nel nord di Maiorca offrono tutto il necessario: locali di qualita', atmosfera incredibile e la comodita' di avere tutto a pochi passi.</p>
 
@@ -5314,10 +5125,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>I migliori piani di festa a Port d'Alcudia seguono una formula collaudata: <strong>cena di gruppo, cocktail e festa</strong>. I tre locali di <a href="/">Grupo Enjoy</a> sono uno accanto all'altro, quindi la logistica e' semplicissima.</p>
 
-<h3>Passo 1: Cena al Hiru Food &amp; Drinks</h3>
-<p>Ogni grande celebrazione inizia con un'ottima cena. <a href="/hiru">Hiru Food &amp; Drinks</a> e' il ristorante ideale per grandi gruppi che vogliono mangiare bene in un'atmosfera festiva. La terrazza ospita tavoli grandi e il personale e' esperto nella gestione di gruppi.</p>
-<p>Per le feste, la <strong>paella ai frutti di mare da condividere</strong> e' una delle opzioni piu' popolari: un piatto generoso servito al centro del tavolo. Si possono anche scegliere carni alla griglia da condividere o una selezione di tapas varie. Hiru e' aperto fino a tardi, quindi nessuna fretta.</p>
-<p>Consiglio: prenotate il tavolo in anticipo e indicate che siete un gruppo di festeggiamento. Scoprite di piu' sul menu nella nostra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guida completa di Hiru</a>.</p>
+<h3>Passo 1: Cena di gruppo al porto</h3>
+<p>Ogni buon addio al celibato o nubilato inizia con una grande cena. A Port d'Alcudia ci sono ristoranti abituati a tavolate grandi e atmosfera di festa: risi e paella da condividere, carni alla brace e menu da stuzzicare perche tutto il gruppo assaggi di tutto. La nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcudia</a> ti aiuta a scegliere.</p>
+<p>Consiglio: prenota in anticipo e specifica che siete un gruppo in festa, cosi il team preparera la disposizione perfetta.</p>
 
 <h3>Passo 2: Cocktail all'Enjoy Terrace</h3>
 <p>Dopo cena, la tappa naturale successiva e' l'<a href="/enjoy">Enjoy Terrace</a>. Questo cocktail lounge all'aperto e' il posto perfetto per rilassarsi con cocktail d'autore e shisha premium mentre la serata cresce di intensita'.</p>
@@ -5337,21 +5147,22 @@ export const blogPosts: BlogPost[] = [
 <p>L'<a href="/enjoy">Enjoy Terrace</a> e' molto piu' di un cocktail bar. Per i gruppi, il team di Enjoy puo' preparare giri speciali di cocktail, shot di benvenuto e creazioni personalizzate. La terrazza ospita comodamente gruppi di 10, 15 o 20 persone in un ambiente elegante.</p>
 <p>Se la festa e' in estate, arrivare al tramonto e' una mossa vincente: i colori su Port d'Alcudia sono lo sfondo perfetto per le foto di gruppo.</p>
 
-<h2>Cena di gruppo al Hiru</h2>
-<p>Uno dei grandi vantaggi di <a href="/hiru">Hiru Food &amp; Drinks</a> per le celebrazioni e' la capacita' di servire tavoli grandi senza compromettere la qualita'. La <strong>paella ai frutti di mare</strong> e' preparata con prodotti freschi del mercato locale e servita da condividere. Ci sono anche carni alla griglia stagionate e una selezione di antipasti.</p>
+<h2>Cena di gruppo: paella da condividere</h2>
+<p>Per gli addii al celibato, la <strong>paella di frutti di mare da condividere</strong> e un classico che strappa sempre applausi: una padella generosa servita al centro del tavolo. Diversi ristoranti del porto la preparano su ordinazione per i gruppi; chiedila al momento della prenotazione, insieme a carni alla brace da condividere o menu di tapas misti.</p>
 
 <h2>Consigli pratici</h2>
 <p><strong>Alloggio:</strong> Port d'Alcudia offre un'ampia scelta di hotel e appartamenti. Per addii al nubilato, gli appartamenti tipo villa con piscina sono i piu' popolari. La zona di Bellevue e Playa de Muro hanno buone opzioni.</p>
-<p><strong>Trasporto:</strong> <a href="/hiru">Hiru</a>, <a href="/enjoy">Enjoy</a> e <a href="/outxide">Outxide</a> sono nella stessa via, a pochi passi. Niente taxi necessari.</p>
+<p><strong>Trasporti:</strong> Il grande vantaggio di organizzare il tuo addio a Port d'Alcudia e che tutto e vicino: <a href="/enjoy">Enjoy</a> e <a href="/outxide">Outxide</a> condividono l'indirizzo di Av. Tucan 1 e i ristoranti del porto sono a pochi passi. Niente taxi ne auto tra i locali.</p>
 <p><strong>Prenotazioni:</strong> Prenotate tavolo ristorante e area VIP in anticipo. In alta stagione (giugno-settembre), la domanda e' molto alta.</p>
 <p><strong>Giorno della settimana:</strong> Venerdi' e sabato offrono la migliore atmosfera all'Outxide. Il giovedi' e' piu' tranquillo ma ci sono comunque serate.</p>
 
 <p>Per altre idee, consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida alla vita notturna di Alcudia</a> e il nostro articolo su <a href="/blog/fiestas-eventos-verano-alcudia-2026">eventi e feste dell'estate 2026</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru, Enjoy Terrace &amp; Outxide Club. Tutto in Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Maiorca. <a href="/">Visitate il nostro sito per maggiori informazioni.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Maiorca. <a href="/">Tutte le info sul nostro sito.</a></strong></p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/outxide/DSCF8103-9.jpg",
     tags: ["events", "nightlife", "alcudia", "mallorca", "enjoy", "outxide"],
     venue: "general",
@@ -5376,28 +5187,16 @@ export const blogPosts: BlogPost[] = [
     content: {
       es: `<p>Si estas buscando un restaurante romantico en Alcudia para sorprender a tu pareja, el norte de Mallorca tiene opciones que van mucho mas alla del tipico restaurante turistico. Una cena romantica en Alcudia puede ser una experiencia memorable si eliges bien el sitio, el momento y el plan. En esta guia te contamos donde cenar en pareja en Alcudia y como completar la velada perfecta.</p>
 
-<h2>Por que Hiru es perfecto para una cena romantica</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> se ha convertido en una de las mejores opciones para cenas romanticas en Port d'Alcudia, y no es casualidad. El restaurante combina tres elementos que hacen que una velada sea especial: <strong>cocina de alto nivel, ambiente cuidado y servicio atento sin ser invasivo</strong>.</p>
-<p>La terraza de Hiru es el escenario ideal para una cena romantica de verano. Mesas bien espaciadas que ofrecen intimidad, iluminacion calida que crea atmosfera, y una brisa suave del Mediterraneo como banda sonora. El interior tambien funciona para veladas mas intimas, con una estetica contemporanea y acogedora que invita a quedarse.</p>
-<p>Pero lo que realmente hace de Hiru un sitio especial para parejas es la calidad de su cocina. No es un restaurante donde simplemente comes bien: es un lugar donde cada plato esta pensado para disfrutarse, donde los sabores sorprenden y donde la experiencia gastronomica eleva toda la velada.</p>
-<p>Descubre toda la propuesta en nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guia completa de Hiru Food &amp; Drinks</a>.</p>
-
-<h2>Que pedir en una cena romantica en Hiru</h2>
-<p>La carta de <a href="/hiru">Hiru</a> esta disenada para compartir, lo que la hace perfecta para una cena en pareja donde ambos podeis probar de todo.</p>
-<h3>Para empezar</h3>
-<p>Comenzad con una seleccion de entrantes para compartir. Los carpaccios, las croquetas caseras y los platos de temporada son un buen punto de partida. Acompanad con una copa de vino de la carta, que incluye referencias locales e internacionales bien seleccionadas.</p>
-<h3>Platos principales</h3>
-<p>Las <strong>carnes maduradas dry-aged</strong> son una de las grandes especialidades de Hiru. Piezas seleccionadas que se maduran durante semanas para alcanzar un sabor y una textura excepcionales, cocinadas a la brasa con la precision que solo el fuego directo permite. Para quien prefiera mar a montana, el <strong>pescado fresco del Mediterraneo a la brasa</strong> es otra opcion sobresaliente. Y si quereis algo para compartir con un toque especial, la <strong>paella para dos</strong> es una experiencia en si misma: arroz con marisco fresco, caldo casero y el punto perfecto de socarrat.</p>
-<h3>Para terminar</h3>
-<p>Los postres de Hiru cambian segun temporada, pero siempre hay opciones para cerrar la cena con un buen sabor de boca. Y si preferis alargar la sobremesa, el cocktail bar del propio restaurante ofrece combinados de autor sin necesidad de moveros.</p>
+<h2>Una nota antes de empezar: adios, Hiru</h2>
+<p>Durante anos, <a href="/hiru">Hiru Food &amp; Drinks</a> fue nuestra recomendacion estrella para una cena romantica en Port d'Alcudia: terraza intima, carnes maduradas a la brasa y una paella para dos con socarrat perfecto. En agosto de 2026 cerro definitivamente sus puertas; le hemos dedicado una <a href="/blog/hiru-food-drinks-restaurante-alcudia">despedida y homenaje</a>. La buena noticia: Alcudia sigue teniendo mesas perfectas para una velada en pareja, y las encontraras justo aqui debajo.</p>
 
 <h2>Continua la noche: cocteles en Enjoy Terrace</h2>
-<p>Una cena romantica no tiene por que terminar con el postre. Si quereis alargar la velada, <a href="/enjoy">Enjoy Terrace</a> esta a pocos pasos de Hiru y ofrece el complemento perfecto: una terraza al aire libre con iluminacion ambiental, musica suave y una carta de cocteles de autor que incluye clasicos reinventados y creaciones exclusivas.</p>
+<p>Una cena romantica no tiene por que terminar con el postre. Si quereis alargar la velada, <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, junto al puerto) ofrece el complemento perfecto: una terraza al aire libre con iluminacion ambiental, musica suave y una carta de cocteles de autor que incluye clasicos reinventados y creaciones exclusivas.</p>
 <p>Sentaros en la terraza de Enjoy con un cocktail mientras la noche de Alcudia se despliega a vuestro alrededor es una de esas experiencias que convierten una buena cena en una velada inolvidable. La shisha premium tambien es una opcion para quienes quieran probar algo diferente en pareja.</p>
 <p>Mas detalles en nuestro <a href="/blog/cocteles-shisha-terraza-alcudia">articulo sobre cocteles y shisha en Enjoy Terrace</a>.</p>
 
-<h2>Otros restaurantes romanticos en Alcudia</h2>
-<p>Aunque <a href="/hiru">Hiru Food &amp; Drinks</a> es nuestra recomendacion principal, Alcudia tiene otras opciones para cenas romanticas:</p>
+<h2>Los mejores restaurantes romanticos de Alcudia</h2>
+<p>Estas son nuestras recomendaciones para una cena romantica en Alcudia:</p>
 <h3>El Patio de Alcudia</h3>
 <p>Restaurante con un precioso patio interior ajardinado en el casco historico. Cocina fusion con base mediterranea en un ambiente intimo y cuidado. Ideal si buscais algo dentro de la muralla medieval.</p>
 <h3>Sa Placa</h3>
@@ -5406,40 +5205,28 @@ export const blogPosts: BlogPost[] = [
 <p>Casa senorial del siglo XVII convertida en restaurante. Cocina de autor con producto local en un edificio historico lleno de encanto. Para una ocasion realmente especial.</p>
 
 <h2>Consejos para tu cena romantica en Alcudia</h2>
-<p><strong>Reserva con antelacion:</strong> Especialmente en temporada alta (junio-septiembre), los mejores restaurantes se llenan rapido. Reserva al menos con dos o tres dias de antelacion para asegurar una buena mesa. En Hiru puedes reservar a traves de su web o por telefono.</p>
-<p><strong>El mejor momento:</strong> Para una cena romantica perfecta, llega entre las 20:00 y las 20:30. Asi podreis disfrutar de las ultimas luces del atardecer durante los entrantes y ver como la noche se va instalando mientras cenais. La terraza de Hiru es especialmente bonita en ese momento.</p>
+<p><strong>Reserva con antelacion:</strong> Especialmente en temporada alta (junio-septiembre), los mejores restaurantes se llenan rapido. Reserva al menos con dos o tres dias de antelacion para asegurar una buena mesa.</p>
+<p><strong>El mejor momento:</strong> Para una cena romantica perfecta, llega entre las 20:00 y las 20:30. Asi podreis disfrutar de las ultimas luces del atardecer durante los entrantes y ver como la noche se va instalando mientras cenais.</p>
 <p><strong>Dress code:</strong> El ambiente en los restaurantes de Alcudia es smart-casual. No hace falta ir de etiqueta, pero una camisa o un vestido de verano elegante siempre suman puntos para la ocasion.</p>
 <p><strong>Despues de cenar:</strong> Si quereis seguir la noche, <a href="/enjoy">Enjoy Terrace</a> os espera con cocteles y musica. Y si os apetece una noche mas larga, <a href="/outxide">Outxide Club</a> esta justo al lado. Consultad nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia de vida nocturna en Alcudia</a> para planificar.</p>
-<p><strong>Ocasiones especiales:</strong> Si celebrais un aniversario, cumpleanos o pedida de mano, el equipo de Hiru puede ayudar a preparar detalles especiales si avisais con antelacion.</p>
+<p><strong>Ocasiones especiales:</strong> Si celebrais un aniversario, cumpleanos o pedida de mano, avisa al restaurante con antelacion: la mayoria puede preparar detalles especiales.</p>
 
 <p>Para mas ideas gastronomicas, no os perdais nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guia de los mejores restaurantes de Alcudia</a> y nuestro articulo sobre <a href="/blog/restaurante-brasa-parrilla-mallorca">restaurantes a la brasa en Mallorca</a>.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Mallorca. Abierto de 12:00 a 23:30 (viernes y sabado hasta la 1:00). Cierra los martes. <a href="/hiru">Reserva tu mesa aqui.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Port d'Alcudia, Mallorca. Cocteles al atardecer en <a href="/enjoy">Enjoy Terrace</a> y fiesta en <a href="/outxide">Outxide Club</a>. <a href="/">Toda la informacion en nuestra web.</a></strong></p>`,
 
       en: `<p>If you're looking for a romantic restaurant in Alcudia to surprise your partner, northern Mallorca has options that go well beyond the typical tourist restaurant. A romantic dinner in Alcudia can be a truly memorable experience if you choose the right place, the right moment and the right plan. In this guide we share where to dine as a couple in Alcudia and how to complete the perfect evening.</p>
 
-<h2>Why Hiru is perfect for a romantic dinner</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> has become one of the best options for romantic dinners in Port d'Alcudia, and it's no coincidence. The restaurant combines three elements that make an evening special: <strong>high-quality cuisine, carefully crafted atmosphere and attentive service without being intrusive</strong>.</p>
-<p>The Hiru terrace is the ideal setting for a summer romantic dinner. Well-spaced tables offering privacy, warm lighting that creates atmosphere, and a gentle Mediterranean breeze as background. The interior also works for more intimate evenings, with a contemporary and welcoming aesthetic that invites you to linger.</p>
-<p>But what truly makes Hiru special for couples is the quality of its cooking. This isn't a restaurant where you simply eat well: it's a place where every dish is designed to be savoured, where flavours surprise and where the gastronomic experience elevates the entire evening.</p>
-<p>Discover the full experience in our <a href="/blog/hiru-food-drinks-restaurante-alcudia">complete Hiru Food &amp; Drinks guide</a>.</p>
-
-<h2>What to order at a romantic dinner at Hiru</h2>
-<p>The <a href="/hiru">Hiru</a> menu is designed for sharing, making it perfect for a couple's dinner where you can both try everything.</p>
-<h3>To start</h3>
-<p>Begin with a selection of shared starters. Carpaccios, homemade croquettes and seasonal dishes are a great starting point. Pair them with a glass of wine from the carefully curated list, which includes both local and international references.</p>
-<h3>Main courses</h3>
-<p>The <strong>dry-aged meats</strong> are one of Hiru's signature specialities. Selected cuts aged for weeks to achieve exceptional flavour and texture, cooked over open flame with the precision that only direct fire allows. For those who prefer sea to land, the <strong>fresh Mediterranean fish cooked on the grill</strong> is another outstanding option. And if you want something to share with a special touch, the <strong>paella for two</strong> is an experience in itself: rice with fresh seafood, homemade stock and the perfect socarrat crust.</p>
-<h3>To finish</h3>
-<p>Hiru's desserts change with the seasons, but there are always options to end the dinner on a sweet note. And if you'd rather extend the after-dinner conversation, the restaurant's own cocktail bar offers signature mixed drinks without needing to move.</p>
+<h2>A note before we start: farewell, Hiru</h2>
+<p>For years, <a href="/hiru">Hiru Food &amp; Drinks</a> was our star recommendation for a romantic dinner in Port d'Alcudia: an intimate terrace, charcoal-grilled dry-aged meats and a paella for two with perfect socarrat. In August 2026 it closed its doors for good; we've dedicated a <a href="/blog/hiru-food-drinks-restaurante-alcudia">farewell tribute</a> to it. The good news: Alcudia still has perfect tables for a night out as a couple, and you'll find them right below.</p>
 
 <h2>Continue the night: cocktails at Enjoy Terrace</h2>
-<p>A romantic dinner doesn't have to end with dessert. If you want to extend the evening, <a href="/enjoy">Enjoy Terrace</a> is just a few steps from Hiru and offers the perfect complement: an open-air terrace with ambient lighting, soft music and a signature cocktail menu featuring reinvented classics and exclusive creations.</p>
+<p>A romantic dinner doesn't have to end with dessert. If you want to stretch the evening, <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, by the port) offers the perfect follow-up: an open-air terrace with ambient lighting, soft music and a signature cocktail list of reinvented classics and exclusive creations.</p>
 <p>Sitting on the Enjoy terrace with a cocktail while the Alcudia night unfolds around you is one of those experiences that turns a good dinner into an unforgettable evening. Premium shisha is also an option for couples who want to try something different.</p>
 <p>More details in our <a href="/blog/cocteles-shisha-terraza-alcudia">article on cocktails and shisha at Enjoy Terrace</a>.</p>
 
-<h2>Other romantic restaurants in Alcudia</h2>
-<p>Although <a href="/hiru">Hiru Food &amp; Drinks</a> is our top recommendation, Alcudia has other options for romantic dinners:</p>
+<h2>The best romantic restaurants in Alcudia</h2>
+<p>These are our recommendations for a romantic dinner in Alcudia:</p>
 <h3>El Patio de Alcudia</h3>
 <p>A restaurant with a beautiful garden courtyard in the historic centre. Fusion cuisine with a Mediterranean base in an intimate and refined setting. Ideal if you're looking for something within the medieval walls.</p>
 <h3>Sa Placa</h3>
@@ -5448,40 +5235,28 @@ export const blogPosts: BlogPost[] = [
 <p>A 17th-century manor house converted into a restaurant. Creative cuisine with local produce in a historic building full of charm. For a truly special occasion.</p>
 
 <h2>Tips for your romantic dinner in Alcudia</h2>
-<p><strong>Book in advance:</strong> Especially during high season (June to September), the best restaurants fill up quickly. Book at least two or three days ahead to secure a good table. You can reserve at Hiru through their website or by phone.</p>
-<p><strong>Best time:</strong> For a perfect romantic dinner, arrive between 20:00 and 20:30. This way you'll enjoy the last sunset light during starters and watch the night settle in as you dine. The Hiru terrace is particularly lovely at this time.</p>
+<p><strong>Book ahead:</strong> Especially in high season (June-September), the best restaurants fill up fast. Book at least two or three days in advance to secure a good table.</p>
+<p><strong>The best time:</strong> For a perfect romantic dinner, arrive between 20:00 and 20:30. That way you can enjoy the last light of sunset over the starters and watch the night settle in as you dine.</p>
 <p><strong>Dress code:</strong> The atmosphere in Alcudia's restaurants is smart-casual. No need for formal attire, but a nice shirt or an elegant summer dress always adds to the occasion.</p>
 <p><strong>After dinner:</strong> If you want to continue the evening, <a href="/enjoy">Enjoy Terrace</a> awaits with cocktails and music. And if you fancy a longer night, <a href="/outxide">Outxide Club</a> is right next door. Check our <a href="/blog/guia-vida-nocturna-alcudia">Alcudia nightlife guide</a> for planning.</p>
-<p><strong>Special occasions:</strong> If you're celebrating an anniversary, birthday or proposal, the Hiru team can help prepare special details if you let them know in advance.</p>
+<p><strong>Special occasions:</strong> If you're celebrating an anniversary, birthday or proposal, let the restaurant know in advance: most can prepare special touches.</p>
 
 <p>For more dining ideas, don't miss our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to the best restaurants in Alcudia</a> and our article on <a href="/blog/restaurante-brasa-parrilla-mallorca">grill restaurants in Mallorca</a>.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Mallorca. Open from 12:00 to 23:30 (Friday and Saturday until 1:00). Closed Tuesdays. <a href="/hiru">Reserve your table here.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Port d'Alcudia, Mallorca. Sunset cocktails at <a href="/enjoy">Enjoy Terrace</a> and the party at <a href="/outxide">Outxide Club</a>. <a href="/">All the information on our website.</a></strong></p>`,
 
       de: `<p>Wenn Sie ein romantisches Restaurant in Alcudia suchen, um Ihren Partner zu ueberraschen, bietet der Norden Mallorcas Optionen, die weit ueber das typische Touristenrestaurant hinausgehen. Ein romantisches Abendessen in Alcudia kann ein unvergessliches Erlebnis sein, wenn Sie den richtigen Ort, den richtigen Moment und den richtigen Plan waehlen. In diesem Guide verraten wir, wo Sie zu zweit in Alcudia essen koennen und wie Sie den perfekten Abend gestalten.</p>
 
-<h2>Warum Hiru perfekt fuer ein romantisches Abendessen ist</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> hat sich zu einer der besten Optionen fuer romantische Abendessen in Port d'Alcudia entwickelt, und das kommt nicht von ungefaehr. Das Restaurant vereint drei Elemente, die einen Abend besonders machen: <strong>hochwertige Kueche, sorgfaeltig gestaltete Atmosphaere und aufmerksamer Service ohne aufdringlich zu sein</strong>.</p>
-<p>Die Terrasse von Hiru ist die ideale Kulisse fuer ein romantisches Sommerabendessen. Gut platzierte Tische bieten Privatsphaere, warmes Licht schafft Atmosphaere, und eine sanfte Meeresbrise sorgt fuer die Hintergrundmelodie. Das Interieur funktioniert ebenfalls fuer intimere Abende, mit einer zeitgenoessischen und einladenden Aesthetik.</p>
-<p>Aber was Hiru wirklich besonders fuer Paare macht, ist die Qualitaet der Kueche. Dies ist kein Restaurant, in dem man einfach gut isst: Es ist ein Ort, an dem jedes Gericht dazu einlaedt, genossen zu werden, wo Aromen ueberraschen und wo das gastronomische Erlebnis den gesamten Abend bereichert.</p>
-<p>Entdecken Sie das volle Erlebnis in unserem <a href="/blog/hiru-food-drinks-restaurante-alcudia">kompletten Hiru Food &amp; Drinks Guide</a>.</p>
-
-<h2>Was bei einem romantischen Abendessen im Hiru bestellen</h2>
-<p>Die Speisekarte von <a href="/hiru">Hiru</a> ist zum Teilen konzipiert, perfekt fuer ein Dinner zu zweit.</p>
-<h3>Zum Einstieg</h3>
-<p>Beginnen Sie mit einer Auswahl an Vorspeisen zum Teilen. Carpaccios, hausgemachte Kroketten und saisonale Gerichte sind ein guter Ausgangspunkt. Begleitet von einem Glas Wein aus der sorgfaeltig kuratierten Weinkarte.</p>
-<h3>Hauptgerichte</h3>
-<p>Die <strong>dry-aged Fleischstuecke</strong> sind eine der grossen Spezialitaeten von Hiru. Ausgewaehlte Stuecke, die wochenlang gereift werden, um aussergewoehnlichen Geschmack und Textur zu erreichen, ueber offenem Feuer gegrillt. Fuer Fischliebhaber ist der <strong>frische Mittelmeerfisch vom Grill</strong> eine hervorragende Alternative. Und wenn Sie etwas Besonderes zum Teilen moechten, ist die <strong>Paella fuer zwei</strong> ein Erlebnis: Reis mit frischen Meeresfrueechten, hausgemachter Bruehe und perfektem Socarrat.</p>
-<h3>Zum Abschluss</h3>
-<p>Die Desserts wechseln saisonal, aber es gibt immer Optionen fuer einen suessen Abschluss. Und wenn Sie lieber das Gespraech verlaengern moechten, bietet die hauseigene Cocktailbar Signatur-Drinks ohne dass Sie sich bewegen muessen.</p>
+<h2>Eine Notiz vorab: Abschied von Hiru</h2>
+<p>Jahrelang war <a href="/hiru">Hiru Food &amp; Drinks</a> unsere Top-Empfehlung für ein romantisches Abendessen in Port d'Alcudia: intime Terrasse, Dry-Aged-Fleisch vom Grill und eine Paella für zwei mit perfektem Socarrat. Im August 2026 hat es endgültig geschlossen; wir haben ihm eine <a href="/blog/hiru-food-drinks-restaurante-alcudia">Abschieds-Hommage</a> gewidmet. Die gute Nachricht: Alcudia hat weiterhin perfekte Tische für einen Abend zu zweit — du findest sie direkt hier unten.</p>
 
 <h2>Die Nacht fortsetzen: Cocktails auf der Enjoy Terrace</h2>
-<p>Ein romantisches Abendessen muss nicht mit dem Dessert enden. Die <a href="/enjoy">Enjoy Terrace</a> ist nur wenige Schritte von Hiru entfernt und bietet die perfekte Ergaenzung: eine Open-Air-Terrasse mit stimmungsvoller Beleuchtung, sanfter Musik und einer Signatur-Cocktailkarte.</p>
+<p>Ein romantisches Abendessen muss nicht mit dem Dessert enden. Wer den Abend verlängern möchte: Das <a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, am Hafen) bietet die perfekte Fortsetzung — eine Terrasse unter freiem Himmel mit stimmungsvoller Beleuchtung, sanfter Musik und einer Signature-Cocktailkarte aus neu interpretierten Klassikern und exklusiven Kreationen.</p>
 <p>Auf der Enjoy-Terrasse mit einem Cocktail zu sitzen, waehrend die Nacht in Alcudia sich entfaltet, ist eines dieser Erlebnisse, die ein gutes Abendessen in einen unvergesslichen Abend verwandeln. Premium-Shisha ist ebenfalls eine Option fuer Paare.</p>
 <p>Mehr Details in unserem <a href="/blog/cocteles-shisha-terraza-alcudia">Artikel ueber Cocktails und Shisha auf der Enjoy Terrace</a>.</p>
 
-<h2>Weitere romantische Restaurants in Alcudia</h2>
-<p>Obwohl <a href="/hiru">Hiru Food &amp; Drinks</a> unsere Top-Empfehlung ist, hat Alcudia weitere Optionen:</p>
+<h2>Die besten romantischen Restaurants in Alcudia</h2>
+<p>Das sind unsere Empfehlungen für ein romantisches Abendessen in Alcudia:</p>
 <h3>El Patio de Alcudia</h3>
 <p>Restaurant mit einem wunderschoenen Garteninnenhof im historischen Zentrum. Fusionskueche auf mediterraner Basis in einem intimen Ambiente. Ideal innerhalb der mittelalterlichen Mauern.</p>
 <h3>Sa Placa</h3>
@@ -5491,39 +5266,27 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Tipps fuer Ihr romantisches Abendessen</h2>
 <p><strong>Im Voraus reservieren:</strong> Besonders in der Hochsaison (Juni-September) sind die besten Restaurants schnell voll. Reservieren Sie mindestens zwei bis drei Tage vorher.</p>
-<p><strong>Beste Zeit:</strong> Kommen Sie zwischen 20:00 und 20:30 Uhr, um das letzte Sonnenlicht bei den Vorspeisen zu geniessen. Die Hiru-Terrasse ist zu dieser Zeit besonders schoen.</p>
+<p><strong>Der beste Zeitpunkt:</strong> Für ein perfektes romantisches Abendessen komm zwischen 20:00 und 20:30 Uhr. So genießt ihr das letzte Abendlicht zu den Vorspeisen und seht zu, wie sich die Nacht über den Hafen legt.</p>
 <p><strong>Dresscode:</strong> Smart-Casual. Keine formelle Kleidung noetig, aber ein huebsches Hemd oder ein elegantes Sommerkleid runden den Anlass ab.</p>
 <p><strong>Nach dem Essen:</strong> <a href="/enjoy">Enjoy Terrace</a> erwartet Sie mit Cocktails und Musik. Und wenn Sie eine laengere Nacht moechten, ist der <a href="/outxide">Outxide Club</a> gleich nebenan. Schauen Sie in unseren <a href="/blog/guia-vida-nocturna-alcudia">Alcudia Nachtleben-Guide</a>.</p>
-<p><strong>Besondere Anlaesse:</strong> Bei Jahrestag, Geburtstag oder Heiratsantrag kann das Hiru-Team besondere Details vorbereiten, wenn Sie vorher Bescheid geben.</p>
+<p><strong>Besondere Anlässe:</strong> Wenn ihr einen Jahrestag, Geburtstag oder Heiratsantrag feiert, sag dem Restaurant vorher Bescheid: Die meisten bereiten gern besondere Details vor.</p>
 
 <p>Fuer weitere Ideen lesen Sie unseren <a href="/blog/mejores-restaurantes-alcudia-mallorca">Guide der besten Restaurants in Alcudia</a> und unseren Artikel ueber <a href="/blog/restaurante-brasa-parrilla-mallorca">Grill-Restaurants auf Mallorca</a>.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Mallorca. Geoeffnet von 12:00 bis 23:30 (Freitag und Samstag bis 1:00). Dienstags geschlossen. <a href="/hiru">Reservieren Sie Ihren Tisch hier.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Port d'Alcudia, Mallorca. Cocktails zum Sonnenuntergang im <a href="/enjoy">Enjoy Terrace</a> und Party im <a href="/outxide">Outxide Club</a>. <a href="/">Alle Informationen auf unserer Website.</a></strong></p>`,
 
       fr: `<p>Si vous cherchez un restaurant romantique a Alcudia pour surprendre votre partenaire, le nord de Majorque offre des options bien au-dela du restaurant touristique classique. Un diner romantique a Alcudia peut etre une experience vraiment memorable si vous choisissez le bon endroit, le bon moment et le bon plan. Dans ce guide, nous partageons ou diner en couple a Alcudia et comment completer la soiree parfaite.</p>
 
-<h2>Pourquoi Hiru est parfait pour un diner romantique</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> est devenu l'une des meilleures options pour les diners romantiques a Port d'Alcudia, et ce n'est pas un hasard. Le restaurant combine trois elements qui rendent une soiree speciale : <strong>une cuisine de haut niveau, une atmosphere soignee et un service attentif sans etre intrusif</strong>.</p>
-<p>La terrasse de Hiru est le cadre ideal pour un diner romantique d'ete. Des tables bien espacees offrant de l'intimite, un eclairage chaleureux qui cree l'ambiance, et une douce brise mediterraneenne en fond sonore. L'interieur fonctionne aussi pour des soirees plus intimes, avec une esthetique contemporaine et accueillante.</p>
-<p>Mais ce qui rend vraiment Hiru special pour les couples, c'est la qualite de sa cuisine. Ce n'est pas un restaurant ou l'on mange simplement bien : c'est un lieu ou chaque plat est concu pour etre savoure, ou les saveurs surprennent et ou l'experience gastronomique eleve toute la soiree.</p>
-<p>Decouvrez l'experience complete dans notre <a href="/blog/hiru-food-drinks-restaurante-alcudia">guide complet Hiru Food &amp; Drinks</a>.</p>
-
-<h2>Que commander lors d'un diner romantique au Hiru</h2>
-<p>La carte de <a href="/hiru">Hiru</a> est concue pour le partage, parfaite pour un diner en couple.</p>
-<h3>Pour commencer</h3>
-<p>Debutez avec une selection d'entrees a partager. Carpaccios, croquettes maison et plats de saison sont un excellent point de depart. Accompagnez d'un verre de vin de la carte soigneusement selectionnee.</p>
-<h3>Plats principaux</h3>
-<p>Les <strong>viandes maturees dry-aged</strong> sont l'une des grandes specialites de Hiru. Des pieces selectionnees, maturees pendant des semaines pour atteindre une saveur et une texture exceptionnelles, cuites au feu de braise. Pour ceux qui preferent la mer, le <strong>poisson frais de Mediterranee grille</strong> est une autre option remarquable. Et si vous voulez partager, la <strong>paella pour deux</strong> est une experience en soi : riz aux fruits de mer frais, bouillon maison et socarrat parfait.</p>
-<h3>Pour finir</h3>
-<p>Les desserts changent selon la saison, mais il y a toujours des options pour terminer sur une note sucree. Et si vous preferez prolonger l'apres-diner, le bar a cocktails du restaurant propose des creations signatures.</p>
+<h2>Une note avant de commencer : adieu, Hiru</h2>
+<p>Pendant des années, <a href="/hiru">Hiru Food &amp; Drinks</a> a été notre recommandation phare pour un dîner romantique à Port d'Alcudia : terrasse intime, viandes dry-aged à la braise et paella pour deux au socarrat parfait. En août 2026, il a définitivement fermé ses portes ; nous lui avons dédié un <a href="/blog/hiru-food-drinks-restaurante-alcudia">hommage d'adieu</a>. La bonne nouvelle : Alcudia a toujours des tables parfaites pour une soirée en amoureux, juste ci-dessous.</p>
 
 <h2>Prolonger la soiree : cocktails a l'Enjoy Terrace</h2>
-<p>Un diner romantique ne doit pas se terminer au dessert. L'<a href="/enjoy">Enjoy Terrace</a> est a quelques pas de Hiru et offre le complement parfait : une terrasse en plein air avec eclairage d'ambiance, musique douce et une carte de cocktails signatures.</p>
+<p>Un dîner romantique ne doit pas forcément se terminer avec le dessert. Pour prolonger la soirée, l'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, près du port) offre le complément parfait : une terrasse en plein air avec éclairage d'ambiance, musique douce et une carte de cocktails signature entre classiques réinventés et créations exclusives.</p>
 <p>S'asseoir sur la terrasse d'Enjoy avec un cocktail pendant que la nuit d'Alcudia se deploie autour de vous est une de ces experiences qui transforment un bon diner en soiree inoubliable. Le chicha premium est aussi une option pour les couples.</p>
 <p>Plus de details dans notre <a href="/blog/cocteles-shisha-terraza-alcudia">article sur les cocktails et chicha a l'Enjoy Terrace</a>.</p>
 
-<h2>Autres restaurants romantiques a Alcudia</h2>
-<p>Bien que <a href="/hiru">Hiru Food &amp; Drinks</a> soit notre recommandation principale, Alcudia a d'autres options :</p>
+<h2>Les meilleurs restaurants romantiques d'Alcudia</h2>
+<p>Voici nos recommandations pour un dîner romantique à Alcudia :</p>
 <h3>El Patio de Alcudia</h3>
 <p>Restaurant avec un beau patio jardine dans le centre historique. Cuisine fusion a base mediterraneenne dans un cadre intime et soigne. Ideal a l'interieur des remparts medievaux.</p>
 <h3>Sa Placa</h3>
@@ -5533,39 +5296,27 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Conseils pour votre diner romantique</h2>
 <p><strong>Reservez a l'avance :</strong> Surtout en haute saison (juin-septembre), les meilleurs restaurants se remplissent vite. Reservez au moins deux ou trois jours avant.</p>
-<p><strong>Meilleur moment :</strong> Arrivez entre 20h00 et 20h30 pour profiter des dernieres lueurs du coucher de soleil. La terrasse de Hiru est particulierement belle a ce moment.</p>
+<p><strong>Le meilleur moment :</strong> Pour un dîner romantique parfait, arrivez entre 20h00 et 20h30. Vous profiterez des dernières lueurs du coucher de soleil pendant les entrées et verrez la nuit s'installer pendant le dîner.</p>
 <p><strong>Dress code :</strong> Smart-casual. Pas besoin de tenue formelle, mais une belle chemise ou une robe d'ete elegante completent l'occasion.</p>
 <p><strong>Apres le diner :</strong> L'<a href="/enjoy">Enjoy Terrace</a> vous attend avec cocktails et musique. Et si vous voulez prolonger, l'<a href="/outxide">Outxide Club</a> est juste a cote. Consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide de la vie nocturne a Alcudia</a>.</p>
-<p><strong>Occasions speciales :</strong> Pour un anniversaire, un anniversaire de mariage ou une demande en mariage, l'equipe Hiru peut preparer des details speciaux si vous prevenez a l'avance.</p>
+<p><strong>Occasions spéciales :</strong> Si vous fêtez un anniversaire ou préparez une demande en mariage, prévenez le restaurant à l'avance : la plupart peuvent préparer des attentions spéciales.</p>
 
 <p>Pour plus d'idees, consultez notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des meilleurs restaurants d'Alcudia</a> et notre article sur les <a href="/blog/restaurante-brasa-parrilla-mallorca">restaurants grill a Majorque</a>.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Majorque. Ouvert de 12h00 a 23h30 (vendredi et samedi jusqu'a 1h00). Ferme le mardi. <a href="/hiru">Reservez votre table ici.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Port d'Alcudia, Majorque. Cocktails au coucher du soleil à l'<a href="/enjoy">Enjoy Terrace</a> et fête à l'<a href="/outxide">Outxide Club</a>. <a href="/">Toutes les informations sur notre site.</a></strong></p>`,
 
       it: `<p>Se cercate un ristorante romantico ad Alcudia per sorprendere il vostro partner, il nord di Maiorca offre opzioni che vanno ben oltre il tipico ristorante turistico. Una cena romantica ad Alcudia puo' essere un'esperienza davvero memorabile se scegliete il posto giusto, il momento giusto e il piano giusto. In questa guida vi raccontiamo dove cenare in coppia ad Alcudia e come completare la serata perfetta.</p>
 
-<h2>Perche' Hiru e' perfetto per una cena romantica</h2>
-<p><a href="/hiru">Hiru Food &amp; Drinks</a> e' diventato una delle migliori opzioni per cene romantiche a Port d'Alcudia, e non e' un caso. Il ristorante unisce tre elementi che rendono una serata speciale: <strong>cucina di alto livello, atmosfera curata e servizio attento senza essere invadente</strong>.</p>
-<p>La terrazza di Hiru e' lo scenario ideale per una cena romantica estiva. Tavoli ben distanziati che offrono privacy, illuminazione calda che crea atmosfera, e una leggera brezza mediterranea come colonna sonora. L'interno funziona anche per serate piu' intime, con un'estetica contemporanea e accogliente.</p>
-<p>Ma cio' che rende davvero Hiru speciale per le coppie e' la qualita' della cucina. Non e' un ristorante dove si mangia semplicemente bene: e' un luogo dove ogni piatto e' pensato per essere gustato, dove i sapori sorprendono e dove l'esperienza gastronomica eleva l'intera serata.</p>
-<p>Scoprite l'esperienza completa nella nostra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guida completa di Hiru Food &amp; Drinks</a>.</p>
-
-<h2>Cosa ordinare per una cena romantica al Hiru</h2>
-<p>Il menu di <a href="/hiru">Hiru</a> e' pensato per la condivisione, perfetto per una cena di coppia.</p>
-<h3>Per iniziare</h3>
-<p>Cominciate con una selezione di antipasti da condividere. Carpacci, crocchette fatte in casa e piatti stagionali sono un ottimo inizio. Accompagnate con un calice di vino dalla carta accuratamente selezionata.</p>
-<h3>Piatti principali</h3>
-<p>Le <strong>carni stagionate dry-aged</strong> sono una delle grandi specialita' di Hiru. Tagli selezionati, stagionati per settimane per raggiungere un sapore e una consistenza eccezionali, cotti alla brace con la precisione che solo il fuoco diretto permette. Per chi preferisce il mare, il <strong>pesce fresco del Mediterraneo alla griglia</strong> e' un'altra opzione eccellente. E se volete qualcosa di speciale da condividere, la <strong>paella per due</strong> e' un'esperienza in se': riso con frutti di mare freschi, brodo fatto in casa e socarrat perfetto.</p>
-<h3>Per finire</h3>
-<p>I dessert cambiano stagionalmente, ma ci sono sempre opzioni per chiudere con dolcezza. E se preferite prolungare il dopocena, il cocktail bar del ristorante offre drink d'autore senza dovervi spostare.</p>
+<h2>Una nota prima di iniziare: addio, Hiru</h2>
+<p>Per anni <a href="/hiru">Hiru Food &amp; Drinks</a> è stato il nostro consiglio di punta per una cena romantica a Port d'Alcudia: terrazza intima, carni dry-aged alla brace e una paella per due con socarrat perfetto. Nell'agosto 2026 ha chiuso definitivamente; gli abbiamo dedicato un <a href="/blog/hiru-food-drinks-restaurante-alcudia">omaggio d'addio</a>. La buona notizia: Alcudia ha ancora tavoli perfetti per una serata in coppia, e li trovi qui sotto.</p>
 
 <h2>Continuare la serata: cocktail all'Enjoy Terrace</h2>
-<p>Una cena romantica non deve finire con il dessert. L'<a href="/enjoy">Enjoy Terrace</a> e' a pochi passi da Hiru e offre il complemento perfetto: una terrazza all'aperto con illuminazione d'atmosfera, musica soft e una carta di cocktail d'autore.</p>
+<p>Una cena romantica non deve finire con il dessert. Se volete allungare la serata, l'<a href="/enjoy">Enjoy Terrace</a> (Av. Tucan 1, vicino al porto) offre il complemento perfetto: una terrazza all'aperto con luci d'atmosfera, musica soft e una carta di cocktail d'autore tra classici reinventati e creazioni esclusive.</p>
 <p>Sedersi sulla terrazza di Enjoy con un cocktail mentre la notte di Alcudia si dispiega intorno a voi e' una di quelle esperienze che trasformano una buona cena in una serata indimenticabile. Lo shisha premium e' anche un'opzione per le coppie.</p>
 <p>Piu' dettagli nel nostro <a href="/blog/cocteles-shisha-terraza-alcudia">articolo sui cocktail e shisha all'Enjoy Terrace</a>.</p>
 
-<h2>Altri ristoranti romantici ad Alcudia</h2>
-<p>Anche se <a href="/hiru">Hiru Food &amp; Drinks</a> e' la nostra raccomandazione principale, Alcudia ha altre opzioni:</p>
+<h2>I migliori ristoranti romantici di Alcudia</h2>
+<p>Ecco i nostri consigli per una cena romantica ad Alcudia:</p>
 <h3>El Patio de Alcudia</h3>
 <p>Ristorante con un bel cortile giardino nel centro storico. Cucina fusion su base mediterranea in un ambiente intimo e curato. Ideale all'interno delle mura medievali.</p>
 <h3>Sa Placa</h3>
@@ -5575,17 +5326,18 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Consigli per la vostra cena romantica</h2>
 <p><strong>Prenotate in anticipo:</strong> Soprattutto in alta stagione (giugno-settembre), i migliori ristoranti si riempiono velocemente. Prenotate almeno due o tre giorni prima.</p>
-<p><strong>Momento migliore:</strong> Arrivate tra le 20:00 e le 20:30 per godervi le ultime luci del tramonto. La terrazza di Hiru e' particolarmente bella in quel momento.</p>
+<p><strong>Il momento migliore:</strong> Per una cena romantica perfetta, arriva tra le 20:00 e le 20:30. Cosi godrete delle ultime luci del tramonto durante gli antipasti e vedrete la notte arrivare mentre cenate.</p>
 <p><strong>Dress code:</strong> Smart-casual. Non serve abbigliamento formale, ma una bella camicia o un vestito estivo elegante completano l'occasione.</p>
 <p><strong>Dopo cena:</strong> L'<a href="/enjoy">Enjoy Terrace</a> vi aspetta con cocktail e musica. E se volete una notte piu' lunga, l'<a href="/outxide">Outxide Club</a> e' proprio accanto. Consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida alla vita notturna di Alcudia</a>.</p>
-<p><strong>Occasioni speciali:</strong> Se festeggiate un anniversario, compleanno o proposta di matrimonio, il team di Hiru puo' preparare dettagli speciali se avvisate in anticipo.</p>
+<p><strong>Occasioni speciali:</strong> Se festeggiate un anniversario, un compleanno o una proposta, avvisa il ristorante in anticipo: la maggior parte puo preparare dettagli speciali.</p>
 
 <p>Per altre idee gastronomiche, consultate la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai migliori ristoranti di Alcudia</a> e il nostro articolo sui <a href="/blog/restaurante-brasa-parrilla-mallorca">ristoranti alla griglia a Maiorca</a>.</p>
 
-<p><strong>Hiru Food &amp; Drinks — Ctra. d'Arta 40, Port d'Alcudia, Maiorca. Aperto dalle 12:00 alle 23:30 (venerdi' e sabato fino all'1:00). Chiuso il martedi'. <a href="/hiru">Prenotate il vostro tavolo qui.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Port d'Alcudia, Maiorca. Cocktail al tramonto all'<a href="/enjoy">Enjoy Terrace</a> e festa all'<a href="/outxide">Outxide Club</a>. <a href="/">Tutte le informazioni sul nostro sito.</a></strong></p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
     tags: ["food", "restaurants", "hiru", "alcudia", "mallorca"],
     venue: "hiru",
@@ -5612,11 +5364,9 @@ export const blogPosts: BlogPost[] = [
 
 <p>En esta guia te explicamos paso a paso como montar la noche perfecta en Port d'Alcudia, con variaciones para todos los gustos.</p>
 
-<h2>Paso 1: Cena en Hiru Food &amp; Drinks</h2>
-<p>La mejor noche siempre empieza con una buena cena, y <a href="/hiru">Hiru Food &amp; Drinks</a> es el punto de partida ideal. Este restaurante se ha ganado la reputacion de ser el mejor de Port d'Alcudia por una razon: su cocina a la brasa con producto de primera, su terraza con ambiente, y un horario que se adapta perfectamente a los planes nocturnos.</p>
-<p>Hiru abre de 12:00 a 23:30 entre semana y hasta la 1:00 los viernes y sabados. Eso significa que puedes cenar tranquilamente a las 21:00 o 21:30 sin sentir que te echan del sitio. La carta ofrece carnes maduradas dry-aged cocinadas a la brasa, pescado fresco del Mediterraneo a la parrilla, arroces y paellas elaborados con caldo casero y marisco de la lonja, y una seleccion de entrantes y tapas que funcionan perfectamente para compartir.</p>
-<p>El cocktail bar de Hiru ya empieza a marcar el tono de la noche: puedes acompanar la cena con un buen vino de su carta o arrancar con un combinado de autor. Los viernes y sabados, el ambiente en Hiru se nota especialmente animado — es donde empieza todo.</p>
-<p>Lee mas sobre la experiencia gastronomica en nuestra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guia completa de Hiru</a> y en nuestro <a href="/blog/mejores-restaurantes-alcudia-mallorca">ranking de mejores restaurantes de Alcudia</a>.</p>
+<h2>Paso 1: Cena en el puerto</h2>
+<p>La mejor noche siempre empieza con una buena cena, y Port d'Alcudia lo pone facil: arroces y paellas con marisco de la lonja, carnes a la brasa, pescado fresco y cocina internacional, muchos locales con terraza y horarios amplios en verano. Cena tranquilamente a las 21:00 o 21:30 y llegaras a la siguiente parada sin prisas.</p>
+<p>Encuentra tu mesa en nuestro <a href="/blog/mejores-restaurantes-alcudia-mallorca">ranking de mejores restaurantes de Alcudia</a> y, si se os hace tarde, en la <a href="/blog/donde-cenar-tarde-port-alcudia">guia para cenar tarde en Port d'Alcudia</a>. Reserva con antelacion en temporada alta.</p>
 
 <h2>Paso 2: Cocteles en Enjoy Terrace</h2>
 <p>Despues de cenar, el siguiente paso es cruzar a <a href="/enjoy">Enjoy Terrace</a>, el cocktail lounge y shisha bar que funciona como el puente perfecto entre la cena y la fiesta. Enjoy esta abierto todos los dias de 17:00 a 05:30, lo que significa que puedes llegar a cualquier hora y siempre encontraras ambiente.</p>
@@ -5636,32 +5386,30 @@ export const blogPosts: BlogPost[] = [
 <h3>Plan casual: Enjoy + Outxide</h3>
 <p>Si prefieres cenar por tu cuenta o en tu hotel y salir directamente a tomar cocteles, puedes empezar la noche directamente en <a href="/enjoy">Enjoy Terrace</a>. Un par de cocteles, algo de shisha, y cuando el ambiente suba lo suficiente, cruzas al <a href="/outxide">Outxide Club</a>. Es el plan mas ligero y funciona perfectamente para noches entre semana o cuando no quieres complicarte.</p>
 
-<h3>Plan foodie: Hiru + Enjoy</h3>
-<p>Si la gastronomia es lo tuyo y prefieres una noche mas tranquila sin discoteca, la combinacion de cena en <a href="/hiru">Hiru</a> seguida de cocteles en <a href="/enjoy">Enjoy</a> es una velada completa. Puedes alargar la sobremesa en el cocktail bar de Hiru y luego pasarte a Enjoy para cambiar de ambiente. La terraza de Enjoy esta abierta hasta las 05:30, asi que no hay prisa.</p>
+<h3>Plan foodie: cena + Enjoy</h3>
+<p>Si la gastronomia es lo tuyo y prefieres una noche mas tranquila sin discoteca, la combinacion de una buena cena en el puerto seguida de cocteles en <a href="/enjoy">Enjoy</a> es una velada completa. La terraza de Enjoy esta abierta hasta las 05:30, asi que no hay prisa.</p>
 
-<h3>Plan experiencia completa: Hiru + Enjoy + Outxide</h3>
-<p>Este es el plan estrella. Cena en <a href="/hiru">Hiru</a> a las 21:00, cocteles en <a href="/enjoy">Enjoy</a> a partir de las 23:00, y fiesta en <a href="/outxide">Outxide</a> desde la 1:00. Es la formula que siguen los que conocen la zona y quieren exprimir cada momento de la noche. Todo sin coger un coche.</p>
+<h3>Plan experiencia completa: cena + Enjoy + Outxide</h3>
+<p>Este es el plan estrella. Cena en el puerto a las 21:00, cocteles en <a href="/enjoy">Enjoy</a> a partir de las 23:00, y fiesta en <a href="/outxide">Outxide</a> desde la 1:00. Es la formula que siguen los que conocen la zona y quieren exprimir cada momento de la noche. Todo sin coger un coche.</p>
 
 <h2>Lo que necesitas saber</h2>
-<p><strong>Horarios:</strong> Hiru abre de 12:00 a 23:30 (viernes y sabado hasta la 1:00, cierra martes). Enjoy Terrace de 17:00 a 05:30 todos los dias. Outxide Club abre jueves, viernes y sabado por la noche (consulta horarios exactos en su web).</p>
+<p><strong>Horarios:</strong> Enjoy Terrace abre de 17:00 a 05:30 todos los dias. Outxide Club abre jueves, viernes y sabado por la noche (consulta horarios exactos en su web). Los restaurantes del puerto suelen servir hasta las 23:00-23:30 en verano.</p>
 <p><strong>Ubicacion:</strong> Los tres locales estan en la misma zona de Port d'Alcudia, en Av. Tucan y Ctra. d'Arta. Puedes ir andando de uno a otro en menos de dos minutos. No necesitas coche ni taxi.</p>
-<p><strong>Edad:</strong> Outxide Club tiene un requisito de edad de <strong>18+</strong>. Asegurate de llevar DNI o pasaporte. Hiru y Enjoy no tienen restriccion de edad para cenar y tomar cocteles, aunque el servicio de alcohol es solo para mayores de edad.</p>
+<p><strong>Edad:</strong> Outxide Club tiene un requisito de edad de <strong>18+</strong>. Asegurate de llevar DNI o pasaporte. En Enjoy no hay restriccion de edad para tomar algo, aunque el servicio de alcohol es solo para mayores de edad.</p>
 <p><strong>Entradas de Outxide:</strong> Compra tus entradas online con antelacion para evitar colas y a menudo conseguir mejor precio. Disponible en la web de <a href="/outxide">Outxide Club</a>.</p>
-<p><strong>Reservas:</strong> Recomendamos reservar mesa en Hiru, especialmente los viernes y sabados en temporada alta. Para mesas VIP en Outxide, contacta directamente por la web.</p>
+<p><strong>Reservas:</strong> Recomendamos reservar mesa para cenar, especialmente los viernes y sabados en temporada alta. Para mesas VIP en Outxide, contacta directamente por la web.</p>
 
 <p>Para completar tu planificacion, no te pierdas nuestra <a href="/blog/guia-vida-nocturna-alcudia">guia completa de vida nocturna en Alcudia</a> y el articulo sobre <a href="/blog/que-hacer-alcudia-mallorca">los mejores planes en Alcudia</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Toda la informacion en nuestra web.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Mallorca. <a href="/">Toda la informacion en nuestra web.</a></strong></p>`,
 
       en: `<p>Port d'Alcudia has the best nightlife in northern Mallorca, and that's not just opinion — it's a fact. While the south of the island concentrates the mega-clubs, the north offers something different: a more complete night-out experience, more personal and with a quality that surprises first-time visitors. And the best part is that <strong>the perfect plan is concentrated in one area</strong>: Av. Tucan and Ctra. d'Arta, where the three venues by <a href="/">Grupo Enjoy</a> let you go from dinner to dancing without needing a taxi.</p>
 
 <p>In this guide we walk you through step by step how to put together the perfect night in Port d'Alcudia, with variations for every taste.</p>
 
-<h2>Step 1: Dinner at Hiru Food &amp; Drinks</h2>
-<p>The best night always starts with a great dinner, and <a href="/hiru">Hiru Food &amp; Drinks</a> is the ideal starting point. This restaurant has earned its reputation as the best in Port d'Alcudia for a reason: its open-flame cuisine with premium ingredients, its terrace with atmosphere, and opening hours that fit perfectly into an evening plan.</p>
-<p>Hiru is open from 12:00 to 23:30 on weekdays and until 1:00 on Fridays and Saturdays. That means you can dine comfortably at 21:00 or 21:30 without feeling rushed. The menu offers dry-aged meats cooked over open flame, fresh Mediterranean fish from the grill, rice dishes and paellas made with homemade stock and market-fresh seafood, and a selection of starters and tapas perfect for sharing.</p>
-<p>Hiru's cocktail bar already sets the tone for the night: pair your dinner with a wine from the list or kick off with a signature mixed drink. On Fridays and Saturdays, the atmosphere at Hiru is especially lively — it's where it all begins.</p>
-<p>Read more about the dining experience in our <a href="/blog/hiru-food-drinks-restaurante-alcudia">complete Hiru guide</a> and our <a href="/blog/mejores-restaurantes-alcudia-mallorca">best restaurants in Alcudia ranking</a>.</p>
+<h2>Step 1: Dinner by the port</h2>
+<p>The best night always starts with a good dinner, and Port d'Alcudia makes it easy: rice dishes and paellas with market seafood, charcoal-grilled meats, fresh fish and international cooking, many venues with terraces and long summer hours. Have a relaxed dinner at 21:00 or 21:30 and you'll reach the next stop without rushing.</p>
+<p>Find your table in our <a href="/blog/mejores-restaurantes-alcudia-mallorca">ranking of the best restaurants in Alcudia</a> and, if it gets late, in our <a href="/blog/donde-cenar-tarde-port-alcudia">guide to late dinners in Port d'Alcudia</a>. Book ahead in high season.</p>
 
 <h2>Step 2: Cocktails at Enjoy Terrace</h2>
 <p>After dinner, the next step is walking over to <a href="/enjoy">Enjoy Terrace</a>, the cocktail lounge and shisha bar that works as the perfect bridge between dinner and clubbing. Enjoy is open every day from 17:00 to 05:30, meaning you can arrive at any time and always find atmosphere.</p>
@@ -5681,32 +5429,30 @@ export const blogPosts: BlogPost[] = [
 <h3>Casual plan: Enjoy + Outxide</h3>
 <p>If you'd rather dine at your hotel and head straight out for drinks, start the night at <a href="/enjoy">Enjoy Terrace</a>. A couple of cocktails, some shisha, and when the atmosphere peaks, cross over to <a href="/outxide">Outxide Club</a>. It's the lightest plan and works perfectly for midweek nights or when you want to keep things simple.</p>
 
-<h3>Foodie plan: Hiru + Enjoy</h3>
-<p>If gastronomy is your thing and you prefer a more relaxed night without clubbing, the combination of dinner at <a href="/hiru">Hiru</a> followed by cocktails at <a href="/enjoy">Enjoy</a> is a complete evening. You can linger over after-dinner drinks at Hiru's cocktail bar and then stroll to Enjoy for a change of scene. The terrace is open until 05:30, so there's no rush.</p>
+<h3>Foodie plan: dinner + Enjoy</h3>
+<p>If food is your thing and you prefer a quieter night without clubbing, a good dinner by the port followed by cocktails at <a href="/enjoy">Enjoy</a> makes a complete evening. The Enjoy terrace is open until 05:30, so there's no rush.</p>
 
-<h3>Full experience plan: Hiru + Enjoy + Outxide</h3>
-<p>This is the flagship plan. Dinner at <a href="/hiru">Hiru</a> at 21:00, cocktails at <a href="/enjoy">Enjoy</a> from 23:00, and party at <a href="/outxide">Outxide</a> from 1:00. It's the formula followed by those who know the area and want to make the most of every moment. All on foot.</p>
+<h3>Full experience plan: dinner + Enjoy + Outxide</h3>
+<p>This is the star plan. Dinner by the port at 21:00, cocktails at <a href="/enjoy">Enjoy</a> from 23:00, and the party at <a href="/outxide">Outxide</a> from 1:00. It's the formula followed by those who know the area and want to squeeze every moment out of the night. All without getting in a car.</p>
 
 <h2>What you need to know</h2>
-<p><strong>Opening hours:</strong> Hiru opens 12:00 to 23:30 (Friday and Saturday until 1:00, closed Tuesdays). Enjoy Terrace 17:00 to 05:30 every day. Outxide Club opens Thursday, Friday and Saturday nights (check exact times on their website).</p>
+<p><strong>Hours:</strong> Enjoy Terrace opens daily from 17:00 to 05:30. Outxide Club opens Thursday, Friday and Saturday nights (check exact times on its website). Restaurants by the port usually serve until 23:00-23:30 in summer.</p>
 <p><strong>Location:</strong> All three venues are in the same area of Port d'Alcudia, on Av. Tucan and Ctra. d'Arta. You can walk between them in under two minutes. No car or taxi needed.</p>
-<p><strong>Age requirement:</strong> Outxide Club has an <strong>18+</strong> age policy. Make sure you carry ID or passport. Hiru and Enjoy have no age restriction for dining and cocktails, though alcohol service is for legal adults only.</p>
+<p><strong>Age:</strong> Outxide Club has an <strong>18+</strong> age requirement. Make sure you bring ID or a passport. Enjoy has no age restriction for drinks and shisha, although alcohol is served to adults only.</p>
 <p><strong>Outxide tickets:</strong> Buy your tickets online in advance to skip queues and often get a better price. Available on the <a href="/outxide">Outxide Club</a> website.</p>
-<p><strong>Reservations:</strong> We recommend booking a table at Hiru, especially on Fridays and Saturdays during high season. For VIP tables at Outxide, contact directly through the website.</p>
+<p><strong>Reservations:</strong> We recommend booking a table for dinner, especially on Fridays and Saturdays in high season. For VIP tables at Outxide, get in touch directly through the website.</p>
 
 <p>To complete your planning, don't miss our <a href="/blog/guia-vida-nocturna-alcudia">complete Alcudia nightlife guide</a> and the article on <a href="/blog/que-hacer-alcudia-mallorca">the best plans in Alcudia</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">All information on our website.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Mallorca. <a href="/">All the information on our website.</a></strong></p>`,
 
       de: `<p>Port d'Alcudia hat das beste Nachtleben im Norden Mallorcas, und das ist keine blosse Meinung — es ist eine Tatsache. Waehrend der Sueden der Insel die Mega-Clubs konzentriert, bietet der Norden etwas anderes: ein vollstaendigeres Ausgeherlebnis, persoenlicher und mit einer Qualitaet, die Erstbesucher ueberrascht. Und das Beste ist, dass <strong>der perfekte Plan in einem einzigen Bereich konzentriert ist</strong>: Av. Tucan und Ctra. d'Arta, wo die drei Locations von <a href="/">Grupo Enjoy</a> es ermoeglichen, vom Abendessen zur Party zu wechseln, ohne ein Taxi zu brauchen.</p>
 
 <p>In diesem Guide zeigen wir Ihnen Schritt fuer Schritt, wie Sie den perfekten Abend in Port d'Alcudia zusammenstellen, mit Variationen fuer jeden Geschmack.</p>
 
-<h2>Schritt 1: Abendessen im Hiru Food &amp; Drinks</h2>
-<p>Der beste Abend beginnt immer mit einem grossartigen Essen, und <a href="/hiru">Hiru Food &amp; Drinks</a> ist der ideale Startpunkt. Dieses Restaurant hat sich seinen Ruf als bestes in Port d'Alcudia verdient: Offene-Flamme-Kueche mit Premium-Zutaten, eine Terrasse mit Atmosphaere und Oeffnungszeiten, die perfekt in einen Abendplan passen.</p>
-<p>Hiru oeffnet von 12:00 bis 23:30 Uhr unter der Woche und bis 1:00 Uhr an Freitagen und Samstagen. Die Karte bietet dry-aged Fleisch vom Grill, frischen Mittelmeerfisch, Reisgerichte und Paellas mit hausgemachter Bruehe sowie eine Auswahl an Vorspeisen und Tapas zum Teilen.</p>
-<p>Die Cocktailbar von Hiru setzt bereits den Ton fuer den Abend: Begleiten Sie Ihr Essen mit einem Wein von der Karte oder starten Sie mit einem Signatur-Drink. An Freitagen und Samstagen ist die Stimmung besonders lebendig.</p>
-<p>Mehr ueber das kulinarische Erlebnis in unserem <a href="/blog/hiru-food-drinks-restaurante-alcudia">kompletten Hiru-Guide</a> und unserem <a href="/blog/mejores-restaurantes-alcudia-mallorca">Ranking der besten Restaurants in Alcudia</a>.</p>
+<h2>Schritt 1: Abendessen am Hafen</h2>
+<p>Die beste Nacht beginnt immer mit einem guten Abendessen, und Port d'Alcudia macht es einfach: Reisgerichte und Paellas mit Meeresfrüchten vom Markt, Fleisch vom Grill, frischer Fisch und internationale Küche, viele Lokale mit Terrasse und langen Öffnungszeiten im Sommer. Iss entspannt um 21:00 oder 21:30 Uhr, und du erreichst die nächste Station ohne Eile.</p>
+<p>Finde deinen Tisch in unserem <a href="/blog/mejores-restaurantes-alcudia-mallorca">Ranking der besten Restaurants in Alcudia</a> und, falls es spät wird, im <a href="/blog/donde-cenar-tarde-port-alcudia">Guide zum späten Abendessen in Port d'Alcudia</a>. In der Hochsaison rechtzeitig reservieren.</p>
 
 <h2>Schritt 2: Cocktails auf der Enjoy Terrace</h2>
 <p>Nach dem Essen ist der naechste Schritt ein Spaziergang zur <a href="/enjoy">Enjoy Terrace</a>, der Cocktail-Lounge und Shisha-Bar, die als perfekte Bruecke zwischen Abendessen und Club funktioniert. Enjoy hat taeglich von 17:00 bis 05:30 Uhr geoeffnet, sodass Sie jederzeit kommen koennen und immer Atmosphaere finden.</p>
@@ -5725,32 +5471,30 @@ export const blogPosts: BlogPost[] = [
 <h3>Casual-Plan: Enjoy + Outxide</h3>
 <p>Wenn Sie lieber im Hotel essen und direkt zum Trinken ausgehen moechten, starten Sie den Abend auf der <a href="/enjoy">Enjoy Terrace</a>. Ein paar Cocktails, etwas Shisha, und wenn die Stimmung stimmt, wechseln Sie zum <a href="/outxide">Outxide Club</a>. Der leichteste Plan, perfekt fuer Wochentage.</p>
 
-<h3>Foodie-Plan: Hiru + Enjoy</h3>
-<p>Wenn Gastronomie Ihr Ding ist und Sie einen entspannten Abend ohne Club bevorzugen, ist die Kombination aus Abendessen im <a href="/hiru">Hiru</a> und Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> ein vollstaendiger Abend. Die Terrasse hat bis 05:30 Uhr geoeffnet.</p>
+<h3>Foodie-Plan: Abendessen + Enjoy</h3>
+<p>Wenn Gastronomie dein Ding ist und du eine ruhigere Nacht ohne Disco bevorzugst, ist ein gutes Abendessen am Hafen gefolgt von Cocktails im <a href="/enjoy">Enjoy</a> ein kompletter Abend. Die Terrasse des Enjoy ist bis 05:30 Uhr geöffnet — keine Eile.</p>
 
-<h3>Volle-Erfahrung-Plan: Hiru + Enjoy + Outxide</h3>
-<p>Der Flaggschiff-Plan. Abendessen im <a href="/hiru">Hiru</a> um 21:00, Cocktails auf der <a href="/enjoy">Enjoy Terrace</a> ab 23:00, Party im <a href="/outxide">Outxide</a> ab 1:00. Alles zu Fuss.</p>
+<h3>Komplett-Plan: Abendessen + Enjoy + Outxide</h3>
+<p>Das ist der Star-Plan. Abendessen am Hafen um 21:00 Uhr, Cocktails im <a href="/enjoy">Enjoy</a> ab 23:00 Uhr und Party im <a href="/outxide">Outxide</a> ab 1:00 Uhr. Die Formel derer, die die Gegend kennen und jeden Moment der Nacht auskosten wollen. Alles ohne Auto.</p>
 
 <h2>Was Sie wissen muessen</h2>
-<p><strong>Oeffnungszeiten:</strong> Hiru: 12:00-23:30 (Fr/Sa bis 1:00, Di geschlossen). Enjoy Terrace: 17:00-05:30 taeglich. Outxide Club: Do/Fr/Sa abends (genaue Zeiten auf der Website).</p>
+<p><strong>Öffnungszeiten:</strong> Enjoy Terrace täglich von 17:00 bis 05:30 Uhr. Outxide Club öffnet Donnerstag-, Freitag- und Samstagnacht (genaue Zeiten auf der Website). Die Restaurants am Hafen servieren im Sommer meist bis 23:00-23:30 Uhr.</p>
 <p><strong>Lage:</strong> Alle drei Locations liegen im selben Bereich von Port d'Alcudia, auf der Av. Tucan und Ctra. d'Arta. Unter zwei Minuten zu Fuss zwischen allen. Kein Auto oder Taxi noetig.</p>
-<p><strong>Altersanforderung:</strong> Outxide Club hat eine <strong>18+</strong> Altersrichtlinie. Personalausweis oder Reisepass mitbringen. Hiru und Enjoy haben keine Altersbeschraenkung zum Essen und Cocktailtrinken, Alkoholausschank nur fuer Volljaehrige.</p>
+<p><strong>Alter:</strong> Der Outxide Club hat eine Altersgrenze von <strong>18+</strong>. Denk an Ausweis oder Reisepass. Im Enjoy gibt es keine Altersbeschränkung, Alkohol wird jedoch nur an Volljährige ausgeschenkt.</p>
 <p><strong>Outxide-Tickets:</strong> Online im Voraus kaufen, um Warteschlangen zu vermeiden und oft einen besseren Preis zu bekommen. Verfuegbar auf der <a href="/outxide">Outxide Club</a>-Website.</p>
-<p><strong>Reservierungen:</strong> Tischreservierung im Hiru empfohlen, besonders Fr/Sa in der Hochsaison. VIP-Tische im Outxide direkt ueber die Website anfragen.</p>
+<p><strong>Reservierungen:</strong> Wir empfehlen, einen Tisch zum Abendessen zu reservieren, besonders freitags und samstags in der Hochsaison. Für VIP-Tische im Outxide direkt über die Website anfragen.</p>
 
 <p>Fuer die vollstaendige Planung lesen Sie unseren <a href="/blog/guia-vida-nocturna-alcudia">kompletten Alcudia Nachtleben-Guide</a> und den Artikel ueber <a href="/blog/que-hacer-alcudia-mallorca">die besten Plaene in Alcudia</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Mallorca. <a href="/">Alle Informationen auf unserer Website.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Mallorca. <a href="/">Alle Informationen auf unserer Website.</a></strong></p>`,
 
       fr: `<p>Port d'Alcudia possede la meilleure vie nocturne du nord de Majorque, et ce n'est pas une simple opinion — c'est un fait. Alors que le sud de l'ile concentre les mega-clubs, le nord offre quelque chose de different : une experience nocturne plus complete, plus personnelle et d'une qualite qui surprend les visiteurs. Et le meilleur, c'est que <strong>le plan parfait est concentre dans une seule zone</strong> : Av. Tucan et Ctra. d'Arta, ou les trois etablissements de <a href="/">Grupo Enjoy</a> permettent de passer du diner a la fete sans taxi.</p>
 
 <p>Dans ce guide, nous vous expliquons etape par etape comment organiser la soiree parfaite a Port d'Alcudia, avec des variations pour tous les gouts.</p>
 
-<h2>Etape 1 : Diner au Hiru Food &amp; Drinks</h2>
-<p>La meilleure soiree commence toujours par un excellent diner, et <a href="/hiru">Hiru Food &amp; Drinks</a> est le point de depart ideal. Ce restaurant s'est forge une reputation de meilleur de Port d'Alcudia : cuisine au feu ouvert avec des ingredients premium, terrasse avec ambiance, et horaires parfaitement adaptes aux plans nocturnes.</p>
-<p>Hiru ouvre de 12h00 a 23h30 en semaine et jusqu'a 1h00 les vendredis et samedis. La carte propose des viandes maturees dry-aged cuites a la braise, du poisson frais de Mediterranee grille, des riz et paellas elabores avec bouillon maison et fruits de mer du marche, et une selection d'entrees et tapas a partager.</p>
-<p>Le bar a cocktails de Hiru donne deja le ton : accompagnez votre diner d'un vin de la carte ou demarrez avec un cocktail signature. Les vendredis et samedis, l'ambiance est particulierement animee.</p>
-<p>Decouvrez l'experience gastronomique dans notre <a href="/blog/hiru-food-drinks-restaurante-alcudia">guide complet Hiru</a> et notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">classement des meilleurs restaurants d'Alcudia</a>.</p>
+<h2>Etape 1 : Diner au port</h2>
+<p>La meilleure nuit commence toujours par un bon diner, et Port d'Alcudia rend cela facile : riz et paellas aux fruits de mer de la criee, viandes a la braise, poisson frais et cuisine internationale, souvent avec terrasse et de longs horaires en ete. Dinez tranquillement a 21h00 ou 21h30 et vous rejoindrez la prochaine etape sans hate.</p>
+<p>Trouvez votre table dans notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">classement des meilleurs restaurants d'Alcudia</a> et, s'il se fait tard, dans notre <a href="/blog/donde-cenar-tarde-port-alcudia">guide pour diner tard a Port d'Alcudia</a>. Reservez a l'avance en haute saison.</p>
 
 <h2>Etape 2 : Cocktails a l'Enjoy Terrace</h2>
 <p>Apres le diner, direction l'<a href="/enjoy">Enjoy Terrace</a>, le lounge cocktail et bar a chicha qui sert de pont parfait entre le diner et le club. Enjoy est ouvert tous les jours de 17h00 a 05h30, vous trouverez toujours de l'ambiance.</p>
@@ -5769,32 +5513,30 @@ export const blogPosts: BlogPost[] = [
 <h3>Plan casual : Enjoy + Outxide</h3>
 <p>Si vous preferez diner a votre hotel et sortir directement pour les verres, commencez a l'<a href="/enjoy">Enjoy Terrace</a>. Quelques cocktails, du chicha, et quand l'ambiance monte, traversez vers l'<a href="/outxide">Outxide Club</a>. Le plan le plus leger, parfait en semaine.</p>
 
-<h3>Plan foodie : Hiru + Enjoy</h3>
-<p>Si la gastronomie est votre passion et vous preferez une soiree tranquille sans club, la combinaison diner au <a href="/hiru">Hiru</a> puis cocktails a l'<a href="/enjoy">Enjoy</a> est une soiree complete. La terrasse est ouverte jusqu'a 05h30.</p>
+<h3>Plan foodie : diner + Enjoy</h3>
+<p>Si la gastronomie est votre truc et que vous preferez une nuit plus calme sans discotheque, un bon diner au port suivi de cocktails a l'<a href="/enjoy">Enjoy</a> compose une soiree complete. La terrasse de l'Enjoy est ouverte jusqu'a 05h30, donc pas de hate.</p>
 
-<h3>Plan experience complete : Hiru + Enjoy + Outxide</h3>
-<p>Le plan phare. Diner au <a href="/hiru">Hiru</a> a 21h00, cocktails a l'<a href="/enjoy">Enjoy</a> a partir de 23h00, fete a l'<a href="/outxide">Outxide</a> des 1h00. La formule des connaisseurs. Le tout a pied.</p>
+<h3>Plan experience complete : diner + Enjoy + Outxide</h3>
+<p>C'est le plan star. Diner au port a 21h00, cocktails a l'<a href="/enjoy">Enjoy</a> a partir de 23h00, et fete a l'<a href="/outxide">Outxide</a> des 1h00. C'est la formule de ceux qui connaissent la zone et veulent profiter de chaque instant de la nuit. Le tout sans prendre la voiture.</p>
 
 <h2>Ce qu'il faut savoir</h2>
-<p><strong>Horaires :</strong> Hiru : 12h00-23h30 (ven/sam jusqu'a 1h00, ferme mardi). Enjoy Terrace : 17h00-05h30 tous les jours. Outxide Club : jeu/ven/sam soir (consultez les horaires exacts sur le site).</p>
+<p><strong>Horaires :</strong> Enjoy Terrace ouvre tous les jours de 17h00 a 05h30. L'Outxide Club ouvre les nuits du jeudi au samedi (horaires exacts sur son site). Les restaurants du port servent generalement jusqu'a 23h00-23h30 en ete.</p>
 <p><strong>Emplacement :</strong> Les trois etablissements sont dans la meme zone de Port d'Alcudia, sur l'Av. Tucan et la Ctra. d'Arta. Moins de deux minutes a pied entre chaque. Pas besoin de voiture ni de taxi.</p>
-<p><strong>Age requis :</strong> Outxide Club exige <strong>18 ans minimum</strong>. Pensez a apporter une piece d'identite. Hiru et Enjoy n'ont pas de restriction d'age pour diner et boire des cocktails, le service d'alcool est reserve aux majeurs.</p>
+<p><strong>Age :</strong> L'Outxide Club impose un age minimum de <strong>18+</strong>. Pensez a votre piece d'identite ou passeport. L'Enjoy n'a pas de restriction d'age, mais l'alcool n'est servi qu'aux majeurs.</p>
 <p><strong>Billets Outxide :</strong> Achetez en ligne a l'avance pour eviter les files d'attente et souvent obtenir un meilleur prix. Disponible sur le site d'<a href="/outxide">Outxide Club</a>.</p>
-<p><strong>Reservations :</strong> Reservez votre table au Hiru, surtout ven/sam en haute saison. Tables VIP a l'Outxide sur demande via le site.</p>
+<p><strong>Reservations :</strong> Nous recommandons de reserver une table pour diner, surtout les vendredis et samedis en haute saison. Pour les tables VIP a l'Outxide, contactez directement via le site.</p>
 
 <p>Pour completer votre planification, consultez notre <a href="/blog/guia-vida-nocturna-alcudia">guide complet de la vie nocturne a Alcudia</a> et l'article sur <a href="/blog/que-hacer-alcudia-mallorca">les meilleurs plans a Alcudia</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Majorque. <a href="/">Toutes les informations sur notre site.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Majorque. <a href="/">Toutes les informations sur notre site.</a></strong></p>`,
 
       it: `<p>Port d'Alcudia ha la migliore vita notturna del nord di Maiorca, e non e' solo un'opinione — e' un fatto. Mentre il sud dell'isola concentra i mega-club, il nord offre qualcosa di diverso: un'esperienza notturna piu' completa, piu' personale e con una qualita' che sorprende chi la scopre per la prima volta. E il bello e' che <strong>il piano perfetto e' concentrato in un'unica zona</strong>: Av. Tucan e Ctra. d'Arta, dove i tre locali di <a href="/">Grupo Enjoy</a> permettono di passare dalla cena alla festa senza bisogno di un taxi.</p>
 
 <p>In questa guida vi spieghiamo passo dopo passo come organizzare la serata perfetta a Port d'Alcudia, con variazioni per tutti i gusti.</p>
 
-<h2>Passo 1: Cena al Hiru Food &amp; Drinks</h2>
-<p>La serata migliore inizia sempre con un'ottima cena, e <a href="/hiru">Hiru Food &amp; Drinks</a> e' il punto di partenza ideale. Questo ristorante si e' guadagnato la reputazione di essere il migliore di Port d'Alcudia: cucina alla brace con ingredienti premium, terrazza con atmosfera e orari perfettamente adatti ai piani serali.</p>
-<p>Hiru e' aperto dalle 12:00 alle 23:30 in settimana e fino all'1:00 il venerdi' e sabato. Il menu offre carni stagionate dry-aged alla brace, pesce fresco del Mediterraneo alla griglia, risi e paelle con brodo fatto in casa e frutti di mare del mercato, e una selezione di antipasti e tapas da condividere.</p>
-<p>Il cocktail bar di Hiru da' gia' il tono alla serata: accompagnate la cena con un vino dalla carta o iniziate con un drink d'autore. Il venerdi' e sabato l'atmosfera e' particolarmente vivace.</p>
-<p>Scoprite di piu' sull'esperienza gastronomica nella nostra <a href="/blog/hiru-food-drinks-restaurante-alcudia">guida completa di Hiru</a> e nella nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">classifica dei migliori ristoranti di Alcudia</a>.</p>
+<h2>Passo 1: Cena al porto</h2>
+<p>La notte migliore inizia sempre con una buona cena, e Port d'Alcudia lo rende facile: risi e paella con frutti di mare del mercato, carni alla brace, pesce fresco e cucina internazionale, molti locali con terrazza e orari lunghi in estate. Cena con calma alle 21:00 o 21:30 e arriverai alla tappa successiva senza fretta.</p>
+<p>Trova il tuo tavolo nella nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">classifica dei migliori ristoranti di Alcudia</a> e, se si fa tardi, nella <a href="/blog/donde-cenar-tarde-port-alcudia">guida per cenare tardi a Port d'Alcudia</a>. Prenota in anticipo in alta stagione.</p>
 
 <h2>Passo 2: Cocktail all'Enjoy Terrace</h2>
 <p>Dopo cena, il passo successivo e' attraversare verso l'<a href="/enjoy">Enjoy Terrace</a>, il cocktail lounge e shisha bar che funziona come ponte perfetto tra la cena e il club. Enjoy e' aperto tutti i giorni dalle 17:00 alle 05:30, quindi troverete sempre atmosfera.</p>
@@ -5813,46 +5555,47 @@ export const blogPosts: BlogPost[] = [
 <h3>Piano casual: Enjoy + Outxide</h3>
 <p>Se preferite cenare in hotel e uscire direttamente per i drink, iniziate all'<a href="/enjoy">Enjoy Terrace</a>. Un paio di cocktail, un po' di shisha, e quando l'atmosfera sale, attraversate verso l'<a href="/outxide">Outxide Club</a>. Il piano piu' leggero, perfetto in settimana.</p>
 
-<h3>Piano foodie: Hiru + Enjoy</h3>
-<p>Se la gastronomia e' la vostra passione e preferite una serata tranquilla senza discoteca, la combinazione cena al <a href="/hiru">Hiru</a> e cocktail all'<a href="/enjoy">Enjoy</a> e' una serata completa. La terrazza e' aperta fino alle 05:30.</p>
+<h3>Piano foodie: cena + Enjoy</h3>
+<p>Se la gastronomia e il tuo forte e preferisci una notte piu tranquilla senza discoteca, una buona cena al porto seguita dai cocktail all'<a href="/enjoy">Enjoy</a> e una serata completa. La terrazza dell'Enjoy e aperta fino alle 05:30, quindi nessuna fretta.</p>
 
-<h3>Piano esperienza completa: Hiru + Enjoy + Outxide</h3>
-<p>Il piano di punta. Cena al <a href="/hiru">Hiru</a> alle 21:00, cocktail all'<a href="/enjoy">Enjoy</a> dalle 23:00, festa all'<a href="/outxide">Outxide</a> dall'1:00. La formula degli intenditori. Tutto a piedi.</p>
+<h3>Piano esperienza completa: cena + Enjoy + Outxide</h3>
+<p>Questo e il piano top. Cena al porto alle 21:00, cocktail all'<a href="/enjoy">Enjoy</a> dalle 23:00 e festa all'<a href="/outxide">Outxide</a> dall'1:00. E la formula di chi conosce la zona e vuole spremere ogni momento della notte. Tutto senza prendere l'auto.</p>
 
 <h2>Quello che dovete sapere</h2>
-<p><strong>Orari:</strong> Hiru: 12:00-23:30 (ven/sab fino all'1:00, chiuso martedi'). Enjoy Terrace: 17:00-05:30 tutti i giorni. Outxide Club: gio/ven/sab sera (consultate gli orari esatti sul sito).</p>
+<p><strong>Orari:</strong> Enjoy Terrace apre tutti i giorni dalle 17:00 alle 05:30. L'Outxide Club apre giovedi, venerdi e sabato notte (orari esatti sul sito). I ristoranti del porto di solito servono fino alle 23:00-23:30 in estate.</p>
 <p><strong>Posizione:</strong> Tutti e tre i locali sono nella stessa zona di Port d'Alcudia, su Av. Tucan e Ctra. d'Arta. Meno di due minuti a piedi tra uno e l'altro. Niente auto o taxi.</p>
-<p><strong>Requisito di eta':</strong> Outxide Club richiede <strong>18+</strong>. Portate documento d'identita' o passaporto. Hiru e Enjoy non hanno restrizioni di eta' per cenare e bere cocktail, il servizio di alcolici e' riservato ai maggiorenni.</p>
+<p><strong>Eta:</strong> L'Outxide Club richiede <strong>18+</strong>. Porta documento o passaporto. L'Enjoy non ha restrizioni di eta, ma l'alcol si serve solo ai maggiorenni.</p>
 <p><strong>Biglietti Outxide:</strong> Acquistate online in anticipo per evitare code e spesso ottenere un prezzo migliore. Disponibili sul sito di <a href="/outxide">Outxide Club</a>.</p>
-<p><strong>Prenotazioni:</strong> Consigliamo di prenotare al Hiru, soprattutto ven/sab in alta stagione. Tavoli VIP all'Outxide su richiesta tramite il sito.</p>
+<p><strong>Prenotazioni:</strong> Consigliamo di prenotare un tavolo per cena, soprattutto venerdi e sabato in alta stagione. Per i tavoli VIP all'Outxide, contatta direttamente dal sito.</p>
 
 <p>Per completare la pianificazione, consultate la nostra <a href="/blog/guia-vida-nocturna-alcudia">guida completa alla vita notturna di Alcudia</a> e l'articolo sui <a href="/blog/que-hacer-alcudia-mallorca">migliori piani ad Alcudia</a>.</p>
 
-<p><strong>Grupo Enjoy — Hiru Food &amp; Drinks, Enjoy Terrace &amp; Outxide Club. Av. Tucan / Ctra. d'Arta, Port d'Alcudia, Maiorca. <a href="/">Tutte le informazioni sul nostro sito.</a></strong></p>`,
+<p><strong>Grupo Enjoy — Enjoy Terrace &amp; Outxide Club. Av. Tucan 1, Port d'Alcudia, Maiorca. <a href="/">Tutte le informazioni sul nostro sito.</a></strong></p>`,
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/enjoy/485765269_1384374992965504_5931564430169011113_n.jpg",
-    tags: ["nightlife", "guide", "alcudia", "mallorca", "enjoy", "outxide", "hiru"],
+    tags: ["nightlife", "guide", "alcudia", "mallorca", "enjoy", "outxide"],
     venue: "general",
     readingTime: 8,
     howToSteps: [
       {
         name: {
-          es: "Cena en Hiru Food & Drinks",
-          en: "Dinner at Hiru Food & Drinks",
-          de: "Abendessen im Hiru Food & Drinks",
-          fr: "Diner au Hiru Food & Drinks",
-          it: "Cena da Hiru Food & Drinks",
+          es: "Cena en el puerto",
+          en: "Dinner by the port",
+          de: "Abendessen am Hafen",
+          fr: "Diner au port",
+          it: "Cena al porto",
         },
         text: {
-          es: "Reserva mesa en Hiru (Ctra. d'Arta 40) a las 21:00. Disfruta de carnes maduradas dry-aged a la brasa, paella de marisco y cocktails de autor. Abierto hasta la 1:00 viernes y sabado.",
-          en: "Book a table at Hiru (Ctra. d'Arta 40) for 21:00. Enjoy dry-aged meats grilled over charcoal, seafood paella and signature cocktails. Open until 1:00 on Friday and Saturday.",
-          de: "Reservieren Sie einen Tisch im Hiru (Ctra. d'Arta 40) fuer 21:00 Uhr. Geniessen Sie Dry-Aged-Fleisch vom Grill, Meeresfruechte-Paella und Signature-Cocktails. Freitag und Samstag bis 1:00 geoeffnet.",
-          fr: "Reservez une table au Hiru (Ctra. d'Arta 40) pour 21h00. Savourez des viandes maturees grillees, une paella aux fruits de mer et des cocktails signatures. Ouvert jusqu'a 1h00 vendredi et samedi.",
-          it: "Prenota un tavolo da Hiru (Ctra. d'Arta 40) per le 21:00. Gustati carni frollate alla brace, paella di mare e cocktail d'autore. Aperto fino all'1:00 venerdi e sabato.",
+          es: "Reserva mesa en uno de los restaurantes del puerto para las 21:00: arroces, carnes a la brasa o pescado fresco. Reserva con antelacion en temporada alta.",
+          en: "Book a table at one of the restaurants by the port for 21:00: rice dishes, charcoal-grilled meats or fresh fish. Book ahead in high season.",
+          de: "Reservieren Sie fuer 21:00 Uhr einen Tisch in einem der Restaurants am Hafen: Reisgerichte, Fleisch vom Grill oder frischer Fisch. In der Hochsaison rechtzeitig reservieren.",
+          fr: "Reservez une table dans l'un des restaurants du port pour 21h00 : riz, viandes a la braise ou poisson frais. Reservez a l'avance en haute saison.",
+          it: "Prenota un tavolo in uno dei ristoranti del porto per le 21:00: risi, carni alla brace o pesce fresco. Prenota in anticipo in alta stagione.",
         },
-        url: "https://www.grupoenjoy.es/hiru",
+        url: "https://www.grupoenjoy.es/blog/mejores-restaurantes-alcudia-mallorca",
       },
       {
         name: {
@@ -5900,11 +5643,11 @@ export const blogPosts: BlogPost[] = [
       it: "Musica dal Vivo, DJ Set e Feste a Tema ad Alcudia",
     },
     excerpt: {
-      es: "Descubre las mejores noches de musica en vivo, DJ sets y fiestas tematicas en Alcudia. Outxide Club, Enjoy Terrace y Hiru te esperan en Port d'Alcudia, Mallorca.",
-      en: "Discover the best nights of live music, DJ sets and themed parties in Alcudia. Outxide Club, Enjoy Terrace and Hiru await you in Port d'Alcudia, Mallorca.",
-      de: "Entdecke die besten Naechte mit Live-Musik, DJ-Sets und Themenpartys in Alcudia. Outxide Club, Enjoy Terrace und Hiru erwarten dich in Port d'Alcudia, Mallorca.",
-      fr: "Decouvrez les meilleures soirees de musique live, DJ sets et fetes a theme a Alcudia. Outxide Club, Enjoy Terrace et Hiru vous attendent a Port d'Alcudia, Majorque.",
-      it: "Scopri le migliori serate di musica dal vivo, DJ set e feste a tema ad Alcudia. Outxide Club, Enjoy Terrace e Hiru ti aspettano a Port d'Alcudia, Maiorca.",
+      es: "Descubre las mejores noches de musica en vivo, DJ sets y fiestas tematicas en Alcudia. Outxide Club y Enjoy Terrace te esperan en Port d'Alcudia, Mallorca.",
+      en: "Discover the best nights of live music, DJ sets and themed parties in Alcudia. Outxide Club and Enjoy Terrace await you in Port d'Alcudia, Mallorca.",
+      de: "Entdecke die besten Naechte mit Live-Musik, DJ-Sets und Themenpartys in Alcudia. Outxide Club und Enjoy Terrace erwarten dich in Port d'Alcudia, Mallorca.",
+      fr: "Decouvrez les meilleures soirees de musique live, DJ sets et fetes a theme a Alcudia. Outxide Club et Enjoy Terrace vous attendent a Port d'Alcudia, Majorque.",
+      it: "Scopri le migliori serate di musica dal vivo, DJ set e feste a tema ad Alcudia. Outxide Club ed Enjoy Terrace ti aspettano a Port d'Alcudia, Maiorca.",
     },
     content: {
       es: `<p>Alcudia se ha consolidado como uno de los destinos mas vibrantes de Mallorca cuando cae el sol. Cada verano, miles de visitantes llegan al norte de la isla buscando noches inolvidables con musica en vivo, sesiones de DJ de primer nivel y fiestas tematicas que no encontraras en ningun otro lugar del Mediterraneo. Si estas planeando tu viaje y quieres saber donde disfrutar de la mejor musica en Alcudia, esta guia es para ti.</p>
@@ -5913,7 +5656,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Port d'Alcudia ha evolucionado enormemente en los ultimos anos. Lo que antes era un destino conocido unicamente por sus playas de arena blanca y aguas turquesas ahora ofrece una vida nocturna a la altura de los mejores destinos europeos. La zona cuenta con locales que apuestan por experiencias musicales cuidadas, con sistemas de sonido profesionales, iluminacion de ultima generacion y una programacion que abarca desde house y techno hasta sesiones de musica comercial, reggaeton y festivales tematicos.</p>
 
-<p>El epicentro de esta transformacion es <a href="/outxide">Outxide Club</a>, la discoteca de referencia en el norte de Mallorca. Junto a ella, <a href="/enjoy">Enjoy Terrace</a> completa la experiencia con cocktails de autor y un ambiente perfecto para comenzar la noche, mientras que <a href="/hiru">Hiru Food &amp; Drinks</a> aporta el componente gastronomico con cocina mallorquina a la brasa.</p>
+<p>El epicentro de esta transformacion es <a href="/outxide">Outxide Club</a>, la discoteca de referencia en el norte de Mallorca. Junto a ella, <a href="/enjoy">Enjoy Terrace</a> completa la experiencia con cocktails de autor y un ambiente perfecto para comenzar la noche.</p>
 
 <h2>DJ Sessions en Outxide Club: el sonido del norte de Mallorca</h2>
 
@@ -5939,7 +5682,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>El ambiente es relajado pero sofisticado, con una terraza que invita a quedarse mientras el cielo de Alcudia se tine de naranja y rosa. Es el lugar donde los planes de la noche toman forma, donde los grupos se reunen y donde la anticipacion de lo que viene despues se convierte en parte de la experiencia.</p>
 
-<p>Y si antes de salir prefieres disfrutar de una buena cena, <a href="/hiru">Hiru Food &amp; Drinks</a> te ofrece cocina mallorquina de producto y tradicion a pocos pasos de distancia. Carnes a la brasa, arroces y pescados frescos: la combinacion perfecta antes de una noche de musica.</p>
+<p>Y si antes de salir prefieres disfrutar de una buena cena, a pocos pasos tienes varias opciones: nuestra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guia de restaurantes de Alcudia</a> te ayuda a elegir. Carnes a la brasa, arroces y pescados frescos: la combinacion perfecta antes de una noche de musica.</p>
 
 <h2>Como conseguir entradas y horarios</h2>
 
@@ -5960,7 +5703,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Port d'Alcudia has evolved dramatically in recent years. What was once a destination known exclusively for its white sand beaches and turquoise waters now offers a nightlife scene that rivals the best European destinations. The area features venues that invest in curated musical experiences, professional sound systems, cutting-edge lighting, and programming that spans house, techno, commercial hits, reggaeton, and themed festivals.</p>
 
-<p>At the heart of this transformation is <a href="/outxide">Outxide Club</a>, the benchmark nightclub in northern Mallorca. Alongside it, <a href="/enjoy">Enjoy Terrace</a> completes the experience with signature cocktails and the perfect atmosphere to start your night, while <a href="/hiru">Hiru Food &amp; Drinks</a> brings the gastronomic element with traditional Mallorcan grill cuisine.</p>
+<p>At the heart of this transformation is <a href="/outxide">Outxide Club</a>, the benchmark nightclub in northern Mallorca. Alongside it, <a href="/enjoy">Enjoy Terrace</a> completes the experience with signature cocktails and the perfect atmosphere to start your night.</p>
 
 <h2>DJ sessions at Outxide Club: the sound of northern Mallorca</h2>
 
@@ -5986,7 +5729,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The atmosphere is relaxed yet sophisticated, with a terrace that invites you to stay while the Alcudia sky turns orange and pink. It is the place where the night's plans take shape, where groups gather, and where the anticipation of what comes next becomes part of the experience itself.</p>
 
-<p>And if you prefer to enjoy a proper dinner before heading out, <a href="/hiru">Hiru Food &amp; Drinks</a> offers traditional Mallorcan cuisine just steps away. Grilled meats, rice dishes, and fresh seafood: the perfect combination before a night of music.</p>
+<p>And if you prefer to enjoy a proper dinner before heading out, there are several options just steps away: our <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide to restaurants in Alcudia</a> will help you choose. Grilled meats, rice dishes, and fresh seafood: the perfect combination before a night of music.</p>
 
 <h2>How to get tickets and opening hours</h2>
 
@@ -6007,7 +5750,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Port d'Alcudia hat sich in den letzten Jahren enorm weiterentwickelt. Was einst ein Reiseziel war, das ausschliesslich fuer seine weissen Sandstraende und tuerkisfarbenes Wasser bekannt war, bietet heute ein Nachtleben, das mit den besten europaeischen Destinationen mithalten kann. Die Gegend verfuegt ueber Locations, die auf kuratierte Musikerlebnisse setzen, mit professionellen Soundsystemen, modernster Beleuchtung und einem Programm, das von House und Techno ueber kommerzielle Hits bis hin zu Reggaeton und Themenpartys reicht.</p>
 
-<p>Im Zentrum dieser Verwandlung steht der <a href="/outxide">Outxide Club</a>, der Referenz-Nachtclub im Norden Mallorcas. Daneben vervollstaendigt die <a href="/enjoy">Enjoy Terrace</a> das Erlebnis mit Signature-Cocktails und der perfekten Atmosphaere, um den Abend zu beginnen, waehrend <a href="/hiru">Hiru Food &amp; Drinks</a> die gastronomische Komponente mit traditioneller mallorquinischer Grillkueche beisteuert.</p>
+<p>Im Zentrum dieser Verwandlung steht der <a href="/outxide">Outxide Club</a>, der Referenz-Nachtclub im Norden Mallorcas. Daneben vervollstaendigt die <a href="/enjoy">Enjoy Terrace</a> das Erlebnis mit Signature-Cocktails und der perfekten Atmosphaere, um den Abend zu beginnen.</p>
 
 <h2>DJ-Sessions im Outxide Club: der Sound des Nordens von Mallorca</h2>
 
@@ -6033,7 +5776,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Die Atmosphaere ist entspannt und dennoch anspruchsvoll, mit einer Terrasse, die zum Verweilen einlaedt, waehrend sich der Himmel ueber Alcudia in Orange und Rosa faerbt. Es ist der Ort, an dem die Plaene fuer die Nacht entstehen, an dem sich Gruppen treffen und an dem die Vorfreude auf das, was kommt, Teil des Erlebnisses wird.</p>
 
-<p>Und wenn du vor dem Ausgehen lieber ein gutes Abendessen geniessen moechtest, bietet dir <a href="/hiru">Hiru Food &amp; Drinks</a> traditionelle mallorquinische Kueche in unmittelbarer Naehe. Gegrilltes Fleisch, Reisgerichte und frischer Fisch: die perfekte Kombination vor einer Nacht voller Musik.</p>
+<p>Und wenn du vor dem Ausgehen lieber ein gutes Abendessen geniessen moechtest, findest du in unmittelbarer Naehe mehrere Optionen: Unser <a href="/blog/mejores-restaurantes-alcudia-mallorca">Restaurant-Guide fuer Alcudia</a> hilft bei der Wahl. Gegrilltes Fleisch, Reisgerichte und frischer Fisch: die perfekte Kombination vor einer Nacht voller Musik.</p>
 
 <h2>Tickets und Oeffnungszeiten</h2>
 
@@ -6054,7 +5797,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Port d'Alcudia a considerablement evolue ces dernieres annees. Ce qui etait autrefois une destination connue uniquement pour ses plages de sable blanc et ses eaux turquoise offre desormais une vie nocturne a la hauteur des meilleures destinations europeennes. La zone compte des etablissements qui misent sur des experiences musicales soignees, avec des systemes son professionnels, un eclairage de derniere generation et une programmation qui couvre le house, la techno, les tubes commerciaux, le reggaeton et les festivals a theme.</p>
 
-<p>Au coeur de cette transformation se trouve l'<a href="/outxide">Outxide Club</a>, la discotheque de reference du nord de Majorque. A ses cotes, l'<a href="/enjoy">Enjoy Terrace</a> complete l'experience avec des cocktails signatures et l'ambiance parfaite pour commencer la soiree, tandis que <a href="/hiru">Hiru Food &amp; Drinks</a> apporte la dimension gastronomique avec une cuisine majorquine au grill.</p>
+<p>Au coeur de cette transformation se trouve l'<a href="/outxide">Outxide Club</a>, la discotheque de reference du nord de Majorque. A ses cotes, l'<a href="/enjoy">Enjoy Terrace</a> complete l'experience avec des cocktails signatures et l'ambiance parfaite pour commencer la soiree.</p>
 
 <h2>Sessions DJ a l'Outxide Club : le son du nord de Majorque</h2>
 
@@ -6080,7 +5823,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>L'ambiance est detendue mais sophistiquee, avec une terrasse qui invite a rester tandis que le ciel d'Alcudia se pare d'orange et de rose. C'est l'endroit ou les plans de la soiree prennent forme, ou les groupes se retrouvent et ou l'anticipation de ce qui va suivre fait partie integrante de l'experience.</p>
 
-<p>Et si vous preferez savourer un bon diner avant de sortir, <a href="/hiru">Hiru Food &amp; Drinks</a> vous propose une cuisine majorquine traditionnelle a quelques pas. Viandes grillees, riz et poissons frais : la combinaison parfaite avant une nuit de musique.</p>
+<p>Et si vous preferez savourer un bon diner avant de sortir, plusieurs options s'offrent a vous a quelques pas : notre <a href="/blog/mejores-restaurantes-alcudia-mallorca">guide des restaurants d'Alcudia</a> vous aidera a choisir. Viandes grillees, riz et poissons frais : la combinaison parfaite avant une nuit de musique.</p>
 
 <h2>Comment obtenir des billets et horaires</h2>
 
@@ -6101,7 +5844,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Port d'Alcudia si e evoluta notevolmente negli ultimi anni. Quella che un tempo era una destinazione conosciuta esclusivamente per le sue spiagge di sabbia bianca e le acque turchesi, oggi offre una vita notturna all'altezza delle migliori destinazioni europee. La zona conta su locali che puntano su esperienze musicali curate, con impianti audio professionali, illuminazione di ultima generazione e una programmazione che spazia dall'house alla techno, dai successi commerciali al reggaeton fino ai festival a tema.</p>
 
-<p>Al centro di questa trasformazione si trova l'<a href="/outxide">Outxide Club</a>, la discoteca di riferimento nel nord di Maiorca. Accanto ad esso, l'<a href="/enjoy">Enjoy Terrace</a> completa l'esperienza con cocktail d'autore e l'atmosfera perfetta per iniziare la serata, mentre <a href="/hiru">Hiru Food &amp; Drinks</a> aggiunge la componente gastronomica con cucina maiorchina alla brace.</p>
+<p>Al centro di questa trasformazione si trova l'<a href="/outxide">Outxide Club</a>, la discoteca di riferimento nel nord di Maiorca. Accanto ad esso, l'<a href="/enjoy">Enjoy Terrace</a> completa l'esperienza con cocktail d'autore e l'atmosfera perfetta per iniziare la serata.</p>
 
 <h2>DJ set all'Outxide Club: il suono del nord di Maiorca</h2>
 
@@ -6127,7 +5870,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>L'atmosfera e rilassata ma sofisticata, con una terrazza che invita a restare mentre il cielo di Alcudia si tinge di arancione e rosa. E il luogo dove prendono forma i piani della serata, dove i gruppi si riuniscono e dove l'attesa di cio che verra diventa parte dell'esperienza stessa.</p>
 
-<p>E se prima di uscire preferisci goderti una buona cena, <a href="/hiru">Hiru Food &amp; Drinks</a> ti propone cucina maiorchina tradizionale a pochi passi di distanza. Carni alla brace, riso e pesce fresco: la combinazione perfetta prima di una notte di musica.</p>
+<p>E se prima di uscire preferisci goderti una buona cena, a pochi passi trovi diverse opzioni: la nostra <a href="/blog/mejores-restaurantes-alcudia-mallorca">guida ai ristoranti di Alcudia</a> ti aiuta a scegliere. Carni alla brace, riso e pesce fresco: la combinazione perfetta prima di una notte di musica.</p>
 
 <h2>Come acquistare i biglietti e orari di apertura</h2>
 
@@ -6145,6 +5888,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Grupo Enjoy",
     date: "2026-05-28",
+    updated: "2026-08-29",
     image: "/images/outxide/DSCF8103-9.jpg",
     tags: ["nightlife", "music", "dj", "outxide", "enjoy", "alcudia", "mallorca"],
     venue: "outxide",
