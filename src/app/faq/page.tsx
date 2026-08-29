@@ -87,11 +87,7 @@ const faqSections: FaqSection[] = [
     accentBg: "bg-hiru/[0.03]",
     accentChevron: "text-hiru/60",
     items: [
-      { questionKey: "faq.hiruQ1", answerKey: "faq.hiruA1" },
-      { questionKey: "faq.hiruQ2", answerKey: "faq.hiruA2" },
-      { questionKey: "faq.hiruQ3", answerKey: "faq.hiruA3" },
-      { questionKey: "faq.hiruQ4", answerKey: "faq.hiruA4" },
-      { questionKey: "faq.hiruQ5", answerKey: "faq.hiruA5" },
+      { questionKey: "faq.hiruClosedQ", answerKey: "faq.hiruClosedA" },
     ],
   },
 ];

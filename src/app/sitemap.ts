@@ -114,7 +114,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("", LAST_UPDATED.home, "weekly", 1.0),
     entry("/enjoy", LAST_UPDATED.venues, "weekly", 0.9),
     entry("/outxide", LAST_UPDATED.venues, "daily", 0.9),
-    entry("/hiru", LAST_UPDATED.venues, "weekly", 0.9),
+    entry("/hiru", LAST_UPDATED.venues, "monthly", 0.4),
     entry("/agenda", LAST_UPDATED.agenda, "daily", 0.8),
     entry("/nosotros", LAST_UPDATED.nosotros, "monthly", 0.6),
     entry("/contacto", LAST_UPDATED.contacto, "monthly", 0.7),

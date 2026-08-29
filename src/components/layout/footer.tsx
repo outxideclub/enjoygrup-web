@@ -179,10 +179,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/hiru#menu", locale)}
+                  href={localizedPath("/hiru#carta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  {t("common.menu")}
+                  {t("cta.hiruFarewell")}
                 </Link>
               </li>
             </ul>

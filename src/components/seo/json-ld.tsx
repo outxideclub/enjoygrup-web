@@ -1,5 +1,5 @@
 import { siteContact } from "@/lib/site";
-import { fourVenuesOrgUrl, restooReserveUrl } from "@/lib/events";
+import { fourVenuesOrgUrl } from "@/lib/events";
 
 interface JsonLdProps {
   data: Record<string, unknown>;
@@ -52,25 +52,10 @@ const ENJOY_ADDRESS = {
   addressCountry: "ES",
 };
 
-const HIRU_ADDRESS = {
-  "@type": "PostalAddress",
-  streetAddress: "Carretera d'Artà, 40",
-  addressLocality: "Alcúdia",
-  addressRegion: "Illes Balears",
-  postalCode: "07400",
-  addressCountry: "ES",
-};
-
 const ENJOY_GEO = {
   "@type": "GeoCoordinates",
   latitude: 39.8402,
   longitude: 3.1375,
-};
-
-const HIRU_GEO = {
-  "@type": "GeoCoordinates",
-  latitude: 39.8402,
-  longitude: 3.1222,
 };
 
 export function OrganizationJsonLd({ description }: { description?: string } = {}) {
@@ -85,7 +70,7 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
         // Versión ligera del logo (~210 KB): Google lo descarga para el Knowledge Panel
         logo: "https://www.grupoenjoy.es/images/logos/enjoy-og.png",
         description:
-          description ?? "Grupo de hostelería y ocio premium en Alcúdia, Mallorca. Tres experiencias únicas: Hiru Food & Drinks, Enjoy Terrace y Outxide Club.",
+          description ?? "Grupo de hostelería y ocio premium en Alcúdia, Mallorca. Dos experiencias únicas: Enjoy Terrace y Outxide Club.",
         telephone: siteContact.general.phone,
         address: ENJOY_ADDRESS,
         contactPoint: {
@@ -95,11 +80,6 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
           availableLanguage: ["Spanish", "English", "German", "French", "Italian"],
         },
         subOrganization: [
-          {
-            "@type": "Restaurant",
-            name: "Hiru Food & Drinks",
-            url: "https://www.grupoenjoy.es/hiru",
-          },
           {
             "@type": "BarOrPub",
             name: "Enjoy Terrace",
@@ -115,134 +95,10 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
           "https://www.instagram.com/enjoy.club.alcudia/",
           "https://www.instagram.com/enjoy.terrace.alcudia/",
           "https://www.instagram.com/outxide.club/",
-          "https://www.instagram.com/hirufoodanddrinks/",
           "https://www.facebook.com/EnjoyAlcudia/",
-          "https://www.facebook.com/p/Hiru-61556033140610/",
           "https://www.tripadvisor.com/Attraction_Review-g580312-d4478448-Reviews-Enjoy_Club-Port_d_Alcudia_Alcudia_Majorca_Balearic_Islands.html",
-          "https://www.tripadvisor.com/Restaurant_Review-g1233772-d27740707-Reviews-Hiru_Food_Drinks-Alcudia_Majorca_Balearic_Islands.html",
           "https://web.fourvenues.com/es/outxide-club",
         ],
-      }}
-    />
-  );
-}
-
-export function HiruJsonLd({ description, locale = "es" }: { description?: string; locale?: string } = {}) {
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "@id": "https://www.grupoenjoy.es/hiru#restaurant",
-        name: "Hiru Food & Drinks",
-        alternateName: ["Hiru Restaurant", "Hiru Alcudia", "Hiru Food and Drinks", "Hiru Restaurante"],
-        url: "https://www.grupoenjoy.es/hiru",
-        image: "https://www.grupoenjoy.es/images/hiru/694647172_122298670106201104_2257975202148597878_n.jpg",
-        description:
-          description ?? "Cocina mallorquina a la brasa en Alcúdia. Carnes maduradas, arroces de lonja y pescados del Mediterráneo.",
-        servesCuisine: ["Mediterranean", "Spanish", "Seafood", "Grill", "Paella", "Rice Dishes"],
-        priceRange: "€€-€€€",
-        address: HIRU_ADDRESS,
-        geo: HIRU_GEO,
-        telephone: siteContact.venues.hiru.phone,
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Wednesday", "Thursday"],
-            opens: "12:00",
-            closes: "23:30",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Friday", "Saturday"],
-            opens: "12:00",
-            closes: "01:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Sunday",
-            opens: "12:00",
-            closes: "23:30",
-          },
-        ],
-        acceptsReservations: "True",
-        potentialAction: {
-          "@type": "ReserveAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: restooReserveUrl(locale),
-            actionPlatform: [
-              "http://schema.org/DesktopWebPlatform",
-              "http://schema.org/IOSPlatform",
-              "http://schema.org/AndroidPlatform",
-            ],
-          },
-          result: {
-            "@type": "FoodEstablishmentReservation",
-            name: "Reserva en Hiru Food & Drinks",
-          },
-        },
-        hasMenu: {
-          "@type": "Menu",
-          name: "Carta de Hiru Food & Drinks",
-          url: "https://www.grupoenjoy.es/hiru#menu",
-          hasMenuSection: [
-            {
-              "@type": "MenuSection",
-              name: "Entrantes",
-              hasMenuItem: [
-                { "@type": "MenuItem", name: "Croquetas caseras", description: "Croquetas artesanales" },
-                { "@type": "MenuItem", name: "Tataki de atún", description: "Tataki de atún rojo con sésamo" },
-              ],
-            },
-            {
-              "@type": "MenuSection",
-              name: "Carnes a la Brasa",
-              hasMenuItem: [
-                { "@type": "MenuItem", name: "Chuletón de vaca madurada", description: "Carne madurada dry-aged a la brasa" },
-                { "@type": "MenuItem", name: "Tomahawk", description: "Tomahawk premium a la brasa" },
-                { "@type": "MenuItem", name: "Secreto ibérico", description: "Secreto ibérico a la brasa con guarnición" },
-              ],
-            },
-            {
-              "@type": "MenuSection",
-              name: "Arroces y Paellas",
-              hasMenuItem: [
-                { "@type": "MenuItem", name: "Paella de marisco", description: "Paella tradicional con marisco fresco de lonja" },
-                { "@type": "MenuItem", name: "Arroz caldoso de bogavante", description: "Arroz caldoso con bogavante del Mediterráneo" },
-              ],
-            },
-            {
-              "@type": "MenuSection",
-              name: "Pescados",
-              hasMenuItem: [
-                { "@type": "MenuItem", name: "Pescado del día a la brasa", description: "Pescado fresco del Mediterráneo cocinado a la brasa" },
-              ],
-            },
-          ],
-        },
-        hasMap: "https://www.google.com/maps/search/?api=1&query=Hiru+Food+Drinks+Ctra+Arta+40+Alcudia",
-        areaServed: {
-          "@type": "GeoCircle",
-          geoMidpoint: { "@type": "GeoCoordinates", latitude: 39.8402, longitude: 3.1222 },
-          geoRadius: "10000",
-        },
-        // Sin aggregateRating: Google ignora las valoraciones autoservidas (no
-        // verificables en la propia página) y marcarlas es riesgo de acción manual.
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: ["[data-speakable]"],
-        },
-        sameAs: [
-          "https://www.instagram.com/hirufoodanddrinks/",
-          "https://www.facebook.com/p/Hiru-61556033140610/",
-          "https://www.tripadvisor.com/Restaurant_Review-g1233772-d27740707-Reviews-Hiru_Food_Drinks-Alcudia_Majorca_Balearic_Islands.html",
-        ],
-        parentOrganization: {
-          "@type": "Organization",
-          "@id": "https://www.grupoenjoy.es/#organization",
-          name: "Grupo Enjoy",
-        },
       }}
     />
   );
@@ -276,7 +132,7 @@ export function EnjoyJsonLd({ description }: { description?: string } = {}) {
             closes: "05:30",
           },
         ],
-        // Sin aggregateRating: valoraciones autoservidas, ver nota en HiruJsonLd
+        // Sin aggregateRating: Google ignora valoraciones autoservidas (riesgo de acción manual)
         hasMenu: {
           "@type": "Menu",
           name: "Enjoy Terrace Cocktail & Shisha Menu",
@@ -362,7 +218,7 @@ export function OutxideJsonLd({ description, locale = "es" }: { description?: st
           { "@type": "LocationFeatureSpecification", name: "Themed Parties", value: true },
           { "@type": "LocationFeatureSpecification", name: "Bottle Service", value: true },
         ],
-        // Sin aggregateRating: valoraciones autoservidas, ver nota en HiruJsonLd
+        // Sin aggregateRating: Google ignora valoraciones autoservidas (riesgo de acción manual)
         potentialAction: {
           "@type": "BuyAction",
           target: {
@@ -425,8 +281,8 @@ const venueVideoData = {
     uploadDate: "2025-05-01",
   },
   hiru: {
-    name: "Hiru Food & Drinks — Charcoal Grill Restaurant in Alcúdia, Mallorca",
-    description: "Discover Hiru Food & Drinks, a Mediterranean charcoal grill restaurant in Alcúdia, Mallorca. Dry-aged meats, fresh seafood paella, and a vibrant atmosphere.",
+    name: "Hiru Food & Drinks — A Farewell to Our Charcoal Grill in Alcúdia, Mallorca",
+    description: "A look back at Hiru Food & Drinks, the Mediterranean charcoal grill restaurant of Grupo Enjoy in Alcúdia (closed in August 2026). Thank you for everything.",
     thumbnailUrl: "https://www.grupoenjoy.es/videos/hiru-hero-poster.jpg",
     contentUrl: "https://www.grupoenjoy.es/videos/hiru-hero.mp4",
     embedUrl: "https://www.grupoenjoy.es/hiru",
@@ -467,7 +323,7 @@ export function WebSiteJsonLd({ description }: { description?: string } = {}) {
         url: "https://www.grupoenjoy.es",
         name: "Grupo Enjoy",
         alternateName: ["Grupo Enjoy Alcudia", "Enjoy Group Mallorca"],
-        description: description ?? "Cocktail lounge, nightclub & restaurant in Port d'Alcúdia, Mallorca",
+        description: description ?? "Cocktail lounge & nightclub in Port d'Alcúdia, Mallorca",
         inLanguage: ["es", "en", "de", "fr", "it"],
         publisher: {
           "@type": "Organization",

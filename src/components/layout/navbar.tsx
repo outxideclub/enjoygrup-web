@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { GroupLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
-import { fourVenuesOrgUrl, restooReserveUrl } from "@/lib/events";
+import { fourVenuesOrgUrl } from "@/lib/events";
 import { siteContact, telHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
 import { localeFromPath, localizedPath } from "@/i18n/config";
@@ -17,9 +17,6 @@ import { localeFromPath, localizedPath } from "@/i18n/config";
 // llamada al fijo del grupo. El CTA persistente vive en la barra desde el
 // primer scroll. `external` controla el target: los tel: no abren pestaña.
 function reserveTarget(basePath: string, locale: string) {
-  if (basePath.startsWith("/hiru")) {
-    return { href: restooReserveUrl(locale), accent: "text-white bg-hiru hover:bg-hiru/90", external: true };
-  }
   if (basePath.startsWith("/outxide")) {
     return { href: fourVenuesOrgUrl(locale), accent: "text-black bg-outxide hover:bg-outxide/90", external: true };
   }

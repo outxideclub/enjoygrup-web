@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BreadcrumbJsonLd, JsonLd, EnjoyJsonLd, OutxideJsonLd, HiruJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, JsonLd, EnjoyJsonLd, OutxideJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
 import { siteContact } from "@/lib/site";
@@ -50,7 +50,6 @@ export default async function ContactLayout({
       ]} />
       <EnjoyJsonLd description={t("meta.enjoyDescription")} />
       <OutxideJsonLd description={t("meta.outxideDescription")} />
-      <HiruJsonLd description={t("meta.hiruDescription")} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "ContactPage",

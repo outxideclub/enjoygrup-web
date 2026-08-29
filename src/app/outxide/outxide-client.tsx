@@ -240,13 +240,6 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
             <span>{t("cta.googleReviews")}</span>
           </a>
           <Link
-            href="/hiru"
-            className="link-underline flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
-          >
-            <ArrowRight className="h-4 w-4" />
-            <span>{t("outxide.dinnerHiru")}</span>
-          </Link>
-          <Link
             href="/enjoy"
             className="link-underline flex items-center gap-2 text-enjoy hover:text-enjoy-light transition-colors"
           >

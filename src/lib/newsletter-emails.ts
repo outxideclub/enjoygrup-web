@@ -75,24 +75,24 @@ export async function sendConfirmEmail(
 
 const WELCOME: Record<Locale, { subject: string; title: string; intro: string; discover: string; unsub: string; unsubLink: string }> = {
   es: { subject: "¡Bienvenido a Grupo Enjoy!", title: "&#161;Bienvenido!",
-    intro: "Gracias por confirmar tu suscripci&#243;n. Recibir&#225;s novedades exclusivas sobre eventos en Outxide Club, nuevas cartas en Hiru Food &amp; Drinks y ofertas especiales en Enjoy Terrace.",
-    discover: "Mientras tanto, descubre nuestros tres espacios:",
+    intro: "Gracias por confirmar tu suscripci&#243;n. Recibir&#225;s novedades exclusivas sobre eventos en Outxide Club, ofertas especiales en Enjoy Terrace y los nuevos proyectos del grupo.",
+    discover: "Mientras tanto, descubre nuestros espacios:",
     unsub: "Recibes este correo porque confirmaste tu suscripci&#243;n en grupoenjoy.es. Puedes darte de baja", unsubLink: "aqu&#237;" },
   en: { subject: "Welcome to Grupo Enjoy!", title: "Welcome!",
-    intro: "Thanks for confirming your subscription. You'll receive exclusive news about events at Outxide Club, new menus at Hiru Food &amp; Drinks and special offers at Enjoy Terrace.",
-    discover: "In the meantime, discover our three venues:",
+    intro: "Thanks for confirming your subscription. You'll receive exclusive news about events at Outxide Club, special offers at Enjoy Terrace and the group&#39;s upcoming projects.",
+    discover: "In the meantime, discover our venues:",
     unsub: "You are receiving this email because you confirmed your subscription at grupoenjoy.es. You can unsubscribe", unsubLink: "here" },
   de: { subject: "Willkommen bei Grupo Enjoy!", title: "Willkommen!",
-    intro: "Danke f&#252;r die Best&#228;tigung deines Abos. Du erh&#228;ltst exklusive Neuigkeiten zu Events im Outxide Club, neuen Karten im Hiru Food &amp; Drinks und Sonderangeboten in der Enjoy Terrace.",
-    discover: "Entdecke in der Zwischenzeit unsere drei Locations:",
+    intro: "Danke f&#252;r die Best&#228;tigung deines Abos. Du erh&#228;ltst exklusive Neuigkeiten zu Events im Outxide Club, Sonderangeboten in der Enjoy Terrace und den neuen Projekten der Gruppe.",
+    discover: "Entdecke in der Zwischenzeit unsere Locations:",
     unsub: "Du erh&#228;ltst diese E-Mail, weil du dein Abo auf grupoenjoy.es best&#228;tigt hast. Du kannst dich", unsubLink: "hier abmelden" },
   fr: { subject: "Bienvenue chez Grupo Enjoy !", title: "Bienvenue&nbsp;!",
-    intro: "Merci d'avoir confirm&#233; votre inscription. Vous recevrez des nouveaut&#233;s exclusives sur les &#233;v&#233;nements de l'Outxide Club, les nouvelles cartes du Hiru Food &amp; Drinks et les offres sp&#233;ciales de l'Enjoy Terrace.",
-    discover: "En attendant, d&#233;couvrez nos trois espaces&nbsp;:",
+    intro: "Merci d'avoir confirm&#233; votre inscription. Vous recevrez des nouveaut&#233;s exclusives sur les &#233;v&#233;nements de l'Outxide Club, les offres sp&#233;ciales de l'Enjoy Terrace et les nouveaux projets du groupe.",
+    discover: "En attendant, d&#233;couvrez nos espaces&nbsp;:",
     unsub: "Vous recevez cet e-mail car vous avez confirm&#233; votre inscription sur grupoenjoy.es. Vous pouvez vous d&#233;sabonner", unsubLink: "ici" },
   it: { subject: "Benvenuto in Grupo Enjoy!", title: "Benvenuto!",
-    intro: "Grazie per aver confermato la tua iscrizione. Riceverai novit&#224; esclusive sugli eventi all'Outxide Club, i nuovi men&#249; di Hiru Food &amp; Drinks e le offerte speciali dell'Enjoy Terrace.",
-    discover: "Nel frattempo, scopri i nostri tre spazi:",
+    intro: "Grazie per aver confermato la tua iscrizione. Riceverai novit&#224; esclusive sugli eventi all'Outxide Club, le offerte speciali dell'Enjoy Terrace e i nuovi progetti del gruppo.",
+    discover: "Nel frattempo, scopri i nostri spazi:",
     unsub: "Ricevi questa email perch&#233; hai confermato la tua iscrizione su grupoenjoy.es. Puoi annullare l'iscrizione", unsubLink: "qui" },
 };
 
@@ -109,7 +109,6 @@ export async function sendWelcomeEmail(
     <div style="text-align: center;">
       <a href="${SITE}/enjoy" style="display: inline-block; background: #ec4899; color: white; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-size: 14px; font-weight: 500; margin: 4px;">Enjoy Terrace</a>
       <a href="${SITE}/outxide" style="display: inline-block; background: #06b6d4; color: white; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-size: 14px; font-weight: 500; margin: 4px;">Outxide Club</a>
-      <a href="${SITE}/hiru" style="display: inline-block; background: #b87333; color: white; text-decoration: none; padding: 10px 24px; border-radius: 999px; font-size: 14px; font-weight: 500; margin: 4px;">Hiru Food &amp; Drinks</a>
     </div>`;
   const footer = `<p style="color: #666; font-size: 11px; line-height: 1.5; margin: 0;">${tpl.unsub} <a href="${UNSUB_MAILTO}" style="color: #888; text-decoration: underline;">${tpl.unsubLink}</a>.</p>`;
   const { error } = await resend.emails.send({

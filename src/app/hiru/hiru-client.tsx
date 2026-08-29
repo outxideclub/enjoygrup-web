@@ -2,51 +2,35 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUp,
-  Clock,
-  ExternalLink,
-  MapPin,
-  Phone,
-  Star,
-  Leaf,
-  Anchor,
-  Waves,
-  Info,
-} from "lucide-react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowRight, Flame, MapPin } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { Button } from "@/components/ui/button";
 import { HiruLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
-import { VenueFaq } from "@/components/ui/venue-faq";
 import dynamic from "next/dynamic";
 
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
 const AmbientGlow = dynamic(() => import("@/components/ui/ambient-glow").then(m => ({ default: m.AmbientGlow })), { ssr: false });
-import { getIcon } from "@/lib/icons";
-import { StickyCta } from "@/components/ui/sticky-cta";
-import { restooReserveUrl } from "@/lib/events";
-import { siteContact, igDmHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
+import { localizedPath } from "@/i18n/config";
 import { useRef, useCallback, useState, useEffect } from "react";
 
-export interface MenuItem { name: string; description: string; price?: string; }
-export interface MenuSection { id: string; category: string; icon: string; subtitle?: string; items: MenuItem[]; }
 export interface GalleryImage { src: string; alt: string; category?: string; }
 export interface GalleryData { categories: string[]; images: GalleryImage[]; }
 
 export interface HiruClientProps {
-  menuSections: MenuSection[];
   galleryData: GalleryData;
 }
 
-
-export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
+/**
+ * Página de despedida de Hiru (cerrado en agosto de 2026). El local se
+ * conserva para un posible proyecto futuro: la página no vende nada — hero,
+ * carta de despedida, guiño a lo que viene, recuerdos y puentes a los locales
+ * que siguen abiertos.
+ */
+export function HiruClient({ galleryData }: HiruClientProps) {
   const t = useT();
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
@@ -54,9 +38,6 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
   const [isFirstMount, setIsFirstMount] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const menuNavRef = useRef<HTMLElement>(null);
-  const menuSectionRef = useRef<HTMLElement>(null);
-  const [showFloatingNav, setShowFloatingNav] = useState(false);
   const prefersReduced = useReducedMotion();
 
   const handleVideoReady = useCallback(() => {
@@ -81,26 +62,6 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
     if (v && v.readyState >= 3) handleVideoReady();
   }, [handleVideoReady, loadVideo]);
 
-  useEffect(() => {
-    const nav = menuNavRef.current;
-    const section = menuSectionRef.current;
-    if (!nav || !section) return;
-    let navVisible = true;
-    let sectionVisible = false;
-    const update = () => setShowFloatingNav(!navVisible && sectionVisible);
-    const navObs = new IntersectionObserver(
-      ([entry]) => { navVisible = entry.isIntersecting; update(); },
-      { threshold: 0 },
-    );
-    const sectionObs = new IntersectionObserver(
-      ([entry]) => { sectionVisible = entry.isIntersecting; update(); },
-      { threshold: 0 },
-    );
-    navObs.observe(nav);
-    sectionObs.observe(section);
-    return () => { navObs.disconnect(); sectionObs.disconnect(); };
-  }, []);
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -110,11 +71,6 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
   const borderRadiusRaw = useTransform(scrollYProgress, [0, 1], [0, 32]);
   const scale = prefersReduced ? 1 : scaleRaw;
   const borderRadius = prefersReduced ? 0 : borderRadiusRaw;
-
-  const scrollToSection = useCallback((id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
 
   return (
     <div className="noise-texture relative">
@@ -176,64 +132,48 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
               </motion.div>
             </div>
             <h1 className="sr-only">{t("hiru.h1")}</h1>
-            <p className="mt-2 text-lg tracking-[0.2em] text-hiru/80 uppercase font-bold">
+            <p className="mt-2 text-sm tracking-[0.2em] text-white/50 uppercase">
               {t("hiru.subtitle")}
+            </p>
+            <p className="mt-4 text-lg tracking-[0.2em] text-hiru/80 uppercase font-bold">
+              {t("hiru.farewellEyebrow")}
             </p>
             <p className="mt-8 max-w-lg mx-auto text-muted-foreground">
               {t("hiru.description")}
             </p>
-            {/* CTA de reserva above-the-fold (antes solo estaba al fondo) */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-8 flex justify-center">
               <a
-                href={restooReserveUrl(locale)}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#carta"
                 className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-hiru px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-hiru/90"
               >
-                {t("cta.hiruHeroReserve")}
+                {t("cta.hiruFarewell")}
                 <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="tel:+34971853932"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5"
-              >
-                <Phone className="h-4 w-4 text-hiru" />
-                {t("common.call")}
               </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Info bar */}
+      {/* Estado del local + puentes a los locales abiertos */}
       <section className="relative z-20 border-y border-white/5 bg-background/60 backdrop-blur-md">
         <div className="mx-auto max-w-4xl px-6 py-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-hiru" />
-            <span>{t("hiru.hours")}</span>
+            <Flame className="h-4 w-4 text-hiru" />
+            <span>{t("hiru.farewellBadge")}</span>
           </div>
-          <a
-            href="https://maps.google.com/?q=Hiru+Food+Drinks+Ctra+Arta+40+Port+Alcudia+Mallorca"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-white transition-colors"
-          >
+          <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-hiru" />
             <span>{t("hiru.address")}</span>
-          </a>
-          <a href="tel:+34971853932" className="flex items-center gap-2 text-hiru font-medium hover:text-hiru/80 transition-colors whitespace-nowrap">
-            <Phone className="h-4 w-4 shrink-0" />
-            <span>971 853 932</span>
-          </a>
+          </div>
           <Link
-            href="/enjoy"
-            className="link-underline flex items-center gap-2 text-hiru hover:text-hiru/80 transition-colors"
+            href={localizedPath("/enjoy", locale)}
+            className="link-underline flex items-center gap-2 text-enjoy hover:text-enjoy/80 transition-colors"
           >
             <ArrowRight className="h-4 w-4" />
             <span>{t("hiru.continueEnjoy")}</span>
           </Link>
           <Link
-            href="/outxide"
+            href={localizedPath("/outxide", locale)}
             className="link-underline flex items-center gap-2 text-outxide hover:text-outxide/80 transition-colors"
           >
             <ArrowRight className="h-4 w-4" />
@@ -242,105 +182,49 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
         </div>
       </section>
 
-      {/* Social proof */}
-      <div className="relative z-20 flex items-center justify-center gap-6 py-3 text-xs text-muted-foreground">
-        <a
-          href="https://www.tripadvisor.com/Restaurant_Review-g1233772-d27740707-Reviews-Hiru_Food_Drinks-Alcudia_Majorca_Balearic_Islands.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 hover:text-white transition-colors"
-        >
-          <Star className="h-3.5 w-3.5 text-hiru fill-hiru" />
-          <span className="font-medium text-white">4.8</span>
-          <span>TripAdvisor</span>
-        </a>
-        <span className="text-white/10">|</span>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Hiru+Food+Drinks+Ctra+Arta+40+Alcudia"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 hover:text-white transition-colors"
-        >
-          <Star className="h-3.5 w-3.5 text-hiru fill-hiru" />
-          <span className="font-medium text-white">4.9</span>
-          <span>Google</span>
-        </a>
-      </div>
-
-      {/* Reservation buttons */}
-      <section className="relative z-20 py-6 bg-background/40">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            asChild
-            size="lg"
-            variant="hiru"
-            className="btn-magnetic rounded-full px-8 shadow-lg shadow-hiru/20"
-          >
-            <a href={restooReserveUrl(locale)} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4 mr-2" />
-              {t("hiru.reserveOnline")}
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="btn-magnetic rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
-          >
-            <a href="tel:+34971853932">
-              <Phone className="h-4 w-4 mr-2" />
-              {t("hiru.callToReserve")}
-            </a>
-          </Button>
-        </div>
-      </section>
-
-      {/* About — branded SEO content */}
-      <section className="relative z-20 py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-6">
+      {/* La carta de despedida */}
+      <section id="carta" className="grain-overlay relative z-20 py-24 md:py-32 scroll-mt-24 bg-[radial-gradient(ellipse_at_50%_30%,rgba(184,115,51,0.15)_0%,transparent_60%)]">
+        <div className="mx-auto max-w-2xl px-6">
           <ScrollReveal>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-6">
-              {t("hiru.aboutHeading")}
-            </h2>
-            <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
-              {t("hiru.aboutText")}
+            <div className="text-center mb-12">
+              <p className="text-sm font-bold tracking-[0.2em] text-hiru/60 uppercase mb-4">
+                {t("hiru.farewellLetterEyebrow")}
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white uppercase">
+                {t("hiru.farewellTitle")}
+              </h2>
+              <div className="mt-6 h-1 w-24 bg-hiru mx-auto" />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+              <p data-speakable>{t("hiru.farewellP1")}</p>
+              <p data-speakable>{t("hiru.farewellP2")}</p>
+              <p>{t("hiru.farewellP3")}</p>
+            </div>
+            <p className="mt-10 text-right text-hiru italic">
+              — {t("hiru.farewellSignature")}
             </p>
-            <h3 className="font-display text-xl md:text-2xl font-semibold text-white mt-8 mb-4">
-              {t("hiru.aboutHeading2")}
-            </h3>
-            <p data-speakable className="text-muted-foreground leading-relaxed text-lg">
-              {t("hiru.aboutText2")}
-            </p>
+          </ScrollReveal>
+
+          {/* Guiño a lo que viene (nada confirmado: solo se deja caer) */}
+          <ScrollReveal delay={0.15}>
+            <div className="mt-16 rounded-2xl border border-hiru/20 bg-hiru/5 p-8 text-center">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-hiru/10 text-hiru mb-4">
+                <Flame className="h-6 w-6" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-white uppercase mb-3">
+                {t("hiru.farewellTeaserTitle")}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {t("hiru.farewellTeaserText")}
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Product Highlights */}
-      <section className="grain-overlay relative z-20 py-24 bg-[radial-gradient(ellipse_at_50%_50%,rgba(184,115,51,0.15)_0%,transparent_65%)]">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { icon: Anchor, title: t("hiru.freshProduct"), desc: t("hiru.freshProductDesc") },
-              { icon: Leaf, title: t("hiru.signatureCuisine"), desc: t("hiru.signatureCuisineDesc") },
-              { icon: Waves, title: t("hiru.openLate"), desc: t("hiru.openLateDesc") }
-            ].map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="card-hover text-center group rounded-2xl p-6">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-hiru/5 text-hiru mb-6 transition-colors group-hover:bg-hiru/10">
-                    <item.icon className="h-8 w-8" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
+      {/* Los recuerdos */}
       <section className="grain-overlay relative z-20 py-24 md:py-32 bg-[radial-gradient(ellipse_at_30%_50%,rgba(184,115,51,0.18)_0%,transparent_65%)]">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
@@ -365,185 +249,30 @@ export function HiruClient({ menuSections, galleryData }: HiruClientProps) {
         </div>
       </section>
 
-      {/* Menu */}
-      <section id="menu" ref={menuSectionRef} className="grain-overlay relative z-20 py-24 md:py-32 overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,rgba(184,115,51,0.15)_0%,transparent_60%),radial-gradient(ellipse_at_20%_80%,rgba(139,94,60,0.10)_0%,transparent_60%)]">
-        <div className="mx-auto max-w-4xl px-6 relative">
+      {/* La historia continúa en los otros locales */}
+      <section className="relative z-20 py-20 border-t border-white/5">
+        <div className="mx-auto max-w-4xl px-6 text-center">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <p className="text-sm font-bold tracking-[0.2em] text-hiru/60 uppercase mb-4">
-                {t("common.menu")}
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 uppercase">
-                {t("hiru.menuTitle")}
-              </h2>
-              <div className="h-1 w-24 bg-hiru mx-auto" />
-            </div>
-          </ScrollReveal>
-
-          {/* Category Navigation */}
-          <ScrollReveal>
-            <nav ref={menuNavRef} className="mb-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-              {menuSections.map((section) => {
-                const Icon = getIcon(section.icon);
-                return (
-                  <button
-                    key={section.id}
-                    onClick={() => scrollToSection(section.id)}
-                    className="group flex items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3 text-left transition-all hover:border-hiru/30 hover:bg-hiru/[0.06]"
-                  >
-                    <Icon className="h-4 w-4 shrink-0 text-hiru/60 group-hover:text-hiru transition-colors" />
-                    <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors truncate">
-                      {section.category}
-                    </span>
-                  </button>
-                );
-              })}
-            </nav>
-          </ScrollReveal>
-
-          {/* Menu Sections */}
-          <div className="space-y-16">
-            {menuSections.map((section, si) => {
-              const Icon = getIcon(section.icon);
-              return (
-                <ScrollReveal key={section.id} delay={si * 0.03}>
-                  <div id={section.id} className="scroll-mt-24">
-                    <h3 className="text-2xl font-display text-hiru mb-2 flex items-center gap-4 uppercase tracking-wider">
-                      <span className="h-px flex-1 bg-hiru/20" />
-                      <Icon className="h-5 w-5" />
-                      {section.category}
-                      <span className="h-px flex-1 bg-hiru/20" />
-                    </h3>
-                    {"subtitle" in section && section.subtitle && (
-                      <p className="text-center text-xs text-muted-foreground mb-6 uppercase tracking-widest">
-                        {section.subtitle}
-                      </p>
-                    )}
-                    <div className={`mt-6 grid grid-cols-1 ${section.items.length > 3 ? "sm:grid-cols-2" : ""} gap-x-8 gap-y-5`}>
-                      {section.items.map((item) => (
-                        <div key={item.name} className="group relative">
-                          <div className="flex items-baseline justify-between gap-4">
-                            <h4 className="text-white font-medium group-hover:text-hiru transition-colors">
-                              {item.name}
-                            </h4>
-                            {item.price && (
-                              <span className="text-hiru font-bold text-sm whitespace-nowrap">
-                                {item.price}
-                              </span>
-                            )}
-                          </div>
-                          {item.description && (
-                            <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-                              {item.description}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
-
-          <div className="mt-16 rounded-xl border border-hiru/10 bg-hiru/5 p-6">
-            <div className="flex items-center gap-2 mb-3">
-              <Info className="h-4 w-4 text-hiru" />
-              <h4 className="text-sm font-semibold text-white">{t("hiru.allergenLegend")}</h4>
-            </div>
-            <div className="flex flex-wrap gap-2 mb-3">
-              {[
-                { key: "allergenGluten", emoji: "🌾" },
-                { key: "allergenCeliac", emoji: "✓" },
-                { key: "allergenLactose", emoji: "🥛" },
-                { key: "allergenNuts", emoji: "🥜" },
-                { key: "allergenShellfish", emoji: "🦐" },
-                { key: "allergenEggs", emoji: "🥚" },
-                { key: "allergenSoy", emoji: "🫘" },
-                { key: "allergenFish", emoji: "🐟" },
-              ].map(({ key, emoji }) => (
-                <span key={key} className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-muted-foreground">
-                  <span>{emoji}</span>
-                  {t(`hiru.${key}` as Parameters<typeof t>[0])}
-                </span>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground italic">{t("hiru.allergenNote")}</p>
-          </div>
-
-          <div className="mt-20 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              variant="hiru"
-              className="btn-magnetic rounded-full px-8 shadow-lg shadow-hiru/20"
-            >
-              <a href={restooReserveUrl(locale)} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-2" />
-                {t("hiru.reserveOnline")}
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="btn-magnetic rounded-full px-8 border-hiru/40 text-hiru hover:bg-hiru/10"
-            >
-              <a href="tel:+34971853932">
-                <Phone className="h-4 w-4 mr-2" />
-                {t("hiru.callToReserve")}
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Barra de conversión fija (reserva online en Restoo + chat de Instagram) */}
-      <StickyCta
-        accent="hiru"
-        primary={{ label: t("cta.hiruReserve"), href: restooReserveUrl(locale), external: true }}
-        instagramHref={igDmHref(siteContact.venues.hiru.instagram)}
-        instagramLabel={t("cta.instagramAria")}
-      />
-
-      {/* Inline FAQ */}
-      <VenueFaq
-        venue="hiru"
-        items={[
-          { questionKey: "faq.hiruQ5", answerKey: "faq.hiruA5" },
-          { questionKey: "faq.hiruQ1", answerKey: "faq.hiruA1" },
-          { questionKey: "faq.hiruQ2", answerKey: "faq.hiruA2" },
-          { questionKey: "faq.hiruQ3", answerKey: "faq.hiruA3" },
-          { questionKey: "faq.hiruQ4", answerKey: "faq.hiruA4" },
-        ]}
-      />
-
-      {/* Related Blog Articles */}
-      <section className="grain-overlay relative z-20 py-16 sm:py-20 border-t border-white/5">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-white uppercase tracking-tight text-center mb-10">
-            {t("blog.venueRelatedArticles")}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { slug: "hiru-food-drinks-restaurante-alcudia", label: locale === "es" ? "Hiru Food & Drinks: El Restaurante a la Brasa" : locale === "de" ? "Hiru Food & Drinks: Das Grillrestaurant" : locale === "fr" ? "Hiru Food & Drinks: Le Restaurant au Charbon" : locale === "it" ? "Hiru Food & Drinks: Il Ristorante alla Brace" : "Hiru Food & Drinks: The Charcoal Grill Restaurant" },
-              { slug: "mejores-restaurantes-alcudia-mallorca", label: locale === "es" ? "Mejores Restaurantes de Alcúdia" : locale === "de" ? "Beste Restaurants in Alcúdia" : locale === "fr" ? "Meilleurs Restaurants à Alcúdia" : locale === "it" ? "Migliori Ristoranti ad Alcúdia" : "Best Restaurants in Alcúdia" },
-              { slug: "donde-cenar-tarde-port-alcudia", label: locale === "es" ? "Dónde Cenar Tarde en Port d'Alcúdia" : locale === "de" ? "Spät Essen in Port d'Alcúdia" : locale === "fr" ? "Où Dîner Tard à Port d'Alcúdia" : locale === "it" ? "Dove Cenare Tardi a Port d'Alcúdia" : "Late Dining in Port d'Alcúdia" },
-              { slug: "cena-romantica-alcudia-mallorca", label: locale === "es" ? "Cena Romántica en Alcúdia" : locale === "de" ? "Romantisches Abendessen Alcúdia" : locale === "fr" ? "Dîner Romantique à Alcúdia" : locale === "it" ? "Cena Romantica ad Alcúdia" : "Romantic Dinner in Alcúdia" },
-              { slug: "restaurante-brasa-parrilla-mallorca", label: locale === "es" ? "Restaurante a la Brasa en Mallorca" : locale === "de" ? "Grillrestaurant auf Mallorca" : locale === "fr" ? "Restaurant au Charbon à Majorque" : locale === "it" ? "Ristorante alla Brace a Maiorca" : "Charcoal Grill Restaurant in Mallorca" },
-              { slug: "mejores-restaurantes-alcudia", label: locale === "es" ? "Dónde Comer en Alcúdia 2026" : locale === "de" ? "Wo man in Alcúdia essen geht 2026" : locale === "fr" ? "Où Manger à Alcúdia 2026" : locale === "it" ? "Dove Mangiare ad Alcúdia 2026" : "Where to Eat in Alcúdia 2026" },
-              { slug: "que-hacer-alcudia-mallorca", label: locale === "es" ? "Qué Hacer en Alcúdia: 15 Planes" : locale === "de" ? "15 Aktivitäten in Alcúdia" : locale === "fr" ? "15 Activités à Alcúdia" : locale === "it" ? "15 Attività ad Alcúdia" : "15 Things to Do in Alcúdia" },
-            ].map((article) => (
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white uppercase mb-10">
+              {t("hiru.continueTitle")}
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                key={article.slug}
-                href={`/blog/${article.slug}`}
-                className="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition-all hover:border-hiru/30 hover:bg-hiru/[0.04]"
+                href={localizedPath("/enjoy", locale)}
+                className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-enjoy px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-enjoy/90"
               >
-                <ArrowRight className="h-4 w-4 text-hiru shrink-0 transition-transform group-hover:translate-x-0.5" />
-                <span className="text-sm text-white/70 group-hover:text-white transition-colors">{article.label}</span>
+                {t("hiru.continueEnjoy")}
+                <ArrowRight className="h-4 w-4" />
               </Link>
-            ))}
-          </div>
+              <Link
+                href={localizedPath("/outxide", locale)}
+                className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-outxide px-7 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
+              >
+                {t("hiru.continueOutxide")}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

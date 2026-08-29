@@ -53,11 +53,7 @@ async function FaqJsonLd() {
     { q: "faq.outxideQ3", a: "faq.outxideA3" },
     { q: "faq.outxideQ4", a: "faq.outxideA4" },
     { q: "faq.outxideQ5", a: "faq.outxideA5" },
-    { q: "faq.hiruQ1", a: "faq.hiruA1" },
-    { q: "faq.hiruQ2", a: "faq.hiruA2" },
-    { q: "faq.hiruQ3", a: "faq.hiruA3" },
-    { q: "faq.hiruQ4", a: "faq.hiruA4" },
-    { q: "faq.hiruQ5", a: "faq.hiruA5" },
+    { q: "faq.hiruClosedQ", a: "faq.hiruClosedA" },
   ];
 
   return (

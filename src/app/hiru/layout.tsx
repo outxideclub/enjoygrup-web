@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HiruJsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
 
@@ -45,7 +45,6 @@ export default async function HiruLayout({
   children: React.ReactNode;
 }) {
   const locale = await getServerLocale();
-  const t = getServerT(locale);
   return (
     <div className="theme-hiru">
       {children}
@@ -53,7 +52,8 @@ export default async function HiruLayout({
         { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
         { name: "Hiru Food & Drinks", url: `https://www.grupoenjoy.es${localizedPath("/hiru", locale)}` },
       ]} />
-      <HiruJsonLd description={t("meta.hiruDescription")} locale={locale} />
+      {/* Sin HiruJsonLd: el restaurante cerró en agosto de 2026 y un schema
+          Restaurant con horarios y ReserveAction sería información falsa. */}
       <VenueVideoJsonLd venue="hiru" />
     </div>
   );

@@ -86,7 +86,6 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fourvenues.com" />
         <link rel="dns-prefetch" href="https://fourvenues.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://hirufoodanddrinks.myrestoo.net" />
         {/* LLM-readable content for AI crawlers (llms.txt convention) */}
         <link rel="help" type="text/plain" href="/llms.txt" title="LLM summary" />
         <link rel="help" type="text/plain" href="/llms-full.txt" title="LLM full reference" />

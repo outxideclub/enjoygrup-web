@@ -15,7 +15,6 @@ import {
   extractGenres,
   extractArtists,
   fourVenuesOrgUrl,
-  restooReserveUrl,
 } from "@/lib/events";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { siteContact, telHref } from "@/lib/site";
@@ -66,8 +65,8 @@ export default async function AgendaPage() {
       btn: "bg-hiru text-white hover:bg-hiru/90",
       icon: UtensilsCrossed,
       schedule: t("agenda.hiruSchedule"),
-      cta: t("cta.hiruReserve"),
-      href: restooReserveUrl(locale),
+      cta: t("cta.hiruFarewell"),
+      href: localizedPath("/hiru#carta", locale),
       path: "/hiru",
     },
   ];
@@ -220,14 +219,14 @@ export default async function AgendaPage() {
                 >
                   <div className={`mb-4 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${v.chip}`}>
                     <v.icon className="h-3.5 w-3.5" aria-hidden />
-                    {t("agenda.schedule")}
+                    {v.key === "hiru" ? t("hiru.farewellEyebrow") : t("agenda.schedule")}
                   </div>
                   <h3 className={`font-display text-xl font-bold ${v.accent}`}>{v.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.schedule}</p>
                   <div className="mt-6 flex flex-col gap-3">
                     <a
                       href={v.href}
-                      {...(v.href.startsWith("tel:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                      {...(v.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${v.btn}`}
                     >
                       {v.cta}

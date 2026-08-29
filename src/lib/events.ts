@@ -31,13 +31,6 @@ export function fourVenuesOrgUrl(locale = "es"): string {
 /** @deprecated Usar fourVenuesOrgUrl(locale) para respetar el idioma del visitante. */
 export const FOURVENUES_ORG_URL = fourVenuesOrgUrl("es");
 
-// Reserva de mesa en Hiru (Restoo). Soporta es/en/de/fr/it (verificado: 200 en
-// los 5 idiomas).
-export function restooReserveUrl(locale = "es"): string {
-  const l = FOURVENUES_LOCALES.has(locale) ? locale : "en";
-  return `https://hirufoodanddrinks.myrestoo.net/${l}/reservar`;
-}
-
 export function formatEventDate(isoDate: string, locale: string): string {
   return new Date(isoDate).toLocaleDateString(localeMap[locale] ?? "es-ES", {
     weekday: "short",

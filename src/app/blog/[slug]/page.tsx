@@ -123,9 +123,10 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "SpeakableSpecification",
       cssSelector: [".blog-content p:first-of-type", ".blog-content h2"],
     },
-    about: post.venue && post.venue !== "general" ? {
-      "@type": post.venue === "hiru" ? "Restaurant" : post.venue === "enjoy" ? "BarOrPub" : "NightClub",
-      "@id": `${BASE_URL}/${post.venue}#${post.venue === "hiru" ? "restaurant" : post.venue === "enjoy" ? "bar" : "nightclub"}`,
+    // Hiru cerró en 2026: sus posts ya no enlazan una entidad Restaurant activa.
+    about: post.venue === "enjoy" || post.venue === "outxide" ? {
+      "@type": post.venue === "enjoy" ? "BarOrPub" : "NightClub",
+      "@id": `${BASE_URL}/${post.venue}#${post.venue === "enjoy" ? "bar" : "nightclub"}`,
     } : undefined,
   };
 

@@ -2,14 +2,14 @@ import type { Dictionary } from "./es";
 
 export const de: Dictionary = {
   meta: {
-    title: "Grupo Enjoy | Cocktailbar, Club & Restaurant in Alcúdia",
+    title: "Grupo Enjoy | Cocktailbar, Shisha & Club in Alcúdia",
     description:
-      "Drei einzigartige Erlebnisse in Alcúdia, Mallorca: Enjoy Terrace (Cocktails & Shisha), Outxide Club (Nachtclub) und Hiru Food & Drinks (Grillrestaurant).",
+      "Enjoy Terrace und Outxide Club: Cocktails, Shisha und Nachtclub in Port d'Alcúdia, Mallorca. Offizielle Website, Öffnungszeiten, Tickets und Reservierungen.",
     keywords:
-      "grupo enjoy, cocktailbar alcúdia, nachtclub alcúdia, restaurant alcúdia, enjoy terrace, outxide club, hiru food drinks, nachtleben mallorca, ausgehen alcúdia, bar mallorca",
-    ogTitle: "Grupo Enjoy | Cocktailbar, Club & Restaurant in Alcúdia",
+      "grupo enjoy, cocktailbar alcúdia, nachtclub alcúdia, restaurant alcúdia, enjoy terrace, outxide club, nachtleben mallorca, ausgehen alcúdia, bar mallorca",
+    ogTitle: "Grupo Enjoy | Cocktailbar, Shisha & Club in Alcúdia",
     ogDescription:
-      "Enjoy Terrace, Outxide Club und Hiru Food & Drinks — drei einzigartige Locations in Alcúdia, Mallorca.",
+      "Cocktails und Nachtclub in Port d'Alcúdia: Enjoy Terrace und Outxide Club. Deine perfekte Nacht auf Mallorca beginnt hier.",
     enjoyTitle: "Enjoy Terrace — Cocktails & Shisha in Port d'Alcúdia",
     enjoyDescription:
       "Enjoy Terrace: Cocktailterrasse und Sunset-Drinks in Port d'Alcúdia, Mallorca. Signature-Cocktails, Premium-Shisha und der beste Sonnenuntergang. Täglich ab 17:00 geöffnet. Offizielle Webseite.",
@@ -24,31 +24,31 @@ export const de: Dictionary = {
       "The night continues. Nachtclub in Alcúdia. Online-Tickets über FourVenues.",
     outxideKeywords:
       "outxide club, outxide club alcudia, outxide alcudia, nachtclub alcudia, diskothek alcudia mallorca, techno mallorca, house mallorca, party alcudia, nachtleben alcudia, outxide tickets, disko alcudia mallorca, beste clubs alcudia, DJ nacht alcudia, wochenende nachtleben alcudia, ausgehen port alcudia, bester nachtclub mallorca",
-    hiruTitle: "Hiru Food & Drinks — Grillrestaurant in Alcúdia",
+    hiruTitle: "Hiru — Danke für Alles",
     hiruDescription:
-      "Hiru Food & Drinks: Grillrestaurant in Port d'Alcúdia, Mallorca. Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Fisch und mediterrane Reisgerichte. Speisekarte und Reservierung. Offizielle Webseite.",
+      "Hiru Food & Drinks hat seine Türen geschlossen. Danke für die Jahre voller Grillgenuss und guter Momente in Port d'Alcúdia. Bald neue Projekte von Grupo Enjoy.",
     hiruOgDescription:
-      "Produkt, Tradition und Geschmack. Mallorquinische Grillküche in Alcúdia.",
+      "Das Feuer erlischt, doch die Glut bleibt. Lies Hirus Abschiedsbrief — und bleib gespannt auf das, was kommt.",
     hiruKeywords:
-      "hiru food drinks, hiru food and drinks, hiru alcudia, restaurant alcudia, grillrestaurant alcudia, paella alcudia, restaurant port alcudia, essen in alcudia, restaurant mallorca, hiru restaurant, mediterranes restaurant alcudia, wo essen alcudia, abendessen alcudia, grillrestaurant mallorca, fleisch vom grill mallorca",
+      "hiru alcudia, hiru food drinks, hiru cerrado, hiru closed, restaurante alcudia, grupo enjoy, carta despedida hiru",
     aboutTitle: "Über Uns — Gastronomie & Nachtleben in Alcúdia",
     aboutDescription:
-      "Lernen Sie die Geschichte von Grupo Enjoy kennen: drei einzigartige Premium-Locations für Freizeit und Gastronomie in Port d'Alcúdia, Mallorca. Enjoy Terrace, Outxide Club und Hiru Food & Drinks.",
+      "Lerne Grupo Enjoy kennen: Enjoy Terrace und Outxide Club, Premium-Freizeit in Port d'Alcúdia, Mallorca. Unsere Geschichte seit 2007.",
     aboutOgDescription:
       "Die Geschichte von Grupo Enjoy: Premium-Freizeit und Gastronomie in Alcúdia, Mallorca.",
     contactTitle: "Kontakt & Reservierungen — Alcúdia, Mallorca",
     contactDescription:
-      "Kontaktieren Sie Grupo Enjoy. Adresse, Telefon, Öffnungszeiten und Kontaktformular für Enjoy Terrace, Outxide Club und Hiru Food & Drinks in Port d'Alcúdia.",
+      "Kontakt und Reservierung bei Grupo Enjoy: Enjoy Terrace und Outxide Club in Port d'Alcúdia. Adresse, Telefon, Öffnungszeiten und offizielles Formular.",
     contactOgDescription:
       "Kontaktieren Sie Grupo Enjoy in Alcúdia, Mallorca. Adresse, Telefon und Kontaktformular.",
     faqTitle: "FAQ — Nachtleben & Restaurants in Alcúdia, Mallorca",
     faqDescription:
-      "Antworten auf häufig gestellte Fragen zu Enjoy Terrace, Outxide Club und Hiru Food & Drinks. Öffnungszeiten, Reservierungen, Lage und mehr.",
+      "Öffnungszeiten, Reservierungen, Tickets und Lage von Enjoy Terrace und Outxide Club in Port d'Alcúdia, Mallorca. Alle Antworten von Grupo Enjoy.",
     faqOgDescription:
       "FAQ von Grupo Enjoy: alles Wissenswerte über unsere Locations in Alcúdia.",
     blogTitle: "Blog — Nachtleben, Restaurants & Aktivitäten in Alcúdia",
     blogDescription:
-      "Reiseführer, Neuigkeiten und Tipps zu Nachtleben, Gastronomie und Freizeit in Alcúdia, Mallorca. Enjoy Terrace, Outxide Club und Hiru Food & Drinks.",
+      "Reiseführer, Neuigkeiten und Tipps zu Nachtleben, Gastronomie und Freizeit in Alcúdia, Mallorca. Enjoy Terrace und Outxide Club.",
     blogOgDescription:
       "Blog von Grupo Enjoy: Reiseführer und Neuigkeiten zu Freizeit und Gastronomie in Alcúdia.",
   },
@@ -88,9 +88,9 @@ export const de: Dictionary = {
     outxideSubtitle: "Club",
     outxideDescription:
       "The night continues. Outxide Club ist der Top-Nachtclub mit den besten DJs, Techno, House und Reggaeton in Port d'Alcúdia, Mallorca.",
-    hiruSubtitle: "Food & Drinks",
+    hiruSubtitle: "Danke für alles",
     hiruDescription:
-      "Grill, Cocktails und gute Stimmung. Hiru Food & Drinks bietet Meeresfrüchte-Paella, Dry-Aged-Fleisch und Cocktails bis spät in Port d'Alcúdia.",
+      "Hiru hat seine Türen geschlossen. Es war eine köstliche Reise — lies unseren Abschiedsbrief und erfahre, was für diesen Ort geplant ist.",
     threeSpaces: "Drei Locations, ein Qualitätsanspruch",
     grupoEnjoy: "Grupo Enjoy",
     enjoyCta: "Enjoy Terrace",
@@ -103,7 +103,7 @@ export const de: Dictionary = {
     h1: "Enjoy Terrace — Cocktail- & Shisha-Terrasse in Port d'Alcúdia, Mallorca",
     aboutHeading: "Wo gibt es die besten Cocktails in Port d'Alcúdia?",
     aboutText:
-      "Enjoy Terrace ist die beliebteste Cocktail-Terrasse in Port d'Alcúdia, Mallorca. Seit 2007 täglich ab 17:00 Uhr an der Av. Tucán 1 geöffnet, mit Signature-Cocktails, Premium-Shisha und dem besten Blick auf den Sonnenuntergang am Mittelmeer. Teil von Grupo Enjoy, zusammen mit Outxide Club und Hiru Food & Drinks.",
+      "Enjoy Terrace ist die beliebteste Cocktail-Terrasse in Port d'Alcúdia, Mallorca. Seit 2007 täglich ab 17:00 Uhr an der Av. Tucán 1 geöffnet, mit Signature-Cocktails, Premium-Shisha und dem besten Blick auf den Sonnenuntergang am Mittelmeer. Teil von Grupo Enjoy, zusammen mit dem Outxide Club.",
     aboutHeading2: "Was macht die Enjoy Terrasse besonders?",
     aboutText2:
       "Die Cocktailkarte wird jede Saison mit exklusiven Kreationen aus avantgardistischer Mixologie erneuert. Enjoy ist der perfekte Treffpunkt für Sundowner, After-Dinner-Drinks oder den Start in die Nacht in Port d'Alcúdia. Premium-Shisha und ausgewählte Musik vervollständigen das Erlebnis in Alcúdias bester Cocktailbar.",
@@ -114,7 +114,6 @@ export const de: Dictionary = {
     hours: "Täglich geöffnet: 17:00 – 05:30",
     address: "Av. Tucán, 1, Port d'Alcúdia",
     continueOutxide: "Weiter im Outxide Club",
-    dinnerHiru: "Abendessen im Hiru",
     reserve: "Reservieren",
     viewMenu: "Karte ansehen",
   },
@@ -137,7 +136,6 @@ export const de: Dictionary = {
     eventsVia: "Events und Tickets über",
     hours: "Geöffnet: 23:00 – 05:30",
     address: "Av. Tucán, 1, 07400 Alcúdia, Mallorca",
-    dinnerHiru: "Abendessen im Hiru",
     cocktailsEnjoy: "Cocktails auf der Enjoy Terrace",
     buyTickets: "Tickets kaufen",
     reserveVip: "VIP-Tisch reservieren",
@@ -162,45 +160,31 @@ export const de: Dictionary = {
   },
   hiru: {
     subtitle: "Grill · Cocktails · Good vibes",
-    h1: "Hiru Food & Drinks — Grillrestaurant in Alcúdia, Mallorca",
-    aboutHeading: "Wo kann man in Alcúdia vom Grill essen?",
-    aboutText:
-      "Hiru Food & Drinks ist das beste Holzkohlegrill-Restaurant in Alcúdia, Mallorca. Spezialisiert auf produktorientierte Mittelmeerküche: Meeresfrüchte-Paella, Dry-Aged-Fleisch, frischer Fisch und erlesene Weine. Montag bis Sonntag (außer Dienstag) ab 12:00 Uhr, Ctra. d'Artà 40. Teil von Grupo Enjoy.",
-    aboutHeading2: "Was sind die Spezialitäten von Hiru?",
-    aboutText2:
-      "Dry-Aged-Fleisch wird über Steineiche-Kohle perfekt gegrillt. Die Reisgerichte — darunter Meeresfrüchte-Paella mit fangfrischen Produkten — sind die beliebtesten Speisen. Hiru ist ideal für Familienessen, romantisches Dinner oder Feiern in Port d'Alcúdia. Reservieren Sie und entdecken Sie Mallorcas beste Grillküche.",
+    h1: "Hiru Food & Drinks — Danke für Alles | Alcúdia, Mallorca",
     description:
-      "Grillrestaurant in Port d'Alcúdia, wo das Feuer die Hauptrolle spielt. Dry-Aged-Fleisch, Meeresfrüchte-Paella, Reisgerichte und Cocktails bis spät. Reservieren Sie Ihren Tisch.",
-    galleryTitle: "Produkt · Tradition · Geschmack",
+      "Hiru hat seinen letzten Service serviert. Danke für die Jahre voller Brasa, Reisgerichte und endloser Abende. Dies ist unser Abschiedsbrief.",
+    farewellEyebrow: "Bis bald",
+    farewellBadge: "Hiru hat seine Türen geschlossen",
+    farewellLetterEyebrow: "Der Abschiedsbrief",
+    farewellTitle: "Danke für alles",
+    farewellP1:
+      "Hiru entstand aus einer einfachen Idee: Feuer, ehrliches Produkt und gute Menschen. Auf diesem Weg haben wir mittags Meeresfrüchte-Paellas geteilt, Dry-Aged-Steaks über glühender Kohle und Abende, die bis in die frühen Morgenstunden reichten.",
+    farewellP2:
+      "Heute schließt sich dieses Kapitel. Hiru hat seinen letzten Service serviert, und uns bleibt nur, Danke zu sagen: jedem, der an unserem Tisch saß, dem Team, das in jedes Gericht sein Herz gelegt hat, und Port d'Alcúdia dafür, dass wir uns hier zu Hause fühlen durften.",
+    farewellP3:
+      "Wir nennen es nicht Abschied. Das Feuer erlischt, doch die Glut bleibt warm: Dieser Ort ruht, während wir uns ausmalen, was als Nächstes kommt. Und was kommt … wird euch gefallen.",
+    farewellSignature: "In Liebe, die Familie von Grupo Enjoy",
+    farewellTeaserTitle: "Etwas Neues köchelt bereits",
+    farewellTeaserText:
+      "Das Lokal gönnt sich eine Pause, aber es bleibt nicht für immer leer: Wir träumen schon vom nächsten Projekt für diese Ecke Alcúdias. Abonniere den Newsletter am Ende der Seite und erfahre es als Erster.",
+    galleryTitle: "Die Erinnerungen",
     galleryAll: "Alles",
     galleryFood: "Gastronomie",
     gallerySpace: "Räumlichkeiten",
-    menuTitle: "Die Speisekarte",
-    freshProduct: "Frische Produkte",
-    freshProductDesc:
-      "Dry-Aged-Fleisch, Mittelmeerfisch und frische Meeresfrüchte vom lokalen Markt für Grillgerichte mit Charakter.",
-    signatureCuisine: "Kreative Küche",
-    signatureCuisineDesc:
-      "Meeresfrüchte-Paella, Reisgerichte und mallorquinische Küche neu interpretiert mit modernen Techniken und lokalen Produkten.",
-    openLate: "Bis spät geöffnet",
-    openLateDesc:
-      "Restaurant und Cocktailbar bis 1:00 Uhr am Wochenende in Port d'Alcúdia geöffnet.",
-    hours: "12:00–23:30 · Fr–Sa bis 1:00 · Di geschlossen",
     address: "Ctra. d'Artà, 40, Port d'Alcúdia",
+    continueTitle: "Die Geschichte geht weiter",
     continueEnjoy: "Weiter auf der Enjoy Terrace",
     continueOutxide: "Weiter im Outxide Club",
-    callToReserve: "Anrufen und reservieren",
-    reserveOnline: "Online reservieren",
-    allergenLegend: "Allergen-Informationen",
-    allergenCeliac: "Für Zöliakie-Betroffene geeignet",
-    allergenGluten: "Enthält Gluten",
-    allergenLactose: "Enthält Laktose",
-    allergenNuts: "Enthält Nüsse",
-    allergenShellfish: "Enthält Schalentiere",
-    allergenEggs: "Enthält Eier",
-    allergenSoy: "Enthält Soja",
-    allergenFish: "Enthält Fisch",
-    allergenNote: "Bitte informieren Sie das Personal über Allergien oder Unverträglichkeiten.",
   },
   socialProof: {
     reviewsOn: "Bewertungen auf",
@@ -315,10 +299,10 @@ export const de: Dictionary = {
     teamDescription: "In über 2.200 Bewertungen sprechen unsere Gäste nicht nur über die Cocktails oder die Musik — sie sprechen über die Menschen. Namen wie José, Kasia, Manuel und Gabri tauchen immer wieder auf, denn hier wird jedes Teammitglied Teil Ihres Erlebnisses.",
     philosophyQuote: "\"Die besten Cocktails in Alcúdia\" — unsere Gäste, Jahr für Jahr",
     venuesTitle: "Drei Locations, eine Philosophie",
-    venuesSubtitle: "Abendessen im Hiru, Cocktails im Enjoy, Party im Outxide. Ihr perfekter Abend beginnt hier.",
+    venuesSubtitle: "Cocktails im Enjoy, Party im Outxide. Deine perfekte Nacht beginnt hier.",
     enjoyCard: "Where nights begin. Signature-Cocktails und Premium-Shisha auf der lebendigsten Terrasse Alcúdias.",
     outxideCard: "The night continues. Nachtclub mit den besten DJs und einer unvergleichlichen Energie.",
-    hiruCard: "Grill, Cocktails und gute Stimmung. Mallorquinische Kreativküche bis spät in die Nacht.",
+    hiruCard: "Hiru hat 2026 seine Türen geschlossen. Danke für alles — dieser Ort bekommt bald ein neues Kapitel.",
   },
   contact: {
     heroTitle: "Kontakt",
@@ -350,7 +334,7 @@ export const de: Dictionary = {
     outxideHours: "Do–Sa: 23:00 – 05:30 (Mai–Okt)",
     hiruAddress: "Ctra. d'Artà, 40, Port d'Alcúdia",
     hiruPhone: "+34 971 853 932",
-    hiruHours: "12:00–23:30 · Fr–Sa bis 1:00 · Di geschlossen",
+    hiruHours: "Dauerhaft geschlossen · Danke für alles",
     emailLabel: "E-Mail",
     callCta: "Rufen Sie uns an",
     emailAddress: "info@grupoenjoy.es",
@@ -367,8 +351,11 @@ export const de: Dictionary = {
     enjoyTitle: "Enjoy Terrace",
     outxideTitle: "Outxide Club",
     hiruTitle: "Hiru Food & Drinks",
+    hiruClosedQ: "Hat Hiru Food & Drinks geschlossen?",
+    hiruClosedA:
+      "Ja. Hiru hat im August 2026 endgültig geschlossen. Danke an alle, die mit uns am Tisch saßen. In dem Raum entstehen bald neue Projekte von Grupo Enjoy – abonniere den Newsletter, um es als Erster zu erfahren. Enjoy Terrace und Outxide Club bleiben wie gewohnt geöffnet.",
     generalQ1: "Wo befinden sich die Locations?",
-    generalA1: "Enjoy Terrace und Outxide Club in der Av. Tucán 1, Hiru in der Ctra. d'Artà 40, Port d'Alcúdia.",
+    generalA1: "Enjoy Terrace und Outxide Club befinden sich in der Av. Tucán 1, Port d'Alcúdia. (Hiru, Ctra. d'Artà 40, hat 2026 geschlossen.)",
     generalQ2: "Gibt es Parkplätze?",
     generalA2: "Ja, in der Nähe aller Locations gibt es kostenlose öffentliche Parkplätze.",
     generalQ3: "Welche Zahlungsmethoden akzeptieren Sie?",
@@ -376,7 +363,7 @@ export const de: Dictionary = {
     generalQ4: "Kann man für größere Gruppen reservieren?",
     generalA4: "Ja, kontaktieren Sie uns für private Veranstaltungen und Gruppenreservierungen.",
     generalQ5: "Was ist Grupo Enjoy?",
-    generalA5: "Grupo Enjoy ist eine Premium-Gastronomie- und Freizeitgruppe in Port d'Alcudia, Mallorca. Sie betreibt drei Locations: Enjoy Terrace (Cocktail-Lounge und Shisha), Outxide Club (Nachtclub) und Hiru Food & Drinks (Grillrestaurant). Alle drei liegen nur wenige Meter voneinander entfernt. Offizielle Website: grupoenjoy.es.",
+    generalA5: "Grupo Enjoy ist eine Premium-Gastronomie- und Freizeitgruppe in Port d'Alcúdia, Mallorca. Sie betreibt Enjoy Terrace (Cocktail-Lounge und Shisha) und Outxide Club (Nachtclub) in derselben Ausgehzone. Ihr Restaurant Hiru Food & Drinks hat 2026 geschlossen. Offizielle Website: grupoenjoy.es.",
     enjoyQ1: "Ist eine Reservierung erforderlich?",
     enjoyA1: "Nicht zwingend, aber in der Hauptsaison (Juni–September) empfohlen.",
     enjoyQ2: "Wie sind die Öffnungszeiten?",
@@ -397,16 +384,6 @@ export const de: Dictionary = {
     outxideA4: "Donnerstag bis Samstag von 23:00 bis 05:30, Saison Mai–Oktober.",
     outxideQ5: "Was ist Outxide Club?",
     outxideA5: "Outxide Club ist der fuehrende Nachtclub im Norden Mallorcas, in der Av. Tucan 1, Port d'Alcudia. Premium-Cluberlebnis mit professionellem Soundsystem, erstklassiger visueller Produktion und nationalen wie internationalen DJs. Musik: House, Tech House, Techno und Reggaeton. Geoeffnet Donnerstag, Freitag und Samstag von 23:00 bis 05:30. Tickets online bei FourVenues. Offizielle Website: grupoenjoy.es/outxide.",
-    hiruQ1: "Brauche ich eine Reservierung?",
-    hiruA1: "Empfohlen, besonders am Wochenende. Online reservieren oder unter 971 853 932 anrufen.",
-    hiruQ2: "Wie sind die Küchenzeiten?",
-    hiruA2: "Die Küche folgt den Öffnungszeiten des Restaurants: 12:00–23:30 Uhr, freitags und samstags bis 01:00 Uhr. Dienstags geschlossen.",
-    hiruQ3: "Gibt es glutenfreie Optionen?",
-    hiruA3: "Ja, wir bieten Optionen für Zöliakie-Betroffene. Bitte informieren Sie unser Personal.",
-    hiruQ4: "Sind Kinder willkommen?",
-    hiruA4: "Ja, Familien sind herzlich willkommen.",
-    hiruQ5: "Wo ist Hiru Food & Drinks und wie reserviere ich?",
-    hiruA5: "Hiru Food & Drinks befindet sich an der Ctra. d'Arta 40, Alcudia 07400, Mallorca. Grillrestaurant mit Dry-Aged-Fleisch, Meeresfruechte-Paella und Freiluft-Terrasse. Taeglich ausser Dienstag geoeffnet, 12:00 bis 23:30 (Freitag und Samstag bis 01:00). Reservierung unter +34 971 85 39 32 oder grupoenjoy.es/contacto.",
     contactCta: "Nicht gefunden, wonach Sie suchen?",
     contactCtaButton: "Kontaktieren Sie uns",
   },
@@ -458,8 +435,7 @@ export const de: Dictionary = {
   cta: {
     enjoyReserve: "Tisch reservieren",
     outxideTickets: "Tickets kaufen",
-    hiruReserve: "Tisch reservieren",
-    hiruHeroReserve: "Online reservieren",
+    hiruFarewell: "Abschiedsbrief",
     ticketsAll: "Alle Tickets ansehen",
     navReserve: "Reservieren",
     instagramAria: "Schreib uns auf Instagram",
@@ -477,7 +453,7 @@ export const de: Dictionary = {
     regularProgramme: "Reguläres Programm",
     schedule: "Öffnungszeiten",
     enjoySchedule: "Täglich · 17:00–05:30",
-    hiruSchedule: "Mi–Mo · 12:00–23:30 (Fr–Sa bis 01:00) · Di geschlossen",
+    hiruSchedule: "Hiru hat seine Türen geschlossen. Danke für alles — bald verraten wir, was hier als Nächstes kommt.",
     outxideSchedule: "Wochenendnächte · ab 23:00",
     visitVenue: "Zur Location",
     alertsTitle: "Verpasse kein Event",
@@ -492,8 +468,8 @@ export const de: Dictionary = {
     alertsInfoLayer: "Verantwortlicher: Enjoy Club 78 S.L. · Zweck: Versand von Event-Benachrichtigungen und Neuigkeiten · Rechte: Auskunft, Berichtigung und Löschung unter privacidad@grupoenjoy.es",
     subscribeCalendar: "Alle Events in deinem Kalender verfolgen",
     metaTitle: "Eventkalender — Alcúdia, Mallorca",
-    metaDescription: "Kommende Events und Wochenprogramm von Outxide Club, Enjoy Terrace und Hiru in Port d'Alcúdia. Tickets kaufen, Tisch reservieren und Events zum Kalender hinzufügen.",
-    metaOgDescription: "Alles bei Grupo Enjoy: Outxide-Events, Programm von Enjoy und Hiru.",
+    metaDescription: "Kommende Events und Wochenprogramm von Outxide Club und Enjoy Terrace in Port d'Alcúdia. Tickets kaufen, reservieren und Events in den Kalender übernehmen.",
+    metaOgDescription: "Alles, was bei Grupo Enjoy passiert: Outxide-Events und das Programm der Enjoy Terrace.",
   },
   error: {
     title: "Etwas ist schiefgelaufen",

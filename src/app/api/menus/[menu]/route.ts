@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { readDataSafe } from "@/lib/data";
 import type { MenuSection } from "@/lib/data";
 
-const VALID = ["enjoy-drinks", "enjoy-shisha", "hiru"];
+// "hiru" retirado: el restaurante cerró en agosto de 2026 y su carta ya no se sirve.
+const VALID = ["enjoy-drinks", "enjoy-shisha"];
 
 // Allowlist de locales con fichero propio ("es" es el base sin sufijo).
 // Imprescindible: el locale se interpola en una ruta de fichero y sin
