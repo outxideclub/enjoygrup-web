@@ -10,6 +10,12 @@ test.describe("Outxide Club page", () => {
     await expect(page.locator('a[href="#eventos"]')).toBeVisible({ timeout: 10_000 });
   });
 
+  test("el CTA del header dice Entradas y va a la taquilla", async ({ page }) => {
+    const cta = page.locator('header a[href*="entradas.grupoenjoy.es"]').first();
+    await expect(cta).toBeAttached({ timeout: 10_000 });
+    await expect(cta).toHaveText(/Entradas|Tickets|Billets|Biglietti/);
+  });
+
   test("VIP section is visible with perks", async ({ page }) => {
     const vipHeading = page.locator('text=Experiencia VIP').or(page.locator('text=VIP Experience'));
     await vipHeading.scrollIntoViewIfNeeded();

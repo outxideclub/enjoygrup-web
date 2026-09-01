@@ -18,10 +18,21 @@ import { localeFromPath, localizedPath } from "@/i18n/config";
 // primer scroll. `external` controla el target: los tel: no abren pestaña.
 function reserveTarget(basePath: string, locale: string) {
   if (basePath.startsWith("/outxide")) {
-    // Entradas SIEMPRE por la taquilla del subdominio (regla del dueño, 1-sep-2026).
-    return { href: eventCheckoutUrl(undefined, locale), accent: "text-black bg-outxide hover:bg-outxide/90", external: false };
+    // Entradas SIEMPRE por la taquilla del subdominio (regla del dueño,
+    // 1-sep-2026), y el botón dice "Entradas", no "Reservar".
+    return {
+      href: eventCheckoutUrl(undefined, locale),
+      accent: "text-black bg-outxide hover:bg-outxide/90",
+      external: false,
+      labelKey: "cta.navTickets" as const,
+    };
   }
-  return { href: telHref(siteContact.general.phone), accent: "text-white bg-enjoy hover:bg-enjoy/90", external: false };
+  return {
+    href: telHref(siteContact.general.phone),
+    accent: "text-white bg-enjoy hover:bg-enjoy/90",
+    external: false,
+    labelKey: "cta.navReserve" as const,
+  };
 }
 
 const navItems = [
@@ -46,6 +57,16 @@ export function Navbar() {
   // Ruta sin prefijo de idioma para comparar activo y para prefijar los enlaces.
   const { basePath } = localeFromPath(pathname ?? "/");
   const reserve = reserveTarget(basePath, locale);
+
+  // En entradas.grupoenjoy.es el "/" vuelve a servir la taquilla (rewrite del
+  // middleware): el logo debe salir a la home CANÓNICA. Se resuelve tras la
+  // hidratación para no divergir del HTML del servidor.
+  const [homeHref, setHomeHref] = React.useState(localizedPath("/", locale));
+  React.useEffect(() => {
+    if (window.location.hostname === "entradas.grupoenjoy.es") {
+      setHomeHref(`https://www.grupoenjoy.es${localizedPath("/", locale)}`);
+    }
+  }, [locale]);
 
   React.useEffect(() => {
     let ticking = false;
@@ -92,7 +113,7 @@ export function Navbar() {
       >
         <div className="flex items-center justify-between py-4">
           <Link
-            href={localizedPath("/", locale)}
+            href={homeHref}
             className="flex items-center gap-2"
             aria-label="Grupo Enjoy - Home"
           >
@@ -148,7 +169,7 @@ export function Navbar() {
                 reserve.accent,
               )}
             >
-              {t("cta.navReserve")}
+              {t(reserve.labelKey)}
             </a>
           </div>
 
@@ -162,7 +183,7 @@ export function Navbar() {
                 reserve.accent,
               )}
             >
-              {t("cta.navReserve")}
+              {t(reserve.labelKey)}
             </a>
             <LanguageSelector />
             <button

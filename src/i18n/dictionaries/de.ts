@@ -454,6 +454,7 @@ export const de: Dictionary = {
     hiruFarewell: "Abschiedsbrief",
     ticketsAll: "Alle Tickets ansehen",
     navReserve: "Reservieren",
+    navTickets: "Tickets",
     instagramAria: "Schreib uns auf Instagram",
     googleReviews: "Bewertungen auf Google ansehen",
     addToCalendar: "Zum Kalender hinzufügen",

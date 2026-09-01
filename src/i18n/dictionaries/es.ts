@@ -452,6 +452,7 @@ export const es = {
     hiruFarewell: "Carta de despedida",
     ticketsAll: "Ver todas las entradas",
     navReserve: "Reservar",
+    navTickets: "Entradas",
     instagramAria: "Escríbenos por Instagram",
     googleReviews: "Ver opiniones en Google",
     addToCalendar: "Añadir al calendario",
