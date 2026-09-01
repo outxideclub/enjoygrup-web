@@ -51,14 +51,26 @@ const nextConfig: NextConfig = {
       ["mejores-restaurantes-alcudia", "mejores-restaurantes-alcudia-mallorca"],
       ["planes-alcudia-mallorca", "que-hacer-alcudia-mallorca"],
     ];
-    return consolidations.flatMap(([from, to]) => [
-      { source: `/blog/${from}`, destination: `/blog/${to}`, permanent: true },
+    return [
+      // entradas.grupoenjoy.es → taquilla embebida (URL corta para bio y
+      // anuncios; la query — fbclid, utm_* — se conserva en la redirección).
+      // 307: si Fourvenues acepta servir este subdominio con su microsite
+      // (correo pendiente), se repunta sin caché permanente de por medio.
       {
-        source: `/:lang(en|de|fr|it)/blog/${from}`,
-        destination: `/:lang/blog/${to}`,
-        permanent: true,
+        source: "/:path*",
+        has: [{ type: "host" as const, value: "entradas.grupoenjoy.es" }],
+        destination: "https://www.grupoenjoy.es/outxide/entradas",
+        permanent: false,
       },
-    ]);
+      ...consolidations.flatMap(([from, to]) => [
+        { source: `/blog/${from}`, destination: `/blog/${to}`, permanent: true },
+        {
+          source: `/:lang(en|de|fr|it)/blog/${from}`,
+          destination: `/:lang/blog/${to}`,
+          permanent: true,
+        },
+      ]),
+    ];
   },
   async headers() {
     return [
