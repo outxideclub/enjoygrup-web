@@ -84,6 +84,14 @@ function baseHeaders(req: NextRequest): Headers {
   return h;
 }
 
+// La taquilla vive en su propio subdominio (regla del dueño, 1-sep-2026):
+// entradas.grupoenjoy.es SIRVE /outxide/entradas (rewrite interno), y la ruta
+// en el host canónico redirige allí. Claves solo de producción: en localhost y
+// previews de Vercel nada de esto aplica (los e2e siguen usando la ruta).
+const TICKETS_HOST = "entradas.grupoenjoy.es";
+const CANONICAL_HOSTS = new Set(["www.grupoenjoy.es", "grupoenjoy.es"]);
+const TICKETS_PATH = "/outxide/entradas";
+
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
@@ -91,6 +99,73 @@ export async function proxy(req: NextRequest) {
   // (sin prefijo de idioma) para que /en/admin o /de/api/admin no esquiven el
   // guard de autenticación colándose por la rama de i18n.
   const { locale: pathLocale, basePath } = localeFromPath(pathname);
+
+  const host = (req.headers.get("host") ?? "").toLowerCase().split(":")[0];
+
+  if (host === TICKETS_HOST) {
+    // El admin y su API NUNCA se sirven por el subdominio: irían por la rama
+    // de la taquilla esquivando el guard de autenticación de más abajo
+    // (cazado en revisión adversarial). A la web canónica, donde el guard corre.
+    if (basePath.startsWith("/admin") || basePath.startsWith("/api/admin")) {
+      const url = req.nextUrl.clone();
+      url.protocol = "https:";
+      url.host = "www.grupoenjoy.es";
+      url.port = "";
+      return NextResponse.redirect(url, 307);
+    }
+    // API y ficheros de public/: tal cual (los assets de _next ya quedan fuera
+    // por el matcher). baseHeaders: sin cabeceras x-* falsificables del cliente.
+    if (basePath.startsWith("/api") || /\.[a-z0-9]+$/i.test(basePath)) {
+      return NextResponse.next({ request: { headers: baseHeaders(req) } });
+    }
+    // La portada del subdominio ES la taquilla. Idioma: ?lang (lo ponen los CTA
+    // de la web para conservar el idioma del visitante) → prefijo de ruta →
+    // cookie → Accept-Language → es. La URL del navegador no cambia (rewrite),
+    // así el cliente sigue leyendo ?event y los parámetros de campaña.
+    if (basePath === "/" || basePath === TICKETS_PATH) {
+      const langParam = req.nextUrl.searchParams.get("lang");
+      const cookieLoc = req.cookies.get(LOCALE_COOKIE)?.value;
+      const locale: Locale =
+        (langParam && (locales as readonly string[]).includes(langParam)
+          ? (langParam as Locale)
+          : null) ??
+        pathLocale ??
+        (cookieLoc && (locales as readonly string[]).includes(cookieLoc)
+          ? (cookieLoc as Locale)
+          : null) ??
+        negotiateLocale(req.headers.get("accept-language")) ??
+        defaultLocale;
+      const url = req.nextUrl.clone();
+      url.pathname = TICKETS_PATH;
+      const requestHeaders = baseHeaders(req);
+      requestHeaders.set("x-locale", locale);
+      requestHeaders.set("x-pathname", TICKETS_PATH);
+      requestHeaders.set("x-base-path", TICKETS_PATH);
+      return NextResponse.rewrite(url, { request: { headers: requestHeaders } });
+    }
+    // Cualquier otra página pedida al subdominio → web canónica (el subdominio
+    // no duplica el sitio; navbar y footer de la taquilla siguen funcionando).
+    const url = req.nextUrl.clone();
+    url.protocol = "https:";
+    url.host = "www.grupoenjoy.es";
+    url.port = "";
+    return NextResponse.redirect(url, 307);
+  }
+
+  // Host canónico: la compra de entradas SIEMPRE en el subdominio.
+  if (
+    CANONICAL_HOSTS.has(host) &&
+    basePath === TICKETS_PATH &&
+    (req.method === "GET" || req.method === "HEAD")
+  ) {
+    const url = new URL(`https://${TICKETS_HOST}/`);
+    req.nextUrl.searchParams.forEach((v, k) => url.searchParams.set(k, v));
+    // El idioma viaja SIEMPRE como ?lang: la cookie ge_locale es host-only y no
+    // llega al subdominio, así que sin el parámetro un visitante en español con
+    // navegador en otro idioma vería la taquilla renegociada (cazado en revisión).
+    url.searchParams.set("lang", pathLocale ?? defaultLocale);
+    return NextResponse.redirect(url, 307);
+  }
   const isAdminRoute =
     basePath.startsWith("/admin") || basePath.startsWith("/api/admin");
 

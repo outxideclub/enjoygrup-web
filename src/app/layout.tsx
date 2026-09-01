@@ -1,4 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+// Sin zoom ni scroll horizontal en móvil (orden del dueño, 1-sep-2026): el
+// cerrojo del eje X vive en globals.css; aquí se fija la escala. Nota: iOS
+// ignora user-scalable por accesibilidad, pero esto evita el auto-zoom al
+// enfocar inputs y el zoom accidental en Android.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 import { Poppins, Oswald } from "next/font/google";
 import { CookieBanner } from "@/components/legal/cookie-banner";
 import { AnalyticsScripts } from "@/components/seo/analytics";

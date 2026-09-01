@@ -10,13 +10,16 @@ test.describe("Propagación de parámetros de campaña", () => {
 
   test("embudo real: anuncio → /outxide → taquilla con el fbclid en el iframe", async ({ page }) => {
     await page.goto(`/outxide${QUERY}`);
-    // El CTA de compra es interno (sin query en su href)…
-    const cta = page.locator('main a[href*="/outxide/entradas"]').first();
+    // El CTA apunta al subdominio de la taquilla y, como sessionStorage no
+    // cruza orígenes, el interceptor debe decorarlo al pulsarlo.
+    const cta = page.locator('main a[href*="entradas.grupoenjoy.es"]').first();
     await expect(cta).toBeAttached({ timeout: 10_000 });
-    expect(await cta.getAttribute("href")).not.toContain("fbclid");
-    // …y al navegar a la taquilla (mismo tab ⇒ sessionStorage vivo) el iframe
-    // sale decorado. goto en vez de click: el hero anima y el click es flaky.
-    await page.goto("/outxide/entradas");
+    await cta.dispatchEvent("pointerdown");
+    await expect(cta).toHaveAttribute("href", /fbclid=TEST123/, { timeout: 10_000 });
+    await expect(cta).toHaveAttribute("href", /utm_source=meta_test/, { timeout: 10_000 });
+    // La página de la taquilla recaptura de su propia URL y decora el iframe
+    // (en local se sirve por la ruta; en producción la sirve el subdominio).
+    await page.goto(`/outxide/entradas${QUERY}`);
     const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     await expect(iframe).toHaveAttribute("src", /fbclid=TEST123/, { timeout: 10_000 });
@@ -55,13 +58,11 @@ test.describe("Propagación de parámetros de campaña", () => {
 // excepción: los enlaces de emergencia (target=_blank) por si falla el iframe.
 test.describe("Los CTA de entradas apuntan a la taquilla", () => {
   for (const path of ["/outxide", "/agenda"]) {
-    test(`${path}: sin enlaces directos a Fourvenues fuera de la taquilla`, async ({ page }) => {
+    test(`${path}: los CTA van al subdominio y no hay enlaces directos a Fourvenues`, async ({ page }) => {
       await page.goto(path);
-      const direct = await page
-        .locator('main a[href*="fourvenues.com"]:not([href*="/outxide/entradas"])')
-        .count();
+      const direct = await page.locator('main a[href*="fourvenues.com"]').count();
       expect(direct).toBe(0);
-      const toBoxOffice = await page.locator('a[href*="/outxide/entradas"]').count();
+      const toBoxOffice = await page.locator('a[href*="entradas.grupoenjoy.es"]').count();
       expect(toBoxOffice).toBeGreaterThan(0);
     });
   }
@@ -72,7 +73,7 @@ test.describe("Los CTA de entradas apuntan a la taquilla", () => {
   test("los CTA por evento llevan la referencia con código", async ({ page }) => {
     await page.goto("/outxide");
     const hrefs = await page
-      .locator('a[href*="/outxide/entradas?event="]')
+      .locator('a[href*="entradas.grupoenjoy.es"][href*="event="]')
       .evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).href));
 
     test.skip(hrefs.length === 0, "sin eventos publicados en este momento");

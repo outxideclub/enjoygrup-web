@@ -5,7 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { FrameBreakout } from "@/components/analytics/frame-breakout";
 import { getServerLocale, getServerT } from "@/i18n/server";
-import { localizedPath } from "@/i18n/config";
+import { eventCheckoutUrl } from "@/lib/events";
 
 // Cancel Page de la compra en Fourvenues (TAREA-VENTA-EN-WEB §3): el panel
 // redirige aquí si el pago no se completa. Sin cargo, sin drama, y un camino
@@ -40,7 +40,7 @@ export default async function PagoCanceladoPage() {
             </p>
             <div className="mt-10 flex justify-center">
               <Link
-                href={localizedPath("/outxide/entradas", locale)}
+                href={eventCheckoutUrl(undefined, locale)}
                 className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-outxide px-7 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
               >
                 {t("purchase.cancelRetry")}

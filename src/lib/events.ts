@@ -70,14 +70,24 @@ export function eventTicketUrl(event: FVEvent, locale = "es"): string {
 }
 
 /**
- * Taquilla embebida de la web (regla del dueño, 1-sep-2026): todo lo que tenga
- * que ver con entradas —normales y VIP— enlaza aquí, no a Fourvenues directo.
- * Excepción: las salidas de emergencia por si el iframe no funciona.
- * Ruta SIN prefijo de idioma: pásala por localizedPath() en el call-site.
+ * Taquilla de entradas (regla del dueño, 1-sep-2026): TODO el tráfico de compra
+ * de la web va al subdominio entradas.grupoenjoy.es, que sirve la taquilla
+ * embebida (src/proxy.ts la enruta). ?event abre un evento concreto y ?lang
+ * conserva el idioma del visitante (el consentimiento de cookies también viaja:
+ * cookie compartida de dominio raíz en src/lib/consent.ts).
+ * Excepción a la regla: las salidas de emergencia a Fourvenues por si el
+ * iframe no funciona.
  */
-export function eventCheckoutPath(event?: FVEvent): string {
+export const TICKETS_HOST = "entradas.grupoenjoy.es";
+
+export function eventCheckoutUrl(event?: FVEvent, locale = "es"): string {
+  const u = new URL(`https://${TICKETS_HOST}/`);
   const seg = event ? eventPathSegment(event) : "";
-  return seg ? `/outxide/entradas?event=${seg}` : "/outxide/entradas";
+  if (seg) u.searchParams.set("event", seg);
+  // SIEMPRE, también para "es": la cookie de idioma es host-only y el
+  // subdominio renegociaría por Accept-Language sin este parámetro.
+  if (FOURVENUES_LOCALES.has(locale)) u.searchParams.set("lang", locale);
+  return u.toString();
 }
 
 export function extractGenres(event: FVEvent): string {

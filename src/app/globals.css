@@ -9,6 +9,17 @@
    Tailwind 4 -- tokens surfaced via @theme inline.
    ================================================================ */
 
+/* ─── 0. Cerrojo de viewport (orden del dueño, 1-sep-2026) ────────
+   En móvil los elementos decorativos anchos (glows, transforms de framer)
+   asomaban una franja negra con scroll horizontal. Se recorta el eje X de
+   toda la web; `clip` no crea contenedor de scroll (no rompe sticky) y
+   `hidden` queda de fallback para navegadores viejos. */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 /* ─── 1. Root Design Tokens ──────────────────────────────────── */
 :root {
   /* --- Surface palette --- */

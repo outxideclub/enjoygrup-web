@@ -11,7 +11,7 @@ import { buildEventsItemList } from "@/lib/event-jsonld";
 import {
   formatEventDate,
   formatEventTime,
-  eventCheckoutPath,
+  eventCheckoutUrl,
   extractGenres,
   extractArtists,
 } from "@/lib/events";
@@ -53,7 +53,7 @@ export default async function AgendaPage() {
       icon: CalendarDays,
       schedule: t("agenda.outxideSchedule"),
       cta: t("cta.outxideTickets"),
-      href: localizedPath("/outxide/entradas", locale),
+      href: eventCheckoutUrl(undefined, locale),
       path: "/outxide",
     },
     {
@@ -129,7 +129,7 @@ export default async function AgendaPage() {
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] py-16 text-center">
                 <p className="mx-auto max-w-md text-muted-foreground">{t("agenda.noEvents")}</p>
                 <Link
-                  href={localizedPath("/outxide/entradas", locale)}
+                  href={eventCheckoutUrl(undefined, locale)}
                   className="mt-6 inline-flex items-center gap-2 rounded-full bg-outxide px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
                 >
                   <Ticket className="h-4 w-4" />
@@ -170,7 +170,7 @@ export default async function AgendaPage() {
                         </p>
                         <div className="mt-auto flex flex-col gap-3">
                           <Link
-                            href={localizedPath(eventCheckoutPath(event), locale)}
+                            href={eventCheckoutUrl(event, locale)}
                             className="btn-magnetic inline-flex w-full items-center justify-center rounded-lg bg-outxide px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-outxide/90"
                           >
                             <Ticket className="mr-2 h-4 w-4" />
@@ -184,7 +184,7 @@ export default async function AgendaPage() {
                               end: event.end_date,
                               location: OUTXIDE_LOCATION,
                               description: [artists, genres].filter(Boolean).join(" · "),
-                              url: `https://www.grupoenjoy.es${eventCheckoutPath(event)}`,
+                              url: eventCheckoutUrl(event, locale),
                             }}
                           />
                         </div>

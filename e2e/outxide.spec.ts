@@ -16,7 +16,7 @@ test.describe("Outxide Club page", () => {
     await expect(vipHeading).toBeVisible({ timeout: 10_000 });
 
     // Desde el 1-sep-2026 el CTA VIP va a la taquilla embebida, no a FV directo.
-    const reserveVip = page.locator('a[href*="/outxide/entradas"]').filter({ hasText: /VIP/ });
+    const reserveVip = page.locator('a[href*="entradas.grupoenjoy.es"]').filter({ hasText: /VIP/ });
     await expect(reserveVip.first()).toBeAttached();
   });
 

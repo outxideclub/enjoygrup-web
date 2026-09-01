@@ -9,16 +9,17 @@ import { cn } from "@/lib/utils";
 import { GroupLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
 import { siteContact, telHref } from "@/lib/site";
+import { eventCheckoutUrl } from "@/lib/events";
 import { useT, useLocale } from "@/i18n";
-import { localeFromPath, localizedPath, type Locale } from "@/i18n/config";
+import { localeFromPath, localizedPath } from "@/i18n/config";
 
 // Destino de reserva según el local en pantalla; en el resto (home, blog…),
 // llamada al fijo del grupo. El CTA persistente vive en la barra desde el
 // primer scroll. `external` controla el target: los tel: no abren pestaña.
 function reserveTarget(basePath: string, locale: string) {
   if (basePath.startsWith("/outxide")) {
-    // Entradas SIEMPRE por la taquilla embebida (regla del dueño, 1-sep-2026).
-    return { href: localizedPath("/outxide/entradas", locale as Locale), accent: "text-black bg-outxide hover:bg-outxide/90", external: false };
+    // Entradas SIEMPRE por la taquilla del subdominio (regla del dueño, 1-sep-2026).
+    return { href: eventCheckoutUrl(undefined, locale), accent: "text-black bg-outxide hover:bg-outxide/90", external: false };
   }
   return { href: telHref(siteContact.general.phone), accent: "text-white bg-enjoy hover:bg-enjoy/90", external: false };
 }

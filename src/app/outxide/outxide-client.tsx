@@ -33,7 +33,7 @@ import type { FVEvent } from "@/lib/fourvenues";
 import {
   formatEventDate as formatDate,
   formatEventTime as formatTime,
-  eventCheckoutPath,
+  eventCheckoutUrl,
   extractGenres,
   extractArtists,
 } from "@/lib/events";
@@ -42,7 +42,6 @@ import { StickyCta } from "@/components/ui/sticky-cta";
 import { InstagramIcon } from "@/components/ui/instagram-icon";
 import { siteContact, igDmHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
-import { localizedPath } from "@/i18n/config";
 import { useRef, useState, useEffect, useCallback } from "react";
 
 // ---------------------------------------------------------------------------
@@ -200,7 +199,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                 variant="outline"
                 className="btn-magnetic rounded-full px-8 border-outxide/40 text-outxide hover:bg-outxide/10"
               >
-                <Link href={localizedPath(eventCheckoutPath(), locale)}>
+                <Link href={eventCheckoutUrl(undefined, locale)}>
                   <Crown className="h-4 w-4 mr-2" />
                   {t("outxide.reserveVip")}
                 </Link>
@@ -291,7 +290,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  href={localizedPath(eventCheckoutPath(), locale)}
+                  href={eventCheckoutUrl(undefined, locale)}
                   className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-outxide px-7 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
                 >
                   <Ticket className="h-4 w-4" />
@@ -351,7 +350,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                       </p>
 
                       <Link
-                        href={localizedPath(eventCheckoutPath(event), locale)}
+                        href={eventCheckoutUrl(event, locale)}
                         className={`btn-magnetic inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}
                       >
                         <Ticket className="h-4 w-4 mr-2" />
@@ -366,7 +365,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                             end: event.end_date,
                             location: "Outxide Club, Av. Tucán 1, Port d'Alcúdia",
                             description: [artists, genres].filter(Boolean).join(" · "),
-                            url: `https://www.grupoenjoy.es${eventCheckoutPath(event)}`,
+                            url: eventCheckoutUrl(event, locale),
                           }}
                         />
                       </div>
@@ -380,7 +379,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
           <ScrollReveal>
             <div className="mt-12 text-center">
               <Link
-                href={localizedPath(eventCheckoutPath(), locale)}
+                href={eventCheckoutUrl(undefined, locale)}
                 className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 hover:border-outxide/30 transition-colors"
               >
                 <Calendar className="h-4 w-4 text-outxide" />
@@ -437,7 +436,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                 size="lg"
                 className="btn-magnetic rounded-full px-10 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
               >
-                <Link href={localizedPath(eventCheckoutPath(), locale)}>
+                <Link href={eventCheckoutUrl(undefined, locale)}>
                   <Crown className="h-4 w-4 mr-2" />
                   {t("outxide.vipReserve")}
                   <ArrowRight className="h-3.5 w-3.5 ml-2 opacity-60" />
@@ -513,7 +512,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
       </main>
       <StickyCta
         accent="outxide"
-        primary={{ label: t("cta.outxideTickets"), href: localizedPath(eventCheckoutPath(), locale) }}
+        primary={{ label: t("cta.outxideTickets"), href: eventCheckoutUrl(undefined, locale) }}
         instagramHref={igDmHref(siteContact.venues.outxide.instagram)}
         instagramLabel={t("cta.instagramAria")}
       />

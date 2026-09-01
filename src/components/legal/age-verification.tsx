@@ -8,6 +8,35 @@ import { useT } from "@/i18n";
 
 const AGE_KEY = "ge_age_verified";
 
+// La confirmación se espeja en una cookie de SESIÓN con Domain=.grupoenjoy.es:
+// quien ya pasó el muro en www no lo vuelve a ver sobre la taquilla de
+// entradas.grupoenjoy.es (sessionStorage no cruza orígenes). Sin max-age =
+// muere al cerrar el navegador, igual que el sessionStorage que espeja.
+function ageRootDomain(): string | null {
+  const host = window.location.hostname;
+  if (host === "localhost" || /^[0-9.:]+$/.test(host) || !host.includes(".")) return null;
+  return host.split(".").slice(-2).join(".");
+}
+
+function ageVerified(): boolean {
+  try {
+    if (sessionStorage.getItem(AGE_KEY)) return true;
+  } catch {
+    /* seguir con la cookie */
+  }
+  return new RegExp(`(?:^|; )${AGE_KEY}=`).test(document.cookie);
+}
+
+function persistAgeVerified(): void {
+  try {
+    sessionStorage.setItem(AGE_KEY, "true");
+  } catch {
+    /* la cookie basta */
+  }
+  const root = ageRootDomain();
+  if (root) document.cookie = `${AGE_KEY}=true; path=/; domain=.${root}; SameSite=Lax; Secure`;
+}
+
 export function AgeVerification() {
   const [show, setShow] = useState(false);
   const t = useT();
@@ -16,8 +45,7 @@ export function AgeVerification() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const verified = sessionStorage.getItem(AGE_KEY);
-    if (!verified) setShow(true);
+    if (!ageVerified()) setShow(true);
   }, []);
 
   // Diálogo modal accesible: foco inicial en "Confirmar" y Tab cíclico dentro.
@@ -45,12 +73,18 @@ export function AgeVerification() {
   }, [show]);
 
   const confirm = () => {
-    sessionStorage.setItem(AGE_KEY, "true");
+    persistAgeVerified();
     setShow(false);
   };
 
   const deny = () => {
-    window.location.href = "/";
+    // Destino ABSOLUTO a la home canónica: en entradas.grupoenjoy.es la raíz
+    // vuelve a servir la taquilla (y su muro) — "/" sería un bucle sin salida
+    // (cazado en revisión adversarial).
+    window.location.href =
+      window.location.hostname === "entradas.grupoenjoy.es"
+        ? "https://www.grupoenjoy.es/"
+        : "/";
   };
 
   return (
@@ -85,7 +119,9 @@ export function AgeVerification() {
               <ShieldAlert className="h-8 w-8 text-outxide" />
             </div>
 
-            <OutxideLogo className="h-10 mx-auto mb-6" />
+            {/* w-fit: el wrapper del logo es un div de bloque; sin ceñirlo al
+                contenido, mx-auto no centra y el logo queda a la izquierda. */}
+            <OutxideLogo className="h-10 w-fit mx-auto mb-6" />
 
             <h2 id="age-verification-title" className="text-lg font-display font-bold text-white uppercase tracking-wide mb-2">
               {t("ageVerification.title")}

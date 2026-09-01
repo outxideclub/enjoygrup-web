@@ -78,7 +78,7 @@ test.describe("Páginas de retorno del checkout", () => {
   test("/pago-cancelado renderiza con vuelta a la taquilla", async ({ page }) => {
     await page.goto("/pago-cancelado");
     await expect(page.locator("h1")).toBeVisible({ timeout: 10_000 });
-    await expect(page.locator('main a[href*="/outxide/entradas"]')).toBeAttached();
+    await expect(page.locator('main a[href*="entradas.grupoenjoy.es"]')).toBeAttached();
   });
 
   test("/gracias dispara Purchase una vez y la recarga no lo repite", async ({ page }) => {

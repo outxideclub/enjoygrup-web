@@ -58,12 +58,16 @@ export function captureCampaignParams(): void {
 
 /**
  * Devuelve `url` con los parámetros de campaña de la sesión añadidos, si la URL
- * apunta a Fourvenues. No pisa parámetros que la URL ya lleve. Idempotente.
+ * apunta a Fourvenues o a la taquilla (entradas.grupoenjoy.es — sessionStorage
+ * no cruza orígenes: los parámetros deben viajar en la URL para que la taquilla
+ * los recapture). No pisa parámetros que la URL ya lleve. Idempotente.
  */
 export function decorateFourvenuesUrl(url: string): string {
   try {
     const u = new URL(url, window.location.origin);
-    if (!/(^|\.)fourvenues\.com$/.test(u.hostname)) return url;
+    const isTicketed =
+      /(^|\.)fourvenues\.com$/.test(u.hostname) || u.hostname === "entradas.grupoenjoy.es";
+    if (!isTicketed) return url;
     const stored = read();
     let changed = false;
     for (const [k, v] of Object.entries(stored)) {

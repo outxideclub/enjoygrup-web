@@ -22,7 +22,7 @@ export function CampaignLinkTracker() {
       const a = target?.closest?.("a[href]") as HTMLAnchorElement | null;
       if (!a) return;
       const href = a.getAttribute("href");
-      if (!href || !href.includes("fourvenues.com")) return;
+      if (!href || !(href.includes("fourvenues.com") || href.includes("entradas.grupoenjoy.es"))) return;
       // Recaptura por si hubo navegación suave con nuevos parámetros en la URL.
       captureCampaignParams();
       const decorated = decorateFourvenuesUrl(a.href);

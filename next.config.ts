@@ -21,7 +21,13 @@ const CONTENT_SECURITY_POLICY = [
   // 'self': el retorno post-pago de Fourvenues navega el marco hacia /gracias
   // antes de que el script de escape lo suba a la ventana completa.
   // site.fourvenues.com: host real del checkout embebido (/outxide/entradas).
-  "frame-src 'self' https://www.google.com https://site.fourvenues.com https://web.fourvenues.com https://www.fourvenues.com https://fourvenues.com",
+  // www/grupoenjoy en frame-src: la taquilla servida en entradas.grupoenjoy.es
+  // recibe el retorno post-pago DENTRO del marco hacia www/gracias; sin estos
+  // hosts la CSP del subdominio lo bloquearía y el frame-breakout nunca corre.
+  "frame-src 'self' https://www.grupoenjoy.es https://grupoenjoy.es https://entradas.grupoenjoy.es https://www.google.com https://site.fourvenues.com https://web.fourvenues.com https://www.fourvenues.com https://fourvenues.com",
+  // Sustituye a X-Frame-Options: SAMEORIGIN compara contra el origen superior
+  // y bloqueaba www/gracias dentro del marco de la taquilla del subdominio.
+  "frame-ancestors 'self' https://www.grupoenjoy.es https://grupoenjoy.es https://entradas.grupoenjoy.es",
   "object-src 'none'",
   "base-uri 'self'",
 ].join("; ");
@@ -51,26 +57,16 @@ const nextConfig: NextConfig = {
       ["mejores-restaurantes-alcudia", "mejores-restaurantes-alcudia-mallorca"],
       ["planes-alcudia-mallorca", "que-hacer-alcudia-mallorca"],
     ];
-    return [
-      // entradas.grupoenjoy.es → taquilla embebida (URL corta para bio y
-      // anuncios; la query — fbclid, utm_* — se conserva en la redirección).
-      // 307: si Fourvenues acepta servir este subdominio con su microsite
-      // (correo pendiente), se repunta sin caché permanente de por medio.
+    // La taquilla del subdominio entradas.grupoenjoy.es se enruta en el
+    // middleware (src/proxy.ts): sirve la página con rewrite, no redirige.
+    return consolidations.flatMap(([from, to]) => [
+      { source: `/blog/${from}`, destination: `/blog/${to}`, permanent: true },
       {
-        source: "/:path*",
-        has: [{ type: "host" as const, value: "entradas.grupoenjoy.es" }],
-        destination: "https://www.grupoenjoy.es/outxide/entradas",
-        permanent: false,
+        source: `/:lang(en|de|fr|it)/blog/${from}`,
+        destination: `/:lang/blog/${to}`,
+        permanent: true,
       },
-      ...consolidations.flatMap(([from, to]) => [
-        { source: `/blog/${from}`, destination: `/blog/${to}`, permanent: true },
-        {
-          source: `/:lang(en|de|fr|it)/blog/${from}`,
-          destination: `/:lang/blog/${to}`,
-          permanent: true,
-        },
-      ]),
-    ];
+    ]);
   },
   async headers() {
     return [
@@ -79,7 +75,6 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "Content-Security-Policy", value: CONTENT_SECURITY_POLICY },
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },

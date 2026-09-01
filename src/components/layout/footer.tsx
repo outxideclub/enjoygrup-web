@@ -47,19 +47,19 @@ function NewsletterForm() {
       <p className="text-sm text-muted-foreground">
         {t("footer.newsletterTagline")}
       </p>
-      <form onSubmit={handleSubmit} className="flex w-full max-w-sm gap-2">
+      <form onSubmit={handleSubmit} className="flex w-full max-w-sm flex-col gap-2 sm:flex-row">
         <input
           type="email"
           value={email}
           onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
           placeholder={t("footer.newsletterPlaceholder")}
           aria-label={t("footer.newsletterPlaceholder")}
-          className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none focus:border-white/25 transition-colors"
+          className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none focus:border-white/25 transition-colors"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="btn-magnetic flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-magnetic flex items-center justify-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed sm:shrink-0"
         >
           {status === "loading" ? "..." : t("footer.newsletterSubmit")}
           {status !== "loading" && <ArrowRight size={14} />}
