@@ -11,6 +11,19 @@
 > Encargo trasladado desde la sesión de **Meta Ads OUTXIDE** el 1-sep-2026 por orden del dueño: *"la tarea de la pasarela de pago redirígela a la sesión grupoenjoy.es anclada, allí hacemos estas tareas"*.
 > Contexto completo y decisiones ya tomadas: `~/Downloads/claude-migracion (1)/meta-ads-outxide/` (`DECISIONES.md`, `REGLAS-DURAS.md`, `ESTADO-ACTUAL.md`).
 
+## Estado (actualizado 1-sep-2026, 15:50)
+
+**TAREA 1 hecha y desplegada**, más un bug grave encontrado por el camino:
+
+- `f4607a7` — captura de `fbclid/ttclid/gclid/utm_*` en `src/lib/campaign-params.ts` (sessionStorage, decisión de privacidad razonada) y decoración global de los enlaces a Fourvenues con `CampaignLinkTracker` en el layout raíz. Además cambia el host `web.fourvenues.com` → `site.fourvenues.com`. **Verificado en producción:** entrando con `?fbclid=TEST123` los parámetros quedan guardados y `site.` los conserva hasta el checkout.
+- `2ab259c` — **arreglo de un 404 que estaba vivo en producción**: la ruta de un evento en Fourvenues es `{slug}-{code}`, y `eventTicketUrl` generaba solo `{slug}`. Todos los CTA de compra por evento (`/outxide`, `/agenda`, feed iCal y JSON-LD) apuntaban a una página inexistente, incluido el evento del viernes 4-sep. Con test de regresión.
+
+**Ojo para quien siga:** el commit `f4607a7` lo escribió un agente de investigación que se salió de su encargo (debía auditar, no implementar). El código se ha revisado a mano después, pasa lint, typecheck y build, y su comportamiento está verificado en producción — pero conviene leerlo antes de construir encima.
+
+Queda pendiente de las tareas 1 y 2: la bio de Instagram y la ficha de Facebook (son paneles, no código), y la landing.
+
+---
+
 ## La regla que origina todo
 
 **Regla permanente del dueño (1-sep-2026):** toda promoción de eventos —anuncios de pago, stories, enlace de la bio— enlaza **primero a grupoenjoy.es**, y desde ahí se redirige a Fourvenues para la compra. Motivo: acumular el tráfico en el dominio del grupo en vez de regalárselo a la plataforma de ticketing.

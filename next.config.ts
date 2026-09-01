@@ -18,7 +18,10 @@ const CONTENT_SECURITY_POLICY = [
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "media-src 'self'",
-  "frame-src https://www.google.com https://web.fourvenues.com https://www.fourvenues.com https://fourvenues.com",
+  // 'self': el retorno post-pago de Fourvenues navega el marco hacia /gracias
+  // antes de que el script de escape lo suba a la ventana completa.
+  // site.fourvenues.com: host real del checkout embebido (/outxide/entradas).
+  "frame-src 'self' https://www.google.com https://site.fourvenues.com https://web.fourvenues.com https://www.fourvenues.com https://fourvenues.com",
   "object-src 'none'",
   "base-uri 'self'",
 ].join("; ");
