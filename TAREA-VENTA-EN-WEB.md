@@ -11,6 +11,15 @@
 > Encargo trasladado desde la sesión de **Meta Ads OUTXIDE** el 1-sep-2026 por orden del dueño: *"la tarea de la pasarela de pago redirígela a la sesión grupoenjoy.es anclada, allí hacemos estas tareas"*.
 > Contexto completo y decisiones ya tomadas: `~/Downloads/claude-migracion (1)/meta-ads-outxide/` (`DECISIONES.md`, `REGLAS-DURAS.md`, `ESTADO-ACTUAL.md`).
 
+## Estado (actualizado 1-sep-2026, 20:15 — el subdominio SIRVE la taquilla; todo el tráfico de compra pasa por él)
+
+- **`entradas.grupoenjoy.es` ya no redirige: SIRVE la taquilla** (rewrite en src/proxy.ts, idioma por ?lang→prefijo→cookie→Accept-Language). El host canónico redirige /outxide/entradas al subdominio con ?lang SIEMPRE. Verificado en producción: 200 con la taquilla, ?lang=en → "Box office", iframe con auto-alto (1115px) y fbclid propagado, 11 CTA en /outxide y 17 en /agenda apuntando al subdominio, 0 enlaces directos a Fourvenues fuera de la salida de emergencia.
+- **Cross-origen resuelto**: consentimiento de cookies y muro de edad espejados en cookies Domain=.grupoenjoy.es (gana la decisión más reciente; "Configurar cookies" borra ambos soportes; políticas ×5 al día) — el comprador no repite banner ni muro al pasar a la taquilla. "No soy mayor de edad" sale a la home canónica (en el subdominio "/" era bucle).
+- **Móvil**: overflow-x clip global + viewport maximum-scale=1 (sin zoom ni scroll horizontal); formulario de newsletter del footer arreglado (sobresalía); logo del aviso de edad centrado. Barrido e2e de elementos cortados en 5 páginas.
+- **Seguridad**: admin y /api/admin nunca se sirven por el subdominio (bypass del guard cazado en revisión); CSP con frame-ancestors propio sustituye a X-Frame-Options (el retorno post-pago en marco quedaba bloqueado).
+- Commit `bccd3b2`. Dos rondas adversariales (16+21 agentes), 17 defectos corregidos pre-deploy.
+- Pendiente del dueño: compra real de prueba (ahora en https://entradas.grupoenjoy.es) · correo al account manager · Tarea 2 (landing).
+
 ## Estado (actualizado 1-sep-2026, 18:20 — taquilla SIN scroll interno, CTA cambiados, subdominio a un paso)
 
 - **Auto-alto en vivo**: la taquilla usa el iframe OFICIAL (`www.fourvenues.com/iframe/...`, protocolo postMessage con ingeniería inversa del cargador público): `addHeight` hace crecer el marco al contenido (verificado en producción: 877px reales frente a los 720 por defecto, `scrolling=no`) — sin deslizables dentro; `openUrl` navega la ventana (la Thank You Page sale del marco); el checkout recibe `_fbc/_fbp/ttclid` desde nuestro contexto (con `_fbc` sintetizado del fbclid propagado); `track` NO se reenvía (Purchase solo en /gracias). Commit `c957dc6`.
