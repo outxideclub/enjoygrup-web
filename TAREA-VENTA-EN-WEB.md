@@ -11,6 +11,24 @@
 > Encargo trasladado desde la sesión de **Meta Ads OUTXIDE** el 1-sep-2026 por orden del dueño: *"la tarea de la pasarela de pago redirígela a la sesión grupoenjoy.es anclada, allí hacemos estas tareas"*.
 > Contexto completo y decisiones ya tomadas: `~/Downloads/claude-migracion (1)/meta-ads-outxide/` (`DECISIONES.md`, `REGLAS-DURAS.md`, `ESTADO-ACTUAL.md`).
 
+## Estado (actualizado 1-sep-2026, 16:45 — TAREA 3 fase 1 DESPLEGADA)
+
+**La taquilla embebida está construida, desplegada y verificada en producción** (commit `72b4eb5`):
+
+- **/outxide/entradas** — checkout de Fourvenues dentro de la web (iframe a `site.fourvenues.com`, tema oscuro), parámetros de campaña propagados al marco, `?event={slug-codigo}` para abrir un evento concreto (validado contra inyección), salida de emergencia a pestaña completa siempre visible, muro de edad heredado, noindex. **Verificada en producción con Chrome real: el checkout renderiza dentro de la página.**
+- **/gracias** — Thank You Page: Purchase (Meta) + CompletePayment (TikTok) en contexto propio con _fbc/_fbp vivos, guardias anti-recarga y de segunda compra, relanzamiento con consentimiento tardío, y escape del marco (frame-breakout) si el pago acabó dentro del iframe.
+- **/pago-cancelado** — Cancel Page con vuelta a la taquilla.
+- **Panel de Fourvenues configurado** (guardado "Microsite actualizado correctamente"): Thank You → `https://www.grupoenjoy.es/gracias`, Cancel → `https://www.grupoenjoy.es/pago-cancelado`, tema Oscuro. **Hallazgo:** el panel conservaba la config del intento anterior apuntando a `/outxide/checkout/success|cancel`, rutas inexistentes → los compradores del iframe antiguo acababan en un 404 tras pagar. Otra pieza del porqué "no salió bien".
+- CSP: `frame-src` amplía con `'self'` y `https://site.fourvenues.com` (sin esto el marco quedaba VACÍO — cazado en revisión adversarial de 16 agentes junto a 5 defectos más, todos corregidos pre-deploy).
+- 8 tests e2e nuevos (`e2e/checkout-embed.spec.ts`); suite en verde.
+
+**LO QUE FALTA para encender la venta embebida (decisión del dueño):**
+1. **Compra real de prueba** en https://www.grupoenjoy.es/outxide/entradas — validar 3-D Secure y wallets DENTRO del marco (lo único no verificable sin pagar). Si algo falla, la salida de emergencia mantiene la venta viva.
+2. Tras validar: **cambiar los CTA** de /outxide y /agenda hacia `/outxide/entradas?event={slug}` (cambio de una línea en cada sitio, vuelta atrás inmediata).
+3. **Correo al account manager: SIGUE PENDIENTE DE ENVIAR** (borrador abajo). El subdominio `entradas.grupoenjoy.es` sigue siendo la arquitectura preferida a medio plazo; el iframe de hoy es el plan B funcionando.
+4. Sesión de Meta Ads: el píxel del panel de Fourvenues NO debe disparar Purchase (lo dispara /gracias); dejarlo en PageView/InitiateCheckout, o deduplicar por eventID.
+
+<!-- Estado anterior:
 ## Estado (actualizado 1-sep-2026, 15:50)
 
 **TAREA 1 hecha y desplegada**, más un bug grave encontrado por el camino:
@@ -21,6 +39,8 @@
 **Ojo para quien siga:** el commit `f4607a7` lo escribió un agente de investigación que se salió de su encargo (debía auditar, no implementar). El código se ha revisado a mano después, pasa lint, typecheck y build, y su comportamiento está verificado en producción — pero conviene leerlo antes de construir encima.
 
 Queda pendiente de las tareas 1 y 2: la bio de Instagram y la ficha de Facebook (son paneles, no código), y la landing.
+
+-->
 
 ---
 
