@@ -56,17 +56,21 @@ export function Navbar() {
   const locale = useLocale();
   // Ruta sin prefijo de idioma para comparar activo y para prefijar los enlaces.
   const { basePath } = localeFromPath(pathname ?? "/");
-  const reserve = reserveTarget(basePath, locale);
 
-  // En entradas.grupoenjoy.es el "/" vuelve a servir la taquilla (rewrite del
-  // middleware): el logo debe salir a la home CANÓNICA. Se resuelve tras la
-  // hidratación para no divergir del HTML del servidor.
+  // En entradas.grupoenjoy.es el navegador ve la ruta "/" (el rewrite es
+  // interno): sin esta señal, el CTA caería a la rama por defecto ("Reservar"
+  // + teléfono) en plena taquilla. Se resuelve tras la hidratación para no
+  // divergir del HTML del servidor; ídem el logo, que debe salir a la home
+  // CANÓNICA (en el subdominio "/" vuelve a servir la taquilla).
+  const [onTicketsHost, setOnTicketsHost] = React.useState(false);
   const [homeHref, setHomeHref] = React.useState(localizedPath("/", locale));
   React.useEffect(() => {
     if (window.location.hostname === "entradas.grupoenjoy.es") {
+      setOnTicketsHost(true);
       setHomeHref(`https://www.grupoenjoy.es${localizedPath("/", locale)}`);
     }
   }, [locale]);
+  const reserve = reserveTarget(onTicketsHost ? "/outxide" : basePath, locale);
 
   React.useEffect(() => {
     let ticking = false;
