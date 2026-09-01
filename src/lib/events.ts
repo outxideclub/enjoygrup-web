@@ -16,16 +16,21 @@ export const localeMap: Record<string, string> = {
 export const VENUE_TIMEZONE = "Europe/Madrid";
 
 // URL pública de un evento en FourVenues (formato verificado):
-//   https://web.fourvenues.com/{idioma}/outxide-club/events/{slug}
-// FourVenues soporta es/en/de/fr/it en el segmento de idioma (verificado /en y
-// /de en producción): el turista aterriza en el checkout en SU idioma.
-// OJO: event.iframe.tag_url NO sirve como enlace — es una URL para incrustar
+//   https://site.fourvenues.com/{idioma}/outxide-club/events/{slug}
+// FourVenues soporta es/en/de/fr/it en el segmento de idioma: el turista
+// aterriza en el checkout en SU idioma.
+// OJO 1: se enlaza site.fourvenues.com DIRECTAMENTE. El host antiguo
+// (web.fourvenues.com) redirige a site. y esa redirección PIERDE la query
+// entera (fbclid, utm_*) — verificado el 1-sep-2026 — además de estar tras un
+// desafío de Cloudflare más agresivo. Enlazar web. rompería la atribución que
+// implementa src/lib/campaign-params.ts.
+// OJO 2: event.iframe.tag_url NO sirve como enlace — es una URL para incrustar
 // en iframe cuya cadena de redirecciones acaba en un host inválido.
 const FOURVENUES_LOCALES = new Set(["es", "en", "de", "fr", "it"]);
 
 export function fourVenuesOrgUrl(locale = "es"): string {
   const l = FOURVENUES_LOCALES.has(locale) ? locale : "en";
-  return `https://web.fourvenues.com/${l}/outxide-club`;
+  return `https://site.fourvenues.com/${l}/outxide-club`;
 }
 
 /** @deprecated Usar fourVenuesOrgUrl(locale) para respetar el idioma del visitante. */

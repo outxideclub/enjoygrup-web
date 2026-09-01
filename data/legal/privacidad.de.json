@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Sicherheitsmaßnahmen",
-      "content": "<p>Wir treffen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten, darunter:</p><ul><li>TLS/SSL-Verschlüsselung der gesamten Kommunikation mit der Website.</li><li>Zugriff auf personenbezogene Daten ausschließlich durch befugtes Personal.</li><li>Regelmäßige Sicherungskopien und sichere Speicherung.</li><li>Zahlungsabwicklung über die externe Plattform FourVenues (Tickets werden auf web.fourvenues.com gekauft und bezahlt; dort gelten deren eigene Bedingungen und Datenschutzerklärung).</li><li>Anonymisierung der IP-Adressen in den Analysetools.</li></ul>"
+      "content": "<p>Wir treffen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten, darunter:</p><ul><li>TLS/SSL-Verschlüsselung der gesamten Kommunikation mit der Website.</li><li>Zugriff auf personenbezogene Daten ausschließlich durch befugtes Personal.</li><li>Regelmäßige Sicherungskopien und sichere Speicherung.</li><li>Zahlungsabwicklung über die externe Plattform FourVenues (Tickets werden auf site.fourvenues.com gekauft und bezahlt; dort gelten deren eigene Bedingungen und Datenschutzerklärung).</li><li>Anonymisierung der IP-Adressen in den Analysetools.</li></ul>"
     },
     {
       "id": "menores",

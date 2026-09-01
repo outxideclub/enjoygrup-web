@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Medidas de seguridad",
-      "content": "<p>Aplicamos las medidas técnicas y organizativas adecuadas para garantizar un nivel de seguridad apropiado al riesgo, incluyendo:</p><ul><li>Cifrado TLS/SSL en todas las comunicaciones del Sitio Web.</li><li>Acceso restringido a datos personales por parte del personal autorizado.</li><li>Copias de seguridad periódicas y almacenamiento seguro.</li><li>Procesamiento de pagos delegado en la plataforma externa FourVenues (las entradas se compran y pagan en web.fourvenues.com, con sus propias condiciones y política de privacidad).</li><li>Anonimización de IPs en herramientas de analítica.</li></ul>"
+      "content": "<p>Aplicamos las medidas técnicas y organizativas adecuadas para garantizar un nivel de seguridad apropiado al riesgo, incluyendo:</p><ul><li>Cifrado TLS/SSL en todas las comunicaciones del Sitio Web.</li><li>Acceso restringido a datos personales por parte del personal autorizado.</li><li>Copias de seguridad periódicas y almacenamiento seguro.</li><li>Procesamiento de pagos delegado en la plataforma externa FourVenues (las entradas se compran y pagan en site.fourvenues.com, con sus propias condiciones y política de privacidad).</li><li>Anonimización de IPs en herramientas de analítica.</li></ul>"
     },
     {
       "id": "menores",

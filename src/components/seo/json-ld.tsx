@@ -97,7 +97,7 @@ export function OrganizationJsonLd({ description }: { description?: string } = {
           "https://www.instagram.com/outxide.club/",
           "https://www.facebook.com/EnjoyAlcudia/",
           "https://www.tripadvisor.com/Attraction_Review-g580312-d4478448-Reviews-Enjoy_Club-Port_d_Alcudia_Alcudia_Majorca_Balearic_Islands.html",
-          "https://web.fourvenues.com/es/outxide-club",
+          "https://site.fourvenues.com/es/outxide-club",
         ],
       }}
     />
@@ -242,7 +242,7 @@ export function OutxideJsonLd({ description, locale = "es" }: { description?: st
         },
         sameAs: [
           "https://www.instagram.com/outxide.club/",
-          "https://web.fourvenues.com/es/outxide-club",
+          "https://site.fourvenues.com/es/outxide-club",
         ],
         parentOrganization: {
           "@type": "Organization",

@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Mesures de sécurité",
-      "content": "<p>Nous mettons en œuvre les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque, notamment :</p><ul><li>Chiffrement TLS/SSL de l'ensemble des communications du Site Web.</li><li>Accès aux données personnelles restreint au seul personnel autorisé.</li><li>Sauvegardes régulières et stockage sécurisé.</li><li>Traitement des paiements délégué à la plateforme externe FourVenues (les billets s'achètent et se paient sur web.fourvenues.com, selon ses propres conditions et sa propre politique de confidentialité).</li><li>Anonymisation des adresses IP dans les outils d'analyse.</li></ul>"
+      "content": "<p>Nous mettons en œuvre les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque, notamment :</p><ul><li>Chiffrement TLS/SSL de l'ensemble des communications du Site Web.</li><li>Accès aux données personnelles restreint au seul personnel autorisé.</li><li>Sauvegardes régulières et stockage sécurisé.</li><li>Traitement des paiements délégué à la plateforme externe FourVenues (les billets s'achètent et se paient sur site.fourvenues.com, selon ses propres conditions et sa propre politique de confidentialité).</li><li>Anonymisation des adresses IP dans les outils d'analyse.</li></ul>"
     },
     {
       "id": "menores",

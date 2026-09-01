@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Oswald } from "next/font/google";
 import { CookieBanner } from "@/components/legal/cookie-banner";
 import { AnalyticsScripts } from "@/components/seo/analytics";
+import { CampaignLinkTracker } from "@/components/analytics/campaign-link-tracker";
 import { LocaleProvider } from "@/i18n/context";
 import MotionConfigProvider from "@/components/ui/motion-config-provider";
 import { getServerLocale, getServerT, getDictionary } from "@/i18n/server";
@@ -103,6 +104,7 @@ export default async function RootLayout({
             {children}
             <CookieBanner />
             <AnalyticsScripts />
+            <CampaignLinkTracker />
           </LocaleProvider>
         </MotionConfigProvider>
       </body>

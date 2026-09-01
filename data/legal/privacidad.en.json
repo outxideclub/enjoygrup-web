@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Security measures",
-      "content": "<p>We apply appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including:</p><ul><li>TLS/SSL encryption on all Website communications.</li><li>Restricted access to personal data by authorised personnel only.</li><li>Regular backups and secure storage.</li><li>Ticket payments are processed entirely on the external FourVenues platform (web.fourvenues.com), under its own terms and privacy policy.</li><li>IP anonymisation in analytics tools.</li></ul>"
+      "content": "<p>We apply appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including:</p><ul><li>TLS/SSL encryption on all Website communications.</li><li>Restricted access to personal data by authorised personnel only.</li><li>Regular backups and secure storage.</li><li>Ticket payments are processed entirely on the external FourVenues platform (site.fourvenues.com), under its own terms and privacy policy.</li><li>IP anonymisation in analytics tools.</li></ul>"
     },
     {
       "id": "menores",

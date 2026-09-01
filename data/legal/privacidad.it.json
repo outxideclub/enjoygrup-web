@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Misure di sicurezza",
-      "content": "<p>Adottiamo le misure tecniche e organizzative adeguate a garantire un livello di sicurezza commisurato al rischio, tra cui:</p><ul><li>Crittografia TLS/SSL in tutte le comunicazioni del Sito Web.</li><li>Accesso ai dati personali limitato al personale autorizzato.</li><li>Copie di sicurezza periodiche e archiviazione sicura.</li><li>Elaborazione dei pagamenti affidata alla piattaforma esterna FourVenues (i biglietti si acquistano e si pagano su web.fourvenues.com, con condizioni e informativa sulla privacy proprie).</li><li>Anonimizzazione degli indirizzi IP negli strumenti di analisi.</li></ul>"
+      "content": "<p>Adottiamo le misure tecniche e organizzative adeguate a garantire un livello di sicurezza commisurato al rischio, tra cui:</p><ul><li>Crittografia TLS/SSL in tutte le comunicazioni del Sito Web.</li><li>Accesso ai dati personali limitato al personale autorizzato.</li><li>Copie di sicurezza periodiche e archiviazione sicura.</li><li>Elaborazione dei pagamenti affidata alla piattaforma esterna FourVenues (i biglietti si acquistano e si pagano su site.fourvenues.com, con condizioni e informativa sulla privacy proprie).</li><li>Anonimizzazione degli indirizzi IP negli strumenti di analisi.</li></ul>"
     },
     {
       "id": "menores",
