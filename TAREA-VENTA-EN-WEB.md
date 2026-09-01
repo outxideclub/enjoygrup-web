@@ -11,6 +11,14 @@
 > Encargo trasladado desde la sesión de **Meta Ads OUTXIDE** el 1-sep-2026 por orden del dueño: *"la tarea de la pasarela de pago redirígela a la sesión grupoenjoy.es anclada, allí hacemos estas tareas"*.
 > Contexto completo y decisiones ya tomadas: `~/Downloads/claude-migracion (1)/meta-ads-outxide/` (`DECISIONES.md`, `REGLAS-DURAS.md`, `ESTADO-ACTUAL.md`).
 
+## Estado (actualizado 1-sep-2026, 18:20 — taquilla SIN scroll interno, CTA cambiados, subdominio a un paso)
+
+- **Auto-alto en vivo**: la taquilla usa el iframe OFICIAL (`www.fourvenues.com/iframe/...`, protocolo postMessage con ingeniería inversa del cargador público): `addHeight` hace crecer el marco al contenido (verificado en producción: 877px reales frente a los 720 por defecto, `scrolling=no`) — sin deslizables dentro; `openUrl` navega la ventana (la Thank You Page sale del marco); el checkout recibe `_fbc/_fbp/ttclid` desde nuestro contexto (con `_fbc` sintetizado del fbclid propagado); `track` NO se reenvía (Purchase solo en /gracias). Commit `c957dc6`.
+- **Regla del dueño aplicada**: TODO lo de entradas —normales y VIP— enlaza a `/outxide/entradas` (página del club, botón flotante, navbar, agenda, feed iCal). Excepción: salidas de emergencia. 26 tests e2e en verde.
+- **Subdominio `entradas.grupoenjoy.es`**: redirección por host desplegada (`bcb2b6f`, conserva la query) + dominio añadido al proyecto del EQUIPO `outxideclub-9096s-projects` ("Domain added"). **Falta 1 paso**: crear en el Cloudflare del club el registro `CNAME entradas → c4649cf00df5e5fd.vercel-dns-017.com` (proxy DESACTIVADO/nube gris) — requiere login de Cloudflare que solo tiene el dueño (pestaña dejada abierta en el Chrome "Outxide").
+- **NORMA GENERAL (guardada en memoria)**: la infra del club vive en el equipo Vercel `outxideclub-9096s-projects` + su Cloudflare; NO mezclar con cuentas personales (el CLI local autentica como sergibrierton-1734).
+- Pendiente del dueño: compra real de prueba en la taquilla · login de Cloudflare para el CNAME · correo al account manager (abajo).
+
 ## Estado (actualizado 1-sep-2026, 16:45 — TAREA 3 fase 1 DESPLEGADA)
 
 **La taquilla embebida está construida, desplegada y verificada en producción** (commit `72b4eb5`):
