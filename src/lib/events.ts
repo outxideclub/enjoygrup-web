@@ -55,7 +55,14 @@ export function formatEventTime(isoDate: string, locale: string): string {
 
 export function eventTicketUrl(event: FVEvent, locale = "es"): string {
   const base = fourVenuesOrgUrl(locale);
-  return event.slug ? `${base}/events/${event.slug}` : base;
+  if (!event.slug) return base;
+  // OJO 3: la ruta pública de un evento es `{slug}-{code}`, NO el slug solo.
+  // Sin el sufijo del código, FourVenues responde 404 (verificado en producción
+  // el 1-sep-2026: .../events/viernes--outxide-04-09-2026 da 404 y
+  // .../events/viernes--outxide-04-09-2026-VWTA carga el checkout).
+  // El código es corto y estable por evento (VWTA, 9WB0, UQ26, IRAG…).
+  const path = event.code ? `${event.slug}-${event.code}` : event.slug;
+  return `${base}/events/${path}`;
 }
 
 export function extractGenres(event: FVEvent): string {

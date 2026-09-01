@@ -67,3 +67,25 @@ test.describe("Propagación de parámetros de campaña a Fourvenues", () => {
     }
   });
 });
+
+// Regresión: la ruta pública de un evento en FourVenues es `{slug}-{code}`.
+// Enlazar solo el slug devuelve 404 (ocurrió en producción el 1-sep-2026 y
+// dejó sin destino todos los CTA de compra por evento).
+test.describe("URL de evento en FourVenues", () => {
+  test("los enlaces por evento incluyen el código, no solo el slug", async ({ page }) => {
+    await page.goto("/outxide");
+    const hrefs = await page
+      .locator('a[href*="fourvenues.com/"][href*="/events/"]')
+      .evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).href));
+
+    // Si la web no está mostrando eventos, no hay nada que comprobar.
+    test.skip(hrefs.length === 0, "sin eventos publicados en este momento");
+
+    for (const href of hrefs) {
+      // .../events/<lo-que-sea>-DD-MM-AAAA-<CODIGO>
+      expect(href, `enlace sin código de evento: ${href}`).toMatch(
+        /\/events\/.+-\d{2}-\d{2}-\d{4}-[A-Z0-9]{3,8}(\?|$)/,
+      );
+    }
+  });
+});
