@@ -20,7 +20,7 @@ test.describe("Propagación de parámetros de campaña", () => {
     // La página de la taquilla recaptura de su propia URL y decora el iframe
     // (en local se sirve por la ruta; en producción la sirve el subdominio).
     await page.goto(`/outxide/entradas${QUERY}`);
-    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     await expect(iframe).toHaveAttribute("src", /fbclid=TEST123/, { timeout: 10_000 });
     await expect(iframe).toHaveAttribute("src", /utm_source=meta_test/, { timeout: 10_000 });
@@ -45,7 +45,7 @@ test.describe("Propagación de parámetros de campaña", () => {
 
   test("sin parámetros de entrada, el iframe sale limpio", async ({ page }) => {
     await page.goto("/outxide/entradas");
-    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     const src = await iframe.getAttribute("src");
     expect(src).not.toContain("fbclid");

@@ -6,24 +6,24 @@ import { test, expect } from "@playwright/test";
 test.describe("Taquilla embebida /outxide/entradas", () => {
   test("el iframe usa la versión oficial embebible con tema oscuro", async ({ page }) => {
     await page.goto("/outxide/entradas");
-    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     const src = await iframe.getAttribute("src");
-    expect(src).toContain("https://www.fourvenues.com/iframe/outxide-club/events");
+    expect(src).toMatch(/https:\/\/site\.fourvenues\.com\/(es|en|de|fr|it)\/iframe\/outxide-club\/events/);
     expect(src).toContain("theme=dark");
     expect(await iframe.getAttribute("scrolling")).toBe("no");
   });
 
   test("?event abre la taquilla en el evento y rechaza valores inyectados", async ({ page }) => {
     await page.goto("/outxide/entradas?event=calenton--outxide-18-09-2026-ABCD");
-    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     expect(await iframe.getAttribute("src")).toContain(
       "/iframe/outxide-club/events/calenton--outxide-18-09-2026-ABCD",
     );
 
     await page.goto("/outxide/entradas?event=https%3A%2F%2Fevil.example%2Fx");
-    const iframe2 = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    const iframe2 = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe2).toBeAttached({ timeout: 10_000 });
     const src2 = await iframe2.getAttribute("src");
     expect(src2).not.toContain("evil.example");
@@ -32,7 +32,7 @@ test.describe("Taquilla embebida /outxide/entradas", () => {
 
   test("auto-alto: el marco crece con addHeight y solo desde orígenes de Fourvenues", async ({ page }) => {
     await page.goto("/outxide/entradas");
-    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
 
     // Mensaje legítimo (origen de Fourvenues) → el iframe adopta la altura.

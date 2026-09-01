@@ -21,7 +21,18 @@ import { localizedPath } from "@/i18n/config";
 //   getCampaignsTracking / getTrackeableLinksTracking → almacenes propios de FV
 //   setCookie   → guest-token de sesión de compra (cookie funcional, exenta)
 //   track       → NO se reenvía: la medición está centralizada en /gracias
-const FV_IFRAME_BASE = "https://www.fourvenues.com/iframe/outxide-club/events";
+// URL DIRECTA del iframe con idioma explícito (descubierta el 1-sep-2026):
+// la puerta oficial www.fourvenues.com/iframe/... encadena redirecciones
+// (www→web→site) que auto-negocian el idioma ignorando nuestro selector y
+// cuya Location está rota a nivel HTTP. La app embebible real vive en
+// site.fourvenues.com/{idioma}/iframe/... (es/en/de/fr/it verificados, sin
+// cabeceras anti-iframe): idioma clavado al de la web y sin redirecciones
+// que pierdan la query.
+const FV_IFRAME_LOCALES = new Set(["es", "en", "de", "fr", "it"]);
+function fvIframeBase(locale: string): string {
+  const l = FV_IFRAME_LOCALES.has(locale) ? locale : "en";
+  return `https://site.fourvenues.com/${l}/iframe/outxide-club/events`;
+}
 const FV_ORIGINS = new Set(["https://www.fourvenues.com", "https://site.fourvenues.com"]);
 
 function readCookie(name: string): string | null {
@@ -69,7 +80,7 @@ export function CheckoutClient() {
     const qs = new URLSearchParams(window.location.search);
     const event = qs.get("event");
     const safeEvent = event && /^[a-z0-9-]{3,120}$/i.test(event) ? event : null;
-    const target = `${FV_IFRAME_BASE}${safeEvent ? `/${safeEvent}` : ""}?theme=dark`;
+    const target = `${fvIframeBase(locale)}${safeEvent ? `/${safeEvent}` : ""}?theme=dark`;
     setSrc(decorateFourvenuesUrl(target));
     // La salida de emergencia va al microsite completo (pestaña propia).
     const base = fourVenuesOrgUrl(locale);
