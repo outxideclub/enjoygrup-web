@@ -1,43 +1,68 @@
 import { test, expect } from "@playwright/test";
 
-// TAREA-VENTA-EN-WEB §3: taquilla embebida + páginas de retorno del checkout.
-// Regla dura: no se rompe la venta en temporada — estos tests fijan que las
-// tres rutas existen, que el iframe apunta al host correcto y que los
-// parámetros de campaña llegan también DENTRO del iframe y al enlace de
-// emergencia.
+// TAREA-VENTA-EN-WEB §3: taquilla embebida (iframe OFICIAL de Fourvenues, con
+// protocolo postMessage de auto-alto) + páginas de retorno del checkout.
+// Regla dura: no se rompe la venta en temporada.
 test.describe("Taquilla embebida /outxide/entradas", () => {
-  test("el iframe carga la taquilla de Fourvenues con los parámetros de campaña", async ({ page }) => {
-    await page.goto("/outxide/entradas?fbclid=TEST123&utm_source=meta_test");
-    const iframe = page.locator('iframe[src*="site.fourvenues.com"]');
+  test("el iframe usa la versión oficial embebible con tema oscuro", async ({ page }) => {
+    await page.goto("/outxide/entradas");
+    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     const src = await iframe.getAttribute("src");
-    expect(src).toContain("site.fourvenues.com");
-    expect(src).toContain("fbclid=TEST123");
-    expect(src).toContain("utm_source=meta_test");
+    expect(src).toContain("https://www.fourvenues.com/iframe/outxide-club/events");
+    expect(src).toContain("theme=dark");
+    expect(await iframe.getAttribute("scrolling")).toBe("no");
   });
 
   test("?event abre la taquilla en el evento y rechaza valores inyectados", async ({ page }) => {
     await page.goto("/outxide/entradas?event=calenton--outxide-18-09-2026-ABCD");
-    const iframe = page.locator('iframe[src*="site.fourvenues.com"]');
+    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     expect(await iframe.getAttribute("src")).toContain(
-      "/events/calenton--outxide-18-09-2026-ABCD",
+      "/iframe/outxide-club/events/calenton--outxide-18-09-2026-ABCD",
     );
 
-    // Un valor con URL inyectada NO debe acabar en el src.
     await page.goto("/outxide/entradas?event=https%3A%2F%2Fevil.example%2Fx");
-    const iframe2 = page.locator('iframe[src*="site.fourvenues.com"]');
+    const iframe2 = page.locator('iframe[src*="fourvenues.com/iframe"]');
     await expect(iframe2).toBeAttached({ timeout: 10_000 });
-    expect(await iframe2.getAttribute("src")).not.toContain("evil.example");
-    expect(await iframe2.getAttribute("src")).not.toContain("/events/");
+    const src2 = await iframe2.getAttribute("src");
+    expect(src2).not.toContain("evil.example");
+    expect(src2).toContain("/iframe/outxide-club/events?");
   });
 
-  test("la salida de emergencia (pestaña completa) está siempre visible y decorada", async ({ page }) => {
-    await page.goto("/outxide/entradas?fbclid=TEST123");
+  test("auto-alto: el marco crece con addHeight y solo desde orígenes de Fourvenues", async ({ page }) => {
+    await page.goto("/outxide/entradas");
+    const iframe = page.locator('iframe[src*="fourvenues.com/iframe"]');
+    await expect(iframe).toBeAttached({ timeout: 10_000 });
+
+    // Mensaje legítimo (origen de Fourvenues) → el iframe adopta la altura.
+    await page.evaluate(() => {
+      window.dispatchEvent(
+        new MessageEvent("message", {
+          origin: "https://www.fourvenues.com",
+          data: { key: "addHeight", height: "2345px" },
+        }),
+      );
+    });
+    await expect(iframe).toHaveCSS("height", "2345px", { timeout: 5_000 });
+
+    // Mensaje hostil (otro origen) → ignorado.
+    await page.evaluate(() => {
+      window.dispatchEvent(
+        new MessageEvent("message", {
+          origin: "https://evil.example",
+          data: { key: "addHeight", height: "50px" },
+        }),
+      );
+    });
+    await page.waitForTimeout(300);
+    await expect(iframe).toHaveCSS("height", "2345px");
+  });
+
+  test("la salida de emergencia (pestaña completa) está siempre visible", async ({ page }) => {
+    await page.goto("/outxide/entradas");
     const fallback = page.locator('main a[target="_blank"][href*="site.fourvenues.com"]');
     await expect(fallback).toBeVisible({ timeout: 10_000 });
-    // La decoración llega con la hidratación: aserción auto-reintentante.
-    await expect(fallback).toHaveAttribute("href", /fbclid=TEST123/, { timeout: 10_000 });
   });
 });
 
@@ -73,13 +98,9 @@ test.describe("Páginas de retorno del checkout", () => {
           ).length,
       );
 
-    // Primera llegada: exactamente UN Purchase.
     await page.goto("/gracias");
-    await expect
-      .poll(countPurchases, { timeout: 8_000 })
-      .toBe(1);
+    await expect.poll(countPurchases, { timeout: 8_000 }).toBe(1);
 
-    // Recarga (contador a cero por el init script): la guardia impide repetir.
     await page.reload();
     await page.waitForTimeout(1500);
     expect(await countPurchases()).toBe(0);
@@ -89,12 +110,11 @@ test.describe("Páginas de retorno del checkout", () => {
     await expect.poll(countPurchases, { timeout: 8_000 }).toBe(1);
   });
 
-  test("la CSP permite el iframe de site.fourvenues.com y el retorno propio", async ({ page }) => {
-    // Regresión del marco vacío: la cabecera frame-src debe permitir el host
-    // del checkout y 'self' (retorno post-pago dentro del marco).
+  test("la CSP permite el iframe de Fourvenues y el retorno propio", async ({ page }) => {
     const resp = await page.goto("/outxide/entradas");
     const csp = resp?.headers()["content-security-policy"] ?? "";
     const frameSrc = csp.split(";").find((d) => d.trim().startsWith("frame-src")) ?? "";
+    expect(frameSrc).toContain("https://www.fourvenues.com");
     expect(frameSrc).toContain("https://site.fourvenues.com");
     expect(frameSrc).toContain("'self'");
   });

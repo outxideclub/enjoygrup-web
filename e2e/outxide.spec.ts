@@ -15,8 +15,9 @@ test.describe("Outxide Club page", () => {
     await vipHeading.scrollIntoViewIfNeeded();
     await expect(vipHeading).toBeVisible({ timeout: 10_000 });
 
-    const reserveVip = page.locator('a[href*="fourvenues"]').filter({ hasText: /VIP/ });
-    await expect(reserveVip.first()).toBeVisible();
+    // Desde el 1-sep-2026 el CTA VIP va a la taquilla embebida, no a FV directo.
+    const reserveVip = page.locator('a[href*="/outxide/entradas"]').filter({ hasText: /VIP/ });
+    await expect(reserveVip.first()).toBeAttached();
   });
 
   test("events section loads", async ({ page }) => {

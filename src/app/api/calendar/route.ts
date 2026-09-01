@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
-import { eventTicketUrl, extractArtists, extractGenres } from "@/lib/events";
+import { eventCheckoutPath, extractArtists, extractGenres } from "@/lib/events";
 import { buildIcsFeed } from "@/lib/ics";
 
 // Feed iCalendar POR SUSCRIPCIÓN con todos los próximos eventos (FourVenues).
@@ -24,7 +24,7 @@ export async function GET() {
         end: e.end_date,
         location: OUTXIDE_LOCATION,
         description: [extractArtists(e), extractGenres(e)].filter(Boolean).join(" · "),
-        url: eventTicketUrl(e),
+        url: `https://www.grupoenjoy.es${eventCheckoutPath(e)}`,
       },
     })),
   );

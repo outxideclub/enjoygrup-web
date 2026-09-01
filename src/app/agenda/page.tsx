@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Ticket, ExternalLink, CalendarDays, CalendarPlus, Clock, Crown, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, Ticket, CalendarDays, CalendarPlus, Clock, Crown, UtensilsCrossed } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { AddToCalendar } from "@/components/ui/add-to-calendar";
@@ -11,10 +11,9 @@ import { buildEventsItemList } from "@/lib/event-jsonld";
 import {
   formatEventDate,
   formatEventTime,
-  eventTicketUrl,
+  eventCheckoutPath,
   extractGenres,
   extractArtists,
-  fourVenuesOrgUrl,
 } from "@/lib/events";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { siteContact, telHref } from "@/lib/site";
@@ -54,7 +53,7 @@ export default async function AgendaPage() {
       icon: CalendarDays,
       schedule: t("agenda.outxideSchedule"),
       cta: t("cta.outxideTickets"),
-      href: fourVenuesOrgUrl(locale),
+      href: localizedPath("/outxide/entradas", locale),
       path: "/outxide",
     },
     {
@@ -129,15 +128,13 @@ export default async function AgendaPage() {
             {events.length === 0 ? (
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] py-16 text-center">
                 <p className="mx-auto max-w-md text-muted-foreground">{t("agenda.noEvents")}</p>
-                <a
-                  href={fourVenuesOrgUrl(locale)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={localizedPath("/outxide/entradas", locale)}
                   className="mt-6 inline-flex items-center gap-2 rounded-full bg-outxide px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
                 >
                   <Ticket className="h-4 w-4" />
                   {t("cta.ticketsAll")}
-                </a>
+                </Link>
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -172,16 +169,14 @@ export default async function AgendaPage() {
                           {formatEventTime(event.start_date, locale)}h
                         </p>
                         <div className="mt-auto flex flex-col gap-3">
-                          <a
-                            href={eventTicketUrl(event, locale)}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <Link
+                            href={localizedPath(eventCheckoutPath(event), locale)}
                             className="btn-magnetic inline-flex w-full items-center justify-center rounded-lg bg-outxide px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-outxide/90"
                           >
                             <Ticket className="mr-2 h-4 w-4" />
                             {t("outxide.buyTicket")}
-                            <ExternalLink className="ml-2 h-3.5 w-3.5 opacity-60" />
-                          </a>
+                            <ArrowRight className="ml-2 h-3.5 w-3.5 opacity-60" />
+                          </Link>
                           <AddToCalendar
                             event={{
                               title: event.name,
@@ -189,7 +184,7 @@ export default async function AgendaPage() {
                               end: event.end_date,
                               location: OUTXIDE_LOCATION,
                               description: [artists, genres].filter(Boolean).join(" · "),
-                              url: eventTicketUrl(event, locale),
+                              url: `https://www.grupoenjoy.es${eventCheckoutPath(event)}`,
                             }}
                           />
                         </div>

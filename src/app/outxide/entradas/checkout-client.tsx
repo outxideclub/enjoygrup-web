@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
@@ -10,36 +10,140 @@ import { captureCampaignParams, decorateFourvenuesUrl } from "@/lib/campaign-par
 import { useT, useLocale } from "@/i18n";
 import { localizedPath } from "@/i18n/config";
 
+// Host del iframe OFICIAL de Fourvenues (distinto del microsite): la versión
+// pensada para incrustar, con protocolo postMessage. Ingeniería inversa del
+// cargador público https://www.fourvenues.com/assets/iframe/outxide-club/events
+// (1-sep-2026). Mensajes del hijo → padre:
+//   addHeight   → altura total del contenido (el marco crece: SIN scroll interno)
+//   openUrl     → navegación a nivel de ventana (así sale la Thank You Page)
+//   currentUrl* → el hijo pide la URL del padre (para su tracking)
+//   getFBC/getFBP/getTTP/getTTCLID → el hijo pide las cookies de atribución
+//   getCampaignsTracking / getTrackeableLinksTracking → almacenes propios de FV
+//   setCookie   → guest-token de sesión de compra (cookie funcional, exenta)
+//   track       → NO se reenvía: la medición está centralizada en /gracias
+const FV_IFRAME_BASE = "https://www.fourvenues.com/iframe/outxide-club/events";
+const FV_ORIGINS = new Set(["https://www.fourvenues.com", "https://site.fourvenues.com"]);
+
+function readCookie(name: string): string | null {
+  const m = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
+/** _fbc real si existe; si no, se sintetiza del fbclid propagado (formato oficial de Meta). */
+function fbcValue(): string | null {
+  const cookie = readCookie("_fbc");
+  if (cookie) return cookie;
+  try {
+    const stored = JSON.parse(sessionStorage.getItem("ge_campaign_params") ?? "{}");
+    if (stored.fbclid) return `fb.1.${Date.now()}.${stored.fbclid}`;
+  } catch {
+    /* sin síntesis */
+  }
+  return null;
+}
+
+function ttclidValue(): string | null {
+  try {
+    const stored = JSON.parse(sessionStorage.getItem("ge_campaign_params") ?? "{}");
+    return stored.ttclid ?? null;
+  } catch {
+    return null;
+  }
+}
+
 /**
- * Taquilla embebida (TAREA-VENTA-EN-WEB §3): el checkout de Fourvenues dentro
- * de grupoenjoy.es. Verificado el 1-sep-2026 que site.fourvenues.com se sirve
- * sin X-Frame-Options ni frame-ancestors (embebible). Riesgos conocidos y
- * mitigación: el desafío de Cloudflare y el 3-D Secure del banco pueden no
- * renderizar dentro del marco → el enlace de "pestaña completa" queda SIEMPRE
- * visible bajo el iframe como salida de emergencia, con los parámetros de
- * campaña propagados también allí (CampaignLinkTracker).
- *
- * `?event={slug-codigo}` permite abrir la taquilla directamente en un evento.
+ * Taquilla embebida (TAREA-VENTA-EN-WEB §3). El marco se auto-redimensiona a
+ * la altura que publica Fourvenues: todo el contenido visible sin deslizar
+ * dentro del iframe (petición del dueño, 1-sep-2026); solo scrollea la página.
  */
 export function CheckoutClient() {
   const t = useT();
   const locale = useLocale();
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [src, setSrc] = useState<string | null>(null);
+  const [height, setHeight] = useState(720);
   const [fallbackHref, setFallbackHref] = useState<string>(fourVenuesOrgUrl("es"));
 
   useEffect(() => {
     captureCampaignParams();
     const qs = new URLSearchParams(window.location.search);
     const event = qs.get("event");
-    // Solo slugs de evento con el formato real (letras/números/guiones): nada
-    // de URLs arbitrarias inyectadas en el iframe.
+    const safeEvent = event && /^[a-z0-9-]{3,120}$/i.test(event) ? event : null;
+    const target = `${FV_IFRAME_BASE}${safeEvent ? `/${safeEvent}` : ""}?theme=dark`;
+    setSrc(decorateFourvenuesUrl(target));
+    // La salida de emergencia va al microsite completo (pestaña propia).
     const base = fourVenuesOrgUrl(locale);
-    const target =
-      event && /^[a-z0-9-]{3,120}$/i.test(event) ? `${base}/events/${event}` : base;
-    const decorated = decorateFourvenuesUrl(target);
-    setSrc(decorated);
-    setFallbackHref(decorated);
+    setFallbackHref(decorateFourvenuesUrl(safeEvent ? `${base}/events/${safeEvent}` : base));
   }, [locale]);
+
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      if (!FV_ORIGINS.has(e.origin)) return;
+      const data = (e.data ?? {}) as Record<string, unknown>;
+      const child = iframeRef.current?.contentWindow;
+      const respond = (payload: Record<string, unknown>) =>
+        child?.postMessage(payload, e.origin);
+
+      switch (data.key) {
+        case "addHeight": {
+          const raw = data.height;
+          const px =
+            typeof raw === "number" ? raw : parseInt(String(raw ?? ""), 10);
+          if (Number.isFinite(px) && px > 200 && px < 20000) setHeight(px);
+          return;
+        }
+        case "openUrl": {
+          const url = typeof data.url === "string" ? data.url : "";
+          if (!/^https:\/\//.test(url)) return;
+          if (data.target === "_blank") window.open(url, "_blank", "noopener");
+          else window.location.href = url;
+          return;
+        }
+        case "currentUrl":
+          respond({ key: "currentUrl", url: window.location.href });
+          return;
+        case "currentUrlCli":
+          // Formato legacy: el hijo espera un string JSON con {location}.
+          child?.postMessage(
+            JSON.stringify({ location: window.location.href }),
+            e.origin,
+          );
+          return;
+        case "getFBC":
+          respond({ key: "getFBC", value: fbcValue() });
+          return;
+        case "getFBP":
+          respond({ key: "getFBP", value: readCookie("_fbp") });
+          return;
+        case "getTTP":
+          respond({ key: "getTTP", value: readCookie("_ttp") });
+          return;
+        case "getTTCLID":
+          respond({ key: "getTTCLID", value: ttclidValue() });
+          return;
+        case "getCampaignsTracking":
+          respond({ key: "getCampaignsTracking", value: [] });
+          return;
+        case "getTrackeableLinksTracking":
+          respond({ key: "getTrackeableLinksTracking", value: {} });
+          return;
+        case "setCookie": {
+          // Cookie funcional de sesión de compra de FV (estrictamente necesaria).
+          const v = typeof data.cookie === "string" ? data.cookie : "";
+          if (/^[\w.-]{1,512}$/.test(v)) {
+            document.cookie = `guest-token=${v}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+          }
+          return;
+        }
+        case "track":
+          // Deliberadamente NO reenviado a los píxeles: el Purchase se mide en
+          // /gracias (una sola fuente, sin duplicados). Ver purchase-tracking.tsx.
+          return;
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
 
   return (
     <div className="noise-texture relative">
@@ -76,10 +180,13 @@ export function CheckoutClient() {
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
               {src && (
                 <iframe
+                  ref={iframeRef}
                   src={src}
                   title={t("purchase.checkoutIframeTitle")}
                   allow="payment"
-                  className="h-[75vh] min-h-[560px] w-full"
+                  scrolling="no"
+                  className="block w-full"
+                  style={{ height: `${height}px`, border: 0, overflow: "hidden" }}
                 />
               )}
             </div>

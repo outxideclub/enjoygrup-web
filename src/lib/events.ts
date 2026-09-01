@@ -53,16 +53,31 @@ export function formatEventTime(isoDate: string, locale: string): string {
   });
 }
 
+// OJO 3: la ruta pública de un evento es `{slug}-{code}`, NO el slug solo.
+// Sin el sufijo del código, FourVenues responde 404 (verificado en producción
+// el 1-sep-2026: .../events/viernes--outxide-04-09-2026 da 404 y
+// .../events/viernes--outxide-04-09-2026-VWTA carga el checkout).
+// El código es corto y estable por evento (VWTA, 9WB0, UQ26, IRAG…).
+function eventPathSegment(event: FVEvent): string {
+  if (!event.slug) return "";
+  return event.code ? `${event.slug}-${event.code}` : event.slug;
+}
+
 export function eventTicketUrl(event: FVEvent, locale = "es"): string {
   const base = fourVenuesOrgUrl(locale);
-  if (!event.slug) return base;
-  // OJO 3: la ruta pública de un evento es `{slug}-{code}`, NO el slug solo.
-  // Sin el sufijo del código, FourVenues responde 404 (verificado en producción
-  // el 1-sep-2026: .../events/viernes--outxide-04-09-2026 da 404 y
-  // .../events/viernes--outxide-04-09-2026-VWTA carga el checkout).
-  // El código es corto y estable por evento (VWTA, 9WB0, UQ26, IRAG…).
-  const path = event.code ? `${event.slug}-${event.code}` : event.slug;
-  return `${base}/events/${path}`;
+  const seg = eventPathSegment(event);
+  return seg ? `${base}/events/${seg}` : base;
+}
+
+/**
+ * Taquilla embebida de la web (regla del dueño, 1-sep-2026): todo lo que tenga
+ * que ver con entradas —normales y VIP— enlaza aquí, no a Fourvenues directo.
+ * Excepción: las salidas de emergencia por si el iframe no funciona.
+ * Ruta SIN prefijo de idioma: pásala por localizedPath() en el call-site.
+ */
+export function eventCheckoutPath(event?: FVEvent): string {
+  const seg = event ? eventPathSegment(event) : "";
+  return seg ? `/outxide/entradas?event=${seg}` : "/outxide/entradas";
 }
 
 export function extractGenres(event: FVEvent): string {

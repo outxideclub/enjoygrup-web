@@ -33,16 +33,16 @@ import type { FVEvent } from "@/lib/fourvenues";
 import {
   formatEventDate as formatDate,
   formatEventTime as formatTime,
-  eventTicketUrl,
+  eventCheckoutPath,
   extractGenres,
   extractArtists,
-  fourVenuesOrgUrl,
 } from "@/lib/events";
 import { AddToCalendar } from "@/components/ui/add-to-calendar";
 import { StickyCta } from "@/components/ui/sticky-cta";
 import { InstagramIcon } from "@/components/ui/instagram-icon";
 import { siteContact, igDmHref } from "@/lib/site";
 import { useT, useLocale } from "@/i18n";
+import { localizedPath } from "@/i18n/config";
 import { useRef, useState, useEffect, useCallback } from "react";
 
 // ---------------------------------------------------------------------------
@@ -200,10 +200,10 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                 variant="outline"
                 className="btn-magnetic rounded-full px-8 border-outxide/40 text-outxide hover:bg-outxide/10"
               >
-                <a href={fourVenuesOrgUrl(locale)} target="_blank" rel="noopener noreferrer">
+                <Link href={localizedPath(eventCheckoutPath(), locale)}>
                   <Crown className="h-4 w-4 mr-2" />
                   {t("outxide.reserveVip")}
-                </a>
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -290,15 +290,13 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                 {t("outxide.noEvents")}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href={fourVenuesOrgUrl(locale)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={localizedPath(eventCheckoutPath(), locale)}
                   className="btn-magnetic inline-flex items-center gap-2 rounded-full bg-outxide px-7 py-3 text-sm font-semibold text-black transition-colors hover:bg-outxide/90"
                 >
                   <Ticket className="h-4 w-4" />
                   {t("cta.ticketsAll")}
-                </a>
+                </Link>
                 <a
                   href={igDmHref(siteContact.venues.outxide.instagram)}
                   target="_blank"
@@ -352,16 +350,14 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                         {formatTime(event.start_date, locale)}h
                       </p>
 
-                      <a
-                        href={eventTicketUrl(event, locale)}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        href={localizedPath(eventCheckoutPath(event), locale)}
                         className={`btn-magnetic inline-flex items-center justify-center w-full rounded-lg text-white text-sm font-medium mt-auto px-4 py-2 bg-outxide hover:bg-outxide/80 transition-colors`}
                       >
                         <Ticket className="h-4 w-4 mr-2" />
                         {t("outxide.buyTicket")}
-                        <ExternalLink className="h-3.5 w-3.5 ml-2 opacity-60" />
-                      </a>
+                        <ArrowRight className="h-3.5 w-3.5 ml-2 opacity-60" />
+                      </Link>
                       <div className="mt-3">
                         <AddToCalendar
                           event={{
@@ -370,7 +366,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                             end: event.end_date,
                             location: "Outxide Club, Av. Tucán 1, Port d'Alcúdia",
                             description: [artists, genres].filter(Boolean).join(" · "),
-                            url: eventTicketUrl(event, locale),
+                            url: `https://www.grupoenjoy.es${eventCheckoutPath(event)}`,
                           }}
                         />
                       </div>
@@ -383,10 +379,8 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
 
           <ScrollReveal>
             <div className="mt-12 text-center">
-              <a
-                href={fourVenuesOrgUrl(locale)}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={localizedPath(eventCheckoutPath(), locale)}
                 className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 hover:border-outxide/30 transition-colors"
               >
                 <Calendar className="h-4 w-4 text-outxide" />
@@ -395,7 +389,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                   <span className="text-white font-medium">FourVenues</span>
                 </span>
                 <ExternalLink className="h-3 w-3 text-muted-foreground" />
-              </a>
+              </Link>
             </div>
           </ScrollReveal>
         </div>
@@ -443,11 +437,11 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
                 size="lg"
                 className="btn-magnetic rounded-full px-10 bg-outxide hover:bg-outxide/80 text-white shadow-lg shadow-outxide/20"
               >
-                <a href={fourVenuesOrgUrl(locale)} target="_blank" rel="noopener noreferrer">
+                <Link href={localizedPath(eventCheckoutPath(), locale)}>
                   <Crown className="h-4 w-4 mr-2" />
                   {t("outxide.vipReserve")}
-                  <ExternalLink className="h-3.5 w-3.5 ml-2 opacity-60" />
-                </a>
+                  <ArrowRight className="h-3.5 w-3.5 ml-2 opacity-60" />
+                </Link>
               </Button>
             </div>
           </ScrollReveal>
@@ -519,7 +513,7 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
       </main>
       <StickyCta
         accent="outxide"
-        primary={{ label: t("cta.outxideTickets"), href: fourVenuesOrgUrl(locale), external: true }}
+        primary={{ label: t("cta.outxideTickets"), href: localizedPath(eventCheckoutPath(), locale) }}
         instagramHref={igDmHref(siteContact.venues.outxide.instagram)}
         instagramLabel={t("cta.instagramAria")}
       />
