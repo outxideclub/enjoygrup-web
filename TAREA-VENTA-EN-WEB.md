@@ -15,9 +15,9 @@
 
 - **Auto-alto en vivo**: la taquilla usa el iframe OFICIAL (`www.fourvenues.com/iframe/...`, protocolo postMessage con ingeniería inversa del cargador público): `addHeight` hace crecer el marco al contenido (verificado en producción: 877px reales frente a los 720 por defecto, `scrolling=no`) — sin deslizables dentro; `openUrl` navega la ventana (la Thank You Page sale del marco); el checkout recibe `_fbc/_fbp/ttclid` desde nuestro contexto (con `_fbc` sintetizado del fbclid propagado); `track` NO se reenvía (Purchase solo en /gracias). Commit `c957dc6`.
 - **Regla del dueño aplicada**: TODO lo de entradas —normales y VIP— enlaza a `/outxide/entradas` (página del club, botón flotante, navbar, agenda, feed iCal). Excepción: salidas de emergencia. 26 tests e2e en verde.
-- **Subdominio `entradas.grupoenjoy.es`**: redirección por host desplegada (`bcb2b6f`, conserva la query) + dominio añadido al proyecto del EQUIPO `outxideclub-9096s-projects` ("Domain added"). **Falta 1 paso**: crear en el Cloudflare del club el registro `CNAME entradas → c4649cf00df5e5fd.vercel-dns-017.com` (proxy DESACTIVADO/nube gris) — requiere login de Cloudflare que solo tiene el dueño (pestaña dejada abierta en el Chrome "Outxide").
+- **Subdominio `entradas.grupoenjoy.es` OPERATIVO** (1-sep-2026, 18:45): dominio en el proyecto del equipo `outxideclub-9096s-projects` + CNAME `entradas → c4649cf00df5e5fd.vercel-dns-017.com` (DNS only) creado en el Cloudflare del club (cuenta Outxide.club@gmail.com). Verificado end-to-end: `https://entradas.grupoenjoy.es/?fbclid=X` → 307 → `https://www.grupoenjoy.es/outxide/entradas?fbclid=X` (query intacta, TLS propio). ES la URL para bio de Instagram y anuncios. Nota: aviso benigno de Cloudflare "origin IP partially exposed" por el registro DNS-only — mismo patrón que `vip.`, las IPs de Vercel son públicas.
 - **NORMA GENERAL (guardada en memoria)**: la infra del club vive en el equipo Vercel `outxideclub-9096s-projects` + su Cloudflare; NO mezclar con cuentas personales (el CLI local autentica como sergibrierton-1734).
-- Pendiente del dueño: compra real de prueba en la taquilla · login de Cloudflare para el CNAME · correo al account manager (abajo).
+- Pendiente del dueño: compra real de prueba en la taquilla · correo al account manager (abajo).
 
 ## Estado (actualizado 1-sep-2026, 16:45 — TAREA 3 fase 1 DESPLEGADA)
 
