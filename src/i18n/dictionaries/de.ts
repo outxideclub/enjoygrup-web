@@ -16,7 +16,7 @@ export const de: Dictionary = {
     enjoyOgDescription:
       "Where nights begin. Signature-Cocktails und Premium-Shisha auf der besten Terrasse in Alcúdia.",
     enjoyKeywords:
-      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, sunset drinks mallorca, cocktailbar alcudia, lounge bar mallorca, terrasse bar alcudia, cocktailbar port alcudia, shisha bar alcudia, beste cocktails alcudia, sonnenterrasse mallorca, drinks port alcudia",
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, sunset drinks mallorca, cocktailbar alcudia, lounge bar mallorca, terrasse bar alcudia, cocktailbar port alcudia, shisha bar alcudia, beste cocktails alcudia, sonnenterrasse mallorca, drinks port alcudia, kicker alcudia, billard bar alcudia, darts bar alcudia, spiele bar mallorca",
     outxideTitle: "Outxide Club — Nachtclub in Port d'Alcúdia, Mallorca",
     outxideDescription:
       "Outxide Club: Nachtclub in Port d'Alcúdia, Mallorca. Techno, House und Reggaeton mit internationalen DJs. Tickets online kaufen. Offizielle Webseite.",
@@ -100,6 +100,12 @@ export const de: Dictionary = {
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Shisha",
+    gamesEyebrow: "Spiele-Ecke",
+    gamesTitle: "Kicker, Billard & Darts",
+    gamesText: "Cocktail in der einen Hand, Revanche in der anderen: Kicker, Billardtisch und Dartscheibe auf der Terrasse – den ganzen Abend bereit.",
+    gamesFutbolin: "Kicker",
+    gamesBillar: "Billard",
+    gamesDardos: "Darts",
     h1: "Enjoy Terrace — Cocktail- & Shisha-Terrasse in Port d'Alcúdia, Mallorca",
     aboutHeading: "Wo gibt es die besten Cocktails in Port d'Alcúdia?",
     aboutText:

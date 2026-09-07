@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
+import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star, Goal, CircleDot, Target } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -270,6 +270,37 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: En
           </ScrollReveal>
 
           <GalleryLightbox images={galleryImages} />
+        </div>
+      </section>
+
+      {/* Zona de juegos — futbolín, billar y dardos (encargo del dueño, 7-sep-2026) */}
+      <section id="juegos" className="relative z-20 py-16 sm:py-20 border-y border-white/5 bg-background/40">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <ScrollReveal>
+            <p className="text-sm font-bold tracking-[0.2em] text-enjoy/60 uppercase mb-4">
+              {t("enjoy.gamesEyebrow")}
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white uppercase">
+              {t("enjoy.gamesTitle")}
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground leading-relaxed">
+              {t("enjoy.gamesText")}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <span className="inline-flex items-center gap-2 rounded-full border border-enjoy/25 bg-enjoy/5 px-5 py-2.5 text-sm font-semibold text-white">
+                <Goal className="h-4 w-4 text-enjoy" aria-hidden />
+                {t("enjoy.gamesFutbolin")}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-enjoy/25 bg-enjoy/5 px-5 py-2.5 text-sm font-semibold text-white">
+                <CircleDot className="h-4 w-4 text-enjoy" aria-hidden />
+                {t("enjoy.gamesBillar")}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-enjoy/25 bg-enjoy/5 px-5 py-2.5 text-sm font-semibold text-white">
+                <Target className="h-4 w-4 text-enjoy" aria-hidden />
+                {t("enjoy.gamesDardos")}
+              </span>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

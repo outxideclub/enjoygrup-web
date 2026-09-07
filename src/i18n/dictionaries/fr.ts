@@ -16,7 +16,7 @@ export const fr: Dictionary = {
     enjoyOgDescription:
       "Where nights begin. Cocktails signature et chicha premium sur la meilleure terrasse d'Alcúdia.",
     enjoyKeywords:
-      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, chicha alcudia, sunset drinks majorque, bar cocktails alcudia, lounge bar majorque, terrasse bar alcudia, bar cocktails port alcudia, chicha bar alcudia, meilleurs cocktails alcudia, terrasse coucher soleil majorque, boissons port alcudia",
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, chicha alcudia, sunset drinks majorque, bar cocktails alcudia, lounge bar majorque, terrasse bar alcudia, bar cocktails port alcudia, chicha bar alcudia, meilleurs cocktails alcudia, terrasse coucher soleil majorque, boissons port alcudia, baby-foot alcudia, billard bar alcudia, fléchettes alcudia, bar jeux majorque",
     outxideTitle: "Outxide Club — Discothèque à Port d'Alcúdia, Majorque",
     outxideDescription:
       "Outxide Club : discothèque à Port d'Alcúdia, Majorque. Soirées techno, house et reggaeton avec DJs internationaux. Achat billets en ligne. Site officiel.",
@@ -100,6 +100,12 @@ export const fr: Dictionary = {
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Chicha",
+    gamesEyebrow: "Coin jeux",
+    gamesTitle: "Baby-foot, billard & fléchettes",
+    gamesText: "Cocktail dans une main, revanche dans l'autre : baby-foot, billard et cible de fléchettes sur la terrasse, prêts toute la soirée.",
+    gamesFutbolin: "Baby-foot",
+    gamesBillar: "Billard",
+    gamesDardos: "Fléchettes",
     h1: "Enjoy Terrace — Terrasse Cocktails & Chicha à Port d'Alcúdia, Majorque",
     aboutHeading: "Où déguster les meilleurs cocktails à Port d'Alcúdia ?",
     aboutText:

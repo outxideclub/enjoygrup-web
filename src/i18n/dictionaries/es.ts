@@ -14,7 +14,7 @@ export const es = {
     enjoyOgDescription:
       "Where nights begin. Cócteles de autor, shisha premium y el mejor atardecer de Alcúdia. Abierto cada día desde las 17:00.",
     enjoyKeywords:
-      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, terraza cocteles port alcudia, sunset drinks mallorca, cocteleria alcudia, lounge bar mallorca, cocktail bar port alcudia, shisha bar alcudia, terraza port alcudia, copas port alcudia, mejores cocktails alcudia, bar cocteles alcudia",
+      "enjoy terrace, enjoy terrace alcudia, enjoy club alcudia, cocktails alcudia, shisha alcudia, terraza cocteles port alcudia, sunset drinks mallorca, cocteleria alcudia, lounge bar mallorca, cocktail bar port alcudia, shisha bar alcudia, terraza port alcudia, copas port alcudia, mejores cocktails alcudia, bar cocteles alcudia, futbolín alcúdia, billar alcúdia, dardos alcúdia, bar con futbolín mallorca",
     outxideTitle: "Outxide Club Alcúdia — Discoteca en Mallorca",
     outxideDescription:
       "Outxide Club, la discoteca de Port d'Alcúdia: techno, house y reggaetón con DJs internacionales. Jue a sáb desde 23:00. Entradas online oficiales.",
@@ -98,6 +98,12 @@ export const es = {
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Shisha",
+    gamesEyebrow: "Zona de juegos",
+    gamesTitle: "Futbolín, billar y dardos",
+    gamesText: "Cóctel en una mano y revancha en la otra: futbolín, billar y diana de dardos en la terraza, listos toda la tarde.",
+    gamesFutbolin: "Futbolín",
+    gamesBillar: "Billar",
+    gamesDardos: "Dardos",
     h1: "Enjoy Terrace — Terraza de Cócteles y Shisha en Port d'Alcúdia, Mallorca",
     aboutHeading: "¿Dónde tomar los mejores cócteles en Port d'Alcúdia?",
     aboutText:
