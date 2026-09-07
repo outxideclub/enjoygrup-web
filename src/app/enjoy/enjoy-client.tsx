@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star, Goal, CircleDot, Target } from "lucide-react";
+import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -274,33 +274,51 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: En
       </section>
 
       {/* Zona de juegos — futbolín, billar y dardos (encargo del dueño, 7-sep-2026) */}
-      <section id="juegos" className="relative z-20 py-16 sm:py-20 border-y border-white/5 bg-background/40">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      <section id="juegos" className="relative z-20 py-20 sm:py-24 border-y border-white/5 bg-[radial-gradient(ellipse_at_50%_0%,rgba(236,72,153,0.12)_0%,transparent_60%)]">
+        <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal>
-            <p className="text-sm font-bold tracking-[0.2em] text-enjoy/60 uppercase mb-4">
-              {t("enjoy.gamesEyebrow")}
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white uppercase">
-              {t("enjoy.gamesTitle")}
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-muted-foreground leading-relaxed">
-              {t("enjoy.gamesText")}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-enjoy/25 bg-enjoy/5 px-5 py-2.5 text-sm font-semibold text-white">
-                <Goal className="h-4 w-4 text-enjoy" aria-hidden />
-                {t("enjoy.gamesFutbolin")}
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-enjoy/25 bg-enjoy/5 px-5 py-2.5 text-sm font-semibold text-white">
-                <CircleDot className="h-4 w-4 text-enjoy" aria-hidden />
-                {t("enjoy.gamesBillar")}
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-enjoy/25 bg-enjoy/5 px-5 py-2.5 text-sm font-semibold text-white">
-                <Target className="h-4 w-4 text-enjoy" aria-hidden />
-                {t("enjoy.gamesDardos")}
-              </span>
+            <div className="text-center mb-14">
+              <p className="text-sm font-bold tracking-[0.2em] text-enjoy/60 uppercase mb-4">
+                {t("enjoy.gamesEyebrow")}
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white uppercase">
+                {t("enjoy.gamesTitle")}
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-muted-foreground leading-relaxed">
+                {t("enjoy.gamesText")}
+              </p>
             </div>
           </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { img: "/images/juegos/futbolin.png", name: t("enjoy.gamesFutbolin"), model: "SAM Tecno Flame" },
+              { img: "/images/juegos/billar.png", name: t("enjoy.gamesBillar"), model: "SAM Atlantic" },
+              { img: "/images/juegos/dardos.png", name: t("enjoy.gamesDardos"), model: "K7 Darts Master" },
+            ].map((g, i) => (
+              <ScrollReveal key={g.name} delay={i * 0.08}>
+                <div className="group relative flex h-full flex-col items-center overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-colors hover:border-enjoy/30">
+                  {/* Halo del color de marca tras el producto */}
+                  <div className="pointer-events-none absolute inset-x-8 top-8 h-40 rounded-full bg-enjoy/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 opacity-70" aria-hidden />
+                  <div className="relative flex h-44 w-full items-center justify-center">
+                    <Image
+                      src={g.img}
+                      alt={`${g.name} — ${g.model}`}
+                      width={520}
+                      height={340}
+                      className="max-h-44 w-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.55)] transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="relative mt-6 font-display text-xl font-bold uppercase tracking-wide text-white">
+                    {g.name}
+                  </h3>
+                  <p className="relative mt-1 text-xs uppercase tracking-widest text-enjoy/70">
+                    {g.model}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
