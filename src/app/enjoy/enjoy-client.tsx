@@ -294,7 +294,7 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: En
             {[
               { img: "/images/juegos/futbolin.png", name: t("enjoy.gamesFutbolin"), model: "SAM Tecno Flame" },
               { img: "/images/juegos/billar.png", name: t("enjoy.gamesBillar"), model: "SAM Atlantic" },
-              { img: "/images/juegos/dardos.png", name: t("enjoy.gamesDardos"), model: "K7 Darts Master" },
+              { img: "/images/juegos/dardos.png", name: t("enjoy.gamesDardos"), model: "Radikal Darts" },
             ].map((g, i) => (
               <ScrollReveal key={g.name} delay={i * 0.08}>
                 <div className="group relative flex h-full flex-col items-center overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-colors hover:border-enjoy/30">
