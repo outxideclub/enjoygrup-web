@@ -18,11 +18,13 @@ function asEngine(value: string | string[] | undefined): CheckoutEngine | null {
 
 /**
  * Motor efectivo: ?engine (solo fuera de producción) > CHECKOUT_ENGINE > default.
- * Default: "native" si VERCEL_ENV !== "production", "iframe" en producción.
+ * Default: "native" en todos los entornos desde el 15-sep-2026 (orden de Jose:
+ * "actívalo"; antes producción arrancaba en "iframe").
  *
- * Producción nunca obedece a ?engine: nadie puede activar el motor nuevo en la
- * venta real desde la URL; ahí manda solo la variable de entorno (vuelta atrás
- * = CHECKOUT_ENGINE=iframe, sin redeploy de código).
+ * Producción nunca obedece a ?engine: nadie puede cambiar el motor de la venta
+ * real desde la URL; ahí manda solo la variable de entorno. Vuelta atrás al
+ * iframe = CHECKOUT_ENGINE=iframe en Vercel + redeploy (o Instant Rollback al
+ * despliegue anterior, o revertir este commit).
  */
 export function resolveCheckoutEngine(
   searchParams: Record<string, string | string[] | undefined>,
@@ -38,5 +40,5 @@ export function resolveCheckoutEngine(
   const fromEnv = asEngine(process.env.CHECKOUT_ENGINE);
   if (fromEnv) return fromEnv;
 
-  return isProduction ? "iframe" : "native";
+  return "native";
 }

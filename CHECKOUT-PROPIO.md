@@ -6,7 +6,7 @@ Referente fijado por Jose: bananaclub.es (checkout propio sobre la Channel Manag
 
 ## 0. Reglas que no se saltan
 
-- No se rompe la venta en producción: el motor por defecto en producción es `iframe`. `native` solo se activa con `CHECKOUT_ENGINE=native` (o `?engine=native` fuera de producción).
+- **Activado en producción el 15-sep-2026** (orden de Jose: «actívalo»): el motor por defecto es `native` en todos los entornos. Interruptor de emergencia: `CHECKOUT_ENGINE=iframe` en Vercel (+ redeploy) devuelve la taquilla iframe sin tocar código; `?engine=iframe|native` sigue funcionando solo fuera de producción.
 - La clave `FOURVENUES_API_KEY` NUNCA llega al cliente: todas las llamadas a Fourvenues pasan por rutas de servidor `src/app/api/checkout/*`.
 - NUNCA mostrar en la web cantidades ni porcentajes de entradas/mesas disponibles (regla del dueño). Solo "disponible" / "agotado". Tampoco "en el cable": el HTML/RSC de la taquilla no lleva `availability`, `quantity`/`used` ni mesas ocultas o bloqueadas (proyección en `load-data.ts`, tipos `Client*` en `native/types.ts`; el e2e lo comprueba).
 - El total que ve el comprador en «Pagar X» es el que cobra Fourvenues: si `total_amount` difiere del presupuesto local (o `conditions_changed`), se enseña el importe real y se pide confirmación antes de redirigir (entradas y mesas).
@@ -22,7 +22,7 @@ Referente fijado por Jose: bananaclub.es (checkout propio sobre la Channel Manag
 `src/lib/checkout/engine.ts` (server-only):
 ```ts
 export type CheckoutEngine = "iframe" | "native";
-/** Motor efectivo: ?engine (solo fuera de producción) > CHECKOUT_ENGINE > default. Default: "native" si VERCEL_ENV !== "production", "iframe" en producción. */
+/** Motor efectivo: ?engine (solo fuera de producción) > CHECKOUT_ENGINE > default ("native" desde el 15-sep-2026; antes "iframe" en producción). */
 export function resolveCheckoutEngine(searchParams: Record<string, string | string[] | undefined>): CheckoutEngine;
 ```
 - `src/app/taquilla/page.tsx`: si motor = `iframe` → exactamente lo que hay hoy (no tocar su comportamiento). Si `native` → misma cabecera y misma caja, y dentro `<NativeCheckout …/>` en vez del iframe (sin scripts del puente, sin `FvBridgeFallback`). La salida de emergencia (enlace a `site.fourvenues.com`) se mantiene debajo en ambos motores.
@@ -250,3 +250,7 @@ Hallazgos de los revisores (código, SecOps, pagos, web, legal, a11y) aplicados 
 - Dedupe del webhook por `id` (KV): diferido hasta que el webhook tenga efectos (CAPI); anotado como TODO en la ruta.
 - Casilla de imágenes opcional «He leído la política»: no se añade; basta el aviso con enlace (la política se informa, no se acepta).
 - Preexistente y ajeno: `react-hooks/set-state-in-effect` en `cookie-banner.tsx` (ya listado en §9 como error previo; aquí solo se añadió una clase).
+
+## 10. Activación en producción (15-sep-2026)
+
+Jose: «Si todo funciona perfectamente puedes ponerlo activo desde ya» → «actívalo». Verificado antes: 63 e2e con el mock, build en verde, y en el preview contra la API real de Fourvenues hasta el resumen (entradas 2×10 € = 21,60 €; VIP 6 personas = 172,32 €). La variable `CHECKOUT_ENGINE` no pudo crearse desde el panel (bloqueo del clasificador de permisos de la sesión), así que la activación es por código: `resolveCheckoutEngine` devuelve `native` por defecto también en producción. **Vuelta atrás:** (a) `CHECKOUT_ENGINE=iframe` en Vercel → Production + Redeploy; (b) Vercel → Deployments → despliegue anterior → Instant Rollback; (c) `git revert` del commit de activación. Pendiente tras la activación: compra real de prueba de Jose en `entradas.grupoenjoy.es` (10,80 €) hasta /gracias; registrar el webhook (`scripts/fourvenues-register-webhook.mjs`) y guardar `FOURVENUES_WEBHOOK_SECRET` cuando se quiera la confirmación servidor a servidor.
