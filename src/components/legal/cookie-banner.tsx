@@ -69,7 +69,10 @@ export function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[100] p-4 md:p-6">
+    // En la taquilla propia (body.has-checkout-bar) el banner se apoya ENCIMA de
+    // la barra fija del checkout (altura real en --checkout-bar-h): el total y
+    // "Continuar" no pueden quedar tapados hasta decidir sobre las cookies.
+    <div className="fixed inset-x-0 bottom-0 z-[100] p-4 md:p-6 [body.has-checkout-bar_&]:bottom-[var(--checkout-bar-h,4.6rem)]">
       <div
         role="region"
         aria-label={t("cookieBanner.title")}

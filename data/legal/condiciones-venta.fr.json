@@ -1,12 +1,12 @@
 {
   "slug": "condiciones-venta",
   "title": "Conditions Générales de Vente",
-  "lastUpdated": "2026-07",
+  "lastUpdated": "2026-09",
   "sections": [
     {
       "id": "intro",
       "heading": "Introduction",
-      "content": "<p>Les présentes conditions régissent l’achat de billets et les réservations dans les établissements de Grupo Enjoy (Enjoy Terrace et Outxide Club), dont l’organisateur et prestataire est Enjoy Club 78 S.L. Le contrat n’est pas conclu sur www.grupoenjoy.es : ce site informe et redirige vers les plateformes externes où chaque achat ou réservation est finalisé.</p>"
+      "content": "<p>Les présentes conditions régissent l’achat de billets, la réservation de tables VIP et l’inscription sur liste pour l’Outxide Club, ainsi que les réservations à l’Enjoy Terrace, dont l’organisateur et vendeur est Enjoy Club 78 S.L. (NIF B75300376, Av. Tucán 1, 07400 Alcúdia, Espagne). La sélection, la saisie des données et l’acceptation des présentes conditions s’effectuent sur la billetterie du site (entradas.grupoenjoy.es) ; le paiement est finalisé sur la passerelle sécurisée de Fourvenues, plateforme de billetterie agissant pour le compte de l’organisateur.</p>"
     },
     {
       "id": "objeto",
@@ -16,7 +16,7 @@
     {
       "id": "proceso-compra",
       "heading": "2. Processus d'achat",
-      "content": "<p>Le Site ne dispose pas de passerelle de paiement propre. En cliquant sur les boutons d’achat ou de réservation, l’utilisateur est redirigé vers la plateforme externe correspondante (FourVenues), où il :</p><ol><li>Sélectionne l’événement, la date, le type de billet ou la table.</li><li>Saisit ses données et vérifie le récapitulatif avec le prix total taxes comprises.</li><li>Accepte les conditions de la plateforme et effectue le paiement via sa passerelle sécurisée.</li><li>Reçoit un e-mail de confirmation avec les détails et, le cas échéant, le code QR du billet.</li></ol><p>Les présentes conditions sont complétées par les conditions propres de la plateforme sur laquelle la transaction est finalisée, que l’utilisateur doit accepter pendant le processus.</p>"
+      "content": "<p>Processus d’achat sur la billetterie du site (entradas.grupoenjoy.es) :</p><ol><li>Choisissez l’événement, les billets ou la table et la quantité.</li><li>Saisissez les coordonnées des participants et acceptez les présentes conditions.</li><li>Vérifiez le récapitulatif avec le prix total (taxes et frais de gestion compris). Avant d’appuyer sur « Payer », vous pouvez revenir en arrière et corriger toute donnée.</li><li>Appuyez sur « Payer » et finalisez le paiement sur la passerelle sécurisée de Fourvenues (carte et, selon disponibilité, Apple Pay, Google Pay, PayPal ou Bizum).</li><li>Vous recevrez par e-mail, sous 24 heures maximum, la confirmation et les billets ou la réservation avec son code.</li></ol><p>Le contrat peut être conclu en espagnol, anglais, allemand, français ou italien ; en cas de divergence, la version espagnole prévaut. La commande est enregistrée chez Fourvenues et archivée par Enjoy Club 78 S.L. pendant les délais légaux ; vous pouvez en demander une copie à info@grupoenjoy.es. Si la billetterie du site est indisponible, l’achat peut être finalisé sur la billetterie de Fourvenues (site.fourvenues.com), dont les conditions s’appliquent également.</p>"
     },
     {
       "id": "precios",

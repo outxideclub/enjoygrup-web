@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import { COOKIE_NAME, locales, type Locale } from "@/i18n/config";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
-import { createConfirmToken } from "@/lib/newsletter-token";
-import { sendConfirmEmail } from "@/lib/newsletter-emails";
+import { isNewsletterEmail, startNewsletterSignup } from "@/lib/newsletter-signup";
 
 // Alta en la newsletter con DOBLE OPT-IN (confirmed opt-in):
 // 1) POST valida el consentimiento expreso y da de alta al contacto como
@@ -12,19 +10,12 @@ import { sendConfirmEmail } from "@/lib/newsletter-emails";
 // 3) Solo al pulsarlo (/api/newsletter/confirm) se activa la suscripción y se
 //    envía la bienvenida. El clic, con su marca temporal, es la prueba del
 //    consentimiento (art. 7 RGPD) sin almacenar PII en el repo.
-
-const SITE = "https://www.grupoenjoy.es";
-const MAX_EMAIL = 254; // RFC 5321
+// La lógica de alta vive en src/lib/newsletter-signup.ts: la comparte el
+// checkout propio (casilla de marketing) sin duplicar secretos.
 
 // Rate limit por IP: 3 altas cada 10 minutos (en serverless es por instancia).
 const RL_LIMIT = 3;
 const RL_WINDOW_MS = 10 * 60 * 1000;
-
-function getResend() {
-  const key = process.env.RESEND_API_KEY;
-  if (!key) return null;
-  return new Resend(key);
-}
 
 function getEmailLocale(request: NextRequest): Locale {
   const value = request.cookies.get(COOKIE_NAME)?.value;
@@ -45,47 +36,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Consent required" }, { status: 400 });
     }
 
-    if (
-      !email ||
-      typeof email !== "string" ||
-      email.length > MAX_EMAIL ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    ) {
+    if (!isNewsletterEmail(email)) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
-    const resend = getResend();
-    if (!resend) {
-      console.warn("RESEND_API_KEY not set — newsletter signup no-op");
-      return NextResponse.json({ success: true });
-    }
-
-    // Alta como PENDIENTE (unsubscribed: true): no recibe nada hasta confirmar.
-    // Resend usa una sola audiencia por cuenta (migró de "Audiences" a "Segments"),
-    // así que ya no se pasa audienceId — el contacto entra en la audiencia por defecto.
-    const { error: contactError } = await resend.contacts.create({
-      email,
-      unsubscribed: true,
-    });
-    if (contactError) {
-      const alreadyExists =
-        contactError.statusCode === 409 || /already exists/i.test(contactError.message);
-      if (!alreadyExists) {
-        console.error("Newsletter: fallo al crear el contacto pendiente:", contactError);
-        return NextResponse.json({ error: "Failed to subscribe" }, { status: 502 });
-      }
-    }
-
-    // Email de confirmación con enlace firmado (caduca a los 7 días).
-    const locale = getEmailLocale(request);
-    const token = createConfirmToken(email, Date.now());
-    const confirmUrl = `${SITE}/api/newsletter/confirm?token=${encodeURIComponent(token)}&lang=${locale}`;
-    const { error: sendError } = await sendConfirmEmail(resend, email, locale, confirmUrl);
-    if (sendError) {
-      console.error("Newsletter: fallo al enviar la confirmación:", sendError);
+    const result = await startNewsletterSignup(email, getEmailLocale(request));
+    if (!result.ok) {
       return NextResponse.json({ error: "Failed to subscribe" }, { status: 502 });
     }
-
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Newsletter error:", error);

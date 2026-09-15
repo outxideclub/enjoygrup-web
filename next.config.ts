@@ -30,6 +30,10 @@ const CONTENT_SECURITY_POLICY = [
   "frame-ancestors 'self' https://www.grupoenjoy.es https://grupoenjoy.es https://entradas.grupoenjoy.es",
   "object-src 'none'",
   "base-uri 'self'",
+  // El checkout propio recoge nombre/email/teléfono en formularios del origen:
+  // ningún <form> del sitio puede enviar a otro dominio (el pago sale por
+  // window.location.assign, que esta directiva no gobierna).
+  "form-action 'self'",
 ].join("; ");
 
 const nextConfig: NextConfig = {

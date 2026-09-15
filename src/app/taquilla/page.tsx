@@ -8,12 +8,20 @@ import { fourVenuesOrgUrl, TICKETS_HOST } from "@/lib/events";
 import { CAMPAIGN_KEYS } from "@/lib/campaign-params";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
+import { resolveCheckoutEngine } from "@/lib/checkout/engine";
 import { FV_BRIDGE_SCRIPT, FV_IFRAME_ID, FV_IFRAME_SRC_SCRIPT } from "./fv-bridge";
 import { FvBridgeFallback } from "./fv-bridge-fallback";
+import { NativeCheckout } from "./native/native-checkout";
+import { loadNativeCheckoutData } from "./native/load-data";
+import type { CheckoutMode } from "./native/types";
 
 // Taquilla de Outxide: checkout OFICIAL de Fourvenues incrustado, servida en
 // entradas.grupoenjoy.es (src/proxy.ts). Fuera de buscadores: la landing
 // indexable es /outxide.
+//
+// Dos motores (CHECKOUT-PROPIO.md §1): "iframe" (lo de siempre, producción) y
+// "native" (checkout propio sobre la Channel Manager API, en preview). La
+// decisión es de servidor (resolveCheckoutEngine); el camino iframe no cambia.
 //
 // Rendimiento en móvil (15-sep-2026): página de SERVIDOR. El src del iframe
 // (idioma, evento y parámetros de campaña de la URL) sale ya en el HTML y el
@@ -36,6 +44,21 @@ const EVENT_RE = /^[a-z0-9-]{3,120}$/i;
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+
+// Motor native: tarifas/zonas/listas sin caché larga (CHECKOUT-PROPIO.md §2).
+// Tope por defecto de los fetch de esta página; los que fijan el suyo mandan.
+export const revalidate = 30;
+
+// Relleno inferior mientras exista la barra fija del checkout propio
+// (body.has-checkout-bar la pone el propio componente y publica su altura
+// real, safe area incluida, en --checkout-bar-h; crece con los textos de
+// error): así el pie y la salida de emergencia nunca quedan tapados. Solo se
+// aplica en el motor native.
+const CHECKOUT_BAR_PADDING = "[body.has-checkout-bar_&]:pb-[calc(var(--checkout-bar-h,6rem)_+_1rem)]";
+
+function asMode(v: string | undefined): CheckoutMode {
+  return v === "vip" || v === "list" ? v : "tickets";
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getServerLocale();
@@ -83,8 +106,22 @@ export default async function TaquillaPage({
   const orgUrl = fourVenuesOrgUrl(locale);
   const fallbackHref = withCampaign(event ? `${orgUrl}/events/${event}` : orgUrl);
 
+  const engine = resolveCheckoutEngine(sp);
+  const nativeData =
+    engine === "native"
+      ? await loadNativeCheckoutData({
+          eventRef: event,
+          locale,
+          // Origen real de la petición (proxy de Vercel delante): en local, http.
+          origin: `${h.get("x-forwarded-proto") ?? (/^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host) ? "http" : "https")}://${h.get("host") ?? ""}`,
+          campaign: Object.fromEntries(campaign),
+          fallbackHref,
+          initialMode: asMode(first(sp.mode)),
+        })
+      : null;
+
   return (
-    <div className="noise-texture relative">
+    <div className={engine === "native" ? `noise-texture relative ${CHECKOUT_BAR_PADDING}` : "noise-texture relative"}>
       <Navbar linkOrigin={linkOrigin} ticketsMode />
       <main id="contenido">
         <section className="relative overflow-hidden pt-28 pb-6 bg-[radial-gradient(ellipse_at_50%_0%,rgba(6,182,212,0.15)_0%,transparent_60%)]">
@@ -105,9 +142,11 @@ export default async function TaquillaPage({
                   {t("purchase.checkoutTitle")}
                 </h1>
               </div>
+              {/* Motor native: los datos se recogen aquí y el pago SÍ sale a la
+                  pasarela de Fourvenues; la nota del iframe diría lo contrario. */}
               <p className="flex max-w-md items-center gap-2 text-xs text-muted-foreground">
                 <ShieldCheck className="h-4 w-4 shrink-0 text-outxide" aria-hidden />
-                {t("purchase.checkoutNote")}
+                {t(engine === "native" ? "purchase.checkoutNoteNative" : "purchase.checkoutNote")}
               </p>
             </div>
           </div>
@@ -115,24 +154,34 @@ export default async function TaquillaPage({
 
         <section className="relative z-20 pb-6">
           <div className="mx-auto max-w-5xl px-6">
-            {/* El puente escucha ANTES de que exista el iframe (ver fv-bridge.ts). */}
-            <script dangerouslySetInnerHTML={{ __html: FV_BRIDGE_SCRIPT }} />
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-              {/* data-src + script posterior: el src se asigna cuando el marco
-                  ya está colocado (ver FV_IFRAME_SRC_SCRIPT). */}
-              <iframe
-                id={FV_IFRAME_ID}
-                data-src={iframeSrc}
-                suppressHydrationWarning
-                title={t("purchase.checkoutIframeTitle")}
-                allow="payment"
-                scrolling="no"
-                className="block w-full"
-                style={{ height: "720px", border: 0, overflow: "hidden" }}
-              />
-              <script dangerouslySetInnerHTML={{ __html: FV_IFRAME_SRC_SCRIPT }} />
-              <FvBridgeFallback />
-            </div>
+            {nativeData ? (
+              // Motor native: misma caja, checkout propio dentro; sin puente ni
+              // scripts del iframe (no hay marco al que servir).
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+                <NativeCheckout data={nativeData} />
+              </div>
+            ) : (
+              <>
+                {/* El puente escucha ANTES de que exista el iframe (ver fv-bridge.ts). */}
+                <script dangerouslySetInnerHTML={{ __html: FV_BRIDGE_SCRIPT }} />
+                <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
+                  {/* data-src + script posterior: el src se asigna cuando el marco
+                      ya está colocado (ver FV_IFRAME_SRC_SCRIPT). */}
+                  <iframe
+                    id={FV_IFRAME_ID}
+                    data-src={iframeSrc}
+                    suppressHydrationWarning
+                    title={t("purchase.checkoutIframeTitle")}
+                    allow="payment"
+                    scrolling="no"
+                    className="block w-full"
+                    style={{ height: "720px", border: 0, overflow: "hidden" }}
+                  />
+                  <script dangerouslySetInnerHTML={{ __html: FV_IFRAME_SRC_SCRIPT }} />
+                  <FvBridgeFallback />
+                </div>
+              </>
+            )}
             {/* Salida de emergencia SIEMPRE visible: si Cloudflare o el 3DS del
                 banco no renderizan en el marco, la venta sigue viva aquí. */}
             <p className="mt-4 text-center">

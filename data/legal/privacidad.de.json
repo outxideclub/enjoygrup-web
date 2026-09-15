@@ -1,7 +1,7 @@
 {
   "slug": "privacidad",
   "title": "Datenschutzerklärung",
-  "lastUpdated": "2026-07",
+  "lastUpdated": "2026-09",
   "sections": [
     {
       "id": "intro",
@@ -16,7 +16,7 @@
     {
       "id": "datos-recogidos",
       "heading": "2. Welche Daten wir erheben",
-      "content": "<p>Wir erheben personenbezogene Daten je nachdem, wie Sie mit unseren Diensten interagieren:</p><h3>2.1. Direkt von Ihnen bereitgestellte Daten</h3><table><thead><tr><th>Kontext</th><th>Erhobene Daten</th></tr></thead><tbody><tr><td>Reservierung im Enjoy (Lounge)</td><td>Name, E-Mail, Telefon, Datum, Uhrzeit, Personenzahl, gewünschter Bereich, Anlass</td></tr><tr><td>Ticketkauf / VIP-Reservierung im Outxide</td><td>Name, E-Mail, Telefon, Zahlungsdaten (verarbeitet über externen Zahlungsdienstleister), Geburtsdatum (Prüfung der Volljährigkeit)</td></tr><tr><td>Newsletter und Event-Benachrichtigungen (Formulare im Footer und in der Agenda)</td><td>E-Mail</td></tr><tr><td>Kontaktformular</td><td>Name, E-Mail, Betrieb von Interesse, Nachricht</td></tr></tbody></table><h3>2.2. Automatisch erhobene Daten</h3><p>Ausschließlich nach Ihrer ausdrücklichen Einwilligung im Cookie-Banner können wir mittels Analyse- und Marketing-Cookies Nutzungsdaten erheben (siehe <a href=\"/legal/cookies\">Cookie-Richtlinie</a>):</p><ul><li>IP-Adresse (in GA4 anonymisiert)</li><li>Browser- und Gerätetyp</li><li>Besuchte Seiten und Verweildauer</li><li>Traffic-Quelle und Referrer-URL</li></ul>"
+      "content": "<p>Wir erheben personenbezogene Daten je nachdem, wie Sie mit unseren Diensten interagieren:</p><h3>2.1. Direkt von Ihnen bereitgestellte Daten</h3><table><thead><tr><th>Kontext</th><th>Erhobene Daten</th></tr></thead><tbody><tr><td>Reservierung im Enjoy (Lounge)</td><td>Name, E-Mail, Telefon, Datum, Uhrzeit, Personenzahl, gewünschter Bereich, Anlass</td></tr><tr><td>Ticketkauf / VIP-Reservierung / Gästeliste im Outxide (Formular auf entradas.grupoenjoy.es)</td><td>Name, E-Mail, Telefon und, falls der Tarif es verlangt, Geburtsdatum, Ausweisdokument und Antworten auf Fragen zum Event; Zahlungsdaten werden nur im Gateway von Fourvenues/Stripe eingegeben</td></tr><tr><td>Newsletter und Event-Benachrichtigungen (Formulare im Footer und in der Agenda)</td><td>E-Mail</td></tr><tr><td>Kontaktformular</td><td>Name, E-Mail, Betrieb von Interesse, Nachricht</td></tr></tbody></table><h3>2.2. Automatisch erhobene Daten</h3><p>Ausschließlich nach Ihrer ausdrücklichen Einwilligung im Cookie-Banner können wir mittels Analyse- und Marketing-Cookies Nutzungsdaten erheben (siehe <a href=\"/legal/cookies\">Cookie-Richtlinie</a>):</p><ul><li>IP-Adresse (in GA4 anonymisiert)</li><li>Browser- und Gerätetyp</li><li>Besuchte Seiten und Verweildauer</li><li>Traffic-Quelle und Referrer-URL</li></ul>"
     },
     {
       "id": "finalidades",
@@ -26,7 +26,7 @@
     {
       "id": "destinatarios",
       "heading": "4. Empfänger der Daten",
-      "content": "<p>Ihre personenbezogenen Daten können an folgende Empfänger weitergegeben werden:</p><table><thead><tr><th>Empfänger</th><th>Zweck</th><th>Standort</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Webhosting und Edge Functions</td><td>USA (Data Privacy Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Webanalyse (nur mit Einwilligung)</td><td>USA (Data Privacy Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing und Remarketing (nur mit Einwilligung)</td><td>USA (Data Privacy Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing und Remarketing (nur mit Einwilligung)</td><td>USA/Singapur (Standardvertragsklauseln)</td></tr><tr><td>Resend Inc.</td><td>Versand von Transaktions-E-Mails</td><td>USA (Data Privacy Framework)</td></tr><tr><td>FourVenues S.L.</td><td>Ticketing- und Reservierungssystem (Outxide)</td><td>Spanien (EU)</td></tr></tbody></table><p>Alle internationalen Datenübermittlungen erfolgen auf Grundlage des EU-US Data Privacy Framework oder der von der Europäischen Kommission genehmigten Standardvertragsklauseln und gewährleisten damit ein der DSGVO gleichwertiges Schutzniveau.</p>"
+      "content": "<p>Ihre personenbezogenen Daten können an folgende Empfänger weitergegeben werden:</p><table><thead><tr><th>Empfänger</th><th>Zweck</th><th>Standort</th></tr></thead><tbody><tr><td>Vercel Inc.</td><td>Webhosting und Edge Functions</td><td>USA (Data Privacy Framework)</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Webanalyse (nur mit Einwilligung)</td><td>USA (Data Privacy Framework)</td></tr><tr><td>Meta Platforms Inc. (Meta Pixel)</td><td>Marketing und Remarketing (nur mit Einwilligung)</td><td>USA (Data Privacy Framework)</td></tr><tr><td>TikTok (ByteDance)</td><td>Marketing und Remarketing (nur mit Einwilligung)</td><td>USA/Singapur (Standardvertragsklauseln)</td></tr><tr><td>Resend Inc.</td><td>Versand von Transaktions-E-Mails</td><td>USA (Data Privacy Framework)</td></tr><tr><td>FourVenues S.L.</td><td>Auftragsverarbeiter: Ticketausstellung, Reservierungen und Zahlungsgateway (Stripe). Erhält Name, E-Mail, Telefon und, falls der Tarif es verlangt, Geburtsdatum, Ausweisdokument und Antworten (Outxide)</td><td>Spanien (EU)</td></tr></tbody></table><p>Alle internationalen Datenübermittlungen erfolgen auf Grundlage des EU-US Data Privacy Framework oder der von der Europäischen Kommission genehmigten Standardvertragsklauseln und gewährleisten damit ein der DSGVO gleichwertiges Schutzniveau.</p>"
     },
     {
       "id": "derechos",
@@ -36,7 +36,7 @@
     {
       "id": "seguridad",
       "heading": "6. Sicherheitsmaßnahmen",
-      "content": "<p>Wir treffen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten, darunter:</p><ul><li>TLS/SSL-Verschlüsselung der gesamten Kommunikation mit der Website.</li><li>Zugriff auf personenbezogene Daten ausschließlich durch befugtes Personal.</li><li>Regelmäßige Sicherungskopien und sichere Speicherung.</li><li>Zahlungsabwicklung über die externe Plattform FourVenues (Tickets werden auf site.fourvenues.com gekauft und bezahlt; dort gelten deren eigene Bedingungen und Datenschutzerklärung).</li><li>Anonymisierung der IP-Adressen in den Analysetools.</li></ul>"
+      "content": "<p>Wir treffen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten, darunter:</p><ul><li>TLS/SSL-Verschlüsselung der gesamten Kommunikation mit der Website.</li><li>Zugriff auf personenbezogene Daten ausschließlich durch befugtes Personal.</li><li>Regelmäßige Sicherungskopien und sichere Speicherung.</li><li>Die Kaufdaten werden in unserem eigenen Formular (entradas.grupoenjoy.es) erfasst und verschlüsselt an Fourvenues übermittelt; Kartendaten werden ausschließlich im Zahlungsgateway von Fourvenues/Stripe eingegeben, nie auf unseren Servern.</li><li>Anonymisierung der IP-Adressen in den Analysetools.</li></ul>"
     },
     {
       "id": "menores",

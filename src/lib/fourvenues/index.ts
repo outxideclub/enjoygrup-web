@@ -2,7 +2,7 @@
 // FourVenues API - Public barrel export
 // ---------------------------------------------------------------------------
 
-export { FourVenuesClient, FourVenuesError } from "./client";
+export { FourVenuesClient, FourVenuesError, type FVWebhookEndpoint } from "./client";
 export type {
   FVEvent,
   FVLocation,
@@ -10,7 +10,25 @@ export type {
   FVTicketPrice,
   FVSupplement,
   FVField,
+  FVQuestion,
+  FVTicketRate,
+  FVPricingLine,
+  FVDiscountCode,
+  FVCheckoutTicketInput,
+  FVTicketsCheckoutRequest,
+  FVTicketsCheckoutResponse,
   FVCheckoutTicket,
+  FVBookingRate,
+  FVBookingSpace,
+  FVBookingZone,
+  FVBookingsCheckoutRequest,
+  FVBookingsCheckoutResponse,
+  FVListPrice,
+  FVListRate,
+  FVListCreateRequest,
+  FVListCreateResponse,
+  FVPayment,
+  FVWebhookEvent,
   FVListResponse,
   FVSingleResponse,
 } from "./types";

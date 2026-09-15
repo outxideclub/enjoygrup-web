@@ -1,12 +1,12 @@
 {
   "slug": "condiciones-venta",
   "title": "General Sales Conditions",
-  "lastUpdated": "2026-07",
+  "lastUpdated": "2026-09",
   "sections": [
     {
       "id": "intro",
       "heading": "Introduction",
-      "content": "<p>These terms govern ticket purchases and reservations at Grupo Enjoy venues (Enjoy Terrace and Outxide Club), organised and provided by Enjoy Club 78 S.L. Contracts are not concluded on www.grupoenjoy.es: this website informs and redirects to the external platforms where each purchase or reservation is completed.</p>"
+      "content": "<p>These terms govern ticket purchases, VIP table bookings and guest-list registrations for Outxide Club, as well as reservations at Enjoy Terrace, organised and sold by Enjoy Club 78 S.L. (tax ID B75300376, Av. Tucán 1, 07400 Alcúdia, Spain). Selection, data entry and acceptance of these terms take place at the website box office (entradas.grupoenjoy.es); payment is completed on the secure gateway of Fourvenues, the ticketing platform acting on behalf of the organiser.</p>"
     },
     {
       "id": "objeto",
@@ -16,7 +16,7 @@
     {
       "id": "proceso-compra",
       "heading": "2. Purchase process",
-      "content": "<p>The Website has no payment gateway of its own. When pressing the purchase or booking buttons, the user is redirected to the corresponding external platform (FourVenues), where they:</p><ol><li>Select the event, date, ticket type or table.</li><li>Enter their details and review the order summary with the total price including taxes.</li><li>Accept the platform’s terms and complete payment in its secure gateway.</li><li>Receive a confirmation email with the details and, where applicable, the ticket QR code.</li></ol><p>These terms are supplemented by the terms of the platform on which the transaction is completed, which the user must accept during the process.</p>"
+      "content": "<p>Purchase process at the website box office (entradas.grupoenjoy.es):</p><ol><li>Choose the event, the tickets or table and the quantity.</li><li>Enter the attendees' details and accept these terms.</li><li>Review the summary with the total price (taxes and booking fees included). Before pressing “Pay” you can go back and correct any detail.</li><li>Press “Pay” and complete payment on Fourvenues' secure gateway (card and, subject to availability, Apple Pay, Google Pay, PayPal or Bizum).</li><li>Within 24 hours you will receive by email the confirmation and the tickets or booking with its code.</li></ol><p>The contract may be concluded in Spanish, English, German, French or Italian; in case of discrepancy the Spanish version prevails. The order is recorded at Fourvenues and archived by Enjoy Club 78 S.L. for the statutory periods; you may request a copy at info@grupoenjoy.es. If the website box office is unavailable, the purchase can be completed at the Fourvenues box office (site.fourvenues.com), where its terms also apply.</p>"
     },
     {
       "id": "precios",

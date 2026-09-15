@@ -19,7 +19,7 @@ test.describe("Propagación de parámetros de campaña", () => {
     await expect(cta).toHaveAttribute("href", /utm_source=meta_test/, { timeout: 10_000 });
     // La página de la taquilla recaptura de su propia URL y decora el iframe
     // (en local se sirve por la ruta; en producción la sirve el subdominio).
-    await page.goto(`/taquilla${QUERY}`);
+    await page.goto(`/taquilla${QUERY}&engine=iframe`);
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     await expect(iframe).toHaveAttribute("src", /fbclid=TEST123/, { timeout: 10_000 });
@@ -27,7 +27,7 @@ test.describe("Propagación de parámetros de campaña", () => {
   });
 
   test("el enlace de emergencia (externo) también va decorado", async ({ page }) => {
-    await page.goto(`/taquilla${QUERY}`);
+    await page.goto(`/taquilla${QUERY}&engine=iframe`);
     const fallback = page.locator('main a[target="_blank"][href*="fourvenues.com"]');
     await expect(fallback).toBeVisible({ timeout: 10_000 });
     await expect(fallback).toHaveAttribute("href", /fbclid=TEST123/, { timeout: 10_000 });
@@ -44,7 +44,7 @@ test.describe("Propagación de parámetros de campaña", () => {
   });
 
   test("sin parámetros de entrada, el iframe sale limpio", async ({ page }) => {
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     const src = await iframe.getAttribute("src");

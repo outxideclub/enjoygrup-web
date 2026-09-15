@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { CheckCircle2, CalendarPlus, ArrowRight, Mail } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -7,11 +8,62 @@ import { PurchaseTracking } from "@/components/analytics/purchase-tracking";
 import { FrameBreakout } from "@/components/analytics/frame-breakout";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
+import { FourVenuesClient } from "@/lib/fourvenues";
+import { ORDER_COOKIE, parseOrderCookie } from "@/lib/checkout/order-cookie";
 
 // Thank You Page de la compra en Fourvenues (TAREA-VENTA-EN-WEB §3): el panel
 // de Fourvenues redirige aquí al completar el pago. Es la página donde la
 // conversión se mide en contexto propio. Fuera de buscadores: es un estado
 // post-compra, no contenido.
+//
+// Motor native: la cookie técnica ge_order (ref:payment_id, la pone
+// /api/checkout/*) permite consultar el pago en Fourvenues y pasar al Purchase
+// su importe real (Meta exige `value`) y no contarlo si el pago consta como no
+// pagado. Si algo falla (sin cookie, upstream caído) se dispara sin importe:
+// nunca se pierde un evento por un 5xx.
+
+type SearchParams = Record<string, string | string[] | undefined>;
+const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
+
+// Vocabulario de `status` aún sin confirmar con la API real (CHECKOUT-PROPIO.md
+// §9.4): solo se suprime el Purchase ante estados claramente NO pagados.
+const NOT_PAID = new Set(["pending", "cancelled", "canceled", "expired", "failed", "refunded", "rejected"]);
+
+interface PaymentCheck {
+  /** false solo si Fourvenues afirma que el pago no está hecho. */
+  paid: boolean;
+  value?: number;
+}
+
+async function checkPayment(order: string | undefined): Promise<PaymentCheck> {
+  if (!order) return { paid: true };
+  let cookie: string | undefined;
+  try {
+    cookie = (await cookies()).get(ORDER_COOKIE)?.value;
+  } catch {
+    return { paid: true };
+  }
+  const parsed = parseOrderCookie(cookie);
+  if (!parsed || parsed.ref !== order) return { paid: true };
+  try {
+    const payment = await new FourVenuesClient().getPayment(parsed.paymentId);
+    const status = typeof payment?.status === "string" ? payment.status.toLowerCase() : "";
+    const amount = payment?.total?.amount;
+    const value = typeof amount === "number" && Number.isFinite(amount) && amount >= 0 ? amount : undefined;
+    if (NOT_PAID.has(status)) {
+      console.info("[gracias] pago no confirmado: sin Purchase", { ref: order, status });
+      return { paid: false, value };
+    }
+    return { paid: true, value };
+  } catch (error) {
+    console.warn("[gracias] no se pudo verificar el pago: Purchase sin importe", {
+      ref: order,
+      message: error instanceof Error ? error.message.slice(0, 200) : String(error),
+    });
+    return { paid: true };
+  }
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getServerLocale();
   const t = getServerT(locale);
@@ -21,9 +73,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function GraciasPage() {
-  const locale = await getServerLocale();
+export default async function GraciasPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const [sp, locale] = await Promise.all([searchParams, getServerLocale()]);
   const t = getServerT(locale);
+  // Solo el motor native añade `kind`; el iframe llega sin él y se mide como siempre.
+  const order = first(sp.order);
+  const payment = first(sp.kind) ? await checkPayment(order) : { paid: true };
+
   return (
     <div className="noise-texture relative">
       <FrameBreakout />
@@ -73,7 +129,7 @@ export default async function GraciasPage() {
         </section>
       </main>
       <Footer />
-      <PurchaseTracking />
+      {payment.paid && <PurchaseTracking value={payment.value} />}
     </div>
   );
 }

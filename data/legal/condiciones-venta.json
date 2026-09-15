@@ -1,12 +1,12 @@
 {
   "slug": "condiciones-venta",
   "title": "Condiciones Generales de Venta",
-  "lastUpdated": "2026-07",
+  "lastUpdated": "2026-09",
   "sections": [
     {
       "id": "intro",
       "heading": "Introducción",
-      "content": "<p>Las presentes condiciones regulan la compra de entradas y las reservas en los locales de Grupo Enjoy (Enjoy Terrace y Outxide Club), cuyo organizador y prestador de los servicios es Enjoy Club 78 S.L. La contratación no se completa en www.grupoenjoy.es: este sitio web informa y redirige a las plataformas externas donde se formaliza cada compra o reserva.</p>"
+      "content": "<p>Las presentes condiciones regulan la compra de entradas, la reserva de mesas VIP y las inscripciones en lista para Outxide Club, así como las reservas en Enjoy Terrace, cuyo organizador y vendedor es Enjoy Club 78 S.L. (NIF B75300376, Av. Tucán 1, 07400 Alcúdia). La selección, la introducción de datos y la aceptación de estas condiciones se realizan en la taquilla de la web (entradas.grupoenjoy.es); el pago se completa en la pasarela segura de Fourvenues, plataforma de ticketing que actúa por cuenta del organizador.</p>"
     },
     {
       "id": "objeto",
@@ -16,7 +16,7 @@
     {
       "id": "proceso-compra",
       "heading": "2. Proceso de compra",
-      "content": "<p>El Sitio Web no dispone de pasarela de pago propia. Al pulsar los botones de compra o reserva, el usuario es redirigido a la plataforma externa correspondiente (FourVenues), donde:</p><ol><li>Selecciona el evento, fecha, tipo de entrada o mesa.</li><li>Introduce sus datos y revisa el resumen del pedido con el precio total e impuestos.</li><li>Acepta las condiciones de la plataforma y completa el pago en su pasarela segura.</li><li>Recibe un email de confirmación con los detalles y, en su caso, el código QR de la entrada.</li></ol><p>Las presentes condiciones se complementan con las condiciones propias de la plataforma en la que se complete la transacción, que el usuario debe aceptar durante el proceso.</p>"
+      "content": "<p>Proceso de compra en la taquilla de la web (entradas.grupoenjoy.es):</p><ol><li>Elige el evento, las entradas o la mesa y la cantidad.</li><li>Introduce los datos de los asistentes y acepta estas condiciones.</li><li>Revisa el resumen con el precio total (impuestos y gastos de gestión incluidos). Antes de pulsar «Pagar» puedes volver atrás y corregir cualquier dato.</li><li>Pulsa «Pagar» y completa el pago en la pasarela segura de Fourvenues (tarjeta y, según disponibilidad, Apple Pay, Google Pay, PayPal o Bizum).</li><li>Recibirás por email, en un máximo de 24 horas, la confirmación y las entradas o la reserva con su código.</li></ol><p>El contrato puede formalizarse en español, inglés, alemán, francés o italiano; en caso de discrepancia prevalece la versión española. El pedido queda registrado en Fourvenues y archivado por Enjoy Club 78 S.L. durante los plazos legales; puedes pedir copia en info@grupoenjoy.es. Si la taquilla de la web no está disponible, la compra puede completarse en la taquilla de Fourvenues (site.fourvenues.com), aplicándose además sus condiciones.</p>"
     },
     {
       "id": "precios",

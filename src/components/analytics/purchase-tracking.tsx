@@ -35,7 +35,16 @@ const NO_REF = "no-ref";
  * el píxel queda para PageView/InitiateCheckout. Si la sesión de Meta Ads
  * decide lo contrario, apagar este disparo o deduplicar con eventID compartido.
  */
-export function PurchaseTracking() {
+interface PurchaseTrackingProps {
+  /**
+   * Importe real del pago (motor native: lo verifica /gracias en servidor).
+   * Meta exige `value` en Purchase para ROAS y optimización por valor; sin él
+   * (motor iframe o verificación caída) se dispara solo con la moneda.
+   */
+  value?: number;
+}
+
+export function PurchaseTracking({ value }: PurchaseTrackingProps) {
   useEffect(() => {
     let cancelled = false;
     let timer: number | undefined;
@@ -63,12 +72,13 @@ export function PurchaseTracking() {
     const fire = () => {
       if (cancelled || alreadyFired()) return;
       const fired: string[] = [];
+      const amount = typeof value === "number" && Number.isFinite(value) ? { value } : {};
       if (typeof window.fbq === "function") {
-        window.fbq("track", "Purchase", { currency: "EUR" }, { eventID });
+        window.fbq("track", "Purchase", { ...amount, currency: "EUR" }, { eventID });
         fired.push("meta");
       }
       if (window.ttq?.track) {
-        window.ttq.track("CompletePayment", { currency: "EUR", event_id: eventID });
+        window.ttq.track("CompletePayment", { ...amount, currency: "EUR", event_id: eventID });
         fired.push("tiktok");
       }
       if (fired.length > 0) {
@@ -96,7 +106,7 @@ export function PurchaseTracking() {
       if (timer) window.clearTimeout(timer);
       window.removeEventListener(CONSENT_EVENT, onConsent);
     };
-  }, []);
+  }, [value]);
 
   return null;
 }

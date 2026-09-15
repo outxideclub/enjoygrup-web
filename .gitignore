@@ -43,6 +43,8 @@ next-env.d.ts
 # local logs and tests
 *.log
 test-results/
+playwright-report/
+blob-report/
 screenshots/
 verify_v2.spec.ts
 

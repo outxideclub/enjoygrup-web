@@ -5,7 +5,7 @@ import { test, expect } from "@playwright/test";
 // Regla dura: no se rompe la venta en temporada.
 test.describe("Taquilla embebida /taquilla", () => {
   test("el iframe usa la versión oficial embebible con tema oscuro", async ({ page }) => {
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     const src = await iframe.getAttribute("src");
@@ -15,14 +15,14 @@ test.describe("Taquilla embebida /taquilla", () => {
   });
 
   test("?event abre la taquilla en el evento y rechaza valores inyectados", async ({ page }) => {
-    await page.goto("/taquilla?event=calenton--outxide-18-09-2026-ABCD");
+    await page.goto("/taquilla?event=calenton--outxide-18-09-2026-ABCD&engine=iframe");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     expect(await iframe.getAttribute("src")).toContain(
       "/iframe/outxide-club/events/calenton--outxide-18-09-2026-ABCD",
     );
 
-    await page.goto("/taquilla?event=https%3A%2F%2Fevil.example%2Fx");
+    await page.goto("/taquilla?event=https%3A%2F%2Fevil.example%2Fx&engine=iframe");
     const iframe2 = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe2).toBeAttached({ timeout: 10_000 });
     const src2 = await iframe2.getAttribute("src");
@@ -31,7 +31,7 @@ test.describe("Taquilla embebida /taquilla", () => {
   });
 
   test("auto-alto: el marco crece con addHeight y solo desde orígenes de Fourvenues", async ({ page }) => {
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
 
@@ -62,7 +62,7 @@ test.describe("Taquilla embebida /taquilla", () => {
   });
 
   test("la salida de emergencia (pestaña completa) está siempre visible", async ({ page }) => {
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     const fallback = page.locator('main a[target="_blank"][href*="site.fourvenues.com"]');
     await expect(fallback).toBeVisible({ timeout: 10_000 });
   });
@@ -72,7 +72,7 @@ test.describe("Taquilla embebida /taquilla", () => {
   // página, sin esperar al JavaScript (lento en el navegador de Instagram).
   test("el HTML inicial ya trae el iframe con evento, campaña y preconnect", async ({ request }) => {
     const res = await request.get(
-      "/taquilla?event=calenton--outxide-18-09-2026-ABCD&fbclid=SSR1&utm_source=ig",
+      "/taquilla?event=calenton--outxide-18-09-2026-ABCD&fbclid=SSR1&utm_source=ig&engine=iframe",
       { headers: { "accept-language": "es-ES" }, maxRedirects: 0 },
     );
     expect(res.status()).toBe(200);
@@ -89,16 +89,16 @@ test.describe("Taquilla embebida /taquilla", () => {
   });
 
   test("sin muro de edad a pantalla completa en la taquilla", async ({ page, request }) => {
-    const html = await (await request.get("/taquilla")).text();
+    const html = await (await request.get("/taquilla?engine=iframe")).text();
     expect(html).not.toContain("age-verification");
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     await expect(page.locator('iframe[src*="/iframe/outxide-club"]')).toBeAttached({ timeout: 10_000 });
     await page.waitForTimeout(1_000);
     await expect(page.getByRole("dialog")).toHaveCount(0);
   });
 
   test("la ruta antigua /outxide/entradas lleva a la taquilla con la query intacta", async ({ page }) => {
-    await page.goto("/outxide/entradas?event=calenton--outxide-18-09-2026-ABCD&fbclid=OLD1");
+    await page.goto("/outxide/entradas?event=calenton--outxide-18-09-2026-ABCD&fbclid=OLD1&engine=iframe");
     await expect(page).toHaveURL(/\/taquilla\?/);
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
@@ -151,7 +151,7 @@ test.describe("Páginas de retorno del checkout", () => {
   });
 
   test("la CSP permite el iframe de Fourvenues y el retorno propio", async ({ page }) => {
-    const resp = await page.goto("/taquilla");
+    const resp = await page.goto("/taquilla?engine=iframe");
     const csp = resp?.headers()["content-security-policy"] ?? "";
     const frameSrc = csp.split(";").find((d) => d.trim().startsWith("frame-src")) ?? "";
     // Cualquier subdominio: el checkout salta de site. a web. y a pay.
@@ -201,7 +201,7 @@ test.describe("Puente con el checkout de Fourvenues", () => {
       hits++;
       return route.fulfill({ status: 200, contentType: "text/html", body: "<!doctype html><p>fv</p>" });
     });
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     await expect(page.locator('iframe[src*="/iframe/outxide-club"]')).toBeAttached({ timeout: 15_000 });
     await page.waitForTimeout(2_500);
     expect(hits).toBe(1);
@@ -224,7 +224,7 @@ test.describe("Puente con el checkout de Fourvenues", () => {
     await page.route("https://web.fourvenues.com/**", (route) =>
       route.fulfill({ status: 200, contentType: "text/html", body: CHILD_QS }),
     );
-    await page.goto("/taquilla?event=calenton--outxide-18-09-2026-ABCD");
+    await page.goto("/taquilla?event=calenton--outxide-18-09-2026-ABCD&engine=iframe");
     const replies = () => {
       const child = page.frames().find((f) => f.url().startsWith("https://web.fourvenues.com/"));
       return child
@@ -258,7 +258,7 @@ test.describe("Puente con el checkout de Fourvenues", () => {
         body: `<!doctype html><script>parent.postMessage({ key: "addHeight", height: "2222px" }, "*")</script>`,
       }),
     );
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     await expect(page.locator('iframe[src*="/iframe/outxide-club"]')).toHaveCSS("height", "2222px", { timeout: 10_000 });
   });
 
@@ -281,7 +281,7 @@ test.describe("Puente con el checkout de Fourvenues", () => {
     await page.route("https://web.fourvenues.com/**", (route) =>
       route.fulfill({ status: 200, contentType: "text/html", body: SEAMLESS_CHILD }),
     );
-    await page.goto("/taquilla");
+    await page.goto("/taquilla?engine=iframe");
     await expect(page.locator('iframe[src*="/iframe/outxide-club"]')).toHaveCSS("height", "1990px", { timeout: 10_000 });
     const replies = () => {
       const child = page.frames().find((f) => f.url().startsWith("https://web.fourvenues.com/"));
@@ -302,7 +302,7 @@ test.describe("Puente con el checkout de Fourvenues", () => {
   });
 
   test("responde getQueryParam, alto y scroll desde web.fourvenues.com", async ({ page }) => {
-    await page.goto("/taquilla?warranty=1");
+    await page.goto("/taquilla?warranty=1&engine=iframe");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toHaveCSS("height", "1880px", { timeout: 10_000 });
 
