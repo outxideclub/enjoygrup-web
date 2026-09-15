@@ -28,6 +28,13 @@
 - **NORMA GENERAL (guardada en memoria)**: la infra del club vive en el equipo Vercel `outxideclub-9096s-projects` + su Cloudflare; NO mezclar con cuentas personales (el CLI local autentica como sergibrierton-1734).
 - Pendiente del dueño: compra real de prueba en la taquilla · correo al account manager (abajo).
 
+## Estado (actualizado 15-sep-2026, tarde — CHECKOUT PROPIO ACTIVO EN PRODUCCIÓN)
+
+- **`entradas.grupoenjoy.es` vende con el checkout propio (motor `native`) desde el commit `ed2b5ca`** (orden de Jose: «actívalo»). Entradas, mesas VIP y listas sobre la Channel Manager API; el pago sale a la pasarela de Fourvenues (`payment_url`) y vuelve a `/gracias?order=…&kind=…`. Detalle técnico y desviaciones: `CHECKOUT-PROPIO.md` (§9 integración, §10 activación).
+- **Verificado en producción tras el despliegue** (Playwright contra la API real, escritorio y móvil con UA de Instagram): 2 entradas de 10 € → 21,60 € (20,00 + 1,60 de gastos, igual que Fourvenues), formularios por asistente, casillas +18/condiciones, resumen y «Pagar 21,60 €»; mesa VIP → 4 personas 129,24 € / 6 personas 172,32 € (tope en 6), paso de datos con observaciones; sin scroll horizontal, 0 errores de consola, sin fugas de disponibilidad en el HTML. `/gracias` y `/pago-cancelado` responden 200; `/api/checkout/*` rechaza peticiones sin origen propio (403).
+- **Vuelta atrás:** `CHECKOUT_ENGINE=iframe` en Vercel (Production) + Redeploy → taquilla iframe (sigue en el código, intacta y con sus e2e); o Vercel → Deployments → Instant Rollback; o `git revert ed2b5ca`.
+- **Pendiente:** (1) compra real de prueba de Jose (10,80 €) hasta `/gracias` — el paso de pago y 3DS solo se prueba pagando; (2) registrar el webhook (`node scripts/fourvenues-register-webhook.mjs https://entradas.grupoenjoy.es/api/fourvenues/webhook`) y guardar `FOURVENUES_WEBHOOK_SECRET` en Vercel cuando se quiera confirmación servidor a servidor (hoy el Purchase se verifica con `getPayment` desde `/gracias`); (3) vigilar en el panel de Fourvenues que los pedidos llegan con `metadata.ref`/`fbclid`; (4) el preview compartible del 15-sep queda obsoleto (producción ya es native).
+
 ## Estado (actualizado 15-sep-2026 — taquilla `/taquilla`: checkout desbloqueado y rendimiento móvil)
 
 **Encargo de Jose:** "problema de rendimiento en la venta de entradas… que se pueda abrir el link desde cualquier sitio, incluido Instagram stories y bio… ha dado problemas continuamente en móvil… en PC tampoco deja terminar el checkout: se quedan borrosos los precios en el último paso". Diseño de la página intacto (orden expresa).
