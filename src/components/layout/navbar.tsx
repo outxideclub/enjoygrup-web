@@ -48,7 +48,19 @@ const secondaryItems = [
   { labelKey: "footer.contactUs", href: "/contacto" },
 ];
 
-export function Navbar() {
+type NavbarProps = {
+  /**
+   * Origen absoluto para los enlaces internos. La taquilla del subdominio pasa
+   * https://www.grupoenjoy.es: navegación directa a la web canónica, sin
+   * prefetch contra entradas.grupoenjoy.es (cada prefetch relativo acababa en
+   * una redirección 307 que la CSP bloqueaba — tráfico perdido en móvil).
+   */
+  linkOrigin?: string;
+  /** Taquilla: el CTA de la barra dice "Entradas" ya en el HTML del servidor. */
+  ticketsMode?: boolean;
+};
+
+export function Navbar({ linkOrigin = "", ticketsMode = false }: NavbarProps) {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const pathname = usePathname();
@@ -58,19 +70,14 @@ export function Navbar() {
   const { basePath } = localeFromPath(pathname ?? "/");
 
   // En entradas.grupoenjoy.es el navegador ve la ruta "/" (el rewrite es
-  // interno): sin esta señal, el CTA caería a la rama por defecto ("Reservar"
-  // + teléfono) en plena taquilla. Se resuelve tras la hidratación para no
-  // divergir del HTML del servidor; ídem el logo, que debe salir a la home
-  // CANÓNICA (en el subdominio "/" vuelve a servir la taquilla).
-  const [onTicketsHost, setOnTicketsHost] = React.useState(false);
-  const [homeHref, setHomeHref] = React.useState(localizedPath("/", locale));
-  React.useEffect(() => {
-    if (window.location.hostname === "entradas.grupoenjoy.es") {
-      setOnTicketsHost(true);
-      setHomeHref(`https://www.grupoenjoy.es${localizedPath("/", locale)}`);
-    }
-  }, [locale]);
-  const reserve = reserveTarget(onTicketsHost ? "/outxide" : basePath, locale);
+  // interno). La taquilla lo resuelve desde el SERVIDOR: `ticketsMode` (CTA
+  // "Entradas", no "Reservar" + teléfono) y `linkOrigin` (logo y enlaces a la
+  // web canónica: en el subdominio "/" vuelve a servir la taquilla). Antes se
+  // detectaba el host tras hidratar: un render de más y enlaces relativos
+  // (prefetch → 307 → bloqueo CSP) durante la carga.
+  const siteHref = (path: string, loc = locale) => `${linkOrigin}${localizedPath(path, loc)}`;
+  const homeHref = siteHref("/");
+  const reserve = reserveTarget(ticketsMode ? "/outxide" : basePath, locale);
 
   React.useEffect(() => {
     let ticking = false;
@@ -131,7 +138,7 @@ export function Navbar() {
               return (
                 <Link
                   key={item.name}
-                  href={localizedPath(item.href, locale)}
+                  href={siteHref(item.href)}
                   className={cn(
                     "whitespace-nowrap text-sm pb-1 border-b-2 transition-colors duration-300",
                     isActive
@@ -151,7 +158,7 @@ export function Navbar() {
               return (
                 <Link
                   key={item.href}
-                  href={localizedPath(item.href, locale)}
+                  href={siteHref(item.href)}
                   className={cn(
                     "whitespace-nowrap text-xs transition-colors duration-300",
                     isActive
@@ -225,7 +232,7 @@ export function Navbar() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link
-                    href={localizedPath(item.href, locale)}
+                    href={siteHref(item.href)}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
                       "text-3xl font-display font-bold transition-colors",
@@ -255,7 +262,7 @@ export function Navbar() {
                   transition={{ delay: (navItems.length + 1 + i) * 0.1 }}
                 >
                   <Link
-                    href={localizedPath(item.href, locale)}
+                    href={siteHref(item.href)}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
                       "text-xl transition-colors",

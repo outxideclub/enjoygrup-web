@@ -28,6 +28,24 @@
 - **NORMA GENERAL (guardada en memoria)**: la infra del club vive en el equipo Vercel `outxideclub-9096s-projects` + su Cloudflare; NO mezclar con cuentas personales (el CLI local autentica como sergibrierton-1734).
 - Pendiente del dueño: compra real de prueba en la taquilla · correo al account manager (abajo).
 
+## Estado (actualizado 15-sep-2026 — taquilla `/taquilla`: checkout desbloqueado y rendimiento móvil)
+
+**Encargo de Jose:** "problema de rendimiento en la venta de entradas… que se pueda abrir el link desde cualquier sitio, incluido Instagram stories y bio… ha dado problemas continuamente en móvil… en PC tampoco deja terminar el checkout: se quedan borrosos los precios en el último paso". Diseño de la página intacto (orden expresa).
+
+**Causa raíz del bloqueo (PC y móvil), confirmada con el cargador oficial de Fourvenues:** en el paso de cantidad el checkout pide a la página padre el parámetro `warranty` (`getQueryParam`) y **espera** `resultQueryParam` antes de pintar el resumen y activar «Continuar»; nuestro puente no contestaba. Además el checkout **cambia de host a mitad de compra** (`site.` → `web.fourvenues.com`) y la lista cerrada de orígenes descartaba todos sus mensajes; y en esos pasos la altura se comunica con la librería *seamless* (texto JSON, handshake `seamless_ready`→`seamless_connect` + acuse de `seamless_update`), que nadie atendía (marco clavado en 710 px → botón final fuera del marco).
+
+**Hecho (commit de este día):**
+- Ruta nueva `src/app/taquilla/` FUERA de `/outxide` (no hereda la consulta a Fourvenues en servidor, el skeleton ni el muro de edad). `src/proxy.ts`: `TICKETS_PATH=/taquilla`; `/outxide/entradas` sigue viva (rewrite en el subdominio, 307 en www y en local). Los CTA no cambian: siguen apuntando a `https://entradas.grupoenjoy.es/?event=…&lang=…`.
+- Página de **servidor**: el iframe y sus parámetros (idioma, `?event`, fbclid/utm_*) salen en el HTML (`data-src`; el `src` lo asigna un script inline en cuanto React coloca el trozo transmitido — mover un iframe con `src` lo recarga; medido con CPU ×6). `preconnect` estático a `site.fourvenues.com` en el layout raíz.
+- **Puente inline** `src/app/taquilla/fv-bridge.ts` con paridad total con `https://www.fourvenues.com/assets/iframe/outxide-club/events` + protocolo seamless: addHeight, forwardScroll, toTop, getQueryParam/resultQueryParam, setQueryParams (sin tocar event/lang/campaña), 3d-viewer, openUrl, currentUrl(Cli), getFBC/FBP/TTP/TTCLID, getCampaignsTracking, getTrackeableLinksTracking, setCookie (guest-token de sesión), getConsentCookies/getUTMParams → null. `track` NO se reenvía (Purchase solo en /gracias). Solo acepta mensajes de `https://*.fourvenues.com` **y** procedentes de nuestro marco (o popups abiertos por él). `FvBridgeFallback` reinyecta los scripts si algún día se llegase por navegación suave.
+- CSP `frame-src https://*.fourvenues.com` (el marco salta a `pay.`). Navbar/Footer con enlaces absolutos a www en el subdominio (fin de los prefetch bloqueados por la CSP); banner de cookies ídem; selector de idioma conserva la query. JSON-LD de eventos: `offers.url` a la taquilla.
+- **Muro de edad retirado de la taquilla** (decisión de rendimiento; Fourvenues muestra +18 en el evento; sigue en /outxide). Políticas de cookies (5 idiomas): fila `guest-token`, taquilla en `entradas.grupoenjoy.es`.
+- Verificación: 47 e2e en verde (incl. hijo simulado en site./web./pay., CPU ×6 carga única, seamless, setQueryParams); recorrido real en build de producción local hasta el formulario de datos en escritorio, móvil y UA de Instagram: resumen `blur(0px)`, «Continuar» activo, alto del marco = alto del contenido en cada paso. Revisión adversarial de 3 agentes (código, SecOps, web-tecnología) con sus hallazgos aplicados.
+
+**Medición móvil (Instagram Android, 3G rápido, CPU ×4) antes → después:** muro de edad visible → ninguno; iframe en el HTML inicial no → sí (una sola petición); petición al iframe a los 2,5 s → ~1,0 s; sin errores de consola (antes 7 por CSP).
+
+**Pendiente:** (1) compra REAL de prueba de Jose en móvil hasta la Thank You Page (10,80 €) — único paso no verificable sin pagar (3DS/wallets a nivel de ventana vía `openUrl`); (2) estrategia para navegadores internos (Instagram/Facebook/TikTok) según el informe de bananaclub.es (referente fijado por Jose): en WebKit las cookies de terceros del iframe no persisten (la sesión de FV vive en memoria; VIP/listas recargan el marco) — opción: enviar esos navegadores al checkout a pestaña completa con los parámetros de campaña; (3) sistema legal/cookies alineado con bananaclub.es (mismo informe); (4) enlaces de RRPP con `link_id` NUNCA por el subdominio (el puente no consulta la API de FV para atribuirlos).
+
 ## Estado (actualizado 1-sep-2026, 16:45 — TAREA 3 fase 1 DESPLEGADA)
 
 **La taquilla embebida está construida, desplegada y verificada en producción** (commit `72b4eb5`):

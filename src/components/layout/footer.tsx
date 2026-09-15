@@ -11,9 +11,10 @@ import { localizedPath } from "@/i18n/config";
 import { siteContact, telHref } from "@/lib/site";
 import { EVENT_PHASE } from "@/lib/mundial/event-config";
 
-function NewsletterForm() {
+function NewsletterForm({ linkOrigin }: { linkOrigin: string }) {
   const t = useT();
   const locale = useLocale();
+  const siteHref = (path: string, loc = locale) => `${linkOrigin}${localizedPath(path, loc)}`;
   const [email, setEmail] = useState("");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
@@ -75,7 +76,7 @@ function NewsletterForm() {
         />
         <span className="text-[11px] leading-relaxed text-white/60">
           {t("footer.newsletterPrivacy")}{" "}
-          <Link href={localizedPath("/legal/privacidad", locale)} className="underline underline-offset-2 hover:text-white">
+          <Link href={siteHref("/legal/privacidad", locale)} className="underline underline-offset-2 hover:text-white">
             {t("footer.newsletterPrivacyLink")}
           </Link>
         </span>
@@ -98,9 +99,11 @@ function NewsletterForm() {
   );
 }
 
-export function Footer() {
+/** `linkOrigin`: origen absoluto para los enlaces internos (ver Navbar). */
+export function Footer({ linkOrigin = "" }: { linkOrigin?: string }) {
   const locale = useLocale();
   const t = useT();
+  const siteHref = (path: string, loc = locale) => `${linkOrigin}${localizedPath(path, loc)}`;
   return (
     <footer className="border-t border-white/5 bg-black">
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -121,7 +124,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href={localizedPath("/enjoy", locale)}
+                  href={siteHref("/enjoy", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.enjoyTerrace")}
@@ -129,7 +132,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/enjoy#carta", locale)}
+                  href={siteHref("/enjoy#carta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.enjoyCocktails")}
@@ -146,7 +149,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href={localizedPath("/outxide", locale)}
+                  href={siteHref("/outxide", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.discover")}
@@ -154,7 +157,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/outxide#eventos", locale)}
+                  href={siteHref("/outxide#eventos", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.events")}
@@ -171,7 +174,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href={localizedPath("/hiru", locale)}
+                  href={siteHref("/hiru", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("common.discover")}
@@ -179,7 +182,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/hiru#carta", locale)}
+                  href={siteHref("/hiru#carta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("cta.hiruFarewell")}
@@ -200,7 +203,7 @@ export function Footer() {
               {EVENT_PHASE !== "off" && (
                 <li>
                   <Link
-                    href={localizedPath("/mundial", locale)}
+                    href={siteHref("/mundial", locale)}
                     className="link-underline text-sm font-medium text-emerald-300 hover:text-emerald-200 transition-colors"
                   >
                     {t("mundial.navLabel")}
@@ -209,7 +212,7 @@ export function Footer() {
               )}
               <li>
                 <Link
-                  href={localizedPath("/nosotros", locale)}
+                  href={siteHref("/nosotros", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.aboutUs")}
@@ -217,7 +220,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/blog", locale)}
+                  href={siteHref("/blog", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.blog")}
@@ -225,7 +228,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/contacto", locale)}
+                  href={siteHref("/contacto", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.contactUs")}
@@ -233,7 +236,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/faq", locale)}
+                  href={siteHref("/faq", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.faqShort")}
@@ -250,7 +253,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  href={localizedPath("/legal/aviso-legal", locale)}
+                  href={siteHref("/legal/aviso-legal", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.avisoLegal")}
@@ -258,7 +261,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/legal/privacidad", locale)}
+                  href={siteHref("/legal/privacidad", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.privacy")}
@@ -266,7 +269,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/legal/cookies", locale)}
+                  href={siteHref("/legal/cookies", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.cookies")}
@@ -274,7 +277,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href={localizedPath("/legal/condiciones-venta", locale)}
+                  href={siteHref("/legal/condiciones-venta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
                   {t("footer.salesConditions")}
@@ -287,7 +290,7 @@ export function Footer() {
           </div>
         </div>
 
-        <NewsletterForm />
+        <NewsletterForm linkOrigin={linkOrigin} />
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">

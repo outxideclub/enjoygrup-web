@@ -10,6 +10,15 @@ import {
   deleteTrackingCookies,
   type ConsentState,
 } from "@/lib/consent";
+import { TICKETS_HOST } from "@/lib/events";
+
+// En la taquilla (entradas.grupoenjoy.es) los textos legales viven en www: un
+// enlace relativo se prefetch-earía contra el subdominio → 307 → bloqueo de la
+// CSP. Solo se evalúa en cliente (el banner nunca se renderiza en servidor).
+function legalHref(path: string): string {
+  const onTickets = typeof window !== "undefined" && window.location.hostname === TICKETS_HOST;
+  return onTickets ? `https://www.grupoenjoy.es${path}` : path;
+}
 
 function pushConsentToGtag(consent: ConsentState) {
   const w = window as Window & { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
@@ -76,7 +85,7 @@ export function CookieBanner() {
                 <p className="text-sm font-medium text-white mb-1">{t("cookieBanner.title")}</p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   {t("cookieBanner.description")}{" "}
-                  <Link href="/legal/cookies" className="underline underline-offset-2 hover:text-white transition-colors">
+                  <Link href={legalHref("/legal/cookies")} className="underline underline-offset-2 hover:text-white transition-colors">
                     {t("cookieBanner.moreInfo")}
                   </Link>
                 </p>
@@ -156,11 +165,11 @@ export function CookieBanner() {
 
             <p className="mt-3 text-[10px] text-muted-foreground">
               {t("cookieBanner.moreDetails")}{" "}
-              <Link href="/legal/cookies" className="underline underline-offset-2 hover:text-white transition-colors">
+              <Link href={legalHref("/legal/cookies")} className="underline underline-offset-2 hover:text-white transition-colors">
                 {t("cookieBanner.cookiePolicy")}
               </Link>
               {" "}{t("cookieBanner.and")}{" "}
-              <Link href="/legal/privacidad" className="underline underline-offset-2 hover:text-white transition-colors">
+              <Link href={legalHref("/legal/privacidad")} className="underline underline-offset-2 hover:text-white transition-colors">
                 {t("cookieBanner.privacyPolicy")}
               </Link>.
             </p>

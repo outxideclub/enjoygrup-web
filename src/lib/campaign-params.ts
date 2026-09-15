@@ -12,7 +12,7 @@
 // almacenamiento de seguimiento que exigiría consentimiento previo.
 // Ref: src/lib/consent.ts gobierna los píxeles; esto es independiente de ellos.
 
-const KEYS = [
+export const CAMPAIGN_KEYS = [
   "fbclid",
   "ttclid",
   "gclid",
@@ -25,7 +25,7 @@ const KEYS = [
 
 const STORE_KEY = "ge_campaign_params";
 
-type Params = Partial<Record<(typeof KEYS)[number], string>>;
+type Params = Partial<Record<(typeof CAMPAIGN_KEYS)[number], string>>;
 
 function read(): Params {
   try {
@@ -44,7 +44,7 @@ export function captureCampaignParams(): void {
   try {
     const qs = new URLSearchParams(window.location.search);
     const found: Params = {};
-    for (const k of KEYS) {
+    for (const k of CAMPAIGN_KEYS) {
       const v = qs.get(k);
       if (v) found[k] = v;
     }

@@ -1,6 +1,6 @@
 /**
  * Escape del marco para las páginas de retorno del checkout (/gracias y
- * /pago-cancelado). El pago en la taquilla embebida (/outxide/entradas) ocurre
+ * /pago-cancelado). El pago en la taquilla embebida (/taquilla) ocurre
  * dentro de un iframe: la redirección de éxito/cancelación de Fourvenues
  * navega ESE marco, no la ventana. Este script (inline, antes de pintar nada)
  * sube la página a la ventana completa para que la confirmación no quede

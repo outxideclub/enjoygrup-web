@@ -44,7 +44,13 @@ export function LanguageSelector() {
     // pero el diccionario viejo. El render fresco del servidor lo trae todo.
     document.cookie = `${COOKIE_NAME}=${loc};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
     const { basePath } = localeFromPath(pathname || "/");
-    window.location.assign(localizedPath(basePath, loc));
+    // La query viaja (event, fbclid, utm_*…): la taquilla construye el iframe
+    // en servidor desde la URL y sin ella perdería evento y atribución. Salvo
+    // ?lang, que en la taquilla manda sobre la ruta y anularía el cambio.
+    const query = new URLSearchParams(window.location.search);
+    query.delete("lang");
+    const search = query.toString();
+    window.location.assign(`${localizedPath(basePath, loc)}${search ? `?${search}` : ""}`);
   };
 
   useEffect(() => {

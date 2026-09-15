@@ -13,7 +13,9 @@ test.describe("Site navigation", () => {
 
   test("homepage carousel dots are interactive", async ({ page }) => {
     await page.goto("/");
-    const dots = page.locator('button[aria-label^="Slide"]');
+    // Los puntos llevan el nombre del local como aria-label (localizado desde
+    // audit-4); se localizan por su forma, no por el texto.
+    const dots = page.locator("button.h-2.rounded-full");
     await expect(dots).toHaveCount(3);
 
     await dots.nth(1).click();

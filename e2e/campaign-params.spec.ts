@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 // TAREA-VENTA-EN-WEB §1: los parámetros de campaña (fbclid, utm_*) que traen
 // los anuncios deben llegar hasta el checkout de Fourvenues. Desde el 1-sep-2026
-// los CTA de entradas son INTERNOS (taquilla embebida /outxide/entradas): la
+// los CTA de entradas son INTERNOS (taquilla embebida /taquilla): la
 // propagación viaja por sessionStorage y se aplica al src del iframe y a los
 // enlaces de emergencia (CampaignLinkTracker + campaign-params.ts).
 test.describe("Propagación de parámetros de campaña", () => {
@@ -19,7 +19,7 @@ test.describe("Propagación de parámetros de campaña", () => {
     await expect(cta).toHaveAttribute("href", /utm_source=meta_test/, { timeout: 10_000 });
     // La página de la taquilla recaptura de su propia URL y decora el iframe
     // (en local se sirve por la ruta; en producción la sirve el subdominio).
-    await page.goto(`/outxide/entradas${QUERY}`);
+    await page.goto(`/taquilla${QUERY}`);
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     await expect(iframe).toHaveAttribute("src", /fbclid=TEST123/, { timeout: 10_000 });
@@ -27,7 +27,7 @@ test.describe("Propagación de parámetros de campaña", () => {
   });
 
   test("el enlace de emergencia (externo) también va decorado", async ({ page }) => {
-    await page.goto(`/outxide/entradas${QUERY}`);
+    await page.goto(`/taquilla${QUERY}`);
     const fallback = page.locator('main a[target="_blank"][href*="fourvenues.com"]');
     await expect(fallback).toBeVisible({ timeout: 10_000 });
     await expect(fallback).toHaveAttribute("href", /fbclid=TEST123/, { timeout: 10_000 });
@@ -44,7 +44,7 @@ test.describe("Propagación de parámetros de campaña", () => {
   });
 
   test("sin parámetros de entrada, el iframe sale limpio", async ({ page }) => {
-    await page.goto("/outxide/entradas");
+    await page.goto("/taquilla");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
     await expect(iframe).toBeAttached({ timeout: 10_000 });
     const src = await iframe.getAttribute("src");

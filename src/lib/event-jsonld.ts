@@ -1,10 +1,12 @@
 import type { FVEvent } from "@/lib/fourvenues";
-import { eventTicketUrl } from "@/lib/events";
+import { eventCheckoutUrl } from "@/lib/events";
 
 // ÚNICA fuente de verdad del markup de eventos: los eventos REALES de
 // FourVenues. Lo comparten /agenda y /outxide para no emitir datos
 // contradictorios ni eventos sintéticos (riesgo de información engañosa,
 // LCD art. 5/7, y de acción manual de Google por markup no fiel).
+// Las URL de evento y de oferta van a la taquilla (regla del dueño: TODO el
+// tráfico de compra entra por entradas.grupoenjoy.es, también desde Google).
 
 export function buildEventsItemList(events: FVEvent[], locale: string) {
   return {
@@ -22,7 +24,7 @@ export function buildEventsItemList(events: FVEvent[], locale: string) {
         eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         image: e.image_url,
-        url: eventTicketUrl(e, locale),
+        url: eventCheckoutUrl(e, locale),
         location: {
           "@type": "Place",
           name: "Outxide Club",
@@ -37,7 +39,7 @@ export function buildEventsItemList(events: FVEvent[], locale: string) {
         },
         offers: {
           "@type": "Offer",
-          url: eventTicketUrl(e, locale),
+          url: eventCheckoutUrl(e, locale),
           availability: "https://schema.org/InStock",
         },
         organizer: {

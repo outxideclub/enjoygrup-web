@@ -24,7 +24,7 @@ const CONTENT_SECURITY_POLICY = [
   // www/grupoenjoy en frame-src: la taquilla servida en entradas.grupoenjoy.es
   // recibe el retorno post-pago DENTRO del marco hacia www/gracias; sin estos
   // hosts la CSP del subdominio lo bloquearía y el frame-breakout nunca corre.
-  "frame-src 'self' https://www.grupoenjoy.es https://grupoenjoy.es https://entradas.grupoenjoy.es https://www.google.com https://site.fourvenues.com https://web.fourvenues.com https://www.fourvenues.com https://fourvenues.com",
+  "frame-src 'self' https://www.grupoenjoy.es https://grupoenjoy.es https://entradas.grupoenjoy.es https://www.google.com https://*.fourvenues.com https://fourvenues.com",
   // Sustituye a X-Frame-Options: SAMEORIGIN compara contra el origen superior
   // y bloqueaba www/gracias dentro del marco de la taquilla del subdominio.
   "frame-ancestors 'self' https://www.grupoenjoy.es https://grupoenjoy.es https://entradas.grupoenjoy.es",

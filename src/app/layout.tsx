@@ -95,8 +95,12 @@ export default async function RootLayout({
         {/* Override Framer Motion SSR opacity:0 on hero elements for instant LCP paint.
             Removed after hydration via data-hero attribute cleanup in page.tsx */}
         <style dangerouslySetInnerHTML={{ __html: '[data-hero]{opacity:1!important;transform:none!important}' }} />
-        <link rel="preconnect" href="https://fourvenues.com" />
-        <link rel="dns-prefetch" href="https://fourvenues.com" />
+        {/* La taquilla carga el checkout desde site.fourvenues.com (y salta a
+            web. al elegir entrada): conexión abierta antes de llegar al iframe.
+            Estático aquí porque un preconnect() desde la página no llega al
+            HTML en caliente (el skeleton raíz vacía el shell antes). */}
+        <link rel="preconnect" href="https://site.fourvenues.com" />
+        <link rel="dns-prefetch" href="https://web.fourvenues.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {/* LLM-readable content for AI crawlers (llms.txt convention) */}
         <link rel="help" type="text/plain" href="/llms.txt" title="LLM summary" />

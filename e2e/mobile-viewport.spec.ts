@@ -6,7 +6,7 @@ import { test, expect } from "@playwright/test";
 test.describe("Móvil: sin zoom ni scroll horizontal", () => {
   test.use({ viewport: { width: 375, height: 812 } });
 
-  for (const path of ["/", "/outxide", "/agenda", "/enjoy", "/outxide/entradas", "/gracias"]) {
+  for (const path of ["/", "/outxide", "/agenda", "/enjoy", "/taquilla", "/gracias"]) {
     test(`${path}: el contenido no desborda el eje X`, async ({ page }) => {
       await page.goto(path);
       await page.waitForTimeout(800);

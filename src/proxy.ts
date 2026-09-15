@@ -85,12 +85,17 @@ function baseHeaders(req: NextRequest): Headers {
 }
 
 // La taquilla vive en su propio subdominio (regla del dueño, 1-sep-2026):
-// entradas.grupoenjoy.es SIRVE /outxide/entradas (rewrite interno), y la ruta
-// en el host canónico redirige allí. Claves solo de producción: en localhost y
-// previews de Vercel nada de esto aplica (los e2e siguen usando la ruta).
+// entradas.grupoenjoy.es SIRVE /taquilla (rewrite interno), y la ruta en el
+// host canónico redirige allí. Claves solo de producción: en localhost y
+// previews de Vercel nada de esto aplica (los e2e usan la ruta).
+// /taquilla vive FUERA de /outxide desde el 15-sep-2026 (rendimiento en móvil):
+// no hereda la consulta a Fourvenues, el skeleton de carga ni el muro de edad
+// de ese segmento. La ruta anterior sigue funcionando para enlaces antiguos.
 const TICKETS_HOST = "entradas.grupoenjoy.es";
 const CANONICAL_HOSTS = new Set(["www.grupoenjoy.es", "grupoenjoy.es"]);
-const TICKETS_PATH = "/outxide/entradas";
+const TICKETS_PATH = "/taquilla";
+const LEGACY_TICKETS_PATH = "/outxide/entradas";
+const isTicketsPath = (p: string) => p === TICKETS_PATH || p === LEGACY_TICKETS_PATH;
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -122,7 +127,7 @@ export async function proxy(req: NextRequest) {
     // de la web para conservar el idioma del visitante) → prefijo de ruta →
     // cookie → Accept-Language → es. La URL del navegador no cambia (rewrite),
     // así el cliente sigue leyendo ?event y los parámetros de campaña.
-    if (basePath === "/" || basePath === TICKETS_PATH) {
+    if (basePath === "/" || isTicketsPath(basePath)) {
       const langParam = req.nextUrl.searchParams.get("lang");
       const cookieLoc = req.cookies.get(LOCALE_COOKIE)?.value;
       const locale: Locale =
@@ -155,7 +160,7 @@ export async function proxy(req: NextRequest) {
   // Host canónico: la compra de entradas SIEMPRE en el subdominio.
   if (
     CANONICAL_HOSTS.has(host) &&
-    basePath === TICKETS_PATH &&
+    isTicketsPath(basePath) &&
     (req.method === "GET" || req.method === "HEAD")
   ) {
     const url = new URL(`https://${TICKETS_HOST}/`);
@@ -166,6 +171,14 @@ export async function proxy(req: NextRequest) {
     url.searchParams.set("lang", pathLocale ?? defaultLocale);
     return NextResponse.redirect(url, 307);
   }
+  // Fuera de producción (localhost, previews) la ruta antigua lleva a la nueva
+  // con la query intacta (event, lang, fbclid, utm_*).
+  if (basePath === LEGACY_TICKETS_PATH && (req.method === "GET" || req.method === "HEAD")) {
+    const url = req.nextUrl.clone();
+    url.pathname = localizedPath(TICKETS_PATH, pathLocale ?? defaultLocale);
+    return NextResponse.redirect(url, 307);
+  }
+
   const isAdminRoute =
     basePath.startsWith("/admin") || basePath.startsWith("/api/admin");
 
