@@ -389,7 +389,7 @@ export const es = {
     analytics: "Analíticas",
     analyticsDesc: "Nos ayudan a entender cómo se usa el sitio (Google Analytics 4).",
     marketing: "Marketing",
-    marketingDesc: "Permiten mostrar publicidad relevante (Meta Pixel, TikTok Pixel).",
+    marketingDesc: "Permiten mostrar publicidad relevante (Google Ads, Meta Pixel, TikTok Pixel).",
     savePreferences: "Guardar preferencias",
     moreDetails: "Más detalles en nuestra",
     cookiePolicy: "Política de Cookies",

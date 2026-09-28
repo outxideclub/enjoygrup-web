@@ -3,18 +3,44 @@
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import { CONSENT_EVENT, CONSENT_KEY, getStoredConsent, type ConsentState } from "@/lib/consent";
+import { getGoogleAdsConfig, type GoogleAdsConfig } from "@/lib/google-ads";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID;
+// Google Ads: NEXT_PUBLIC_GOOGLE_ADS_ID (AW-XXXXXXXXXX) y
+// NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_LABEL, leídas y validadas en
+// src/lib/google-ads.ts (documentación de alta en Vercel allí). Sin el id no se
+// carga nada de Ads.
+
+interface TagState {
+  consent: ConsentState | null;
+  ads: GoogleAdsConfig | null;
+  /**
+   * Id con el que se pidió gtag.js la primera vez. Un solo gtag.js sirve a GA4
+   * y a Google Ads: Google documenta un único snippet con un id en el src y un
+   * gtag('config') por destino adicional (el segundo se carga en caliente desde
+   * googletagmanager.com/gtag/destination). Se fija para no volver a bajar la
+   * librería si el consentimiento cambia a mitad de visita.
+   */
+  loaderId: string | null;
+}
 
 export function AnalyticsScripts() {
-  const [consent, setConsent] = useState<ConsentState | null>(null);
+  const [state, setState] = useState<TagState>({ consent: null, ads: null, loaderId: null });
 
   useEffect(() => {
+    const ads = getGoogleAdsConfig();
     // getStoredConsent valida versión y antigüedad (12 meses): un consentimiento
     // caducado o de otra versión de la política NO carga ningún píxel.
-    const sync = () => setConsent(getStoredConsent());
+    const sync = () => {
+      const consent = getStoredConsent();
+      setState((prev) => {
+        const ga4 = GA_ID && consent?.analytics ? GA_ID : null;
+        const aw = ads && consent?.marketing ? ads.id : null;
+        return { consent, ads, loaderId: prev.loaderId ?? ga4 ?? aw };
+      });
+    };
     sync();
 
     // El banner avisa con un evento propio en esta pestaña; el evento "storage"
@@ -31,9 +57,25 @@ export function AnalyticsScripts() {
     };
   }, []);
 
+  const { consent, ads, loaderId } = state;
+  const ga4Active = Boolean(GA_ID && consent?.analytics);
+  // Gating de Google Ads (decisión explícita, 28-sep-2026): la etiqueta se carga
+  // SOLO con consentimiento de marketing, igual que Meta y TikTok. Google
+  // recomienda cargarla siempre bajo Consent Mode v2 (con ad_storage denegado
+  // envía pings sin cookies y modela más fino), pero la regla de este sitio y lo
+  // que promete la política de cookies es "ningún píxel antes de consentir": la
+  // coherencia vale más que el modelado avanzado. Es el "modo básico" de Consent
+  // Mode; Google sigue modelando conversiones a partir de los rechazos.
+  const adsActive = Boolean(ads && consent?.marketing);
+
   return (
     <>
-      {/* Consent Mode v2 default — always loads first, before any tags */}
+      {/* Consent Mode v2 default — always loads first, before any tags.
+          url_passthrough / ads_data_redaction solo actúan con ad_storage
+          denegado (p. ej. si se retira el consentimiento con la etiqueta ya
+          cargada): el gclid viaja por la URL en vez de en cookies y los
+          identificadores de clic se redactan en los pings. Deben ir ANTES de
+          cualquier config (orden exigido por Google). */}
       <Script id="consent-mode-default" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -45,31 +87,53 @@ export function AnalyticsScripts() {
             'ad_personalization': 'denied',
             'wait_for_update': 500
           });
+          gtag('set', 'url_passthrough', true);
+          gtag('set', 'ads_data_redaction', true);
         `}
       </Script>
 
-      {/* GA4 — only loads when analytics consent is granted */}
-      {GA_ID && consent?.analytics && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga4-config" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}', {
-                anonymize_ip: true,
-                // Caduca la cookie _ga a ~13 meses (recomendación AEPD de
-                // duraciones cortas y coherente con la política de cookies).
-                cookie_expires: 34164000,
-                custom_map: { dimension1: 'venue' }
-              });
-            `}
-          </Script>
-        </>
+      {/* Librería gtag.js compartida por GA4 y Google Ads: solo si alguno tiene consentimiento */}
+      {loaderId && (
+        <Script
+          id="gtag-js"
+          src={`https://www.googletagmanager.com/gtag/js?id=${loaderId}`}
+          strategy="afterInteractive"
+        />
+      )}
+
+      {/* GA4 — only configured when analytics consent is granted */}
+      {ga4Active && (
+        <Script id="ga4-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              anonymize_ip: true,
+              // Caduca la cookie _ga a ~13 meses (recomendación AEPD de
+              // duraciones cortas y coherente con la política de cookies).
+              cookie_expires: 34164000,
+              custom_map: { dimension1: 'venue' }
+            });
+          `}
+        </Script>
+      )}
+
+      {/* Google Ads — solo con consentimiento de marketing (misma regla que Meta/TikTok).
+          allow_enhanced_conversions deja la acción lista para recibir user_data
+          (email hasheado) el día que se pase; sin user_data no envía nada más.
+          Sin linker entre www. y entradas.: mismo dominio registrable
+          (grupoenjoy.es), gtag pone _gcl_aw con Domain=.grupoenjoy.es y el
+          gclid del aterrizaje llega solo a /gracias. */}
+      {adsActive && ads && (
+        <Script id="google-ads-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${ads.id}', { allow_enhanced_conversions: true });
+          `}
+        </Script>
       )}
 
       {/* Meta Pixel — only loads when marketing consent is granted */}

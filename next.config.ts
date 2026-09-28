@@ -12,8 +12,15 @@ const SCRIPT_EVAL_DEV = process.env.NODE_ENV === "development" ? " 'unsafe-eval'
 
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${SCRIPT_EVAL_DEV} https://www.googletagmanager.com https://connect.facebook.net https://analytics.tiktok.com`,
-  "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://analytics.tiktok.com https://www.facebook.com",
+  // Google Ads (etiqueta gtag AW-…, sep-2026): la librería viene de
+  // googletagmanager.com (ya permitido); googleadservices.com y
+  // googleads.g.doubleclick.net sirven el destino de conversión (script) y los
+  // pings /pagead/conversion; google.com y google.es reciben /pagead/1p-conversion
+  // y /ccm/collect (Consent Mode) por fetch/beacon → connect-src;
+  // pagead2.googlesyndication.com es el /ccm/collect alternativo. img-src ya
+  // admite cualquier https:, así que los pings en imagen no necesitan cambios.
+  `script-src 'self' 'unsafe-inline'${SCRIPT_EVAL_DEV} https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://analytics.tiktok.com`,
+  "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://www.google.es https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://analytics.tiktok.com https://www.facebook.com",
   "img-src 'self' https: data:",
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",

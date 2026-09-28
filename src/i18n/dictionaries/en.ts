@@ -388,7 +388,7 @@ export const en: Dictionary = {
     analytics: "Analytics",
     analyticsDesc: "Help us understand how the site is used (Google Analytics 4).",
     marketing: "Marketing",
-    marketingDesc: "Allow us to show relevant advertising (Meta Pixel, TikTok Pixel).",
+    marketingDesc: "Allow us to show relevant advertising (Google Ads, Meta Pixel, TikTok Pixel).",
     savePreferences: "Save preferences",
     moreDetails: "More details in our",
     cookiePolicy: "Cookie Policy",

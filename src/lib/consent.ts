@@ -110,7 +110,9 @@ export function clearStoredConsent(): void {
 
 /** Cookies que instalan las herramientas de análisis y marketing en NUESTRO dominio. */
 const ANALYTICS_COOKIES = ["_ga", "_gid"];
-const MARKETING_COOKIES = ["_fbp", "_fbc", "_ttp"];
+// _gcl_*: linker de conversiones de Google Ads (gclid) en nuestro dominio. IDE y
+// test_cookie viven en doubleclick.net y no se pueden borrar desde aquí.
+const MARKETING_COOKIES = ["_fbp", "_fbc", "_ttp", "_gcl_au", "_gcl_aw", "_gcl_gs"];
 
 function expireCookie(name: string): void {
   const past = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
@@ -135,7 +137,7 @@ export function deleteTrackingCookies(consent: ConsentState): void {
   }
   if (!consent.marketing) {
     for (const n of names) {
-      if (MARKETING_COOKIES.includes(n) || n.startsWith("tt_")) expireCookie(n);
+      if (MARKETING_COOKIES.includes(n) || n.startsWith("tt_") || n.startsWith("_gcl_")) expireCookie(n);
     }
   }
 }

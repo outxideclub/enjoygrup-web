@@ -389,7 +389,7 @@ export const it: Dictionary = {
     analytics: "Analitici",
     analyticsDesc: "Ci aiutano a capire come viene utilizzato il sito (Google Analytics 4).",
     marketing: "Marketing",
-    marketingDesc: "Consentono di mostrare pubblicità pertinente (Meta Pixel, TikTok Pixel).",
+    marketingDesc: "Consentono di mostrare pubblicità pertinente (Google Ads, Meta Pixel, TikTok Pixel).",
     savePreferences: "Salva preferenze",
     moreDetails: "Maggiori dettagli nella nostra",
     cookiePolicy: "Politica sui cookie",

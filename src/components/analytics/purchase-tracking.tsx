@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { CONSENT_EVENT } from "@/lib/consent";
+import { CONSENT_EVENT, getStoredConsent } from "@/lib/consent";
+import { getGoogleAdsConfig, purchaseSendTo } from "@/lib/google-ads";
 
 declare global {
   interface Window {
@@ -15,25 +16,72 @@ const FIRED_KEY = "ge_purchase_fired";
 // permite distinguir "ya disparé sin referencia" de una compra nueva con ella.
 const NO_REF = "no-ref";
 
+type Platform = "meta" | "tiktok" | "google";
+const ALL_PLATFORMS: Platform[] = ["meta", "tiktok", "google"];
+
+/** Registro en sessionStorage: qué plataformas ya recibieron ESTE pedido. */
+interface FiredRecord {
+  ref: string;
+  platforms: Platform[];
+}
+
+function readFired(): FiredRecord | null {
+  try {
+    const raw = sessionStorage.getItem(FIRED_KEY);
+    if (!raw) return null;
+    try {
+      const parsed = JSON.parse(raw) as Partial<FiredRecord> | null;
+      if (parsed && typeof parsed.ref === "string" && Array.isArray(parsed.platforms)) {
+        return {
+          ref: parsed.ref,
+          platforms: parsed.platforms.filter((p): p is Platform => ALL_PLATFORMS.includes(p as Platform)),
+        };
+      }
+    } catch {
+      /* formato anterior: solo la referencia */
+    }
+    // Formato anterior a sep-2026 (solo la referencia): entonces solo existían
+    // Meta y TikTok, así que son las que constan como disparadas.
+    return { ref: raw, platforms: ["meta", "tiktok"] };
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Dispara la conversión al aterrizar en /gracias (Thank You Page de la compra
  * en Fourvenues). Contexto propio de grupoenjoy.es: aquí SÍ existen _fbp/_fbc
- * gracias a la propagación de fbclid (src/lib/campaign-params.ts).
+ * gracias a la propagación de fbclid (src/lib/campaign-params.ts), y _gcl_aw
+ * (gclid) porque www. y entradas. comparten el dominio grupoenjoy.es.
  *
- * Guardias (endurecidas tras revisión adversarial, 1-sep-2026):
+ * Guardias (endurecidas tras revisión adversarial, 1-sep-2026; por plataforma
+ * desde 28-sep-2026):
  * - Anti-recarga: recargar /gracias no cuenta otra venta (sessionStorage).
  * - Segunda compra legítima: si la URL trae una referencia de pedido DISTINTA
- *   de la almacenada, sí se dispara (Meta deduplica además por eventID).
+ *   de la almacenada, sí se dispara (Meta deduplica además por eventID y
+ *   Google Ads por transaction_id).
+ * - Por plataforma: el registro guarda QUÉ plataformas ya recibieron el pedido.
+ *   La que llegue tarde (script async) dispara igual y ninguna repite. Antes
+ *   bastaba con que una disparase para cerrar el pedido y las lentas se
+ *   perdían; con gtag (definido desde el primer byte por Consent Mode) Meta y
+ *   TikTok se habrían quedado siempre fuera.
  * - Sin fugas: el bucle de reintentos se cancela al desmontar y re-comprueba
  *   la guardia antes de disparar (un remontaje no produce dos Purchase).
  * - Consentimiento tardío: si el visitante acepta el banner ya en /gracias,
  *   el evento de consentimiento relanza el disparo.
+ * - Google Ads: gtag() existe siempre (solo encola en dataLayer), así que la
+ *   señal de "activo" no es su presencia sino el consentimiento de marketing,
+ *   la misma condición con la que AnalyticsScripts carga la etiqueta. Sin
+ *   consentimiento el evento NO se encola: con solo analytics GA4 cargaría
+ *   gtag.js y un send_to AW-… en cola acabaría en Google Ads.
  *
  * IMPORTANTE — anti-duplicados con Fourvenues: si en su panel se configura el
  * píxel de Meta con evento Purchase, habrá DOS Purchase por venta. Decisión
  * vigente (1-sep-2026): el Purchase se dispara AQUÍ; en el panel de Fourvenues
  * el píxel queda para PageView/InitiateCheckout. Si la sesión de Meta Ads
  * decide lo contrario, apagar este disparo o deduplicar con eventID compartido.
+ * Lo mismo con Google Ads: la conversión "Compra" se mide AQUÍ (etiqueta
+ * propia); no importar además la compra de GA4 como conversión principal.
  */
 interface PurchaseTrackingProps {
   /**
@@ -54,43 +102,68 @@ export function PurchaseTracking({ value }: PurchaseTrackingProps) {
       qs.get("order") || qs.get("order_id") || qs.get("reference") || qs.get("id");
     const eventID = orderRef || `ge-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 
-    const alreadyFired = (): boolean => {
+    const ads = getGoogleAdsConfig();
+    const googleSendTo = ads ? purchaseSendTo(ads) : null;
+    // Plataformas que pueden llegar a disparar en esta página. Meta y TikTok no
+    // exponen aquí su id: se espera a que aparezca su objeto global.
+    const expected: Platform[] = googleSendTo ? ALL_PLATFORMS : ["meta", "tiktok"];
+
+    const stored = readFired();
+    // Sin referencia en la URL no se puede distinguir una compra de otra:
+    // cualquier registro previo bloquea (conservador). Con referencia, solo
+    // bloquea el registro del MISMO pedido.
+    const sameOrder = stored !== null && (!orderRef || stored.ref === orderRef);
+    const done = new Set<Platform>(sameOrder && stored ? stored.platforms : []);
+    const pending = () => expected.filter((p) => !done.has(p));
+
+    if (pending().length === 0) return;
+
+    const markFired = (platform: Platform) => {
+      done.add(platform);
       try {
-        const stored = sessionStorage.getItem(FIRED_KEY);
-        if (!stored) return false;
-        // Compra nueva con referencia distinta → debe dispararse.
-        if (orderRef && stored !== orderRef) return false;
-        return true;
+        const record: FiredRecord = { ref: orderRef || NO_REF, platforms: [...done] };
+        sessionStorage.setItem(FIRED_KEY, JSON.stringify(record));
       } catch {
-        return false;
+        /* sin guardia persistente */
       }
     };
 
-    if (alreadyFired()) return;
-
     let tries = 0;
     const fire = () => {
-      if (cancelled || alreadyFired()) return;
-      const fired: string[] = [];
+      // Un relanzamiento (consentimiento) no debe dejar dos bucles vivos.
+      if (timer) {
+        window.clearTimeout(timer);
+        timer = undefined;
+      }
+      if (cancelled) return;
       const amount = typeof value === "number" && Number.isFinite(value) ? { value } : {};
-      if (typeof window.fbq === "function") {
+      if (!done.has("meta") && typeof window.fbq === "function") {
         window.fbq("track", "Purchase", { ...amount, currency: "EUR" }, { eventID });
-        fired.push("meta");
+        markFired("meta");
       }
-      if (window.ttq?.track) {
+      if (!done.has("tiktok") && window.ttq?.track) {
         window.ttq.track("CompletePayment", { ...amount, currency: "EUR", event_id: eventID });
-        fired.push("tiktok");
+        markFired("tiktok");
       }
-      if (fired.length > 0) {
-        try {
-          sessionStorage.setItem(FIRED_KEY, orderRef || NO_REF);
-        } catch {
-          /* sin guardia persistente */
-        }
-        return;
+      if (
+        googleSendTo &&
+        !done.has("google") &&
+        typeof window.gtag === "function" &&
+        getStoredConsent()?.marketing
+      ) {
+        // transaction_id: Google Ads descarta conversiones repetidas con el
+        // mismo id dentro de la acción, además de la guardia local.
+        window.gtag("event", "conversion", {
+          send_to: googleSendTo,
+          ...amount,
+          currency: "EUR",
+          transaction_id: eventID,
+        });
+        markFired("google");
       }
-      // El píxel puede tardar (consentimiento + script async): reintenta.
-      if (++tries < 20) timer = window.setTimeout(fire, 500);
+      // Los píxeles pueden tardar (consentimiento + script async): reintento
+      // acotado mientras quede alguno por disparar.
+      if (pending().length > 0 && ++tries < 20) timer = window.setTimeout(fire, 500);
     };
 
     // Si el consentimiento llega estando ya en /gracias, se relanza el disparo.
