@@ -45,6 +45,10 @@ const FORBIDDEN: readonly RegExp[] = [
   /\bhappy hour\b/,
   /\bultimas plazas\b/,
   /\bquedan\b/,
+  // Tabaco: la shisha en una landing de Meta es publicidad de tabaco (COPYS §3).
+  // Antes asomaba en el pie («Cocktails & Shisha»); el pie va con `adLanding`.
+  /\bshisha\b/,
+  /\bcachimbas?\b/,
 ];
 
 function normalize(text: string): string {

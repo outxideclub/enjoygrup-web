@@ -307,7 +307,8 @@ export default async function EmpresasPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* adLanding: sin «Shisha» en el pie (página destino de anuncios). */}
+      <Footer adLanding />
     </div>
   );
 }
