@@ -60,6 +60,19 @@ export function hasUnknownRequiredField(fields: unknown): boolean {
   );
 }
 
+/**
+ * Inicio de venta programado de una tarifa (`valid_from` de Fourvenues, el
+ * «Inicio de la venta» del panel): devuelve la fecha en ISO si todavía no ha
+ * llegado según `now`, o null si ya está a la venta. `now` es SIEMPRE el reloj
+ * del servidor: la hora del navegador no decide si una tarifa se vende. Sin
+ * fecha legible → null, es decir, el comportamiento de siempre.
+ */
+export function saleOpensAt(validFrom: unknown, now: number): string | null {
+  if (typeof validFrom !== "string" || validFrom === "") return null;
+  const at = Date.parse(validFrom);
+  return Number.isFinite(at) && at > now ? new Date(at).toISOString() : null;
+}
+
 export const DOCUMENT_TYPES = ["dni", "nie", "passport", "other"] as const;
 export type DocumentType = (typeof DOCUMENT_TYPES)[number];
 

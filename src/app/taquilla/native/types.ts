@@ -42,6 +42,13 @@ export type ClientTicketRate = Omit<
 > & {
   prices: ClientTicketPrice[];
   current_price: ClientTicketPrice | null;
+  /**
+   * Inicio de venta (ISO) cuando la tarifa aún no se vende, calculado en
+   * servidor (load-data). La tarjeta pinta «A la venta el…» y no deja elegirla;
+   * nunca «Agotado»: antes de abrir, Fourvenues no manda `current_price` y eso
+   * no significa que no queden entradas. Ausente = tarifa ya abierta.
+   */
+  opens_at?: string;
 };
 
 /**

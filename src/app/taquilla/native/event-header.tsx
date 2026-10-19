@@ -4,10 +4,10 @@ import Image from "next/image";
 import { Calendar } from "lucide-react";
 import { useT } from "@/i18n";
 import { formatEventDate, formatEventTime } from "@/lib/events";
-import { formatGenres } from "./format";
+import { ageNotice, formatGenres } from "./format";
 import type { NativeCheckoutEvent } from "./types";
 
-/** Cabecera del evento elegido: flyer, nombre, fecha/hora y +18. */
+/** Cabecera del evento elegido: flyer, nombre, fecha/hora y «+18 · Consumo responsable». */
 export function EventHeader({ event, locale }: { event: NativeCheckoutEvent; locale: string }) {
   const t = useT();
   const genres = formatGenres(event.music_genres);
@@ -27,8 +27,8 @@ export function EventHeader({ event, locale }: { event: NativeCheckoutEvent; loc
           </span>
         </p>
         <p className="mt-1.5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <span className="rounded-md border border-white/15 px-1.5 py-0.5 text-white/70">
-            {event.age > 0 && event.age !== 18 ? `+${event.age}` : t("checkout.adults")}
+          <span data-testid="age-notice" className="rounded-md border border-white/15 px-1.5 py-0.5 text-white/70">
+            {ageNotice(event.age, t("checkout.adultsResponsible"))}
           </span>
           {genres && <span>{genres}</span>}
         </p>

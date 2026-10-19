@@ -9,8 +9,9 @@ import type {
   FVTicketPrice,
   FVTicketRate,
 } from "@/lib/fourvenues/types";
-import { hasUnknownRequiredField } from "@/lib/checkout/validation";
+import { hasUnknownRequiredField, saleOpensAt } from "@/lib/checkout/validation";
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
+import { withoutLollipop } from "./format";
 import type {
   CheckoutMode,
   ClientBookingSpace,
@@ -30,6 +31,10 @@ import type {
 // que se PROYECTA antes: fuera cifras de stock y mesas ocultas (regla del
 // dueño, §0), fuera tarifas privadas (solo por enlace directo) y fuera tarifas
 // con un campo obligatorio que no sabemos enviar (el pago acabaría en 400).
+// Nombres de tarifa e «Incluye» salen sin el emoji 🍭 (withoutLollipop, red de
+// seguridad para el tráfico de anuncios): se limpia aquí, en la proyección, y
+// no en cada componente, para que tampoco viaje en el payload del HTML que lee
+// el revisor de Meta. Los ids y slugs que se envían a Fourvenues no cambian.
 
 export function toNativeEvent(e: FVEvent): NativeCheckoutEvent {
   return {
@@ -62,7 +67,7 @@ function toClientPrice(p: FVTicketPrice): ClientTicketPrice {
   const { quantity: _quantity, used: _used, ...rest } = p;
   void _quantity;
   void _used;
-  return rest;
+  return { ...rest, name: withoutLollipop(rest.name), includes: withoutLollipop(rest.includes) };
 }
 
 export function toClientRate(r: FVTicketRate): ClientTicketRate {
@@ -71,13 +76,37 @@ export function toClientRate(r: FVTicketRate): ClientTicketRate {
   void _org;
   return {
     ...rest,
+    name: withoutLollipop(rest.name),
     prices: Array.isArray(prices) ? prices.map(toClientPrice) : [],
     current_price: current_price ? toClientPrice(current_price) : null,
   };
 }
 
-/** Tarifas vendibles desde la taquilla pública (ver cabecera del fichero). */
-export function sellableTicketRates(rates: FVTicketRate[]): ClientTicketRate[] {
+/**
+ * Margen tras la hora de apertura en el que una tarifa SIN `current_price`
+ * sigue tratándose como «a punto de abrir» y no como agotada: las tarifas se
+ * cachean 30 s (revalidate de getTicketRates) y Fourvenues puede tardar un
+ * poco en publicar el precio vigente. Sin este margen, quien entra desde un
+ * anuncio justo a la hora de apertura vería «Agotado», un dato de
+ * disponibilidad falso (regla del dueño).
+ */
+const SALE_OPEN_GRACE_MS = 2 * 60 * 1000;
+
+/** Inicio de venta a mostrar (ISO) o null si la tarifa ya se vende con normalidad. */
+function pendingOpening(rate: FVTicketRate, now: number): string | null {
+  return (
+    saleOpensAt(rate.valid_from, now) ??
+    (rate.current_price ? null : saleOpensAt(rate.valid_from, now - SALE_OPEN_GRACE_MS))
+  );
+}
+
+/**
+ * Tarifas vendibles desde la taquilla pública (ver cabecera del fichero). Las
+ * que tienen un inicio de venta programado (`valid_from` futuro según el reloj
+ * del SERVIDOR) se proyectan con `opens_at` para pintar «A la venta el…» en
+ * lugar de un «Agotado» falso; el resto, igual que siempre.
+ */
+export function sellableTicketRates(rates: FVTicketRate[], now: number = Date.now()): ClientTicketRate[] {
   const out: ClientTicketRate[] = [];
   for (const rate of rates) {
     if (rate.type === "private") continue;
@@ -89,9 +118,15 @@ export function sellableTicketRates(rates: FVTicketRate[]): ClientTicketRate[] {
       });
       continue;
     }
-    out.push(toClientRate(rate));
+    const opensAt = pendingOpening(rate, now);
+    out.push(opensAt ? { ...toClientRate(rate), opens_at: opensAt } : toClientRate(rate));
   }
   return out;
+}
+
+/** Tarifa VIP tal cual, salvo el emoji 🍭 en lo que se pinta (nombre y contenido). */
+function toClientBookingRate(r: FVBookingRate): FVBookingRate {
+  return { ...r, name: withoutLollipop(r.name), content: withoutLollipop(r.content) };
 }
 
 /** Tarifas únicas de la zona (las repiten todas sus mesas). */
@@ -114,10 +149,10 @@ export function toClientZone(z: FVBookingZone): ClientBookingZone {
           name: s.name,
           capacity: Number.isFinite(s.capacity) ? s.capacity : 0,
           minimum: Number.isFinite(s.minimum) ? s.minimum : 0,
-          rates: Array.isArray(s.rates) ? s.rates : [],
+          rates: Array.isArray(s.rates) ? s.rates.map(toClientBookingRate) : [],
         }))
     : // Mesa asignada por el club: ni nombres ni cuántas hay, solo las tarifas.
-      [{ _id: z._id, name: "", capacity: 0, minimum: 0, rates: zoneRates(z) }];
+      [{ _id: z._id, name: "", capacity: 0, minimum: 0, rates: zoneRates(z).map(toClientBookingRate) }];
   return {
     _id: z._id,
     available: z.available,
@@ -134,7 +169,13 @@ export function toClientListRate(r: FVListRate): ClientListRate {
   const { availability: _availability, organization_id: _org, ...rest } = r;
   void _availability;
   void _org;
-  return rest;
+  return {
+    ...rest,
+    name: withoutLollipop(rest.name),
+    prices: Array.isArray(rest.prices)
+      ? rest.prices.map((p) => ({ ...p, includes: withoutLollipop(p.includes) }))
+      : rest.prices,
+  };
 }
 
 /**
@@ -184,9 +225,11 @@ export async function loadNativeCheckoutData(opts: LoadOptions): Promise<NativeC
         client.getBookingZones(event.id),
         client.getListRates(event.id),
       ]);
-      rates = sellableTicketRates(settled(r));
+      // Un único "ahora" de servidor para toda la página.
+      const now = Date.now();
+      rates = sellableTicketRates(settled(r), now);
       zones = settled(z).map(toClientZone);
-      listRates = withCurrentListPrices(settled(l), Date.now())
+      listRates = withCurrentListPrices(settled(l), now)
         .filter((rate) => rate.type !== "private")
         .map(toClientListRate);
     } catch {
