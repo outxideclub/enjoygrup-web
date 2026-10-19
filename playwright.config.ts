@@ -37,6 +37,10 @@ export default defineConfig({
         FOURVENUES_API_KEY: "test",
         CHECKOUT_ENGINE: "native",
         FOURVENUES_WEBHOOK_SECRET: "test-secret",
+        // Vacía a propósito: una variable ya definida (aunque sea "") gana a
+        // .env.local, así ningún e2e envía correos reales con Resend (las
+        // pruebas de /api/empresas esperan 503 sin clave).
+        RESEND_API_KEY: "",
       },
     },
   ],
