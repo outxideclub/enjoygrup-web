@@ -31,7 +31,7 @@ import type {
 // que se PROYECTA antes: fuera cifras de stock y mesas ocultas (regla del
 // dueño, §0), fuera tarifas privadas (solo por enlace directo) y fuera tarifas
 // con un campo obligatorio que no sabemos enviar (el pago acabaría en 400).
-// Nombres de tarifa e «Incluye» salen sin el emoji 🍭 (withoutLollipop, red de
+// Nombres de tarifa, «Incluye» e info adicional salen sin el emoji 🍭 (withoutLollipop, red de
 // seguridad para el tráfico de anuncios): se limpia aquí, en la proyección, y
 // no en cada componente, para que tampoco viaje en el payload del HTML que lee
 // el revisor de Meta. Los ids y slugs que se envían a Fourvenues no cambian.
@@ -47,7 +47,11 @@ export function toNativeEvent(e: FVEvent): NativeCheckoutEvent {
     image_url: e.image_url,
     age: typeof e.age === "number" ? e.age : 18,
     music_genres: Array.isArray(e.music_genres) ? e.music_genres : [],
-    description: typeof e.description === "string" ? e.description : "",
+    // La descripción del panel NO se pinta en la taquilla y es texto libre de
+    // Fourvenues (puede llevar 🍭, «barra libre», promos…): no se manda al
+    // navegador, porque viajaría en el payload RSC del HTML que lee el revisor
+    // de anuncios. El campo se mantiene vacío por contrato de tipos.
+    description: "",
     ref: e.code ? `${e.slug}-${e.code}` : e.slug,
   };
 }
@@ -67,7 +71,12 @@ function toClientPrice(p: FVTicketPrice): ClientTicketPrice {
   const { quantity: _quantity, used: _used, ...rest } = p;
   void _quantity;
   void _used;
-  return { ...rest, name: withoutLollipop(rest.name), includes: withoutLollipop(rest.includes) };
+  return {
+    ...rest,
+    name: withoutLollipop(rest.name),
+    includes: withoutLollipop(rest.includes),
+    additional_info: withoutLollipop(rest.additional_info),
+  };
 }
 
 export function toClientRate(r: FVTicketRate): ClientTicketRate {
@@ -173,7 +182,11 @@ export function toClientListRate(r: FVListRate): ClientListRate {
     ...rest,
     name: withoutLollipop(rest.name),
     prices: Array.isArray(rest.prices)
-      ? rest.prices.map((p) => ({ ...p, includes: withoutLollipop(p.includes) }))
+      ? rest.prices.map((p) => ({
+          ...p,
+          includes: withoutLollipop(p.includes),
+          additional_info: withoutLollipop(p.additional_info),
+        }))
       : rest.prices,
   };
 }

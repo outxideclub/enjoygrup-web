@@ -1,5 +1,9 @@
 import { test, expect, type APIRequestContext, type Page } from "@playwright/test";
 import type { FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
+import { saleOpensAt } from "../src/lib/checkout/validation";
+import { ageNotice, fill, withoutLollipop } from "../src/app/taquilla/native/format";
+import { formatEventDate, formatEventTime } from "../src/lib/events";
+import { es } from "../src/i18n/dictionaries/es";
 
 // Cumplimiento de la taquilla para el tráfico de anuncios (plan B de Meta,
 // LANDING-WEB.md §11 n.º 3 y n.º 4), contra el doble de Fourvenues:
@@ -229,6 +233,9 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     const html = await page.content();
     expect(html).not.toContain(LOLLIPOP);
     expect(html.toLowerCase()).not.toContain("\\ud83c\\udf6d");
+    // La descripción libre del evento (no se pinta) tampoco viaja en el HTML.
+    expect(fx.event.description.length).toBeGreaterThan(0);
+    expect(html).not.toContain(fx.event.description);
 
     // Hasta el resumen: la línea de compra tampoco lo lleva.
     await card.getByTestId("qty-plus").click();
@@ -294,5 +301,50 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
       );
     });
     expect(reached).toHaveLength(0);
+  });
+});
+
+// Lógica pura que decide en servidor (sin navegador ni mock): casos límite que
+// el doble de Fourvenues no cubre.
+test.describe("Taquilla: reglas puras de cumplimiento", () => {
+  test("saleOpensAt: solo un valid_from legible y FUTURO marca la venta como no abierta", () => {
+    const now = Date.parse("2026-10-19T10:00:00.000Z");
+    expect(saleOpensAt("2026-10-22T10:00:00.000Z", now)).toBe("2026-10-22T10:00:00.000Z");
+    // Con desfase horario explícito → se normaliza a ISO UTC.
+    expect(saleOpensAt("2026-10-22T12:00:00+02:00", now)).toBe("2026-10-22T10:00:00.000Z");
+    expect(saleOpensAt("2026-10-19T10:00:00.000Z", now)).toBeNull(); // justo ahora: ya se vende
+    expect(saleOpensAt("2026-01-01T00:00:00.000Z", now)).toBeNull();
+    for (const raw of [undefined, null, "", "mañana", 1761127200000, {}]) {
+      expect(saleOpensAt(raw, now)).toBeNull();
+    }
+  });
+
+  test("«A la venta el…» sale en hora de Madrid a ambos lados del cambio de hora del 25-oct", () => {
+    const tpl = es.checkout.opensAt;
+    const at = (iso: string) => fill(tpl, { date: formatEventDate(iso, "es"), time: formatEventTime(iso, "es") });
+    // Jueves 22-oct 12:00 en Madrid (CEST, UTC+2) = 10:00 UTC.
+    expect(at("2026-10-22T10:00:00.000Z")).toBe("A la venta el jue, 22 oct a las 12:00");
+    // Domingo 25-oct 12:00 en Madrid ya en CET (UTC+1) = 11:00 UTC.
+    expect(at("2026-10-25T11:00:00.000Z")).toBe("A la venta el dom, 25 oct a las 12:00");
+    // Medianoche de Madrid: el día es el de Madrid, no el UTC.
+    expect(at("2026-10-30T23:00:00.000Z")).toBe("A la venta el sáb, 31 oct a las 00:00");
+  });
+
+  test("ageNotice: +18 por defecto y la edad real del evento si es otra", () => {
+    const tpl = es.checkout.adultsResponsible;
+    expect(ageNotice(18, tpl)).toBe("+18 · Consumo responsable");
+    expect(ageNotice(21, tpl)).toBe("+21 · Consumo responsable");
+    expect(ageNotice(0, tpl)).toBe("+18 · Consumo responsable");
+    expect(ageNotice(Number.NaN, tpl)).toBe("+18 · Consumo responsable");
+  });
+
+  test("withoutLollipop: quita solo el 🍭 (con o sin selector) y el espacio sobrante", () => {
+    expect(withoutLollipop("🍭 ENTRADA COPA + CHUPITO")).toBe("ENTRADA COPA + CHUPITO");
+    expect(withoutLollipop("ENTRADA 🍭\u{FE0F} COPA")).toBe("ENTRADA COPA");
+    expect(withoutLollipop("2 COPAS🍭🍭")).toBe("2 COPAS");
+    expect(withoutLollipop("ENTRADA\u{1F36D}\u{FE0E}GENERAL")).toBe("ENTRADA GENERAL");
+    // Sin 🍭: intacto (incluidos otros emoji y las palabras «copa»/«chupito»).
+    expect(withoutLollipop("🎃 ENTRADA + chupito ")).toBe("🎃 ENTRADA + chupito ");
+    expect(withoutLollipop(undefined)).toBeUndefined();
   });
 });
