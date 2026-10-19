@@ -361,9 +361,12 @@ test.describe("Checkout propio (motor native)", () => {
     await expect(cards.first()).toBeVisible();
     await expect(page.locator('iframe[src*="/iframe/outxide-club"]')).toHaveCount(0);
 
-    // La tarjeta puede ser el propio <a> o contenerlo.
+    // La tarjeta puede ser el propio <a> o contenerlo. Se busca la de CALENTÓN:
+    // el doble tiene también OUTXIDIOUS (31-oct) y el orden es por fecha.
     const link = page
-      .locator('[data-testid="event-card"] a[href*="event="], a[data-testid="event-card"][href*="event="]')
+      .locator(
+        `[data-testid="event-card"] a[href*="event=${EVENT_REF}"], a[data-testid="event-card"][href*="event=${EVENT_REF}"]`,
+      )
       .first();
     const href = (await link.getAttribute("href")) ?? "";
     expect(href).toContain(`event=${EVENT_REF}`);

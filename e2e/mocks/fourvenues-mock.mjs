@@ -7,7 +7,8 @@
 // (todas las respuestas envueltas en { data, success }, como la API real) con
 // datos fijos: evento "CALENTÓN | OUTXIDE" (código AA6X), dos tarifas de
 // entrada (10 € y 15 €, 8 % de gastos), una zona VIP idéntica a la real y dos
-// tarifas de lista. El pago se simula en GET /pay/{payment_id}: "Pagar" lleva a
+// tarifas de lista; y el evento "OUTXIDIOUS | OUTXIDE" (código OX31, sáb
+// 31-oct) con sus tarifas, sin VIP ni listas (landing de Halloween). El pago se simula en GET /pay/{payment_id}: "Pagar" lleva a
 // la redirect_url recibida y "Cancelar" a la error_url. Registra todas las
 // peticiones (GET /__test/requests) y se reinicia con POST /__test/reset.
 // Ignora la clave X-Api-Key (solo anota si vino). Sin dependencias.
@@ -269,6 +270,72 @@ const DISCOUNT = {
 };
 
 // ---------------------------------------------------------------------------
+// Segundo evento: OUTXIDIOUS (Halloween, sáb 31-oct-2026 23:00–05:30 +01:00)
+// para e2e/outxidious.spec.ts. Va aparte (añadido el 19-oct-2026) para no
+// tocar los datos de CALENTÓN. Fecha FIJA: la landing reconoce el evento por
+// nombre + noche del 31. Nombres, «includes» y descripción llevan A PROPÓSITO
+// 🍭, «COPA + CHUPITO» y «2 COPAS» (como el panel real): el spec comprueba que
+// nada de eso llega al HTML de la landing. Solo dos tarifas son vendibles (12 €
+// y 15 € + 8 %): el resto existe para demostrar que NO cuentan para el
+// «desde» (privada, inicio de venta futuro, completa, no disponible y con un
+// campo obligatorio que la taquilla no sabe pedir), y todas son más baratas
+// que la vendible más barata para que un fallo del filtro se note en el precio.
+// ---------------------------------------------------------------------------
+
+const OX_EVENT_ID = "ox31hw0outxidious00000000000000a1";
+const OX_EVENT_SLUG = "outxidious--outxide-31-10-2026";
+const OX_EVENT_CODE = "OX31";
+
+const OUTXIDIOUS_EVENT = {
+  ...EVENT,
+  _id: OX_EVENT_ID,
+  name: "OUTXIDIOUS | OUTXIDE",
+  slug: OX_EVENT_SLUG,
+  code: OX_EVENT_CODE,
+  description: "🍭 Halloween con COPA + CHUPITO de bienvenida y 2 COPAS. Descripción de prueba del mock (no se pinta).",
+  display_date: "2026-10-31",
+  start_date: "2026-10-31T22:00:00.000Z",
+  end_date: "2026-11-01T04:30:00.000Z",
+  outfit: "Disfraz",
+  music_genres: ["reggaeton", "comercial"],
+};
+
+/** Tarifa del evento OUTXIDIOUS: misma forma que ticketRate() con su event_id. */
+function oxRate({ id, name, slug, price, includes, ...overrides }) {
+  return {
+    ...ticketRate({ id, name, slug, priceId: `oxprice${id.slice(7)}`, price, includes }),
+    event_id: OX_EVENT_ID,
+    ...overrides,
+  };
+}
+
+const IN_A_WEEK = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+
+const OUTXIDIOUS_TICKET_RATES = [
+  oxRate({ id: "oxrate0anticipada00000000000000001", name: "🍭 ANTICIPADA COPA + CHUPITO", slug: "ox-anticipada", price: 12, includes: "1 copa + 1 chupito 🍭" }),
+  oxRate({ id: "oxrate0general000000000000000000001", name: "GENERAL 2 COPAS", slug: "ox-general", price: 15, includes: "2 copas" }),
+  oxRate({ id: "oxrate0rrpp00000000000000000000001", name: "RRPP INVITACION PRIVADA", slug: "ox-rrpp", price: 5, includes: "1 copa", type: "private" }),
+  oxRate({ id: "oxrate0preventa0000000000000000001", name: "PREVENTA FUTURA", slug: "ox-preventa", price: 8, includes: "1 copa", valid_from: IN_A_WEEK }),
+  oxRate({ id: "oxrate0completa0000000000000000001", name: "TARIFA COMPLETA", slug: "ox-completa", price: 6, includes: "1 copa", complete: true }),
+  oxRate({ id: "oxrate0nodisponible000000000000001", name: "TARIFA NO DISPONIBLE", slug: "ox-nodisponible", price: 7, includes: "1 copa", available: false }),
+  oxRate({
+    id: "oxrate0campoextra00000000000000001",
+    name: "TARIFA CON CAMPO DESCONOCIDO",
+    slug: "ox-campo",
+    price: 9,
+    includes: "1 copa",
+    fields: [
+      { type: "text", required: true, label: "Nombre y apellidos", slug: "full_name" },
+      { type: "text", required: true, label: "Instagram", slug: "instagram_user" },
+    ],
+  }),
+];
+
+// Una sola lista de tarifas (las rutas filtran por event_id / buscan por _id).
+TICKET_RATES.push(...OUTXIDIOUS_TICKET_RATES);
+const ALL_EVENTS = [EVENT, OUTXIDIOUS_EVENT];
+
+// ---------------------------------------------------------------------------
 // Estado en memoria (se limpia con POST /__test/reset)
 // ---------------------------------------------------------------------------
 
@@ -443,7 +510,7 @@ function checkoutTickets(req, body, res) {
     status: "pending",
     rate_id: rate._id,
     organization_id: ORG_ID,
-    event_id: EVENT_ID,
+    event_id: rate.event_id,
     resource_type: "ticket",
     resource_ids: ticketIds.map((t) => t._id),
     total: { amount: totalAmount, fees },
@@ -655,15 +722,16 @@ async function handle(req, res) {
   }
 
   // --- Eventos ---
-  if (method === "GET" && pathname === "/events") return okData(res, [EVENT]);
+  if (method === "GET" && pathname === "/events") return okData(res, ALL_EVENTS);
   m = /^\/events\/([^/]+)$/.exec(pathname);
   if (m && method === "GET") {
-    return decodeURIComponent(m[1]) === EVENT_ID ? okData(res, EVENT) : fail(res, 404, "Event not found");
+    const event = ALL_EVENTS.find((e) => e._id === decodeURIComponent(m[1]));
+    return event ? okData(res, event) : fail(res, 404, "Event not found");
   }
 
   // --- Entradas ---
   if (method === "GET" && pathname === "/ticket-rates") {
-    return okData(res, url.searchParams.get("event_id") === EVENT_ID ? TICKET_RATES : []);
+    return okData(res, TICKET_RATES.filter((r) => r.event_id === url.searchParams.get("event_id")));
   }
   m = /^\/ticket-rates\/([^/]+)\/pricing-info$/.exec(pathname);
   if (m && method === "GET") {
