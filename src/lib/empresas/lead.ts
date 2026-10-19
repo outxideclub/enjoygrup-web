@@ -90,13 +90,17 @@ export function addDaysIso(iso: string, days: number): string {
  * input date); en servidor se pasa "Europe/Madrid" (la fecha del local).
  */
 export function todayIso(timeZone?: string, now: Date = new Date()): string {
-  // en-CA formatea como YYYY-MM-DD.
-  return new Intl.DateTimeFormat("en-CA", {
+  // Por partes y no con `format()` de en-CA: el patrón de fecha de un locale
+  // puede cambiar con la versión de ICU del navegador (ya pasó con en-CA) y un
+  // `min` mal formado dejaría el input date sin límite o rechazaría todo.
+  const parts = new Intl.DateTimeFormat("en-US", {
     timeZone,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(now);
+  }).formatToParts(now);
+  const get = (type: Intl.DateTimeFormatPartTypes) => parts.find((p) => p.type === type)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
 function codePoints(s: string): number {

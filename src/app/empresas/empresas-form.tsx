@@ -114,8 +114,10 @@ function whatsappHref(number: string): string | null {
   return digits ? `https://wa.me/${digits}` : null;
 }
 
+// Foco: borde blanco al 70 % + anillo al 40 % (≥ 3:1 sobre el fondo oscuro,
+// WCAG 2.4.11/1.4.11). Con borde 40 % y anillo 20 % apenas se distinguía.
 const INPUT =
-  "w-full min-w-0 rounded-xl border bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/40 focus:ring-2 focus:ring-white/20 disabled:opacity-60 [color-scheme:dark]";
+  "w-full min-w-0 rounded-xl border bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/70 focus:ring-2 focus:ring-white/40 disabled:opacity-60 [color-scheme:dark]";
 
 export function EmpresasForm() {
   const t = useT();

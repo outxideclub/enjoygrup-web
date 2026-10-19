@@ -146,31 +146,31 @@ const AUTOREPLY: Record<
   es: {
     subject: "Hemos recibido vuestra solicitud — Grupo Enjoy",
     body: (name, company, date, people) =>
-      `Hola ${name}:<br><br>Hemos recibido la solicitud de ${company} para el ${date} (${people} personas). Os preparamos una propuesta a medida y os escribimos lo antes posible.<br><br>Gracias por pensar en Grupo Enjoy.`,
+      `Hola ${name}:<br><br>Hemos recibido la solicitud de ${company} para el ${date} (${people} ${people === 1 ? "persona" : "personas"}). Os preparamos una propuesta a medida y os escribimos lo antes posible.<br><br>Gracias por pensar en Grupo Enjoy.`,
     adult: "Solo mayores de 18 &middot; Consumo responsable",
   },
   en: {
     subject: "We've received your request — Grupo Enjoy",
     body: (name, company, date, people) =>
-      `Hi ${name},<br><br>We've received the request from ${company} for ${date} (${people} people). We'll prepare a tailored proposal and get back to you as soon as possible.<br><br>Thank you for thinking of Grupo Enjoy.`,
+      `Hi ${name},<br><br>We've received the request from ${company} for ${date} (${people} ${people === 1 ? "person" : "people"}). We'll prepare a tailored proposal and get back to you as soon as possible.<br><br>Thank you for thinking of Grupo Enjoy.`,
     adult: "Over-18s only &middot; Drink responsibly",
   },
   de: {
     subject: "Wir haben eure Anfrage erhalten — Grupo Enjoy",
     body: (name, company, date, people) =>
-      `Hallo ${name},<br><br>wir haben die Anfrage von ${company} f&#252;r den ${date} (${people} Personen) erhalten. Wir erstellen euch ein individuelles Angebot und melden uns so schnell wie m&#246;glich.<br><br>Danke, dass ihr an Grupo Enjoy denkt.`,
+      `Hallo ${name},<br><br>wir haben die Anfrage von ${company} f&#252;r den ${date} (${people} ${people === 1 ? "Person" : "Personen"}) erhalten. Wir erstellen euch ein individuelles Angebot und melden uns so schnell wie m&#246;glich.<br><br>Danke, dass ihr an Grupo Enjoy denkt.`,
     adult: "Nur ab 18 Jahren &middot; Verantwortungsvoller Konsum",
   },
   fr: {
     subject: "Nous avons bien reçu votre demande — Grupo Enjoy",
     body: (name, company, date, people) =>
-      `Bonjour ${name},<br><br>Nous avons bien re&#231;u la demande de ${company} pour le ${date} (${people} personnes). Nous vous pr&#233;parons une proposition sur mesure et nous vous r&#233;pondrons dans les plus brefs d&#233;lais.<br><br>Merci d'avoir pens&#233; &#224; Grupo Enjoy.`,
+      `Bonjour ${name},<br><br>Nous avons bien re&#231;u la demande de ${company} pour le ${date} (${people} ${people === 1 ? "personne" : "personnes"}). Nous vous pr&#233;parons une proposition sur mesure et nous vous r&#233;pondrons dans les plus brefs d&#233;lais.<br><br>Merci d'avoir pens&#233; &#224; Grupo Enjoy.`,
     adult: "R&#233;serv&#233; aux plus de 18 ans &middot; Consommation responsable",
   },
   it: {
     subject: "Abbiamo ricevuto la vostra richiesta — Grupo Enjoy",
     body: (name, company, date, people) =>
-      `Ciao ${name},<br><br>abbiamo ricevuto la richiesta di ${company} per il ${date} (${people} persone). Vi prepariamo una proposta su misura e vi scriveremo il prima possibile.<br><br>Grazie per aver pensato a Grupo Enjoy.`,
+      `Ciao ${name},<br><br>abbiamo ricevuto la richiesta di ${company} per il ${date} (${people} ${people === 1 ? "persona" : "persone"}). Vi prepariamo una proposta su misura e vi scriveremo il prima possibile.<br><br>Grazie per aver pensato a Grupo Enjoy.`,
     adult: "Solo maggiori di 18 anni &middot; Consumo responsabile",
   },
 };
@@ -262,7 +262,7 @@ export async function POST(request: Request) {
 
     // Interno, siempre en español. Asunto con empresa, fecha y personas; sin
     // saltos de línea (sanitizeText ya los quitó de la empresa).
-    const subject = `Celebración de empresa: ${lead.company} · ${dateEs(lead.date)} · ${lead.people} personas`;
+    const subject = `Celebración de empresa: ${lead.company} · ${dateEs(lead.date)} · ${lead.people} ${lead.people === 1 ? "persona" : "personas"}`;
     const { error: notifyError } = await resend.emails.send({
       from: "Web Grupo Enjoy <web@grupoenjoy.es>",
       to: leadsRecipients(),

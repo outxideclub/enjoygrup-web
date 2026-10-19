@@ -33,10 +33,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Grupo Enjoy",
       images: [{ url: og.src, alt: og.alt }],
     },
+    // `twitter` sustituye entero al del layout raíz: sin `images` la tarjeta
+    // grande saldría sin foto.
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [og.src],
     },
   };
 }
