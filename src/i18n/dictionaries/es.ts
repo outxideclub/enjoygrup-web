@@ -131,7 +131,7 @@ export const es = {
     heroEyebrow: "Grupo Enjoy · Port d'Alcúdia",
     h1: "Celebraciones de empresa en Port d'Alcúdia",
     subtitle: "Vuestra empresa come o cena donde quiera y la celebración sigue con nosotros: por la tarde en Enjoy Terrace y por la noche en OUTXIDE.",
-    occasions: "Atendemos solicitudes para fiestas de fin de temporada y para celebraciones de Navidad.",
+    occasions: "Atendemos solicitudes para las fiestas de fin de temporada de las plantillas y para las celebraciones de Navidad, que ya se pueden reservar.",
     cta: "Pedir presupuesto",
     adultNotice: "Solo mayores de 18 · Consumo responsable",
     heroImageAlt: "Fachada de noche en Port d'Alcúdia con los rótulos de OUTXIDE Club y Enjoy, uno junto al otro",
