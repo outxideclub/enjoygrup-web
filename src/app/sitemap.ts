@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "../../data/blog/posts";
 import { locales, localizedPath } from "@/i18n/config";
 import { effectivePhase } from "@/lib/mundial/event-config";
+import { OUTXIDIOUS_CONTENT, outxidiousSitemapPaths } from "@/lib/outxidious/content";
 
 // Con el i18n por rutas cada idioma tiene URL propia (/en/..., /de/...), así que
 // el sitemap anuncia los alternates hreflang de cada página. Google indexa las
@@ -125,6 +126,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(effectivePhase(Date.now()) !== "off"
       ? [entry("/mundial", LAST_UPDATED.mundial, "monthly", 0.4)]
       : []),
+    // Landing de OUTXIDIOUS (Halloween 2026): solo con el contenido APROBADO
+    // por el dueño (src/lib/outxidious/content.ts). Hasta entonces es un
+    // marcador neutro con noindex y anunciarla aquí contradiría esa directiva.
+    ...outxidiousSitemapPaths(OUTXIDIOUS_CONTENT).map((path) => entry(path, new Date("2026-10-19"), "daily", 0.8)),
     ...blogPosts,
   ];
 }

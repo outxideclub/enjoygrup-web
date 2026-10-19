@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { OutxideJsonLd, JsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
-import { getUpcomingOutxideEvents } from "@/lib/events.server";
-import { buildEventsItemList } from "@/lib/event-jsonld";
 import { AgeVerification } from "@/components/legal/age-verification";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
@@ -37,26 +34,21 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function OutxideLayout({
+// El layout solo aporta el tema y el muro +18 (que heredan TODAS las páginas
+// del club, también la landing de OUTXIDIOUS: no se degrada). Los datos
+// estructurados del club —ItemList con TODOS los eventos, NightClub, vídeo y
+// breadcrumb— viven en page.tsx desde el 19-oct-2026: heredados aquí, la landing
+// de un anuncio llevaría en su HTML nombres de otras noches y la descripción
+// del club («entradas oficiales»), y debe hablar solo de su evento.
+export default function OutxideLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = await getServerLocale();
-  const t = getServerT(locale);
-  // Eventos REALES (FourVenues) para el markup: nada de eventos sintéticos.
-  const events = await getUpcomingOutxideEvents();
   return (
     <div className="theme-outxide">
       <AgeVerification />
       {children}
-      <BreadcrumbJsonLd items={[
-        { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
-        { name: "Outxide Club", url: `https://www.grupoenjoy.es${localizedPath("/outxide", locale)}` },
-      ]} />
-      <OutxideJsonLd description={t("meta.outxideDescription")} locale={locale} />
-      {events.length > 0 && <JsonLd data={buildEventsItemList(events, locale)} />}
-      <VenueVideoJsonLd venue="outxide" />
     </div>
   );
 }

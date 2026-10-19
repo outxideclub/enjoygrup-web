@@ -17,7 +17,10 @@ import { CampaignLinkTracker } from "@/components/analytics/campaign-link-tracke
 import { LocaleProvider } from "@/i18n/context";
 import MotionConfigProvider from "@/components/ui/motion-config-provider";
 import { getServerLocale, getServerT, getDictionary } from "@/i18n/server";
+import { dictionaryScopeFor, pickDictionary } from "@/i18n/scoped-dictionary";
+import { ScopedNavigationGuard } from "@/i18n/scoped-navigation-guard";
 import { HreflangTags } from "@/components/seo/hreflang-tags";
+import { headers } from "next/headers";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -87,6 +90,11 @@ export default async function RootLayout({
 }>) {
   const locale = await getServerLocale();
   const t = getServerT(locale);
+  // Páginas de destino de anuncios: diccionario recortado (ver
+  // src/i18n/scoped-dictionary.ts). x-base-path (ruta sin prefijo de idioma) lo
+  // fija src/proxy.ts. En el resto de rutas no cambia nada: diccionario entero.
+  const scope = dictionaryScopeFor((await headers()).get("x-base-path"));
+  const dictionary = scope ? pickDictionary(getDictionary(locale), scope) : getDictionary(locale);
 
   return (
     <html lang={locale} className={`${poppins.variable} ${oswald.variable}`} style={{ scrollBehavior: "smooth" }} suppressHydrationWarning>
@@ -115,7 +123,8 @@ export default async function RootLayout({
           {t("nav.skipToContent")}
         </a>
         <MotionConfigProvider>
-          <LocaleProvider initialLocale={locale} dictionary={getDictionary(locale)}>
+          <LocaleProvider initialLocale={locale} dictionary={dictionary}>
+            {scope && <ScopedNavigationGuard />}
             {children}
             <CookieBanner />
             <AnalyticsScripts />

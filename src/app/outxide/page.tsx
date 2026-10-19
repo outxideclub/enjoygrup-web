@@ -1,12 +1,14 @@
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
+import { buildEventsItemList } from "@/lib/event-jsonld";
+import { OutxideJsonLd, JsonLd, BreadcrumbJsonLd, VenueVideoJsonLd } from "@/components/seo/json-ld";
 import { OutxideClient, type GalleryImage } from "./outxide-client";
 import outxideGalleryEs from "../../../data/gallery/outxide.json";
 import outxideGalleryEn from "../../../data/gallery/outxide.en.json";
 import outxideGalleryDe from "../../../data/gallery/outxide.de.json";
 import outxideGalleryFr from "../../../data/gallery/outxide.fr.json";
 import outxideGalleryIt from "../../../data/gallery/outxide.it.json";
-import { getServerLocale } from "@/i18n/server";
-import type { Locale } from "@/i18n/config";
+import { getServerLocale, getServerT } from "@/i18n/server";
+import { localizedPath, type Locale } from "@/i18n/config";
 
 const galleries: Record<Locale, typeof outxideGalleryEs> = {
   es: outxideGalleryEs, en: outxideGalleryEn, de: outxideGalleryDe, fr: outxideGalleryFr, it: outxideGalleryIt,
@@ -19,11 +21,23 @@ export const revalidate = 60;
 
 export default async function OutxidePage() {
   const locale = await getServerLocale();
+  const t = getServerT(locale);
   const events = await getUpcomingOutxideEvents();
   return (
-    <OutxideClient
-      initialEvents={events}
-      galleryImages={(galleries[locale] ?? galleries.es) as unknown as GalleryImage[]}
-    />
+    <>
+      <OutxideClient
+        initialEvents={events}
+        galleryImages={(galleries[locale] ?? galleries.es) as unknown as GalleryImage[]}
+      />
+      {/* Datos estructurados del club (antes en layout.tsx: ver allí por qué).
+          Eventos REALES de FourVenues para el markup: nada de eventos sintéticos. */}
+      <BreadcrumbJsonLd items={[
+        { name: "Grupo Enjoy", url: "https://www.grupoenjoy.es" },
+        { name: "Outxide Club", url: `https://www.grupoenjoy.es${localizedPath("/outxide", locale)}` },
+      ]} />
+      <OutxideJsonLd description={t("meta.outxideDescription")} locale={locale} />
+      {events.length > 0 && <JsonLd data={buildEventsItemList(events, locale)} />}
+      <VenueVideoJsonLd venue="outxide" />
+    </>
   );
 }
