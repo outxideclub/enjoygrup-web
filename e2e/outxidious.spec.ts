@@ -28,6 +28,7 @@ import {
   TODAY_FROM,
   TODAY_TO,
   findOutxidiousEvent,
+  isSalesClosedToday,
   outxideSchedule,
   priceFromWithFees,
   resolvePhase,
@@ -123,7 +124,9 @@ const FORBIDDEN: [string, RegExp][] = [
   ["2 copas / combinado", /\b2 copas\b|\bcombinados?\b/],
   // Nada de conducción ni transporte para volver (LGCA 123.3.b; a las 05:30, sin confirmar).
   ["taxi", /\btaxis?\b/],
-  ["no conduzcas / coche", /no conduzcas|\bconducir\b|\bcoches?\b|don'?t drive|drink and drive/],
+  // «permiso de conducir» como DOCUMENTO de identidad sí (el que admite
+  // /legal/condiciones-entrada, revisión F8): no habla de conducir tras beber.
+  ["no conduzcas / coche", /no conduzcas|(?<!permiso de )\bconducir\b|\bcoches?\b|don'?t drive|drink and drive/],
   ["transporte público / TIB / lanzadera", /transporte publico|public transport|\btib\b|lanzadera|shuttle/],
   // Promesas sin confirmar.
   ["humo / line-up / zona VIP / actuaciones", /\bhumo\b|line[- ]?up|zona vip|vip area|\bactuacion(es)?\b/],
@@ -186,21 +189,17 @@ function allStrings(obj: unknown): string[] {
 }
 
 /**
- * La edad del tardeo NO está confirmada: cada «18» de un texto tiene que ir
- * pegado a OUTXIDE, es decir, el último local nombrado antes de él en el mismo
- * texto es OUTXIDE (no el tardeo ni Enjoy Terrace, y no suelto sin local).
- * Devuelve los textos que lo incumplen. La placa legal va aparte.
+ * Edad: +18 en las DOS partes, tardeo incluido (resuelto por Sergi el 20-oct
+ * por la tarde: COPYS.md v1.7, paquete v0.4; revisión F4). Hasta entonces la
+ * edad del tardeo no estaba confirmada y cada «18» tenía que ir pegado a
+ * OUTXIDE. Ahora la regla es la contraria: ningún texto da otra edad ni admite
+ * menores (ni «acompañados», ni «todas las edades»). Devuelve los que la
+ * incumplen.
  */
-const VENUE_RE = /outxide|tardeo|early party|enjoy terrace|debut de soiree|pre-serata/g;
-function ageNotOnOutxide(texts: string[]): string[] {
-  return texts.filter((t) => {
-    const n = normalize(t);
-    for (const m of n.matchAll(/18/g)) {
-      const last = [...n.slice(0, m.index).matchAll(VENUE_RE)].at(-1)?.[0];
-      if (last !== "outxide") return true;
-    }
-    return false;
-  });
+const WRONG_AGE_RE =
+  /\b(?:1[0-7]|2[01])\s*(?:\+|anos|years|jahre|ans|anni)|\bmenores\b|acompanad|\bminors?\b|\ball ages\b|todas las edades|\bkinder\b|\bmineurs?\b|\bminorenni\b|\bninos\b|\bchildren\b/;
+function ageWrong(texts: string[]): string[] {
+  return texts.filter((t) => WRONG_AGE_RE.test(normalize(t)));
 }
 
 /** Marcas de trabajo que no pueden publicarse: corchetes y [CONFIRMAR]/[CONFIRM]. */
@@ -383,7 +382,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
       expect(r.sections.map((x) => x.tone)).toEqual(["tardeo", "noche", undefined, undefined]);
       expect(r.sections[0].time).toBe("{tardeoStart}–{tardeoEnd}");
       expect(r.sections[1].time).toBe("{start}–{end}");
-      expect(r.faq.length, loc).toBe(6);
+      expect(r.faq.length, loc).toBe(7);
     }
     expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").claim).toBe("Algo cruzó contigo.");
     expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "en").claim).toBe("Something crossed over with you.");
@@ -397,8 +396,16 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
       const own = OUTXIDIOUS_CONTENT.locales[loc]!;
       return [own.claim ?? "", own.claimToday ?? "", ...allStrings(own.sections), ...allStrings(own.faq)];
     });
-    // Ninguna frase afirma la edad del tardeo (sin confirmar).
-    expect(ageNotOnOutxide(copy)).toEqual([]);
+    // Edad: +18 en las dos partes; ninguna frase da otra ni admite menores…
+    expect(ageWrong(copy)).toEqual([]);
+    // …y el tardeo lo dice en su bloque y en su pregunta (ES y EN, F4).
+    for (const loc of ["es", "en"] as const) {
+      const own = OUTXIDIOUS_CONTENT.locales[loc]!;
+      expect(own.sections![0].text, loc).toMatch(/18/);
+      expect(own.faq!.filter((f) => /tardeo|early party/i.test(f.q) && /18/.test(f.a)).length, loc).toBeGreaterThan(0);
+    }
+    // Documentos: la lista de /legal/condiciones-entrada (con NIE), F8.
+    expect(OUTXIDIOUS_CONTENT.locales.es!.faq![0].a).toContain("DNI, NIE, pasaporte o permiso de conducir");
     // Las horas de las dos partes van con huecos (Fourvenues manda), nunca a mano;
     // las 00:00 son la hora del «se rompe», no un dato del panel.
     expect(copy.filter((x) => /\b(20|23):00\b|\b05:30\b/.test(x))).toEqual([]);
@@ -422,11 +429,11 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     for (const [where, strings] of sources) {
       expect(strings.filter((x) => WORK_MARKS.test(x)), where).toEqual([]);
     }
-    // Y en el diccionario, la edad va siempre pegada a OUTXIDE (en ningún idioma, al tardeo).
+    // Y en el diccionario, ninguna edad que no sea +18 (en ningún idioma).
     for (const loc of LOCALES) {
       const { legalPlate, ...rest } = DICTS[loc].outxidious;
       expect(legalPlate).toMatch(/18/);
-      expect(ageNotOnOutxide(allStrings(rest)), loc).toEqual([]);
+      expect(ageWrong(allStrings(rest)), loc).toEqual([]);
       expectCleanHtml(JSON.stringify(DICTS[loc].outxidious), `${loc}.ts · outxidious`);
     }
     // Copy creativo del diccionario (§6.3b) solo en ES y EN: DE/FR/IT, vacío.
@@ -606,9 +613,15 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(JSON.stringify(ld).match(/"@type":"Event"/g)).toHaveLength(1);
     expect(ld.description).toContain("tardeo de acceso libre en Enjoy Terrace");
     expect(ld.description).toContain("de 20:00 a 23:00");
-    // La edad va pegada a OUTXIDE, nunca a la frase del tardeo.
-    const tardeoSentence = ld.description.slice(ld.description.indexOf("Antes"));
-    expect(tardeoSentence).not.toMatch(/18/);
+    // OUTXIDIOUS es de los dos sitios, nunca «el Halloween de OUTXIDE» (F10).
+    expect(ld.description).toMatch(/^OUTXIDIOUS, el Halloween 2026 de Enjoy Terrace y OUTXIDE/);
+    expect(ld.description).not.toContain("en OUTXIDE Club");
+    expect(ld.description).toMatch(/Solo mayores de 18 años\.$/);
+    expect((ld.organizer as { name: string }[]).map((o) => o.name)).toEqual(["Enjoy Terrace", "Outxide Club"]);
+    for (const loc of LOCALES) {
+      expect(DICTS[loc].outxidious.jsonLdDescription, loc).toMatch(/^OUTXIDIOUS, /);
+      expect(normalize(DICTS[loc].outxidious.jsonLdDescription), loc).toContain("enjoy terrace");
+    }
   });
 
   test("tarifas vendibles y precio «desde» con gastos = cálculo a mano", async ({ request }) => {
@@ -625,7 +638,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     const oct19 = Date.parse("2026-10-19T12:00:00+02:00");
     const sat = TODAY_FROM + 60 * 60 * 1000;
     const after = AFTER_FROM;
-    const r = (now: number, canSell: boolean, envPhase: "auto" | "pronto" | "despues" = "auto", queryPhase: "pronto" | "venta" | "hoy" | "despues" | null = null) =>
+    const r = (now: number, canSell: boolean, envPhase: "auto" | "pronto" | "despues" = "auto", queryPhase: "pronto" | "venta" | "hoy" | "despues" | "cerrada" | null = null) =>
       resolvePhase({ now, canSell, envPhase, queryPhase });
     expect(r(oct19, true)).toEqual({ phase: "venta", today: false });
     expect(r(oct19, false)).toEqual({ phase: "pronto", today: false });
@@ -638,6 +651,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(r(oct19, false, "auto", "venta")).toEqual({ phase: "pronto", today: false });
     expect(r(oct19, false, "auto", "hoy")).toEqual({ phase: "pronto", today: true });
     expect(r(after, true, "auto", "venta")).toEqual({ phase: "venta", today: false });
+    expect(r(oct19, true, "auto", "cerrada")).toEqual({ phase: "pronto", today: true });
     // «Hoy» se apaga a las 00:00 del domingo 1 (desde ahí «hoy» ya es domingo);
     // la venta sigue hasta el final de la noche.
     expect(TODAY_TO - TODAY_FROM).toBe(24 * 60 * 60 * 1000);
@@ -645,6 +659,20 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(r(TODAY_TO, true)).toEqual({ phase: "venta", today: false });
     expect(r(TODAY_TO, false)).toEqual({ phase: "pronto", today: false });
     expect(r(AFTER_FROM - 60_000, true)).toEqual({ phase: "venta", today: false });
+
+    // Sábado sin tarifa vendible por el curso normal (tramo online acabado a
+    // las 18:00): «la noche sigue» en vez de «próximos eventos» (F7). Nunca con
+    // un «pronto» forzado (palanca de emergencia, p. ej. un aplazamiento).
+    const closed = (now: number, canSell: boolean, envPhase: "auto" | "pronto" | "despues" = "auto", queryPhase: "pronto" | "venta" | "hoy" | "despues" | "cerrada" | null = null) =>
+      isSalesClosedToday(r(now, canSell, envPhase, queryPhase), envPhase, queryPhase);
+    expect(closed(sat, false)).toBe(true);
+    expect(closed(sat, true)).toBe(false);
+    expect(closed(oct19, false)).toBe(false);
+    expect(closed(sat, false, "pronto")).toBe(false);
+    expect(closed(sat, true, "pronto")).toBe(false);
+    expect(closed(sat, false, "auto", "pronto")).toBe(false);
+    expect(closed(oct19, true, "auto", "cerrada")).toBe(true);
+    expect(closed(TODAY_TO, false)).toBe(false);
   });
 
   test("diccionario recortado SOLO en la landing", () => {
@@ -726,7 +754,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(sections.nth(3).locator("h2")).toHaveText("Llega antes de las 00:00");
     const faq = page.getByTestId("outxidious-faq");
     await expect(faq.locator("h2")).toHaveText("Preguntas frecuentes");
-    await expect(faq.locator("h3")).toHaveCount(6);
+    await expect(faq.locator("h3")).toHaveCount(7);
     await expect(faq).toContainText("OUTXIDE abre a las 23:00 y cierra a las 05:30.");
     await expect(page.locator("footer")).toContainText("OUTXIDIOUS es un evento de OUTXIDE Club y Enjoy Terrace.");
   });
@@ -748,12 +776,12 @@ test.describe("OUTXIDIOUS · landing", () => {
     const parts = (await page.getByTestId("outxidious-parts").boundingBox())!;
     const price = (await page.getByTestId("outxidious-price").boundingBox())!;
     expect(price.y).toBeGreaterThan(parts.y + parts.height - 1);
-    // Ningún texto afirma la edad del tardeo: el +18 es la placa de la página.
+    // La línea del tardeo en la primera pantalla: solo hora y acceso libre.
     await expect(tardeo).not.toContainText("18");
-    // El bloque del tardeo tampoco: ni edad, ni precio, ni botón, ni «entrada».
+    // El bloque del tardeo: acceso libre y +18 (F4), sin precio, botón ni «entrada».
     const block = page.getByTestId("outxidious-section").first();
     await expect(block).toContainText("acceso libre");
-    await expect(block).not.toContainText("18");
+    await expect(block).toContainText("Solo mayores de 18: trae tu documento.");
     await expect(block).not.toContainText("€");
     await expect(block).not.toContainText(/entrada/i);
     await expect(block.locator("a, button, form, input")).toHaveCount(0);
@@ -930,6 +958,36 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(form).toContainText(es.agenda.alertsSuccess);
   });
 
+  test("sábado sin venta online (?phase=cerrada): la noche sigue en pie, sin precio, puerta ni formulario de avisos (F7)", async ({ page }) => {
+    for (const loc of LOCALES) {
+      await page.goto(localePath(loc, "?phase=cerrada"));
+      await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-phase", "pronto");
+      const soon = page.getByTestId("outxidious-soon");
+      await expect(soon).toHaveAttribute("data-closed-today", "true");
+      const expected = DICTS[loc].outxidious.closedTodayText
+        .replace("{start}", "23:00")
+        .replace("{tardeoStart}", "20:00")
+        .replace("{tardeoEnd}", "23:00");
+      await expect(soon.locator("p")).toHaveText(expected);
+      await expect(page.getByTestId("outxidious-today")).toBeVisible();
+      await expect(page.getByTestId("outxidious-alerts")).toHaveCount(0);
+      await expect(page.locator("form")).toHaveCount(0);
+      await expect(buyLinks(page)).toHaveCount(0);
+      await expect(page.getByTestId("outxidious-price")).toHaveCount(0);
+      expect(normalize(await soon.innerText()), loc).not.toMatch(/€|\{|puerta|door|tur\b|porte|porta/);
+    }
+  });
+
+  test("DE, FR e IT en «pronto»: sin «bald / bientôt / a breve» y sin «pre-serata» (F6)", async ({ page }) => {
+    for (const loc of ["de", "fr", "it"] as const) {
+      await page.goto(localePath(loc, "?phase=pronto"));
+      const soon = page.getByTestId("outxidious-soon");
+      await expect(soon.locator("h2")).toHaveText(DICTS[loc].outxidious.soonTitle);
+      expect(normalize(await soon.innerText()), loc).not.toMatch(/\bbald\b|in kurze|bientot|prochainement|a breve/);
+      expect(normalize(await page.content()), loc).not.toContain("pre-serata");
+    }
+  });
+
   test("hoy (?phase=hoy): línea «Hoy» sin horas, claim del día con la hora de Fourvenues y el mismo botón", async ({ page }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(`${OUTXIDIOUS_PATH}?phase=hoy`);
@@ -1054,7 +1112,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     }
   });
 
-  test("la edad del tardeo no se afirma en ningún texto de la página (el +18 va pegado a OUTXIDE)", async ({ page }) => {
+  test("edad: ningún texto de la página da otra que +18 ni admite menores (tardeo incluido)", async ({ page }) => {
     for (const loc of LOCALES) {
       for (const q of CAMPAIGN_OVER ? ["?phase=pronto"] : ["", "?phase=hoy", "?phase=pronto"]) {
         const path = localePath(loc, q);
@@ -1068,7 +1126,7 @@ test.describe("OUTXIDIOUS · landing", () => {
           (await page.locator('meta[property="og:description"]').getAttribute("content")) ?? "",
           ...(await page.locator('script[type="application/ld+json"]').allTextContents()).map((j) => JSON.parse(j).description ?? ""),
         ];
-        expect(ageNotOnOutxide([...lines, ...meta]), path).toEqual([]);
+        expect(ageWrong([...lines, ...meta]), path).toEqual([]);
       }
     }
   });
@@ -1113,7 +1171,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     expect(ld[0].match(/"@type":"Event"/g)).toHaveLength(1);
     expect(ld[0].match(/"@type":"Offer"/g)).toHaveLength(1);
     expect(data.description).toBe(
-      "Halloween 2026 en OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): sábado 31 de octubre de 23:00 a 05:30, con entrada y solo para mayores de 18 años. Antes, de 20:00 a 23:00, tardeo de acceso libre en Enjoy Terrace.",
+      "OUTXIDIOUS, el Halloween 2026 de Enjoy Terrace y OUTXIDE (Av. Tucán 1, Port d'Alcúdia), sábado 31 de octubre: OUTXIDE de 23:00 a 05:30, con entrada. Antes, de 20:00 a 23:00, tardeo de acceso libre en Enjoy Terrace. Solo mayores de 18 años.",
     );
     expect(data.offers).toMatchObject({
       price: "12.96",

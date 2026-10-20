@@ -203,11 +203,15 @@ export function priceFromWithFees(rates: FVTicketRate[]): number | null {
 export type LandingPhase = "venta" | "pronto" | "despues";
 /** Palanca OUTXIDIOUS_PHASE de Vercel para emergencias (aplazamiento, cortar la venta…). */
 export type EnvPhase = "auto" | "pronto" | "despues";
-/** Override de pruebas por ?phase= (nunca en producción). */
-export type QueryPhase = "pronto" | "venta" | "hoy" | "despues";
+/**
+ * Override de pruebas por ?phase= (nunca en producción). «cerrada» = el sábado
+ * 31 sin tarifa vendible (venta online terminada a las 18:00): el doble de
+ * pruebas siempre vende, así que sin este caso no se podría ver esa pantalla.
+ */
+export type QueryPhase = "pronto" | "venta" | "hoy" | "despues" | "cerrada";
 
 const ENV_PHASES: ReadonlySet<string> = new Set<EnvPhase>(["auto", "pronto", "despues"]);
-const QUERY_PHASES: ReadonlySet<string> = new Set<QueryPhase>(["pronto", "venta", "hoy", "despues"]);
+const QUERY_PHASES: ReadonlySet<string> = new Set<QueryPhase>(["pronto", "venta", "hoy", "despues", "cerrada"]);
 
 export function asEnvPhase(value: string | undefined): EnvPhase {
   const v = value?.trim().toLowerCase();
@@ -248,6 +252,8 @@ export function resolvePhase({ now, canSell, envPhase, queryPhase }: PhaseInput)
   switch (queryPhase) {
     case "despues":
       return { phase: "despues", today: false };
+    case "cerrada":
+      return { phase: "pronto", today: true };
     case "pronto":
       return { phase: "pronto", today: autoToday };
     case "hoy":
@@ -261,4 +267,23 @@ export function resolvePhase({ now, canSell, envPhase, queryPhase }: PhaseInput)
 
   if (now >= AFTER_FROM) return { phase: "despues", today: false };
   return { phase: sellOrSoon, today: autoToday };
+}
+
+/**
+ * Sábado 31 sin tarifa vendible por el curso NORMAL de la venta (el último
+ * tramo online acaba a las 18:00, todo completo o Fourvenues sin precio): la
+ * página no dice «próximos eventos» ni pide el email, sino que la venta online
+ * no está abierta y que OUTXIDE abre hoy (revisión F7). Nunca con un «pronto»
+ * forzado (OUTXIDIOUS_PHASE=pronto es la palanca de emergencia, p. ej. un
+ * aplazamiento: decir «abre hoy» sería falso) ni con ?phase=pronto.
+ */
+export function isSalesClosedToday(
+  result: PhaseResult,
+  envPhase: EnvPhase,
+  queryPhase: QueryPhase | null,
+): boolean {
+  if (result.phase !== "pronto" || !result.today) return false;
+  if (queryPhase === "cerrada") return true;
+  if (queryPhase === "pronto") return false;
+  return envPhase === "auto";
 }

@@ -20,8 +20,11 @@
 //   (ni ficha ni entrada): sería un nodo Event escrito a mano.
 // - /outxide y /agenda publican este mismo evento de Fourvenues como UN Event
 //   en Outxide Club dentro de su ItemList; un segundo nodo Event (gratis, en
-//   Enjoy Terrace) para la misma noche abriría una contradicción entre páginas,
-//   y la edad del tardeo no está confirmada (no habría typicalAgeRange veraz).
+//   Enjoy Terrace) para la misma noche abriría una contradicción entre páginas.
+// OUTXIDIOUS es de los DOS sitios (COPYS.md §0.3: «nunca el Halloween de
+// OUTXIDE»): la descripción lo presenta como el Halloween de Enjoy Terrace y
+// OUTXIDE y el organizador son los dos locales (revisión F10). El lugar sigue
+// siendo Outxide Club porque el Event marcado es la parte con entrada.
 // - El paquete creativo de META ADS pide lo mismo: el tardeo sin offers y sin
 //   ser un evento aparte.
 
@@ -94,7 +97,10 @@ export function buildOutxidiousEventJsonLd(input: OutxidiousJsonLdInput) {
         addressCountry: "ES",
       },
     },
-    organizer: { "@type": "Organization", name: "Outxide Club", url: `${SITE}/outxide` },
+    organizer: [
+      { "@type": "Organization", name: "Enjoy Terrace", url: `${SITE}/enjoy` },
+      { "@type": "Organization", name: "Outxide Club", url: `${SITE}/outxide` },
+    ],
     ...(input.offer
       ? {
           offers: {

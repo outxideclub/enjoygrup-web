@@ -293,8 +293,9 @@ export const fr: Dictionary = {
     legalPlate: "18+ · À consommer avec modération",
     // Copy creativo (§6.3b): sin versión en este idioma, vacío a propósito (no se pinta).
     subtitle: "",
-    soonTitle: "Billets bientôt en vente",
-    soonText: "Les billets pour l'OUTXIDE seront disponibles sur cette page très prochainement.",
+    soonTitle: "Billets pour l'OUTXIDE",
+    soonText: "La vente en ligne des billets pour l'OUTXIDE se fait sur cette page lorsqu'elle est ouverte. Le début de soirée à l'Enjoy Terrace, de {tardeoStart} à {tardeoEnd}, est en entrée libre.",
+    closedTodayText: "La vente en ligne des billets pour l'OUTXIDE n'est pas ouverte pour le moment. L'OUTXIDE ouvre aujourd'hui à {start}, et le début de soirée à l'Enjoy Terrace, de {tardeoStart} à {tardeoEnd}, est en entrée libre.",
     alertsText: "Si vous le souhaitez, nous vous informons par e-mail des prochains événements.",
     afterTitle: "Merci d'être venus",
     afterText: "OUTXIDIOUS a eu lieu le samedi 31 octobre 2026.",
@@ -318,7 +319,7 @@ export const fr: Dictionary = {
     videoPause: "Mettre la vidéo en pause",
     videoPlay: "Lire la vidéo",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "Halloween 2026 à l'OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia) : samedi 31 octobre, de {start} à {end}, sur billet, réservé aux 18 ans et plus. Avant, de {tardeoStart} à {tardeoEnd}, début de soirée en entrée libre à l'Enjoy Terrace.",
+    jsonLdDescription: "OUTXIDIOUS, le Halloween 2026 de l'Enjoy Terrace et de l'OUTXIDE (Av. Tucán 1, Port d'Alcúdia), samedi 31 octobre : OUTXIDE de {start} à {end}, sur billet. Avant, de {tardeoStart} à {tardeoEnd}, début de soirée en entrée libre à l'Enjoy Terrace. Réservé aux 18 ans et plus.",
     backToClub: "Aller à l'OUTXIDE Club",
   },
   purchase: {

@@ -26,8 +26,9 @@
 // OJO al rellenarlo: es la página de destino de anuncios con alcohol. Siguen
 // valiendo el léxico vetado de e2e/outxidious.spec.ts (que lo comprueba en el
 // HTML entero), la regla de que la placa «+18 · Consumo responsable» nunca
-// va pegada al claim y la de que NINGÚN texto afirma la edad del tardeo (sin
-// confirmar: el +18 va siempre pegado a OUTXIDE). Nada con [CONFIRMAR] /
+// va pegada al claim. Edad: +18 en las DOS partes, tardeo incluido (resuelto
+// por Sergi el 20-oct por la tarde: COPYS.md v1.7 y paquete v0.4); ningún
+// texto puede dar otra edad ni admitir menores. Nada con [CONFIRMAR] /
 // [CONFIRM] se publica: o llega el dato o se borra la frase entera.
 //
 // Huecos {start} {end} (OUTXIDE, de Fourvenues) y {tardeoStart} {tardeoEnd}:
@@ -181,14 +182,18 @@ const NO_CREATIVE_COPY = { claim: "", claimToday: "", sections: [], faq: [] } sa
  * de META ADS, 20-oct-2026: meta-ads-outxide/campanas/2026-10-halloween-cenas/
  * CREATIVO-LANDING-OUTXIDIOUS.md §4.2, §4.3 y §6.1). Sergi autorizó encenderlo
  * como provisional. Cambios sobre el paquete, a propósito:
- * - Bloque 1: fuera «Solo mayores de 18: trae tu documento.» (la edad del
- *   tardeo NO está confirmada; el +18 de la página es el de OUTXIDE).
+ * - 20-oct (tarde): edad del tardeo RESUELTA, +18 (paquete v0.4): vuelven
+ *   «Solo mayores de 18: trae tu documento.» al bloque 1, la FAQ 3
+ *   («¿Necesito algo para entrar al tardeo?») y «Es una noche para mayores de
+ *   18» en la 7 (revisión F4: la FAQ de /empresas ya decía «las dos partes»,
+ *   y esta página daba a entender que el tardeo admitía menores).
  * - FAQ: con [CONFIRMAR] sin dato se borra la frase entera, nunca solo la
- *   marca. La 1 va con la regla de puerta que ya publica la web, solo para
- *   OUTXIDE; la 3 («¿Necesito algo para entrar al tardeo?») sale entera porque
- *   su respuesta ES la edad del tardeo; la 4 sin las normas de disfraz; la 5
- *   sin por dónde se entra a cada local ni si se pasa por dentro; la 7 sin
- *   «es una noche para mayores de 18».
+ *   marca. La 1, con los documentos que ya publica /legal/condiciones-entrada
+ *   (DNI, NIE, pasaporte o permiso de conducir; originales y vigentes): con
+ *   «DNI o pasaporte» un residente con NIE leía que no entraba (revisión F8).
+ *   Sin lo que sigue sin confirmar (fotos en el móvil, control con disfraz).
+ *   La 4 sin las normas de disfraz; la 5 sin por dónde se entra a cada local
+ *   ni si se pasa por dentro.
  * - Horas con huecos ({start} {end} de Fourvenues; {tardeoStart} {tardeoEnd}).
  * - DE, FR e IT: sin versión del copy creativo (no se traduce): claim,
  *   secciones y FAQ VACÍOS para que no caigan al español; esos idiomas siguen
@@ -218,7 +223,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           time: "{tardeoStart}–{tardeoEnd}",
           tone: "tardeo",
           title: "Tardeo de acceso libre en Enjoy Terrace",
-          text: "Empezamos antes, en Enjoy Terrace, con acceso libre y gratuito.",
+          text: "Empezamos antes, en Enjoy Terrace, con acceso libre y gratuito.\nSolo mayores de\u00a018: trae tu documento.",
         },
         {
           time: "{start}–{end}",
@@ -237,12 +242,16 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       faq: [
         {
-          q: "¿Qué edad hay que tener para OUTXIDE? ¿Piden documento?",
-          a: "Para OUTXIDE: solo mayores de 18, con DNI o pasaporte. Sin documento, no se entra en OUTXIDE.",
+          q: "¿Qué edad hay que tener? ¿Piden documento?",
+          a: "Las dos partes son solo para mayores de 18, con documento de identidad original y vigente (DNI, NIE, pasaporte o permiso de conducir). Sin documento, no se entra.",
         },
         {
           q: "¿El tardeo es de acceso libre?",
           a: "Sí. El tardeo en Enjoy Terrace, de {tardeoStart} a {tardeoEnd}, es de acceso libre y gratuito.",
+        },
+        {
+          q: "¿Necesito algo para entrar al tardeo?",
+          a: "Solo tu documento: es de acceso libre y para mayores de 18. La entrada solo hace falta para seguir en OUTXIDE a partir de las {start}.",
         },
         {
           q: "¿Cuál es el dress code?",
@@ -258,7 +267,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         },
         {
           q: "¿Y el consumo responsable?",
-          a: "OUTXIDE es solo para mayores de 18 y pedimos consumo responsable. Si alguien de tu grupo no se encuentra bien, avisa a cualquier persona del equipo.",
+          a: "Es una noche para mayores de 18 y pedimos consumo responsable. Si alguien de tu grupo no se encuentra bien, avisa a cualquier persona del equipo.",
         },
       ],
       heroMedia: {
@@ -274,7 +283,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           time: "{tardeoStart}–{tardeoEnd}",
           tone: "tardeo",
           title: "Free-entry early party at Enjoy Terrace",
-          text: "We start early, at Enjoy Terrace, with free entry.",
+          text: "We start early, at Enjoy Terrace, with free entry.\n18+ only: bring your ID.",
         },
         {
           time: "{start}–{end}",
@@ -293,12 +302,16 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       faq: [
         {
-          q: "How old do I need to be for OUTXIDE? Do you check ID?",
-          a: "For OUTXIDE: 18+ only, with ID or passport. No ID, no entry to OUTXIDE.",
+          q: "How old do I need to be? Do you check ID?",
+          a: "Both parts are 18+ only, with an original, valid photo ID (national ID card, residence card, passport or driving licence). No ID, no entry.",
         },
         {
           q: "Is the early party free entry?",
           a: "Yes. The early party at Enjoy Terrace, {tardeoStart}–{tardeoEnd}, is free entry.",
+        },
+        {
+          q: "Do I need anything to get into the early party?",
+          a: "Just your ID: it's free entry and 18+ only. You only need a ticket to carry on at OUTXIDE from {start}.",
         },
         {
           q: "What's the dress code?",
@@ -314,7 +327,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         },
         {
           q: "What about drinking responsibly?",
-          a: "OUTXIDE is 18+ only and we ask everyone to drink responsibly. If someone in your group isn't feeling well, tell any member of staff.",
+          a: "It's an 18+ night and we ask everyone to drink responsibly. If someone in your group isn't feeling well, tell any member of staff.",
         },
       ],
       heroMedia: {

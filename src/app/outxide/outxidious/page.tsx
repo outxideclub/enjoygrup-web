@@ -39,8 +39,8 @@ import "./outxidious.css";
 //   taquilla con el evento abierto, para que CampaignLinkTracker le añada utm_*
 //   y fbclid. El tardeo no lleva botón, precio ni formulario.
 // - Precio «desde» con gastos sacado de Fourvenues, nunca escrito a mano.
-// - La edad del tardeo NO está confirmada: la placa +18 es la de la noche de
-//   OUTXIDE y ningún texto afirma la edad del tardeo.
+// - Edad: +18 en las dos partes (tardeo incluido; resuelto por Sergi el
+//   20-oct, paquete v0.4). La placa +18 es la de toda la noche.
 // - Página de SERVIDOR (rápida en el navegador de Instagram): en cliente solo
 //   el formulario de avisos y el vídeo.
 // Lo creativo entra por src/lib/outxidious/content.ts con aprobación POR HUECO.
@@ -237,9 +237,13 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
               )}
 
               {view.phase === "pronto" && (
-                <div data-testid="outxidious-soon" className="mt-6">
+                <div data-testid="outxidious-soon" data-closed-today={view.salesClosedToday || undefined} className="mt-6">
                   <h2 className="ox-title font-display text-2xl font-bold uppercase">{t("outxidious.soonTitle")}</h2>
-                  <p className="ox-body mt-2 text-sm">{fill(t("outxidious.soonText"), vars)}</p>
+                  {/* El sábado sin venta online: que la noche sigue en pie (OUTXIDE
+                      abre hoy), sin puerta, sin precio y sin «próximos eventos». */}
+                  <p className="ox-body mt-2 text-sm">
+                    {fill(t(view.salesClosedToday ? "outxidious.closedTodayText" : "outxidious.soonText"), vars)}
+                  </p>
                 </div>
               )}
 
@@ -277,7 +281,7 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                 </p>
               )}
 
-              {view.phase === "pronto" && (
+              {view.phase === "pronto" && !view.salesClosedToday && (
                 <div className="mt-8">
                   <p className="ox-body mb-3 text-sm">{t("outxidious.alertsText")}</p>
                   <OutxidiousAlertsForm />

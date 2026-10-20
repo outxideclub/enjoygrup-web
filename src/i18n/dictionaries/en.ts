@@ -293,6 +293,7 @@ export const en: Dictionary = {
     subtitle: "Halloween night splits in two: it starts at Enjoy Terrace and carries on at OUTXIDE, on the other side.",
     soonTitle: "OUTXIDE tickets",
     soonText: "Online sales of OUTXIDE tickets happen on this page while they are open. The early party at Enjoy Terrace, 20:00–23:00, is free entry.",
+    closedTodayText: "Online sales of OUTXIDE tickets are not open right now. OUTXIDE opens today at {start}, and the early party at Enjoy Terrace, {tardeoStart}–{tardeoEnd}, is free entry.",
     alertsText: "If you like, we'll email you about upcoming events.",
     afterTitle: "OUTXIDIOUS has crossed over",
     afterText: "It happened on Saturday 31 October 2026. Thanks for coming.",
@@ -316,7 +317,7 @@ export const en: Dictionary = {
     videoPause: "Pause video",
     videoPlay: "Play video",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "Halloween 2026 at OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): Saturday 31 October, {start} to {end}, ticket required, 18+ only. Before that, from {tardeoStart} to {tardeoEnd}, a free-entry early party at Enjoy Terrace.",
+    jsonLdDescription: "OUTXIDIOUS, Halloween 2026 at Enjoy Terrace and OUTXIDE (Av. Tucán 1, Port d'Alcúdia), Saturday 31 October: OUTXIDE from {start} to {end}, ticket required. Before that, from {tardeoStart} to {tardeoEnd}, a free-entry early party at Enjoy Terrace. 18+ only.",
     backToClub: "Go to OUTXIDE Club",
   },
   purchase: {

@@ -11,6 +11,7 @@ import {
   asEnvPhase,
   asQueryPhase,
   findOutxidiousEvent,
+  isSalesClosedToday,
   outxideSchedule,
   priceFromWithFees,
   resolvePhase,
@@ -32,6 +33,8 @@ import {
 export interface OutxidiousView {
   phase: LandingPhase;
   today: boolean;
+  /** Sábado 31 en «pronto» porque la venta online ya no está abierta (isSalesClosedToday). */
+  salesClosedToday: boolean;
   /** Taquilla con el evento abierto (absoluta). Solo en «venta». */
   checkoutUrl: string | null;
   /** «12,96 €» / «€12.96», gastos incluidos. Solo en «venta». */
@@ -100,12 +103,10 @@ export async function loadOutxidiousView(opts: {
 
   // Mismo patrón que resolveCheckoutEngine: la venta real nunca obedece a la URL.
   const isProduction = process.env.VERCEL_ENV === "production";
-  const { phase, today } = resolvePhase({
-    now,
-    canSell: Boolean(event) && priceFrom !== null,
-    envPhase: asEnvPhase(process.env.OUTXIDIOUS_PHASE),
-    queryPhase: isProduction ? null : asQueryPhase(opts.queryPhase),
-  });
+  const envPhase = asEnvPhase(process.env.OUTXIDIOUS_PHASE);
+  const queryPhase = isProduction ? null : asQueryPhase(opts.queryPhase);
+  const resolved = resolvePhase({ now, canSell: Boolean(event) && priceFrom !== null, envPhase, queryPhase });
+  const { phase, today } = resolved;
 
   const checkoutUrl = event ? eventCheckoutUrl(event, opts.locale) : null;
   const selling = phase === "venta" && checkoutUrl !== null && priceFrom !== null;
@@ -115,6 +116,7 @@ export async function loadOutxidiousView(opts: {
   return {
     phase,
     today,
+    salesClosedToday: isSalesClosedToday(resolved, envPhase, queryPhase),
     checkoutUrl: selling ? checkoutUrl : null,
     priceFromLabel: selling ? formatEur(priceFrom, opts.locale) : null,
     priceFromValue: selling ? priceFrom : null,

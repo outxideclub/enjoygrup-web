@@ -323,6 +323,8 @@ export const es = {
     // todo completo o con Fourvenues caído): nada de «muy pronto».
     soonTitle: "Entradas para OUTXIDE",
     soonText: "La venta online de entradas para OUTXIDE se hace en esta página cuando está abierta. El tardeo en Enjoy Terrace, de 20:00 a 23:00, es de acceso libre.",
+    // Sábado 31 sin venta online (isSalesClosedToday): la noche sigue en pie; sin puerta ni precio.
+    closedTodayText: "La venta online de entradas para OUTXIDE no está abierta ahora. OUTXIDE abre hoy a las {start}, y el tardeo en Enjoy Terrace, de {tardeoStart} a {tardeoEnd}, es de acceso libre.",
     alertsText: "Si quieres, te avisamos por email de los próximos eventos.",
     afterTitle: "OUTXIDIOUS ya cruzó",
     afterText: "Fue el sábado 31 de octubre de 2026. Gracias por venir.",
@@ -346,7 +348,7 @@ export const es = {
     videoPause: "Pausar el vídeo",
     videoPlay: "Reproducir el vídeo",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "Halloween 2026 en OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): sábado 31 de octubre de {start} a {end}, con entrada y solo para mayores de 18 años. Antes, de {tardeoStart} a {tardeoEnd}, tardeo de acceso libre en Enjoy Terrace.",
+    jsonLdDescription: "OUTXIDIOUS, el Halloween 2026 de Enjoy Terrace y OUTXIDE (Av. Tucán 1, Port d'Alcúdia), sábado 31 de octubre: OUTXIDE de {start} a {end}, con entrada. Antes, de {tardeoStart} a {tardeoEnd}, tardeo de acceso libre en Enjoy Terrace. Solo mayores de 18 años.",
     backToClub: "Ir a OUTXIDE Club",
   },
   purchase: {
