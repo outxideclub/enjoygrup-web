@@ -294,8 +294,10 @@ export const fr: Dictionary = {
     legalPlate: "18+ · À consommer avec modération",
     // Copy creativo (§6.3b): sin versión en este idioma, vacío a propósito (no se pinta).
     subtitle: "",
-    soonTitle: "Billets bientôt en vente",
-    soonText: "Les billets pour l'OUTXIDE seront disponibles sur cette page très prochainement.",
+    // «Pronto» sale también con la venta cerrada o Fourvenues caído (paquete
+    // §4.6): nada de «bientôt» / «très prochainement». Traducido del EN.
+    soonTitle: "Billets pour l'OUTXIDE",
+    soonText: "La vente en ligne des billets pour l'OUTXIDE se fait sur cette page tant qu'elle est ouverte. Le début de soirée à l'Enjoy Terrace, de {tardeoStart} à {tardeoEnd}, est en entrée libre.",
     alertsText: "Si vous le souhaitez, nous vous informons par e-mail des prochains événements.",
     afterTitle: "Merci d'être venus",
     afterText: "OUTXIDIOUS a eu lieu le samedi 31 octobre 2026.",

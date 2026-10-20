@@ -941,6 +941,18 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(form).toContainText(es.agenda.alertsSuccess);
   });
 
+  test("pronto en DE, FR e IT: tampoco «bald», «bientôt» ni «a breve» (sale también con la venta cerrada), y sin huecos sin rellenar", async ({ page }) => {
+    // Paquete §4.6: «pronto» es verdad antes y después de la venta, en todos los idiomas.
+    for (const loc of ["de", "fr", "it"] as const) {
+      await page.goto(localePath(loc, "?phase=pronto"));
+      const soon = page.getByTestId("outxidious-soon");
+      await expect(soon.locator("h2"), loc).toHaveText(DICTS[loc].outxidious.soonTitle);
+      await expect(soon, loc).toContainText("OUTXIDE");
+      await expect(soon, loc).toContainText("20:00");
+      await expect(soon, loc).not.toContainText(/bald|in kürze|bientôt|prochainement|a breve|\{/i);
+    }
+  });
+
   test("hoy (?phase=hoy): línea «Hoy» sin horas, claim del día con la hora de Fourvenues y el mismo botón", async ({ page }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(`${OUTXIDIOUS_PATH}?phase=hoy`);

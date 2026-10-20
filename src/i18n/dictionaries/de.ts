@@ -294,8 +294,10 @@ export const de: Dictionary = {
     legalPlate: "Ab 18 · Verantwortungsvoll genießen",
     // Copy creativo (§6.3b): sin versión en este idioma, vacío a propósito (no se pinta).
     subtitle: "",
-    soonTitle: "Tickets bald erhältlich",
-    soonText: "Die Tickets für OUTXIDE sind in Kürze auf dieser Seite erhältlich.",
+    // «Pronto» sale también con la venta cerrada o Fourvenues caído (paquete
+    // §4.6): nada de «bald» / «in Kürze». Traducido del EN.
+    soonTitle: "Tickets für OUTXIDE",
+    soonText: "Der Online-Verkauf der Tickets für OUTXIDE läuft über diese Seite, solange er geöffnet ist. Bei der Early Party auf der Enjoy Terrace, {tardeoStart}–{tardeoEnd} Uhr, ist der Eintritt frei.",
     alertsText: "Wenn du möchtest, informieren wir dich per E-Mail über kommende Events.",
     afterTitle: "Danke für deinen Besuch",
     afterText: "OUTXIDIOUS fand am Samstag, 31. Oktober 2026 statt.",
