@@ -505,12 +505,34 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
   test("detección del evento: OUTXIDIOUS_EVENT_REF por código, o nombre + noche del 31", async ({ request }) => {
     const events = await mockEvents(request);
     expect(findOutxidiousEvent(events)?.code).toBe(OX_CODE);
-    // El ref manda por código (aunque el nombre no case)…
-    const calenton = events.find((e) => e.code === "AA6X")!;
-    expect(findOutxidiousEvent(events, "calenton--outxide-18-09-2026-AA6X")?._id).toBe(calenton._id);
+    const base = events.find((e) => e.code === OX_CODE)!;
+    // El ref manda por código (aunque el nombre no case) si es la noche del 31…
+    const renamed = { ...base, _id: "renombrado", code: "RN31", name: "HALLOWEEN 31 | OUTXIDE" };
+    expect(findOutxidiousEvent([...events, renamed], "halloween--outxide-31-10-2026-RN31")?._id).toBe("renombrado");
+    // …pero un ref de OTRA noche no pone su precio y su botón en la landing de
+    // Halloween (C5): se ignora y manda el nombre + la noche del 31.
+    expect(findOutxidiousEvent(events, "calenton--outxide-18-09-2026-AA6X")?.code).toBe(OX_CODE);
     // …y un ref que no existe cae a la detección por nombre y fecha.
     expect(findOutxidiousEvent(events, "no-existe-31-10-2026-ZZZZ")?.code).toBe(OX_CODE);
-    const base = events.find((e) => e.code === OX_CODE)!;
+    // Emojis, signos u otra palabra delante o detrás no la esconden (C1).
+    for (const name of [
+      "🎃 OUTXIDIOUS | OUTXIDE",
+      "🎃OUTXIDIOUS | OUTXIDE",
+      "HALLOWEEN: OUTXIDIOUS | OUTXIDE",
+      "OUTXIDE | OUTXIDIOUS",
+      "«OUTXIDIOUS» | OUTXIDE",
+      "🍭 OUT-XIDIOUS 🍭",
+    ]) {
+      expect(findOutxidiousEvent([{ ...base, name }])?.code, name).toBe(OX_CODE);
+    }
+    // Dos eventos con el nombre (tardeo a las 20:00 y club a las 23:00): gana el
+    // del club, que es el que vende (C6), aunque venga primero el del tardeo.
+    const tardeo = { ...base, _id: "tardeo", code: "TD31", name: "OUTXIDIOUS TARDEO | ENJOY", start_date: "2026-10-31T19:00:00.000Z" };
+    const club = { ...base, _id: "club", start_date: "2026-10-31T22:00:00.000Z" };
+    expect(findOutxidiousEvent([tardeo, club])?._id).toBe("club");
+    expect(findOutxidiousEvent([club, tardeo])?._id).toBe("club");
+    // Solo el del tardeo: se reconoce igual (evento único de toda la noche).
+    expect(findOutxidiousEvent([tardeo])?._id).toBe("tardeo");
     // Evento del panel para TODA la noche (inicio a las 20:00 por el tardeo) o
     // solo para OUTXIDE (23:00): se reconoce igual.
     expect(findOutxidiousEvent([{ ...base, start_date: "2026-10-31T20:00:00+01:00" }])?.code).toBe(OX_CODE);

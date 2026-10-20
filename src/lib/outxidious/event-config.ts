@@ -81,13 +81,31 @@ const START_WINDOWS: ReadonlyArray<readonly [number, number]> = [
   [Date.parse("2026-10-31T12:00:00+01:00"), Date.parse("2026-11-01T06:00:00+01:00")],
 ];
 
-const NAME_PREFIX = "outxidious";
+// Palabra que identifica el evento en su nombre del panel. Se busca DENTRO del
+// nombre (no solo al principio) y tras quitar todo lo que no sea letra o
+// número: el panel ya mete emojis en los nombres (🍭 en las tarifas) y un
+// «🎃 OUTXIDIOUS | OUTXIDE», «HALLOWEEN: OUTXIDIOUS» o «OUTXIDE | OUTXIDIOUS»
+// dejaba la landing sin botón y /agenda mandando directo a la taquilla
+// (revisión adversarial C1, 20-oct-2026). La noche del 31 sigue siendo
+// obligatoria, así que otro evento con la palabra no se cuela.
+const NAME_WORD = "outxidious";
 
 /** Sin acentos, minúsculas y sin espacios en los extremos. */
 export function normalizeName(name: unknown): string {
   return typeof name === "string"
     ? name.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim()
     : "";
+}
+
+/** normalizeName y además solo letras y números («🎃 Out-xídious» → «outxidious»). */
+function compactName(name: unknown): string {
+  return normalizeName(name).replace(/[^\p{L}\p{N}]+/gu, "");
+}
+
+/** Inicio dentro de la franja de OUTXIDE (22:00 del 31 → 06:00 del 1). */
+function startsAsOutxide(startIso: unknown): boolean {
+  const start = typeof startIso === "string" ? Date.parse(startIso) : NaN;
+  return !Number.isNaN(start) && start >= OUTXIDE_START_FROM && start <= OUTXIDE_START_TO;
 }
 
 /** Código del evento = último segmento tras el último guion ("…-OX31" → "OX31"). */
@@ -105,10 +123,16 @@ function startsInWindow(startIso: unknown): boolean {
 
 /**
  * El evento de OUTXIDIOUS entre los próximos eventos de Outxide:
- * (a) por código si OUTXIDIOUS_EVENT_REF (slug-CODE) está fijado y aparece;
- * (b) si no, el primero cuyo nombre normalizado empieza por «outxidious» y que
- *     empieza la noche del 31. Un ref mal escrito cae a (b) en vez de dejar la
- *     página sin botón: el nombre y la fecha ya identifican la noche.
+ * (a) por código si OUTXIDIOUS_EVENT_REF (slug-CODE) está fijado, aparece Y
+ *     empieza la noche del 31: un ref de otra noche (copiado mal en Vercel) no
+ *     puede poner en la landing de Halloween el precio y el botón de otro
+ *     evento (revisión C5); se avisa en el log y se sigue con (b);
+ * (b) si no, el que lleva «outxidious» en el nombre (sin contar emojis ni
+ *     signos) y empieza la noche del 31. Si hay varios (p. ej. uno del tardeo
+ *     a las 20:00 y otro del club a las 23:00), gana el que empieza en la
+ *     franja de OUTXIDE, porque la venta y el botón son de esa parte (C6); a
+ *     igualdad, el más temprano. Un ref mal escrito cae a (b) en vez de dejar
+ *     la página sin botón: el nombre y la fecha ya identifican la noche.
  */
 export function findOutxidiousEvent(events: FVEvent[], envRef?: string | null): FVEvent | null {
   const usable = (Array.isArray(events) ? events : []).filter(
@@ -117,11 +141,21 @@ export function findOutxidiousEvent(events: FVEvent[], envRef?: string | null): 
   if (envRef && envRef.trim()) {
     const code = codeFromRef(envRef);
     const byCode = usable.find((e) => e.code.toUpperCase() === code);
-    if (byCode) return byCode;
+    if (byCode && startsInWindow(byCode.start_date)) return byCode;
+    if (byCode) {
+      console.warn("[outxidious] OUTXIDIOUS_EVENT_REF apunta a un evento que no es la noche del 31; se ignora", {
+        code,
+        start: byCode.start_date,
+      });
+    }
   }
   const candidates = usable
-    .filter((e) => normalizeName(e.name).startsWith(NAME_PREFIX) && startsInWindow(e.start_date))
-    .sort((a, b) => Date.parse(a.start_date) - Date.parse(b.start_date));
+    .filter((e) => compactName(e.name).includes(NAME_WORD) && startsInWindow(e.start_date))
+    .sort(
+      (a, b) =>
+        Number(startsAsOutxide(b.start_date)) - Number(startsAsOutxide(a.start_date)) ||
+        Date.parse(a.start_date) - Date.parse(b.start_date),
+    );
   return candidates[0] ?? null;
 }
 
