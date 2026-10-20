@@ -13,6 +13,7 @@ import {
   type LeadSource,
 } from "@/lib/empresas/lead";
 import { siteContact } from "@/lib/site";
+import { refundRateLimit } from "@/lib/rate-limit";
 import {
   guard,
   honeypotFilled,
@@ -220,6 +221,8 @@ export async function POST(request: Request) {
   const blocked = guard(request, "empresas", RL_IP_LIMIT);
   if (blocked) return blocked;
 
+  // Cubo por correo consumido y aún no «gastado» en un envío (ver paso 5).
+  let emailBucket: string | null = null;
   try {
     // 2. Cuerpo acotado y honeypot.
     const body = await readJsonBody(request);
@@ -239,7 +242,13 @@ export async function POST(request: Request) {
     if (body.consent !== true) return fail("consent_required", 403);
 
     // 5. Cubo por correo: nadie usa la autorespuesta contra un buzón ajeno.
-    if (limited(`empresas:email:${lead.email.toLowerCase()}`, RL_EMAIL_LIMIT, RL_EMAIL_WINDOW_MS)) {
+    //    Solo cuenta lo que se ENVÍA: si el aviso interno no sale (sin clave,
+    //    Resend caído) se devuelve el intento, para que quien reintenta tras
+    //    un fallo pasajero no quede bloqueado 1 h (revisión C9). Se consume
+    //    antes de enviar para que dos envíos simultáneos no se cuelen.
+    emailBucket = `empresas:email:${lead.email.toLowerCase()}`;
+    if (limited(emailBucket, RL_EMAIL_LIMIT, RL_EMAIL_WINDOW_MS)) {
+      emailBucket = null;
       return fail("rate_limited", 429);
     }
 
@@ -250,6 +259,7 @@ export async function POST(request: Request) {
     const key = process.env.RESEND_API_KEY;
     if (!key) {
       console.error("[empresas] RESEND_API_KEY no configurada: solicitud NO enviada (503)");
+      refundRateLimit(emailBucket);
       return fail("unavailable", 503);
     }
     const resend = new Resend(key);
@@ -272,8 +282,12 @@ export async function POST(request: Request) {
     });
     if (notifyError) {
       console.error("[empresas] fallo al enviar el aviso interno:", redactPii(String(notifyError.message ?? notifyError)));
+      refundRateLimit(emailBucket);
       return fail("send_failed", 502);
     }
+
+    // El aviso interno ya salió: a partir de aquí el intento cuenta.
+    emailBucket = null;
 
     // Autorespuesta al solicitante, en su idioma.
     const reply = AUTOREPLY[locale];
@@ -304,6 +318,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true }, { headers: NO_STORE });
   } catch (error) {
     console.error("[empresas] error inesperado:", redactPii(error instanceof Error ? error.message : String(error)));
+    if (emailBucket) refundRateLimit(emailBucket);
     return fail("send_failed", 500);
   }
 }

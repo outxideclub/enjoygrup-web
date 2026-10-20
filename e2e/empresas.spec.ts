@@ -1414,6 +1414,15 @@ test.describe("/api/empresas · defensas", () => {
     expect(notObject.status()).toBe(400);
   });
 
+  // C9: un fallo de envío no gasta el cubo por correo. Antes, tras 3 fallos
+  // (503 sin clave / 502 de Resend) ese correo quedaba bloqueado 1 h (429).
+  test("los intentos que no se envían no gastan el cubo por correo (sin 429 al reintentar)", async ({ request, baseURL }) => {
+    const email = `reintento-${Date.now()}-${Math.floor(Math.random() * 1e6)}@example.com`;
+    const statuses: number[] = [];
+    for (let i = 0; i < 5; i++) statuses.push((await post(request, baseURL, validBody({ email }))).status());
+    expect(statuses).toEqual([503, 503, 503, 503, 503]);
+  });
+
   test("sin RESEND_API_KEY → 503 (no simula éxito)", async ({ request, baseURL }) => {
     const res = await post(request, baseURL, validBody());
     expect(res.status()).toBe(503);

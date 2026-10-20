@@ -46,6 +46,17 @@ export function rateLimit(key: string, limit: number, windowMs: number): boolean
   return true;
 }
 
+/**
+ * Devuelve un intento al cubo de `key` (si sigue vivo). Para cubos que solo
+ * deben contar lo que SÍ se hizo: p. ej. el de /api/empresas por correo, que
+ * se consume antes de enviar y no debe bloquear al que reintenta tras un fallo
+ * pasajero del proveedor de correo.
+ */
+export function refundRateLimit(key: string): void {
+  const bucket = buckets.get(key);
+  if (bucket && Date.now() < bucket.resetAt && bucket.count > 0) bucket.count -= 1;
+}
+
 /** Extrae la IP del cliente de las cabeceras que ponen Vercel/Cloudflare. */
 export function getClientIp(request: Request): string {
   const forwarded = request.headers.get("x-forwarded-for");
