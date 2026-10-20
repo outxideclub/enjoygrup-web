@@ -100,7 +100,14 @@ export function NativeCheckout({ data }: { data: NativeCheckoutData }) {
         aria-labelledby={active && modes.length > 1 ? `tab-${active}` : undefined}
         className="p-4 sm:p-6"
       >
-        {active === null && <p className="py-8 text-center text-muted-foreground">{t("checkout.errorUnavailable")}</p>}
+        {/* Nada que comprar (todas las tarifas completas, caducadas o sin
+            publicar): se dice que la venta online no está abierta, sin
+            «Agotado» ni precios (load-data ya no manda esas tarifas). */}
+        {active === null && (
+          <p data-testid="sales-closed" className="py-8 text-center text-muted-foreground">
+            {t("checkout.salesClosed")}
+          </p>
+        )}
         {/* key por pestaña: cada flujo arranca limpio al volver a él. */}
         {active === "tickets" && <TicketsFlow key="tickets" data={data} event={event} rates={data.rates} />}
         {active === "vip" && <VipFlow key="vip" data={data} event={event} zones={data.zones} />}

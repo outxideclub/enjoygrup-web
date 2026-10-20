@@ -9,7 +9,7 @@ import type {
   FVTicketPrice,
   FVTicketRate,
 } from "@/lib/fourvenues/types";
-import { hasUnknownRequiredField, pendingSaleOpening } from "@/lib/checkout/validation";
+import { hasUnknownRequiredField, isTicketRateBuyableNow, pendingSaleOpening } from "@/lib/checkout/validation";
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
 import { withoutLollipop } from "./format";
 import type {
@@ -97,7 +97,15 @@ export function toClientRate(r: FVTicketRate): ClientTicketRate {
  * Tarifas vendibles desde la taquilla pública (ver cabecera del fichero). Las
  * que tienen un inicio de venta programado (`valid_from` futuro según el reloj
  * del SERVIDOR) se proyectan con `opens_at` para pintar «A la venta el…» en
- * lugar de un «Agotado» falso; el resto, igual que siempre.
+ * lugar de un «Agotado» falso.
+ *
+ * Las que NO se pueden comprar y no van a abrir (completas, no disponibles o
+ * sin precio vigente porque su tramo ya caducó) NO se mandan al navegador
+ * (revisión adversarial F1/C3, 20-oct-2026): pintadas salían como «Agotado»
+ * —dato de disponibilidad, prohibido por el dueño— y con un precio que ya no
+ * se puede pagar (o «0,00 €» sin current_price), más barato que el «desde» de
+ * la landing. Si no queda ninguna, la pestaña de entradas desaparece y la
+ * taquilla dice que la venta online está cerrada (native-checkout.tsx).
  */
 export function sellableTicketRates(rates: FVTicketRate[], now: number = Date.now()): ClientTicketRate[] {
   const out: ClientTicketRate[] = [];
@@ -113,7 +121,12 @@ export function sellableTicketRates(rates: FVTicketRate[], now: number = Date.no
     }
     // Margen de 2 min tras la apertura sin precio vigente: SALE_OPEN_GRACE_MS.
     const opensAt = pendingSaleOpening(rate.valid_from, Boolean(rate.current_price), now);
-    out.push(opensAt ? { ...toClientRate(rate), opens_at: opensAt } : toClientRate(rate));
+    if (opensAt) {
+      out.push({ ...toClientRate(rate), opens_at: opensAt });
+      continue;
+    }
+    if (!isTicketRateBuyableNow(rate)) continue;
+    out.push(toClientRate(rate));
   }
   return out;
 }

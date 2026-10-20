@@ -1,6 +1,6 @@
 import { test, expect, type APIRequestContext, type Page } from "@playwright/test";
 import type { FVBookingZone, FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
-import { SALE_OPEN_GRACE_MS, pendingSaleOpening, saleOpensAt } from "../src/lib/checkout/validation";
+import { SALE_OPEN_GRACE_MS, isTicketRateBuyableNow, pendingSaleOpening, saleOpensAt } from "../src/lib/checkout/validation";
 import { ageNotice, fill, withoutLollipop } from "../src/app/taquilla/native/format";
 import { formatEventDate, formatEventTime } from "../src/lib/events";
 import { es } from "../src/i18n/dictionaries/es";
@@ -234,6 +234,57 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(page.getByTestId("step-details")).toBeVisible({ timeout: 10_000 });
   });
 
+  // F1/C3 (revisión adversarial, 20-oct): en el evento de OUTXIDIOUS (2º salto
+  // del anuncio) el doble lleva una tarifa COMPLETA (6 €) y otra NO DISPONIBLE
+  // (7 €), más baratas que el «desde» de la landing. Ni se pintan ni viajan.
+  test("OUTXIDIOUS: las tarifas completas o no disponibles no llegan al navegador (ni «Agotado» ni su precio)", async ({
+    page,
+    request,
+  }) => {
+    const oxEvents = unwrap<FVEvent>(
+      await (
+        await request.get(
+          `${MOCK}/events?start_date=${new Date().toISOString().slice(0, 10)}&end_date=2026-12-31`,
+        )
+      ).json(),
+    );
+    const ox = oxEvents.find((e) => e.code === "OX31");
+    if (!ox) throw new Error("el mock no devuelve el evento OX31");
+    const oxRates = unwrap<FVTicketRate>(
+      await (await request.get(`${MOCK}/ticket-rates?event_id=${encodeURIComponent(ox._id)}`)).json(),
+    );
+    const blocked = oxRates.filter((r) => r.complete || !r.available);
+    expect(blocked.length, "precondición: el doble trae tarifas completas / no disponibles").toBeGreaterThanOrEqual(2);
+
+    await seedCookieConsent(page);
+    await page.goto(`/taquilla?event=${ox.slug}-${ox.code}`);
+    await expect(page.getByTestId("step-select")).toBeVisible({ timeout: 15_000 });
+    const step = page.getByTestId("step-select");
+    await expect(step.getByTestId("rate-soldout")).toHaveCount(0);
+    await expect(step).not.toContainText("Agotado");
+    await expect(step).not.toContainText("0,00 €");
+    for (const r of blocked) {
+      await expect(page.locator(`[data-testid="rate-card"][data-rate-id="${r._id}"]`)).toHaveCount(0);
+    }
+    // Ni en el payload RSC del HTML (nombre ni id).
+    const html = await page.content();
+    for (const r of blocked) {
+      expect(html, r.name).not.toContain(r.name);
+      expect(html, r._id).not.toContain(r._id);
+    }
+    // Ningún precio COMPRABLE por debajo de la vendible más barata (12 €). La
+    // preventa con inicio futuro (8 €) enseña su precio con «A la venta el…»,
+    // como cualquier tarifa programada: no cuenta.
+    const prices = await step
+      .locator('[data-testid="rate-card"]:not(:has([data-testid="rate-opens-at"])) [data-testid="rate-price"]')
+      .allTextContents();
+    expect(prices.length).toBeGreaterThan(0);
+    for (const p of prices) {
+      const value = Number(p.replace(/[^\d,]/g, "").replace(",", "."));
+      expect(value, p).toBeGreaterThanOrEqual(12);
+    }
+  });
+
   test("los nombres de tarifa e «Incluye» salen sin 🍭 (tarjeta, resumen y HTML) y conservan «copa» y «chupito»", async ({
     page,
     request,
@@ -397,6 +448,23 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
 // Lógica pura que decide en servidor (sin navegador ni mock): casos límite que
 // el doble de Fourvenues no cubre.
 test.describe("Taquilla: reglas puras de cumplimiento", () => {
+  test("isTicketRateBuyableNow: completa, no disponible o sin precio vigente (tramo caducado) no se manda al navegador", () => {
+    const price = (p: unknown) => ({ price: p });
+    expect(isTicketRateBuyableNow({ available: true, complete: false, current_price: price(12) })).toBe(true);
+    // Gratis con precio vigente: se puede pedir (0 € real, no «0,00 €» inventado).
+    expect(isTicketRateBuyableNow({ available: true, complete: false, current_price: price(0) })).toBe(true);
+    // Sáb 31 desde las 18:00: el último tramo online caduca y Fourvenues deja la
+    // tarifa disponible pero sin current_price → antes salía «Agotado» y 0,00 €.
+    expect(isTicketRateBuyableNow({ available: true, complete: false, current_price: null })).toBe(false);
+    expect(isTicketRateBuyableNow({ available: true, complete: false })).toBe(false);
+    expect(isTicketRateBuyableNow({ available: true, complete: true, current_price: price(6) })).toBe(false);
+    expect(isTicketRateBuyableNow({ available: false, complete: false, current_price: price(7) })).toBe(false);
+    expect(isTicketRateBuyableNow({ complete: false, current_price: price(7) })).toBe(false);
+    for (const bad of [Number.NaN, -1, "12", null, undefined]) {
+      expect(isTicketRateBuyableNow({ available: true, complete: false, current_price: price(bad) })).toBe(false);
+    }
+  });
+
   test("saleOpensAt: solo un valid_from legible y FUTURO marca la venta como no abierta", () => {
     const now = Date.parse("2026-10-19T10:00:00.000Z");
     expect(saleOpensAt("2026-10-22T10:00:00.000Z", now)).toBe("2026-10-22T10:00:00.000Z");

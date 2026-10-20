@@ -426,6 +426,7 @@ export const en: Dictionary = {
     listWomen: "Women",
     errorGeneric: "Something went wrong. Please try again.",
     errorUnavailable: "This option is no longer available.",
+    salesClosed: "Online sales for this event are not open.",
     errorQuantity: "Quantity not allowed.",
     fallbackHint: "Having trouble? Open the full Fourvenues box office",
     consents: "Consents",

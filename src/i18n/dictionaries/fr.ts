@@ -429,6 +429,7 @@ export const fr: Dictionary = {
     listWomen: "Femmes",
     errorGeneric: "Une erreur est survenue. Veuillez réessayer.",
     errorUnavailable: "Cette option n'est plus disponible.",
+    salesClosed: "La vente en ligne pour cet événement n'est pas ouverte.",
     errorQuantity: "Quantité non autorisée.",
     fallbackHint: "Un problème ? Ouvrez la billetterie complète de Fourvenues",
     consents: "Consentements",

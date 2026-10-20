@@ -458,6 +458,8 @@ export const es = {
     listWomen: "Mujeres",
     errorGeneric: "Algo ha fallado. Inténtalo de nuevo.",
     errorUnavailable: "Esta opción ya no está disponible.",
+    // Taquilla sin nada que comprar (ni pestañas): neutro, sin «Agotado» ni precio.
+    salesClosed: "La venta online de este evento no está abierta.",
     errorQuantity: "Cantidad no permitida.",
     fallbackHint: "¿Problemas? Abre la taquilla completa de Fourvenues",
     // Añadidas tras la revisión legal/accesibilidad del 15-sep-2026.

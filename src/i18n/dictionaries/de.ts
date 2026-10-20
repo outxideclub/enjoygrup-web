@@ -429,6 +429,7 @@ export const de: Dictionary = {
     listWomen: "Frauen",
     errorGeneric: "Etwas ist schiefgelaufen. Bitte versuch es erneut.",
     errorUnavailable: "Diese Option ist nicht mehr verfügbar.",
+    salesClosed: "Der Online-Verkauf für diese Veranstaltung ist nicht geöffnet.",
     errorQuantity: "Anzahl nicht zulässig.",
     fallbackHint: "Probleme? Öffne die vollständige Fourvenues-Kasse",
     consents: "Einwilligungen",

@@ -94,6 +94,29 @@ export function pendingSaleOpening(validFrom: unknown, hasCurrentPrice: boolean,
   return saleOpensAt(validFrom, now) ?? (hasCurrentPrice ? null : saleOpensAt(validFrom, now - SALE_OPEN_GRACE_MS));
 }
 
+/**
+ * Tarifa de entrada que se puede comprar YA: disponible, no completa y con un
+ * precio vigente válido. La taquilla solo manda al navegador estas y las que
+ * van a abrir (pendingSaleOpening): el resto saldría como «Agotado» (dato de
+ * disponibilidad prohibido) o con un precio que ya no se paga, «0,00 €» si su
+ * tramo caducó (revisión F1/C3, 20-oct-2026). Es lo contrario de isSoldOut de
+ * tickets-flow.tsx. Aquí, y no en load-data (server-only), para probarla en e2e.
+ */
+export function isTicketRateBuyableNow(rate: {
+  available?: unknown;
+  complete?: unknown;
+  current_price?: { price?: unknown } | null;
+}): boolean {
+  const price = rate.current_price?.price;
+  return (
+    rate.available === true &&
+    rate.complete !== true &&
+    typeof price === "number" &&
+    Number.isFinite(price) &&
+    price >= 0
+  );
+}
+
 export const DOCUMENT_TYPES = ["dni", "nie", "passport", "other"] as const;
 export type DocumentType = (typeof DOCUMENT_TYPES)[number];
 
