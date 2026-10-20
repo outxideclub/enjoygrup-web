@@ -1,6 +1,6 @@
 import { test, expect, type APIRequestContext, type Page } from "@playwright/test";
-import type { FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
-import { saleOpensAt } from "../src/lib/checkout/validation";
+import type { FVBookingZone, FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
+import { SALE_OPEN_GRACE_MS, pendingSaleOpening, saleOpensAt } from "../src/lib/checkout/validation";
 import { ageNotice, fill, withoutLollipop } from "../src/app/taquilla/native/format";
 import { formatEventDate, formatEventTime } from "../src/lib/events";
 import { es } from "../src/i18n/dictionaries/es";
@@ -9,13 +9,16 @@ import { es } from "../src/i18n/dictionaries/es";
 // LANDING-WEB.md §11 n.º 3 y n.º 4), contra el doble de Fourvenues:
 //   1. «+18 · Consumo responsable» visible en la cabecera del evento (y en la
 //      lista de eventos), también a 375 px y con el banner de cookies abierto.
-//   2. Una tarifa con «Inicio de la venta» programado (valid_from futuro, sin
-//      current_price) se pinta «A la venta el {día} a las {hora}», nunca
+//   2. Una tarifa con «Inicio de la venta» programado (valid_from futuro, con o
+//      sin current_price) se pinta «A la venta el {día} a las {hora}», nunca
 //      «Agotado» (dato de disponibilidad falso, regla del dueño), y no se puede
-//      elegir ni comprar; las demás tarifas siguen comprables.
+//      elegir ni comprar (la ruta responde 409 aunque Fourvenues ya publique el
+//      precio); las demás tarifas siguen comprables.
 //   3. Red de seguridad acordada con META ADS: los nombres de tarifa y su
 //      «Incluye» se pintan sin el emoji 🍭 (tarjeta, etiquetas accesibles,
 //      resumen y payload del HTML), sin reescribir «copa» ni «chupito».
+//   4. Nada de tabaco: ni «shisha» ni «cachimba» en lo que pinta la taquilla
+//      (el pie va con `adLanding`, como en /empresas).
 //
 // Este fichero NO reinicia el mock (POST /__test/reset): checkout-native.spec.ts
 // lo reinicia en cada test y los ficheros corren en paralelo; aquí solo se leen
@@ -26,6 +29,7 @@ const EVENT_CODE = "AA6X";
 const CONSENT_KEY = "ge_cookie_consent";
 const CONSENT_VERSION = "2";
 const LOLLIPOP = "\u{1F36D}";
+const TOBACCO = /\bshisha\b|\bcachimbas?\b/i;
 
 // Navegador en español: el middleware negocia el idioma por Accept-Language
 // (ver checkout-native.spec.ts). El caso en inglés navega a /en/... a propósito.
@@ -37,7 +41,12 @@ interface Fixtures {
   rates: FVTicketRate[];
   /** Tarifa del mock con valid_from futuro y sin current_price. */
   upcoming: FVTicketRate;
+  /** Tarifa del mock con valid_from futuro pero con current_price ya publicado. */
+  upcomingPriced: FVTicketRate;
 }
+
+/** «Inicio de la venta» aún no alcanzado (reloj de este proceso, como el del servidor). */
+const notOpenYet = (r: FVTicketRate) => Date.parse(r.valid_from) > Date.now();
 
 function unwrap<T>(json: unknown): T[] {
   if (Array.isArray(json)) return json as T[];
@@ -54,9 +63,11 @@ async function loadFixtures(request: APIRequestContext): Promise<Fixtures> {
   const rates = unwrap<FVTicketRate>(
     await (await request.get(`${MOCK}/ticket-rates?event_id=${encodeURIComponent(event._id)}`)).json(),
   );
-  const upcoming = rates.find((r) => !r.current_price && Date.parse(r.valid_from) > Date.now());
+  const upcoming = rates.find((r) => !r.current_price && notOpenYet(r));
   if (!upcoming) throw new Error("el mock no tiene la tarifa con inicio de venta futuro");
-  return { event, ref: `${event.slug}-${event.code}`, rates, upcoming };
+  const upcomingPriced = rates.find((r) => r.current_price && notOpenYet(r));
+  if (!upcomingPriced) throw new Error("el mock no tiene la tarifa con inicio de venta futuro y precio publicado");
+  return { event, ref: `${event.slug}-${event.code}`, rates, upcoming, upcomingPriced };
 }
 
 let fx: Fixtures;
@@ -194,8 +205,19 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(page.getByTestId("step-select")).not.toContainText("Agotado");
     await expect(page.getByTestId("bar-continue")).toBeDisabled();
 
+    // Si Fourvenues ya publicó el precio, se ve (sin atenuar), pero la tarjeta
+    // sigue sin stepper ni «Agotado» hasta la hora de apertura.
+    const priced = page.locator(`[data-testid="rate-card"][data-rate-id="${fx.upcomingPriced._id}"]`);
+    await expect(priced.getByTestId("rate-opens-at")).toHaveText(
+      await expectedOpensText(page, fx.upcomingPriced.valid_from, "es"),
+    );
+    await expect(priced.getByTestId("rate-price")).toContainText("20,00");
+    await expect(priced.getByTestId("rate-soldout")).toHaveCount(0);
+    await expect(priced.getByTestId("qty-plus")).toHaveCount(0);
+    await expect(priced).toHaveAttribute("aria-disabled", "true");
+
     // Las demás tarifas siguen comprables: stepper activo y se llega a Datos.
-    const open = fx.rates.filter((r) => r._id !== fx.upcoming._id);
+    const open = fx.rates.filter((r) => !notOpenYet(r));
     expect(open.length).toBeGreaterThan(0);
     for (const rate of open) {
       const other = page.locator(`[data-testid="rate-card"][data-rate-id="${rate._id}"]`);
@@ -214,6 +236,7 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
 
   test("los nombres de tarifa e «Incluye» salen sin 🍭 (tarjeta, resumen y HTML) y conservan «copa» y «chupito»", async ({
     page,
+    request,
   }) => {
     // Precondición: el doble lleva el 🍭 del panel real en nombre e «includes».
     const raw = fx.rates.find((r) => r.name.includes(LOLLIPOP));
@@ -236,6 +259,13 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     // La descripción libre del evento (no se pinta) tampoco viaja en el HTML.
     expect(fx.event.description.length).toBeGreaterThan(0);
     expect(html).not.toContain(fx.event.description);
+    // Ni las condiciones de las mesas VIP: texto libre del panel que no se pinta.
+    const zones = unwrap<FVBookingZone>(
+      await (await request.get(`${MOCK}/bookings/zones?event_id=${encodeURIComponent(fx.event._id)}`)).json(),
+    );
+    const conditions = zones.flatMap((z) => z.spaces.flatMap((sp) => sp.rates.map((r) => r.conditions ?? "")));
+    expect(conditions.filter(Boolean).length).toBeGreaterThan(0);
+    for (const text of conditions.filter(Boolean)) expect(html).not.toContain(text);
 
     // Hasta el resumen: la línea de compra tampoco lo lleva.
     await card.getByTestId("qty-plus").click();
@@ -254,6 +284,37 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(page.getByTestId("step-summary")).not.toContainText(LOLLIPOP);
   });
 
+  test("sin «shisha» ni «cachimba» en lo que pinta la taquilla (meta y pie con «Ver carta»), en los 5 idiomas", async ({
+    page,
+    request,
+  }) => {
+    // Marcado servido sin <script>/<style>: el diccionario entero viaja en el
+    // payload RSC de toda la web (arquitectura i18n, igual que en /empresas) y
+    // no se pinta; lo demás (description, og:/twitter:, pie…) no puede llevarlo.
+    const servedMarkup = async (path: string) => {
+      const res = await request.get(path, { headers: { "accept-language": "es-ES" } });
+      expect(res.status(), path).toBe(200);
+      return (await res.text())
+        .replace(/<script(?![^>]*application\/ld\+json)[^>]*>[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, " ");
+    };
+    for (const prefix of ["", "/en", "/de", "/fr", "/it"]) {
+      const markup = await servedMarkup(`${prefix}/taquilla?event=${fx.ref}`);
+      expect(markup, prefix || "/").not.toMatch(TOBACCO);
+      // La heredada de la web lo llevaba («Cocktails, Shisha & Club» en en/de/it).
+      expect(markup).toMatch(/<meta property="og:title" content="[^"]*\| Grupo Enjoy"/);
+    }
+    expect(await servedMarkup("/taquilla"), "/taquilla").not.toMatch(TOBACCO);
+
+    await seedCookieConsent(page);
+    for (const path of [`/taquilla?event=${fx.ref}`, "/taquilla"]) {
+      await page.goto(path);
+      await expect(page.locator("footer")).toBeVisible({ timeout: 15_000 });
+      expect(await page.locator("body").innerText(), path).not.toMatch(TOBACCO);
+      await expect(page.locator("footer")).toContainText(es.enjoy.viewMenu);
+    }
+  });
+
   test("en inglés: «18+ · Drink responsibly» y «On sale … at …»", async ({ page }) => {
     await seedCookieConsent(page);
     await page.goto(`/en/taquilla?event=${fx.ref}`);
@@ -266,26 +327,55 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(card).not.toContainText("Sold out");
   });
 
-  test("la ruta de compra rechaza la tarifa antes de abrir (409) sin pedir el checkout a Fourvenues", async ({
+  test("la ruta de compra rechaza (409) la tarifa antes de abrir, también con el precio ya publicado, sin pedir el checkout a Fourvenues", async ({
     request,
     baseURL,
   }) => {
-    const res = await request.post("/api/checkout/tickets", {
-      headers: { origin: baseURL ?? "", "x-forwarded-for": clientIp() },
-      data: {
-        eventId: fx.event._id,
-        rateId: fx.upcoming._id,
-        quantity: 1,
-        attendees: [{ full_name: "Prueba Apertura", email: "apertura@test.local", phone: "+34 600 000 004" }],
-        consents: { adult: true, terms: true, marketing: false },
-        locale: "es",
-        website: "",
-      },
-    });
-    expect(res.status(), await res.text()).toBe(409);
-    expect(await res.json()).toMatchObject({ ok: false, error: "rate_unavailable" });
+    // Precondición: la del precio adelantado pasa TODAS las demás comprobaciones
+    // de la ruta (pública, disponible, no completa, con price_id y solo campos
+    // conocidos): lo único que puede rechazarla es la guarda de valid_from.
+    const priced = fx.upcomingPriced;
+    expect(notOpenYet(priced)).toBe(true);
+    expect(priced).toMatchObject({ type: "public", available: true, complete: false });
+    expect(priced.current_price?._id ?? "").not.toBe("");
+    const openRate = fx.rates.find((r) => r.current_price && r.available && !r.complete && !notOpenYet(r));
+    if (!openRate) throw new Error("el mock no tiene una tarifa abierta para el control");
 
-    // Ningún POST /tickets/checkout con esta tarifa llegó al doble de Fourvenues.
+    const ip = clientIp();
+    const post = (rateId: string, attendee: Record<string, string>) =>
+      request.post("/api/checkout/tickets", {
+        headers: { origin: baseURL ?? "", "x-forwarded-for": ip },
+        data: {
+          eventId: fx.event._id,
+          rateId,
+          quantity: 1,
+          attendees: [attendee],
+          consents: { adult: true, terms: true, marketing: false },
+          locale: "es",
+          website: "",
+        },
+      });
+    const valid = { full_name: "Prueba Apertura", email: "apertura@test.local", phone: "+34 600 000 004" };
+
+    for (const rate of [fx.upcoming, priced]) {
+      const res = await post(rate._id, valid);
+      expect(res.status(), `${rate.name}: ${await res.text()}`).toBe(409);
+      expect(await res.json()).toMatchObject({ ok: false, error: "rate_unavailable" });
+    }
+
+    // Control que no llega a Fourvenues: con un email mal formado, una tarifa
+    // ya abierta supera las comprobaciones de tarifa y cae en las del asistente
+    // (400); la del precio adelantado sigue en 409. El rechazo es, por tanto,
+    // la guarda de valid_from, no el evento ni la forma del cuerpo.
+    const bad = { ...valid, email: "no-es-un-email" };
+    const control = await post(openRate._id, bad);
+    expect(control.status(), await control.text()).toBe(400);
+    expect(await control.json()).toMatchObject({ ok: false, error: "invalid_input" });
+    const guarded = await post(priced._id, bad);
+    expect(guarded.status(), await guarded.text()).toBe(409);
+    expect(await guarded.json()).toMatchObject({ ok: false, error: "rate_unavailable" });
+
+    // Ningún POST /tickets/checkout con estas tarifas llegó al doble de Fourvenues.
     const log = (await (await request.get(`${MOCK}/__test/requests`)).json()) as {
       method?: string;
       path?: string;
@@ -297,7 +387,7 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
       return (
         String(r.method).toUpperCase() === "POST" &&
         String(r.path ?? r.url ?? "").includes("/tickets/checkout") &&
-        body.includes(fx.upcoming._id)
+        (body.includes(fx.upcoming._id) || body.includes(priced._id))
       );
     });
     expect(reached).toHaveLength(0);
@@ -317,6 +407,25 @@ test.describe("Taquilla: reglas puras de cumplimiento", () => {
     for (const raw of [undefined, null, "", "mañana", 1761127200000, {}]) {
       expect(saleOpensAt(raw, now)).toBeNull();
     }
+  });
+
+  test("pendingSaleOpening: con valid_from futuro siempre; ya abierta, solo 2 min y sin precio vigente", () => {
+    const open = "2026-10-22T10:00:00.000Z";
+    const at = Date.parse(open);
+    expect(SALE_OPEN_GRACE_MS).toBe(2 * 60 * 1000);
+    // Antes de abrir, con o sin precio adelantado por Fourvenues.
+    expect(pendingSaleOpening(open, false, at - 1)).toBe(open);
+    expect(pendingSaleOpening(open, true, at - 1)).toBe(open);
+    // Ya abierta y con precio vigente: se vende con normalidad.
+    expect(pendingSaleOpening(open, true, at)).toBeNull();
+    expect(pendingSaleOpening(open, true, at + 1_000)).toBeNull();
+    // Recién abierta sin precio (caché de 30 s / Fourvenues publicando): sigue
+    // «A la venta el…» en vez de un «Agotado» falso…
+    expect(pendingSaleOpening(open, false, at)).toBe(open);
+    expect(pendingSaleOpening(open, false, at + SALE_OPEN_GRACE_MS - 1)).toBe(open);
+    // …y pasado el margen, lo de siempre (Fourvenues decide si está agotada).
+    expect(pendingSaleOpening(open, false, at + SALE_OPEN_GRACE_MS)).toBeNull();
+    for (const raw of [undefined, null, "", "mañana"]) expect(pendingSaleOpening(raw, false, at)).toBeNull();
   });
 
   test("«A la venta el…» sale en hora de Madrid a ambos lados del cambio de hora del 25-oct", () => {

@@ -9,7 +9,7 @@ import type {
   FVTicketPrice,
   FVTicketRate,
 } from "@/lib/fourvenues/types";
-import { hasUnknownRequiredField, saleOpensAt } from "@/lib/checkout/validation";
+import { hasUnknownRequiredField, pendingSaleOpening } from "@/lib/checkout/validation";
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
 import { withoutLollipop } from "./format";
 import type {
@@ -31,15 +31,17 @@ import type {
 // que se PROYECTA antes: fuera cifras de stock y mesas ocultas (regla del
 // dueño, §0), fuera tarifas privadas (solo por enlace directo) y fuera tarifas
 // con un campo obligatorio que no sabemos enviar (el pago acabaría en 400).
-// Nombres de tarifa, «Incluye» e info adicional salen sin el emoji 🍭 (withoutLollipop, red de
-// seguridad para el tráfico de anuncios): se limpia aquí, en la proyección, y
-// no en cada componente, para que tampoco viaje en el payload del HTML que lee
-// el revisor de Meta. Los ids y slugs que se envían a Fourvenues no cambian.
+// Nombres (evento, tarifas, zonas y mesas), «Incluye», info adicional y
+// contenido de mesa salen sin el emoji 🍭 (withoutLollipop, red de seguridad
+// para el tráfico de anuncios): se limpia aquí, en la proyección, y no en cada
+// componente, para que tampoco viaje en el payload del HTML que lee el revisor
+// de Meta. Los ids y slugs que se envían a Fourvenues no cambian. El texto
+// libre que no se pinta (descripción del evento, condiciones de mesa) no viaja.
 
 export function toNativeEvent(e: FVEvent): NativeCheckoutEvent {
   return {
     id: e._id,
-    name: e.name,
+    name: withoutLollipop(e.name),
     slug: e.slug,
     code: e.code ?? "",
     start_date: e.start_date,
@@ -92,24 +94,6 @@ export function toClientRate(r: FVTicketRate): ClientTicketRate {
 }
 
 /**
- * Margen tras la hora de apertura en el que una tarifa SIN `current_price`
- * sigue tratándose como «a punto de abrir» y no como agotada: las tarifas se
- * cachean 30 s (revalidate de getTicketRates) y Fourvenues puede tardar un
- * poco en publicar el precio vigente. Sin este margen, quien entra desde un
- * anuncio justo a la hora de apertura vería «Agotado», un dato de
- * disponibilidad falso (regla del dueño).
- */
-const SALE_OPEN_GRACE_MS = 2 * 60 * 1000;
-
-/** Inicio de venta a mostrar (ISO) o null si la tarifa ya se vende con normalidad. */
-function pendingOpening(rate: FVTicketRate, now: number): string | null {
-  return (
-    saleOpensAt(rate.valid_from, now) ??
-    (rate.current_price ? null : saleOpensAt(rate.valid_from, now - SALE_OPEN_GRACE_MS))
-  );
-}
-
-/**
  * Tarifas vendibles desde la taquilla pública (ver cabecera del fichero). Las
  * que tienen un inicio de venta programado (`valid_from` futuro según el reloj
  * del SERVIDOR) se proyectan con `opens_at` para pintar «A la venta el…» en
@@ -127,15 +111,23 @@ export function sellableTicketRates(rates: FVTicketRate[], now: number = Date.no
       });
       continue;
     }
-    const opensAt = pendingOpening(rate, now);
+    // Margen de 2 min tras la apertura sin precio vigente: SALE_OPEN_GRACE_MS.
+    const opensAt = pendingSaleOpening(rate.valid_from, Boolean(rate.current_price), now);
     out.push(opensAt ? { ...toClientRate(rate), opens_at: opensAt } : toClientRate(rate));
   }
   return out;
 }
 
-/** Tarifa VIP tal cual, salvo el emoji 🍭 en lo que se pinta (nombre y contenido). */
+/**
+ * Tarifa VIP para el navegador: sin el emoji 🍭 en lo que se pinta (nombre y
+ * contenido) y sin `conditions`, texto libre del panel que la taquilla NO pinta
+ * (mismo criterio que la descripción del evento: no viaja en el payload RSC).
+ * La compra no lo necesita: la ruta de mesas valida contra Fourvenues por slug.
+ */
 function toClientBookingRate(r: FVBookingRate): FVBookingRate {
-  return { ...r, name: withoutLollipop(r.name), content: withoutLollipop(r.content) };
+  const { conditions: _conditions, ...rest } = r;
+  void _conditions;
+  return { ...rest, name: withoutLollipop(rest.name), content: withoutLollipop(rest.content) };
 }
 
 /** Tarifas únicas de la zona (las repiten todas sus mesas). */
@@ -155,7 +147,7 @@ export function toClientZone(z: FVBookingZone): ClientBookingZone {
         .filter((s) => s.available && !s.blocked && !s.hidden)
         .map((s) => ({
           _id: s._id,
-          name: s.name,
+          name: withoutLollipop(s.name),
           capacity: Number.isFinite(s.capacity) ? s.capacity : 0,
           minimum: Number.isFinite(s.minimum) ? s.minimum : 0,
           rates: Array.isArray(s.rates) ? s.rates.map(toClientBookingRate) : [],
@@ -166,7 +158,7 @@ export function toClientZone(z: FVBookingZone): ClientBookingZone {
     _id: z._id,
     available: z.available,
     slug: z.slug,
-    name: z.name,
+    name: withoutLollipop(z.name),
     can_select_client: z.can_select_client,
     is_full: z.is_full,
     has_discount_codes_enabled: z.has_discount_codes_enabled,

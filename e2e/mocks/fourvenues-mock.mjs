@@ -6,8 +6,9 @@
 // Imita EXACTAMENTE las rutas y formas que usa src/lib/fourvenues/client.ts
 // (todas las respuestas envueltas en { data, success }, como la API real) con
 // datos fijos: evento "CALENTÓN | OUTXIDE" (código AA6X), dos tarifas de
-// entrada a la venta (10 € y 15 €, 8 % de gastos) y una tercera con el inicio
-// de venta programado (valid_from futuro), una zona VIP idéntica a la real y
+// entrada a la venta (10 € y 15 €, 8 % de gastos) y dos con el inicio de venta
+// programado (valid_from futuro; una sin precio y otra con el precio ya
+// publicado), una zona VIP idéntica a la real y
 // dos tarifas de lista; y el evento "OUTXIDIOUS | OUTXIDE" (código OX31, sáb
 // 31-oct) con sus tarifas, sin VIP ni listas (landing de Halloween). El pago se simula en GET /pay/{payment_id}: "Pagar" lleva a
 // la redirect_url recibida y "Cancelar" a la error_url. Registra todas las
@@ -185,6 +186,22 @@ const TICKET_RATES = [
     valid_from: new Date(DATES.start.getTime() - 12 * 60 * 60 * 1000).toISOString(),
     current_price: null,
     available: false,
+  },
+  // Misma apertura futura, pero con el precio vigente YA publicado y marcada
+  // disponible (Fourvenues puede adelantarlo): pasa todas las comprobaciones
+  // de POST /api/checkout/tickets salvo la guarda de valid_from, que es lo que
+  // prueba el 409 del spec de cumplimiento. 20 €: más cara que las vendibles,
+  // no cambia ningún «desde» ni las tarifas que los specs buscan por precio.
+  {
+    ...ticketRate({
+      id: "rate0precioadelantado00000000001",
+      name: "ANTICIPADA PRECIO ADELANTADO",
+      slug: "anticipada-precio-adelantado",
+      priceId: "price0precioadelantado0000000001",
+      price: 20,
+      includes: "Acceso",
+    }),
+    valid_from: new Date(DATES.start.getTime() - 12 * 60 * 60 * 1000).toISOString(),
   },
 ];
 
