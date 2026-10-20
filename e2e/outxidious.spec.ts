@@ -848,10 +848,14 @@ test.describe("OUTXIDIOUS · landing", () => {
       await page.route(/\.(mp4|webm)$/, (route) => route.abort());
       await page.goto(OUTXIDIOUS_PATH, { waitUntil: "domcontentloaded" });
       const media = page.getByTestId("outxidious-hero-media");
+      // El HTML llega en streaming (loading.tsx): se espera a que el hero esté
+      // pintado; el vídeo sigue cortado, así que la caja aún no tiene vídeo.
+      await expect(media).toBeVisible();
       const before = (await media.boundingBox())!;
       expect(Math.abs(before.width / before.height - ratio), `${width}px`).toBeLessThan(0.02);
       await page.unroute(/\.(mp4|webm)$/);
       await page.reload({ waitUntil: "load" });
+      await expect(media).toBeVisible();
       await page.waitForTimeout(1200);
       const after = (await media.boundingBox())!;
       expect(Math.abs(after.height - before.height), `${width}px: la caja no cambia al cargar`).toBeLessThanOrEqual(1);
