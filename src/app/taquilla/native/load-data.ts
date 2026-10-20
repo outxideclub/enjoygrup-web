@@ -31,15 +31,17 @@ import type {
 // que se PROYECTA antes: fuera cifras de stock y mesas ocultas (regla del
 // dueño, §0), fuera tarifas privadas (solo por enlace directo) y fuera tarifas
 // con un campo obligatorio que no sabemos enviar (el pago acabaría en 400).
-// Nombres de tarifa, «Incluye» e info adicional salen sin el emoji 🍭 (withoutLollipop, red de
-// seguridad para el tráfico de anuncios): se limpia aquí, en la proyección, y
-// no en cada componente, para que tampoco viaje en el payload del HTML que lee
-// el revisor de Meta. Los ids y slugs que se envían a Fourvenues no cambian.
+// Nombres (evento, tarifas, zonas y mesas), «Incluye», info adicional y
+// contenido de mesa salen sin el emoji 🍭 (withoutLollipop, red de seguridad
+// para el tráfico de anuncios): se limpia aquí, en la proyección, y no en cada
+// componente, para que tampoco viaje en el payload del HTML que lee el revisor
+// de Meta. Los ids y slugs que se envían a Fourvenues no cambian. El texto
+// libre que no se pinta (descripción del evento, condiciones de mesa) no viaja.
 
 export function toNativeEvent(e: FVEvent): NativeCheckoutEvent {
   return {
     id: e._id,
-    name: e.name,
+    name: withoutLollipop(e.name),
     slug: e.slug,
     code: e.code ?? "",
     start_date: e.start_date,
@@ -116,9 +118,16 @@ export function sellableTicketRates(rates: FVTicketRate[], now: number = Date.no
   return out;
 }
 
-/** Tarifa VIP tal cual, salvo el emoji 🍭 en lo que se pinta (nombre y contenido). */
+/**
+ * Tarifa VIP para el navegador: sin el emoji 🍭 en lo que se pinta (nombre y
+ * contenido) y sin `conditions`, texto libre del panel que la taquilla NO pinta
+ * (mismo criterio que la descripción del evento: no viaja en el payload RSC).
+ * La compra no lo necesita: la ruta de mesas valida contra Fourvenues por slug.
+ */
 function toClientBookingRate(r: FVBookingRate): FVBookingRate {
-  return { ...r, name: withoutLollipop(r.name), content: withoutLollipop(r.content) };
+  const { conditions: _conditions, ...rest } = r;
+  void _conditions;
+  return { ...rest, name: withoutLollipop(rest.name), content: withoutLollipop(rest.content) };
 }
 
 /** Tarifas únicas de la zona (las repiten todas sus mesas). */
@@ -138,7 +147,7 @@ export function toClientZone(z: FVBookingZone): ClientBookingZone {
         .filter((s) => s.available && !s.blocked && !s.hidden)
         .map((s) => ({
           _id: s._id,
-          name: s.name,
+          name: withoutLollipop(s.name),
           capacity: Number.isFinite(s.capacity) ? s.capacity : 0,
           minimum: Number.isFinite(s.minimum) ? s.minimum : 0,
           rates: Array.isArray(s.rates) ? s.rates.map(toClientBookingRate) : [],
@@ -149,7 +158,7 @@ export function toClientZone(z: FVBookingZone): ClientBookingZone {
     _id: z._id,
     available: z.available,
     slug: z.slug,
-    name: z.name,
+    name: withoutLollipop(z.name),
     can_select_client: z.can_select_client,
     is_full: z.is_full,
     has_discount_codes_enabled: z.has_discount_codes_enabled,

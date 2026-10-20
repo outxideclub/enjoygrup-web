@@ -1,5 +1,5 @@
 import { test, expect, type APIRequestContext, type Page } from "@playwright/test";
-import type { FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
+import type { FVBookingZone, FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
 import { SALE_OPEN_GRACE_MS, pendingSaleOpening, saleOpensAt } from "../src/lib/checkout/validation";
 import { ageNotice, fill, withoutLollipop } from "../src/app/taquilla/native/format";
 import { formatEventDate, formatEventTime } from "../src/lib/events";
@@ -236,6 +236,7 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
 
   test("los nombres de tarifa e «Incluye» salen sin 🍭 (tarjeta, resumen y HTML) y conservan «copa» y «chupito»", async ({
     page,
+    request,
   }) => {
     // Precondición: el doble lleva el 🍭 del panel real en nombre e «includes».
     const raw = fx.rates.find((r) => r.name.includes(LOLLIPOP));
@@ -258,6 +259,13 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     // La descripción libre del evento (no se pinta) tampoco viaja en el HTML.
     expect(fx.event.description.length).toBeGreaterThan(0);
     expect(html).not.toContain(fx.event.description);
+    // Ni las condiciones de las mesas VIP: texto libre del panel que no se pinta.
+    const zones = unwrap<FVBookingZone>(
+      await (await request.get(`${MOCK}/bookings/zones?event_id=${encodeURIComponent(fx.event._id)}`)).json(),
+    );
+    const conditions = zones.flatMap((z) => z.spaces.flatMap((sp) => sp.rates.map((r) => r.conditions ?? "")));
+    expect(conditions.filter(Boolean).length).toBeGreaterThan(0);
+    for (const text of conditions.filter(Boolean)) expect(html).not.toContain(text);
 
     // Hasta el resumen: la línea de compra tampoco lo lleva.
     await card.getByTestId("qty-plus").click();
