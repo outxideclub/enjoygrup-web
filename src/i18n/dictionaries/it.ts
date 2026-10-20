@@ -151,6 +151,7 @@ export const it: Dictionary = {
     subtitle: "La vostra azienda pranza o cena dove vuole e la festa continua con noi: il pomeriggio all'Enjoy Terrace e la notte all'OUTXIDE.",
     occasions: "Gestiamo richieste per le feste di fine stagione del personale e per le feste di Natale, già prenotabili.",
     cta: "Richiedi un preventivo",
+    navCta: "Preventivo",
     adultNotice: "Solo maggiori di 18 anni · Consumo responsabile",
     heroImageAlt: "Facciata di notte a Port d'Alcúdia con le insegne dell'OUTXIDE Club e di Enjoy una accanto all'altra",
     formatsEyebrow: "Due formule",

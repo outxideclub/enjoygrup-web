@@ -151,6 +151,7 @@ export const en: Dictionary = {
     subtitle: "Your company has lunch or dinner wherever it likes and the celebration carries on with us: in the afternoon at Enjoy Terrace and at night at OUTXIDE.",
     occasions: "We handle requests for staff end-of-season parties and for Christmas celebrations, which can already be booked.",
     cta: "Request a quote",
+    navCta: "Enquire",
     adultNotice: "Over-18s only · Drink responsibly",
     heroImageAlt: "Night-time façade in Port d'Alcúdia with the OUTXIDE Club and Enjoy signs side by side",
     formatsEyebrow: "Two formats",

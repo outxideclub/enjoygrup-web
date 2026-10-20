@@ -550,6 +550,38 @@ test.describe("/empresas · primera pantalla 375×550", () => {
     { name: "con el antetítulo del cartel", now: "2026-10-22T12:00:00+02:00", es: EYEBROW_SEASON_ES, en: EYEBROW_SEASON_EN },
     { name: "acabado el conjunto (9-nov)", now: SEASON_OVER, es: EYEBROW_NEUTRAL_ES, en: EYEBROW_NEUTRAL_EN },
   ];
+  // F12: el CTA de la cabecera lleva al formulario (no llama por teléfono) y
+  // cabe en 375 px sin desplazamiento horizontal.
+  for (const lang of ["es", "en"] as const) {
+    test(`${lang}: el botón de la cabecera va al formulario de presupuesto, no a una llamada`, async ({ page }) => {
+      await page.goto(lang === "es" ? "/empresas" : "/en/empresas");
+      const header = page.locator("header").first();
+      await expect(header.locator('a[href^="tel:"]')).toHaveCount(0);
+      const cta = header.locator('a[href="#solicitud"]').filter({ visible: true });
+      await expect(cta).toHaveCount(1);
+      await expect(cta).toHaveText(lang === "es" ? es.empresas.navCta : "Enquire");
+      await expect(cta).toBeInViewport({ ratio: 1 });
+      // En una sola línea (no pisa el logo), también a 320 px.
+      const lines = () =>
+        cta.evaluate((el) => {
+          const r = document.createRange();
+          r.selectNodeContents(el);
+          return new Set([...r.getClientRects()].map((x) => Math.round(x.top))).size;
+        });
+      expect(await lines()).toBe(1);
+      await page.setViewportSize({ width: 320, height: 550 });
+      expect(await lines()).toBe(1);
+      await page.setViewportSize({ width: 375, height: 550 });
+      // Letra negra sobre el rosa (el blanco daba 3,5:1).
+      expect(await cta.evaluate((el) => getComputedStyle(el).color)).toBe("rgb(0, 0, 0)");
+      const overflowX = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflowX).toBeLessThanOrEqual(1);
+      await cta.click();
+      await expect(page).toHaveURL(/#solicitud$/);
+      await expect(page.locator("#solicitud")).toBeInViewport();
+    });
+  }
+
   for (const lang of ["es", "en"] as const) for (const moment of MOMENTS) {
     test(`${lang} ${moment.name}: antetítulo, H1 del cartel en dos líneas, subtítulo, botón y placa +18 sin desplazar`, async ({ page }) => {
       const path = lang === "es" ? "/empresas" : "/en/empresas";

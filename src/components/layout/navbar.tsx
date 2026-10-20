@@ -27,6 +27,19 @@ function reserveTarget(basePath: string, locale: string) {
       labelKey: "cta.navTickets" as const,
     };
   }
+  if (basePath === "/empresas" || basePath.startsWith("/empresas/")) {
+    // Destino de los anuncios de empresas (revisión F12, 20-oct-2026): el CTA
+    // de la barra lleva al formulario de presupuesto de la propia página, no
+    // a una llamada que no queda registrada como solicitud de la campaña. Rosa
+    // con letra NEGRA, como los botones de la página (el blanco sobre rosa no
+    // llegaba a 4,5:1).
+    return {
+      href: "#solicitud",
+      accent: "text-black bg-enjoy hover:bg-enjoy/90",
+      external: false,
+      labelKey: "empresas.navCta" as const,
+    };
+  }
   return {
     href: telHref(siteContact.general.phone),
     accent: "text-white bg-enjoy hover:bg-enjoy/90",
