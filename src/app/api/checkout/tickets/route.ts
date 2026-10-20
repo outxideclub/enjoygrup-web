@@ -13,6 +13,7 @@ import {
   isEmail,
   isPhone,
   newOrderRef,
+  saleOpensAt,
 } from "@/lib/checkout/validation";
 import {
   MAX_EMAIL,
@@ -221,6 +222,10 @@ export async function POST(request: NextRequest) {
   // que no sabemos enviar: no se vende desde la taquilla pública (load-data
   // tampoco la enseña; esto cubre el cuerpo manipulado).
   if (rate.type === "private" || hasUnknownRequiredField(rate.fields)) return fail("rate_unavailable", 409);
+  // Inicio de venta programado aún no alcanzado (reloj del servidor): la
+  // taquilla la enseña como «A la venta el…» sin dejar elegirla; esto cubre el
+  // cuerpo manipulado aunque Fourvenues adelantara el current_price.
+  if (saleOpensAt(rate.valid_from, Date.now())) return fail("rate_unavailable", 409);
   const min = Math.max(1, Number.isInteger(rate.min) ? rate.min : 1);
   const max = Math.min(MAX_QUANTITY, Number.isInteger(rate.max) && rate.max > 0 ? rate.max : MAX_QUANTITY);
   if (quantity < min || quantity > max) return fail("quantity_out_of_range", 400);

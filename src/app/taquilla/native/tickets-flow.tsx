@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { Copy, Tag } from "lucide-react";
+import { Clock, Copy, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/i18n";
+import { formatEventDate, formatEventTime } from "@/lib/events";
 import { formatEur, ticketFee, ticketsQuote } from "@/lib/fourvenues/pricing";
 import type { FVDiscountCode } from "@/lib/fourvenues/types";
 import { cn } from "@/lib/utils";
@@ -68,6 +69,16 @@ function rateMin(rate: ClientTicketRate): number {
 
 function isSoldOut(rate: ClientTicketRate): boolean {
   return !rate.available || rate.complete || !rate.current_price;
+}
+
+/**
+ * Venta aún no abierta (opens_at lo decide el servidor en load-data). Manda
+ * sobre isSoldOut: antes de abrir Fourvenues no da current_price (y puede no
+ * marcarla available), pero eso no es «Agotado» — sería un dato de
+ * disponibilidad falso.
+ */
+function opensAt(rate: ClientTicketRate): string | null {
+  return rate.opens_at ?? null;
 }
 
 function resizeForms(prev: FormValues[], count: number): FormValues[] {
@@ -586,14 +597,15 @@ function RateCard({ rate, qty, locale, t, onPlus, onMinus }: RateCardProps) {
   const price = rate.current_price;
   const unit = price && Number.isFinite(price.price) ? Math.max(0, price.price) : 0;
   const fee = price ? ticketFee(unit, price.fee_type, price.fee_quantity) : 0;
-  const soldOut = isSoldOut(rate);
+  const opening = opensAt(rate);
+  const soldOut = !opening && isSoldOut(rate);
   const selected = qty > 0;
 
   return (
     <div
       data-testid="rate-card"
       data-rate-id={rate._id}
-      aria-disabled={soldOut || undefined}
+      aria-disabled={soldOut || Boolean(opening) || undefined}
       className={cn(
         "rounded-2xl border bg-white/[0.02] p-4 transition-colors sm:p-5",
         selected ? "border-outxide/60 bg-outxide/[0.06]" : "border-white/10",
@@ -611,17 +623,30 @@ function RateCard({ rate, qty, locale, t, onPlus, onMinus }: RateCardProps) {
           )}
           {price?.additional_info && <p className="mt-1 text-sm text-muted-foreground">{price.additional_info}</p>}
         </div>
-        <div className="shrink-0 text-right">
-          <p data-testid="rate-price" className={cn("font-display text-xl font-bold", soldOut ? "text-white/60" : "text-white")}>
-            {formatEur(unit, locale)}
-          </p>
-          <p data-testid="rate-fee" className="text-sm text-muted-foreground">
-            {fill(t("checkout.feeSuffix"), { fee: formatEur(fee, locale) })}
-          </p>
-        </div>
+        {/* Antes de abrir no hay precio vigente: nada de un "0,00 €" engañoso. */}
+        {!(opening && !price) && (
+          <div className="shrink-0 text-right">
+            <p data-testid="rate-price" className={cn("font-display text-xl font-bold", soldOut ? "text-white/60" : "text-white")}>
+              {formatEur(unit, locale)}
+            </p>
+            <p data-testid="rate-fee" className="text-sm text-muted-foreground">
+              {fill(t("checkout.feeSuffix"), { fee: formatEur(fee, locale) })}
+            </p>
+          </div>
+        )}
       </div>
       <div className="mt-3 flex items-center justify-between gap-3">
-        {soldOut ? (
+        {opening ? (
+          <p data-testid="rate-opens-at" className="flex items-center gap-1.5 text-sm font-semibold text-outxide">
+            <Clock className="h-4 w-4 shrink-0" aria-hidden />
+            <span>
+              {fill(t("checkout.opensAt"), {
+                date: formatEventDate(opening, locale),
+                time: formatEventTime(opening, locale),
+              })}
+            </span>
+          </p>
+        ) : soldOut ? (
           <span
             data-testid="rate-soldout"
             className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm font-semibold uppercase tracking-wider text-white/85"

@@ -6,8 +6,9 @@
 // Imita EXACTAMENTE las rutas y formas que usa src/lib/fourvenues/client.ts
 // (todas las respuestas envueltas en { data, success }, como la API real) con
 // datos fijos: evento "CALENTÓN | OUTXIDE" (código AA6X), dos tarifas de
-// entrada (10 € y 15 €, 8 % de gastos), una zona VIP idéntica a la real y dos
-// tarifas de lista; y el evento "OUTXIDIOUS | OUTXIDE" (código OX31, sáb
+// entrada a la venta (10 € y 15 €, 8 % de gastos) y una tercera con el inicio
+// de venta programado (valid_from futuro), una zona VIP idéntica a la real y
+// dos tarifas de lista; y el evento "OUTXIDIOUS | OUTXIDE" (código OX31, sáb
 // 31-oct) con sus tarifas, sin VIP ni listas (landing de Halloween). El pago se simula en GET /pay/{payment_id}: "Pagar" lleva a
 // la redirect_url recibida y "Cancelar" a la error_url. Registra todas las
 // peticiones (GET /__test/requests) y se reinicia con POST /__test/reset.
@@ -146,14 +147,16 @@ function ticketRate({ id, name, slug, priceId, price, includes, max = 99 }) {
 
 const TICKET_RATES = [
   // max 8 (por debajo del tope absoluto de 99 de la ruta): así el e2e puede
-  // ejercitar el límite POR TARIFA con rate.max + 1.
+  // ejercitar el límite POR TARIFA con rate.max + 1. El 🍭 del nombre (y el de
+  // «includes», con selector de variación U+FE0F) es el del panel real: la
+  // taquilla debe pintarlos sin el emoji (e2e/taquilla-cumplimiento.spec.ts).
   ticketRate({
     id: RATE_COPA_ID,
-    name: "ENTRADA COPA + CHUPITO",
+    name: "🍭 ENTRADA COPA + CHUPITO",
     slug: "entrada-copa-chupito",
     priceId: PRICE_COPA_ID,
     price: 10,
-    includes: "1 copa + 1 chupito",
+    includes: "1 copa + 1 chupito \u{1F36D}\u{FE0F}",
     max: 8,
   }),
   ticketRate({
@@ -164,6 +167,25 @@ const TICKET_RATES = [
     price: 15,
     includes: "2 copas",
   }),
+  // Tarifa pública con «Inicio de la venta» programado (valid_from futuro):
+  // como la devuelve la API ANTES de abrir, sin current_price y sin marcarla
+  // disponible. La taquilla debe pintar «A la venta el…», nunca «Agotado», y no
+  // dejar elegirla (e2e/taquilla-cumplimiento.spec.ts). Abre 12 h antes del
+  // evento: en el futuro, porque al arrancar el mock el evento empieza dentro
+  // de ≥ 24 h (eventDates).
+  {
+    ...ticketRate({
+      id: "rate0proximamente000000000000001",
+      name: "ANTICIPADA PRÓXIMAMENTE",
+      slug: "anticipada-proximamente",
+      priceId: "price0proximamente00000000000001",
+      price: 12,
+      includes: "Acceso",
+    }),
+    valid_from: new Date(DATES.start.getTime() - 12 * 60 * 60 * 1000).toISOString(),
+    current_price: null,
+    available: false,
+  },
 ];
 
 // Zona VIP idéntica a la real (contrato §3): mesa asignada por el club, 120 €

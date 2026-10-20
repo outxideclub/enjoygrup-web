@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Calendar } from "lucide-react";
 import { useT } from "@/i18n";
 import { formatEventDate, formatEventTime } from "@/lib/events";
-import { formatGenres } from "./format";
+import { ageNotice, formatGenres } from "./format";
 import type { NativeCheckoutData, NativeCheckoutEvent } from "./types";
 
 /**
@@ -67,8 +67,8 @@ export function EventList({ data }: { data: NativeCheckoutData }) {
                   <div className="flex flex-1 flex-col p-4">
                     <h3 className="line-clamp-2 text-base font-bold text-white">{ev.name}</h3>
                     <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                      <span className="rounded-md border border-white/15 px-1.5 py-0.5 text-white/70">
-                        {ev.age > 0 && ev.age !== 18 ? `+${ev.age}` : t("checkout.adults")}
+                      <span data-testid="age-notice" className="rounded-md border border-white/15 px-1.5 py-0.5 text-white/70">
+                        {ageNotice(ev.age, t("checkout.adultsResponsible"))}
                       </span>
                       {genres && <span>{genres}</span>}
                     </p>
