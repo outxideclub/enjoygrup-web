@@ -99,8 +99,14 @@ function NewsletterForm({ linkOrigin }: { linkOrigin: string }) {
   );
 }
 
-/** `linkOrigin`: origen absoluto para los enlaces internos (ver Navbar). */
-export function Footer({ linkOrigin = "" }: { linkOrigin?: string }) {
+/**
+ * `linkOrigin`: origen absoluto para los enlaces internos (ver Navbar).
+ * `adLanding`: página destino de anuncios (p. ej. /empresas). El enlace a la
+ * carta de Enjoy dice «Ver carta» en vez de «Cocktails & Shisha»: la shisha en
+ * una landing de Meta es publicidad de tabaco (COPYS §3 de la campaña de
+ * empresas) y puede hacer que rechacen el anuncio. El resto de páginas no cambia.
+ */
+export function Footer({ linkOrigin = "", adLanding = false }: { linkOrigin?: string; adLanding?: boolean }) {
   const locale = useLocale();
   const t = useT();
   const siteHref = (path: string, loc = locale) => `${linkOrigin}${localizedPath(path, loc)}`;
@@ -135,7 +141,7 @@ export function Footer({ linkOrigin = "" }: { linkOrigin?: string }) {
                   href={siteHref("/enjoy#carta", locale)}
                   className="link-underline text-sm text-muted-foreground hover:text-white transition-colors"
                 >
-                  {t("footer.enjoyCocktails")}
+                  {adLanding ? t("enjoy.viewMenu") : t("footer.enjoyCocktails")}
                 </Link>
               </li>
             </ul>

@@ -35,6 +35,27 @@ function read(): Params {
   }
 }
 
+/** Parámetros de campaña conocidos (solo CAMPAIGN_KEYS, solo texto). */
+export type CampaignParams = Params;
+
+/**
+ * Lectura de SOLO LECTURA de los parámetros guardados en la sesión (los que
+ * CampaignLinkTracker capturó al aterrizar). La usan los formularios propios
+ * (p. ej. /empresas) para adjuntar la campaña a la solicitud. No escribe nada
+ * ni cambia la política de almacenamiento de arriba; filtra a CAMPAIGN_KEYS
+ * por si sessionStorage trae algo manipulado. Sin storage → {}.
+ */
+export function getStoredCampaignParams(): CampaignParams {
+  // `|| {}`: un valor "null" guardado haría que read() devolviera null.
+  const stored: Params = read() || {};
+  const out: Params = {};
+  for (const k of CAMPAIGN_KEYS) {
+    const v = stored[k];
+    if (typeof v === "string" && v) out[k] = v;
+  }
+  return out;
+}
+
 /**
  * Captura los parámetros de campaña de la URL actual y los conserva durante la
  * sesión de navegación (el usuario puede mirar dos eventos antes de comprar).
