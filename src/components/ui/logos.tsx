@@ -5,6 +5,12 @@ interface LogoProps {
   className?: string;
   /** Precarga con prioridad — pasar true SOLO cuando el logo esté above-the-fold (hero) */
   priority?: boolean;
+  /**
+   * Ancho real en pantalla (atributo sizes de next/image). Sin él se sirve la
+   * versión de 1200 px en móviles de alta densidad aunque el logo mida ~110 px
+   * (26 KB en las landings de anuncios, revisión PA-7).
+   */
+  sizes?: string;
 }
 
 export function EnjoyLogo({ className, priority = false }: LogoProps) {
@@ -22,7 +28,7 @@ export function EnjoyLogo({ className, priority = false }: LogoProps) {
   );
 }
 
-export function OutxideLogo({ className, priority = false }: LogoProps) {
+export function OutxideLogo({ className, priority = false, sizes }: LogoProps) {
   return (
     <div className={cn("relative", className)}>
       <Image
@@ -32,6 +38,7 @@ export function OutxideLogo({ className, priority = false }: LogoProps) {
         height={200}
         className="h-full w-auto object-contain brightness-0 invert"
         priority={priority}
+        sizes={sizes}
       />
     </div>
   );

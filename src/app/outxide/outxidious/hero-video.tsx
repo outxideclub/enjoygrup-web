@@ -16,8 +16,10 @@ import { useT } from "@/i18n";
 //   prefers-reduced-motion o ahorro de datos (Save-Data) solo se ve el póster,
 //   también antes de hidratar. La reproducción automática (muted, playsInline,
 //   loop) la arranca el cliente si ambas cosas lo permiten.
-// - preload="metadata" (y "none" con Save-Data, que la página lee de la
-//   cabecera): el vídeo no compite con el póster ni bloquea la carga.
+// - preload="none" en el HTML: el vídeo no compite con el póster y, con
+//   movimiento reducido o Save-Data, no se baja nada (con "metadata" Chrome se
+//   bajaba el webm entero, 97 KB, aunque no se fuera a reproducir: revisión
+//   PA-7). Cuando se puede reproducir, play() lo carga.
 // - Botón visible de pausa/reproducción (WCAG 2.2.2: movimiento de más de 5 s).
 //   Con movimiento reducido el botón ofrece «Reproducir»: decide la persona.
 // - Antes de publicar un vídeo: ≤ 3 destellos por segundo (WCAG 2.3.1).
@@ -103,7 +105,7 @@ export function HeroVideo({
         muted
         playsInline
         loop
-        preload={saveData ? "none" : "metadata"}
+        preload="none"
         poster={poster}
         width={width}
         height={height}

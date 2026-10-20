@@ -143,7 +143,8 @@ export function AgeVerification({ copy }: { copy?: AgeVerificationCopy } = {}) {
 
             {/* w-fit: el wrapper del logo es un div de bloque; sin ceñirlo al
                 contenido, mx-auto no centra y el logo queda a la izquierda. */}
-            <OutxideLogo className="h-10 w-fit mx-auto mb-6" />
+            {/* h-10 con proporción 3:1 ≈ 120 px de ancho. */}
+            <OutxideLogo className="h-10 w-fit mx-auto mb-6" sizes="128px" />
 
             <h2 id="age-verification-title" className="text-lg font-display font-bold text-white uppercase tracking-wide mb-2">
               {copy?.title ?? t("ageVerification.title")}

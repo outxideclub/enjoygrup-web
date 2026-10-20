@@ -1213,12 +1213,12 @@ test.describe("OUTXIDIOUS · landing", () => {
     page,
     request,
   }) => {
-    // El HTML de servidor: póster precargado con prioridad alta, vídeo sin autoplay y con preload=metadata.
+    // El HTML de servidor: póster precargado con prioridad alta, vídeo sin autoplay y con preload=none (PA-7).
     const html = await (await request.get(OUTXIDIOUS_PATH)).text();
     expect(html).toMatch(new RegExp(`<link rel="preload" href="${TEASER.poster}" as="image" fetchPriority="high"/>`, "i"));
     const tag = html.match(/<video[^>]*>/)?.[0] ?? "";
     expect(tag).toContain(`poster="${TEASER.poster}"`);
-    expect(tag).toContain('preload="metadata"');
+    expect(tag).toContain('preload="none"');
     expect(tag).toMatch(/\bmuted=""/);
     expect(tag).toMatch(/\bplaysInline=""/i);
     expect(tag).toMatch(/\bloop=""/);
@@ -1252,9 +1252,16 @@ test.describe("OUTXIDIOUS · landing", () => {
   });
 
   test("teaser: con movimiento reducido o Save-Data solo el póster (y el botón ofrece reproducir)", async ({ page, context }) => {
+    // Ni un byte del vídeo si no se va a reproducir (PA-7: con preload=metadata
+    // Chrome se bajaba el webm entero).
+    const videoRequests: string[] = [];
+    page.on("request", (r) => {
+      if (/\/videos\/outxidious\/.+\.(webm|mp4)/.test(r.url())) videoRequests.push(r.url());
+    });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(OUTXIDIOUS_PATH);
     await page.waitForTimeout(1500);
+    expect(videoRequests).toEqual([]);
     const video = page.getByTestId("outxidious-hero-video");
     expect(await video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
     await expect(page.getByTestId("outxidious-video-toggle")).toHaveAttribute("aria-label", "Reproducir el vídeo");
@@ -1267,6 +1274,18 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(video).toHaveAttribute("preload", "none");
     expect(await video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
     await expect(video).toHaveAttribute("poster", TEASER.poster);
+  });
+
+  test("logo de OUTXIDE de la cabecera a su tamaño: nunca la versión de 1200 px (PA-7)", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    const logoUrls: string[] = [];
+    page.on("request", (r) => {
+      if (r.url().includes("outxide.png")) logoUrls.push(r.url());
+    });
+    await page.goto(OUTXIDIOUS_PATH);
+    await expect(page.locator("header img[alt='Outxide Club']")).toBeVisible();
+    expect(logoUrls.length).toBeGreaterThan(0);
+    for (const u of logoUrls) expect(Number(new URL(u).searchParams.get("w")), u).toBeLessThanOrEqual(384);
   });
 
   test("teaser sin CLS: la caja tiene su tamaño definitivo desde el HTML (5:2 en móvil, 4:1 con poca altura, 1:1 en escritorio)", async ({ page }) => {

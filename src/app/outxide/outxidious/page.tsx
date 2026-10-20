@@ -171,7 +171,8 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
       {/* Cabecera mínima: solo este evento (sin el menú general del sitio). */}
       <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
         <a href={outxideHref} aria-label={t("outxidious.homeLabel")} className="flex min-h-[44px] items-center">
-          <OutxideLogo className="h-9 w-fit" priority />
+          {/* h-9 con proporción 3:1 ≈ 108 px de ancho. */}
+          <OutxideLogo className="h-9 w-fit" priority sizes="120px" />
         </a>
         <LanguageSelector />
       </header>
