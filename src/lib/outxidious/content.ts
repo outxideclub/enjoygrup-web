@@ -198,8 +198,12 @@ const NO_CREATIVE_COPY = { claim: "", claimToday: "", sections: [], faq: [] } sa
 export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
   approved: {
     heroMedia: true,
-    claim: true,
-    sections: true,
+    // Apagados el 20-oct (norma de Sergi): el claim, los bloques y la FAQ del
+    // paquete v0.2 usaban frases ya retiradas («Algo cruzó contigo», «se abre /
+    // se rompe», «al otro lado», negro y grieta roja). Vuelven con el texto
+    // corregido en el siguiente despliegue.
+    claim: false,
+    sections: false,
     theme: true,
     // Sin imagen OG en el paquete: sigue la foto de la cabina (nunca el logo fijo).
     ogImage: false,

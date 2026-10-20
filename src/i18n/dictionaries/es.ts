@@ -299,7 +299,7 @@ export const es = {
     keywords: "OUTXIDIOUS, Halloween 2026, Halloween Alcúdia, Halloween Port d'Alcúdia, Halloween Mallorca, Enjoy Terrace, OUTXIDE Club",
     ogTitle: "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE",
     // Creativa (§6.3b), sin precio: la caché de Meta no se entera de los cambios.
-    ogDescription: "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE hasta las {end} (+18).",
+    ogDescription: "Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE hasta las {end} (+18).",
     ogImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
     eyebrow: "Halloween 2026 · Enjoy + OUTXIDE",
     h1Name: "OUTXIDIOUS",
@@ -318,13 +318,13 @@ export const es = {
     buyNote: "Entrada para OUTXIDE, de {start} a {end}. El tardeo en Enjoy Terrace es de acceso libre.",
     legalPlate: "+18 · Consumo responsable",
     // Creativo (§6.3b): solo se pinta con el hueco `claim` encendido.
-    subtitle: "La noche de Halloween se parte en dos: empieza en Enjoy Terrace y sigue al otro lado, en OUTXIDE.",
+    subtitle: "La noche de Halloween empieza en Enjoy Terrace y sigue en OUTXIDE.",
     // «Pronto» sale siempre que no hay tarifa vendible (antes de la venta, con
     // todo completo o con Fourvenues caído): nada de «muy pronto».
     soonTitle: "Entradas para OUTXIDE",
     soonText: "La venta online de entradas para OUTXIDE se hace en esta página cuando está abierta. El tardeo en Enjoy Terrace, de 20:00 a 23:00, es de acceso libre.",
     alertsText: "Si quieres, te avisamos por email de los próximos eventos.",
-    afterTitle: "OUTXIDIOUS ya cruzó",
+    afterTitle: "Gracias por venir",
     afterText: "Fue el sábado 31 de octubre de 2026. Gracias por venir.",
     afterLink: "Ver los próximos eventos de OUTXIDE",
     directionsTitle: "Cómo llegar",
