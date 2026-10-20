@@ -169,13 +169,13 @@ const FORBIDDEN: [string, RegExp][] = [
  * 5 idiomas (prevalece sobre el paquete creativo): el claim, el del sábado (y
  * cualquier «se abre … se rompe»), el dress code negro con la grieta roja (y
  * cualquier dress code de color), «Cruza la X» y los dos «lados». Sobre el
- * texto sin acentos y en minúsculas, como FORBIDDEN. (La descripción accesible
- * del teaser, «su X se rompe en esquirlas», describe el vídeo aprobado y no
- * lleva «se abre»: no es la frase.)
+ * texto sin acentos y en minúsculas, como FORBIDDEN. «Se rompe» (y sus
+ * equivalentes) no aparece en NINGÚN sitio, ni suelto: la descripción
+ * accesible del teaser dice que la X «estalla» / «shatters».
  */
 const RETIRED: [string, RegExp][] = [
   ["Algo cruzó contigo", /algo cruzo contigo|crossed over|etwas ist mit dir|quelque chose a traverse|qualcosa (?:e passato|ha attraversato) con te|ya cruzo/],
-  ["se abre … se rompe", /se abre[\s\S]{0,60}?se rompe|\bopens?\b[\s\S]{0,30}?\bbreaks?\b|offnet[\s\S]{0,40}?bricht|\bouvre[\s\S]{0,40}?se brise|\bapre[\s\S]{0,40}?si rompe|(?:medianoche|00:00)[^.]{0,12}se rompe|es cuando se rompe|it breaks at|when it breaks|at midnight it breaks|breaks 00:00/],
+  ["se abre … se rompe", /\bse rompe\b|\bsi rompe\b|\bit breaks\b|\bbreaks (?:open|at)\b|se abre[\s\S]{0,60}?se rompe|\bopens?\b[\s\S]{0,30}?\bbreaks?\b|offnet[\s\S]{0,40}?bricht|\bouvre[\s\S]{0,40}?se brise|\bapre[\s\S]{0,40}?si rompe|(?:medianoche|00:00)[^.]{0,12}se rompe|es cuando se rompe|it breaks at|when it breaks|at midnight it breaks|breaks 00:00/],
   ["dress code negro / grieta roja", /grieta|red crack|ven de negro|\bde negro\b|wear black|dress code: (?:negro|black|schwarz|noir|nero)|roter riss|fissure rouge|crepa rossa|trae una grieta|bring a red/],
   ["Cruza la X", /cruza la x|cross the x|traverse (?:le|la) x|attraversa la x|uberquere das x/],
   ["al otro lado", /otro lado|other side|anderen seite|andere seite|(?:de )?l(?:'|’|&#x27;|&#39;)autre cote|dall(?:'|’|&#x27;|&#39;)altra parte|altro lato/],

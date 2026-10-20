@@ -352,7 +352,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       heroMedia: {
         ...TEASER,
-        label: "Animación sin sonido: el logotipo de OUTXIDE Club se transforma en OUTXIDIOUS y su X se rompe en esquirlas iluminadas de rojo.",
+        label: "Animación sin sonido: el logotipo de OUTXIDE Club se transforma en OUTXIDIOUS y su X estalla en esquirlas iluminadas de rojo.",
       },
       ...cartelFor("es"),
     },
@@ -407,7 +407,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       heroMedia: {
         ...TEASER,
-        label: "Silent animation: the OUTXIDE Club logo turns into OUTXIDIOUS and its X breaks into shards lit in red.",
+        label: "Silent animation: the OUTXIDE Club logo turns into OUTXIDIOUS and its X shatters into shards lit in red.",
       },
       ...cartelFor("en"),
     },
@@ -434,7 +434,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ...NO_CREATIVE_COPY,
       heroMedia: {
         ...TEASER,
-        label: "Animazione senza audio: il logo di OUTXIDE Club si trasforma in OUTXIDIOUS e la sua X si rompe in schegge illuminate di rosso.",
+        label: "Animazione senza audio: il logo di OUTXIDE Club si trasforma in OUTXIDIOUS e la sua X esplode in schegge illuminate di rosso.",
       },
       ...cartelFor("it"),
     },
