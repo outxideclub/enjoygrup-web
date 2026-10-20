@@ -123,6 +123,10 @@ test.describe("Accesos · lógica pura", () => {
       const hits = FORBIDDEN.filter((re) => re.test(text)).map(String);
       expect(hits, `${loc}: léxico vetado`).toEqual([]);
     }
+    // Nunca el logotipo OUTXIDIOUS quieto (el póster del teaser es su último
+    // fotograma): foto ya publicada y el nombre en texto (F3).
+    expect(PROMO_IMAGES.outxidious).not.toMatch(/outxidious/i);
+    for (const loc of locales) expect(DICTS[loc].promos.outxidiousImageAlt, loc).not.toMatch(/logo/i);
     // «Tardeo» siempre con «acceso libre» en la misma frase (COPYS §0.3).
     expect(es.promos.outxidiousTardeo).toMatch(/tardeo.*acceso libre/i);
     // En inglés, el término de la landing y de los anuncios: «early party» (F9).

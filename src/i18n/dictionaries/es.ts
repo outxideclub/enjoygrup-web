@@ -106,7 +106,7 @@ export const es = {
     outxidiousTardeo: "Tardeo en Enjoy Terrace de 20:00 a 23:00 (acceso libre)",
     outxidiousNight: "OUTXIDE de 23:00 a 05:30",
     outxidiousCta: "Ver el evento",
-    outxidiousImageAlt: "Logotipo de OUTXIDIOUS sobre fondo rojo oscuro",
+    outxidiousImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
     empresasTitle: "Celebraciones de empresa",
     empresasWhen: "Fin de temporada y Navidad",
     // Como la landing y EMP-2-S (COPYS v1.4): la tarde solo si es comida (revisión F9).

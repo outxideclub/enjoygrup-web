@@ -104,7 +104,7 @@ export const en: Dictionary = {
     outxidiousTardeo: "Free-entry early party at Enjoy Terrace from 20:00 to 23:00",
     outxidiousNight: "OUTXIDE from 23:00 to 05:30",
     outxidiousCta: "See the event",
-    outxidiousImageAlt: "OUTXIDIOUS logo on a dark red background",
+    outxidiousImageAlt: "DJ booth at OUTXIDE Club, Port d'Alcúdia",
     empresasTitle: "Company celebrations",
     empresasWhen: "End of season and Christmas",
     empresasDetails: "The night at OUTXIDE; if it's lunch, the afternoon at Enjoy Terrace first",
