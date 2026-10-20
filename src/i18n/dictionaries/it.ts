@@ -144,11 +144,13 @@ export const it: Dictionary = {
     // estos en es/en; en de/fr/it la página sigue con estos textos (el paquete
     // no trae esos idiomas y el copy creativo no se traduce por nuestra cuenta).
     metaTitle: "Feste aziendali ad Alcúdia · Grupo Enjoy",
-    metaDescription: "Feste aziendali a Port d'Alcúdia: la vostra azienda pranza o cena dove vuole e la festa continua il pomeriggio all'Enjoy Terrace e la notte all'OUTXIDE. Richiesta di preventivo.",
+    // La tarde en Enjoy Terrace, solo tras una comida (paquete v0.3/v0.4: a un
+    // grupo que cena no se le ofrece la tarde de antes).
+    metaDescription: "Feste aziendali a Port d'Alcúdia: la vostra azienda pranza o cena dove vuole e la festa continua la notte all'OUTXIDE e, dopo un pranzo, già dal pomeriggio all'Enjoy Terrace. Richiesta di preventivo.",
     breadcrumb: "Feste aziendali",
     heroEyebrow: "Grupo Enjoy · Port d'Alcúdia",
     h1: "Feste aziendali a Port d'Alcúdia",
-    subtitle: "La vostra azienda pranza o cena dove vuole e la festa continua con noi: il pomeriggio all'Enjoy Terrace e la notte all'OUTXIDE.",
+    subtitle: "La vostra azienda pranza o cena dove vuole e la festa continua con noi: la notte all'OUTXIDE e, dopo un pranzo, già dal pomeriggio all'Enjoy Terrace.",
     occasions: "Gestiamo richieste per le feste di fine stagione del personale e per le feste di Natale, già prenotabili.",
     cta: "Richiedi un preventivo",
     adultNotice: "Solo maggiori di 18 anni · Consumo responsabile",

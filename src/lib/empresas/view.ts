@@ -8,6 +8,8 @@
 //   del diccionario cuando existe; si no existe versión neutra, el bloque no se
 //   pinta (DE/FR/IT no tienen fin de temporada, Navidad, FAQ ni línea de datos).
 // - Lo que caduca se decide con `now` (schedule.ts), calculado en el servidor.
+// - El token {segunFechasTarde} de los textos se resuelve aquí según
+//   condiciones.siTerrazaDic: nunca llega una llave al público.
 
 import type { Locale } from "@/i18n/config";
 import {
@@ -19,7 +21,7 @@ import {
   type EmpresasFormCopyKey,
 } from "./content";
 import { getPublishedOffer, EMPRESAS_OFFER, type EmpresasOffer, type PublishedOffer } from "./offer";
-import { isBefore } from "./schedule";
+import { isBefore, isOutsideWindow } from "./schedule";
 
 export interface FormatView {
   eyebrow: string;
@@ -33,8 +35,6 @@ export interface FormatView {
 export interface FaqView {
   question: string;
   answer: string;
-  /** Enlace dentro de la respuesta (texto exacto que se convierte en enlace). */
-  link?: { text: string; href: string };
 }
 
 export interface EmpresasView {
@@ -77,8 +77,6 @@ export interface ViewInput {
   locale: Locale;
   now: number;
   t: (key: string) => string;
-  /** Ruta localizada de la landing de OUTXIDIOUS (para la frase de entradas). */
-  outxidiousHref: string;
   content?: EmpresasContent;
   offer?: EmpresasOffer;
 }
@@ -136,14 +134,17 @@ export function resolveEmpresasView({
   locale,
   now,
   t,
-  outxidiousHref,
   content = EMPRESAS_CONTENT,
   offer: offerConfig = EMPRESAS_OFFER,
 }: ViewInput): EmpresasView {
-  const pick = (value: Parameters<typeof contentText>[0]) => contentText(value, locale, content);
-  const lines = (value: Parameters<typeof contentLines>[0]) => contentLines(value, locale, content);
   const c = content;
   const cond = c.condiciones;
+  // «(según fechas)» de la tarde solo sin [SI-TERRAZA-DIC]; con ella, nada.
+  const segunFechas = cond.siTerrazaDic ? null : contentText(c.segunFechas, locale, content);
+  const tarde = segunFechas ? ` ${segunFechas}` : "";
+  const withTarde = (text: string | null) => (text === null ? null : text.replaceAll("{segunFechasTarde}", tarde));
+  const pick = (value: Parameters<typeof contentText>[0]) => withTarde(contentText(value, locale, content));
+  const lines = (value: Parameters<typeof contentLines>[0]) => contentLines(value, locale, content);
   const creative = pick(c.hero?.titular) !== null;
   const seasonLive = isEndOfSeasonLive(now, c);
 
@@ -151,15 +152,16 @@ export function resolveEmpresasView({
   const h1 = pick(c.hero?.titular);
   const plate = pick(c.hero?.placa) ?? t("empresas.adultNotice");
   // Antetítulo del cartel del anuncio («Celebra tu fin de temporada en OUTXIDE
-  // Club») mientras viva el bloque de fin de temporada; a la misma hora vuelve
-  // el neutro del paquete. Mismo reloj que el bloque: nunca uno sin el otro.
+  // Club») mientras viva el bloque de fin de temporada (hasta el dom 8-nov,
+  // como el anuncio); a la misma hora vuelve el neutro del paquete. Mismo
+  // reloj que el bloque: nunca uno sin el otro.
   const seasonEyebrow = seasonLive ? pick(c.hero?.eyebrowFinTemporada) : null;
   const hero = {
     eyebrow: seasonEyebrow ?? pick(c.hero?.eyebrow) ?? t("empresas.heroEyebrow"),
     h1Lines: h1 ? h1.split("\n").map((s) => s.trim()).filter(Boolean) : [t("empresas.h1")],
     subtitle: pick(c.hero?.entradilla) ?? t("empresas.subtitle"),
     // La línea neutra habla de las fiestas de fin de temporada: se retira a la
-    // misma hora que el bloque del paquete (en noviembre, nada de «temporada»).
+    // misma hora que el bloque del paquete.
     occasions: !creative && seasonLive ? t("empresas.occasions") : null,
     facts: pick(c.hero?.datos),
     cta: pick(c.hero?.boton) ?? t("empresas.cta"),
@@ -200,7 +202,7 @@ export function resolveEmpresasView({
     notes: creative ? [] : [t("empresas.sameAddress"), t("empresas.hoursNote")],
   };
 
-  // --- 3. Fin de temporada (hasta el cambio de tanda) y Navidad -------------
+  // --- 3. Fin de temporada (hasta el dom 8-nov) y Navidad (desde ya) -------
   const fs = c.finTemporada;
   const endOfSeasonParts = seasonLive
     ? { eyebrow: pick(fs?.eyebrow), title: pick(fs?.titulo), text: pick(fs?.texto), cta: pick(fs?.boton) }
@@ -262,11 +264,8 @@ export function resolveEmpresasView({
     const value = pick(c.formulario?.campos[key]);
     if (value) copy[key] = value;
   }
-  // Sin el sí de Jose a la tarde en diciembre, la opción de comida lleva «(según fechas)».
-  if (copy.formatLunch && !cond.siTerrazaDic) {
-    const suffix = pick(c.formulario?.segunFechas);
-    if (suffix) copy.formatLunch = `${copy.formatLunch} ${suffix}`;
-  }
+  // Sin el sí a la tarde en diciembre, la opción de comida lleva «(según fechas)».
+  if (copy.formatLunch && segunFechas) copy.formatLunch = `${copy.formatLunch} ${segunFechas}`;
   const form = {
     eyebrow: pick(c.formulario?.eyebrow) ?? t("empresas.formEyebrow"),
     title: pick(c.formulario?.titulo) ?? t("empresas.formTitle"),
@@ -275,6 +274,9 @@ export function resolveEmpresasView({
   };
 
   // --- 6. Preguntas frecuentes ---------------------------------------------
+  // Seis desde el primer día: la 6 es la de vestimenta (acotada a OUTXIDE) y
+  // se oculta sola la noche del sáb 31, que tiene su propio código. Nada de
+  // Halloween, OUTXIDIOUS ni tardeo en /empresas (paquete v0.3, COPYS.md §3.0).
   let faq: FaqView[] | null = null;
   if (c.faq) {
     const items: FaqView[] = [];
@@ -283,30 +285,10 @@ export function resolveEmpresasView({
       const answer = pick(item.respuesta);
       if (question && answer) items.push({ question, answer });
     }
-    const hw = c.faq.halloween;
-    if (isBefore(now, hw.visibleHasta)) {
-      const question = pick(hw.pregunta);
-      const base = pick(hw.respuesta);
-      if (question && base) {
-        const parts = [base];
-        if (cond.siGrupos31) {
-          const groups = pick(hw.grupos31);
-          if (groups) parts.push(groups);
-        }
-        let link: FaqView["link"];
-        if (cond.siVentaOnline && isBefore(now, hw.ventaOnlineHasta)) {
-          const tickets = pick(hw.ventaOnline);
-          if (tickets) {
-            parts.push(tickets);
-            link = { text: "grupoenjoy.es/outxide/outxidious", href: outxidiousHref };
-          }
-        }
-        items.push({ question, answer: parts.join(" "), link });
-      }
-    } else {
-      // Desde las 23:00 del 31 entra la de vestimenta, para no quedarse en cinco.
-      const question = pick(c.faq.vestimenta.pregunta);
-      const answer = pick(c.faq.vestimenta.respuesta);
+    const dress = c.faq.vestimenta;
+    if (isOutsideWindow(now, dress.ocultaDesde, dress.ocultaHasta)) {
+      const question = pick(dress.pregunta);
+      const answer = pick(dress.respuesta);
       if (question && answer) items.push({ question, answer });
     }
     faq = items.length > 0 ? items : null;
