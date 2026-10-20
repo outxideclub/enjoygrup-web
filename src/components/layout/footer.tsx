@@ -105,8 +105,19 @@ function NewsletterForm({ linkOrigin }: { linkOrigin: string }) {
  * carta de Enjoy dice «Ver carta» en vez de «Cocktails & Shisha»: la shisha en
  * una landing de Meta es publicidad de tabaco (COPYS §3 de la campaña de
  * empresas) y puede hacer que rechacen el anuncio. El resto de páginas no cambia.
+ * `adultPlate`: placa legal («+18 · Consumo responsable») que la página destino
+ * de anuncios repite en el pie (paquete creativo de /empresas, §3 fila 7). Llega
+ * ya traducida del servidor; sin ella, el pie de siempre.
  */
-export function Footer({ linkOrigin = "", adLanding = false }: { linkOrigin?: string; adLanding?: boolean }) {
+export function Footer({
+  linkOrigin = "",
+  adLanding = false,
+  adultPlate,
+}: {
+  linkOrigin?: string;
+  adLanding?: boolean;
+  adultPlate?: string;
+}) {
   const locale = useLocale();
   const t = useT();
   const siteHref = (path: string, loc = locale) => `${linkOrigin}${localizedPath(path, loc)}`;
@@ -297,6 +308,15 @@ export function Footer({ linkOrigin = "", adLanding = false }: { linkOrigin?: st
         </div>
 
         <NewsletterForm linkOrigin={linkOrigin} />
+
+        {adultPlate && (
+          <p
+            data-testid="footer-adult-plate"
+            className="mt-12 inline-block rounded-md bg-[#1e1f1f] px-3 py-1.5 text-sm font-semibold leading-tight text-[#f8f8f8]"
+          >
+            {adultPlate}
+          </p>
+        )}
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">

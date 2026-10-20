@@ -138,9 +138,11 @@ export const fr: Dictionary = {
     viewMenu: "Voir la carte",
   },
   empresas: {
-    // Landing /empresas (celebraciones de empresa). Textos NEUTROS y factuales:
-    // el contenido creativo de la campaña aún no está aprobado (19-oct-2026).
-    // Los textos aprobados se cargan en src/lib/empresas/content.ts (apagado).
+    // Landing /empresas (celebraciones de empresa). Textos NEUTROS y factuales.
+    // Desde el 20-oct-2026 el texto CREATIVO (paquete provisional de la sesión
+    // META ADS, solo ES y EN) vive en src/lib/empresas/content.ts y manda sobre
+    // estos en es/en; en de/fr/it la página sigue con estos textos (el paquete
+    // no trae esos idiomas y el copy creativo no se traduce por nuestra cuenta).
     metaTitle: "Fêtes d'entreprise à Alcúdia · Grupo Enjoy",
     metaDescription: "Fêtes d'entreprise à Port d'Alcúdia : votre entreprise déjeune ou dîne où elle veut et la fête continue l'après-midi à l'Enjoy Terrace et la nuit à l'OUTXIDE. Demande de devis.",
     breadcrumb: "Fêtes d'entreprise",
@@ -158,7 +160,7 @@ export const fr: Dictionary = {
     nightText: "Vous dînez où vous voulez (au restaurant, à l'hôtel ou dans le vôtre) et la fête continue la nuit à l'OUTXIDE, la discothèque de Grupo Enjoy à Port d'Alcúdia.",
     nightStepDinner: "Dîner où vous voulez",
     nightStepClub: "Nuit à l'OUTXIDE",
-    nightImageAlt: "DJ dans la cabine de l'OUTXIDE, éclairée de néons rouges, avec deux personnes à côté",
+    nightImageAlt: "Mains d'un DJ sur la table de mixage de l'OUTXIDE",
     dayLabel: "Déjeuner, après-midi et nuit",
     dayTitle: "L'après-midi à l'Enjoy Terrace et la nuit à l'OUTXIDE",
     dayText: "Vous déjeunez où vous voulez ; la fête continue l'après-midi à l'Enjoy Terrace et la nuit à l'OUTXIDE, dans le même bâtiment.",
@@ -168,16 +170,6 @@ export const fr: Dictionary = {
     dayImageAlt: "Enseigne lumineuse d'Enjoy au-dessus de la terrasse, de nuit, avec des guirlandes dans les arbres",
     sameAddress: "L'Enjoy Terrace et l'OUTXIDE sont à la même adresse : Av. Tucán 1, Port d'Alcúdia.",
     hoursNote: "Horaires généraux de l'OUTXIDE : du jeudi au samedi, de 23 h à 5 h 30. La date et les horaires de chaque fête sont précisés dans la proposition.",
-    stepsEyebrow: "Comment ça marche",
-    stepsTitle: "Trois étapes",
-    step1Title: "Vous nous envoyez votre demande",
-    step1Text: "Avec la date, le nombre de personnes et la formule.",
-    step2Title: "Nous vous envoyons une proposition",
-    step2Text: "Préparée pour votre groupe et sans engagement.",
-    step3Title: "Vous confirmez la date",
-    step3Text: "Si la proposition vous convient, vous la confirmez et nous réservons la date pour votre groupe.",
-    spaceImageAlt: "La piste de l'OUTXIDE avec une colonne lumineuse au centre et le X du club sur les écrans",
-    spaceCaption: "À l'intérieur de l'OUTXIDE, à Port d'Alcúdia.",
     offerEyebrow: "Proposition pour les groupes",
     offerCustom: "Nous vous préparons une proposition sur mesure : indiquez-nous la date, le nombre de personnes et la formule.",
     offerIncludes: "Ce qui est inclus",

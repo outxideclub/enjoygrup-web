@@ -37,7 +37,21 @@ function persistAgeVerified(): void {
   if (root) document.cookie = `${AGE_KEY}=true; path=/; domain=.${root}; SameSite=Lax; Secure`;
 }
 
-export function AgeVerification() {
+/**
+ * Textos propios de una ruta (ya traducidos en el servidor). Solo cambian las
+ * PALABRAS del muro: el comportamiento (bloqueante, recordado en sesión y por
+ * cookie de dominio, «No» saca de la página) es el mismo en todas las rutas y
+ * no se degrada (REGLAS-DURAS B8). Sin `copy`, los textos de siempre.
+ * Hoy lo usa /empresas (paquete creativo §4.12): su página no habla solo del club.
+ */
+export interface AgeVerificationCopy {
+  title: string;
+  description: string;
+  confirm: string;
+  deny: string;
+}
+
+export function AgeVerification({ copy }: { copy?: AgeVerificationCopy } = {}) {
   const [show, setShow] = useState(false);
   const t = useT();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -45,6 +59,9 @@ export function AgeVerification() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    // Tiene que ser tras montar: sessionStorage y la cookie no existen en el
+    // HTML de servidor, y decidirlo en el render rompería la hidratación.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!ageVerified()) setShow(true);
   }, []);
 
@@ -124,10 +141,10 @@ export function AgeVerification() {
             <OutxideLogo className="h-10 w-fit mx-auto mb-6" />
 
             <h2 id="age-verification-title" className="text-lg font-display font-bold text-white uppercase tracking-wide mb-2">
-              {t("ageVerification.title")}
+              {copy?.title ?? t("ageVerification.title")}
             </h2>
             <p id="age-verification-desc" className="text-sm text-muted-foreground leading-relaxed mb-8">
-              {t("ageVerification.description")}
+              {copy?.description ?? t("ageVerification.description")}
             </p>
 
             <div className="space-y-3">
@@ -136,13 +153,13 @@ export function AgeVerification() {
                 onClick={confirm}
                 className="w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black hover:bg-white/90 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                {t("ageVerification.confirm")}
+                {copy?.confirm ?? t("ageVerification.confirm")}
               </button>
               <button
                 onClick={deny}
                 className="w-full rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/70 hover:text-white hover:border-white/40 hover:bg-white/5 transition-colors"
               >
-                {t("ageVerification.deny")}
+                {copy?.deny ?? t("ageVerification.deny")}
               </button>
             </div>
 

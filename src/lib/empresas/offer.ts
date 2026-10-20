@@ -3,8 +3,9 @@
 // POR QUÉ ESTÁ AQUÍ Y VACÍA: la landing tenía que existir antes de que Jose
 // cerrara la oferta (qué recibe el grupo, precio, mínimo, fechas). Mientras
 // esto no esté completo y `publicado` no sea true, la página NO muestra oferta,
-// precio ni correo de destino: solo «Os preparamos una propuesta a medida…» y
-// el formulario. Así ningún anuncio aterriza en una promesa sin confirmar.
+// precio ni correo de destino: solo la versión «sin datos» del paquete creativo
+// («Cada equipo es distinto…», src/lib/empresas/content.ts) y el formulario.
+// Así ningún anuncio aterriza en una promesa sin confirmar.
 //
 // ─── CÓMO SE PUBLICA LA OFERTA (cuando Jose dé los datos) ───────────────────
 // 1. Rellena TODOS los campos de `EMPRESAS_OFFER` más abajo:
@@ -25,7 +26,10 @@
 //                     día para un grupo).
 // 2. Cambia `publicado` a true.
 // 3. La página pasa SOLA de noindex a index cuando, además de la oferta, el
-//    contenido esté aprobado (src/lib/empresas/content.ts; ver layout.tsx).
+//    contenido tenga el OK de Jose (`approved` en src/lib/empresas/content.ts;
+//    los textos provisionales encendidos con `activo` NO bastan; ver layout.tsx).
+//    Al publicarla, revisa también las versiones «con datos» del paquete
+//    (FAQ 2–5, entradilla y textos del formulario): hoy van las «sin datos».
 //    Añadirla al sitemap y al menú es un paso aparte de la integración.
 // 4. El correo que recibe las solicitudes NO va aquí: es la variable de
 //    entorno EMPRESAS_LEADS_TO en Vercel (si falta, info@ de src/lib/site.ts).
@@ -108,7 +112,7 @@ export function getPublishedOffer(
   return { incluye: items, precioConIva, unidad, minimoPersonas, fechas: dates };
 }
 
-/** ¿Hay oferta publicada? (junto con content.approved decide index/noindex). */
+/** ¿Hay oferta publicada? (junto con el OK de Jose en content.ts decide index/noindex). */
 export function isOfferPublished(offer: EmpresasOffer = EMPRESAS_OFFER): boolean {
   return getPublishedOffer(defaultLocale, offer) !== null;
 }

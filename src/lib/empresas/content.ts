@@ -1,42 +1,52 @@
-// Contenido CREATIVO de /empresas pendiente de aprobación (titular, entradilla,
-// textos de los formatos, título y descripción para buscadores, fotos o piezas
-// del equipo de contenido).
+// Contenido CREATIVO de /empresas (titulares, textos, FAQ, formulario, muro +18,
+// metadatos y alt de las fotos), separado del diccionario a propósito.
 //
-// POR QUÉ ESTÁ APAGADO: el 19-oct-2026 el dueño (Jose) aún no ha aprobado el
-// contenido creativo de la campaña (logo, teaser, identidad, copys, titulares).
-// Mientras `approved` sea false la página es un MARCADOR NEUTRO Y FACTUAL: usa
-// los textos del diccionario (namespace `empresas` en src/i18n/dictionaries) y
-// las fotos ya publicadas de la web (photos.ts), y queda en NOINDEX.
+// ─── ESTADO (20-oct-2026) ────────────────────────────────────────────────────
+// ENCENDIDO con la creatividad PROVISIONAL del paquete de la sesión META ADS:
+// `meta-ads-outxide/campanas/2026-10-halloween-cenas/CREATIVO-LANDING-EMPRESAS.md`
+// v0.2 (19-oct). Sergi dio luz verde a esa creatividad provisional («Adelante
+// con la parte creativa con colores, textos, etc., y luego corregiremos con el
+// contenido nuevo»); Jose (dueño) aún no la ha visto. Los textos de aquí son
+// COPIA LITERAL del paquete (versiones «sin datos» donde faltan los de Jose):
+// no se escribe copy creativo propio en este fichero.
 //
-// ─── CÓMO SE ACTIVA (cuando Jose apruebe los textos) ─────────────────────────
-// 1. Rellena SOLO los huecos aprobados; los que se dejen en null siguen con el
-//    texto neutro. `es` es obligatorio en cada hueco; en/de/fr/it opcionales:
-//    si falta un idioma, ESE idioma sigue con su texto neutro (nunca se pinta
-//    español en la página inglesa).
-//    - titular          El h1 (único). Sin precio de bebida como titular.
-//    - entradilla       El párrafo bajo el h1.
-//    - formatoNoche     Título y texto de la tarjeta «Después de la cena».
-//    - formatoTarde     Título y texto de la tarjeta «Comida, tarde y noche».
-//    - metaTitle        <title> y Open Graph (con «· Grupo Enjoy» al final).
-//    - metaDescription  Descripción para buscadores y al compartir.
-//    - fotos            Piezas aprobadas que sustituyen a las de photos.ts
-//                       (p. ej. la foto de grupo E2). Ruta de public/ y alt en
-//                       los 5 idiomas. Sin copas ni botellas como protagonistas,
-//                       sin shisha y sin nadie que pueda parecer menor.
-// 2. Cambia `approved` a true.
-// 3. La página pasa a index SOLO si además la oferta está publicada
-//    (src/lib/empresas/offer.ts); el sitemap y el menú son un paso aparte.
+// Idiomas: el paquete solo trae ES y EN. DE, FR e IT NO llevan texto aquí a
+// propósito (no se traduce el copy creativo por nuestra cuenta): en esos
+// idiomas la página sigue con los textos NEUTROS del diccionario (namespace
+// `empresas`) y los bloques que no tienen versión neutra (fin de temporada,
+// Navidad, FAQ, línea de datos) no se pintan.
 //
-// Red de seguridad: un texto aprobado que contenga léxico prohibido (barra
-// libre, copas, chupito, botella, 2x1, happy hour, últimas plazas, quedan,
-// shisha…; ver lexicon.ts) NO se pinta: se queda el neutro y se avisa en log.
+// Dos interruptores, a propósito separados:
+// - `activo` enciende los TEXTOS en la página (hoy: la creatividad provisional).
+// - `approved` es el OK de Jose al contenido. Con él Y la oferta publicada
+//   (src/lib/empresas/offer.ts, hoy vacía) la página pasaría a index. Así,
+//   rellenar la oferta con textos aún provisionales NO indexa la página: robots
+//   sigue en NOINDEX y fuera del sitemap hasta que alguien lo decida.
+//
+// Huecos y condiciones del paquete (§4.1): ningún corchete llega al público.
+// - Sin [FECHAS], [PRECIO], [MÍNIMO], [QUÉ INCLUYE], [PLAZO], [CONTACTO] ni
+//   [HORA TARDE]: se usan las versiones «sin datos» del paquete (§4.4–§4.6,
+//   §4.8, FAQ 2–5) y las frases que dependen de un hueco sin versión sin datos
+//   se quitan enteras («[QUÉ INCLUYE].» de los formatos; «desde las [HORA
+//   TARDE]» del paso 2 del formato 2, que queda como «La tarde, en Enjoy
+//   Terrace», el mismo titular E3-T2 de COPYS.md).
+// - Las condiciones [SI-…] que la página sabe resolver están en `condiciones`
+//   (todas en false hasta que Jose confirme). Las que solo afectan a versiones
+//   con datos ([SI-ZONA], [SI-CONTACTO], [SI-OTRO-DÍA]) no tienen interruptor:
+//   esas versiones no están montadas.
+//
+// Red de seguridad: un texto de aquí que contenga léxico prohibido (lexicon.ts)
+// NO se pinta: se queda el neutro (o el bloque desaparece) y se avisa en log.
 
 import type { Locale } from "@/i18n/config";
 import { hasForbiddenLexicon } from "./lexicon";
-import { isOfferPublished, type LocalizedText } from "./offer";
+import { EMPRESAS_OFFER, isOfferPublished, type EmpresasOffer, type LocalizedText } from "./offer";
 
-/** Texto con los 5 idiomas obligatorios (para los alt de las fotos). */
+/** Texto con los 5 idiomas obligatorios (para los alt de piezas nuevas). */
 export type AllLocalesText = Record<Locale, string>;
+
+/** Lista con el español obligatorio y el resto de idiomas opcional (SIN caída al es). */
+export type LocalizedLines = { es: string[] } & Partial<Record<Exclude<Locale, "es">, string[]>>;
 
 export interface ApprovedPhoto {
   /** Ruta dentro de public/, p. ej. "/images/empresas/grupo-e2.jpg". */
@@ -44,77 +54,555 @@ export interface ApprovedPhoto {
   alt: AllLocalesText;
 }
 
+/** Huecos de las fotos de la página (mismos nombres que photos.ts). */
+export type EmpresasPhotoSlot = "hero" | "night" | "day";
+
+/** Iconos de la zona de juegos (paso 2 del formato 2). */
+export type EmpresasGameSlot = "futbolin" | "billar" | "dardos";
+
 export interface ApprovedFormat {
+  eyebrow: LocalizedText;
   titulo: LocalizedText;
+  /** Recorrido paso a paso (dos o tres pasos). */
+  pasos: LocalizedLines;
   texto: LocalizedText;
+  /** Firma de las marcas, en inglés también en español (así está en la web). */
+  firmas: string[];
 }
 
-/** Huecos de las fotos de la página (mismos nombres que photos.ts). */
-export type EmpresasPhotoSlot = "hero" | "night" | "day" | "space";
+/** Claves de texto del formulario (mismo nombre que en el diccionario cuando existe). */
+export type EmpresasFormCopyKey =
+  | "fieldCompany"
+  | "fieldName"
+  | "fieldPhone"
+  | "fieldEmail"
+  | "fieldDate"
+  | "fieldPeople"
+  | "fieldFormat"
+  | "fieldSource"
+  | "fieldComments"
+  | "phCompany"
+  | "phName"
+  | "phEmail"
+  | "phComments"
+  | "helpName"
+  | "helpPhone"
+  | "helpDate"
+  | "helpPeople"
+  | "formatAfterDinner"
+  | "formatLunch"
+  | "formatUndecided"
+  | "sourceInstagram"
+  | "sourceFacebook"
+  | "sourceGoogle"
+  | "sourceReferral"
+  | "sourceAlreadyKnew"
+  | "sourceOther"
+  | "errCompany"
+  | "errName"
+  | "errPhone"
+  | "errEmail"
+  | "errDateRequired"
+  | "errPeopleRequired"
+  | "errSelect"
+  | "errConsent"
+  | "errSummary"
+  | "errGeneric"
+  | "submit"
+  | "sending"
+  | "successTitle"
+  | "successText";
+
+/** Textos del formulario ya resueltos en un idioma (lo que recibe el componente cliente). */
+export type EmpresasFormCopy = Partial<Record<EmpresasFormCopyKey, string>>;
+
+export interface FaqItem {
+  pregunta: LocalizedText;
+  respuesta: LocalizedText;
+}
 
 export interface EmpresasContent {
-  /** Interruptor: true solo con el OK de Jose a lo que haya en los huecos. */
+  /** Interruptor de los TEXTOS en la página (provisionales o aprobados). */
+  activo: boolean;
+  /** OK de Jose al contenido: solo con esto Y la oferta publicada se indexa. */
   approved: boolean;
-  titular: LocalizedText | null;
-  entradilla: LocalizedText | null;
+  /** Condiciones [SI-…] del paquete (§4.1). Solo Jose las confirma. */
+  condiciones: {
+    /** [SI-DICIEMBRE] OUTXIDE abre en diciembre para grupos. */
+    siDiciembre: boolean;
+    /** [SI-TERRAZA-DIC] Enjoy Terrace abre en las fechas de diciembre. */
+    siTerrazaDic: boolean;
+    /** [SI-GRUPOS-31] Jose acepta grupos de empresa el sábado 31 (Halloween). */
+    siGrupos31: boolean;
+    /** [SI-VENTA-ONLINE] Venta online de OUTXIDIOUS abierta y su landing en producción. */
+    siVentaOnline: boolean;
+  };
+  hero: {
+    eyebrow: LocalizedText;
+    /** H1 en dos líneas, separadas por "\n". */
+    titular: LocalizedText;
+    entradilla: LocalizedText;
+    datos: LocalizedText;
+    boton: LocalizedText;
+    placa: LocalizedText;
+  } | null;
+  formatos: { eyebrow: LocalizedText; titulo: LocalizedText } | null;
   formatoNoche: ApprovedFormat | null;
   formatoTarde: ApprovedFormat | null;
-  metaTitle: LocalizedText | null;
-  metaDescription: LocalizedText | null;
+  finTemporada: {
+    /** Se retira sola a esta hora (ISO con desfase explícito; ver schedule.ts). */
+    visibleHasta: string;
+    eyebrow: LocalizedText;
+    titulo: LocalizedText;
+    texto: LocalizedText;
+    boton: LocalizedText;
+  } | null;
+  navidad: {
+    eyebrow: LocalizedText;
+    boton: LocalizedText;
+    /** Versión B (§4.5): mientras Jose no confirme diciembre. No promete nada. */
+    sinDiciembre: { titulo: LocalizedText; texto: LocalizedText };
+    /** Versión A (§4.5): solo con condiciones.siDiciembre. */
+    conDiciembre: {
+      titulo: LocalizedText;
+      texto: LocalizedText;
+      /** Frase extra solo con condiciones.siTerrazaDic. */
+      terraza: LocalizedText;
+      /** «Fechas de diciembre: {fechas}.» — se pinta solo si hay fechasDiciembre. */
+      fechas: LocalizedText;
+    };
+    /** [FECHAS DICIEMBRE] — sin dato, la línea de fechas no se pinta. */
+    fechasDiciembre: LocalizedText | null;
+  } | null;
+  propuesta: {
+    /** Versión de hoy (§4.6, sin datos de Jose). */
+    sinDatos: { titulo: LocalizedText; texto: LocalizedText };
+    /** Encabezado y cierre del bloque cuando offer.ts esté publicada. */
+    conDatos: { eyebrow: LocalizedText; titulo: LocalizedText; cierre: LocalizedText };
+  } | null;
+  formulario: {
+    eyebrow: LocalizedText;
+    titulo: LocalizedText;
+    entradilla: LocalizedText;
+    campos: Partial<Record<EmpresasFormCopyKey, LocalizedText>>;
+    /** Coletilla de la opción «Después de la comida» mientras no haya siTerrazaDic. */
+    segunFechas: LocalizedText;
+  } | null;
+  faq: {
+    /** Preguntas 1–5 (versiones sin datos). */
+    items: FaqItem[];
+    /** Pregunta 6 hasta `visibleHasta`; después, `vestimenta` ocupa su sitio. */
+    halloween: FaqItem & {
+      visibleHasta: string;
+      grupos31: LocalizedText;
+      ventaOnline: LocalizedText;
+      /** La frase de entradas se borra a esta hora aunque siVentaOnline siga en true. */
+      ventaOnlineHasta: string;
+    };
+    vestimenta: FaqItem;
+  } | null;
+  /** Texto propio del muro +18 en esta ruta (§4.12). */
+  muroEdad: { title: LocalizedText; description: LocalizedText; confirm: LocalizedText; deny: LocalizedText } | null;
+  meta: {
+    title: LocalizedText;
+    /** Mientras no haya siDiciembre (sin «Navidad»). */
+    description: LocalizedText;
+    /** Solo con siDiciembre. */
+    descriptionDiciembre: LocalizedText;
+    ogTitle: LocalizedText;
+    ogDescription: LocalizedText;
+    ogImageAlt: LocalizedText;
+  } | null;
+  /** Alt de las fotos YA publicadas que usa la página (photos.ts). */
+  altFotos: Partial<Record<EmpresasPhotoSlot | EmpresasGameSlot, LocalizedText>> | null;
+  /** Piezas nuevas aprobadas que sustituyen a las de photos.ts (p. ej. la foto de grupo E2). */
   fotos: Partial<Record<EmpresasPhotoSlot, ApprovedPhoto>> | null;
 }
 
-// ⬇︎ CONTENIDO APROBADO — hoy vacío y apagado a propósito (19-oct-2026).
+const PEDIR_PRESUPUESTO: LocalizedText = { es: "Pedir presupuesto", en: "Request a quote" };
+
+// ⬇︎ CONTENIDO — paquete CREATIVO-LANDING-EMPRESAS.md v0.2 (provisional).
 export const EMPRESAS_CONTENT: EmpresasContent = {
+  // Encendido: creatividad provisional con luz verde de Sergi (20-oct-2026).
+  activo: true,
+  // Jose aún no la ha visto: sin su OK, nunca index aunque se publique la oferta.
   approved: false,
-  titular: null,
-  entradilla: null,
-  formatoNoche: null,
-  formatoTarde: null,
-  metaTitle: null,
-  metaDescription: null,
+  condiciones: {
+    siDiciembre: false,
+    siTerrazaDic: false,
+    siGrupos31: false,
+    siVentaOnline: false,
+  },
+  // §4.2 — H1 versión A (la del anuncio).
+  hero: {
+    eyebrow: { es: "Celebraciones de empresa · Port d'Alcúdia", en: "Company celebrations · Port d'Alcúdia" },
+    titular: { es: "Cenad donde queráis.\nLa fiesta, aquí.", en: "Dine wherever you like.\nThe party's here." },
+    entradilla: {
+      es: "La celebración sigue con nosotros. La comida o la cena de empresa, donde os apetezca: en vuestro hotel, en vuestro restaurante de siempre. Después, la noche en OUTXIDE y, si es comida, la tarde antes en Enjoy Terrace (según fechas). Los dos, en la Av. Tucán 1 de Port d'Alcúdia.",
+      en: "The celebration carries on with us. Your company lunch or dinner, wherever suits you: at your own hotel or your favourite restaurant. Afterwards, the night at OUTXIDE and, if it's a lunch, the afternoon first at Enjoy Terrace (on some dates). Both at Av. Tucán 1, Port d'Alcúdia.",
+    },
+    datos: {
+      es: "Noche en OUTXIDE, desde las 23:00 · Tarde en Enjoy Terrace, según fechas",
+      en: "Night at OUTXIDE, from 23:00 · Afternoon at Enjoy Terrace, on some dates",
+    },
+    boton: PEDIR_PRESUPUESTO,
+    placa: { es: "+18 · Consumo responsable", en: "18+ · Drink responsibly" },
+  },
+  // §4.3
+  formatos: {
+    eyebrow: { es: "Dos formas de seguir", en: "Two ways to carry on" },
+    titulo: {
+      es: "Vosotros elegís cómo empieza. Nosotros, cómo sigue.",
+      en: "You choose how it starts. We take care of how it carries on.",
+    },
+  },
+  formatoNoche: {
+    eyebrow: { es: "Después de la cena", en: "After dinner" },
+    titulo: { es: "La noche, en OUTXIDE", en: "The night, at OUTXIDE" },
+    pasos: {
+      es: ["La cena, donde queráis", "La noche, en OUTXIDE, desde las 23:00"],
+      en: ["Dinner, wherever you like", "The night at OUTXIDE, from 23:00"],
+    },
+    // Sin la frase final «[QUÉ INCLUYE].» (hueco sin datos).
+    texto: {
+      es: "Cenáis donde queráis y, cuando acabéis, la noche sigue en OUTXIDE: cabina, luces y pista para todo el equipo.",
+      en: "Have dinner wherever you like and, once you're done, the night carries on at OUTXIDE: DJ booth, lights and a dance floor for the whole team.",
+    },
+    firmas: ["The night continues"],
+  },
+  formatoTarde: {
+    eyebrow: { es: "Después de la comida", en: "After lunch" },
+    titulo: {
+      es: "La tarde en Enjoy Terrace, la noche en OUTXIDE",
+      en: "The afternoon at Enjoy Terrace, the night at OUTXIDE",
+    },
+    // Paso 2 sin «desde las [HORA TARDE]» (hueco sin datos).
+    pasos: {
+      es: ["La comida, donde queráis", "La tarde, en Enjoy Terrace", "La noche, en OUTXIDE, desde las 23:00"],
+      en: ["Lunch, wherever you like", "The afternoon at Enjoy Terrace", "The night at OUTXIDE, from 23:00"],
+    },
+    texto: {
+      es: "Coméis donde queráis. La tarde sigue en la terraza de Enjoy, con futbolín, billar y dardos para los piques del equipo, y a las 23:00 la celebración pasa a OUTXIDE, en el mismo sitio: Av. Tucán 1.",
+      en: "Have lunch wherever you like. The afternoon carries on at the Enjoy terrace, with foosball, pool and darts for some friendly team rivalry, and at 23:00 the celebration moves on to OUTXIDE, at the same address: Av. Tucán 1.",
+    },
+    firmas: ["Where nights begin", "The night continues"],
+  },
+  // §4.4 — solo tanda 1. Se retira en el cambio de tanda del sáb 31-oct (§3 y
+  // COPYS.md §3.0: E1 se apaga «antes de las 18:00»): 18:00 es la hora tope de
+  // ese cambio, así el bloque nunca sobrevive al anuncio que lo promete.
+  finTemporada: {
+    visibleHasta: "2026-10-31T18:00:00+01:00",
+    eyebrow: { es: "Fin de temporada", en: "End of season" },
+    titulo: {
+      es: "Toda la temporada cuidando de los demás. Ahora os toca a vosotros.",
+      en: "A whole season looking after everyone else. Now it's your turn.",
+    },
+    // Sin la línea «Fechas: [FECHAS].» (hueco sin datos: se borra entera).
+    texto: {
+      es: "Para hoteles, restaurantes y comercios que cierran temporada: la cena de despedida del equipo, donde queráis; la celebración, con nosotros. Todo el grupo, mayor de 18.",
+      en: "For hotels, restaurants and shops closing for the season: your team's farewell dinner, wherever you like; the celebration, with us. Everyone in the group must be 18 or over.",
+    },
+    boton: PEDIR_PRESUPUESTO,
+  },
+  // §4.5 — visible desde el primer día. Sin [SI-DICIEMBRE] va la versión B.
+  navidad: {
+    eyebrow: { es: "Navidad 2026", en: "Christmas 2026" },
+    boton: PEDIR_PRESUPUESTO,
+    sinDiciembre: {
+      titulo: { es: "¿La cena de Navidad es en diciembre?", en: "Is your Christmas dinner in December?" },
+      texto: {
+        es: "Contadnos la fecha y cuántos seréis, y os decimos qué podemos montar para la fiesta de después.",
+        en: "Tell us the date and how many of you there will be, and we'll tell you what we can put together for the party afterwards.",
+      },
+    },
+    conDiciembre: {
+      titulo: {
+        es: "La cena de Navidad, donde queráis. La fiesta de después, con nosotros.",
+        en: "Your Christmas dinner, wherever you like. The party afterwards, with us.",
+      },
+      texto: {
+        es: "Si la cena de empresa es en diciembre, la fiesta de después se organiza ahora. Vosotros elegís el restaurante; la noche la ponemos nosotros en OUTXIDE.",
+        en: "If your company dinner is in December, now is the time to plan the party afterwards. You choose the restaurant; we take care of the night at OUTXIDE.",
+      },
+      terraza: {
+        es: "Y si es comida, la tarde sigue antes en Enjoy Terrace.",
+        en: "And if it's a lunch, the afternoon carries on first at Enjoy Terrace.",
+      },
+      fechas: { es: "Fechas de diciembre: {fechas}.", en: "December dates: {fechas}." },
+    },
+    fechasDiciembre: null,
+  },
+  // §4.6
+  propuesta: {
+    sinDatos: {
+      titulo: { es: "Cada equipo es distinto", en: "Every team is different" },
+      texto: {
+        es: "Contadnos la fecha, cuántos seréis y qué formato os encaja, y os mandamos un presupuesto cerrado, con el IVA incluido.",
+        en: "Tell us the date, how many of you there will be and which format suits you, and we'll send you a final quote, VAT included.",
+      },
+    },
+    conDatos: {
+      eyebrow: { es: "Qué incluye", en: "What's included" },
+      titulo: { es: "Lo que tenéis al llegar", en: "What's waiting for you" },
+      cierre: {
+        es: "Os mandamos el presupuesto cerrado antes de reservar: sin sorpresas.",
+        en: "We send you the final quote before you book: no surprises.",
+      },
+    },
+  },
+  // §4.8 — sin [PLAZO]. La casilla y la capa de privacidad NO se toman del
+  // paquete: «la versión legal definitiva es la que ya usa la sesión web».
+  formulario: {
+    eyebrow: { es: "Pedir presupuesto", en: "Request a quote" },
+    titulo: { es: "Contadnos qué tenéis en mente", en: "Tell us what you have in mind" },
+    entradilla: {
+      es: "Rellénalo en un minuto y te contestamos con el presupuesto.",
+      en: "It takes a minute, and we'll get back to you with a quote.",
+    },
+    campos: {
+      fieldCompany: { es: "Empresa", en: "Company" },
+      phCompany: { es: "Nombre de la empresa o del hotel", en: "Company or hotel name" },
+      errCompany: { es: "Escribe el nombre de la empresa.", en: "Please enter the company name." },
+      fieldName: { es: "Tu nombre", en: "Your name" },
+      phName: { es: "Nombre y apellido", en: "First and last name" },
+      helpName: { es: "Quien organiza; te escribiremos a ti.", en: "The organiser; we'll reply to you." },
+      errName: { es: "Escribe tu nombre.", en: "Please enter your name." },
+      fieldPhone: { es: "Teléfono", en: "Phone" },
+      helpPhone: { es: "Con prefijo si no es español.", en: "Include the country code if it isn't Spanish." },
+      errPhone: { es: "Revisa el teléfono: faltan números.", en: "Please check the phone number." },
+      fieldEmail: { es: "Correo electrónico", en: "Email" },
+      phEmail: { es: "nombre@empresa.com", en: "name@company.com" },
+      errEmail: { es: "Revisa el correo: falta algo.", en: "Please check the email address." },
+      fieldDate: { es: "¿Qué día tenéis en mente?", en: "Which date do you have in mind?" },
+      helpDate: {
+        es: "Si aún no está cerrada, pon la aproximada.",
+        en: "If it isn't fixed yet, an approximate date is fine.",
+      },
+      errDateRequired: { es: "Elige una fecha.", en: "Please choose a date." },
+      fieldPeople: { es: "¿Cuántos seréis?", en: "How many of you?" },
+      helpPeople: {
+        es: "Un número aproximado vale. Todo el grupo tiene que ser mayor de 18.",
+        en: "An approximate number is fine. Everyone must be 18 or over.",
+      },
+      errPeopleRequired: { es: "Indica cuántos seréis.", en: "Please tell us how many." },
+      fieldFormat: { es: "¿Qué formato os encaja?", en: "Which format suits you?" },
+      formatAfterDinner: { es: "Después de la cena: la noche en OUTXIDE", en: "After dinner: the night at OUTXIDE" },
+      formatLunch: {
+        es: "Después de la comida: la tarde en Enjoy Terrace y la noche en OUTXIDE",
+        en: "After lunch: the afternoon at Enjoy Terrace and the night at OUTXIDE",
+      },
+      formatUndecided: { es: "Aún no lo sabemos", en: "We're not sure yet" },
+      errSelect: { es: "Elige una opción.", en: "Please choose an option." },
+      fieldSource: { es: "¿Cómo nos conocisteis?", en: "How did you hear about us?" },
+      sourceInstagram: { es: "Instagram", en: "Instagram" },
+      sourceFacebook: { es: "Facebook", en: "Facebook" },
+      sourceGoogle: { es: "Google", en: "Google" },
+      sourceReferral: { es: "Nos lo recomendaron", en: "Word of mouth" },
+      sourceAlreadyKnew: { es: "Ya habíamos venido", en: "We've been before" },
+      sourceOther: { es: "Otro", en: "Other" },
+      fieldComments: { es: "¿Algo más que debamos saber? (opcional)", en: "Anything else we should know? (optional)" },
+      phComments: { es: "Horario de la cena, si alguien llega más tarde…", en: "Dinner time, people arriving later…" },
+      errConsent: {
+        es: "Para enviarlo, acepta la política de privacidad.",
+        en: "Please accept the privacy policy to send the form.",
+      },
+      submit: PEDIR_PRESUPUESTO,
+      sending: { es: "Enviando…", en: "Sending…" },
+      successTitle: { es: "Recibido.", en: "Got it." },
+      successText: {
+        es: "Ya tenemos vuestra solicitud. Te escribimos lo antes posible al correo que nos has dado con el presupuesto. Revisa también la carpeta de spam.",
+        en: "We've got your request. We'll email you the quote as soon as possible. Please check your spam folder too.",
+      },
+      errGeneric: {
+        es: "No se ha podido enviar. Inténtalo de nuevo en un momento.",
+        en: "It couldn't be sent. Please try again in a moment.",
+      },
+      errSummary: { es: "Revisa los campos marcados.", en: "Please check the highlighted fields." },
+    },
+    segunFechas: { es: "(según fechas)", en: "(on some dates)" },
+  },
+  // §4.10 — versiones sin datos de la 2 a la 5.
+  faq: {
+    items: [
+      {
+        pregunta: { es: "¿Tenemos que comer o cenar con vosotros?", en: "Do we have to have lunch or dinner with you?" },
+        respuesta: {
+          es: "No. La comida o la cena la hacéis donde queráis: en vuestro hotel, en vuestro restaurante de siempre. Nosotros ponemos lo de después: la noche en OUTXIDE y, si es comida, la tarde antes en Enjoy Terrace (según fechas).",
+          en: "No. You have lunch or dinner wherever you like: at your own hotel or your favourite restaurant. We take care of what comes after: the night at OUTXIDE and, if it's a lunch, the afternoon first at Enjoy Terrace (on some dates).",
+        },
+      },
+      {
+        pregunta: { es: "¿Qué días se puede?", en: "Which days are available?" },
+        respuesta: {
+          es: "Contadnos qué día tenéis en mente y os decimos si podemos.",
+          en: "Tell us which day you have in mind and we'll let you know if we can.",
+        },
+      },
+      {
+        pregunta: { es: "¿Cuántas personas hacen falta? ¿Hay edad mínima?", en: "How many people do we need? Is there a minimum age?" },
+        // Lista de documentos PENDIENTE de confirmar con Jose (la misma que en
+        // la landing de OUTXIDIOUS): la nota [CONFIRMAR…] del paquete no se pinta.
+        respuesta: {
+          es: "Todo el grupo tiene que ser mayor de 18 años: en la puerta se pide un documento de identidad original con foto (DNI, NIE, pasaporte o permiso de conducir).",
+          en: "Everyone must be 18 or over: an original photo ID (national ID card, residence card, passport or driving licence) is required at the door.",
+        },
+      },
+      {
+        pregunta: { es: "¿Qué incluye y cuánto cuesta?", en: "What's included and how much is it?" },
+        respuesta: {
+          es: "Depende de la fecha, del formato y de cuántos seáis: os mandamos el presupuesto cerrado, con el IVA incluido, antes de reservar.",
+          en: "It depends on the date, the format and the size of your group: we send you a final quote, VAT included, before you book.",
+        },
+      },
+      {
+        pregunta: { es: "¿Cómo se reserva?", en: "How do we book?" },
+        respuesta: {
+          es: "Nos dejas la solicitud en este formulario, te mandamos el presupuesto y, si os encaja, lo cerramos contigo.",
+          en: "Send us your request with this form, we'll send you the quote and, if it works for you, we'll confirm it with you.",
+        },
+      },
+    ],
+    halloween: {
+      // A las 23:00 del 31 deja de ser verdad (la noche ya ha empezado).
+      visibleHasta: "2026-10-31T23:00:00+01:00",
+      pregunta: { es: "¿Y si queremos celebrarlo en Halloween?", en: "What if we want to celebrate on Halloween?" },
+      respuesta: {
+        es: "El sábado 31 de octubre es OUTXIDIOUS, el Halloween de OUTXIDE y Enjoy. Empezamos antes con tardeo de acceso libre en Enjoy Terrace, de 20:00 a 23:00. Después, la noche sigue en OUTXIDE de 23:00 a 05:30, con entrada. Las dos partes son solo para mayores de 18. Venid de negro.",
+        en: "Saturday 31 October is OUTXIDIOUS, the Halloween night of OUTXIDE and Enjoy. We start early with a free-entry terrace party at Enjoy Terrace, 20:00–23:00. Then the night carries on at OUTXIDE, 23:00–05:30, ticket required. Both parts are 18+ only. Dress code: black.",
+      },
+      grupos31: {
+        es: "Si sois grupo, pedid presupuesto igualmente y os decimos cómo encaja.",
+        en: "If you're a group, request a quote anyway and we'll tell you how it fits.",
+      },
+      ventaOnline: {
+        es: "Entradas para OUTXIDE en grupoenjoy.es/outxide/outxidious.",
+        en: "Tickets for OUTXIDE at grupoenjoy.es/outxide/outxidious.",
+      },
+      // 18:00 del 31: acaba el último tramo online (COPYS.md §0.1). Sin
+      // «agotado» ni nada parecido en su lugar (A2).
+      ventaOnlineHasta: "2026-10-31T18:00:00+01:00",
+    },
+    vestimenta: {
+      pregunta: { es: "¿Hay código de vestimenta?", en: "Is there a dress code?" },
+      respuesta: {
+        es: "Arreglado pero informal (smart casual). No se permite ropa de playa ni chanclas.",
+        en: "Smart casual. Beachwear and flip-flops are not permitted.",
+      },
+    },
+  },
+  // §4.12
+  muroEdad: {
+    title: { es: "Verificación de edad", en: "Age verification" },
+    description: {
+      es: "Esta página habla de un bar de terraza y de una discoteca, solo para mayores de 18 años. ¿Confirmas que eres mayor de edad?",
+      en: "This page is about a terrace bar and a nightclub, for over-18s only. Can you confirm you are 18 or over?",
+    },
+    confirm: { es: "Sí, soy mayor de 18 años", en: "Yes, I'm 18 or over" },
+    deny: { es: "No, soy menor de edad", en: "No, I'm under 18" },
+  },
+  // §4.11 — metadatos PROPIOS (nada de «Cócteles, Shisha» heredado).
+  meta: {
+    title: {
+      es: "Celebraciones de empresa en Port d'Alcúdia · Grupo Enjoy",
+      en: "Company celebrations in Port d'Alcúdia · Grupo Enjoy",
+    },
+    description: {
+      es: "Cenad donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa. Pide presupuesto. +18.",
+      en: "Dine wherever you like: the party carries on at OUTXIDE and, on some dates, at Enjoy Terrace. Port d'Alcúdia. Team parties. Request a quote. 18+.",
+    },
+    descriptionDiciembre: {
+      es: "Cenad donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa y de Navidad. Pide presupuesto. +18.",
+      en: "Dine wherever you like: the party carries on at OUTXIDE and, on some dates, Enjoy Terrace. Port d'Alcúdia. Team and Christmas parties. Request a quote. 18+.",
+    },
+    ogTitle: { es: "Cenad donde queráis. La fiesta, aquí.", en: "Dine wherever you like. The party's here." },
+    ogDescription: {
+      es: "La noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace (según fechas). Port d'Alcúdia. Pide presupuesto.",
+      en: "The night at OUTXIDE and, if it's a lunch, the afternoon first at Enjoy Terrace (on some dates). Port d'Alcúdia. Request a quote.",
+    },
+    ogImageAlt: {
+      es: "Fachada de OUTXIDE Club y Enjoy Terrace de noche en Port d'Alcúdia",
+      en: "OUTXIDE Club and Enjoy Terrace at night in Port d'Alcúdia",
+    },
+  },
+  // §4.9
+  altFotos: {
+    hero: {
+      es: "Fachada de OUTXIDE Club y Enjoy Terrace de noche, en la Av. Tucán 1 de Port d'Alcúdia",
+      en: "OUTXIDE Club and Enjoy Terrace at night, Av. Tucán 1, Port d'Alcúdia",
+    },
+    night: { es: "Manos de un DJ en la mesa de mezclas de OUTXIDE", en: "A DJ's hands on the mixer at OUTXIDE" },
+    day: { es: "Rótulo luminoso de Enjoy Terrace de noche", en: "Enjoy Terrace's illuminated sign at night" },
+    futbolin: { es: "Futbolín", en: "Foosball table" },
+    billar: { es: "Mesa de billar", en: "Pool table" },
+    dardos: { es: "Diana de dardos de Enjoy Terrace", en: "Dartboard at Enjoy Terrace" },
+  },
   fotos: null,
 };
 
-/** ¿Está aprobado el contenido? (decide, junto con la oferta, index/noindex). */
+/** ¿Están encendidos los textos del paquete en la página? */
+export function isContentActive(content: EmpresasContent = EMPRESAS_CONTENT): boolean {
+  return content.activo === true;
+}
+
+/** ¿Tiene el contenido encendido el OK de Jose? */
 export function isContentApproved(content: EmpresasContent = EMPRESAS_CONTENT): boolean {
-  return content.approved === true;
+  return isContentActive(content) && content.approved === true;
 }
 
 /**
  * ¿Se puede indexar /empresas? Solo con la oferta publicada (offer.ts) Y el
- * contenido aprobado (aquí). Única puerta para robots: la usa layout.tsx.
+ * contenido aprobado por Jose (aquí). Única puerta para robots: la usa layout.tsx.
  */
-export function isEmpresasIndexable(): boolean {
-  return isOfferPublished() && isContentApproved();
+export function isEmpresasIndexable(
+  content: EmpresasContent = EMPRESAS_CONTENT,
+  offer: EmpresasOffer = EMPRESAS_OFFER,
+): boolean {
+  return isOfferPublished(offer) && isContentApproved(content);
 }
 
 /**
- * Texto aprobado de un hueco en `locale`, o null si el contenido no está
- * aprobado, el hueco está vacío, falta ese idioma o incumple el léxico. Con
- * null, quien llama usa el texto neutro del diccionario.
+ * Texto de un hueco en `locale`, o null si los textos están apagados, el hueco
+ * está vacío, falta ESE idioma (no cae al español: la página inglesa nunca
+ * pinta español) o incumple el léxico. Con null, quien llama usa el texto
+ * neutro del diccionario o no pinta el bloque.
  */
-export function approvedText(
+export function contentText(
   value: LocalizedText | null | undefined,
   locale: Locale,
   content: EmpresasContent = EMPRESAS_CONTENT,
 ): string | null {
-  if (!isContentApproved(content) || !value) return null;
+  if (!isContentActive(content) || !value) return null;
   const text = (value[locale] ?? "").trim();
   if (!text) return null;
   if (hasForbiddenLexicon(text)) {
-    console.warn("[empresas] texto aprobado descartado por léxico prohibido", { locale });
+    console.warn("[empresas] texto descartado por léxico prohibido", { locale });
     return null;
   }
   return text;
 }
 
-/** Foto aprobada de un hueco, o null (se usa la de photos.ts). */
+/** Lista de un hueco en `locale` (mismas reglas que contentText, todo o nada). */
+export function contentLines(
+  value: LocalizedLines | null | undefined,
+  locale: Locale,
+  content: EmpresasContent = EMPRESAS_CONTENT,
+): string[] | null {
+  if (!isContentActive(content) || !value) return null;
+  const lines = (value[locale] ?? []).map((s) => s.trim()).filter(Boolean);
+  if (lines.length === 0) return null;
+  if (lines.some(hasForbiddenLexicon)) {
+    console.warn("[empresas] lista descartada por léxico prohibido", { locale });
+    return null;
+  }
+  return lines;
+}
+
+/** Pieza nueva aprobada de un hueco, o null (se usa la de photos.ts). */
 export function approvedPhoto(
   slot: EmpresasPhotoSlot,
   content: EmpresasContent = EMPRESAS_CONTENT,
 ): ApprovedPhoto | null {
-  if (!isContentApproved(content)) return null;
+  if (!isContentActive(content)) return null;
   const photo = content.fotos?.[slot];
   // Solo rutas locales de public/: nada de URLs externas en una landing de anuncios.
   if (!photo || !photo.src.startsWith("/") || photo.src.startsWith("//")) return null;
