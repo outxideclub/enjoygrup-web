@@ -23,6 +23,10 @@
 // la foto de la cabina hasta el OK, porque una imagen fija que circula sola
 // funciona como logo fijo) e index también (noindex, fuera del sitemap).
 //
+// 20-oct-2026 (tarde, paquete v0.4): Sergi resuelve que el TARDEO es +18, igual
+// que OUTXIDE. Las frases del paquete que dicen que las dos partes son solo
+// para mayores de 18 (bloque 1, FAQ 1, 3 y 7) vuelven tal como vienen.
+//
 // OJO al rellenarlo: es la página de destino de anuncios con alcohol. Siguen
 // valiendo el léxico vetado de e2e/outxidious.spec.ts (que lo comprueba en el
 // HTML entero), la regla de que la placa «+18 · Consumo responsable» nunca
@@ -151,13 +155,15 @@ export interface OutxidiousContent {
 // Teaser OUTXIDE → OUTXIDIOUS APROBADO por el usuario (20-oct-2026): 7 s en
 // bucle, 720×720 (1:1), H.264 sin audio (159 KB) + WebM VP9 (98 KB) y póster
 // WebP (8,5 KB); sin destellos según WCAG 2.3.1 (comprobado al codificarlo).
-// Todo lo que se mueve vive en la franja central (filas 37,5–55,3 % del alto,
+// Todo lo que se mueve vive en la franja central (filas 37,5–55,4 % del alto,
 // medido fotograma a fotograma): en móvil se recorta a 5:2 y, con poca altura
-// de pantalla, a 4:1, encuadrado al 45 % (ventanas 27–67 % y 34–59 %: la franja
+// de pantalla, a 5:1, encuadrado al 45 % (ventanas 27–67 % y 36–56 %: la franja
 // entera, «CLUB» y las esquirlas de la X incluidos, comprobado en una hoja de
 // fotogramas del recorte), para que el h1, el claim, las dos partes, el
 // precio, el botón y la placa +18 quepan debajo (también el sábado, con la
-// línea «Hoy»).
+// línea «Hoy»). 20-oct (v0.4): el recorte bajo pasa de 4:1 a 5:1 porque la
+// parte de OUTXIDE gana una línea (DJ Siquiers) y a 375×667 la placa se salía
+// unos 5 px: se reduce el vídeo, nunca la placa.
 // Si se recodifica, CAMBIAR EL NOMBRE del fichero: /videos va con caché
 // immutable de un año (next.config.ts).
 const TEASER = {
@@ -168,7 +174,7 @@ const TEASER = {
   width: 720,
   height: 720,
   mobileAspect: 2.5,
-  shortAspect: 4,
+  shortAspect: 5,
   focusY: 45,
 } as const;
 
@@ -178,20 +184,24 @@ const NO_CREATIVE_COPY = { claim: "", claimToday: "", sections: [], faq: [] } sa
 /**
  * EL FICHERO QUE SE RELLENA cuando llegue material aprobado.
  *
- * PROVISIONAL — pendiente del contenido nuevo y del OK de Jose (paquete v0.2
+ * PROVISIONAL — pendiente del contenido nuevo y del OK de Jose (paquete v0.4
  * de META ADS, 20-oct-2026: meta-ads-outxide/campanas/2026-10-halloween-cenas/
- * CREATIVO-LANDING-OUTXIDIOUS.md §4.2, §4.3 y §6.1). Sergi autorizó encenderlo
- * como provisional. Cambios sobre el paquete, a propósito:
+ * CREATIVO-LANDING-OUTXIDIOUS.md §4.2, §4.3 y §6.1; la v0.4 no cambia ningún
+ * bloque para pegar respecto a la v0.2, solo resuelve la edad del tardeo).
+ * Sergi autorizó encenderlo como provisional. Cambios sobre el paquete, a
+ * propósito:
  * - 20-oct (tarde): edad del tardeo RESUELTA, +18 (paquete v0.4): vuelven
  *   «Solo mayores de 18: trae tu documento.» al bloque 1, la FAQ 3
  *   («¿Necesito algo para entrar al tardeo?») y «Es una noche para mayores de
  *   18» en la 7 (revisión F4: la FAQ de /empresas ya decía «las dos partes»,
  *   y esta página daba a entender que el tardeo admitía menores).
  * - FAQ: con [CONFIRMAR] sin dato se borra la frase entera, nunca solo la
- *   marca. La 1, con los documentos que ya publica /legal/condiciones-entrada
- *   (DNI, NIE, pasaporte o permiso de conducir; originales y vigentes): con
- *   «DNI o pasaporte» un residente con NIE leía que no entraba (revisión F8).
- *   Sin lo que sigue sin confirmar (fotos en el móvil, control con disfraz).
+ *   marca. La 1 va con la respuesta por defecto del paquete (§4.3: la regla
+ *   de puerta que ya publica la web en faq.outxideA1, «DNI o pasaporte», para
+ *   las dos partes), porque Jose no ha confirmado la lista ampliada de
+ *   documentos (DNI, NIE, pasaporte o permiso de conducir), las fotocopias ni
+ *   el control con disfraz. La lista ampliada solo entra con su OK, a la vez
+ *   aquí y en la FAQ 3 de /empresas (paquete de empresas v0.5, §7 punto 7).
  *   La 4 sin las normas de disfraz; la 5 sin por dónde se entra a cada local
  *   ni si se pasa por dentro.
  * - Horas con huecos ({start} {end} de Fourvenues; {tardeoStart} {tardeoEnd}).
@@ -242,8 +252,8 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       faq: [
         {
-          q: "¿Qué edad hay que tener? ¿Piden documento?",
-          a: "Las dos partes son solo para mayores de 18, con documento de identidad original y vigente (DNI, NIE, pasaporte o permiso de conducir). Sin documento, no se entra.",
+          q: "¿Qué edad hay que tener? ¿Piden DNI?",
+          a: "Las dos partes son solo para mayores de 18: se pide DNI o pasaporte. Sin documento, no se entra.",
         },
         {
           q: "¿El tardeo es de acceso libre?",
@@ -303,7 +313,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       faq: [
         {
           q: "How old do I need to be? Do you check ID?",
-          a: "Both parts are 18+ only, with an original, valid photo ID (national ID card, residence card, passport or driving licence). No ID, no entry.",
+          a: "Both parts are 18+ only: ID or passport required. No ID, no entry.",
         },
         {
           q: "Is the early party free entry?",
@@ -427,8 +437,8 @@ const isSize = (v: unknown): v is number => typeof v === "number" && Number.isIn
 const isTone = (v: unknown): v is OutxidiousSectionTone =>
   isStr(v) && (OUTXIDIOUS_SECTION_TONES as readonly string[]).includes(v);
 const isPercent = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100;
-/** Proporción de recorte razonable (de 1:2 a 4:1). */
-const isAspect = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v) && v >= 0.5 && v <= 4;
+/** Proporción de recorte razonable (de 1:2 a 5:1: el recorte bajo del teaser es 5:1). */
+const isAspect = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v) && v >= 0.5 && v <= 5;
 
 function parseMedia(v: unknown): OutxidiousHeroMedia | undefined {
   if (!isRecord(v)) return undefined;

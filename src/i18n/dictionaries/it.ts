@@ -288,12 +288,15 @@ export const it: Dictionary = {
     partTardeoDetail: "{tardeoStart}–{tardeoEnd} · ingresso libero",
     partOutxide: "OUTXIDE",
     partOutxideDetail: "{start}–{end} · con biglietto",
+    partOutxideDj: "DJ Siquiers",
     priceFrom: "Biglietti per OUTXIDE da {price} (commissioni incluse)",
     buy: "Acquista i biglietti",
     buyNote: "Biglietto per OUTXIDE, dalle {start} alle {end}. La festa in terrazza all'Enjoy Terrace è a ingresso libero.",
     legalPlate: "18+ · Bevi responsabilmente",
     // Copy creativo (§6.3b): sin versión en este idioma, vacío a propósito (no se pinta).
     subtitle: "",
+    // «Pronto» sale también con la venta cerrada o Fourvenues caído (paquete
+    // §4.6): nada de «a breve». Traducido del EN.
     soonTitle: "Biglietti per OUTXIDE",
     soonText: "La vendita online dei biglietti per OUTXIDE si fa su questa pagina quando è aperta. La festa in terrazza all'Enjoy Terrace, dalle {tardeoStart} alle {tardeoEnd}, è a ingresso libero.",
     closedTodayText: "La vendita online dei biglietti per OUTXIDE non è aperta in questo momento. OUTXIDE apre oggi alle {start} e la festa in terrazza all'Enjoy Terrace, dalle {tardeoStart} alle {tardeoEnd}, è a ingresso libero.",
@@ -320,7 +323,7 @@ export const it: Dictionary = {
     videoPause: "Metti in pausa il video",
     videoPlay: "Riproduci il video",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "OUTXIDIOUS, l'Halloween 2026 di Enjoy Terrace e OUTXIDE (Av. Tucán 1, Port d'Alcúdia), sabato 31 ottobre: OUTXIDE dalle {start} alle {end}, con biglietto. Prima, dalle {tardeoStart} alle {tardeoEnd}, festa in terrazza a ingresso libero all'Enjoy Terrace. Solo maggiori di 18 anni.",
+    jsonLdDescription: "OUTXIDIOUS, l'Halloween 2026 di Enjoy Terrace e OUTXIDE (Av. Tucán 1, Port d'Alcúdia), sabato 31 ottobre: OUTXIDE dalle {start} alle {end}. Prima, dalle {tardeoStart} alle {tardeoEnd}, festa in terrazza a ingresso libero all'Enjoy Terrace. Solo maggiori di 18 anni.",
     backToClub: "Vai all'OUTXIDE Club",
   },
   purchase: {

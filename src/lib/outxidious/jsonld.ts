@@ -21,12 +21,17 @@
 // - /outxide y /agenda publican este mismo evento de Fourvenues como UN Event
 //   en Outxide Club dentro de su ItemList; un segundo nodo Event (gratis, en
 //   Enjoy Terrace) para la misma noche abriría una contradicción entre páginas.
-// OUTXIDIOUS es de los DOS sitios (COPYS.md §0.3: «nunca el Halloween de
-// OUTXIDE»): la descripción lo presenta como el Halloween de Enjoy Terrace y
-// OUTXIDE y el organizador son los dos locales (revisión F10). El lugar sigue
-// siendo Outxide Club porque el Event marcado es la parte con entrada.
 // - El paquete creativo de META ADS pide lo mismo: el tardeo sin offers y sin
-//   ser un evento aparte.
+//   ser un evento aparte. Desde la v0.4 el +18 vale para las dos partes
+//   (typicalAgeRange "18-" sigue siendo veraz).
+// OUTXIDIOUS es de los DOS sitios (COPYS.md §0.3 y paquete v0.3: «nunca el
+// Halloween de OUTXIDE»): la descripción lo presenta como el Halloween de Enjoy
+// Terrace y OUTXIDE y el organizador son los dos locales (revisión F10). El
+// lugar sigue siendo Outxide Club porque el Event marcado es la parte con
+// entrada.
+// Sin performer: el line-up está confirmado (Sergi, 20-oct), pero Fourvenues
+// no tiene campo de artistas (solo una línea en la descripción del panel), y
+// en el marcado solo va lo que trae el evento real.
 
 import { VENUE_TIMEZONE } from "@/lib/events";
 
