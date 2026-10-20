@@ -153,6 +153,7 @@ export const en: Dictionary = {
     h1: "Company celebrations in Port d'Alcúdia",
     subtitle: "Your company has lunch or dinner wherever it likes and the celebration carries on with us: at night at OUTXIDE and, after a lunch, in the afternoon at Enjoy Terrace first.",
     occasions: "We handle requests for staff end-of-season parties and for Christmas celebrations, which can already be booked.",
+    occasionsChristmas: "We handle requests for Christmas celebrations, which can already be booked.",
     cta: "Request a quote",
     navCta: "Enquire",
     adultNotice: "Over-18s only · Drink responsibly",

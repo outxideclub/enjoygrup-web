@@ -161,6 +161,8 @@ export const es = {
     h1: "Celebraciones de empresa en Port d'Alcúdia",
     subtitle: "Vuestra empresa come o cena donde quiera y la celebración sigue con nosotros: por la noche en OUTXIDE y, si es comida, antes por la tarde en Enjoy Terrace.",
     occasions: "Atendemos solicitudes para las fiestas de fin de temporada de las plantillas y para las celebraciones de Navidad, que ya se pueden reservar.",
+    // Tras el fin de temporada (desde el lun 9-nov): solo Navidad.
+    occasionsChristmas: "Atendemos solicitudes para las celebraciones de Navidad, que ya se pueden reservar.",
     cta: "Pedir presupuesto",
     // Botón de la cabecera en /empresas (al formulario): corto, cabe en 375 px.
     navCta: "Presupuesto",

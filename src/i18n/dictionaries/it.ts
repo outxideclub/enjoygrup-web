@@ -153,6 +153,7 @@ export const it: Dictionary = {
     h1: "Feste aziendali a Port d'Alcúdia",
     subtitle: "La vostra azienda pranza o cena dove vuole e la festa continua con noi: la notte all'OUTXIDE e, dopo un pranzo, già dal pomeriggio all'Enjoy Terrace.",
     occasions: "Gestiamo richieste per le feste di fine stagione del personale e per le feste di Natale, già prenotabili.",
+    occasionsChristmas: "Gestiamo richieste per le feste di Natale, già prenotabili.",
     cta: "Richiedi un preventivo",
     navCta: "Preventivo",
     adultNotice: "Solo maggiori di 18 anni · Consumo responsabile",

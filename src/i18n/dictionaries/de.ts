@@ -153,6 +153,7 @@ export const de: Dictionary = {
     h1: "Firmenfeiern in Port d'Alcúdia",
     subtitle: "Euer Unternehmen isst zu Mittag oder zu Abend, wo es möchte, und die Feier geht bei uns weiter: nachts im OUTXIDE und, nach einem Mittagessen, schon nachmittags im Enjoy Terrace.",
     occasions: "Wir nehmen Anfragen für Saisonabschlussfeiern von Belegschaften und für Weihnachtsfeiern entgegen. Weihnachtsfeiern können schon jetzt gebucht werden.",
+    occasionsChristmas: "Wir nehmen Anfragen für Weihnachtsfeiern entgegen. Weihnachtsfeiern können schon jetzt gebucht werden.",
     cta: "Angebot anfordern",
     navCta: "Angebot",
     adultNotice: "Nur ab 18 Jahren · Verantwortungsvoller Konsum",

@@ -160,9 +160,10 @@ export function resolveEmpresasView({
     eyebrow: seasonEyebrow ?? pick(c.hero?.eyebrow) ?? t("empresas.heroEyebrow"),
     h1Lines: h1 ? h1.split("\n").map((s) => s.trim()).filter(Boolean) : [t("empresas.h1")],
     subtitle: pick(c.hero?.entradilla) ?? t("empresas.subtitle"),
-    // La línea neutra habla de las fiestas de fin de temporada: se retira a la
-    // misma hora que el bloque del paquete.
-    occasions: !creative && seasonLive ? t("empresas.occasions") : null,
+    // La línea neutra habla de las fiestas de fin de temporada: a la misma
+    // hora que el bloque del paquete pasa a hablar solo de Navidad (DE/FR/IT
+    // no tienen bloque de Navidad: sin esta línea, la Navidad desaparecería).
+    occasions: creative ? null : seasonLive ? t("empresas.occasions") : t("empresas.occasionsChristmas"),
     facts: pick(c.hero?.datos),
     cta: pick(c.hero?.boton) ?? t("empresas.cta"),
     plate,

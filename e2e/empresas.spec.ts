@@ -403,7 +403,10 @@ test.describe("/empresas · reglas puras", () => {
     const deView = (now: string) => resolveEmpresasView({ locale: "de", now: at(now), t: deT });
     expect(deView(OLD_CUTOFF).hero.occasions).toBe(de.empresas.occasions);
     expect(deView(SEASON_LAST).hero.occasions).toBe(de.empresas.occasions);
-    expect(deView(SEASON_END).hero.occasions).toBeNull();
+    // Desde el 9-nov la línea sigue, solo con la Navidad (sin «Saison»).
+    expect(deView(SEASON_END).hero.occasions).toBe(de.empresas.occasionsChristmas);
+    expect(deView(SEASON_END).hero.occasions).not.toMatch(/saison/i);
+    expect(deView(SEASON_END).hero.occasions).toMatch(/weihnacht/i);
     // DE/FR/IT siguen con el antetítulo neutro antes y después (el cartel no se traduce).
     expect(deView(OLD_CUTOFF).hero.eyebrow).toBe(de.empresas.heroEyebrow);
     expect(deView(SEASON_END).hero.eyebrow).toBe(de.empresas.heroEyebrow);
