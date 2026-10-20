@@ -4,11 +4,12 @@
 // decide en el navegador del visitante) y lo prueba e2e/empresas.spec.ts.
 //
 // Por qué así (20-oct-2026): el paquete creativo (CREATIVO-LANDING-EMPRESAS.md
-// §3 y §4.10) retira bloques a una hora concreta del sábado 31-oct —el de fin
-// de temporada en el cambio de tanda de los anuncios, la pregunta de Halloween
-// a las 23:00— y en noviembre la palabra «temporada» no puede seguir viva en
-// ningún texto de empresas (COPYS.md §5.4). Si nadie entra a tocar la web ese
-// sábado por la tarde, la página tiene que retirarlos sola.
+// §3 y §4.10) retira bloques a una hora concreta —la pregunta de Halloween el
+// sáb 31 a las 23:00 y el bloque de fin de temporada al acabar el conjunto de
+// empresas, el dom 8-nov a las 23:59 (desde COPYS.md v1.7 y el paquete v0.5:
+// antes era el sáb 31 a las 18:00 y la §5.4 vetaba «temporada» en noviembre;
+// con los locales abiertos a diario y el cartel E1 corriendo hasta el 8-nov,
+// ya no)—. Si nadie entra a tocar la web ese día, la página los retira sola.
 //
 // Las fechas límite viven en la configuración (src/lib/empresas/content.ts)
 // como ISO con DESFASE EXPLÍCITO: el 31-oct ya es horario de invierno en

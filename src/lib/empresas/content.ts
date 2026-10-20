@@ -42,7 +42,8 @@
 //   primera pantalla, así que el antetítulo y el H1 dicen LO MISMO que el
 //   cartel (ES y EN; DE/FR/IT siguen con el neutro). El antetítulo de fin de
 //   temporada se retira a la misma hora que el bloque de fin de temporada
-//   (finTemporada.visibleHasta) y vuelve el neutro; el H1 se queda. La foto
+//   (finTemporada.visibleHasta: al acabar el conjunto, el dom 8-nov a las
+//   23:59, COPYS.md v1.7) y vuelve el neutro; el H1 se queda. La foto
 //   del cartel NO se usa: es stock de Canva con licencia solo dentro del diseño.
 // - APERTURA confirmada por Sergi: OUTXIDE y Enjoy abren todos los días hasta
 //   mediados de noviembre; después, solo fin de semana o bajo reserva de grupo.
@@ -157,8 +158,8 @@ export interface EmpresasContent {
     eyebrow: LocalizedText;
     /**
      * Antetítulo del cartel del anuncio. Vive mientras viva el bloque de fin de
-     * temporada (misma hora, finTemporada.visibleHasta): en noviembre la
-     * palabra «temporada» no puede seguir en la página.
+     * temporada (misma hora, finTemporada.visibleHasta): cuando el conjunto
+     * de empresas acaba (8-nov), «temporada» no sigue en la página.
      */
     eyebrowFinTemporada: LocalizedText;
     /** H1 en dos líneas, separadas por "\n". */
@@ -321,11 +322,17 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
     },
     firmas: ["Where nights begin", "The night continues"],
   },
-  // §4.4 — solo tanda 1. Se retira en el cambio de tanda del sáb 31-oct (§3 y
-  // COPYS.md §3.0: E1 se apaga «antes de las 18:00»): 18:00 es la hora tope de
-  // ese cambio, así el bloque nunca sobrevive al anuncio que lo promete.
+  // §4.4 — se retira sola al acabar el conjunto de empresas (dom 8-nov a las
+  // 23:59). Hasta el 20-oct por la tarde se retiraba en el cambio de tanda del
+  // sáb 31 a las 18:00 (E1 se apagaba ese día); desde COPYS.md v1.7 y el
+  // paquete v0.5 (resuelto por Sergi): el anuncio aprobado es el CARTEL E1
+  // («CELEBRA TU FIN DE TEMPORADA EN OUTXIDE CLUB», con EMP-2-S), que corre
+  // hasta el 8-nov, y con los locales abiertos a diario hasta mediados de
+  // noviembre «fin de temporada» sigue siendo verdad. Retirarlo el 31 dejaba
+  // el anuncio prometiendo un titular y un bloque que la página ya no tenía
+  // (revisión F2). Mismo instante para el antetítulo del cartel del hero.
   finTemporada: {
-    visibleHasta: "2026-10-31T18:00:00+01:00",
+    visibleHasta: "2026-11-09T00:00:00+01:00",
     eyebrow: { es: "Fin de temporada", en: "End of season" },
     titulo: {
       es: "Toda la temporada cuidando de los demás. Ahora os toca a vosotros.",

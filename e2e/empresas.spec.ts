@@ -18,15 +18,15 @@ import { isEndOfSeasonLive, resolveEmpresasMeta, resolveEmpresasView } from "../
 // oferta (offer.ts) sigue vacía, así que la página sigue en NOINDEX.
 //
 // Ajustes del 20-oct-2026 (tarde): antetítulo y H1 del CARTEL del anuncio
-// (el antetítulo de fin de temporada se retira a las 18:00 del sáb 31, como el
-// bloque), Navidad A con «En diciembre, fines de semana o bajo reserva para
+// (el antetítulo de fin de temporada se retira con el bloque, al acabar el
+// conjunto el dom 8-nov, COPYS.md v1.7), Navidad A con «En diciembre, fines de semana o bajo reserva para
 // grupos.», FAQ 2 con la apertura confirmada por Sergi, diccionario RECORTADO
 // (src/i18n/scoped-dictionary.ts: ni shisha ni cócteles en el HTML, scripts
 // incluidos) con su guarda de navegación, y muro +18 sin la foto rota.
 //
 // Comprueba: primera pantalla en 375×550 con la placa +18, muro +18 (el mismo
 // componente de /outxide, con su texto propio), bloque de fin de temporada que
-// se retira solo en el cambio de tanda del sáb 31-oct (?now= solo fuera de
+// se retira solo al acabar el conjunto, el dom 8-nov (?now= solo fuera de
 // producción), Navidad SIN fechas, solo fotos permitidas, léxico prohibido
 // ausente (también en metadatos), formulario accesible, campaña (utm_* +
 // fbclid) hasta la solicitud y defensas de la API.
@@ -80,6 +80,10 @@ const OFFER_CUSTOM_ES =
 const BEFORE_CUTOFF = "2026-10-31T17:59:00+01:00";
 const AT_CUTOFF = "2026-10-31T18:00:00+01:00";
 const AFTER_HALLOWEEN_FAQ = "2026-10-31T23:00:00+01:00";
+// Fin de temporada (bloque y antetítulo del cartel): hasta el final del
+// conjunto de empresas, dom 8-nov 23:59 (COPYS.md v1.7; revisión F2).
+const SEASON_LAST_MINUTE = "2026-11-08T23:59:00+01:00";
+const SEASON_OVER = "2026-11-09T00:00:00+01:00";
 const withNow = (path: string, iso: string) => `${path}${path.includes("?") ? "&" : "?"}now=${encodeURIComponent(iso)}`;
 
 // Léxico prohibido en páginas destino de anuncios (reglas del dueño y paquete
@@ -291,9 +295,9 @@ test.describe("/empresas · reglas puras", () => {
   const href = "/outxide/outxidious";
 
   test("reloj: ISO con desfase obligatorio, falla cerrado y ?now ignorado en producción", () => {
-    expect(EMPRESAS_CONTENT.finTemporada?.visibleHasta).toBe("2026-10-31T18:00:00+01:00");
-    // 18:00 en Madrid el 31-oct (ya horario de invierno) = 17:00 UTC.
-    expect(parseInstant(EMPRESAS_CONTENT.finTemporada?.visibleHasta)).toBe(Date.UTC(2026, 9, 31, 17, 0, 0));
+    expect(EMPRESAS_CONTENT.finTemporada?.visibleHasta).toBe(SEASON_OVER);
+    // 00:00 del lunes 9-nov en Madrid (horario de invierno) = 23:00 UTC del 8.
+    expect(parseInstant(EMPRESAS_CONTENT.finTemporada?.visibleHasta)).toBe(Date.UTC(2026, 10, 8, 23, 0, 0));
     expect(parseInstant("2026-10-31T18:00:00")).toBeNull(); // sin desfase: dependería del servidor
     expect(parseInstant("31/10/2026 18:00")).toBeNull();
     expect(isBefore(Date.UTC(2026, 9, 20), "no-es-fecha")).toBe(false);
@@ -308,10 +312,13 @@ test.describe("/empresas · reglas puras", () => {
     expect(resolveNow({ query: undefined, isProduction: false, realNow: real })).toBe(real);
   });
 
-  test("fin de temporada: vivo hasta las 17:59:59 del sáb 31 y retirado desde las 18:00 (+01:00)", () => {
-    const before = Date.parse("2026-10-31T17:59:59+01:00");
-    const at = Date.parse(AT_CUTOFF);
+  test("fin de temporada: vivo todo el conjunto (también el sáb 31 tras las 18:00) y retirado al acabar el dom 8-nov", () => {
+    const before = Date.parse("2026-11-08T23:59:59+01:00");
+    const at = Date.parse(SEASON_OVER);
     expect(isEndOfSeasonLive(Date.parse("2026-10-22T12:00:00+02:00"))).toBe(true);
+    // El cartel E1 sigue corriendo después del cambio de tanda (F2).
+    expect(isEndOfSeasonLive(Date.parse(AT_CUTOFF))).toBe(true);
+    expect(isEndOfSeasonLive(Date.parse("2026-11-01T12:00:00+01:00"))).toBe(true);
     expect(isEndOfSeasonLive(before)).toBe(true);
     expect(isEndOfSeasonLive(at)).toBe(false);
 
@@ -326,7 +333,7 @@ test.describe("/empresas · reglas puras", () => {
     expect(vAt.hero.eyebrow).toBe(EYEBROW_NEUTRAL_ES);
     expect(vAt.hero.h1Lines).toEqual(H1_LINES_ES);
     expect(resolveEmpresasView({ locale: "en", now: before, t: tFrom({}), outxidiousHref: href }).hero.eyebrow).toBe(EYEBROW_SEASON_EN);
-    // En noviembre, «temporada» no puede seguir viva en ningún texto de la página.
+    // Acabado el conjunto, «temporada» no sigue en ningún texto de la página.
     expect(allText(vAt)).not.toContain("temporada");
     const enAt = resolveEmpresasView({ locale: "en", now: at, t: tFrom({}), outxidiousHref: href });
     expect(allText(enAt)).not.toContain("season");
@@ -534,11 +541,11 @@ test.describe("/empresas · primera pantalla 375×550", () => {
   test.beforeEach(async ({ context }) => preconfirm(context));
 
   // Las dos horas que importan: el día que arrancan los anuncios (antetítulo
-  // del cartel) y después de las 18:00 del sáb 31 (antetítulo neutro): la
-  // primera pantalla tiene que caber igual con los dos.
+  // del cartel) y al acabar el conjunto, desde el lun 9-nov (antetítulo
+  // neutro): la primera pantalla tiene que caber igual con los dos.
   const MOMENTS = [
     { name: "con el antetítulo del cartel", now: "2026-10-22T12:00:00+02:00", es: EYEBROW_SEASON_ES, en: EYEBROW_SEASON_EN },
-    { name: "tras las 18:00 del 31", now: AT_CUTOFF, es: EYEBROW_NEUTRAL_ES, en: EYEBROW_NEUTRAL_EN },
+    { name: "acabado el conjunto (9-nov)", now: SEASON_OVER, es: EYEBROW_NEUTRAL_ES, en: EYEBROW_NEUTRAL_EN },
   ];
   for (const lang of ["es", "en"] as const) for (const moment of MOMENTS) {
     test(`${lang} ${moment.name}: antetítulo, H1 del cartel en dos líneas, subtítulo, botón y placa +18 sin desplazar`, async ({ page }) => {
@@ -691,8 +698,13 @@ test.describe("/empresas · muro +18", () => {
 test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
   test.beforeEach(async ({ context }) => preconfirm(context));
 
-  test("fin de temporada visible antes del cambio de tanda y retirado después", async ({ page }) => {
-    await page.goto(withNow("/empresas", BEFORE_CUTOFF));
+  test("fin de temporada visible todo el conjunto (también el sáb 31 a las 18:00) y retirado al acabar", async ({ page }) => {
+    // Tras el cambio de tanda del sáb 31 sigue: el cartel E1 corre hasta el 8-nov (F2).
+    await page.goto(withNow("/empresas", AT_CUTOFF));
+    await expect(page.getByTestId("empresas-end-of-season")).toBeVisible();
+    await expect(page.getByTestId("empresas-hero").locator(".emp-eyebrow")).toHaveText(EYEBROW_SEASON_ES);
+
+    await page.goto(withNow("/empresas", SEASON_LAST_MINUTE));
     const block = page.getByTestId("empresas-end-of-season");
     await expect(block).toBeVisible();
     await expect(block.locator("h2")).toHaveText("Toda la temporada cuidando de los demás. Ahora os toca a vosotros.");
@@ -709,7 +721,7 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
     const eyebrow = page.getByTestId("empresas-hero").locator(".emp-eyebrow");
     await expect(eyebrow).toHaveText(EYEBROW_SEASON_ES);
 
-    await page.goto(withNow("/empresas", AT_CUTOFF));
+    await page.goto(withNow("/empresas", SEASON_OVER));
     await expect(page.getByTestId("empresas-christmas")).toBeVisible();
     await expect(page.getByTestId("empresas-end-of-season")).toHaveCount(0);
     // El antetítulo del cartel se va a la misma hora que el bloque; el H1 se queda.
@@ -717,9 +729,9 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
     await expect(page.locator("h1 span")).toHaveText(H1_LINES_ES);
     expect(normalize(await page.locator("main").innerText())).not.toContain("temporada");
 
-    await page.goto(withNow("/en/empresas", BEFORE_CUTOFF));
+    await page.goto(withNow("/en/empresas", SEASON_LAST_MINUTE));
     await expect(eyebrow).toHaveText(EYEBROW_SEASON_EN);
-    await page.goto(withNow("/en/empresas", AT_CUTOFF));
+    await page.goto(withNow("/en/empresas", SEASON_OVER));
     await expect(page.getByTestId("empresas-end-of-season")).toHaveCount(0);
     await expect(eyebrow).toHaveText(EYEBROW_NEUTRAL_EN);
     await expect(page.locator("h1 span")).toHaveText(H1_LINES_EN);
@@ -915,7 +927,7 @@ test.describe("/empresas · léxico prohibido", () => {
       // HTML ENTERO: metadatos, alt, textos, JSON-LD y también los <script>.
       // Desde el diccionario recortado (src/i18n/scoped-dictionary.ts) el
       // payload RSC ya no lleva los textos del resto de la web.
-      for (const now of ["2026-10-22T12:00:00+02:00", AT_CUTOFF]) {
+      for (const now of ["2026-10-22T12:00:00+02:00", AT_CUTOFF, SEASON_OVER]) {
         const res = await request.get(withNow(path, now), { headers: { "accept-language": "es-ES" } });
         expect(res.status()).toBe(200);
         const html = await res.text();
