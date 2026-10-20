@@ -114,10 +114,15 @@ export function AgeVerification({ copy }: { copy?: AgeVerificationCopy } = {}) {
           transition={{ duration: 0.4 }}
           className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden"
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url(/images/outxide/hero-poster.webp)" }}
-          />
+          {/* Sin foto de fondo (20-oct-2026): la de antes,
+              /images/outxide/hero-poster.webp, no existe (daba 404 en /outxide
+              y en /empresas), así que el muro ya se veía solo con la capa negra
+              sobre la propia página difuminada. Se quita la petición rota en
+              vez de poner otra foto: el muro sale en páginas destino de
+              anuncios y la única imagen del club candidata (el póster del vídeo
+              de /outxide) deja ver al fondo una barra iluminada en la que no se
+              puede descartar que haya botellas. Mismo aspecto y mismo
+              comportamiento que hasta ahora en todas las rutas. */}
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
 
           <motion.div
