@@ -9,7 +9,13 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath } from "@/i18n/config";
 import { siteContact } from "@/lib/site";
-import { OUTXIDIOUS_PATH, isOutxidiousIndexable, resolveOutxidiousContent } from "@/lib/outxidious/content";
+import {
+  OUTXIDIOUS_PATH,
+  isOutxidiousIndexable,
+  isSlotApproved,
+  resolveOutxidiousContent,
+  type OutxidiousSectionTone,
+} from "@/lib/outxidious/content";
 import { getOutxidiousContent } from "@/lib/outxidious/content.server";
 import { loadOutxidiousTimes, loadOutxidiousView } from "@/lib/outxidious/landing.server";
 import { buildOutxidiousEventJsonLd } from "@/lib/outxidious/jsonld";
@@ -37,9 +43,12 @@ import "./outxidious.css";
 //   OUTXIDE y ningún texto afirma la edad del tardeo.
 // - Página de SERVIDOR (rápida en el navegador de Instagram): en cliente solo
 //   el formulario de avisos y el vídeo.
-// Textos NEUTROS y factuales (corrección del dueño, 19-oct). Lo creativo entra
-// por src/lib/outxidious/content.ts con aprobación POR HUECO: hoy solo está
-// aprobado el vídeo de cabecera (el teaser OUTXIDE → OUTXIDIOUS, 20-oct).
+// Lo creativo entra por src/lib/outxidious/content.ts con aprobación POR HUECO.
+// 20-oct (tarde): encendidos como PROVISIONAL (paquete v0.2 de META ADS,
+// autorizado por Sergi, pendiente del OK de Jose) el teaser, el claim, los
+// bloques con la FAQ y el tema rojo; la imagen OG y el index, no.
+// - Después del evento («despues») no se pintan los bloques, la FAQ ni el
+//   subtítulo: «Empezamos antes…» y «Llega antes de las 00:00» ya no son verdad.
 // El muro +18 lo hereda del layout de /outxide (no se toca).
 
 const SITE = "https://www.grupoenjoy.es";
@@ -50,10 +59,13 @@ const DEFAULT_OG_IMAGE = { url: "/images/outxide/DSCF8103-9.jpg", width: 2400, h
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
-/** Sustituye {start}, {end}, {price}… en un texto del diccionario. */
+/** Sustituye {start}, {end}, {price}… en un texto del diccionario o de content.ts. */
 function fill(text: string, vars: Record<string, string>): string {
   return text.replace(/\{(\w+)\}/g, (match, key: string) => vars[key] ?? match);
 }
+
+/** Color de la hora de cada bloque: tardeo («este lado») y OUTXIDE («el otro lado»). */
+const TONE_CLASS: Record<OutxidiousSectionTone, string> = { tardeo: "ox-tardeo", noche: "ox-accent" };
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getServerLocale();
@@ -107,7 +119,13 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
   // precarga ni se reproduce, solo el póster. El cliente lo comprueba también.
   const saveData = reqHeaders.get("save-data")?.trim().toLowerCase() === "on";
   const media = content.heroMedia;
-  const claim = view.today ? content.claimToday : content.claim;
+  const rawClaim = view.today ? content.claimToday : content.claim;
+  const claim = rawClaim ? fill(rawClaim, vars) : null;
+  const afterEvent = view.phase === "despues";
+  // Subtítulo del diccionario (creativo): con el hueco `claim` y antes del final.
+  const subtitle = isSlotApproved(raw, "claim") && !afterEvent ? t("outxidious.subtitle").trim() : "";
+  const sections = afterEvent ? [] : content.sections;
+  const faq = afterEvent ? [] : content.faq;
   const outxideHref = localizedPath("/outxide", locale);
   // Sin multimedia aprobada todo va centrado (una columna); con ella, en móvil
   // el vídeo/imagen va ENCIMA del texto (recortado para que el h1 y la placa
@@ -178,12 +196,12 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
               </h1>
 
               {claim && (
-                <p data-testid="outxidious-claim" className="ox-accent mt-5 font-display text-2xl font-bold uppercase sm:text-3xl">
+                <p data-testid="outxidious-claim" className="ox-accent mt-4 font-display text-2xl font-bold uppercase sm:mt-5 sm:text-3xl">
                   {claim}
                 </p>
               )}
               {view.today && view.phase !== "despues" && (
-                <p data-testid="outxidious-today" className="ox-title mt-4 text-base font-semibold">
+                <p data-testid="outxidious-today" className="ox-title mt-3 text-base font-semibold sm:mt-4">
                   {fill(t("outxidious.today"), vars)}
                 </p>
               )}
@@ -221,7 +239,7 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
               {view.phase === "pronto" && (
                 <div data-testid="outxidious-soon" className="mt-6">
                   <h2 className="ox-title font-display text-2xl font-bold uppercase">{t("outxidious.soonTitle")}</h2>
-                  <p className="ox-body mt-2 text-sm">{t("outxidious.soonText")}</p>
+                  <p className="ox-body mt-2 text-sm">{fill(t("outxidious.soonText"), vars)}</p>
                 </div>
               )}
 
@@ -242,6 +260,23 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                 </p>
               </div>
 
+              {/* Nota del botón DEBAJO de la placa: bajo el botón no cabe en la
+                  primera pantalla de móvil (paquete §3.1: «solo si cabe; si no,
+                  debajo de la placa»). Solo con el botón pintado. */}
+              {view.phase === "venta" && view.checkoutUrl && view.priceFromLabel && (
+                <p data-testid="outxidious-buy-note" className="ox-legal mt-3 text-[13px] leading-normal">
+                  {fill(t("outxidious.buyNote"), vars)}
+                </p>
+              )}
+
+              {/* Subtítulo creativo DEBAJO de la placa: en móvil no le quita sitio
+                  a la primera pantalla. */}
+              {subtitle && (
+                <p data-testid="outxidious-subtitle" className="ox-body mt-5 text-base leading-relaxed sm:text-lg">
+                  {subtitle}
+                </p>
+              )}
+
               {view.phase === "pronto" && (
                 <div className="mt-8">
                   <p className="ox-body mb-3 text-sm">{t("outxidious.alertsText")}</p>
@@ -250,11 +285,13 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
               )}
             </div>
 
-            {/* Multimedia aprobada (hoy, el teaser). En móvil va ENCIMA del texto
-                (order-first) y recortada a su franja central (mobileAspect) para
-                que el h1 y la placa sigan en la primera pantalla de 375×667. */}
+            {/* Multimedia aprobada (el teaser). En móvil va ENCIMA del texto
+                (.ox-media-slot) y recortada a su franja central (mobileAspect, y
+                shortAspect en pantallas bajas) para que el h1 y la placa sigan
+                en la primera pantalla; por debajo de 660 px de alto pasa debajo
+                del texto: se reduce el vídeo, nunca la placa. */}
             {media?.kind === "video" && (
-              <div className="order-first md:order-none">
+              <div className="ox-media-slot">
                 <HeroVideo
                   src={media.src}
                   webmSrc={media.webmSrc}
@@ -262,6 +299,8 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                   width={media.width}
                   height={media.height}
                   mobileAspect={media.mobileAspect}
+                  shortAspect={media.shortAspect}
+                  focusY={media.focusY}
                   label={media.label}
                   saveData={saveData}
                 />
@@ -275,21 +314,54 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                 height={media.height}
                 priority
                 sizes="(min-width: 768px) 24rem, 100vw"
-                className="order-first mx-auto h-auto w-full max-w-md rounded-2xl md:order-none"
+                className="ox-media-slot mx-auto h-auto w-full max-w-md rounded-2xl"
               />
             )}
           </div>
         </section>
 
-        {content.sections.length > 0 && (
+        {/* Bloques del paquete creativo. Los dos primeros (tardeo y OUTXIDE) van
+            uno al lado del otro en escritorio, cada uno con su hora en su color
+            (en móvil, uno debajo del otro: los dos colores nunca en la misma línea). */}
+        {sections.length > 0 && (
           <section data-testid="outxidious-sections" className="ox-rule border-t">
             <div className="mx-auto grid max-w-5xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2">
-              {content.sections.map((s, i) => (
-                <div key={i}>
-                  <h2 className="ox-title font-display text-xl font-bold uppercase">{s.title}</h2>
-                  <p className="ox-body mt-2 whitespace-pre-line text-sm leading-relaxed">{s.text}</p>
+              {sections.map((s, i) => (
+                <div key={i} data-testid="outxidious-section">
+                  <h2 className="ox-title font-display text-xl font-bold uppercase sm:text-2xl">
+                    {s.time && (
+                      <>
+                        <span data-testid="outxidious-section-time" className={s.tone ? TONE_CLASS[s.tone] : undefined}>
+                          {fill(s.time, vars)}
+                        </span>
+                        {" · "}
+                      </>
+                    )}
+                    {fill(s.title, vars)}
+                  </h2>
+                  <p className="ox-body mt-2 max-w-prose whitespace-pre-line text-[15px] leading-relaxed sm:text-base">
+                    {fill(s.text, vars)}
+                  </p>
                 </div>
               ))}
+            </div>
+          </section>
+        )}
+
+        {faq.length > 0 && (
+          <section data-testid="outxidious-faq" aria-labelledby="outxidious-faq-title" className="ox-rule border-t">
+            <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+              <h2 id="outxidious-faq-title" className="ox-title font-display text-xl font-bold uppercase sm:text-2xl">
+                {t("outxidious.faqTitle")}
+              </h2>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                {faq.map((f, i) => (
+                  <div key={i}>
+                    <h3 className="ox-title text-base font-semibold leading-snug sm:text-[17px]">{fill(f.q, vars)}</h3>
+                    <p className="ox-body mt-1.5 max-w-prose text-[15px] leading-relaxed sm:text-base">{fill(f.a, vars)}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
         )}
@@ -323,7 +395,11 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
           <p data-testid="outxidious-footer-plate" className="ox-plate">
             {t("outxidious.legalPlate")}
           </p>
-          <p className="ox-legal text-xs leading-relaxed">{t("outxidious.organizer")}</p>
+          <p className="ox-legal text-xs leading-relaxed">
+            {t("outxidious.coHost")}
+            <br />
+            {t("outxidious.organizer")}
+          </p>
           <nav aria-label={t("outxidious.legalNav")}>
             <ul className={`flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs ${media ? "md:justify-start" : ""}`}>
               {legalLinks.map((l) => (

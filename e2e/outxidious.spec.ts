@@ -3,6 +3,9 @@ import { test, expect, type APIRequestContext, type BrowserContext, type Page } 
 import type { FVEvent, FVTicketRate, FVTicketsCheckoutRequest } from "../src/lib/fourvenues/types";
 import { es } from "../src/i18n/dictionaries/es";
 import { en } from "../src/i18n/dictionaries/en";
+import { de } from "../src/i18n/dictionaries/de";
+import { fr } from "../src/i18n/dictionaries/fr";
+import { it as itDict } from "../src/i18n/dictionaries/it";
 import { dictionaryScopeFor, pickDictionary } from "../src/i18n/scoped-dictionary";
 import { siteContact } from "../src/lib/site";
 import {
@@ -23,6 +26,7 @@ import {
   TARDEO_END_TIME,
   TARDEO_START_TIME,
   TODAY_FROM,
+  TODAY_TO,
   findOutxidiousEvent,
   outxideSchedule,
   priceFromWithFees,
@@ -38,12 +42,13 @@ import { buildOutxidiousEventJsonLd, toMadridIso } from "../src/lib/outxidious/j
 //
 // OUTXIDIOUS es un evento COMPARTIDO (19-oct): tardeo de ACCESO LIBRE en Enjoy
 // Terrace (20:00–23:00, sin botón, precio ni formulario) y OUTXIDE (23:00–05:30)
-// con entrada; precio y botón solo de OUTXIDE. Textos neutros y factuales,
-// noindex y fuera del sitemap. Aprobación POR HUECO (content.ts): hoy solo el
-// vídeo de cabecera (teaser OUTXIDE → OUTXIDIOUS, aprobado el 20-oct); claim,
-// secciones, tema rojo e imagen OG apagados. Los huecos apagados se prueban con
-// contenido FICTICIO que vive solo en este fichero y viaja en la cabecera del
-// doble de pruebas (solo la atiende `next dev`).
+// con entrada; precio y botón solo de OUTXIDE. noindex y fuera del sitemap.
+// Aprobación POR HUECO (content.ts). 20-oct (tarde): paquete creativo
+// PROVISIONAL de META ADS (v0.2) encendido por orden de Sergi: teaser, claim,
+// bloques con FAQ y tema rojo; imagen OG e index apagados; DE/FR/IT sin copy
+// creativo (página neutra, nunca español). Otras combinaciones de huecos se
+// prueban con contenido FICTICIO que vive solo en este fichero y viaja en la
+// cabecera del doble de pruebas (solo la atiende `next dev`).
 
 const MOCK = process.env.FV_MOCK_URL ?? "http://localhost:3999";
 const OX_CODE = "OX31";
@@ -73,7 +78,8 @@ const CAMPAIGN_OVER = Date.now() >= AFTER_FROM;
 /**
  * Léxico vetado en TODA la página (HTML, metadatos, alt, JSON-LD y payload RSC),
  * sobre el texto sin acentos y en minúsculas. Regla del dueño + Meta (alcohol y
- * tabaco). «Enjoy Terrace» y «tardeo» SÍ se permiten desde el 19-oct (evento
+ * tabaco) y §5 del paquete creativo («Qué NO se pone», al pie de la letra).
+ * «Enjoy Terrace» y «tardeo» SÍ se permiten desde el 19-oct (evento
  * compartido): se comprueba aparte que aparecen.
  */
 const FORBIDDEN: [string, RegExp][] = [
@@ -106,6 +112,30 @@ const FORBIDDEN: [string, RegExp][] = [
   ["GREGAL", /\bgregal\b/],
   ["PONENT", /\bponent\b/],
   ["NIEBLA", /\bniebla\b/],
+  // §5 del paquete creativo v0.2 (20-oct). El tardeo es de ACCESO LIBRE: ni
+  // «gratis» ni «entrada libre» (la «entrada» es la de OUTXIDE), y la noche no
+  // se cuenta como un bloque desde las 20 ni de 20:00 a 05:30.
+  ["gratis", /\bgratis\b/],
+  ["entrada libre", /entrada libre/],
+  // Abierto («desde las 20», «from 20:00»…); un tramo cerrado («de 20:00 a 23:00», «from 20:00 to 23:00») sí vale.
+  ["desde las 20 (y equivalentes)", /desde las 20\b|\bfrom 20[:.]00(?!\s*(?:to|–|-))|\bab 20([:.]00)?\s*uhr|\bdes 20[:h.]|\bdalle (?:ore )?20[:.]00(?!\s*alle)/],
+  ["20:00–05:30", /\b20[:.]00\s*(?:–|—|-|a|to|bis|alle)\s*0?5[:.]30/],
+  ["2 copas / combinado", /\b2 copas\b|\bcombinados?\b/],
+  // Nada de conducción ni transporte para volver (LGCA 123.3.b; a las 05:30, sin confirmar).
+  ["taxi", /\btaxis?\b/],
+  ["no conduzcas / coche", /no conduzcas|\bconducir\b|\bcoches?\b|don'?t drive|drink and drive/],
+  ["transporte público / TIB / lanzadera", /transporte publico|public transport|\btib\b|lanzadera|shuttle/],
+  // Promesas sin confirmar.
+  ["humo / line-up / zona VIP / actuaciones", /\bhumo\b|line[- ]?up|zona vip|vip area|\bactuacion(es)?\b/],
+  // Cupos y puerta (A2 y LANDING-WEB §5): ni aforo ni comparación con la puerta.
+  ["aforo / cupo", /\baforo\b|\bcupos?\b/],
+  ["en puerta / at the door", /\ben (?:la )?puerta\b|at the door|door price/],
+  // Campaña anterior y léxico vetado de LANDING-WEB §4, sin el OK de Jose.
+  ["Cruza la X", /cruza la x/],
+  ["La puerta roja", /puerta roja|red door/],
+  ["El Más Allá", /el mas alla/],
+  // Nombres internos de los tokens de color (de trabajo, nunca visibles).
+  ["nombres internos de tokens", /rojo rendija|rojo senal|rojo puerta|\blacre\b|\bnucleo\b|\blaton\b|\bhueso\b|negro otro lado|blanco outxide/],
 ];
 
 /** Datos del panel que NO pueden viajar en la página (nombres, includes, stock, otras noches). */
@@ -142,6 +172,39 @@ async function expectNoRawKeys(page: Page, where: string): Promise<void> {
   const raw = ALL_KEYS.filter((k) => text.includes(k));
   expect(raw, `${where}: claves sin traducir en la página`).toEqual([]);
 }
+
+/** Los 5 diccionarios (mismas claves; es.ts define el tipo). */
+const DICTS = { es, en, de, fr, it: itDict } as const;
+const LOCALES = ["es", "en", "de", "fr", "it"] as const;
+const localePath = (loc: (typeof LOCALES)[number], q = "") => `${loc === "es" ? "" : `/${loc}`}${OUTXIDIOUS_PATH}${q}`;
+
+/** Todas las cadenas de un objeto (para revisar content.ts y el diccionario). */
+function allStrings(obj: unknown): string[] {
+  if (typeof obj === "string") return [obj];
+  if (typeof obj !== "object" || obj === null) return [];
+  return Object.values(obj as Record<string, unknown>).flatMap(allStrings);
+}
+
+/**
+ * La edad del tardeo NO está confirmada: cada «18» de un texto tiene que ir
+ * pegado a OUTXIDE, es decir, el último local nombrado antes de él en el mismo
+ * texto es OUTXIDE (no el tardeo ni Enjoy Terrace, y no suelto sin local).
+ * Devuelve los textos que lo incumplen. La placa legal va aparte.
+ */
+const VENUE_RE = /outxide|tardeo|early party|enjoy terrace|debut de soiree|pre-serata/g;
+function ageNotOnOutxide(texts: string[]): string[] {
+  return texts.filter((t) => {
+    const n = normalize(t);
+    for (const m of n.matchAll(/18/g)) {
+      const last = [...n.slice(0, m.index).matchAll(VENUE_RE)].at(-1)?.[0];
+      if (last !== "outxide") return true;
+    }
+    return false;
+  });
+}
+
+/** Marcas de trabajo que no pueden publicarse: corchetes y [CONFIRMAR]/[CONFIRM]. */
+const WORK_MARKS = /[[\]]|confirmar|\bconfirm\b/i;
 
 // ---------------------------------------------------------------------------
 // Datos del doble de Fourvenues
@@ -274,24 +337,25 @@ test.use({ locale: "es-ES" });
 // ===========================================================================
 
 test.describe("OUTXIDIOUS · lógica pura", () => {
-  test("content.ts: solo el vídeo de cabecera aprobado; claim, secciones, tema, OG e index apagados", () => {
+  test("content.ts: paquete provisional encendido (vídeo, claim, bloques con FAQ y tema rojo); OG e index apagados", () => {
     expect(OUTXIDIOUS_CONTENT.approved).toEqual({
       heroMedia: true,
-      claim: false,
-      sections: false,
-      theme: false,
+      claim: true,
+      sections: true,
+      theme: true,
       ogImage: false,
       index: false,
     });
-    expect(OUTXIDIOUS_CONTENT.theme).toBe("neutro");
+    expect(OUTXIDIOUS_CONTENT.theme).toBe("campana-roja");
     expect(isOutxidiousIndexable(OUTXIDIOUS_CONTENT)).toBe(false);
     expect(outxidiousSitemapPaths(OUTXIDIOUS_CONTENT)).toEqual([]);
     const labels = new Set<string>();
-    for (const loc of ["es", "en", "de", "fr", "it"] as const) {
+    for (const loc of LOCALES) {
       const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
-      expect(r).toMatchObject({ theme: "neutro", claim: null, claimToday: null, ogImage: null });
-      expect(r.sections).toEqual([]);
-      // El teaser aprobado, con su descripción accesible PROPIA en cada idioma.
+      // Sin imagen OG en el paquete: la foto por defecto (nunca el logo fijo).
+      expect(r).toMatchObject({ theme: "campana-roja", ogImage: null });
+      // El teaser aprobado, con su descripción accesible PROPIA en cada idioma
+      // y el recorte más estrecho para pantallas bajas.
       expect(r.heroMedia).toMatchObject({
         kind: "video",
         src: TEASER.mp4,
@@ -300,18 +364,75 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
         width: 720,
         height: 720,
         mobileAspect: 2.5,
+        shortAspect: 4,
+        focusY: 45,
       });
       const label = r.heroMedia?.kind === "video" ? r.heroMedia.label : "";
       expect(label.length, loc).toBeGreaterThan(20);
       labels.add(label);
     }
     expect(labels.size, "una descripción distinta por idioma").toBe(5);
+
+    // ES y EN: claim, claim del día, los 4 bloques y la FAQ del paquete.
+    for (const loc of ["es", "en"] as const) {
+      const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
+      expect(r.claim, loc).toBeTruthy();
+      expect(r.claimToday, loc).toBeTruthy();
+      expect(r.sections, loc).toHaveLength(4);
+      // Tardeo («este lado») y OUTXIDE («el otro lado»), cada uno con su color.
+      expect(r.sections.map((x) => x.tone)).toEqual(["tardeo", "noche", undefined, undefined]);
+      expect(r.sections[0].time).toBe("{tardeoStart}–{tardeoEnd}");
+      expect(r.sections[1].time).toBe("{start}–{end}");
+      expect(r.faq.length, loc).toBe(6);
+    }
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").claim).toBe("Algo cruzó contigo.");
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "en").claim).toBe("Something crossed over with you.");
+    // DE, FR e IT: sin copy creativo (no se traduce) y NUNCA el español.
+    for (const loc of ["de", "fr", "it"] as const) {
+      const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
+      expect(r, loc).toMatchObject({ claim: null, claimToday: null, sections: [], faq: [] });
+    }
+
+    const copy = (["es", "en"] as const).flatMap((loc) => {
+      const own = OUTXIDIOUS_CONTENT.locales[loc]!;
+      return [own.claim ?? "", own.claimToday ?? "", ...allStrings(own.sections), ...allStrings(own.faq)];
+    });
+    // Ninguna frase afirma la edad del tardeo (sin confirmar).
+    expect(ageNotOnOutxide(copy)).toEqual([]);
+    // Las horas de las dos partes van con huecos (Fourvenues manda), nunca a mano;
+    // las 00:00 son la hora del «se rompe», no un dato del panel.
+    expect(copy.filter((x) => /\b(20|23):00\b|\b05:30\b/.test(x))).toEqual([]);
+    // Léxico vetado también en la fuente (los 5 idiomas).
+    expectCleanHtml(JSON.stringify(OUTXIDIOUS_CONTENT), "content.ts");
+
     // Los ficheros están en public/ y pesan lo que se aprobó (vídeo ligero).
     for (const [file, max] of [[TEASER.mp4, 200_000], [TEASER.webm, 150_000], [TEASER.poster, 20_000]] as const) {
       const size = statSync(`public${file}`).size;
       expect(size, file).toBeGreaterThan(1_000);
       expect(size, file).toBeLessThanOrEqual(max);
     }
+  });
+
+  test("nada con [CONFIRMAR] / [CONFIRM] ni corchetes en lo publicable, en los 5 idiomas", () => {
+    // Fuente: content.ts entero y el namespace outxidious de los 5 diccionarios.
+    const sources: [string, string[]][] = [
+      ["content.ts", allStrings(OUTXIDIOUS_CONTENT.locales)],
+      ...LOCALES.map((loc) => [`${loc}.ts · outxidious`, allStrings(DICTS[loc].outxidious)] as [string, string[]]),
+    ];
+    for (const [where, strings] of sources) {
+      expect(strings.filter((x) => WORK_MARKS.test(x)), where).toEqual([]);
+    }
+    // Y en el diccionario, la edad va siempre pegada a OUTXIDE (en ningún idioma, al tardeo).
+    for (const loc of LOCALES) {
+      const { legalPlate, ...rest } = DICTS[loc].outxidious;
+      expect(legalPlate).toMatch(/18/);
+      expect(ageNotOnOutxide(allStrings(rest)), loc).toEqual([]);
+      expectCleanHtml(JSON.stringify(DICTS[loc].outxidious), `${loc}.ts · outxidious`);
+    }
+    // Copy creativo del diccionario (§6.3b) solo en ES y EN: DE/FR/IT, vacío.
+    expect(es.outxidious.subtitle.length).toBeGreaterThan(20);
+    expect(en.outxidious.subtitle.length).toBeGreaterThan(20);
+    for (const loc of ["de", "fr", "it"] as const) expect(DICTS[loc].outxidious.subtitle, loc).toBe("");
   });
 
   test("aprobación POR HUECO: cada pieza se enciende sola; index aparte; el interruptor único ya no vale", () => {
@@ -339,6 +460,24 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     // El formato antiguo (approved: true/false) se rechaza entero en el doble de pruebas.
     expect(parseOutxidiousContent({ ...FIXTURE, approved: true })).toBeNull();
     expect(parseOutxidiousContent({ approved: false, theme: "neutro", locales: {} })).toBeNull();
+    // La FAQ va con el hueco `sections`.
+    const withFaq: OutxidiousContent = {
+      ...FIXTURE,
+      locales: { ...FIXTURE.locales, es: { ...FIXTURE.locales.es, faq: [{ q: "PREGUNTA FICTICIA", a: "Respuesta ficticia." }] } },
+    };
+    expect(resolveOutxidiousContent({ ...withFaq, approved: { sections: true } }, "es").faq).toHaveLength(1);
+    expect(resolveOutxidiousContent({ ...withFaq, approved: { claim: true } }, "es").faq).toEqual([]);
+    // Un idioma con los huecos de texto VACÍOS no cae al español (ni el claim
+    // del día); uno que no los trae, sí.
+    const emptyDe: OutxidiousContent = {
+      ...withFaq,
+      approved: ALL_APPROVED,
+      locales: { ...withFaq.locales, de: { claim: "", claimToday: "", sections: [], faq: [] } },
+    };
+    expect(resolveOutxidiousContent(emptyDe, "de")).toMatchObject({ claim: null, claimToday: null, sections: [], faq: [] });
+    expect(resolveOutxidiousContent(emptyDe, "fr")).toMatchObject({ claim: "CLAIM FICTICIO DE PRUEBA", claimToday: "CLAIM DEL DIA FICTICIO" });
+    expect(resolveOutxidiousContent(emptyDe, "fr").faq).toHaveLength(1);
+    expect(parseOutxidiousContent(emptyDe)).toEqual(emptyDe);
   });
 
   test("rama aprobada: index, sitemap y huecos por idioma con caída al español", () => {
@@ -477,6 +616,13 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(r(oct19, false, "auto", "venta")).toEqual({ phase: "pronto", today: false });
     expect(r(oct19, false, "auto", "hoy")).toEqual({ phase: "pronto", today: true });
     expect(r(after, true, "auto", "venta")).toEqual({ phase: "venta", today: false });
+    // «Hoy» se apaga a las 00:00 del domingo 1 (desde ahí «hoy» ya es domingo);
+    // la venta sigue hasta el final de la noche.
+    expect(TODAY_TO - TODAY_FROM).toBe(24 * 60 * 60 * 1000);
+    expect(r(TODAY_TO - 60_000, true)).toEqual({ phase: "venta", today: true });
+    expect(r(TODAY_TO, true)).toEqual({ phase: "venta", today: false });
+    expect(r(TODAY_TO, false)).toEqual({ phase: "pronto", today: false });
+    expect(r(AFTER_FROM - 60_000, true)).toEqual({ phase: "venta", today: false });
   });
 
   test("diccionario recortado SOLO en la landing", () => {
@@ -539,6 +685,28 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada");
     // Un mapa por local (los de data/site/contact.json, como el resto de la web).
     await expect(page.locator('a[href^="https://www.google.com/maps"]')).toHaveCount(2);
+    // Paquete creativo provisional: claim, nota del botón (debajo de la placa),
+    // subtítulo, los 4 bloques con sus horas de Fourvenues, la FAQ y quién lo hace.
+    await expect(page.getByTestId("outxidious-claim")).toHaveText("Algo cruzó contigo.");
+    await expect(page.getByTestId("outxidious-buy-note")).toHaveText(
+      "Entrada para OUTXIDE, de 23:00 a 05:30. El tardeo en Enjoy Terrace es de acceso libre.",
+    );
+    const plateBox = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
+    const noteBox = (await page.getByTestId("outxidious-buy-note").boundingBox())!;
+    expect(noteBox.y).toBeGreaterThanOrEqual(plateBox.y + plateBox.height);
+    await expect(page.getByTestId("outxidious-subtitle")).toHaveText(es.outxidious.subtitle);
+    const sections = page.getByTestId("outxidious-section");
+    await expect(sections).toHaveCount(4);
+    await expect(sections.nth(0).locator("h2")).toHaveText("20:00–23:00 · Tardeo de acceso libre en Enjoy Terrace");
+    await expect(sections.nth(1).locator("h2")).toHaveText("23:00–05:30 · OUTXIDE");
+    await expect(sections.nth(1)).toContainText("A las 23:00 se abre. A las 00:00 se rompe. Y la noche sigue al otro lado hasta las 05:30.");
+    await expect(sections.nth(2).locator("h2")).toHaveText("Dress code: negro");
+    await expect(sections.nth(3).locator("h2")).toHaveText("Llega antes de las 00:00");
+    const faq = page.getByTestId("outxidious-faq");
+    await expect(faq.locator("h2")).toHaveText("Preguntas frecuentes");
+    await expect(faq.locator("h3")).toHaveCount(6);
+    await expect(faq).toContainText("OUTXIDE abre a las 23:00 y cierra a las 05:30.");
+    await expect(page.locator("footer")).toContainText("OUTXIDIOUS es un evento de OUTXIDE Club y Enjoy Terrace.");
   });
 
   test("tardeo de acceso libre: sin botón, precio, enlace ni formulario; el único botón y el precio son de OUTXIDE", async ({ page }) => {
@@ -560,6 +728,54 @@ test.describe("OUTXIDIOUS · landing", () => {
     expect(price.y).toBeGreaterThan(parts.y + parts.height - 1);
     // Ningún texto afirma la edad del tardeo: el +18 es la placa de la página.
     await expect(tardeo).not.toContainText("18");
+    // El bloque del tardeo tampoco: ni edad, ni precio, ni botón, ni «entrada».
+    const block = page.getByTestId("outxidious-section").first();
+    await expect(block).toContainText("acceso libre");
+    await expect(block).not.toContainText("18");
+    await expect(block).not.toContainText("€");
+    await expect(block).not.toContainText(/entrada/i);
+    await expect(block.locator("a, button, form, input")).toHaveCount(0);
+  });
+
+  test("tema rojo provisional: tokens del paquete, placa a 14 px y +0,2 em, horas del tardeo y de OUTXIDE en su color", async ({ page }) => {
+    test.skip(CAMPAIGN_OVER, "la noche ya pasó");
+    await page.goto(OUTXIDIOUS_PATH);
+    const root = page.getByTestId("outxidious-page");
+    await expect(root).toHaveAttribute("data-theme", "campana-roja");
+    await expect(root).toHaveClass(/theme-outxidious/);
+    const css = (sel: ReturnType<Page["getByTestId"]>, prop: string) =>
+      sel.evaluate((el, p) => getComputedStyle(el).getPropertyValue(p).trim(), prop);
+    expect(await css(root, "background-color")).toBe("rgb(7, 7, 7)");
+    expect(await css(root, "color")).toBe("rgb(238, 231, 218)");
+    // Claim y hora de OUTXIDE en #f23300 (5,04:1, PENDIENTE DE JOSE); nunca #a0070e como texto.
+    expect(await css(page.getByTestId("outxidious-claim"), "color")).toBe("rgb(242, 51, 0)");
+    const buy = page.getByTestId("outxidious-buy");
+    expect(await css(buy, "background-color")).toBe("rgb(228, 38, 43)");
+    expect(await css(buy, "color")).toBe("rgb(255, 255, 255)");
+    expect(await css(root, "--ox-btn-active")).toBe("#a0070e");
+    // Brillo al 0,26 (el minificador de CSS lo escribe en hex: 0x42/255 ≈ 0,26).
+    expect(await css(root, "--ox-glow")).toMatch(/rgba\(160, 7, 14, 0\.26\)|#a0070e42/);
+    const plate = page.getByTestId("outxidious-legal-plate");
+    expect(await css(plate, "background-color")).toBe("rgb(160, 7, 14)");
+    expect(await css(plate, "color")).toBe("rgb(248, 248, 248)");
+    expect(await css(plate, "font-size")).toBe("14px");
+    expect(await css(plate, "letter-spacing")).toBe("2.8px");
+    const times = page.getByTestId("outxidious-section-time");
+    await expect(times).toHaveCount(2);
+    expect(await css(times.nth(0), "color"), "tardeo: dorado (PENDIENTE DE JOSE)").toBe("rgb(201, 169, 119)");
+    expect(await css(times.nth(1), "color"), "OUTXIDE: rojo de texto").toBe("rgb(242, 51, 0)");
+    // Ningún texto en #a0070e ni #4a0a0e (2,43:1 y 1,29:1 sobre negro).
+    const darkRedText = await page.evaluate(() =>
+      [...document.querySelectorAll("main *, footer *")]
+        .filter((el) => el.childNodes.length && [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent!.trim()))
+        .filter((el) => ["rgb(160, 7, 14)", "rgb(74, 10, 14)"].includes(getComputedStyle(el).color))
+        .map((el) => el.outerHTML.slice(0, 80)),
+    );
+    expect(darkRedText).toEqual([]);
+    // La placa sigue separada del claim (≥ 24 px).
+    const claimBox = (await page.getByTestId("outxidious-claim").boundingBox())!;
+    const plateBox = (await plate.boundingBox())!;
+    expect(plateBox.y - (claimBox.y + claimBox.height)).toBeGreaterThanOrEqual(24);
   });
 
   test("cómo llegar: Enjoy Terrace (tardeo) y OUTXIDE Club, cada uno con su dirección y su mapa", async ({ page }) => {
@@ -593,10 +809,14 @@ test.describe("OUTXIDIOUS · landing", () => {
         const h1 = (await page.locator("h1").boundingBox())!;
         const parts = (await page.getByTestId("outxidious-parts").boundingBox())!;
         const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
-        // En móvil el vídeo va ENCIMA del h1, recortado a 5:2.
+        // En móvil el vídeo va ENCIMA del h1, recortado a 5:2 (a 4:1 con poca
+        // altura de pantalla: con el claim, se reduce el vídeo, nunca la placa).
+        const ratio = viewport.height <= 719 ? 4 : 2.5;
         expect(media.y + media.height).toBeLessThanOrEqual(h1.y);
-        expect(Math.abs(media.width / media.height - 2.5)).toBeLessThan(0.05);
+        expect(Math.abs(media.width / media.height - ratio)).toBeLessThan(0.05);
         expect(h1.y).toBeGreaterThanOrEqual(0);
+        const claim = (await page.getByTestId("outxidious-claim").boundingBox())!;
+        expect(claim.y + claim.height, "el claim en la primera pantalla").toBeLessThanOrEqual(viewport.height);
         expect(parts.y + parts.height, "las dos partes en la primera pantalla").toBeLessThanOrEqual(viewport.height);
         expect(plate.y + plate.height, "la placa debe caber en la primera pantalla").toBeLessThanOrEqual(viewport.height);
         if (phase !== "pronto") {
@@ -607,29 +827,60 @@ test.describe("OUTXIDIOUS · landing", () => {
     }
   }
 
-  test("primera pantalla 375×667 en los otros 4 idiomas (venta y hoy): la placa sigue cabiendo", async ({ page }) => {
+  for (const phase of ["hoy", "venta", "pronto"] as const) {
+    test(`primera pantalla 375×600 (${phase}, navegador de Instagram en un iPhone SE): h1, claim, las dos partes, precio, botón y placa; el vídeo, debajo`, async ({
+      page,
+    }) => {
+      test.skip(CAMPAIGN_OVER && phase !== "pronto", "la noche ya pasó");
+      await page.setViewportSize({ width: 375, height: 600 });
+      await page.goto(`${OUTXIDIOUS_PATH}?phase=${phase}`);
+      const ids = ["outxidious-claim", "outxidious-parts", "outxidious-legal-plate", ...(phase === "pronto" ? [] : ["outxidious-price", "outxidious-buy"])];
+      if (phase === "hoy") ids.push("outxidious-today");
+      const h1 = (await page.locator("h1").boundingBox())!;
+      expect(h1.y).toBeGreaterThanOrEqual(0);
+      expect(h1.y + h1.height).toBeLessThanOrEqual(600);
+      for (const id of ids) {
+        const box = (await page.getByTestId(id).boundingBox())!;
+        expect(box.y + box.height, `${id} en la primera pantalla`).toBeLessThanOrEqual(600);
+      }
+      // Ni recortado cabe encima: el vídeo pasa debajo del texto (nunca la placa fuera).
+      const media = (await page.getByTestId("outxidious-hero-media").boundingBox())!;
+      const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
+      expect(media.y).toBeGreaterThanOrEqual(plate.y + plate.height);
+    });
+  }
+
+  test("primera pantalla 375×667 y 375×600 en los otros 4 idiomas (venta y hoy): la placa sigue cabiendo", async ({ page }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
-    await page.setViewportSize({ width: 375, height: 667 });
-    for (const loc of ["en", "de", "fr", "it"]) {
-      for (const q of ["", "?phase=hoy"]) {
-        await page.goto(`/${loc}${OUTXIDIOUS_PATH}${q}`);
-        const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
-        const buy = (await page.getByTestId("outxidious-buy").boundingBox())!;
-        expect(plate.y + plate.height, `${loc}${q}`).toBeLessThanOrEqual(667);
-        expect(buy.y + buy.height, `${loc}${q}`).toBeLessThanOrEqual(667);
+    for (const height of [667, 600]) {
+      await page.setViewportSize({ width: 375, height });
+      for (const loc of ["en", "de", "fr", "it"]) {
+        for (const q of ["", "?phase=hoy"]) {
+          await page.goto(`/${loc}${OUTXIDIOUS_PATH}${q}`);
+          const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
+          const buy = (await page.getByTestId("outxidious-buy").boundingBox())!;
+          expect(plate.y + plate.height, `${loc}${q} ${height}`).toBeLessThanOrEqual(height);
+          expect(buy.y + buy.height, `${loc}${q} ${height}`).toBeLessThanOrEqual(height);
+        }
       }
     }
   });
 
-  test("pronto (?phase=pronto): sin enlace a la taquilla, texto neutro y formulario de avisos con RGPD", async ({ page }) => {
+  test("pronto (?phase=pronto): sin enlace a la taquilla, texto verdadero antes y después de la venta y formulario de avisos con RGPD", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto(`${OUTXIDIOUS_PATH}?phase=pronto`);
     await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-phase", "pronto");
     await expect(page.locator("h1")).toHaveText("OUTXIDIOUS · sábado 31 de octubre");
     await expect(buyLinks(page)).toHaveCount(0);
     await expect(page.getByTestId("outxidious-price")).toHaveCount(0);
-    await expect(page.getByTestId("outxidious-soon")).toContainText("Entradas a la venta muy pronto");
-    await expect(page.getByTestId("outxidious-soon")).toContainText("Las entradas para OUTXIDE estarán disponibles en esta página en breve.");
+    // «Pronto» sale siempre que no hay tarifa vendible (antes, con todo completo
+    // o con Fourvenues caído): nada de «muy pronto», y sin huecos sin rellenar.
+    await expect(page.getByTestId("outxidious-soon").locator("h2")).toHaveText("Entradas para OUTXIDE");
+    await expect(page.getByTestId("outxidious-soon")).toContainText(
+      "La venta online de entradas para OUTXIDE se hace en esta página cuando está abierta. El tardeo en Enjoy Terrace, de 20:00 a 23:00, es de acceso libre.",
+    );
+    await expect(page.getByTestId("outxidious-soon")).not.toContainText(/pronto|\{/);
+    await expect(page.getByTestId("outxidious-buy-note")).toHaveCount(0);
     // El tardeo sigue contado en «pronto», sin botón ni formulario propios.
     await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre");
     await expect(page.getByTestId("outxidious-part-tardeo").locator("a, button, form, input")).toHaveCount(0);
@@ -657,13 +908,19 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(form).toContainText(es.agenda.alertsSuccess);
   });
 
-  test("hoy (?phase=hoy): línea «Hoy» con la hora del evento y el mismo botón", async ({ page }) => {
+  test("hoy (?phase=hoy): línea «Hoy» sin horas, claim del día con la hora de Fourvenues y el mismo botón", async ({ page }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(`${OUTXIDIOUS_PATH}?phase=hoy`);
-    await expect(page.getByTestId("outxidious-today")).toHaveText("Hoy · desde las 20:00");
+    await expect(page.getByTestId("outxidious-today")).toHaveText("Hoy, sábado 31");
     await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada");
     await expect(buyLinks(page)).toHaveCount(1);
-    // Sin contenido aprobado no hay claim (ni el del día).
+    await expect(page.getByTestId("outxidious-claim")).toHaveText("23:00 se abre. 00:00 se rompe.");
+    await page.goto(`/en${OUTXIDIOUS_PATH}?phase=hoy`);
+    await expect(page.getByTestId("outxidious-today")).toHaveText("Today, Saturday 31");
+    await expect(page.getByTestId("outxidious-claim")).toHaveText("Opens 23:00. Breaks 00:00.");
+    // DE/FR/IT: sin claim (no hay versión del copy creativo), nunca el español.
+    await page.goto(`/de${OUTXIDIOUS_PATH}?phase=hoy`);
+    await expect(page.getByTestId("outxidious-today")).toHaveText("Heute, Samstag, 31. Oktober");
     await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
   });
 
@@ -672,9 +929,15 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-phase", "despues");
     await expect(buyLinks(page)).toHaveCount(0);
     await expect(page.getByTestId("outxidious-price")).toHaveCount(0);
-    await expect(page.getByTestId("outxidious-after")).toContainText("Gracias por venir");
+    await expect(page.getByTestId("outxidious-after").locator("h2")).toHaveText("OUTXIDIOUS ya cruzó");
+    await expect(page.getByTestId("outxidious-after")).toContainText("Fue el sábado 31 de octubre de 2026. Gracias por venir.");
     await expect(page.getByTestId("outxidious-after").locator('a[href="/outxide"]')).toHaveCount(1);
     await expect(page.getByTestId("outxidious-legal-plate")).toBeVisible();
+    // Después del evento, ni bloques ni FAQ ni subtítulo: ya no son verdad.
+    await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-faq")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-subtitle")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-buy-note")).toHaveCount(0);
   });
 
   test("/en/outxide/outxidious: en inglés, con la taquilla en inglés y el precio en formato inglés", async ({ page }) => {
@@ -690,42 +953,123 @@ test.describe("OUTXIDIOUS · landing", () => {
     // Descripción accesible del vídeo en inglés.
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("aria-label", /^Silent animation/);
     await expect(page.getByTestId("outxidious-legal-plate")).toHaveText("18+ · Drink responsibly");
-    await expect(page).toHaveTitle("OUTXIDIOUS · OUTXIDE Club · Sat 31 Oct");
+    await expect(page).toHaveTitle("OUTXIDIOUS · Halloween at Enjoy & OUTXIDE · Sat 31 Oct");
+    await expect(page.getByTestId("outxidious-claim")).toHaveText("Something crossed over with you.");
+    await expect(page.getByTestId("outxidious-buy-note")).toHaveText("Ticket for OUTXIDE, 23:00–05:30. The early party at Enjoy Terrace is free entry.");
+    await expect(page.getByTestId("outxidious-section").nth(0).locator("h2")).toHaveText("20:00–23:00 · Free-entry early party at Enjoy Terrace");
+    await expect(page.getByTestId("outxidious-faq").locator("h2")).toHaveText("FAQ");
     await expectNoRawKeys(page, "/en landing");
   });
 
+  test("DE, FR e IT: página neutra con el tema rojo y el teaser, sin copy creativo y nunca en español", async ({ page }) => {
+    test.skip(CAMPAIGN_OVER, "la noche ya pasó");
+    for (const loc of ["de", "fr", "it"] as const) {
+      await page.goto(localePath(loc));
+      await expect(page.locator("html")).toHaveAttribute("lang", loc);
+      await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-theme", "campana-roja");
+      await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", TEASER.poster);
+      for (const id of ["outxidious-claim", "outxidious-sections", "outxidious-faq", "outxidious-subtitle"]) {
+        await expect(page.getByTestId(id), `${loc}: ${id}`).toHaveCount(0);
+      }
+      await expect(page.getByTestId("outxidious-buy")).toHaveText(DICTS[loc].outxidious.buy);
+      await expect(page.getByTestId("outxidious-legal-plate")).toHaveText(DICTS[loc].outxidious.legalPlate);
+      const text = await page.locator("main").innerText();
+      // Ni el claim ni los bloques del paquete en español.
+      for (const spanish of ["Algo cruzó contigo", "Empezamos antes", "Dress code: negro", "Preguntas frecuentes"]) {
+        expect(text, `${loc}: «${spanish}»`).not.toContain(spanish);
+      }
+      await expectNoRawKeys(page, `/${loc} landing`);
+    }
+  });
+
   test("HTML completo (con payload RSC) sin léxico vetado ni datos del panel o de otras noches", async ({ request }) => {
+    const others = LOCALES.filter((l) => l !== "es").map((l) => localePath(l));
     const paths = CAMPAIGN_OVER
       ? [`${OUTXIDIOUS_PATH}?phase=pronto`, `${OUTXIDIOUS_PATH}?phase=despues`]
-      : [OUTXIDIOUS_PATH, `${OUTXIDIOUS_PATH}?phase=pronto`, `${OUTXIDIOUS_PATH}?phase=hoy`, `${OUTXIDIOUS_PATH}?phase=despues`, `/en${OUTXIDIOUS_PATH}`];
+      : [OUTXIDIOUS_PATH, `${OUTXIDIOUS_PATH}?phase=pronto`, `${OUTXIDIOUS_PATH}?phase=hoy`, `${OUTXIDIOUS_PATH}?phase=despues`, ...others];
     for (const path of paths) {
       const res = await request.get(path);
       expect(res.status(), path).toBe(200);
       const html = await res.text();
       expect(html, `${path}: debe llevar el payload RSC`).toContain("self.__next_f");
       expectCleanHtml(html, path);
+      // Ni marcas de trabajo ([CONFIRMAR]/[CONFIRM]). (Los huecos {start}… sí
+      // viajan crudos en el diccionario recortado del payload; que no se vean
+      // sin rellenar lo comprueba la prueba siguiente sobre el texto visible.)
+      expect(normalize(html), path).not.toMatch(/\[confirm/);
       // Evento compartido: el tardeo y Enjoy Terrace sí aparecen (léxico permitido desde el 19-oct).
       expect(normalize(html)).toContain("enjoy terrace");
-      // El teaser APROBADO sí (póster precargado + vídeo); el logo suelto y el tema rojo, no.
+      // El teaser APROBADO sí (póster precargado + vídeo) y el tema rojo
+      // (provisional); el logo fijo suelto, nunca.
       expect(html).toContain(TEASER.poster);
       expect(html).toContain(TEASER.mp4);
       expect(html).not.toContain("/images/outxidious");
-      expect(html).not.toContain("theme-outxidious");
-      expect(html).not.toContain('data-testid="outxidious-claim"');
-      expect(html).not.toContain('data-testid="outxidious-sections"');
+      expect(html).toContain("theme-outxidious");
+      // Claim y bloques solo en ES y EN, y nunca después del evento.
+      const creative = !path.includes("despues") && !/^\/(de|fr|it)\//.test(path);
+      expect(html.includes('data-testid="outxidious-claim"'), `${path}: claim`).toBe(!/^\/(de|fr|it)\//.test(path));
+      expect(html.includes('data-testid="outxidious-sections"'), `${path}: bloques`).toBe(creative);
+      expect(html.includes('data-testid="outxidious-faq"'), `${path}: FAQ`).toBe(creative);
+    }
+  });
+
+  test("ningún corchete ni hueco sin rellenar en lo que se ve, en los 5 idiomas y en cada estado", async ({ page }) => {
+    const phases = CAMPAIGN_OVER ? ["pronto", "despues"] : ["venta", "hoy", "pronto", "despues"];
+    for (const loc of LOCALES) {
+      for (const phase of phases) {
+        const path = localePath(loc, `?phase=${phase}`);
+        await page.goto(path);
+        const text = await page.locator("body").innerText();
+        expect(text.match(/[[\]{}]/g), `${path}: corchetes o llaves`).toBeNull();
+        expect(text, path).not.toMatch(/confirmar|\bconfirm\b/i);
+        const meta = [
+          await page.title(),
+          (await page.locator('meta[name="description"]').getAttribute("content")) ?? "",
+          (await page.locator('meta[property="og:description"]').getAttribute("content")) ?? "",
+        ].join(" | ");
+        expect(meta.match(/[[\]{}]/g), `${path}: metadatos`).toBeNull();
+      }
+    }
+  });
+
+  test("la edad del tardeo no se afirma en ningún texto de la página (el +18 va pegado a OUTXIDE)", async ({ page }) => {
+    for (const loc of LOCALES) {
+      for (const q of CAMPAIGN_OVER ? ["?phase=pronto"] : ["", "?phase=hoy", "?phase=pronto"]) {
+        const path = localePath(loc, q);
+        await page.goto(path);
+        // La placa (en mayúsculas por CSS: «ß» pasa a «SS») va aparte.
+        const flat = (x: string) => normalize(x).replace(/ß/g, "ss").trim();
+        const plate = flat(DICTS[loc].outxidious.legalPlate);
+        const lines = (await page.locator("body").innerText()).split("\n").filter((l) => flat(l) !== plate);
+        const meta = [
+          (await page.locator('meta[name="description"]').getAttribute("content")) ?? "",
+          (await page.locator('meta[property="og:description"]').getAttribute("content")) ?? "",
+          ...(await page.locator('script[type="application/ld+json"]').allTextContents()).map((j) => JSON.parse(j).description ?? ""),
+        ];
+        expect(ageNotOnOutxide([...lines, ...meta]), path).toEqual([]);
+      }
     }
   });
 
   test("metadatos propios, noindex, fuera del sitemap y JSON-LD solo del evento", async ({ page, request }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(OUTXIDIOUS_PATH);
-    await expect(page).toHaveTitle("OUTXIDIOUS · OUTXIDE Club · Sáb 31 oct");
+    await expect(page).toHaveTitle("OUTXIDIOUS · Halloween en Enjoy y OUTXIDE · Sáb 31 oct");
+    expect((await page.title()).length).toBeLessThanOrEqual(60);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
     const description = await page.locator('meta[name="description"]').getAttribute("content");
     expect(description).toBe(
-      "Halloween, sábado 31 de octubre en Port d'Alcúdia: tardeo de acceso libre en Enjoy Terrace de 20:00 a 23:00 y OUTXIDE Club de 23:00 a 05:30, con entrada (+18).",
+      "Halloween en Port d'Alcúdia, sáb 31 oct: tardeo de acceso libre en Enjoy Terrace de 20:00 a 23:00. Después, OUTXIDE de 23:00 a 05:30, con entrada (+18).",
     );
+    expect(description!.length).toBeLessThanOrEqual(155);
     expect(description).not.toMatch(/€|desde/);
+    // og:description creativa (§6.3b) y sin precio: la caché de Meta no se entera de los cambios.
+    const ogDescription = await page.locator('meta[property="og:description"]').getAttribute("content");
+    expect(ogDescription).toBe(
+      "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de 20:00 a 23:00 y, después, OUTXIDE hasta las 05:30 (+18).",
+    );
+    expect(ogDescription).not.toMatch(/€|\d+,\d\d/);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE");
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "es_ES");
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", "https://www.grupoenjoy.es/outxide/outxidious");
@@ -841,8 +1185,8 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(video).toHaveAttribute("poster", TEASER.poster);
   });
 
-  test("teaser sin CLS: la caja tiene su tamaño definitivo desde el HTML (5:2 en móvil, 1:1 en escritorio)", async ({ page }) => {
-    for (const [width, height, ratio] of [[375, 667, 2.5], [1280, 800, 1]] as const) {
+  test("teaser sin CLS: la caja tiene su tamaño definitivo desde el HTML (5:2 en móvil, 4:1 con poca altura, 1:1 en escritorio)", async ({ page }) => {
+    for (const [width, height, ratio] of [[390, 844, 2.5], [375, 667, 4], [1280, 800, 1]] as const) {
       await page.setViewportSize({ width, height });
       // Sin el vídeo (peticiones cortadas): el HTML y el CSS del servidor ya reservan la caja.
       await page.route(/\.(mp4|webm)$/, (route) => route.abort());
@@ -1125,14 +1469,15 @@ test.describe("OUTXIDIOUS · rama aprobada (contenido ficticio)", () => {
     expect(await page.getByTestId("outxidious-hero-video").evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
   });
 
-  test("el contenido ficticio no se cuela sin la cabecera (lo real: solo el teaser)", async ({ page, context }) => {
+  test("el contenido ficticio no se cuela sin la cabecera (lo real: el paquete provisional)", async ({ page, context }) => {
     await context.setExtraHTTPHeaders({});
-    await page.goto(OUTXIDIOUS_PATH);
-    await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-theme", "neutro");
-    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
-    await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
+    await page.goto(`${OUTXIDIOUS_PATH}?phase=pronto`);
+    await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-theme", "campana-roja");
+    await expect(page.getByTestId("outxidious-claim")).toHaveText("Algo cruzó contigo.");
+    await expect(page.getByTestId("outxidious-sections")).not.toContainText("FICTICIA");
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", TEASER.poster);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
   });
 
   test("todo relleno pero solo el vídeo aprobado: vídeo sí; claim, secciones, rojo, OG e index no", async ({ page, context }) => {
@@ -1145,5 +1490,8 @@ test.describe("OUTXIDIOUS · rama aprobada (contenido ficticio)", () => {
     await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
+    // La placa a 14 px y +0,2 em es la regla BASE: también en el tema neutro.
+    const plate = page.getByTestId("outxidious-legal-plate");
+    expect(await plate.evaluate((el) => [getComputedStyle(el).fontSize, getComputedStyle(el).letterSpacing])).toEqual(["14px", "2.8px"]);
   });
 });

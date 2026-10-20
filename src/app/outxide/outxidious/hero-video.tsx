@@ -9,9 +9,9 @@ import { useT } from "@/i18n";
 // Decisiones:
 // - El póster es el LCP: la página lo precarga con prioridad alta y aquí se
 //   reserva su caja exacta con aspect-ratio en CSS desde el HTML de servidor
-//   (CLS 0). En móvil la caja puede ir recortada (mobileAspect) para que el h1
-//   y la placa +18 quepan debajo en la primera pantalla; el vídeo se encuadra
-//   con object-cover centrado.
+//   (CLS 0). En móvil la caja puede ir recortada (mobileAspect, y shortAspect
+//   en pantallas bajas) para que el h1 y la placa +18 quepan debajo en la
+//   primera pantalla; el vídeo se encuadra con object-cover a la altura focusY.
 // - El HTML de servidor NO lleva el atributo autoplay a propósito: con
 //   prefers-reduced-motion o ahorro de datos (Save-Data) solo se ve el póster,
 //   también antes de hidratar. La reproducción automática (muted, playsInline,
@@ -32,12 +32,27 @@ export interface HeroVideoProps {
   height: number;
   /** Proporción ancho/alto de la caja en móvil (< 768 px); sin ella, la del vídeo. */
   mobileAspect?: number;
+  /** Proporción en móvil con poca altura de pantalla (≤ 719 px); sin ella, mobileAspect. */
+  shortAspect?: number;
+  /** Encuadre vertical del recorte (object-position Y en %, 50 = centro). */
+  focusY?: number;
   label: string;
   /** La petición traía Save-Data: on (solo póster, sin precarga). */
   saveData?: boolean;
 }
 
-export function HeroVideo({ src, webmSrc, poster, width, height, mobileAspect, label, saveData = false }: HeroVideoProps) {
+export function HeroVideo({
+  src,
+  webmSrc,
+  poster,
+  width,
+  height,
+  mobileAspect,
+  shortAspect,
+  focusY,
+  label,
+  saveData = false,
+}: HeroVideoProps) {
   const t = useT();
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -71,10 +86,12 @@ export function HeroVideo({ src, webmSrc, poster, width, height, mobileAspect, l
   };
 
   // Caja reservada por CSS (outxidious.css, .ox-media): proporción del vídeo en
-  // escritorio y la recortada en móvil.
+  // escritorio, la recortada en móvil y la más estrecha en pantallas bajas.
   const box = {
     "--ox-media-ar": `${width} / ${height}`,
     ...(mobileAspect ? { "--ox-media-ar-sm": String(mobileAspect) } : {}),
+    ...(shortAspect ? { "--ox-media-ar-short": String(shortAspect) } : {}),
+    ...(typeof focusY === "number" ? { "--ox-media-focus-y": `${focusY}%` } : {}),
   } as CSSProperties;
 
   return (
@@ -82,7 +99,7 @@ export function HeroVideo({ src, webmSrc, poster, width, height, mobileAspect, l
       <video
         ref={ref}
         data-testid="outxidious-hero-video"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="ox-media-video absolute inset-0 h-full w-full object-cover"
         muted
         playsInline
         loop

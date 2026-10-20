@@ -2,9 +2,9 @@ import { OUTXIDIOUS_CONTENT, isSlotApproved } from "@/lib/outxidious/content";
 
 // Carga propia de la landing: hero ESTÁTICO (sin pulsos) y sin el skeleton cian
 // de /outxide, que en el navegador de Instagram se vería como otra página. Usa
-// el tema que diga content.ts: hoy el oscuro neutro; rojo solo con el hueco
-// approved.theme encendido y theme="campana-roja". Sin textos: no hay
-// diccionario que pedir.
+// el tema que diga content.ts: rojo con el hueco approved.theme encendido y
+// theme="campana-roja" (provisional desde el 20-oct), si no el oscuro neutro;
+// el mismo brillo que outxidious.css. Sin textos: no hay diccionario que pedir.
 export default function OutxidiousLoading() {
   const red = isSlotApproved(OUTXIDIOUS_CONTENT, "theme") && OUTXIDIOUS_CONTENT.theme === "campana-roja";
   return (
@@ -13,7 +13,7 @@ export default function OutxidiousLoading() {
         className="relative flex min-h-[70vh] items-center justify-center"
         style={{
           background: red
-            ? "radial-gradient(ellipse 70% 60% at 50% 35%, rgba(160, 7, 14, 0.28) 0%, rgba(7, 7, 7, 0) 75%)"
+            ? "radial-gradient(ellipse 70% 60% at 50% 35%, rgba(160, 7, 14, 0.26) 0%, rgba(7, 7, 7, 0) 75%)"
             : "radial-gradient(ellipse 70% 55% at 50% 30%, rgba(255, 255, 255, 0.06) 0%, rgba(10, 10, 10, 0) 70%)",
         }}
       >
