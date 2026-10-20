@@ -414,6 +414,9 @@ test.describe("/empresas · reglas puras", () => {
     expect(halloween.link).toBeUndefined();
     // «tardeo» siempre con «acceso libre» en la misma frase (COPYS §0.3).
     expect(halloween.answer).toContain("tardeo de acceso libre");
+    // En inglés, «early party» (COPYS §1.5 eligió ese término y descartó «terrace party», F9).
+    expect(earlyEn.faq![5].answer).toContain("free-entry early party at Enjoy Terrace");
+    expect(earlyEn.faq![5].answer).not.toContain("terrace party");
 
     const late = resolveEmpresasView({ locale: "es", now: Date.parse(AFTER_HALLOWEEN_FAQ), t, outxidiousHref: href });
     expect(late.faq).toHaveLength(6);

@@ -107,7 +107,7 @@ export const de: Dictionary = {
     outxidiousImageAlt: "OUTXIDIOUS-Logo auf dunkelrotem Hintergrund",
     empresasTitle: "Firmenfeiern",
     empresasWhen: "Saisonabschluss und Weihnachten",
-    empresasDetails: "Nachmittags im Enjoy Terrace und nachts im OUTXIDE",
+    empresasDetails: "Die Nacht im OUTXIDE; bei einem Mittagessen vorher der Nachmittag im Enjoy Terrace",
     empresasCta: "Angebot anfordern",
     empresasImageAlt: "Fassade von OUTXIDE Club und Enjoy Terrace bei Nacht, Av. Tucán 1, Port d'Alcúdia",
   },

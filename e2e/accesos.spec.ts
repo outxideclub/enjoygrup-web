@@ -125,6 +125,12 @@ test.describe("Accesos · lógica pura", () => {
     }
     // «Tardeo» siempre con «acceso libre» en la misma frase (COPYS §0.3).
     expect(es.promos.outxidiousTardeo).toMatch(/tardeo.*acceso libre/i);
+    // En inglés, el término de la landing y de los anuncios: «early party» (F9).
+    expect(DICTS.en.promos.outxidiousTardeo).toMatch(/free-entry early party/i);
+    // Empresas: la noche siempre; la tarde en Enjoy Terrace solo «si es comida»,
+    // como la landing y EMP-2-S, nunca prometida sin condición (F9).
+    expect(es.promos.empresasDetails).toMatch(/^La noche en OUTXIDE; si es comida/);
+    expect(DICTS.en.promos.empresasDetails).toMatch(/if it's lunch/);
   });
 });
 

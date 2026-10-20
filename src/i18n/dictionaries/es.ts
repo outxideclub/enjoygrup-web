@@ -109,7 +109,8 @@ export const es = {
     outxidiousImageAlt: "Logotipo de OUTXIDIOUS sobre fondo rojo oscuro",
     empresasTitle: "Celebraciones de empresa",
     empresasWhen: "Fin de temporada y Navidad",
-    empresasDetails: "Por la tarde en Enjoy Terrace y por la noche en OUTXIDE",
+    // Como la landing y EMP-2-S (COPYS v1.4): la tarde solo si es comida (revisión F9).
+    empresasDetails: "La noche en OUTXIDE; si es comida, antes la tarde en Enjoy Terrace",
     empresasCta: "Pedir presupuesto",
     empresasImageAlt: "Fachada de OUTXIDE Club y Enjoy Terrace de noche, en la Av. Tucán 1 de Port d'Alcúdia",
   },

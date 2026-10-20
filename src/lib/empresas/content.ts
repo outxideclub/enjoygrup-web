@@ -515,7 +515,7 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
       pregunta: { es: "¿Y si queremos celebrarlo en Halloween?", en: "What if we want to celebrate on Halloween?" },
       respuesta: {
         es: "El sábado 31 de octubre es OUTXIDIOUS, el Halloween de OUTXIDE y Enjoy. Empezamos antes con tardeo de acceso libre en Enjoy Terrace, de 20:00 a 23:00. Después, la noche sigue en OUTXIDE de 23:00 a 05:30, con entrada. Las dos partes son solo para mayores de 18. Venid de negro.",
-        en: "Saturday 31 October is OUTXIDIOUS, the Halloween night of OUTXIDE and Enjoy. We start early with a free-entry terrace party at Enjoy Terrace, 20:00–23:00. Then the night carries on at OUTXIDE, 23:00–05:30, ticket required. Both parts are 18+ only. Dress code: black.",
+        en: "Saturday 31 October is OUTXIDIOUS, the Halloween night of OUTXIDE and Enjoy. We start early with a free-entry early party at Enjoy Terrace, 20:00–23:00. Then the night carries on at OUTXIDE, 23:00–05:30, ticket required. Both parts are 18+ only. Dress code: black.",
       },
       grupos31: {
         es: "Si sois grupo, pedid presupuesto igualmente y os decimos cómo encaja.",
