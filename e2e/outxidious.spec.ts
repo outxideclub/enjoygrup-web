@@ -872,6 +872,18 @@ test.describe("OUTXIDIOUS · landing", () => {
     }
   });
 
+  test("/agenda: la tarjeta de OUTXIDIOUS lleva a la landing; las demás, a la taquilla", async ({ page }) => {
+    test.skip(CAMPAIGN_OVER, "la noche ya pasó");
+    await page.goto("/agenda");
+    const card = page.getByTestId("agenda-outxidious-card");
+    await expect(card).toHaveCount(1);
+    await expect(card).toHaveAttribute("href", OUTXIDIOUS_PATH);
+    // CALENTÓN (y cualquier otra noche) sigue yendo a la taquilla con su evento.
+    await expect(page.locator('main a[href*="entradas.grupoenjoy.es"][href*="event=calenton"]').first()).toBeVisible();
+    await page.goto(`/en/agenda`);
+    await expect(page.getByTestId("agenda-outxidious-card")).toHaveAttribute("href", `/en${OUTXIDIOUS_PATH}`);
+  });
+
   test("cadena de campaña completa: anuncio → botón → taquilla → compra → metadata en Fourvenues", async ({
     page,
     context,
