@@ -68,7 +68,7 @@ const businesses = [
  * landings de octubre se pintan (la tarjeta de OUTXIDIOUS caduca sola) y lo
  * pasa aquí como prop, sin desajustes de hidratación.
  */
-export function HomeClient({ showOutxidiousPromo }: { showOutxidiousPromo: boolean }) {
+export function HomeClient({ showOutxidiousPromo, saveData = false }: { showOutxidiousPromo: boolean; saveData?: boolean }) {
   const t = useT();
   const locale = useLocale();
   // Fase del banner de competición (se degrada a "off" pasada la fecha del campeón).
@@ -102,11 +102,15 @@ export function HomeClient({ showOutxidiousPromo }: { showOutxidiousPromo: boole
   }, []);
 
   useEffect(() => {
-    // Con prefers-reduced-motion no cargamos el vídeo: se queda el poster estático
-    if (prefersReduced) return;
+    // Con prefers-reduced-motion o ahorro de datos (Save-Data en la petición o
+    // en el navegador) no cargamos el vídeo: se queda el poster estático.
+    if (prefersReduced || saveData) return;
+    const clientSaveData =
+      (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+    if (clientSaveData) return;
     const id = window.setTimeout(() => setDeferredVideoId(activeBiz.id), 800);
     return () => window.clearTimeout(id);
-  }, [activeBiz.id, prefersReduced]);
+  }, [activeBiz.id, prefersReduced, saveData]);
 
   useEffect(() => {
     const v = videoRef.current;

@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { getPromoVisibility } from "@/lib/promos.server";
 import { HomeClient } from "./home-client";
 
@@ -9,6 +10,9 @@ import { HomeClient } from "./home-client";
 type SearchParams = Record<string, string | string[] | undefined>;
 
 export default async function HomePage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const promos = await getPromoVisibility(searchParams);
-  return <HomeClient showOutxidiousPromo={promos.outxidious} />;
+  const [promos, reqHeaders] = await Promise.all([getPromoVisibility(searchParams), headers()]);
+  // Ahorro de datos (cabecera Save-Data): sin el vídeo del hero, solo el póster
+  // (revisión PA-6; el cliente mira también navigator.connection.saveData).
+  const saveData = reqHeaders.get("save-data")?.trim().toLowerCase() === "on";
+  return <HomeClient showOutxidiousPromo={promos.outxidious} saveData={saveData} />;
 }
