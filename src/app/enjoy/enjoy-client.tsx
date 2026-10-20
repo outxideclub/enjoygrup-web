@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { EnjoyLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { VenueFaq } from "@/components/ui/venue-faq";
+import { PromoAccesos } from "@/components/blocks/promo-accesos";
 import dynamic from "next/dynamic";
 
 const ParticleBackground = dynamic(() => import("@/components/ui/particle-background").then(m => ({ default: m.ParticleBackground })), { ssr: false });
@@ -34,10 +35,12 @@ export interface EnjoyClientProps {
   drinkSections: MenuSection[];
   shishaSections: MenuSection[];
   galleryImages: GalleryImage[];
+  /** Tarjeta de OUTXIDIOUS en el bloque de accesos: la decide el servidor (page.tsx). */
+  showOutxidiousPromo: boolean;
 }
 
 
-export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: EnjoyClientProps) {
+export function EnjoyClient({ drinkSections, shishaSections, galleryImages, showOutxidiousPromo }: EnjoyClientProps) {
   const t = useT();
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
@@ -234,6 +237,12 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages }: En
           <span>{t("socialProof.reviewsOn")} TripAdvisor</span>
         </a>
       </div>
+
+      {/* Accesos a las landings de octubre, bajo la barra de datos, con el
+          acento rosa de Enjoy. Las dos pasan por aquí: el tardeo de OUTXIDIOUS
+          es en Enjoy Terrace (y es la que caduca, por eso va primero) y las
+          celebraciones de empresa incluyen la tarde en Enjoy. */}
+      <PromoAccesos showOutxidious={showOutxidiousPromo} tone="enjoy" className="pt-10 sm:pt-12" />
 
       {/* About — branded SEO content */}
       <section className="relative z-20 py-16 sm:py-20">

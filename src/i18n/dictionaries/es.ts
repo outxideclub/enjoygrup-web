@@ -95,6 +95,24 @@ export const es = {
     outxideCta: "Outxide Club",
     hiruCta: "Hiru Food & Drinks",
   },
+  promos: {
+    // Accesos a las landings de OUTXIDIOUS y de celebraciones de empresa desde
+    // la portada, /outxide y /enjoy (src/components/blocks/promo-accesos.tsx).
+    // Textos NEUTROS y factuales: sin eslóganes, sin bebida, sin precios ni
+    // disponibilidad. «Tardeo» siempre con «acceso libre» en la misma frase.
+    sectionLabel: "Destacados",
+    outxidiousTitle: "Halloween 2026 · OUTXIDIOUS",
+    outxidiousDate: "Sábado 31 de octubre",
+    outxidiousTardeo: "Tardeo en Enjoy Terrace de 20:00 a 23:00 (acceso libre)",
+    outxidiousNight: "OUTXIDE de 23:00 a 05:30",
+    outxidiousCta: "Ver el evento",
+    outxidiousImageAlt: "Logotipo de OUTXIDIOUS sobre fondo rojo oscuro",
+    empresasTitle: "Celebraciones de empresa",
+    empresasWhen: "Fin de temporada y Navidad",
+    empresasDetails: "Por la tarde en Enjoy Terrace y por la noche en OUTXIDE",
+    empresasCta: "Pedir presupuesto",
+    empresasImageAlt: "Fachada de OUTXIDE Club y Enjoy Terrace de noche, en la Av. Tucán 1 de Port d'Alcúdia",
+  },
   enjoy: {
     tagline: "Where nights begin",
     subtitle: "Terrace · Cocktails & Shisha",

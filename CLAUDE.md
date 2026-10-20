@@ -53,7 +53,8 @@ Three venues in Alcudia, Mallorca under one group (Grupo Enjoy):
 ```
 src/
   app/
-    page.tsx            # Homepage (hero carousel + 3 venue cards)
+    page.tsx            # Homepage (servidor: decide los accesos a las landings) → home-client.tsx
+    home-client.tsx     # Homepage cliente (hero carousel + accesos + 3 venue cards)
     layout.tsx          # Root layout (fonts, metadata, LocaleProvider)
     globals.css         # Tailwind @theme inline, CSS variables, custom utilities
     enjoy/              # Enjoy Terrace venue pages

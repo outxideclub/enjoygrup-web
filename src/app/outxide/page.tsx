@@ -9,6 +9,7 @@ import outxideGalleryFr from "../../../data/gallery/outxide.fr.json";
 import outxideGalleryIt from "../../../data/gallery/outxide.it.json";
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { localizedPath, type Locale } from "@/i18n/config";
+import { getPromoVisibility } from "@/lib/promos.server";
 
 const galleries: Record<Locale, typeof outxideGalleryEs> = {
   es: outxideGalleryEs, en: outxideGalleryEn, de: outxideGalleryDe, fr: outxideGalleryFr, it: outxideGalleryIt,
@@ -19,15 +20,18 @@ const galleries: Record<Locale, typeof outxideGalleryEs> = {
 // parallax, i18n) sigue en la isla cliente OutxideClient.
 export const revalidate = 60;
 
-export default async function OutxidePage() {
+type SearchParams = Record<string, string | string[] | undefined>;
+
+export default async function OutxidePage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const locale = await getServerLocale();
   const t = getServerT(locale);
-  const events = await getUpcomingOutxideEvents();
+  const [events, promos] = await Promise.all([getUpcomingOutxideEvents(), getPromoVisibility(searchParams)]);
   return (
     <>
       <OutxideClient
         initialEvents={events}
         galleryImages={(galleries[locale] ?? galleries.es) as unknown as GalleryImage[]}
+        showOutxidiousPromo={promos.outxidious}
       />
       {/* Datos estructurados del club (antes en layout.tsx: ver allí por qué).
           Eventos REALES de FourVenues para el markup: nada de eventos sintéticos. */}

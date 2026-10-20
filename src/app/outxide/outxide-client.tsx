@@ -24,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import { OutxideLogo } from "@/components/ui/logos";
 import { GalleryLightbox } from "@/components/ui/gallery-lightbox";
 import { VenueFaq } from "@/components/ui/venue-faq";
+import { PromoAccesos } from "@/components/blocks/promo-accesos";
 import dynamic from "next/dynamic";
 
 const LaserBeams = dynamic(() => import("@/components/ui/laser-beams").then(m => ({ default: m.LaserBeams })), { ssr: false });
@@ -58,7 +59,16 @@ import { useRef, useState, useEffect, useCallback } from "react";
 export interface GalleryImage { src: string; alt: string; description?: string; }
 
 
-export function OutxideClient({ initialEvents, galleryImages }: { initialEvents: FVEvent[]; galleryImages: GalleryImage[] }) {
+export function OutxideClient({
+  initialEvents,
+  galleryImages,
+  showOutxidiousPromo,
+}: {
+  initialEvents: FVEvent[];
+  galleryImages: GalleryImage[];
+  /** Tarjeta de OUTXIDIOUS en el bloque de accesos: la decide el servidor (page.tsx). */
+  showOutxidiousPromo: boolean;
+}) {
   const t = useT();
   const locale = useLocale();
   const [events] = useState<FVEvent[]>(initialEvents);
@@ -247,6 +257,10 @@ export function OutxideClient({ initialEvents, galleryImages }: { initialEvents:
           </Link>
         </div>
       </section>
+
+      {/* Accesos a las landings de octubre, bajo la barra de datos del club:
+          primero OUTXIDIOUS (es en OUTXIDE), con el acento cian del club. */}
+      <PromoAccesos showOutxidious={showOutxidiousPromo} tone="outxide" className="pt-12 sm:pt-16" />
 
       {/* About — branded SEO content */}
       <section className="relative z-20 py-16 sm:py-20">

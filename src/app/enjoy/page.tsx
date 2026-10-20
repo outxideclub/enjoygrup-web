@@ -1,5 +1,6 @@
 import { getServerLocale } from "@/i18n/server";
 import type { Locale } from "@/i18n/config";
+import { getPromoVisibility } from "@/lib/promos.server";
 import { EnjoyClient, type MenuSection, type GalleryImage } from "./enjoy-client";
 import enjoyDrinksEs from "../../../data/menus/enjoy-drinks.json";
 import enjoyDrinksEn from "../../../data/menus/enjoy-drinks.en.json";
@@ -29,13 +30,16 @@ const galleries: Record<Locale, typeof enjoyGalleryEs> = {
   es: enjoyGalleryEs, en: enjoyGalleryEn, de: enjoyGalleryDe, fr: enjoyGalleryFr, it: enjoyGalleryIt,
 };
 
-export default async function EnjoyPage() {
-  const locale = await getServerLocale();
+type SearchParams = Record<string, string | string[] | undefined>;
+
+export default async function EnjoyPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const [locale, promos] = await Promise.all([getServerLocale(), getPromoVisibility(searchParams)]);
   return (
     <EnjoyClient
       drinkSections={(drinkMenus[locale] ?? drinkMenus.en) as unknown as MenuSection[]}
       shishaSections={(shishaMenus[locale] ?? shishaMenus.en) as unknown as MenuSection[]}
       galleryImages={(galleries[locale] ?? galleries.es) as unknown as GalleryImage[]}
+      showOutxidiousPromo={promos.outxidious}
     />
   );
 }
