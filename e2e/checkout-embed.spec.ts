@@ -30,6 +30,36 @@ test.describe("Taquilla embebida /taquilla", () => {
     expect(src2).toContain("/iframe/outxide-club/events?");
   });
 
+  test("si la hidratación falla, React regenera el marco y este recupera el src", async ({ page }) => {
+    // Fallo de hidratación provocado a propósito: se cambia el texto del enlace
+    // «saltar al contenido» antes de que React hidrate, como haría una
+    // extensión del navegador (o el servidor de desarrollo con carga: así
+    // fallaban de vez en cuando este spec y campaign-params, 20-oct-2026).
+    // React descarta entonces el HTML del servidor y pinta un <iframe> nuevo
+    // con solo data-src; sin la red de FvBridgeFallback la taquilla se quedaba
+    // en blanco (venta muerta), también con la build de producción.
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    await page.addInitScript(() => {
+      const mo = new MutationObserver(() => {
+        const a = document.querySelector('a[href="#contenido"]');
+        if (!a) return;
+        a.textContent = "Texto cambiado por una extensión";
+        mo.disconnect();
+      });
+      mo.observe(document, { childList: true, subtree: true });
+    });
+    await page.goto("/taquilla?fbclid=HYDRA1&engine=iframe");
+    // El fallo de hidratación ocurrió de verdad (si no, la prueba no prueba nada).
+    await expect.poll(() => errors.join(" "), { timeout: 15_000 }).toMatch(/Hydration failed|#418/);
+    const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');
+    await expect(iframe).toHaveCount(1, { timeout: 10_000 });
+    // El marco que queda en la página lleva el src completo, con los
+    // parámetros de campaña intactos, y no hay ningún otro sin src.
+    await expect(iframe).toHaveAttribute("src", /fbclid=HYDRA1/);
+    await expect(page.locator(`iframe#fv-taquilla:not([src])`)).toHaveCount(0);
+  });
+
   test("auto-alto: el marco crece con addHeight y solo desde orígenes de Fourvenues", async ({ page }) => {
     await page.goto("/taquilla?engine=iframe");
     const iframe = page.locator('iframe[src*="/iframe/outxide-club"]');

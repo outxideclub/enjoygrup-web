@@ -66,6 +66,9 @@ export const FV_IFRAME_SRC_SCRIPT = `(function () {
   function go() {
     if (done || parked()) return false;
     done = true;
+    // Otra copia de este script (la red de FvBridgeFallback) ya lo asignó:
+    // volver a poner el mismo src recargaría el marco (doble petición).
+    if (f.getAttribute("src")) return true;
     f.setAttribute("src", url);
     return true;
   }
