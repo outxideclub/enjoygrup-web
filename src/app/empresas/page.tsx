@@ -3,10 +3,10 @@ import { ArrowDown, ArrowRight, MapPin } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getServerLocale, getServerT } from "@/i18n/server";
-import { localizedPath, type Locale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import type { PublishedOffer } from "@/lib/empresas/offer";
 import { resolveNow } from "@/lib/empresas/schedule";
-import { resolveEmpresasView, type FaqView, type FormatView } from "@/lib/empresas/view";
+import { resolveEmpresasView, type FormatView } from "@/lib/empresas/view";
 import { cn } from "@/lib/utils";
 import { EmpresasForm } from "./empresas-form";
 import { getEmpresasGames, getEmpresasPhoto, type ResolvedPhoto } from "./photos";
@@ -19,12 +19,13 @@ import { getEmpresasGames, getEmpresasPhoto, type ResolvedPhoto } from "./photos
 // navegador de Instagram); la única isla cliente es el formulario.
 //
 // Textos, colores y fotos: paquete creativo PROVISIONAL de la sesión META ADS
-// (CREATIVO-LANDING-EMPRESAS.md v0.2), cargado en src/lib/empresas/content.ts.
+// (CREATIVO-LANDING-EMPRESAS.md v0.5), cargado en src/lib/empresas/content.ts.
 // Qué se pinta en cada idioma y a cada hora lo decide src/lib/empresas/view.ts.
 //
 // Orden (paquete §3): primera pantalla · los dos formatos · fin de temporada
-// (hasta el cambio de tanda del sáb 31-oct) y Navidad · qué incluye ·
-// formulario · preguntas frecuentes · pie con la placa +18.
+// (hasta el dom 8-nov) y Navidad · qué incluye · formulario · preguntas
+// frecuentes · pie con la placa +18. Halloween, OUTXIDIOUS y el tardeo no se
+// nombran aquí (paquete v0.3): es otra campaña.
 //
 // Reglas de página destino de anuncios (no se rompen): «+18 · Consumo
 // responsable» en la primera pantalla, junto al formulario y en el pie; muro
@@ -202,28 +203,13 @@ function OfferBlock({
   );
 }
 
-/** Respuesta con, si toca, su enlace (la frase de entradas de la pregunta 6). */
-function FaqAnswer({ item }: { item: FaqView }) {
-  if (!item.link || !item.answer.includes(item.link.text)) return <>{item.answer}</>;
-  const [before, ...rest] = item.answer.split(item.link.text);
-  return (
-    <>
-      {before}
-      <a href={item.link.href} className="text-[var(--emp-enjoy-light)] underline underline-offset-2 hover:text-[var(--emp-text)]">
-        {item.link.text}
-      </a>
-      {rest.join(item.link.text)}
-    </>
-  );
-}
-
 export default async function EmpresasPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const [sp, locale] = await Promise.all([searchParams, getServerLocale()]);
   const t = getServerT(locale);
   // Hora de SERVIDOR (cada petición): decide qué bloques con fecha siguen
   // vivos. `?now=` solo fuera de producción, para probar el antes y el después.
   const now = resolveNow({ query: sp.now, isProduction: process.env.VERCEL_ENV === "production" });
-  const view = resolveEmpresasView({ locale, now, t, outxidiousHref: localizedPath("/outxide/outxidious", locale) });
+  const view = resolveEmpresasView({ locale, now, t });
   const hero = getEmpresasPhoto("hero", locale, t);
   const night = getEmpresasPhoto("night", locale, t);
   const day = getEmpresasPhoto("day", locale, t);
@@ -308,8 +294,8 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
           </div>
         </section>
 
-        {/* 3 · Fin de temporada (solo hasta el cambio de tanda del sáb 31-oct,
-            lo decide el servidor) y Navidad (desde el primer día). */}
+        {/* 3 · Fin de temporada (hasta el dom 8-nov a las 23:59:59, lo decide
+            el servidor) y Navidad (desde el primer día). */}
         {seasonal > 0 && (
           <section className="relative border-y border-[var(--emp-line)] py-16 md:py-20">
             <div className={cn("mx-auto grid grid-cols-1 gap-6 px-4 sm:px-6", seasonal === 2 ? "max-w-6xl md:grid-cols-2" : "max-w-3xl")}>
@@ -318,6 +304,7 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
                   <p className="emp-eyebrow">{view.endOfSeason.eyebrow}</p>
                   <h2 className="emp-h2 mt-3">{view.endOfSeason.title}</h2>
                   <p className="emp-body mt-4 text-[var(--emp-text-2)]">{view.endOfSeason.text}</p>
+                  {view.endOfSeason.dates && <p className="emp-body mt-3">{view.endOfSeason.dates}</p>}
                   <QuoteLink text={view.endOfSeason.cta} className="mt-6 w-full self-start sm:w-auto" />
                 </article>
               )}
@@ -383,9 +370,7 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
                 {view.faq.map((item) => (
                   <div key={item.question} className="emp-card rounded-xl p-5 sm:p-6" data-testid="empresas-faq-item">
                     <dt className="emp-h3">{item.question}</dt>
-                    <dd className="emp-body mt-2 text-[var(--emp-text-2)]">
-                      <FaqAnswer item={item} />
-                    </dd>
+                    <dd className="emp-body mt-2 text-[var(--emp-text-2)]">{item.answer}</dd>
                   </div>
                 ))}
               </dl>

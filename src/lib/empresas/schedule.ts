@@ -3,19 +3,18 @@
 // página en el SERVIDOR (cada petición se calcula con la hora real, nada se
 // decide en el navegador del visitante) y lo prueba e2e/empresas.spec.ts.
 //
-// Por qué así (20-oct-2026): el paquete creativo (CREATIVO-LANDING-EMPRESAS.md
-// §3 y §4.10) retira bloques a una hora concreta —la pregunta de Halloween el
-// sáb 31 a las 23:00 y el bloque de fin de temporada al acabar el conjunto de
-// empresas, el dom 8-nov a las 23:59 (desde COPYS.md v1.7 y el paquete v0.5:
-// antes era el sáb 31 a las 18:00 y la §5.4 vetaba «temporada» en noviembre;
-// con los locales abiertos a diario y el cartel E1 corriendo hasta el 8-nov,
-// ya no)—. Si nadie entra a tocar la web ese día, la página los retira sola.
+// Por qué así: el paquete creativo (CREATIVO-LANDING-EMPRESAS.md v0.5 §3, §4.4
+// y §4.10) y la orden de META ADS por Sergi (20-oct-2026) fijan horas
+// concretas: el bloque de fin de temporada y el antetítulo del cartel siguen
+// hasta el dom 8-nov a las 23:59:59, y la pregunta de vestimenta se oculta la
+// noche del sáb 31 (23:00 → 05:30 del dom 1). Si nadie entra a tocar la web a
+// esas horas, la página tiene que cambiar sola. (Antes de COPYS.md v1.7 el bloque
+// se retiraba el sáb 31 a las 18:00: revisión F2.)
 //
 // Las fechas límite viven en la configuración (src/lib/empresas/content.ts)
-// como ISO con DESFASE EXPLÍCITO: el 31-oct ya es horario de invierno en
-// Madrid (+01:00; el cambio de hora es el domingo 25-oct). Una fecha sin
-// desfase dependería de la zona horaria del servidor (UTC en Vercel), así que
-// se rechaza.
+// como ISO con DESFASE EXPLÍCITO: desde el domingo 25-oct ya es horario de
+// invierno en Madrid (+01:00). Una fecha sin desfase dependería de la zona
+// horaria del servidor (UTC en Vercel), así que se rechaza.
 
 /** ISO 8601 con fecha, hora y desfase obligatorio (Z o ±hh:mm). */
 const ISO_WITH_OFFSET = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?(?:Z|[+-]\d{2}:\d{2})$/;
@@ -30,11 +29,25 @@ export function parseInstant(iso: unknown): number | null {
 /**
  * ¿Sigue vivo un bloque que caduca en `untilIso`? FALLA CERRADO: una fecha mal
  * escrita (o sin desfase) oculta el bloque. Mejor sin el bloque de fin de
- * temporada que con «temporada» viva en noviembre.
+ * temporada que con él vivo cuando el anuncio que lo promete ya no corre.
  */
 export function isBefore(now: number, untilIso: unknown): boolean {
   const until = parseInstant(untilIso);
   return until !== null && now < until;
+}
+
+/**
+ * ¿Está `now` FUERA de la ventana [fromIso, untilIso)? Para lo que se oculta un
+ * rato y vuelve (la pregunta de vestimenta la noche del sáb 31). FALLA
+ * CERRADO: con una fecha mal escrita, sin desfase o una ventana al revés
+ * devuelve false (se oculta): mejor sin la pregunta que con una respuesta que
+ * esa noche no rige.
+ */
+export function isOutsideWindow(now: number, fromIso: unknown, untilIso: unknown): boolean {
+  const from = parseInstant(fromIso);
+  const until = parseInstant(untilIso);
+  if (from === null || until === null || from >= until) return false;
+  return now < from || now >= until;
 }
 
 /**

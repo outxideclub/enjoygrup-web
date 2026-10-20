@@ -41,6 +41,13 @@ const FORBIDDEN_PATTERNS: readonly RegExp[] = [
   /\boficial(?:es)?\b/,
   /\binsidious\b/,
   /\bpuerta roja\b/,
+  // Desde la v0.3 del paquete, /empresas no nombra Halloween, OUTXIDIOUS ni el
+  // tardeo («Halloween no se mezcla con empresas», COPYS.md §3.0 y su lint de
+  // §5.4). «early party» es el tardeo en inglés (landing de OUTXIDIOUS).
+  /\bhalloween\b/,
+  /\boutxidious\b/,
+  /\btardeos?\b/,
+  /\bearly party\b/,
   // Equivalentes en los otros idiomas de la web.
   /\bopen bar\b/,
   /\bfree drinks?\b/,

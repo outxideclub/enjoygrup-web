@@ -147,11 +147,13 @@ export const es = {
     // estos en es/en; en de/fr/it la página sigue con estos textos (el paquete
     // no trae esos idiomas y el copy creativo no se traduce por nuestra cuenta).
     metaTitle: "Celebraciones de empresa en Alcúdia · Grupo Enjoy",
-    metaDescription: "Celebraciones de empresa en Port d'Alcúdia: la empresa come o cena donde quiera y la celebración sigue por la tarde en Enjoy Terrace y por la noche en OUTXIDE. Solicitud de presupuesto.",
+    // La tarde en Enjoy Terrace, solo tras una comida (paquete v0.3/v0.4: a un
+    // grupo que cena no se le ofrece la tarde de antes).
+    metaDescription: "Celebraciones de empresa en Port d'Alcúdia: la empresa come o cena donde quiera y la celebración sigue por la noche en OUTXIDE y, si es comida, antes por la tarde en Enjoy Terrace. Solicitud de presupuesto.",
     breadcrumb: "Celebraciones de empresa",
     heroEyebrow: "Grupo Enjoy · Port d'Alcúdia",
     h1: "Celebraciones de empresa en Port d'Alcúdia",
-    subtitle: "Vuestra empresa come o cena donde quiera y la celebración sigue con nosotros: por la tarde en Enjoy Terrace y por la noche en OUTXIDE.",
+    subtitle: "Vuestra empresa come o cena donde quiera y la celebración sigue con nosotros: por la noche en OUTXIDE y, si es comida, antes por la tarde en Enjoy Terrace.",
     occasions: "Atendemos solicitudes para las fiestas de fin de temporada de las plantillas y para las celebraciones de Navidad, que ya se pueden reservar.",
     cta: "Pedir presupuesto",
     // Botón de la cabecera en /empresas (al formulario): corto, cabe en 375 px.

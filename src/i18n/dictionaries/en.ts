@@ -144,11 +144,13 @@ export const en: Dictionary = {
     // estos en es/en; en de/fr/it la página sigue con estos textos (el paquete
     // no trae esos idiomas y el copy creativo no se traduce por nuestra cuenta).
     metaTitle: "Company celebrations in Alcúdia · Grupo Enjoy",
-    metaDescription: "Company celebrations in Port d'Alcúdia: your company has lunch or dinner wherever it likes and the celebration carries on in the afternoon at Enjoy Terrace and at night at OUTXIDE. Request a quote.",
+    // La tarde en Enjoy Terrace, solo tras una comida (paquete v0.3/v0.4: a un
+    // grupo que cena no se le ofrece la tarde de antes).
+    metaDescription: "Company celebrations in Port d'Alcúdia: your company has lunch or dinner wherever it likes and the celebration carries on at night at OUTXIDE and, after a lunch, in the afternoon at Enjoy Terrace first. Request a quote.",
     breadcrumb: "Company celebrations",
     heroEyebrow: "Grupo Enjoy · Port d'Alcúdia",
     h1: "Company celebrations in Port d'Alcúdia",
-    subtitle: "Your company has lunch or dinner wherever it likes and the celebration carries on with us: in the afternoon at Enjoy Terrace and at night at OUTXIDE.",
+    subtitle: "Your company has lunch or dinner wherever it likes and the celebration carries on with us: at night at OUTXIDE and, after a lunch, in the afternoon at Enjoy Terrace first.",
     occasions: "We handle requests for staff end-of-season parties and for Christmas celebrations, which can already be booked.",
     cta: "Request a quote",
     navCta: "Enquire",

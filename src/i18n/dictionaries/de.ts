@@ -144,11 +144,13 @@ export const de: Dictionary = {
     // estos en es/en; en de/fr/it la página sigue con estos textos (el paquete
     // no trae esos idiomas y el copy creativo no se traduce por nuestra cuenta).
     metaTitle: "Firmenfeiern in Alcúdia · Grupo Enjoy",
-    metaDescription: "Firmenfeiern in Port d'Alcúdia: Euer Unternehmen isst zu Mittag oder zu Abend, wo es möchte, und die Feier geht nachmittags im Enjoy Terrace und nachts im OUTXIDE weiter. Angebot anfordern.",
+    // La tarde en Enjoy Terrace, solo tras una comida (paquete v0.3/v0.4: a un
+    // grupo que cena no se le ofrece la tarde de antes).
+    metaDescription: "Firmenfeiern in Port d'Alcúdia: Euer Unternehmen isst zu Mittag oder zu Abend, wo es möchte, und die Feier geht bei uns weiter: nachts im OUTXIDE und, nach einem Mittagessen, schon nachmittags im Enjoy Terrace. Angebot anfordern.",
     breadcrumb: "Firmenfeiern",
     heroEyebrow: "Grupo Enjoy · Port d'Alcúdia",
     h1: "Firmenfeiern in Port d'Alcúdia",
-    subtitle: "Euer Unternehmen isst zu Mittag oder zu Abend, wo es möchte, und die Feier geht bei uns weiter: nachmittags im Enjoy Terrace und nachts im OUTXIDE.",
+    subtitle: "Euer Unternehmen isst zu Mittag oder zu Abend, wo es möchte, und die Feier geht bei uns weiter: nachts im OUTXIDE und, nach einem Mittagessen, schon nachmittags im Enjoy Terrace.",
     occasions: "Wir nehmen Anfragen für Saisonabschlussfeiern von Belegschaften und für Weihnachtsfeiern entgegen. Weihnachtsfeiern können schon jetzt gebucht werden.",
     cta: "Angebot anfordern",
     navCta: "Angebot",
