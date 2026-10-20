@@ -538,6 +538,7 @@ export const en: Dictionary = {
     title: "We use cookies",
     description:
       "We use essential cookies for the site to function. With your consent, we also use analytics and marketing cookies to improve your experience.",
+    compactText: "Necessary cookies, plus analytics and marketing if you accept.",
     moreInfo: "More information",
     acceptAll: "Accept all",
     rejectAll: "Only necessary",

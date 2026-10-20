@@ -1401,6 +1401,60 @@ test.describe("OUTXIDIOUS · landing", () => {
 });
 
 // ===========================================================================
+// Primera visita desde un anuncio: banner de cookies sin decidir (PA-1)
+// ===========================================================================
+
+test.describe("OUTXIDIOUS · banner de cookies abierto en la primera pantalla", () => {
+  /** El punto central del elemento es suyo: nada (ni el banner) lo tapa. */
+  const onTop = (page: Page, testId: string) =>
+    page.evaluate((id) => {
+      const el = document.querySelector(`[data-testid="${id}"]`);
+      if (!el) return false;
+      const r = el.getBoundingClientRect();
+      const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+      return hit !== null && (hit === el || el.contains(hit));
+    }, testId);
+
+  for (const [w, h] of [[360, 640], [375, 667], [375, 600], [375, 550]] as const) {
+    for (const q of CAMPAIGN_OVER ? ["?phase=pronto"] : ["", "?phase=pronto"]) {
+      test(`${w}×${h}${q}: franja compacta arriba; placa +18${q ? "" : ", botón"} y h1 sin tapar`, async ({ page, context }) => {
+        await preconfirm(context, { cookies: false });
+        await page.setViewportSize({ width: w, height: h });
+        await page.goto(`${OUTXIDIOUS_PATH}${q}`);
+        const banner = page.getByTestId("cookie-banner-compact");
+        await expect(banner).toBeVisible({ timeout: 10_000 });
+        await expect(page.getByTestId("outxidious-legal-plate")).toBeInViewport({ ratio: 1 });
+        expect(await onTop(page, "outxidious-legal-plate"), "placa +18").toBe(true);
+        if (!q) expect(await onTop(page, "outxidious-buy"), "Comprar entradas").toBe(true);
+        // La franja solo ocupa la cabecera: el h1 empieza por debajo.
+        const b = (await banner.boundingBox())!;
+        const h1 = (await page.locator("h1").boundingBox())!;
+        expect(b.y + b.height).toBeLessThanOrEqual(h1.y);
+        // Aceptar y rechazar con el mismo peso; «Configurar» abre el panel completo.
+        const region = page.getByRole("region", { name: es.cookieBanner.title });
+        await expect(region.getByRole("button", { name: es.cookieBanner.acceptAll })).toBeVisible();
+        await expect(region.getByRole("button", { name: es.cookieBanner.rejectAll })).toBeVisible();
+        await region.getByRole("button", { name: es.cookieBanner.configure }).click();
+        await expect(region.getByText(es.cookieBanner.configureTitle)).toBeVisible();
+        await region.getByRole("button", { name: es.cookieBanner.savePreferences }).click();
+        await expect(page.getByRole("region", { name: es.cookieBanner.title })).toHaveCount(0);
+      });
+    }
+  }
+
+  test("fuera de las landings de anuncios, el banner de siempre (abajo)", async ({ page, context }) => {
+    await preconfirm(context, { cookies: false });
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto("/outxide");
+    const region = page.getByRole("region", { name: es.cookieBanner.title });
+    await expect(region).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByTestId("cookie-banner-compact")).toHaveCount(0);
+    const box = (await region.boundingBox())!;
+    expect(box.y + box.height).toBeGreaterThan(600);
+  });
+});
+
+// ===========================================================================
 // 3. Muro +18 (heredado de /outxide, sin preconfirmar)
 // ===========================================================================
 

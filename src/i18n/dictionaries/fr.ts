@@ -541,6 +541,7 @@ export const fr: Dictionary = {
     title: "Nous utilisons des cookies",
     description:
       "Nous utilisons des cookies essentiels au fonctionnement du site. Avec votre consentement, nous utilisons également des cookies analytiques et marketing pour améliorer votre expérience.",
+    compactText: "Cookies nécessaires et, si vous acceptez, analyse et marketing.",
     moreInfo: "En savoir plus",
     acceptAll: "Tout accepter",
     rejectAll: "Uniquement nécessaires",

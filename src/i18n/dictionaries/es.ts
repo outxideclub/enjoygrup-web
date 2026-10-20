@@ -575,6 +575,8 @@ export const es = {
     title: "Utilizamos cookies",
     description:
       "Usamos cookies esenciales para el funcionamiento del sitio. Con tu consentimiento, también usamos cookies analíticas y de marketing para mejorar tu experiencia.",
+    // Franja compacta de las landings de anuncios (arriba): primera capa corta.
+    compactText: "Usamos cookies necesarias y, si aceptas, analíticas y de marketing.",
     moreInfo: "Más información",
     acceptAll: "Aceptar todo",
     rejectAll: "Solo necesarias",

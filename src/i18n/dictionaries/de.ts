@@ -541,6 +541,7 @@ export const de: Dictionary = {
     title: "Wir verwenden Cookies",
     description:
       "Wir verwenden essenzielle Cookies für den Betrieb der Website. Mit Ihrer Zustimmung verwenden wir auch Analyse- und Marketing-Cookies, um Ihr Erlebnis zu verbessern.",
+    compactText: "Notwendige Cookies, mit Zustimmung auch Analyse und Marketing.",
     moreInfo: "Mehr erfahren",
     acceptAll: "Alle akzeptieren",
     rejectAll: "Nur notwendige",

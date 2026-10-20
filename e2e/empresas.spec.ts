@@ -1335,6 +1335,33 @@ test.describe("/empresas · formulario", () => {
   });
 });
 
+// PA-1: primera visita desde el anuncio, sin decidir sobre las cookies: la
+// franja compacta va arriba y no tapa ni la placa +18 ni «Pedir presupuesto».
+test.describe("/empresas · banner de cookies abierto en la primera pantalla", () => {
+  for (const [w, h] of [[360, 640], [375, 667], [375, 550]] as const) {
+    test(`${w}×${h}: placa +18 y botón sin tapar; el h1, por debajo de la franja`, async ({ page, context }) => {
+      await preconfirm(context, { cookies: false });
+      await page.setViewportSize({ width: w, height: h });
+      await page.goto("/empresas");
+      const banner = page.getByTestId("cookie-banner-compact");
+      await expect(banner).toBeVisible({ timeout: 10_000 });
+      for (const id of ["empresas-adult-hero", "empresas-hero-cta"]) {
+        const visible = await page.evaluate((testId) => {
+          const el = document.querySelector(`[data-testid="${testId}"]`);
+          if (!el) return false;
+          const r = el.getBoundingClientRect();
+          const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+          return r.bottom <= window.innerHeight && hit !== null && (hit === el || el.contains(hit));
+        }, id);
+        expect(visible, id).toBe(true);
+      }
+      const b = (await banner.boundingBox())!;
+      const h1 = (await page.locator("h1").boundingBox())!;
+      expect(b.y + b.height).toBeLessThanOrEqual(h1.y);
+    });
+  }
+});
+
 test.describe("/api/empresas · defensas", () => {
   /** IP distinta por petición: el rate limit por IP no contamina otras pruebas. */
   const ip = () => `10.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`;

@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Cookie, X, Settings2, Check } from "lucide-react";
 import { useT } from "@/i18n";
+import { localeFromPath } from "@/i18n/config";
 import {
   getStoredConsent,
   storeConsent,
@@ -20,6 +22,16 @@ function legalHref(path: string): string {
   return onTickets ? `https://www.grupoenjoy.es${path}` : path;
 }
 
+// Páginas de destino de anuncios (revisión PA-1, 20-oct-2026). Quien llega de
+// un anuncio no ha decidido aún sobre las cookies, y el banner de siempre
+// (abajo, ~43 % de la pantalla) tapaba la placa «+18 · Consumo responsable» y
+// el botón de compra en móvil. Aquí va una FRANJA COMPACTA ARRIBA, sobre la
+// cabecera (logo, idioma), que es lo único que puede taparse: la placa y el
+// botón quedan en la mitad de abajo de la primera pantalla, y por debajo del
+// alto de la cabecera empiezan el antetítulo y el h1. Mismas opciones y mismo
+// peso para aceptar y rechazar; «Configurar» abre el panel completo de siempre.
+const COMPACT_PATHS: ReadonlySet<string> = new Set(["/outxide/outxidious", "/empresas"]);
+
 function pushConsentToGtag(consent: ConsentState) {
   const w = window as Window & { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
   if (!w.gtag) return;
@@ -33,6 +45,8 @@ function pushConsentToGtag(consent: ConsentState) {
 
 export function CookieBanner() {
   const t = useT();
+  const pathname = usePathname();
+  const compact = COMPACT_PATHS.has(localeFromPath(pathname ?? "/").basePath.replace(/\/+$/, "") || "/");
   const [visible, setVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [consent, setConsent] = useState<ConsentState>({
@@ -67,6 +81,48 @@ export function CookieBanner() {
   const savePreferences = () => accept(consent);
 
   if (!visible) return null;
+
+  if (compact && !showSettings) {
+    return (
+      <div data-testid="cookie-banner-compact" className="fixed inset-x-0 top-0 z-[100] px-2 pt-1.5">
+        <div
+          role="region"
+          aria-label={t("cookieBanner.title")}
+          className="mx-auto max-w-2xl rounded-xl border border-white/10 bg-zinc-950/95 px-3 py-2 shadow-2xl backdrop-blur-xl"
+        >
+          <p className="text-[12px] leading-4 text-white/85">
+            {t("cookieBanner.compactText")}{" "}
+            <Link href={legalHref("/legal/cookies")} className="underline underline-offset-2 hover:text-white">
+              {t("cookieBanner.moreInfo")}
+            </Link>
+            {" · "}
+            {/* En la línea del texto y no junto a los botones: a 360 px una
+                tercera fila tapaba el h1. */}
+            <button
+              onClick={() => setShowSettings(true)}
+              className="font-medium text-white underline underline-offset-2 hover:text-white"
+            >
+              {t("cookieBanner.configure")}
+            </button>
+          </p>
+          <div className="mt-1.5 flex flex-wrap items-center gap-2">
+            <button
+              onClick={acceptAll}
+              className="h-8 rounded-full bg-white px-4 text-xs font-semibold text-black transition-colors hover:bg-white/90"
+            >
+              {t("cookieBanner.acceptAll")}
+            </button>
+            <button
+              onClick={rejectAll}
+              className="h-8 rounded-full border border-white/25 px-4 text-xs font-semibold text-white transition-colors hover:bg-white/5"
+            >
+              {t("cookieBanner.rejectAll")}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     // En la taquilla propia (body.has-checkout-bar) el banner se apoya ENCIMA de
