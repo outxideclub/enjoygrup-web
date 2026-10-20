@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { headers } from "next/headers";
 import { preload } from "react-dom";
 import { OutxideLogo } from "@/components/ui/logos";
 import { LanguageSelector } from "@/components/layout/language-selector";
@@ -12,25 +13,33 @@ import { OUTXIDIOUS_PATH, isOutxidiousIndexable, resolveOutxidiousContent } from
 import { getOutxidiousContent } from "@/lib/outxidious/content.server";
 import { loadOutxidiousTimes, loadOutxidiousView } from "@/lib/outxidious/landing.server";
 import { buildOutxidiousEventJsonLd } from "@/lib/outxidious/jsonld";
+import { TARDEO_END_TIME, TARDEO_START_TIME } from "@/lib/outxidious/event-config";
 import { OutxidiousAlertsForm } from "./alerts-form";
 import { HeroVideo } from "./hero-video";
 import "./outxidious.css";
 
-// Landing de OUTXIDIOUS (Halloween 2026, sábado 31-oct en OUTXIDE): destino de
-// los anuncios de Meta, que revisa las páginas de anuncios con alcohol. Reglas
-// que esta página cumple a propósito:
+// Landing de OUTXIDIOUS (Halloween 2026, sábado 31-oct): destino de los anuncios
+// de Meta, que revisa las páginas de anuncios con alcohol. Es un evento
+// COMPARTIDO de Enjoy y OUTXIDE (orden de Sergi, 19-oct): tardeo de ACCESO LIBRE
+// en Enjoy Terrace (20:00–23:00, sin venta, sin lista, sin botón ni formulario)
+// y después OUTXIDE (23:00–05:30) con entrada de Fourvenues. Reglas que esta
+// página cumple a propósito:
 // - Un único h1 con el evento; nunca precio ni alcohol como titular.
 // - «+18 · Consumo responsable» en la primera pantalla (y en el pie).
 // - Solo este evento: cabecera mínima (logo + idioma, sin el menú general),
 //   pie legal propio y ningún dato de otras noches en el HTML/RSC (el ItemList
 //   del club vive en /outxide/page.tsx, no en su layout).
-// - Un único botón de compra: <a href> ABSOLUTO a la taquilla con el evento
-//   abierto, para que CampaignLinkTracker le añada utm_* y fbclid.
+// - Un único botón de compra, SOLO de la parte OUTXIDE: <a href> ABSOLUTO a la
+//   taquilla con el evento abierto, para que CampaignLinkTracker le añada utm_*
+//   y fbclid. El tardeo no lleva botón, precio ni formulario.
 // - Precio «desde» con gastos sacado de Fourvenues, nunca escrito a mano.
+// - La edad del tardeo NO está confirmada: la placa +18 es la de la noche de
+//   OUTXIDE y ningún texto afirma la edad del tardeo.
 // - Página de SERVIDOR (rápida en el navegador de Instagram): en cliente solo
-//   el formulario de avisos y, si se aprueba, el vídeo.
-// Hoy es un MARCADOR NEUTRO y factual (corrección del dueño, 19-oct): el
-// material creativo entra por src/lib/outxidious/content.ts cuando se apruebe.
+//   el formulario de avisos y el vídeo.
+// Textos NEUTROS y factuales (corrección del dueño, 19-oct). Lo creativo entra
+// por src/lib/outxidious/content.ts con aprobación POR HUECO: hoy solo está
+// aprobado el vídeo de cabecera (el teaser OUTXIDE → OUTXIDIOUS, 20-oct).
 // El muro +18 lo hereda del layout de /outxide (no se toca).
 
 const SITE = "https://www.grupoenjoy.es";
@@ -52,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const raw = await getOutxidiousContent();
   const content = resolveOutxidiousContent(raw, locale);
   const { startTime, endTime } = await loadOutxidiousTimes();
-  const vars = { start: startTime, end: endTime };
+  const vars = { start: startTime, end: endTime, tardeoStart: TARDEO_START_TIME, tardeoEnd: TARDEO_END_TIME };
   const og = content.ogImage ?? { ...DEFAULT_OG_IMAGE, alt: t("outxidious.ogImageAlt") };
   const title = t("outxidious.metaTitle");
   const ogDescription = fill(t("outxidious.ogDescription"), vars);
@@ -63,7 +72,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { absolute: title },
     description: fill(t("outxidious.metaDescription"), vars),
     keywords: t("outxidious.keywords").split(", "),
-    // Fuera de buscadores mientras el dueño no apruebe el contenido.
+    // Fuera de buscadores hasta nueva orden (hueco `index` de content.ts).
     robots: isOutxidiousIndexable(raw) ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       title: t("outxidious.ogTitle"),
@@ -84,21 +93,48 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function OutxidiousPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const [sp, locale, raw] = await Promise.all([searchParams, getServerLocale(), getOutxidiousContent()]);
+  const [sp, locale, raw, reqHeaders] = await Promise.all([
+    searchParams,
+    getServerLocale(),
+    getOutxidiousContent(),
+    headers(),
+  ]);
   const t = getServerT(locale);
   const content = resolveOutxidiousContent(raw, locale);
   const view = await loadOutxidiousView({ locale, queryPhase: sp.phase });
-  const vars = { start: view.startTime, end: view.endTime };
+  const vars = { start: view.startTime, end: view.endTime, tardeoStart: TARDEO_START_TIME, tardeoEnd: TARDEO_END_TIME };
+  // Ahorro de datos (cabecera Save-Data de Chrome/Android): el vídeo ni se
+  // precarga ni se reproduce, solo el póster. El cliente lo comprueba también.
+  const saveData = reqHeaders.get("save-data")?.trim().toLowerCase() === "on";
   const media = content.heroMedia;
   const claim = view.today ? content.claimToday : content.claim;
   const outxideHref = localizedPath("/outxide", locale);
-  // Sin multimedia aprobada todo va centrado (una columna); con ella, el texto
-  // a la izquierda y el vídeo/imagen a la derecha en escritorio.
+  // Sin multimedia aprobada todo va centrado (una columna); con ella, en móvil
+  // el vídeo/imagen va ENCIMA del texto (recortado para que el h1 y la placa
+  // quepan en la primera pantalla) y en escritorio a la derecha.
   const align = media ? "text-center md:text-left" : "text-center";
   const alignItems = media ? "items-center md:items-start" : "items-center";
 
   // Póster del vídeo = LCP: se pide con prioridad alta antes que el vídeo.
   if (media?.kind === "video") preload(media.poster, { as: "image", fetchPriority: "high" });
+
+  // Primero el tardeo (empieza antes), después OUTXIDE.
+  const directions = [
+    {
+      testId: "outxidious-venue-enjoy",
+      title: fill(t("outxidious.directionsEnjoy"), vars),
+      address: t("outxidious.addressEnjoy"),
+      mapsUrl: siteContact.venues.enjoy.mapsUrl,
+      mapsLabel: t("outxidious.mapsLinkEnjoy"),
+    },
+    {
+      testId: "outxidious-venue-outxide",
+      title: fill(t("outxidious.directionsOutxide"), vars),
+      address: t("outxidious.address"),
+      mapsUrl: siteContact.venues.outxide.mapsUrl,
+      mapsLabel: t("outxidious.mapsLink"),
+    },
+  ];
 
   const legalLinks = [
     { href: "/legal/condiciones-venta", label: t("outxidious.legalSale") },
@@ -126,7 +162,7 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
         <section aria-labelledby="outxidious-title" className="relative overflow-hidden">
           <div className="ox-glow pointer-events-none absolute inset-0" aria-hidden />
           <div
-            className={`relative mx-auto grid max-w-5xl gap-10 px-4 pb-12 pt-4 sm:px-6 md:pt-12 ${
+            className={`relative mx-auto grid max-w-5xl gap-4 px-4 pb-12 pt-2 sm:px-6 md:gap-10 md:pt-12 ${
               media ? "md:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] md:items-center" : ""
             }`}
           >
@@ -151,12 +187,27 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                   {fill(t("outxidious.today"), vars)}
                 </p>
               )}
-              <p data-testid="outxidious-facts" className="ox-body mt-4 text-[15px] leading-relaxed">
-                {fill(t("outxidious.facts"), vars)}
-              </p>
+              {/* Las DOS partes de la noche, factuales. El tardeo es de acceso libre:
+                  ni botón, ni precio, ni formulario. Nombre (en negrita) y detalle
+                  en piezas sin separador entre ellas: si no cabe, el corte cae
+                  entre las dos y nunca a mitad de una hora ni tras un «·». */}
+              <ul
+                data-testid="outxidious-parts"
+                aria-label={t("outxidious.partsLabel")}
+                className="ox-body mt-4 space-y-1 text-[15px] leading-snug"
+              >
+                <li data-testid="outxidious-part-tardeo">
+                  <span className="ox-title font-semibold">{t("outxidious.partTardeo")}</span>{" "}
+                  <span className="whitespace-nowrap">{fill(t("outxidious.partTardeoDetail"), vars)}</span>
+                </li>
+                <li data-testid="outxidious-part-outxide">
+                  <span className="ox-title font-semibold">{t("outxidious.partOutxide")}</span>{" "}
+                  <span className="whitespace-nowrap">{fill(t("outxidious.partOutxideDetail"), vars)}</span>
+                </li>
+              </ul>
 
               {view.phase === "venta" && view.checkoutUrl && view.priceFromLabel && (
-                <div className={`mt-6 flex flex-col gap-3 ${alignItems}`}>
+                <div className={`mt-4 flex flex-col gap-3 ${alignItems}`}>
                   <p data-testid="outxidious-price" className="ox-title text-lg font-semibold">
                     {fill(t("outxidious.priceFrom"), { price: view.priceFromLabel })}
                   </p>
@@ -185,7 +236,7 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
               )}
 
               {/* Placa legal propia, separada del claim (≥ 24 px) y en la primera pantalla. */}
-              <div className="mt-8">
+              <div className="mt-5">
                 <p data-testid="outxidious-legal-plate" className="ox-plate">
                   {t("outxidious.legalPlate")}
                 </p>
@@ -199,17 +250,22 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
               )}
             </div>
 
-            {/* Multimedia aprobada (vacía hoy). En móvil va DEBAJO del texto para
-                que la placa legal siga en la primera pantalla. */}
+            {/* Multimedia aprobada (hoy, el teaser). En móvil va ENCIMA del texto
+                (order-first) y recortada a su franja central (mobileAspect) para
+                que el h1 y la placa sigan en la primera pantalla de 375×667. */}
             {media?.kind === "video" && (
-              <HeroVideo
-                src={media.src}
-                webmSrc={media.webmSrc}
-                poster={media.poster}
-                width={media.width}
-                height={media.height}
-                label={media.label}
-              />
+              <div className="order-first md:order-none">
+                <HeroVideo
+                  src={media.src}
+                  webmSrc={media.webmSrc}
+                  poster={media.poster}
+                  width={media.width}
+                  height={media.height}
+                  mobileAspect={media.mobileAspect}
+                  label={media.label}
+                  saveData={saveData}
+                />
+              </div>
             )}
             {media?.kind === "image" && (
               <Image
@@ -219,7 +275,7 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                 height={media.height}
                 priority
                 sizes="(min-width: 768px) 24rem, 100vw"
-                className="mx-auto h-auto w-full max-w-md rounded-2xl"
+                className="order-first mx-auto h-auto w-full max-w-md rounded-2xl md:order-none"
               />
             )}
           </div>
@@ -238,20 +294,25 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
           </section>
         )}
 
+        {/* Cómo llegar: los DOS locales, cada uno con su mapa (los mismos enlaces
+            que el resto de la web, data/site/contact.json). Mismo edificio, Av.
+            Tucán 1, pero la ficha de Maps de cada local es distinta. */}
         <section aria-labelledby="outxidious-directions" className="ox-rule border-t">
           <div className={`mx-auto max-w-5xl px-4 py-10 sm:px-6 ${align}`}>
             <h2 id="outxidious-directions" className="ox-title font-display text-xl font-bold uppercase">
               {t("outxidious.directionsTitle")}
             </h2>
-            <p className="ox-body mt-2 text-sm">{t("outxidious.address")}</p>
-            <a
-              href={siteContact.venues.outxide.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ox-link mt-2 inline-block text-sm"
-            >
-              {t("outxidious.mapsLink")}
-            </a>
+            <div className="mt-4 grid gap-6 sm:grid-cols-2">
+              {directions.map((d) => (
+                <div key={d.testId} data-testid={d.testId}>
+                  <h3 className="ox-title text-base font-semibold">{d.title}</h3>
+                  <p className="ox-body mt-1 text-sm">{d.address}</p>
+                  <a href={d.mapsUrl} target="_blank" rel="noopener noreferrer" className="ox-link mt-2 inline-block text-sm">
+                    {d.mapsLabel}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
@@ -278,7 +339,10 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
         </div>
       </footer>
 
-      {/* Único marcado de la página, y solo con el evento real publicado. */}
+      {/* Único marcado de la página, y solo con el evento real publicado: el
+          Event a la venta es el de OUTXIDE (23:00–05:30 aunque el evento del
+          panel empiece a las 20:00). El tardeo va en la descripción, no como
+          subEvent: ver src/lib/outxidious/jsonld.ts. */}
       {view.event && (
         <JsonLd
           data={buildOutxidiousEventJsonLd({

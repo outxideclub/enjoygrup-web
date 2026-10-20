@@ -1,11 +1,12 @@
-import { OUTXIDIOUS_CONTENT } from "@/lib/outxidious/content";
+import { OUTXIDIOUS_CONTENT, isSlotApproved } from "@/lib/outxidious/content";
 
 // Carga propia de la landing: hero ESTÁTICO (sin pulsos) y sin el skeleton cian
 // de /outxide, que en el navegador de Instagram se vería como otra página. Usa
-// el tema que diga content.ts: hoy el oscuro neutro; rojo solo si se aprueba la
-// campaña con theme="campana-roja". Sin textos: no hay diccionario que pedir.
+// el tema que diga content.ts: hoy el oscuro neutro; rojo solo con el hueco
+// approved.theme encendido y theme="campana-roja". Sin textos: no hay
+// diccionario que pedir.
 export default function OutxidiousLoading() {
-  const red = OUTXIDIOUS_CONTENT.approved && OUTXIDIOUS_CONTENT.theme === "campana-roja";
+  const red = isSlotApproved(OUTXIDIOUS_CONTENT, "theme") && OUTXIDIOUS_CONTENT.theme === "campana-roja";
   return (
     <div className={`min-h-screen ${red ? "bg-[#070707]" : "bg-[#0a0a0a]"}`} aria-busy="true">
       <div

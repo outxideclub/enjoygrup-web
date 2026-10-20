@@ -1,35 +1,49 @@
+import { statSync } from "node:fs";
 import { test, expect, type APIRequestContext, type BrowserContext, type Page } from "@playwright/test";
 import type { FVEvent, FVTicketRate, FVTicketsCheckoutRequest } from "../src/lib/fourvenues/types";
 import { es } from "../src/i18n/dictionaries/es";
 import { en } from "../src/i18n/dictionaries/en";
 import { dictionaryScopeFor, pickDictionary } from "../src/i18n/scoped-dictionary";
+import { siteContact } from "../src/lib/site";
 import {
   OUTXIDIOUS_CONTENT,
   OUTXIDIOUS_PATH,
+  OUTXIDIOUS_SLOTS,
   isOutxidiousIndexable,
   outxidiousSitemapPaths,
   parseOutxidiousContent,
   resolveOutxidiousContent,
+  type OutxidiousApproval,
   type OutxidiousContent,
 } from "../src/lib/outxidious/content";
 import {
   AFTER_FROM,
+  OUTXIDE_END_ISO,
+  OUTXIDE_START_ISO,
+  TARDEO_END_TIME,
+  TARDEO_START_TIME,
   TODAY_FROM,
   findOutxidiousEvent,
+  outxideSchedule,
   priceFromWithFees,
   resolvePhase,
   sellableRates,
 } from "../src/lib/outxidious/event-config";
+import { buildOutxidiousEventJsonLd, toMadridIso } from "../src/lib/outxidious/jsonld";
 
 // Landing de OUTXIDIOUS (Halloween 2026), destino de los anuncios de Meta, contra
 // el doble de Fourvenues (e2e/mocks/fourvenues-mock.mjs: evento "OUTXIDIOUS |
 // OUTXIDE", código OX31, con tarifas que llevan 🍭 y «COPA + CHUPITO» a
 // propósito y otras que no deben contar para el «desde»).
 //
-// Hoy la página es un MARCADOR NEUTRO (el dueño no ha aprobado el material
-// creativo): noindex, fuera del sitemap y sin logo/teaser de la campaña. La
-// rama aprobada se prueba con contenido FICTICIO que vive solo en este fichero
-// y viaja en la cabecera del doble de pruebas (solo la atiende `next dev`).
+// OUTXIDIOUS es un evento COMPARTIDO (19-oct): tardeo de ACCESO LIBRE en Enjoy
+// Terrace (20:00–23:00, sin botón, precio ni formulario) y OUTXIDE (23:00–05:30)
+// con entrada; precio y botón solo de OUTXIDE. Textos neutros y factuales,
+// noindex y fuera del sitemap. Aprobación POR HUECO (content.ts): hoy solo el
+// vídeo de cabecera (teaser OUTXIDE → OUTXIDIOUS, aprobado el 20-oct); claim,
+// secciones, tema rojo e imagen OG apagados. Los huecos apagados se prueban con
+// contenido FICTICIO que vive solo en este fichero y viaja en la cabecera del
+// doble de pruebas (solo la atiende `next dev`).
 
 const MOCK = process.env.FV_MOCK_URL ?? "http://localhost:3999";
 const OX_CODE = "OX31";
@@ -58,12 +72,17 @@ const CAMPAIGN_OVER = Date.now() >= AFTER_FROM;
 
 /**
  * Léxico vetado en TODA la página (HTML, metadatos, alt, JSON-LD y payload RSC),
- * sobre el texto sin acentos y en minúsculas. Regla del dueño + Meta (alcohol).
+ * sobre el texto sin acentos y en minúsculas. Regla del dueño + Meta (alcohol y
+ * tabaco). «Enjoy Terrace» y «tardeo» SÍ se permiten desde el 19-oct (evento
+ * compartido): se comprueba aparte que aparecen.
  */
 const FORBIDDEN: [string, RegExp][] = [
   ["🍭", /🍭|\\ud83c\\udf6d/i],
   ["chupito", /\bchupitos?\b/],
   ["copa / copas", /\bcopas?\b/],
+  ["cóctel / cocktail", /\bcoct[ae]l(es)?\b|\bcocktails?\b/],
+  ["shisha", /\bshishas?\b/],
+  ["cachimba", /\bcachimbas?\b/],
   ["barra libre", /barra libre/],
   ["happy hour", /happy hour/],
   ["2x1", /\b2\s?x\s?1\b/],
@@ -81,8 +100,6 @@ const FORBIDDEN: [string, RegExp][] = [
   ["no hay salida", /no hay salida/],
   ["nadie sale", /nadie sale/],
   ["Hiru", /\bhiru\b/],
-  ["Enjoy Terrace", /enjoy terrace/],
-  ["tardeo", /\btardeo\b/],
   ["previa", /\bprevia\b/],
   ["precio VIP", /precio vip/],
   ["precio de puerta", /precio de puerta/],
@@ -171,8 +188,11 @@ function handPriceFrom(rates: FVTicketRate[]): number {
 // Contenido FICTICIO de la rama aprobada (solo aquí, nunca en content.ts)
 // ---------------------------------------------------------------------------
 
+/** Todos los huecos encendidos (también index). */
+const ALL_APPROVED: OutxidiousApproval = Object.fromEntries(OUTXIDIOUS_SLOTS.map((s) => [s, true]));
+
 const FIXTURE: OutxidiousContent = {
-  approved: true,
+  approved: ALL_APPROVED,
   theme: "campana-roja",
   locales: {
     es: {
@@ -183,12 +203,15 @@ const FIXTURE: OutxidiousContent = {
         { title: "SECCION FICTICIA DOS", text: "Texto ficticio dos." },
       ],
       // Ficheros YA publicados del sitio: solo para que el vídeo cargue en la prueba.
+      // Con claim, el vídeo de móvil va más recortado (4:1) para que la placa
+      // siga en la primera pantalla: se reduce el vídeo, nunca la placa.
       heroMedia: {
         kind: "video",
         src: "/videos/outxide-hero.mp4",
         poster: "/videos/outxide-hero-poster.jpg",
         width: 960,
         height: 540,
+        mobileAspect: 4,
         label: "Video ficticio de prueba",
       },
       ogImage: { url: "/videos/outxide-hero-poster.jpg", width: 1920, height: 1080, alt: "Imagen OG ficticia" },
@@ -196,7 +219,15 @@ const FIXTURE: OutxidiousContent = {
     en: { claim: "FICTITIOUS EN CLAIM" },
   },
 };
-const FIXTURE_HEADER = Buffer.from(JSON.stringify(FIXTURE), "utf8").toString("base64url");
+const toHeader = (c: OutxidiousContent) => Buffer.from(JSON.stringify(c), "utf8").toString("base64url");
+const FIXTURE_HEADER = toHeader(FIXTURE);
+
+// El teaser aprobado (content.ts) y sus ficheros en public/.
+const TEASER = {
+  mp4: "/videos/outxidious/outxidious-teaser-720.mp4",
+  webm: "/videos/outxidious/outxidious-teaser-720.webm",
+  poster: "/videos/outxidious/outxidious-teaser-poster.webp",
+} as const;
 
 // ---------------------------------------------------------------------------
 // Preparación de página
@@ -243,28 +274,78 @@ test.use({ locale: "es-ES" });
 // ===========================================================================
 
 test.describe("OUTXIDIOUS · lógica pura", () => {
-  test("content.ts está APAGADO y vacío: nada creativo, noindex y fuera del sitemap", () => {
-    expect(OUTXIDIOUS_CONTENT.approved).toBe(false);
+  test("content.ts: solo el vídeo de cabecera aprobado; claim, secciones, tema, OG e index apagados", () => {
+    expect(OUTXIDIOUS_CONTENT.approved).toEqual({
+      heroMedia: true,
+      claim: false,
+      sections: false,
+      theme: false,
+      ogImage: false,
+      index: false,
+    });
     expect(OUTXIDIOUS_CONTENT.theme).toBe("neutro");
-    expect(OUTXIDIOUS_CONTENT.locales).toEqual({});
     expect(isOutxidiousIndexable(OUTXIDIOUS_CONTENT)).toBe(false);
     expect(outxidiousSitemapPaths(OUTXIDIOUS_CONTENT)).toEqual([]);
+    const labels = new Set<string>();
     for (const loc of ["es", "en", "de", "fr", "it"] as const) {
       const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
-      expect(r).toMatchObject({ approved: false, theme: "neutro", claim: null, heroMedia: null, ogImage: null });
+      expect(r).toMatchObject({ theme: "neutro", claim: null, claimToday: null, ogImage: null });
       expect(r.sections).toEqual([]);
+      // El teaser aprobado, con su descripción accesible PROPIA en cada idioma.
+      expect(r.heroMedia).toMatchObject({
+        kind: "video",
+        src: TEASER.mp4,
+        webmSrc: TEASER.webm,
+        poster: TEASER.poster,
+        width: 720,
+        height: 720,
+        mobileAspect: 2.5,
+      });
+      const label = r.heroMedia?.kind === "video" ? r.heroMedia.label : "";
+      expect(label.length, loc).toBeGreaterThan(20);
+      labels.add(label);
     }
-    // Aunque se rellenara sin aprobar, nada se pinta.
-    const filledButOff = { ...FIXTURE, approved: false };
-    expect(resolveOutxidiousContent(filledButOff, "es")).toMatchObject({ claim: null, theme: "neutro", heroMedia: null });
-    expect(outxidiousSitemapPaths(filledButOff)).toEqual([]);
+    expect(labels.size, "una descripción distinta por idioma").toBe(5);
+    // Los ficheros están en public/ y pesan lo que se aprobó (vídeo ligero).
+    for (const [file, max] of [[TEASER.mp4, 200_000], [TEASER.webm, 150_000], [TEASER.poster, 20_000]] as const) {
+      const size = statSync(`public${file}`).size;
+      expect(size, file).toBeGreaterThan(1_000);
+      expect(size, file).toBeLessThanOrEqual(max);
+    }
+  });
+
+  test("aprobación POR HUECO: cada pieza se enciende sola; index aparte; el interruptor único ya no vale", () => {
+    // Relleno entero pero nada aprobado: nada se pinta.
+    const off = { ...FIXTURE, approved: {} };
+    expect(resolveOutxidiousContent(off, "es")).toMatchObject({ theme: "neutro", claim: null, heroMedia: null, ogImage: null });
+    expect(resolveOutxidiousContent(off, "es").sections).toEqual([]);
+    expect(outxidiousSitemapPaths(off)).toEqual([]);
+    // Solo el vídeo (lo de hoy): ni claim, ni secciones, ni rojo, ni OG, ni index.
+    const onlyMedia = { ...FIXTURE, approved: { heroMedia: true } };
+    expect(resolveOutxidiousContent(onlyMedia, "es")).toMatchObject({ theme: "neutro", claim: null, ogImage: null });
+    expect(resolveOutxidiousContent(onlyMedia, "es").heroMedia?.kind).toBe("video");
+    expect(isOutxidiousIndexable(onlyMedia)).toBe(false);
+    // Solo el claim: sin vídeo ni tema.
+    const onlyClaim = resolveOutxidiousContent({ ...FIXTURE, approved: { claim: true } }, "es");
+    expect(onlyClaim).toMatchObject({ claim: "CLAIM FICTICIO DE PRUEBA", claimToday: "CLAIM DEL DIA FICTICIO", heroMedia: null, theme: "neutro" });
+    // Solo el tema: rojo sin ningún texto creativo.
+    const onlyTheme = resolveOutxidiousContent({ ...FIXTURE, approved: { theme: true } }, "es");
+    expect(onlyTheme).toMatchObject({ theme: "campana-roja", claim: null, heroMedia: null });
+    // Index sin nada creativo (y al revés, todo creativo sin index).
+    expect(outxidiousSitemapPaths({ ...FIXTURE, approved: { index: true } })).toEqual([OUTXIDIOUS_PATH]);
+    expect(isOutxidiousIndexable({ ...FIXTURE, approved: { ...ALL_APPROVED, index: false } })).toBe(false);
+    // Solo un true explícito cuenta.
+    expect(resolveOutxidiousContent({ ...FIXTURE, approved: { claim: "yes" as unknown as boolean } }, "es").claim).toBeNull();
+    // El formato antiguo (approved: true/false) se rechaza entero en el doble de pruebas.
+    expect(parseOutxidiousContent({ ...FIXTURE, approved: true })).toBeNull();
+    expect(parseOutxidiousContent({ approved: false, theme: "neutro", locales: {} })).toBeNull();
   });
 
   test("rama aprobada: index, sitemap y huecos por idioma con caída al español", () => {
     expect(isOutxidiousIndexable(FIXTURE)).toBe(true);
     expect(outxidiousSitemapPaths(FIXTURE)).toEqual([OUTXIDIOUS_PATH]);
     const esR = resolveOutxidiousContent(FIXTURE, "es");
-    expect(esR).toMatchObject({ approved: true, theme: "campana-roja", claim: "CLAIM FICTICIO DE PRUEBA", claimToday: "CLAIM DEL DIA FICTICIO" });
+    expect(esR).toMatchObject({ theme: "campana-roja", claim: "CLAIM FICTICIO DE PRUEBA", claimToday: "CLAIM DEL DIA FICTICIO" });
     expect(esR.sections).toHaveLength(2);
     const enR = resolveOutxidiousContent(FIXTURE, "en");
     expect(enR.claim).toBe("FICTITIOUS EN CLAIM");
@@ -273,6 +354,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(enR.heroMedia?.kind).toBe("video");
     // El validador del doble de pruebas solo acepta rutas propias de public/.
     expect(parseOutxidiousContent(FIXTURE)).toEqual(FIXTURE);
+    expect(parseOutxidiousContent(OUTXIDIOUS_CONTENT)).toEqual(OUTXIDIOUS_CONTENT);
     const evil = parseOutxidiousContent({
       ...FIXTURE,
       locales: { es: { heroMedia: { ...FIXTURE.locales.es!.heroMedia!, src: "https://evil.example/x.mp4" } } },
@@ -290,6 +372,11 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     // …y un ref que no existe cae a la detección por nombre y fecha.
     expect(findOutxidiousEvent(events, "no-existe-31-10-2026-ZZZZ")?.code).toBe(OX_CODE);
     const base = events.find((e) => e.code === OX_CODE)!;
+    // Evento del panel para TODA la noche (inicio a las 20:00 por el tardeo) o
+    // solo para OUTXIDE (23:00): se reconoce igual.
+    expect(findOutxidiousEvent([{ ...base, start_date: "2026-10-31T20:00:00+01:00" }])?.code).toBe(OX_CODE);
+    expect(findOutxidiousEvent([{ ...base, start_date: "2026-10-31T19:00:00.000Z" }])?.code).toBe(OX_CODE);
+    expect(findOutxidiousEvent([{ ...base, start_date: "2026-10-31T23:00:00+01:00" }])?.code).toBe(OX_CODE);
     // Acentos y mayúsculas da igual; otra fecha u otro nombre, no.
     expect(findOutxidiousEvent([{ ...base, name: "Outxídious · Halloween" }])).not.toBeNull();
     expect(findOutxidiousEvent([{ ...base, start_date: "2026-11-01T00:30:00+01:00" }])).not.toBeNull();
@@ -297,6 +384,70 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(findOutxidiousEvent([{ ...base, start_date: "2026-11-01T07:00:00+01:00" }])).toBeNull();
     expect(findOutxidiousEvent([{ ...base, name: "HALLOWEEN | OUTXIDE" }])).toBeNull();
     expect(findOutxidiousEvent([])).toBeNull();
+  });
+
+  test("horario de OUTXIDE: el del evento solo si es coherente (≥ 22:00), si no la constante; el tardeo, fijo", () => {
+    expect([TARDEO_START_TIME, TARDEO_END_TIME]).toEqual(["20:00", "23:00"]);
+    const ev = (start_date: string, end_date = "2026-11-01T05:30:00+01:00") => ({ start_date, end_date });
+    const c = { startIso: OUTXIDE_START_ISO, endIso: OUTXIDE_END_ISO };
+    // Sin evento: el horario de los anuncios.
+    expect(outxideSchedule(null)).toEqual(c);
+    // Evento de toda la noche (20:00, por el tardeo): la línea de OUTXIDE sigue a las 23:00; el fin real vale.
+    expect(outxideSchedule(ev("2026-10-31T20:00:00+01:00"))).toEqual(c);
+    expect(outxideSchedule(ev("2026-10-31T19:00:00.000Z", "2026-11-01T04:30:00.000Z"))).toEqual({
+      startIso: OUTXIDE_START_ISO,
+      endIso: "2026-11-01T04:30:00.000Z",
+    });
+    expect(outxideSchedule(ev("2026-10-31T21:59:00+01:00")).startIso).toBe(OUTXIDE_START_ISO);
+    // Evento de OUTXIDE (23:00) o con otra hora de la noche: manda el panel.
+    expect(outxideSchedule(ev("2026-10-31T22:00:00.000Z", "2026-11-01T04:30:00.000Z"))).toEqual({
+      startIso: "2026-10-31T22:00:00.000Z",
+      endIso: "2026-11-01T04:30:00.000Z",
+    });
+    expect(outxideSchedule(ev("2026-10-31T22:30:00+01:00")).startIso).toBe("2026-10-31T22:30:00+01:00");
+    expect(outxideSchedule(ev("2026-11-01T00:30:00+01:00")).startIso).toBe("2026-11-01T00:30:00+01:00");
+    // Fin absurdo (antes del inicio o al día siguiente) o fechas rotas: la constante.
+    expect(outxideSchedule(ev("2026-10-31T23:00:00+01:00", "2026-10-31T22:00:00+01:00")).endIso).toBe(OUTXIDE_END_ISO);
+    expect(outxideSchedule(ev("2026-10-31T23:00:00+01:00", "2026-11-02T05:30:00+01:00")).endIso).toBe(OUTXIDE_END_ISO);
+    expect(outxideSchedule({ start_date: "no es fecha", end_date: null })).toEqual(c);
+    // En hora de Madrid: «23:00» y «05:30».
+    expect(toMadridIso(OUTXIDE_START_ISO)).toBe("2026-10-31T23:00:00+01:00");
+    expect(toMadridIso(OUTXIDE_END_ISO)).toBe("2026-11-01T05:30:00+01:00");
+  });
+
+  test("JSON-LD: un único Event (OUTXIDE) con la oferta; el tardeo gratuito en la descripción, sin subEvent", () => {
+    // Lo que hace la página con un evento del panel que empieza a las 20:00.
+    const { startIso, endIso } = outxideSchedule({ start_date: "2026-10-31T19:00:00.000Z", end_date: "2026-11-01T04:30:00.000Z" });
+    const ld = buildOutxidiousEventJsonLd({
+      name: es.outxidious.jsonLdName,
+      description: es.outxidious.jsonLdDescription
+        .replace("{start}", "23:00")
+        .replace("{end}", "05:30")
+        .replace("{tardeoStart}", TARDEO_START_TIME)
+        .replace("{tardeoEnd}", TARDEO_END_TIME),
+      locale: "es",
+      pageUrl: "https://www.grupoenjoy.es/outxide/outxidious",
+      image: "/images/outxide/DSCF8103-9.jpg",
+      startDate: startIso,
+      endDate: endIso,
+      offer: { price: 12.96, url: `https://entradas.grupoenjoy.es/?event=${OX_REF}&lang=es`, validFrom: null },
+    });
+    expect(ld).toMatchObject({
+      "@type": "Event",
+      startDate: "2026-10-31T23:00:00+01:00",
+      endDate: "2026-11-01T05:30:00+01:00",
+      isAccessibleForFree: false,
+      typicalAgeRange: "18-",
+      location: { name: "Outxide Club" },
+      offers: { "@type": "Offer", price: "12.96", priceCurrency: "EUR" },
+    });
+    expect(ld).not.toHaveProperty("subEvent");
+    expect(JSON.stringify(ld).match(/"@type":"Event"/g)).toHaveLength(1);
+    expect(ld.description).toContain("tardeo de acceso libre en Enjoy Terrace");
+    expect(ld.description).toContain("de 20:00 a 23:00");
+    // La edad va pegada a OUTXIDE, nunca a la frase del tardeo.
+    const tardeoSentence = ld.description.slice(ld.description.indexOf("Antes"));
+    expect(tardeoSentence).not.toMatch(/18/);
   });
 
   test("tarifas vendibles y precio «desde» con gastos = cálculo a mano", async ({ request }) => {
@@ -363,7 +514,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-phase", "venta");
     // Importe como CADENA (Intl usa espacio duro; Playwright lo normaliza).
     expect(expected).toBe(12.96);
-    await expect(page.getByTestId("outxidious-price")).toHaveText("Entradas desde 12,96 € (gastos incluidos)");
+    await expect(page.getByTestId("outxidious-price")).toHaveText("Entradas para OUTXIDE desde 12,96 € (gastos incluidos)");
 
     await expect(buyLinks(page)).toHaveCount(1);
     const buy = page.getByTestId("outxidious-buy");
@@ -383,30 +534,92 @@ test.describe("OUTXIDIOUS · landing", () => {
     for (const href of ["/legal/condiciones-venta", "/legal/condiciones-entrada", "/legal/privacidad", "/legal/cookies"]) {
       await expect(page.locator(`footer a[href="${href}"]`)).toHaveCount(1);
     }
-    await expect(page.getByTestId("outxidious-facts")).toHaveText("Sáb 31·10 · 23:00–05:30 · Av. Tucán 1 · Port d'Alcúdia");
-    await expect(page.locator('a[href^="https://www.google.com/maps"]')).toHaveCount(1);
+    // Las DOS partes de la noche, con sus horas y lugares.
+    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada");
+    // Un mapa por local (los de data/site/contact.json, como el resto de la web).
+    await expect(page.locator('a[href^="https://www.google.com/maps"]')).toHaveCount(2);
+  });
+
+  test("tardeo de acceso libre: sin botón, precio, enlace ni formulario; el único botón y el precio son de OUTXIDE", async ({ page }) => {
+    test.skip(CAMPAIGN_OVER, "la noche ya pasó");
+    await page.goto(OUTXIDIOUS_PATH);
+    const tardeo = page.getByTestId("outxidious-part-tardeo");
+    await expect(tardeo).toBeVisible();
+    await expect(tardeo.locator("a, button, form, input")).toHaveCount(0);
+    await expect(tardeo).not.toContainText("€");
+    // En venta no hay ningún formulario en la página (los avisos solo salen en «pronto»).
+    await expect(page.locator("form")).toHaveCount(0);
+    await expect(buyLinks(page)).toHaveCount(1);
+    await expect(page.locator("main button")).toHaveCount(1); // solo pausa/reproducir del vídeo
+    await expect(page.getByTestId("outxidious-video-toggle")).toHaveCount(1);
+    // El precio dice de qué parte es y va DESPUÉS de las dos partes, junto al botón.
+    await expect(page.getByTestId("outxidious-price")).toContainText("OUTXIDE");
+    const parts = (await page.getByTestId("outxidious-parts").boundingBox())!;
+    const price = (await page.getByTestId("outxidious-price").boundingBox())!;
+    expect(price.y).toBeGreaterThan(parts.y + parts.height - 1);
+    // Ningún texto afirma la edad del tardeo: el +18 es la placa de la página.
+    await expect(tardeo).not.toContainText("18");
+  });
+
+  test("cómo llegar: Enjoy Terrace (tardeo) y OUTXIDE Club, cada uno con su dirección y su mapa", async ({ page }) => {
+    await page.goto(OUTXIDIOUS_PATH);
+    const enjoy = page.getByTestId("outxidious-venue-enjoy");
+    const outxide = page.getByTestId("outxidious-venue-outxide");
+    await expect(enjoy.locator("h3")).toHaveText("Enjoy Terrace · tardeo de 20:00 a 23:00");
+    await expect(outxide.locator("h3")).toHaveText("OUTXIDE Club · de 23:00 a 05:30");
+    await expect(enjoy).toContainText("Av. Tucán 1, 07400 Port d'Alcúdia (Mallorca)");
+    await expect(outxide).toContainText("Av. Tucán 1, 07400 Port d'Alcúdia (Mallorca)");
+    const enjoyMap = enjoy.getByRole("link", { name: "Ver Enjoy Terrace en Google Maps" });
+    const outxideMap = outxide.getByRole("link", { name: "Ver OUTXIDE Club en Google Maps" });
+    await expect(enjoyMap).toHaveAttribute("href", siteContact.venues.enjoy.mapsUrl);
+    await expect(outxideMap).toHaveAttribute("href", siteContact.venues.outxide.mapsUrl);
+    for (const link of [enjoyMap, outxideMap]) {
+      await expect(link).toHaveAttribute("target", "_blank");
+      await expect(link).toHaveAttribute("rel", /noopener/);
+    }
   });
 
   for (const viewport of [
     { width: 375, height: 667 },
     { width: 390, height: 844 },
   ]) {
-    for (const phase of ["venta", "pronto"] as const) {
-      test(`primera pantalla ${viewport.width}×${viewport.height} (${phase}): h1 y placa +18 visibles sin hacer scroll`, async ({ page }) => {
-        test.skip(CAMPAIGN_OVER && phase === "venta", "la noche ya pasó");
+    for (const phase of ["venta", "hoy", "pronto"] as const) {
+      test(`primera pantalla ${viewport.width}×${viewport.height} (${phase}): vídeo encima, h1, las dos partes y placa +18 sin hacer scroll`, async ({ page }) => {
+        test.skip(CAMPAIGN_OVER && phase !== "pronto", "la noche ya pasó");
         await page.setViewportSize(viewport);
         await page.goto(`${OUTXIDIOUS_PATH}?phase=${phase}`);
-        const h1 = await page.locator("h1").boundingBox();
-        const plate = await page.getByTestId("outxidious-legal-plate").boundingBox();
-        expect(h1!.y).toBeGreaterThanOrEqual(0);
-        expect(plate!.y + plate!.height, "la placa debe caber en la primera pantalla").toBeLessThanOrEqual(viewport.height);
-        if (phase === "venta") {
-          const buy = await page.getByTestId("outxidious-buy").boundingBox();
-          expect(buy!.y + buy!.height).toBeLessThanOrEqual(viewport.height);
+        const media = (await page.getByTestId("outxidious-hero-media").boundingBox())!;
+        const h1 = (await page.locator("h1").boundingBox())!;
+        const parts = (await page.getByTestId("outxidious-parts").boundingBox())!;
+        const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
+        // En móvil el vídeo va ENCIMA del h1, recortado a 5:2.
+        expect(media.y + media.height).toBeLessThanOrEqual(h1.y);
+        expect(Math.abs(media.width / media.height - 2.5)).toBeLessThan(0.05);
+        expect(h1.y).toBeGreaterThanOrEqual(0);
+        expect(parts.y + parts.height, "las dos partes en la primera pantalla").toBeLessThanOrEqual(viewport.height);
+        expect(plate.y + plate.height, "la placa debe caber en la primera pantalla").toBeLessThanOrEqual(viewport.height);
+        if (phase !== "pronto") {
+          const buy = (await page.getByTestId("outxidious-buy").boundingBox())!;
+          expect(buy.y + buy.height).toBeLessThanOrEqual(viewport.height);
         }
       });
     }
   }
+
+  test("primera pantalla 375×667 en los otros 4 idiomas (venta y hoy): la placa sigue cabiendo", async ({ page }) => {
+    test.skip(CAMPAIGN_OVER, "la noche ya pasó");
+    await page.setViewportSize({ width: 375, height: 667 });
+    for (const loc of ["en", "de", "fr", "it"]) {
+      for (const q of ["", "?phase=hoy"]) {
+        await page.goto(`/${loc}${OUTXIDIOUS_PATH}${q}`);
+        const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
+        const buy = (await page.getByTestId("outxidious-buy").boundingBox())!;
+        expect(plate.y + plate.height, `${loc}${q}`).toBeLessThanOrEqual(667);
+        expect(buy.y + buy.height, `${loc}${q}`).toBeLessThanOrEqual(667);
+      }
+    }
+  });
 
   test("pronto (?phase=pronto): sin enlace a la taquilla, texto neutro y formulario de avisos con RGPD", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
@@ -416,7 +629,10 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(buyLinks(page)).toHaveCount(0);
     await expect(page.getByTestId("outxidious-price")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-soon")).toContainText("Entradas a la venta muy pronto");
-    await expect(page.getByTestId("outxidious-soon")).toContainText("Las entradas estarán disponibles en esta página en breve.");
+    await expect(page.getByTestId("outxidious-soon")).toContainText("Las entradas para OUTXIDE estarán disponibles en esta página en breve.");
+    // El tardeo sigue contado en «pronto», sin botón ni formulario propios.
+    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre");
+    await expect(page.getByTestId("outxidious-part-tardeo").locator("a, button, form, input")).toHaveCount(0);
     const form = page.getByTestId("outxidious-alerts");
     await expect(form).toBeVisible();
     // Misma casilla y textos legales que el formulario de /agenda, sin marcar.
@@ -444,7 +660,8 @@ test.describe("OUTXIDIOUS · landing", () => {
   test("hoy (?phase=hoy): línea «Hoy» con la hora del evento y el mismo botón", async ({ page }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(`${OUTXIDIOUS_PATH}?phase=hoy`);
-    await expect(page.getByTestId("outxidious-today")).toHaveText("Hoy · apertura a las 23:00");
+    await expect(page.getByTestId("outxidious-today")).toHaveText("Hoy · desde las 20:00");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada");
     await expect(buyLinks(page)).toHaveCount(1);
     // Sin contenido aprobado no hay claim (ni el del día).
     await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
@@ -467,7 +684,11 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.locator("h1")).toHaveText("OUTXIDIOUS · Saturday 31 October");
     await expect(page.getByTestId("outxidious-buy")).toHaveText("Buy tickets");
     await expect(page.getByTestId("outxidious-buy")).toHaveAttribute("href", `https://entradas.grupoenjoy.es/?event=${OX_REF}&lang=en`);
-    await expect(page.getByTestId("outxidious-price")).toHaveText("Tickets from €12.96 (fees included)");
+    await expect(page.getByTestId("outxidious-price")).toHaveText("OUTXIDE tickets from €12.96 (fees included)");
+    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Early party · Enjoy Terrace 20:00–23:00 · free entry");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · ticket required");
+    // Descripción accesible del vídeo en inglés.
+    await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("aria-label", /^Silent animation/);
     await expect(page.getByTestId("outxidious-legal-plate")).toHaveText("18+ · Drink responsibly");
     await expect(page).toHaveTitle("OUTXIDIOUS · OUTXIDE Club · Sat 31 Oct");
     await expectNoRawKeys(page, "/en landing");
@@ -483,9 +704,15 @@ test.describe("OUTXIDIOUS · landing", () => {
       const html = await res.text();
       expect(html, `${path}: debe llevar el payload RSC`).toContain("self.__next_f");
       expectCleanHtml(html, path);
-      // Ni el teaser ni el logo de la campaña (no aprobados).
-      expect(html).not.toContain("outxidious-teaser");
+      // Evento compartido: el tardeo y Enjoy Terrace sí aparecen (léxico permitido desde el 19-oct).
+      expect(normalize(html)).toContain("enjoy terrace");
+      // El teaser APROBADO sí (póster precargado + vídeo); el logo suelto y el tema rojo, no.
+      expect(html).toContain(TEASER.poster);
+      expect(html).toContain(TEASER.mp4);
       expect(html).not.toContain("/images/outxidious");
+      expect(html).not.toContain("theme-outxidious");
+      expect(html).not.toContain('data-testid="outxidious-claim"');
+      expect(html).not.toContain('data-testid="outxidious-sections"');
     }
   });
 
@@ -496,7 +723,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
     const description = await page.locator('meta[name="description"]').getAttribute("content");
     expect(description).toBe(
-      "Halloween 2026 en OUTXIDE Club: sábado 31 de octubre, de 23:00 a 05:30, en Av. Tucán 1, Port d'Alcúdia (Mallorca). Solo mayores de 18 años.",
+      "Halloween, sábado 31 de octubre en Port d'Alcúdia: tardeo de acceso libre en Enjoy Terrace de 20:00 a 23:00 y OUTXIDE Club de 23:00 a 05:30, con entrada (+18).",
     );
     expect(description).not.toMatch(/€|desde/);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
@@ -505,7 +732,8 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://www.grupoenjoy.es/outxide/outxidious");
 
-    // Un único JSON-LD: el Event de OUTXIDIOUS (sin el ItemList del club).
+    // Un único JSON-LD: el Event a la venta, el de OUTXIDE (sin el ItemList del
+    // club). El tardeo gratuito va en la descripción, sin subEvent ni oferta.
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld).toHaveLength(1);
     const data = JSON.parse(ld[0]);
@@ -513,6 +741,14 @@ test.describe("OUTXIDIOUS · landing", () => {
     expect(data.name).toBe("OUTXIDIOUS · Halloween 2026");
     expect(data.startDate).toBe("2026-10-31T23:00:00+01:00");
     expect(data.endDate).toBe("2026-11-01T05:30:00+01:00");
+    expect(data.location.name).toBe("Outxide Club");
+    expect(data.isAccessibleForFree).toBe(false);
+    expect(data.subEvent).toBeUndefined();
+    expect(ld[0].match(/"@type":"Event"/g)).toHaveLength(1);
+    expect(ld[0].match(/"@type":"Offer"/g)).toHaveLength(1);
+    expect(data.description).toBe(
+      "Halloween 2026 en OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): sábado 31 de octubre de 23:00 a 05:30, con entrada y solo para mayores de 18 años. Antes, de 20:00 a 23:00, tardeo de acceso libre en Enjoy Terrace.",
+    );
     expect(data.offers).toMatchObject({
       price: "12.96",
       priceCurrency: "EUR",
@@ -542,6 +778,97 @@ test.describe("OUTXIDIOUS · landing", () => {
       });
       expect(scrollable, q).toBeLessThanOrEqual(1);
       expect(cut, q).toEqual([]);
+    }
+  });
+
+  test("teaser aprobado: póster precargado con prioridad (LCP), sin autoplay en el HTML, arranca solo en silencio y en bucle, con pausa", async ({
+    page,
+    request,
+  }) => {
+    // El HTML de servidor: póster precargado con prioridad alta, vídeo sin autoplay y con preload=metadata.
+    const html = await (await request.get(OUTXIDIOUS_PATH)).text();
+    expect(html).toMatch(new RegExp(`<link rel="preload" href="${TEASER.poster}" as="image" fetchPriority="high"/>`, "i"));
+    const tag = html.match(/<video[^>]*>/)?.[0] ?? "";
+    expect(tag).toContain(`poster="${TEASER.poster}"`);
+    expect(tag).toContain('preload="metadata"');
+    expect(tag).toMatch(/\bmuted=""/);
+    expect(tag).toMatch(/\bplaysInline=""/i);
+    expect(tag).toMatch(/\bloop=""/);
+    expect(tag).not.toMatch(/\bautoplay/i);
+    // Ficheros servidos con su tipo.
+    for (const [file, type] of [[TEASER.mp4, "video/mp4"], [TEASER.webm, "video/webm"], [TEASER.poster, "image/webp"]] as const) {
+      const res = await request.get(file);
+      expect(res.status(), file).toBe(200);
+      expect(res.headers()["content-type"], file).toContain(type);
+    }
+
+    await page.goto(OUTXIDIOUS_PATH);
+    const video = page.getByTestId("outxidious-hero-video");
+    await expect(video).toHaveJSProperty("muted", true);
+    await expect(video).toHaveJSProperty("loop", true);
+    await expect(video.locator("source")).toHaveCount(2);
+    await expect(video.locator("source").first()).toHaveAttribute("src", TEASER.webm);
+    await expect(video).toHaveAttribute("aria-label", /^Animación sin sonido/);
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused), { timeout: 15_000 }).toBe(false);
+    const toggle = page.getByTestId("outxidious-video-toggle");
+    await expect(toggle).toBeVisible();
+    await expect(toggle).toHaveAttribute("aria-label", "Pausar el vídeo");
+    const tb = (await toggle.boundingBox())!;
+    expect(tb.width).toBeGreaterThanOrEqual(44);
+    expect(tb.height).toBeGreaterThanOrEqual(44);
+    await toggle.click();
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+    await expect(toggle).toHaveAttribute("aria-label", "Reproducir el vídeo");
+    await toggle.click();
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
+  });
+
+  test("teaser: con movimiento reducido o Save-Data solo el póster (y el botón ofrece reproducir)", async ({ page, context }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto(OUTXIDIOUS_PATH);
+    await page.waitForTimeout(1500);
+    const video = page.getByTestId("outxidious-hero-video");
+    expect(await video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+    await expect(page.getByTestId("outxidious-video-toggle")).toHaveAttribute("aria-label", "Reproducir el vídeo");
+
+    // Save-Data: on → ni precarga ni reproducción automática.
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await context.setExtraHTTPHeaders({ "save-data": "on" });
+    await page.goto(OUTXIDIOUS_PATH);
+    await page.waitForTimeout(1500);
+    await expect(video).toHaveAttribute("preload", "none");
+    expect(await video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+    await expect(video).toHaveAttribute("poster", TEASER.poster);
+  });
+
+  test("teaser sin CLS: la caja tiene su tamaño definitivo desde el HTML (5:2 en móvil, 1:1 en escritorio)", async ({ page }) => {
+    for (const [width, height, ratio] of [[375, 667, 2.5], [1280, 800, 1]] as const) {
+      await page.setViewportSize({ width, height });
+      // Sin el vídeo (peticiones cortadas): el HTML y el CSS del servidor ya reservan la caja.
+      await page.route(/\.(mp4|webm)$/, (route) => route.abort());
+      await page.goto(OUTXIDIOUS_PATH, { waitUntil: "domcontentloaded" });
+      const media = page.getByTestId("outxidious-hero-media");
+      const before = (await media.boundingBox())!;
+      expect(Math.abs(before.width / before.height - ratio), `${width}px`).toBeLessThan(0.02);
+      await page.unroute(/\.(mp4|webm)$/);
+      await page.reload({ waitUntil: "load" });
+      await page.waitForTimeout(1200);
+      const after = (await media.boundingBox())!;
+      expect(Math.abs(after.height - before.height), `${width}px: la caja no cambia al cargar`).toBeLessThanOrEqual(1);
+      // Y el h1 tampoco se mueve por culpa del vídeo.
+      const shift = await page.evaluate(
+        () =>
+          new Promise<number>((resolve) => {
+            let total = 0;
+            new PerformanceObserver((list) => {
+              for (const e of list.getEntries() as unknown as { value: number; hadRecentInput: boolean }[]) {
+                if (!e.hadRecentInput) total += e.value;
+              }
+            }).observe({ type: "layout-shift", buffered: true });
+            setTimeout(() => resolve(total), 500);
+          }),
+      );
+      expect(shift, `${width}px: CLS`).toBeLessThan(0.05);
     }
   });
 
@@ -782,11 +1109,25 @@ test.describe("OUTXIDIOUS · rama aprobada (contenido ficticio)", () => {
     expect(await page.getByTestId("outxidious-hero-video").evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
   });
 
-  test("el contenido ficticio no se cuela sin la cabecera (lo real sigue apagado)", async ({ page, context }) => {
+  test("el contenido ficticio no se cuela sin la cabecera (lo real: solo el teaser)", async ({ page, context }) => {
     await context.setExtraHTTPHeaders({});
     await page.goto(OUTXIDIOUS_PATH);
     await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-theme", "neutro");
     await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", TEASER.poster);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  });
+
+  test("todo relleno pero solo el vídeo aprobado: vídeo sí; claim, secciones, rojo, OG e index no", async ({ page, context }) => {
+    await context.setExtraHTTPHeaders({ [TEST_CONTENT_HEADER]: toHeader({ ...FIXTURE, approved: { heroMedia: true } }) });
+    await page.goto(`${OUTXIDIOUS_PATH}?phase=pronto`);
+    await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", "/videos/outxide-hero-poster.jpg");
+    await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-theme", "neutro");
+    await expect(page.getByTestId("outxidious-page")).not.toHaveClass(/theme-outxidious/);
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
   });
 });

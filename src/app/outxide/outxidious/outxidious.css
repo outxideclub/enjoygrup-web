@@ -10,7 +10,7 @@
       en blanco. Sin el rojo de campaña ni el cian del club.
 
    2) .ox-page.theme-outxidious = campaña ROJA (excepción del dueño al manual
-      de OUTXIDE). Solo se aplica con content.approved=true y
+      de OUTXIDE). Solo se aplica con el hueco approved.theme encendido y
       theme="campana-roja". Tokens de LANDING-WEB.md §7.1, contrastes medidos
       sobre #070707:
       - cuerpo Hueso #EEE7DA 16,38:1 · titulares #F8F8F8 18,97:1
@@ -153,4 +153,16 @@
 }
 .ox-check {
   accent-color: var(--ox-btn-bg);
+}
+
+/* Caja del vídeo de cabecera (hero-video.tsx): la proporción viene en
+   variables desde el HTML de servidor, así el hueco está reservado antes de que
+   llegue el póster (CLS 0). En móvil, la recortada (--ox-media-ar-sm) si la hay. */
+.ox-media {
+  aspect-ratio: var(--ox-media-ar-sm, var(--ox-media-ar, 16 / 9));
+}
+@media (min-width: 768px) {
+  .ox-media {
+    aspect-ratio: var(--ox-media-ar, 16 / 9);
+  }
 }

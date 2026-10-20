@@ -264,34 +264,46 @@ export const es = {
   },
   // Landing de OUTXIDIOUS (Halloween 2026, /outxide/outxidious), destino de los
   // anuncios de Meta. SOLO textos neutros y factuales (corrección del 19-oct-2026:
-  // el material creativo de la campaña no está aprobado y, cuando lo esté, va en
-  // src/lib/outxidious/content.ts, no aquí). Léxico vigilado por
-  // e2e/outxidious.spec.ts: nada de alcohol, golosinas, disponibilidad ni
-  // palabras de puerta. Placeholders {start} {end} {price}: los pone la página.
+  // el material creativo de la campaña va en src/lib/outxidious/content.ts, con
+  // aprobación por hueco, no aquí). Evento COMPARTIDO (19-oct): tardeo de acceso
+  // libre en Enjoy Terrace + OUTXIDE con entrada; el precio y el botón son solo
+  // de OUTXIDE y la edad del tardeo NO está confirmada (ningún texto la afirma:
+  // el +18 va siempre pegado a OUTXIDE). Léxico vigilado por
+  // e2e/outxidious.spec.ts: nada de alcohol, shisha, golosinas, disponibilidad ni
+  // palabras de puerta. Placeholders {start} {end} (OUTXIDE), {tardeoStart}
+  // {tardeoEnd} y {price}: los pone la página.
   outxidious: {
     metaTitle: "OUTXIDIOUS · OUTXIDE Club · Sáb 31 oct",
-    metaDescription: "Halloween 2026 en OUTXIDE Club: sábado 31 de octubre, de {start} a {end}, en Av. Tucán 1, Port d'Alcúdia (Mallorca). Solo mayores de 18 años.",
-    keywords: "OUTXIDIOUS, OUTXIDE Club, Halloween 2026, Port d'Alcúdia, Alcúdia, Mallorca",
-    ogTitle: "OUTXIDIOUS · Sáb 31·10 · OUTXIDE Club",
-    ogDescription: "Sábado 31 de octubre, de {start} a {end}, en OUTXIDE Club, Port d'Alcúdia. +18.",
+    metaDescription: "Halloween, sábado 31 de octubre en Port d'Alcúdia: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y OUTXIDE Club de {start} a {end}, con entrada (+18).",
+    keywords: "OUTXIDIOUS, OUTXIDE Club, Enjoy Terrace, Halloween 2026, Port d'Alcúdia, Alcúdia, Mallorca",
+    ogTitle: "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE Club",
+    ogDescription: "Sábado 31 de octubre en Port d'Alcúdia: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y OUTXIDE Club de {start} a {end}, con entrada (+18).",
     ogImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
-    eyebrow: "Halloween 2026 · OUTXIDE Club",
+    eyebrow: "Halloween 2026 · Enjoy + OUTXIDE",
     h1Name: "OUTXIDIOUS",
     h1Date: "sábado 31 de octubre",
-    today: "Hoy · apertura a las {start}",
-    facts: "Sáb 31·10 · {start}–{end} · Av. Tucán 1 · Port d'Alcúdia",
-    priceFrom: "Entradas desde {price} (gastos incluidos)",
+    today: "Hoy · desde las {tardeoStart}",
+    partsLabel: "Programa del sábado 31",
+    partTardeo: "Tardeo · Enjoy Terrace",
+    partTardeoDetail: "{tardeoStart}–{tardeoEnd} · acceso libre",
+    partOutxide: "OUTXIDE",
+    partOutxideDetail: "{start}–{end} · entrada",
+    priceFrom: "Entradas para OUTXIDE desde {price} (gastos incluidos)",
     buy: "Comprar entradas",
     legalPlate: "+18 · Consumo responsable",
     soonTitle: "Entradas a la venta muy pronto",
-    soonText: "Las entradas estarán disponibles en esta página en breve.",
+    soonText: "Las entradas para OUTXIDE estarán disponibles en esta página en breve.",
     alertsText: "Si quieres, te avisamos por email de los próximos eventos.",
     afterTitle: "Gracias por venir",
     afterText: "OUTXIDIOUS se celebró el sábado 31 de octubre de 2026.",
     afterLink: "Ver los próximos eventos de OUTXIDE",
     directionsTitle: "Cómo llegar",
     address: "Av. Tucán 1, 07400 Port d'Alcúdia (Mallorca)",
-    mapsLink: "Ver en Google Maps",
+    mapsLink: "Ver OUTXIDE Club en Google Maps",
+    directionsEnjoy: "Enjoy Terrace · tardeo de {tardeoStart} a {tardeoEnd}",
+    directionsOutxide: "OUTXIDE Club · de {start} a {end}",
+    addressEnjoy: "Av. Tucán 1, 07400 Port d'Alcúdia (Mallorca)",
+    mapsLinkEnjoy: "Ver Enjoy Terrace en Google Maps",
     homeLabel: "OUTXIDE Club: página del club",
     organizer: "Organiza Enjoy Club 78 S.L. · NIF B75300376 · Av. Tucán 1, 07400 Alcúdia",
     legalNav: "Información legal",
@@ -302,7 +314,7 @@ export const es = {
     videoPause: "Pausar el vídeo",
     videoPlay: "Reproducir el vídeo",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "Halloween 2026 en OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): sábado 31 de octubre de {start} a {end}. Solo mayores de 18 años.",
+    jsonLdDescription: "Halloween 2026 en OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): sábado 31 de octubre de {start} a {end}, con entrada y solo para mayores de 18 años. Antes, de {tardeoStart} a {tardeoEnd}, tardeo de acceso libre en Enjoy Terrace.",
     backToClub: "Ir a OUTXIDE Club",
   },
   purchase: {
