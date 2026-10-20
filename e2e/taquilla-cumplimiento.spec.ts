@@ -9,10 +9,11 @@ import { es } from "../src/i18n/dictionaries/es";
 // LANDING-WEB.md §11 n.º 3 y n.º 4), contra el doble de Fourvenues:
 //   1. «+18 · Consumo responsable» visible en la cabecera del evento (y en la
 //      lista de eventos), también a 375 px y con el banner de cookies abierto.
-//   2. Una tarifa con «Inicio de la venta» programado (valid_from futuro, sin
-//      current_price) se pinta «A la venta el {día} a las {hora}», nunca
+//   2. Una tarifa con «Inicio de la venta» programado (valid_from futuro, con o
+//      sin current_price) se pinta «A la venta el {día} a las {hora}», nunca
 //      «Agotado» (dato de disponibilidad falso, regla del dueño), y no se puede
-//      elegir ni comprar; las demás tarifas siguen comprables.
+//      elegir ni comprar (la ruta responde 409 aunque Fourvenues ya publique el
+//      precio); las demás tarifas siguen comprables.
 //   3. Red de seguridad acordada con META ADS: los nombres de tarifa y su
 //      «Incluye» se pintan sin el emoji 🍭 (tarjeta, etiquetas accesibles,
 //      resumen y payload del HTML), sin reescribir «copa» ni «chupito».
@@ -37,7 +38,12 @@ interface Fixtures {
   rates: FVTicketRate[];
   /** Tarifa del mock con valid_from futuro y sin current_price. */
   upcoming: FVTicketRate;
+  /** Tarifa del mock con valid_from futuro pero con current_price ya publicado. */
+  upcomingPriced: FVTicketRate;
 }
+
+/** «Inicio de la venta» aún no alcanzado (reloj de este proceso, como el del servidor). */
+const notOpenYet = (r: FVTicketRate) => Date.parse(r.valid_from) > Date.now();
 
 function unwrap<T>(json: unknown): T[] {
   if (Array.isArray(json)) return json as T[];
@@ -54,9 +60,11 @@ async function loadFixtures(request: APIRequestContext): Promise<Fixtures> {
   const rates = unwrap<FVTicketRate>(
     await (await request.get(`${MOCK}/ticket-rates?event_id=${encodeURIComponent(event._id)}`)).json(),
   );
-  const upcoming = rates.find((r) => !r.current_price && Date.parse(r.valid_from) > Date.now());
+  const upcoming = rates.find((r) => !r.current_price && notOpenYet(r));
   if (!upcoming) throw new Error("el mock no tiene la tarifa con inicio de venta futuro");
-  return { event, ref: `${event.slug}-${event.code}`, rates, upcoming };
+  const upcomingPriced = rates.find((r) => r.current_price && notOpenYet(r));
+  if (!upcomingPriced) throw new Error("el mock no tiene la tarifa con inicio de venta futuro y precio publicado");
+  return { event, ref: `${event.slug}-${event.code}`, rates, upcoming, upcomingPriced };
 }
 
 let fx: Fixtures;
@@ -194,8 +202,19 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(page.getByTestId("step-select")).not.toContainText("Agotado");
     await expect(page.getByTestId("bar-continue")).toBeDisabled();
 
+    // Si Fourvenues ya publicó el precio, se ve (sin atenuar), pero la tarjeta
+    // sigue sin stepper ni «Agotado» hasta la hora de apertura.
+    const priced = page.locator(`[data-testid="rate-card"][data-rate-id="${fx.upcomingPriced._id}"]`);
+    await expect(priced.getByTestId("rate-opens-at")).toHaveText(
+      await expectedOpensText(page, fx.upcomingPriced.valid_from, "es"),
+    );
+    await expect(priced.getByTestId("rate-price")).toContainText("20,00");
+    await expect(priced.getByTestId("rate-soldout")).toHaveCount(0);
+    await expect(priced.getByTestId("qty-plus")).toHaveCount(0);
+    await expect(priced).toHaveAttribute("aria-disabled", "true");
+
     // Las demás tarifas siguen comprables: stepper activo y se llega a Datos.
-    const open = fx.rates.filter((r) => r._id !== fx.upcoming._id);
+    const open = fx.rates.filter((r) => !notOpenYet(r));
     expect(open.length).toBeGreaterThan(0);
     for (const rate of open) {
       const other = page.locator(`[data-testid="rate-card"][data-rate-id="${rate._id}"]`);
@@ -266,26 +285,55 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(card).not.toContainText("Sold out");
   });
 
-  test("la ruta de compra rechaza la tarifa antes de abrir (409) sin pedir el checkout a Fourvenues", async ({
+  test("la ruta de compra rechaza (409) la tarifa antes de abrir, también con el precio ya publicado, sin pedir el checkout a Fourvenues", async ({
     request,
     baseURL,
   }) => {
-    const res = await request.post("/api/checkout/tickets", {
-      headers: { origin: baseURL ?? "", "x-forwarded-for": clientIp() },
-      data: {
-        eventId: fx.event._id,
-        rateId: fx.upcoming._id,
-        quantity: 1,
-        attendees: [{ full_name: "Prueba Apertura", email: "apertura@test.local", phone: "+34 600 000 004" }],
-        consents: { adult: true, terms: true, marketing: false },
-        locale: "es",
-        website: "",
-      },
-    });
-    expect(res.status(), await res.text()).toBe(409);
-    expect(await res.json()).toMatchObject({ ok: false, error: "rate_unavailable" });
+    // Precondición: la del precio adelantado pasa TODAS las demás comprobaciones
+    // de la ruta (pública, disponible, no completa, con price_id y solo campos
+    // conocidos): lo único que puede rechazarla es la guarda de valid_from.
+    const priced = fx.upcomingPriced;
+    expect(notOpenYet(priced)).toBe(true);
+    expect(priced).toMatchObject({ type: "public", available: true, complete: false });
+    expect(priced.current_price?._id ?? "").not.toBe("");
+    const openRate = fx.rates.find((r) => r.current_price && r.available && !r.complete && !notOpenYet(r));
+    if (!openRate) throw new Error("el mock no tiene una tarifa abierta para el control");
 
-    // Ningún POST /tickets/checkout con esta tarifa llegó al doble de Fourvenues.
+    const ip = clientIp();
+    const post = (rateId: string, attendee: Record<string, string>) =>
+      request.post("/api/checkout/tickets", {
+        headers: { origin: baseURL ?? "", "x-forwarded-for": ip },
+        data: {
+          eventId: fx.event._id,
+          rateId,
+          quantity: 1,
+          attendees: [attendee],
+          consents: { adult: true, terms: true, marketing: false },
+          locale: "es",
+          website: "",
+        },
+      });
+    const valid = { full_name: "Prueba Apertura", email: "apertura@test.local", phone: "+34 600 000 004" };
+
+    for (const rate of [fx.upcoming, priced]) {
+      const res = await post(rate._id, valid);
+      expect(res.status(), `${rate.name}: ${await res.text()}`).toBe(409);
+      expect(await res.json()).toMatchObject({ ok: false, error: "rate_unavailable" });
+    }
+
+    // Control que no llega a Fourvenues: con un email mal formado, una tarifa
+    // ya abierta supera las comprobaciones de tarifa y cae en las del asistente
+    // (400); la del precio adelantado sigue en 409. El rechazo es, por tanto,
+    // la guarda de valid_from, no el evento ni la forma del cuerpo.
+    const bad = { ...valid, email: "no-es-un-email" };
+    const control = await post(openRate._id, bad);
+    expect(control.status(), await control.text()).toBe(400);
+    expect(await control.json()).toMatchObject({ ok: false, error: "invalid_input" });
+    const guarded = await post(priced._id, bad);
+    expect(guarded.status(), await guarded.text()).toBe(409);
+    expect(await guarded.json()).toMatchObject({ ok: false, error: "rate_unavailable" });
+
+    // Ningún POST /tickets/checkout con estas tarifas llegó al doble de Fourvenues.
     const log = (await (await request.get(`${MOCK}/__test/requests`)).json()) as {
       method?: string;
       path?: string;
@@ -297,7 +345,7 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
       return (
         String(r.method).toUpperCase() === "POST" &&
         String(r.path ?? r.url ?? "").includes("/tickets/checkout") &&
-        body.includes(fx.upcoming._id)
+        (body.includes(fx.upcoming._id) || body.includes(priced._id))
       );
     });
     expect(reached).toHaveLength(0);
