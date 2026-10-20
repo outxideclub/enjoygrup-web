@@ -150,8 +150,12 @@ export function resolveEmpresasView({
   // --- 1. Primera pantalla -------------------------------------------------
   const h1 = pick(c.hero?.titular);
   const plate = pick(c.hero?.placa) ?? t("empresas.adultNotice");
+  // Antetítulo del cartel del anuncio («Celebra tu fin de temporada en OUTXIDE
+  // Club») mientras viva el bloque de fin de temporada; a la misma hora vuelve
+  // el neutro del paquete. Mismo reloj que el bloque: nunca uno sin el otro.
+  const seasonEyebrow = seasonLive ? pick(c.hero?.eyebrowFinTemporada) : null;
   const hero = {
-    eyebrow: pick(c.hero?.eyebrow) ?? t("empresas.heroEyebrow"),
+    eyebrow: seasonEyebrow ?? pick(c.hero?.eyebrow) ?? t("empresas.heroEyebrow"),
     h1Lines: h1 ? h1.split("\n").map((s) => s.trim()).filter(Boolean) : [t("empresas.h1")],
     subtitle: pick(c.hero?.entradilla) ?? t("empresas.subtitle"),
     // La línea neutra habla de las fiestas de fin de temporada: se retira a la

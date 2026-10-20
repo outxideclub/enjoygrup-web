@@ -81,11 +81,15 @@
   font-family: var(--font-oswald), system-ui, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  /* El paquete pide clamp(2.25rem, 9vw, 4.5rem) y DOS líneas en un iPhone SE;
-     medido en Chrome a 375 px, a 36 px la primera línea no cabe (ES 353 px,
-     EN 385 px para 343 px útiles) y el H1 salía en tres. Manda la intención
-     (dos líneas): mínimo 2rem y 8,5vw (ES 313 px y EN 334 px a 375 px). */
-  font-size: clamp(2rem, 8.5vw, 4.5rem);
+  /* El paquete pide clamp(2.25rem, 9vw, 4.5rem) y DOS líneas en un iPhone SE.
+     Con el H1 del cartel (20-oct-2026) la línea más larga es la inglesa,
+     «DINNER, WHEREVER YOU LIKE.», que mide 11,84 em (ES «LA FIESTA, CON
+     NOSOTROS.», 10,75 em), medido en Chrome. A 32 px no cabía en los 343 px
+     útiles de 375 px (379 px en EN, 344 px en ES) y el H1 salía en tres o
+     cuatro líneas. Manda la intención (dos líneas): calc(8.2vw - 3px) deja la
+     línea inglesa dentro del ancho útil de 320 px a escritorio (27,75 px a
+     375 px: 329 px de 343; a 640 y 768 px, con el margen de 24 px, también). */
+  font-size: clamp(1.5rem, calc(8.2vw - 3px), 4.5rem);
   line-height: 1.02;
   letter-spacing: -0.01em;
   color: var(--emp-text);
