@@ -1,4 +1,4 @@
-import { statSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import { test, expect, type APIRequestContext, type BrowserContext, type Page } from "@playwright/test";
 import type { FVEvent, FVTicketRate, FVTicketsCheckoutRequest } from "../src/lib/fourvenues/types";
 import { es } from "../src/i18n/dictionaries/es";
@@ -9,6 +9,7 @@ import { it as itDict } from "../src/i18n/dictionaries/it";
 import { dictionaryScopeFor, pickDictionary } from "../src/i18n/scoped-dictionary";
 import { siteContact } from "../src/lib/site";
 import {
+  OUTXIDIOUS_CARTEL,
   OUTXIDIOUS_CONTENT,
   OUTXIDIOUS_PATH,
   OUTXIDIOUS_SLOTS,
@@ -23,6 +24,7 @@ import {
   AFTER_FROM,
   OUTXIDE_END_ISO,
   OUTXIDE_START_ISO,
+  OUTXIDIOUS_LINEUP,
   TARDEO_END_TIME,
   TARDEO_START_TIME,
   TODAY_FROM,
@@ -35,6 +37,8 @@ import {
   sellableRates,
 } from "../src/lib/outxidious/event-config";
 import { buildOutxidiousEventJsonLd, toMadridIso } from "../src/lib/outxidious/jsonld";
+import { EMPRESAS_CONTENT } from "../src/lib/empresas/content";
+import { PROMO_IMAGES } from "../src/lib/promos";
 
 // Landing de OUTXIDIOUS (Halloween 2026), destino de los anuncios de Meta, contra
 // el doble de Fourvenues (e2e/mocks/fourvenues-mock.mjs: evento "OUTXIDIOUS |
@@ -51,10 +55,16 @@ import { buildOutxidiousEventJsonLd, toMadridIso } from "../src/lib/outxidious/j
 // prueban con contenido FICTICIO que vive solo en este fichero y viaja en la
 // cabecera del doble de pruebas (solo la atiende `next dev`).
 // 20-oct (paquete v0.4, hechos de Sergi): el tardeo es +18 como OUTXIDE (las
-// frases del paquete que lo dicen vuelven), DJ Siquiers en la parte de OUTXIDE
-// (5 idiomas, sin performer en el JSON-LD), meta description en inglés con
+// frases del paquete que lo dicen vuelven), el line-up confirmado en su parte
+// de la noche (AGUILÓ · MARC RIPOLL en el tardeo; PLAYING COLORS · DAVID
+// CASTRO · SIQUIERS en OUTXIDE; 5 idiomas, sin performer en el JSON-LD), meta
+// description en inglés con
 // «free-entry», descripción del JSON-LD de Enjoy Terrace y OUTXIDE, y el muro
 // +18 como fila 0 de la primera pantalla (375×600 con ?phase=hoy).
+// 20-oct (noche, Sergi; prevalece sobre el paquete): fuera de todo el sitio las
+// frases de RETIRED (5 idiomas), sin claim, dress code «disfraz de Halloween» y
+// la FAQ del dress code tal cual; y el CARTEL aprobado como bloque propio bajo
+// la primera pantalla, imagen para compartir y tarjeta de los accesos.
 
 const MOCK = process.env.FV_MOCK_URL ?? "http://localhost:3999";
 const OX_CODE = "OX31";
@@ -139,15 +149,37 @@ const FORBIDDEN: [string, RegExp][] = [
   ["transporte público / TIB / lanzadera", /transporte publico|public transport|\btib\b|lanzadera|shuttle/],
   // Promesas sin confirmar.
   ["humo / line-up / zona VIP / actuaciones", /\bhumo\b|line[- ]?up|zona vip|vip area|\bactuacion(es)?\b/],
-  // Cupos y puerta (A2 y LANDING-WEB §5): ni aforo ni comparación con la puerta.
+  // Cupos y puerta (A2 y LANDING-WEB §5): ni aforo ni precio o venta en la
+  // puerta (nunca una comparación con la puerta). Que en la puerta se pide el
+  // DNI sí se dice (FAQ del dress code, dictada por Sergi el 20-oct).
   ["aforo / cupo", /\baforo\b|\bcupos?\b/],
-  ["en puerta / at the door", /\ben (?:la )?puerta\b|at the door|door price/],
-  // Campaña anterior y léxico vetado de LANDING-WEB §4, sin el OK de Jose.
-  ["Cruza la X", /cruza la x/],
+  [
+    "precio o venta en puerta",
+    /\ben puerta\b|(?:precio|venta|vende[ns]?|pag(?:a|ar|as)|compra[rs]?|entradas?|taquilla)\b[^.]{0,30}\ben la puerta\b|\ben la puerta\b[^.]{0,30}(?:precio|€|euros?|pag(?:a|ar|as)|compra[rs]?|venta|entradas?)|door price|(?:price|pay|paid|buy|sold|sale|sales|tickets?)\b[^.]{0,30}\bat the door\b|\bat the door\b[^.]{0,30}(?:price|€|pay|buy|tickets?)|\bon the door\b|door sales?/,
+  ],
+  // Léxico vetado de LANDING-WEB §4, sin el OK de Jose.
   ["La puerta roja", /puerta roja|red door/],
   ["El Más Allá", /el mas alla/],
   // Nombres internos de los tokens de color (de trabajo, nunca visibles).
   ["nombres internos de tokens", /rojo rendija|rojo senal|rojo puerta|\blacre\b|\bnucleo\b|\blaton\b|\bhueso\b|negro otro lado|blanco outxide/],
+];
+
+/**
+ * Frases RETIRADAS por Sergi el 20-oct (noche), fuera de TODO el sitio y en los
+ * 5 idiomas (prevalece sobre el paquete creativo): el claim, el del sábado (y
+ * cualquier «se abre … se rompe»), el dress code negro con la grieta roja (y
+ * cualquier dress code de color), «Cruza la X» y los dos «lados». Sobre el
+ * texto sin acentos y en minúsculas, como FORBIDDEN. (La descripción accesible
+ * del teaser, «su X se rompe en esquirlas», describe el vídeo aprobado y no
+ * lleva «se abre»: no es la frase.)
+ */
+const RETIRED: [string, RegExp][] = [
+  ["Algo cruzó contigo", /algo cruzo contigo|crossed over|etwas ist mit dir|quelque chose a traverse|qualcosa (?:e passato|ha attraversato) con te|ya cruzo/],
+  ["se abre … se rompe", /se abre[\s\S]{0,60}?se rompe|\bopens?\b[\s\S]{0,30}?\bbreaks?\b|offnet[\s\S]{0,40}?bricht|\bouvre[\s\S]{0,40}?se brise|\bapre[\s\S]{0,40}?si rompe|(?:medianoche|00:00)[^.]{0,12}se rompe|es cuando se rompe|it breaks at|when it breaks|at midnight it breaks|breaks 00:00/],
+  ["dress code negro / grieta roja", /grieta|red crack|ven de negro|\bde negro\b|wear black|dress code: (?:negro|black|schwarz|noir|nero)|roter riss|fissure rouge|crepa rossa|trae una grieta|bring a red/],
+  ["Cruza la X", /cruza la x|cross the x|traverse (?:le|la) x|attraversa la x|uberquere das x/],
+  ["al otro lado", /otro lado|other side|anderen seite|andere seite|(?:de )?l(?:'|’|&#x27;|&#39;)autre cote|dall(?:'|’|&#x27;|&#39;)altra parte|altro lato/],
+  ["este lado", /este lado|this side|ce cote|questo lato/],
 ];
 
 /** Datos del panel que NO pueden viajar en la página (nombres, includes, stock, otras noches). */
@@ -166,7 +198,7 @@ function normalize(html: string): string {
 
 function expectCleanHtml(html: string, where: string): void {
   const text = normalize(html);
-  for (const [name, re] of [...FORBIDDEN, ...LEAKS]) {
+  for (const [name, re] of [...FORBIDDEN, ...RETIRED, ...LEAKS]) {
     const m = re.exec(text);
     expect(m, `${where}: aparece «${name}» → …${m ? text.slice(Math.max(0, m.index - 60), m.index + 60) : ""}…`).toBeNull();
   }
@@ -188,7 +220,37 @@ async function expectNoRawKeys(page: Page, where: string): Promise<void> {
 /** Los 5 diccionarios (mismas claves; es.ts define el tipo). */
 const DICTS = { es, en, de, fr, it: itDict } as const;
 const LOCALES = ["es", "en", "de", "fr", "it"] as const;
+
+/** Solo las frases retiradas (para páginas y textos de fuera de la landing, que tienen su propio léxico). */
+function expectNoRetired(text: string, where: string): void {
+  const n = normalize(text);
+  for (const [name, re] of RETIRED) {
+    const m = re.exec(n);
+    expect(m, `${where}: frase retirada «${name}» → …${m ? n.slice(Math.max(0, m.index - 60), m.index + 60) : ""}…`).toBeNull();
+  }
+}
 const localePath = (loc: (typeof LOCALES)[number], q = "") => `${loc === "es" ? "" : `/${loc}`}${OUTXIDIOUS_PATH}${q}`;
+
+/**
+ * Ancho y alto de un JPEG leyendo su cabecera SOF (sin dependencias: sharp en
+ * el proceso de pruebas dejaba los workers de Playwright sin salir).
+ */
+function jpegSize(file: string): { width: number; height: number } {
+  const b = readFileSync(file);
+  if (b[0] !== 0xff || b[1] !== 0xd8) throw new Error(`${file}: no es un JPEG`);
+  let i = 2;
+  while (i + 9 < b.length) {
+    if (b[i] !== 0xff) throw new Error(`${file}: marcador roto en ${i}`);
+    const marker = b[i + 1];
+    const len = b.readUInt16BE(i + 2);
+    // SOF0–SOF15 salvo DHT (C4), JPG (C8) y DAC (CC).
+    if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+      return { height: b.readUInt16BE(i + 5), width: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + len;
+  }
+  throw new Error(`${file}: sin SOF`);
+}
 
 /** Todas las cadenas de un objeto (para revisar content.ts y el diccionario). */
 function allStrings(obj: unknown): string[] {
@@ -293,6 +355,7 @@ const FIXTURE: OutxidiousContent = {
         label: "Video ficticio de prueba",
       },
       ogImage: { url: "/videos/outxide-hero-poster.jpg", width: 1920, height: 1080, alt: "Imagen OG ficticia" },
+      poster: { src: "/videos/outxide-hero-poster.jpg", width: 1920, height: 1080, alt: "Cartel ficticio de prueba" },
     },
     en: { claim: "FICTITIOUS EN CLAIM" },
   },
@@ -352,13 +415,14 @@ test.use({ locale: "es-ES" });
 // ===========================================================================
 
 test.describe("OUTXIDIOUS · lógica pura", () => {
-  test("content.ts: paquete provisional encendido (vídeo, claim, bloques con FAQ y tema rojo); OG e index apagados", () => {
+  test("content.ts: paquete provisional encendido (vídeo, bloques con FAQ y tema rojo) con el cartel aprobado de OG y bloque; sin claim; index apagado", () => {
     expect(OUTXIDIOUS_CONTENT.approved).toEqual({
       heroMedia: true,
       claim: true,
       sections: true,
       theme: true,
-      ogImage: false,
+      ogImage: true,
+      poster: true,
       index: false,
     });
     expect(OUTXIDIOUS_CONTENT.theme).toBe("campana-roja");
@@ -367,8 +431,19 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     const labels = new Set<string>();
     for (const loc of LOCALES) {
       const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
-      // Sin imagen OG en el paquete: la foto por defecto (nunca el logo fijo).
-      expect(r).toMatchObject({ theme: "campana-roja", ogImage: null });
+      // El cartel aprobado por Sergi (20-oct): imagen para compartir y bloque
+      // bajo la primera pantalla, con su alt en cada idioma.
+      const alt = OUTXIDIOUS_CARTEL.alt[loc];
+      expect(r).toMatchObject({
+        theme: "campana-roja",
+        ogImage: { url: OUTXIDIOUS_CARTEL.src, width: 1080, height: 1350, alt },
+        poster: { src: OUTXIDIOUS_CARTEL.src, width: 1080, height: 1350, alt },
+      });
+      // El alt cuenta lo que dice el cartel: Halloween, +18 y las dos partes con su line-up tal cual.
+      for (const name of [...OUTXIDIOUS_LINEUP.tardeo, ...OUTXIDIOUS_LINEUP.outxide]) expect(alt, `${loc}: ${name}`).toContain(name);
+      expect(alt, loc).toMatch(/Halloween/);
+      expect(alt, loc).toMatch(/18/);
+      expect(alt, loc).toMatch(/Enjoy Terrace.*OUTXIDE/);
       // El teaser aprobado, con su descripción accesible PROPIA en cada idioma
       // y el recorte más estrecho para pantallas bajas.
       expect(r.heroMedia).toMatchObject({
@@ -388,14 +463,15 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     }
     expect(labels.size, "una descripción distinta por idioma").toBe(5);
 
-    // ES y EN: claim, claim del día, los 4 bloques y la FAQ del paquete.
+    // ES y EN: sin claim (retirado por Sergi el 20-oct), los 3 bloques (tardeo,
+    // OUTXIDE y el dress code en una línea) y las 7 preguntas.
     for (const loc of ["es", "en"] as const) {
       const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
-      expect(r.claim, loc).toBeTruthy();
-      expect(r.claimToday, loc).toBeTruthy();
-      expect(r.sections, loc).toHaveLength(4);
-      // Tardeo («este lado») y OUTXIDE («el otro lado»), cada uno con su color.
-      expect(r.sections.map((x) => x.tone)).toEqual(["tardeo", "noche", undefined, undefined]);
+      expect(r.claim, loc).toBeNull();
+      expect(r.claimToday, loc).toBeNull();
+      expect(r.sections, loc).toHaveLength(3);
+      // El tardeo y OUTXIDE, cada uno con el color de su hora.
+      expect(r.sections.map((x) => x.tone)).toEqual(["tardeo", "noche", undefined]);
       expect(r.sections[0].time).toBe("{tardeoStart}–{tardeoEnd}");
       expect(r.sections[1].time).toBe("{start}–{end}");
       // Las 7 preguntas del paquete (la 3, «¿Necesito algo para entrar al
@@ -414,8 +490,25 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     });
     expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").faq[2].q).toBe("¿Necesito algo para entrar al tardeo?");
     expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "en").faq[0].a).toBe("Both parts are 18+ only: ID or passport required. No ID, no entry.");
-    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").claim).toBe("Algo cruzó contigo.");
-    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "en").claim).toBe("Something crossed over with you.");
+    // OUTXIDE como dato, sin «se abre … se rompe» ni «al otro lado».
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").sections[1].text).toBe(
+      "Después, la noche sigue en OUTXIDE, de {start} a {end}.\nCon entrada para OUTXIDE, solo mayores de\u00a018.",
+    );
+    // Dress code sin adornos y la FAQ tal cual la dictó Sergi (20-oct).
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").sections[2]).toEqual({ title: "Dress code: disfraz de Halloween." });
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "en").sections[2]).toEqual({ title: "Dress code: Halloween costume." });
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "es").faq[3]).toEqual({
+      q: "¿Hay dress code?",
+      a: "Disfraz de Halloween. En la puerta se pide el DNI con la cara descubierta.",
+    });
+    expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, "en").faq[3]).toEqual({
+      q: "Is there a dress code?",
+      a: "Halloween costume. At the door we ask for ID with your face uncovered.",
+    });
+    // Una sola pregunta de dress code por idioma.
+    for (const loc of ["es", "en"] as const) {
+      expect(resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc).faq.filter((f) => /dress code/i.test(f.q)), loc).toHaveLength(1);
+    }
     // DE, FR e IT: sin copy creativo (no se traduce) y NUNCA el español.
     for (const loc of ["de", "fr", "it"] as const) {
       const r = resolveOutxidiousContent(OUTXIDIOUS_CONTENT, loc);
@@ -439,17 +532,63 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     // /empresas. La lista ampliada (con NIE) solo con el OK de Jose, en las dos.
     expect(OUTXIDIOUS_CONTENT.locales.es!.faq![0].a).toContain("se pide DNI o pasaporte");
     expect(OUTXIDIOUS_CONTENT.locales.en!.faq![0].a).toContain("ID or passport required");
-    // Las horas de las dos partes van con huecos (Fourvenues manda), nunca a mano;
-    // las 00:00 son la hora del «se rompe», no un dato del panel.
-    expect(copy.filter((x) => /\b(20|23):00\b|\b05:30\b/.test(x))).toEqual([]);
+    // Las horas de las dos partes van con huecos (Fourvenues manda), nunca a mano.
+    expect(copy.filter((x) => /\b(20|23|00):00\b|\b05:30\b/.test(x))).toEqual([]);
     // Léxico vetado también en la fuente (los 5 idiomas).
     expectCleanHtml(JSON.stringify(OUTXIDIOUS_CONTENT), "content.ts");
 
     // Los ficheros están en public/ y pesan lo que se aprobó (vídeo ligero).
-    for (const [file, max] of [[TEASER.mp4, 200_000], [TEASER.webm, 150_000], [TEASER.poster, 20_000]] as const) {
+    // …y el cartel, recomprimido para la web: ≤ 300 KB (vistas previas al compartir).
+    for (const [file, max] of [
+      [TEASER.mp4, 200_000],
+      [TEASER.webm, 150_000],
+      [TEASER.poster, 20_000],
+      [OUTXIDIOUS_CARTEL.src, 300_000],
+      [PROMO_IMAGES.outxidious, 300_000],
+    ] as const) {
       const size = statSync(`public${file}`).size;
       expect(size, file).toBeGreaterThan(1_000);
       expect(size, file).toBeLessThanOrEqual(max);
+    }
+  });
+
+  test("cartel: 4:5 a 1080×1350 en la landing y encuadre 16:9 para la tarjeta de los accesos", () => {
+    const poster = jpegSize(`public${OUTXIDIOUS_CARTEL.src}`);
+    expect([poster.width, poster.height]).toEqual([OUTXIDIOUS_CARTEL.width, OUTXIDIOUS_CARTEL.height]);
+    expect([poster.width, poster.height]).toEqual([1080, 1350]);
+    const card = jpegSize(`public${PROMO_IMAGES.outxidious}`);
+    expect(Math.abs(card.width / card.height - 16 / 9)).toBeLessThan(0.01);
+    expect(card.width).toBeGreaterThanOrEqual(952); // 2× la tarjeta en escritorio (476 px)
+    // Nunca el póster del teaser (el logotipo quieto, F3): la tarjeta es el cartel.
+    expect(PROMO_IMAGES.outxidious).toMatch(/^\/images\/outxidious\/outxidious-cartel-/);
+  });
+
+  test("frases retiradas por Sergi (20-oct): en ningún diccionario, contenido ni página del sitio", async ({ request }) => {
+    // Los 5 diccionarios ENTEROS (todo el sitio), los dos contenidos de las landings…
+    for (const loc of LOCALES) expectNoRetired(JSON.stringify(DICTS[loc]), `${loc}.ts`);
+    expectNoRetired(JSON.stringify(OUTXIDIOUS_CONTENT), "outxidious/content.ts");
+    expectNoRetired(JSON.stringify(EMPRESAS_CONTENT), "empresas/content.ts");
+    // …y el HTML de las páginas por las que pasa la campaña (la landing ya lo
+    // revisa entero, con FORBIDDEN, la prueba «HTML completo»).
+    for (const path of ["/", "/outxide", "/enjoy", "/empresas", "/en", "/en/outxide", "/en/enjoy", "/en/empresas", "/agenda"]) {
+      const res = await request.get(path);
+      expect(res.status(), path).toBe(200);
+      expectNoRetired(await res.text(), path);
+    }
+  });
+
+  test("line-up confirmado (20-oct): cada grupo en su parte, nombres tal cual y sin «DJ»", () => {
+    expect(OUTXIDIOUS_LINEUP).toEqual({
+      tardeo: ["AGUILÓ", "MARC RIPOLL"],
+      outxide: ["PLAYING COLORS", "DAVID CASTRO", "SIQUIERS"],
+    });
+    for (const name of [...OUTXIDIOUS_LINEUP.tardeo, ...OUTXIDIOUS_LINEUP.outxide]) {
+      expect(name, name).not.toMatch(/\bdj\b/i);
+      expect(name, name).toBe(name.toUpperCase());
+    }
+    // Es un dato, no copy: no vive en los diccionarios (no se traduce).
+    for (const loc of LOCALES) {
+      expect(JSON.stringify(DICTS[loc].outxidious), loc).not.toMatch(/siquiers|ripoll|aguil|playing colors|david castro/i);
     }
   });
 
@@ -462,17 +601,17 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     for (const [where, strings] of sources) {
       expect(strings.filter((x) => WORK_MARKS.test(x)), where).toEqual([]);
     }
-    // En el diccionario, +18 y ninguna otra edad (en ningún idioma); DJ Siquiers tal cual en los 5 idiomas.
+    // En el diccionario, +18 y ninguna otra edad (en ningún idioma).
     for (const loc of LOCALES) {
-      const { legalPlate, partOutxideDj, ...rest } = DICTS[loc].outxidious;
+      const { legalPlate, ...rest } = DICTS[loc].outxidious;
       expect(legalPlate).toMatch(/18/);
-      expect(partOutxideDj, loc).toBe("DJ Siquiers");
       expect(ageWrong(allStrings(rest)), loc).toEqual([]);
       expectCleanHtml(JSON.stringify(DICTS[loc].outxidious), `${loc}.ts · outxidious`);
     }
     // Copy creativo del diccionario (§6.3b) solo en ES y EN: DE/FR/IT, vacío.
-    expect(es.outxidious.subtitle.length).toBeGreaterThan(20);
-    expect(en.outxidious.subtitle.length).toBeGreaterThan(20);
+    // El subtítulo, ya sin «lados» (RETIRED lo comprueba en el diccionario entero).
+    expect(es.outxidious.subtitle).toBe("La noche de Halloween se parte en dos: empieza en Enjoy Terrace y sigue en OUTXIDE.");
+    expect(en.outxidious.subtitle).toBe("Halloween night splits in two: it starts at Enjoy Terrace and carries on at OUTXIDE.");
     for (const loc of ["de", "fr", "it"] as const) expect(DICTS[loc].outxidious.subtitle, loc).toBe("");
   });
 
@@ -484,7 +623,13 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     expect(outxidiousSitemapPaths(off)).toEqual([]);
     // Solo el vídeo (lo de hoy): ni claim, ni secciones, ni rojo, ni OG, ni index.
     const onlyMedia = { ...FIXTURE, approved: { heroMedia: true } };
-    expect(resolveOutxidiousContent(onlyMedia, "es")).toMatchObject({ theme: "neutro", claim: null, ogImage: null });
+    expect(resolveOutxidiousContent(onlyMedia, "es")).toMatchObject({ theme: "neutro", claim: null, ogImage: null, poster: null });
+    // El cartel, solo con su hueco.
+    expect(resolveOutxidiousContent({ ...FIXTURE, approved: { poster: true } }, "es")).toMatchObject({
+      poster: { alt: "Cartel ficticio de prueba" },
+      ogImage: null,
+      claim: null,
+    });
     expect(resolveOutxidiousContent(onlyMedia, "es").heroMedia?.kind).toBe("video");
     expect(isOutxidiousIndexable(onlyMedia)).toBe(false);
     // Solo el claim: sin vídeo ni tema.
@@ -644,7 +789,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
       offers: { "@type": "Offer", price: "12.96", priceCurrency: "EUR" },
     });
     expect(ld).not.toHaveProperty("subEvent");
-    // DJ Siquiers no va como performer: Fourvenues no tiene campo de artistas.
+    // El line-up no va como performer: Fourvenues no tiene campo de artistas.
     expect(ld).not.toHaveProperty("performer");
     expect(JSON.stringify(ld).match(/"@type":"Event"/g)).toHaveLength(1);
     // Paquete v0.3: OUTXIDIOUS es de los dos sitios, nunca «el Halloween de
@@ -770,17 +915,21 @@ test.describe("OUTXIDIOUS · landing", () => {
     for (const href of ["/legal/condiciones-venta", "/legal/condiciones-entrada", "/legal/privacidad", "/legal/cookies"]) {
       await expect(page.locator(`footer a[href="${href}"]`)).toHaveCount(1);
     }
-    // Las DOS partes de la noche, con sus horas y lugares.
-    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre");
-    // DJ Siquiers (confirmado por Sergi, 20-oct) en la parte de OUTXIDE, como dato.
-    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE · DJ Siquiers 23:00–05:30 · entrada");
-    await expect(page.getByTestId("outxidious-part-dj")).toHaveText("DJ Siquiers");
-    await expect(page.getByTestId("outxidious-part-tardeo")).not.toContainText("Siquiers");
+    // Las DOS partes de la noche, con sus horas, lugares y el line-up confirmado
+    // por Sergi (20-oct), cada grupo en su parte, como dato y sin «DJ».
+    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre AGUILÓ · MARC RIPOLL");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+    await expect(page.getByTestId("outxidious-artists-tardeo")).toHaveText("AGUILÓ · MARC RIPOLL");
+    await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText("PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+    await expect(page.getByTestId("outxidious-part-tardeo")).not.toContainText(/SIQUIERS|PLAYING COLORS|DAVID CASTRO/);
+    await expect(page.getByTestId("outxidious-part-outxide")).not.toContainText(/AGUIL|RIPOLL/);
+    await expect(page.locator("main")).not.toContainText(/\bDJ\b/);
     // Un mapa por local (los de data/site/contact.json, como el resto de la web).
     await expect(page.locator('a[href^="https://www.google.com/maps"]')).toHaveCount(2);
-    // Paquete creativo provisional: claim, nota del botón (debajo de la placa),
-    // subtítulo, los 4 bloques con sus horas de Fourvenues, la FAQ y quién lo hace.
-    await expect(page.getByTestId("outxidious-claim")).toHaveText("Algo cruzó contigo.");
+    // Paquete creativo provisional (sin el claim que Sergi retiró el 20-oct):
+    // nota del botón (debajo de la placa), subtítulo, los 3 bloques con sus
+    // horas de Fourvenues, el cartel, la FAQ y quién lo hace.
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-buy-note")).toHaveText(
       "Entrada para OUTXIDE, de 23:00 a 05:30. El tardeo en Enjoy Terrace es de acceso libre.",
     );
@@ -789,23 +938,59 @@ test.describe("OUTXIDIOUS · landing", () => {
     expect(noteBox.y).toBeGreaterThanOrEqual(plateBox.y + plateBox.height);
     await expect(page.getByTestId("outxidious-subtitle")).toHaveText(es.outxidious.subtitle);
     const sections = page.getByTestId("outxidious-section");
-    await expect(sections).toHaveCount(4);
+    await expect(sections).toHaveCount(3);
     await expect(sections.nth(0).locator("h2")).toHaveText("20:00–23:00 · Tardeo de acceso libre en Enjoy Terrace");
     await expect(sections.nth(0)).toContainText("Solo mayores de 18: trae tu documento.");
     await expect(sections.nth(1).locator("h2")).toHaveText("23:00–05:30 · OUTXIDE");
-    await expect(sections.nth(1)).toContainText("A las 23:00 se abre. A las 00:00 se rompe. Y la noche sigue al otro lado hasta las 05:30.");
-    await expect(sections.nth(2).locator("h2")).toHaveText("Dress code: negro");
-    await expect(sections.nth(3).locator("h2")).toHaveText("Llega antes de las 00:00");
+    await expect(sections.nth(1)).toContainText("Después, la noche sigue en OUTXIDE, de 23:00 a 05:30.");
+    // Dress code en una línea, sin adornos (un bloque de solo título).
+    await expect(sections.nth(2).locator("h2")).toHaveText("Dress code: disfraz de Halloween.");
+    await expect(sections.nth(2).locator("p")).toHaveCount(0);
     const faq = page.getByTestId("outxidious-faq");
     await expect(faq.locator("h2")).toHaveText("Preguntas frecuentes");
     await expect(faq.locator("h3")).toHaveCount(7);
+    await expect(faq.locator("h3", { hasText: "dress code" })).toHaveText(["¿Hay dress code?"]);
+    await expect(faq).toContainText("Disfraz de Halloween. En la puerta se pide el DNI con la cara descubierta.");
     await expect(faq).toContainText("OUTXIDE abre a las 23:00 y cierra a las 05:30.");
+    await expect(faq).not.toContainText("00:00");
     await expect(faq).toContainText("Las dos partes son solo para mayores de 18: se pide DNI o pasaporte.");
     await expect(faq).toContainText(
       "Solo tu documento: es de acceso libre y para mayores de 18. La entrada solo hace falta para seguir en OUTXIDE a partir de las 23:00.",
     );
     await expect(faq).toContainText("Es una noche para mayores de 18 y pedimos consumo responsable.");
     await expect(page.locator("footer")).toContainText("OUTXIDIOUS es un evento de OUTXIDE Club y Enjoy Terrace.");
+  });
+
+  test("cartel aprobado: bloque propio justo debajo de la primera pantalla, con next/image, sizes y alt factual", async ({ page }) => {
+    test.skip(CAMPAIGN_OVER, "la noche ya pasó");
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto(OUTXIDIOUS_PATH);
+    const block = page.getByTestId("outxidious-poster");
+    await expect(block).toHaveCount(1);
+    // Es la sección que sigue al hero (h1, partes, precio, botón y placa) y va antes de los bloques.
+    const order = await page.locator("main > section").evaluateAll((els) => els.map((e) => e.getAttribute("data-testid") ?? e.getAttribute("aria-labelledby")));
+    expect(order.slice(0, 3)).toEqual(["outxidious-title", "outxidious-poster", "outxidious-sections"]);
+    const img = block.getByRole("img", { name: OUTXIDIOUS_CARTEL.alt.es });
+    await expect(img).toHaveCount(1);
+    // next/image: srcset del optimizador, carga diferida (no es el LCP) y caja con su proporción (sin CLS).
+    await expect(img).toHaveAttribute("loading", "lazy");
+    await expect(img).toHaveAttribute("sizes", "(min-width: 480px) 448px, calc(100vw - 32px)");
+    expect(decodeURIComponent((await img.getAttribute("srcset")) ?? "")).toContain(OUTXIDIOUS_CARTEL.src);
+    await expect(img).toHaveAttribute("width", "1080");
+    await expect(img).toHaveAttribute("height", "1350");
+    // No quita sitio a la primera pantalla: empieza debajo de la placa y del botón.
+    const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
+    const buy = (await page.getByTestId("outxidious-buy").boundingBox())!;
+    const top = (await block.boundingBox())!.y;
+    expect(top).toBeGreaterThanOrEqual(plate.y + plate.height);
+    expect(top).toBeGreaterThanOrEqual(buy.y + buy.height);
+    expect(top, "debajo de la primera pantalla").toBeGreaterThanOrEqual(667);
+    // Se ve entero y a su ancho (343 px a 375: la pantalla menos el margen).
+    await img.scrollIntoViewIfNeeded();
+    await expect.poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+    const box = (await img.boundingBox())!;
+    expect(Math.round(box.width)).toBe(343);
+    expect(Math.abs(box.width / box.height - 0.8)).toBeLessThan(0.01);
   });
 
   test("tardeo de acceso libre: sin botón, precio, enlace ni formulario; el único botón y el precio son de OUTXIDE", async ({ page }) => {
@@ -825,7 +1010,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     const parts = (await page.getByTestId("outxidious-parts").boundingBox())!;
     const price = (await page.getByTestId("outxidious-price").boundingBox())!;
     expect(price.y).toBeGreaterThan(parts.y + parts.height - 1);
-    // La línea del tardeo en la primera pantalla: solo hora y acceso libre.
+    // La línea del tardeo en la primera pantalla: hora, acceso libre y sus nombres.
     await expect(tardeo).not.toContainText("18");
     // El bloque del tardeo: acceso libre y +18 (F4), sin precio, botón ni «entrada».
     const block = page.getByTestId("outxidious-section").first();
@@ -846,8 +1031,8 @@ test.describe("OUTXIDIOUS · landing", () => {
       sel.evaluate((el, p) => getComputedStyle(el).getPropertyValue(p).trim(), prop);
     expect(await css(root, "background-color")).toBe("rgb(7, 7, 7)");
     expect(await css(root, "color")).toBe("rgb(238, 231, 218)");
-    // Claim y hora de OUTXIDE en #f23300 (5,04:1, PENDIENTE DE JOSE); nunca #a0070e como texto.
-    expect(await css(page.getByTestId("outxidious-claim"), "color")).toBe("rgb(242, 51, 0)");
+    // Hora de OUTXIDE en #f23300 (5,04:1, PENDIENTE DE JOSE); nunca #a0070e como texto.
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     const buy = page.getByTestId("outxidious-buy");
     expect(await css(buy, "background-color")).toBe("rgb(228, 38, 43)");
     expect(await css(buy, "color")).toBe("rgb(255, 255, 255)");
@@ -871,10 +1056,6 @@ test.describe("OUTXIDIOUS · landing", () => {
         .map((el) => el.outerHTML.slice(0, 80)),
     );
     expect(darkRedText).toEqual([]);
-    // La placa sigue separada del claim (≥ 24 px).
-    const claimBox = (await page.getByTestId("outxidious-claim").boundingBox())!;
-    const plateBox = (await plate.boundingBox())!;
-    expect(plateBox.y - (claimBox.y + claimBox.height)).toBeGreaterThanOrEqual(24);
   });
 
   test("cómo llegar: Enjoy Terrace (tardeo) y OUTXIDE Club, cada uno con su dirección y su mapa", async ({ page }) => {
@@ -909,32 +1090,46 @@ test.describe("OUTXIDIOUS · landing", () => {
         const parts = (await page.getByTestId("outxidious-parts").boundingBox())!;
         const plate = (await page.getByTestId("outxidious-legal-plate").boundingBox())!;
         // En móvil el vídeo va ENCIMA del h1, recortado a 5:2 (a 5:1 con poca
-        // altura de pantalla: con el claim y DJ Siquiers, se reduce el vídeo,
-        // nunca la placa).
+        // altura de pantalla: con el line-up, se reduce el vídeo, nunca la placa).
         const ratio = viewport.height <= 719 ? 5 : 2.5;
         expect(media.y + media.height).toBeLessThanOrEqual(h1.y);
         expect(Math.abs(media.width / media.height - ratio)).toBeLessThan(0.05);
         expect(h1.y).toBeGreaterThanOrEqual(0);
-        const claim = (await page.getByTestId("outxidious-claim").boundingBox())!;
-        expect(claim.y + claim.height, "el claim en la primera pantalla").toBeLessThanOrEqual(viewport.height);
+        // Sin claim (retirado): h1, las dos partes con sus nombres, precio y botón, placa.
+        await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
+        expect(parts.y).toBeGreaterThanOrEqual(h1.y + h1.height);
         expect(parts.y + parts.height, "las dos partes en la primera pantalla").toBeLessThanOrEqual(viewport.height);
+        for (const id of ["outxidious-artists-tardeo", "outxidious-artists-outxide"]) {
+          const box = (await page.getByTestId(id).boundingBox())!;
+          expect(box.y + box.height, `${id} en la primera pantalla`).toBeLessThanOrEqual(viewport.height);
+        }
         expect(plate.y + plate.height, "la placa debe caber en la primera pantalla").toBeLessThanOrEqual(viewport.height);
         if (phase !== "pronto") {
           const buy = (await page.getByTestId("outxidious-buy").boundingBox())!;
           expect(buy.y + buy.height).toBeLessThanOrEqual(viewport.height);
+          expect(plate.y).toBeGreaterThanOrEqual(buy.y + buy.height);
         }
+        // El cartel, después de todo eso (nunca entre medias).
+        const poster = (await page.getByTestId("outxidious-poster").boundingBox())!;
+        expect(poster.y).toBeGreaterThanOrEqual(plate.y + plate.height);
       });
     }
   }
 
   for (const phase of ["hoy", "venta", "pronto"] as const) {
-    test(`primera pantalla 375×600 (${phase}, navegador de Instagram en un iPhone SE): h1, claim, las dos partes, precio, botón y placa; el vídeo, debajo`, async ({
+    test(`primera pantalla 375×600 (${phase}, navegador de Instagram en un iPhone SE): h1, las dos partes con sus nombres, precio, botón y placa; el vídeo, debajo`, async ({
       page,
     }) => {
       test.skip(CAMPAIGN_OVER && phase !== "pronto", "la noche ya pasó");
       await page.setViewportSize({ width: 375, height: 600 });
       await page.goto(`${OUTXIDIOUS_PATH}?phase=${phase}`);
-      const ids = ["outxidious-claim", "outxidious-parts", "outxidious-legal-plate", ...(phase === "pronto" ? [] : ["outxidious-price", "outxidious-buy"])];
+      const ids = [
+        "outxidious-parts",
+        "outxidious-artists-tardeo",
+        "outxidious-artists-outxide",
+        "outxidious-legal-plate",
+        ...(phase === "pronto" ? [] : ["outxidious-price", "outxidious-buy"]),
+      ];
       if (phase === "hoy") ids.push("outxidious-today");
       const h1 = (await page.locator("h1").boundingBox())!;
       expect(h1.y).toBeGreaterThanOrEqual(0);
@@ -982,7 +1177,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-soon")).not.toContainText(/pronto|\{/);
     await expect(page.getByTestId("outxidious-buy-note")).toHaveCount(0);
     // El tardeo sigue contado en «pronto», sin botón ni formulario propios.
-    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre");
+    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre AGUILÓ · MARC RIPOLL");
     await expect(page.getByTestId("outxidious-part-tardeo").locator("a, button, form, input")).toHaveCount(0);
     const form = page.getByTestId("outxidious-alerts");
     await expect(form).toBeVisible();
@@ -1042,17 +1237,17 @@ test.describe("OUTXIDIOUS · landing", () => {
     }
   });
 
-  test("hoy (?phase=hoy): línea «Hoy» sin horas, claim del día con la hora de Fourvenues y el mismo botón", async ({ page }) => {
+  test("hoy (?phase=hoy): línea «Hoy» sin horas, sin claim del día (retirado) y el mismo botón", async ({ page }) => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(`${OUTXIDIOUS_PATH}?phase=hoy`);
     await expect(page.getByTestId("outxidious-today")).toHaveText("Hoy, sábado 31");
-    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE · DJ Siquiers 23:00–05:30 · entrada");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada PLAYING COLORS · DAVID CASTRO · SIQUIERS");
     await expect(buyLinks(page)).toHaveCount(1);
-    await expect(page.getByTestId("outxidious-claim")).toHaveText("23:00 se abre. 00:00 se rompe.");
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     await page.goto(`/en${OUTXIDIOUS_PATH}?phase=hoy`);
     await expect(page.getByTestId("outxidious-today")).toHaveText("Today, Saturday 31");
-    await expect(page.getByTestId("outxidious-claim")).toHaveText("Opens 23:00. Breaks 00:00.");
-    // DE/FR/IT: sin claim (no hay versión del copy creativo), nunca el español.
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
+    // DE/FR/IT: tampoco (no hay versión del copy creativo), nunca el español.
     await page.goto(`/de${OUTXIDIOUS_PATH}?phase=hoy`);
     await expect(page.getByTestId("outxidious-today")).toHaveText("Heute, Samstag, 31. Oktober");
     await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
@@ -1063,11 +1258,12 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-phase", "despues");
     await expect(buyLinks(page)).toHaveCount(0);
     await expect(page.getByTestId("outxidious-price")).toHaveCount(0);
-    await expect(page.getByTestId("outxidious-after").locator("h2")).toHaveText("OUTXIDIOUS ya cruzó");
-    await expect(page.getByTestId("outxidious-after")).toContainText("Fue el sábado 31 de octubre de 2026. Gracias por venir.");
+    await expect(page.getByTestId("outxidious-after").locator("h2")).toHaveText("Gracias por venir");
+    await expect(page.getByTestId("outxidious-after")).toContainText("OUTXIDIOUS se celebró el sábado 31 de octubre de 2026.");
     await expect(page.getByTestId("outxidious-after").locator('a[href="/outxide"]')).toHaveCount(1);
     await expect(page.getByTestId("outxidious-legal-plate")).toBeVisible();
-    // Después del evento, ni bloques ni FAQ ni subtítulo: ya no son verdad.
+    // Después del evento, ni bloques ni FAQ ni subtítulo ni cartel: ya no invitan a nada.
+    await expect(page.getByTestId("outxidious-poster")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-faq")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-subtitle")).toHaveCount(0);
@@ -1082,16 +1278,21 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-buy")).toHaveText("Buy tickets");
     await expect(page.getByTestId("outxidious-buy")).toHaveAttribute("href", `https://entradas.grupoenjoy.es/?event=${OX_REF}&lang=en`);
     await expect(page.getByTestId("outxidious-price")).toHaveText("OUTXIDE tickets from €12.96 (fees included)");
-    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Early party · Enjoy Terrace 20:00–23:00 · free entry");
-    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE · DJ Siquiers 23:00–05:30 · ticket required");
+    await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Early party · Enjoy Terrace 20:00–23:00 · free entry AGUILÓ · MARC RIPOLL");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · ticket required PLAYING COLORS · DAVID CASTRO · SIQUIERS");
     // Descripción accesible del vídeo en inglés.
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("aria-label", /^Silent animation/);
     await expect(page.getByTestId("outxidious-legal-plate")).toHaveText("18+ · Drink responsibly");
     await expect(page).toHaveTitle("OUTXIDIOUS · Halloween at Enjoy & OUTXIDE · Sat 31 Oct");
-    await expect(page.getByTestId("outxidious-claim")).toHaveText("Something crossed over with you.");
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-buy-note")).toHaveText("Ticket for OUTXIDE, 23:00–05:30. The early party at Enjoy Terrace is free entry.");
     await expect(page.getByTestId("outxidious-section").nth(0).locator("h2")).toHaveText("20:00–23:00 · Free-entry early party at Enjoy Terrace");
+    await expect(page.getByTestId("outxidious-section").nth(1)).toContainText("Then the night carries on at OUTXIDE, from 23:00 to 05:30.");
+    await expect(page.getByTestId("outxidious-section").nth(2).locator("h2")).toHaveText("Dress code: Halloween costume.");
     await expect(page.getByTestId("outxidious-faq").locator("h2")).toHaveText("FAQ");
+    await expect(page.getByTestId("outxidious-faq")).toContainText("Is there a dress code?");
+    await expect(page.getByTestId("outxidious-faq")).toContainText("Halloween costume. At the door we ask for ID with your face uncovered.");
+    await expect(page.getByTestId("outxidious-poster").getByRole("img", { name: OUTXIDIOUS_CARTEL.alt.en })).toHaveCount(1);
     await expectNoRawKeys(page, "/en landing");
   });
 
@@ -1107,11 +1308,14 @@ test.describe("OUTXIDIOUS · landing", () => {
       }
       await expect(page.getByTestId("outxidious-buy")).toHaveText(DICTS[loc].outxidious.buy);
       await expect(page.getByTestId("outxidious-legal-plate")).toHaveText(DICTS[loc].outxidious.legalPlate);
-      // DJ Siquiers es un dato (no copy creativo): también en DE, FR e IT, tal cual.
-      await expect(page.getByTestId("outxidious-part-dj")).toHaveText("DJ Siquiers");
+      // El line-up es un dato (no copy creativo): también en DE, FR e IT, tal cual.
+      await expect(page.getByTestId("outxidious-artists-tardeo")).toHaveText("AGUILÓ · MARC RIPOLL");
+      await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText("PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+      // El cartel (imagen, no copy) también, con el alt en su idioma.
+      await expect(page.getByTestId("outxidious-poster").getByRole("img", { name: OUTXIDIOUS_CARTEL.alt[loc] })).toHaveCount(1);
       const text = await page.locator("main").innerText();
-      // Ni el claim ni los bloques del paquete en español.
-      for (const spanish of ["Algo cruzó contigo", "Empezamos antes", "Dress code: negro", "Preguntas frecuentes"]) {
+      // Ni los bloques ni la FAQ del paquete en español.
+      for (const spanish of ["Empezamos antes", "Dress code: disfraz", "Disfraz de Halloween", "Preguntas frecuentes", "¿Hay dress code?"]) {
         expect(text, `${loc}: «${spanish}»`).not.toContain(spanish);
       }
       await expectNoRawKeys(page, `/${loc} landing`);
@@ -1135,17 +1339,22 @@ test.describe("OUTXIDIOUS · landing", () => {
       expect(normalize(html), path).not.toMatch(/\[confirm/);
       // Evento compartido: el tardeo y Enjoy Terrace sí aparecen (léxico permitido desde el 19-oct).
       expect(normalize(html)).toContain("enjoy terrace");
-      // El teaser APROBADO sí (póster precargado + vídeo) y el tema rojo
-      // (provisional); el logo fijo suelto, nunca.
+      // El teaser APROBADO sí (póster precargado + vídeo), el tema rojo
+      // (provisional) y el cartel aprobado (imagen para compartir y, antes del
+      // final, el bloque); de /images/outxidious, solo el cartel: el logo fijo
+      // suelto, nunca.
       expect(html).toContain(TEASER.poster);
       expect(html).toContain(TEASER.mp4);
-      expect(html).not.toContain("/images/outxidious");
+      const own = [...new Set(html.match(/\/images\/outxidious\/[\w.-]+/g) ?? [])];
+      expect(own, path).toEqual([OUTXIDIOUS_CARTEL.src]);
       expect(html).toContain("theme-outxidious");
-      // Claim y bloques solo en ES y EN, y nunca después del evento.
+      // Sin claim en ningún idioma (retirado); bloques solo en ES y EN, y nunca
+      // después del evento; el cartel en los 5 idiomas, salvo después.
       const creative = !path.includes("despues") && !/^\/(de|fr|it)\//.test(path);
-      expect(html.includes('data-testid="outxidious-claim"'), `${path}: claim`).toBe(!/^\/(de|fr|it)\//.test(path));
+      expect(html.includes('data-testid="outxidious-claim"'), `${path}: claim`).toBe(false);
       expect(html.includes('data-testid="outxidious-sections"'), `${path}: bloques`).toBe(creative);
       expect(html.includes('data-testid="outxidious-faq"'), `${path}: FAQ`).toBe(creative);
+      expect(html.includes('data-testid="outxidious-poster"'), `${path}: cartel`).toBe(!path.includes("despues"));
     }
   });
 
@@ -1204,14 +1413,18 @@ test.describe("OUTXIDIOUS · landing", () => {
     );
     expect(description!.length).toBeLessThanOrEqual(155);
     expect(description).not.toMatch(/€|desde/);
-    // og:description creativa (§6.3b) y sin precio: la caché de Meta no se entera de los cambios.
+    // og:description FACTUAL (§4.5; la creativa abría con el claim retirado) y
+    // sin precio: la caché de Meta no se entera de los cambios.
     const ogDescription = await page.locator('meta[property="og:description"]').getAttribute("content");
-    expect(ogDescription).toBe(
-      "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de 20:00 a 23:00 y, después, OUTXIDE hasta las 05:30. +18.",
-    );
+    expect(ogDescription).toBe("Sáb 31·10 · Tardeo de acceso libre en Enjoy Terrace de 20:00 a 23:00 y, después, OUTXIDE de 23:00 a 05:30. +18.");
     expect(ogDescription).not.toMatch(/€|\d+,\d\d/);
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE");
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
+    // Imagen para compartir: el cartel aprobado por Sergi (20-oct), con su tamaño y su alt.
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", `https://www.grupoenjoy.es${OUTXIDIOUS_CARTEL.src}`);
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute("content", "1080");
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute("content", "1350");
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute("content", OUTXIDIOUS_CARTEL.alt.es);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", `https://www.grupoenjoy.es${OUTXIDIOUS_CARTEL.src}`);
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "es_ES");
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", "https://www.grupoenjoy.es/outxide/outxidious");
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
@@ -1235,6 +1448,7 @@ test.describe("OUTXIDIOUS · landing", () => {
       "OUTXIDIOUS, el Halloween 2026 de Enjoy Terrace y OUTXIDE (Av. Tucán 1, Port d'Alcúdia), sábado 31 de octubre: OUTXIDE de 23:00 a 05:30. Antes, de 20:00 a 23:00, tardeo de acceso libre en Enjoy Terrace. Solo mayores de 18 años.",
     );
     expect(data.performer).toBeUndefined();
+    expect(data.image).toEqual([`https://www.grupoenjoy.es${OUTXIDIOUS_CARTEL.src}`]);
     expect(data.offers).toMatchObject({
       price: "12.96",
       priceCurrency: "EUR",
@@ -1519,6 +1733,44 @@ test.describe("OUTXIDIOUS · banner de cookies abierto en la primera pantalla", 
     }
   }
 
+  // Con el line-up en las dos partes (20-oct): la primera pantalla sigue
+  // cabiendo con la franja de primera visita, también el sábado (línea «Hoy»).
+  for (const [h, q] of [
+    [667, "?phase=pronto"],
+    [667, ""],
+    [667, "?phase=hoy"],
+    [600, "?phase=hoy"],
+  ] as const) {
+    test(`375×${h}${q || " (venta)"} con la franja: h1, las dos partes con su line-up, ${q === "?phase=pronto" ? "" : "precio, botón y "}placa +18 en la primera pantalla`, async ({ page, context }) => {
+      test.skip(CAMPAIGN_OVER && q !== "?phase=pronto", "la noche ya pasó");
+      await preconfirm(context, { cookies: false });
+      await page.setViewportSize({ width: 375, height: h });
+      await page.goto(`${OUTXIDIOUS_PATH}${q}`);
+      const banner = page.getByTestId("cookie-banner-compact");
+      await expect(banner).toBeVisible({ timeout: 10_000 });
+      const b = (await banner.boundingBox())!;
+      const h1 = (await page.locator("h1").boundingBox())!;
+      expect(b.y + b.height, "la franja no tapa el h1").toBeLessThanOrEqual(h1.y);
+      const ids = [
+        "outxidious-parts",
+        "outxidious-artists-tardeo",
+        "outxidious-artists-outxide",
+        "outxidious-legal-plate",
+        ...(q === "?phase=pronto" ? [] : ["outxidious-price", "outxidious-buy"]),
+        ...(q === "?phase=hoy" ? ["outxidious-today"] : []),
+      ];
+      for (const id of ids) {
+        const box = (await page.getByTestId(id).boundingBox())!;
+        expect(box.y + box.height, `${id} en la primera pantalla`).toBeLessThanOrEqual(h);
+      }
+      await expect(page.getByTestId("outxidious-artists-tardeo")).toHaveText(OUTXIDIOUS_LINEUP.tardeo.join(" · "));
+      await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText(OUTXIDIOUS_LINEUP.outxide.join(" · "));
+      await expect(page.getByTestId("outxidious-legal-plate")).toBeInViewport({ ratio: 1 });
+      expect(await onTop(page, "outxidious-legal-plate"), "placa +18").toBe(true);
+      if (q !== "?phase=pronto") expect(await onTop(page, "outxidious-buy"), "Comprar entradas").toBe(true);
+    });
+  }
+
   test("fuera de las landings de anuncios, el banner de siempre (abajo)", async ({ page, context }) => {
     await preconfirm(context, { cookies: false });
     await page.setViewportSize({ width: 375, height: 667 });
@@ -1592,7 +1844,7 @@ test.describe("OUTXIDIOUS · verificación de edad", () => {
       expect(await page.evaluate(() => window.scrollY), "sin scroll tras confirmar").toBe(0);
       const h1 = (await page.locator("h1").boundingBox())!;
       expect(h1.y).toBeGreaterThanOrEqual(0);
-      for (const id of ["outxidious-claim", "outxidious-today", "outxidious-parts", "outxidious-price", "outxidious-buy", "outxidious-legal-plate"]) {
+      for (const id of ["outxidious-today", "outxidious-parts", "outxidious-price", "outxidious-buy", "outxidious-legal-plate"]) {
         const box = (await page.getByTestId(id).boundingBox())!;
         expect(box.y + box.height, `${id} en la primera pantalla tras confirmar`).toBeLessThanOrEqual(height);
       }
@@ -1702,6 +1954,7 @@ test.describe("OUTXIDIOUS · rama aprobada (contenido ficticio)", () => {
     await expect(page.getByTestId("outxidious-claim")).toHaveText("CLAIM FICTICIO DE PRUEBA");
     await expect(page.getByTestId("outxidious-sections")).toContainText("SECCION FICTICIA UNO");
     await expect(page.getByTestId("outxidious-sections")).toContainText("Texto ficticio dos.");
+    await expect(page.getByTestId("outxidious-poster").getByRole("img", { name: "Cartel ficticio de prueba" })).toHaveCount(1);
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", "/videos/outxide-hero-poster.jpg");
     // Tokens del tema rojo (LANDING-WEB.md §7.1).
     expect(await page.getByTestId("outxidious-buy").evaluate((a) => getComputedStyle(a).backgroundColor)).toBe("rgb(228, 38, 43)");
@@ -1737,18 +1990,19 @@ test.describe("OUTXIDIOUS · rama aprobada (contenido ficticio)", () => {
     expect(await page.getByTestId("outxidious-hero-video").evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
   });
 
-  test("el contenido ficticio no se cuela sin la cabecera (lo real: el paquete provisional)", async ({ page, context }) => {
+  test("el contenido ficticio no se cuela sin la cabecera (lo real: el paquete provisional con el cartel)", async ({ page, context }) => {
     await context.setExtraHTTPHeaders({});
     await page.goto(`${OUTXIDIOUS_PATH}?phase=pronto`);
     await expect(page.getByTestId("outxidious-page")).toHaveAttribute("data-theme", "campana-roja");
-    await expect(page.getByTestId("outxidious-claim")).toHaveText("Algo cruzó contigo.");
+    await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-sections")).not.toContainText("FICTICIA");
+    await expect(page.getByTestId("outxidious-poster").getByRole("img", { name: OUTXIDIOUS_CARTEL.alt.es })).toHaveCount(1);
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", TEASER.poster);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", new RegExp(`${OUTXIDIOUS_CARTEL.src.replace(/\./g, "\\.")}$`));
   });
 
-  test("todo relleno pero solo el vídeo aprobado: vídeo sí; claim, secciones, rojo, OG e index no", async ({ page, context }) => {
+  test("todo relleno pero solo el vídeo aprobado: vídeo sí; claim, secciones, cartel, rojo, OG e index no", async ({ page, context }) => {
     await context.setExtraHTTPHeaders({ [TEST_CONTENT_HEADER]: toHeader({ ...FIXTURE, approved: { heroMedia: true } }) });
     await page.goto(`${OUTXIDIOUS_PATH}?phase=pronto`);
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("poster", "/videos/outxide-hero-poster.jpg");
@@ -1756,6 +2010,7 @@ test.describe("OUTXIDIOUS · rama aprobada (contenido ficticio)", () => {
     await expect(page.getByTestId("outxidious-page")).not.toHaveClass(/theme-outxidious/);
     await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     await expect(page.getByTestId("outxidious-sections")).toHaveCount(0);
+    await expect(page.getByTestId("outxidious-poster")).toHaveCount(0);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/images\/outxide\/DSCF8103-9\.jpg$/);
     // La placa a 14 px y +0,2 em es la regla BASE: también en el tema neutro.

@@ -40,6 +40,7 @@ export default async function EnjoyPage({ searchParams }: { searchParams: Promis
       shishaSections={(shishaMenus[locale] ?? shishaMenus.en) as unknown as MenuSection[]}
       galleryImages={(galleries[locale] ?? galleries.es) as unknown as GalleryImage[]}
       showOutxidiousPromo={promos.outxidious}
+      empresasEndOfSeasonPromo={promos.empresasEndOfSeason}
     />
   );
 }

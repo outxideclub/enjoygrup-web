@@ -14,5 +14,11 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
   // Ahorro de datos (cabecera Save-Data): sin el vídeo del hero, solo el póster
   // (revisión PA-6; el cliente mira también navigator.connection.saveData).
   const saveData = reqHeaders.get("save-data")?.trim().toLowerCase() === "on";
-  return <HomeClient showOutxidiousPromo={promos.outxidious} saveData={saveData} />;
+  return (
+    <HomeClient
+      showOutxidiousPromo={promos.outxidious}
+      empresasEndOfSeasonPromo={promos.empresasEndOfSeason}
+      saveData={saveData}
+    />
+  );
 }

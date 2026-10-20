@@ -32,6 +32,7 @@ export default async function OutxidePage({ searchParams }: { searchParams: Prom
         initialEvents={events}
         galleryImages={(galleries[locale] ?? galleries.es) as unknown as GalleryImage[]}
         showOutxidiousPromo={promos.outxidious}
+        empresasEndOfSeasonPromo={promos.empresasEndOfSeason}
       />
       {/* Datos estructurados del club (antes en layout.tsx: ver allí por qué).
           Eventos REALES de FourVenues para el markup: nada de eventos sintéticos. */}

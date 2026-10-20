@@ -68,7 +68,15 @@ const businesses = [
  * landings de octubre se pintan (la tarjeta de OUTXIDIOUS caduca sola) y lo
  * pasa aquí como prop, sin desajustes de hidratación.
  */
-export function HomeClient({ showOutxidiousPromo, saveData = false }: { showOutxidiousPromo: boolean; saveData?: boolean }) {
+export function HomeClient({
+  showOutxidiousPromo,
+  empresasEndOfSeasonPromo,
+  saveData = false,
+}: {
+  showOutxidiousPromo: boolean;
+  empresasEndOfSeasonPromo: boolean;
+  saveData?: boolean;
+}) {
   const t = useT();
   const locale = useLocale();
   // Fase del banner de competición (se degrada a "off" pasada la fecha del campeón).
@@ -288,7 +296,12 @@ export function HomeClient({ showOutxidiousPromo, saveData = false }: { showOutx
 
       {/* Accesos a las landings de octubre (OUTXIDIOUS y celebraciones de
           empresa), justo bajo el hero. Tono neutro: la portada es del grupo. */}
-      <PromoAccesos showOutxidious={showOutxidiousPromo} tone="group" className="pt-16 pb-4 sm:pt-20" />
+      <PromoAccesos
+        showOutxidious={showOutxidiousPromo}
+        empresasEndOfSeason={empresasEndOfSeasonPromo}
+        tone="group"
+        className="pt-16 pb-4 sm:pt-20"
+      />
 
       {/* Banner de competición bajo el hero. Una sola palanca en
           src/lib/mundial/event-config.ts decide qué se muestra:

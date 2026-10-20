@@ -33,6 +33,12 @@ export type PromoKind = "outxidious" | "empresas";
 interface PromoAccesosProps {
   /** Calculado en servidor (getPromoVisibility). */
   showOutxidious: boolean;
+  /**
+   * También del servidor: la tarjeta de empresas dice «Fin de temporada y
+   * Navidad» hasta que /empresas retira su fin de temporada (lun 9-nov a las
+   * 00:00) y desde ahí solo Navidad.
+   */
+  empresasEndOfSeason: boolean;
   /** Acento de la página: portada (neutro), OUTXIDE (cian) o Enjoy (rosa). */
   tone?: PromoTone;
   className?: string;
@@ -74,7 +80,7 @@ interface CardData {
 // encaja (el tardeo de OUTXIDIOUS es en Enjoy Terrace).
 const ORDER: readonly PromoKind[] = ["outxidious", "empresas"];
 
-export function PromoAccesos({ showOutxidious, tone = "group", className }: PromoAccesosProps) {
+export function PromoAccesos({ showOutxidious, empresasEndOfSeason, tone = "group", className }: PromoAccesosProps) {
   const t = useT();
   const locale = useLocale();
   const labelId = useId();
@@ -99,7 +105,7 @@ export function PromoAccesos({ showOutxidious, tone = "group", className }: Prom
       image: PROMO_IMAGES.empresas,
       imageAlt: t("promos.empresasImageAlt"),
       title: t("promos.empresasTitle"),
-      when: t("promos.empresasWhen"),
+      when: t(empresasEndOfSeason ? "promos.empresasWhen" : "promos.empresasWhenChristmas"),
       details: [t("promos.empresasDetails")],
       cta: t("promos.empresasCta"),
     },

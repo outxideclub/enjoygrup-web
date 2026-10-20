@@ -8,6 +8,8 @@ import { localizedPath, locales, type Locale } from "../src/i18n/config";
 import { AFTER_FROM } from "../src/lib/outxidious/event-config";
 import { EMPRESAS_PATH, OUTXIDIOUS_PATH, PROMO_IMAGES } from "../src/lib/promos";
 import { isOutxidiousPromoVisible, promoVisibility } from "../src/lib/promos-visibility";
+import { EMPRESAS_CONTENT } from "../src/lib/empresas/content";
+import { isEndOfSeasonLive } from "../src/lib/empresas/view";
 
 // Bloque de accesos a las dos landings de octubre-2026 (OUTXIDIOUS y
 // celebraciones de empresa) en la portada, /outxide y /enjoy
@@ -25,6 +27,12 @@ const AGE_KEY = "ge_age_verified";
 const PAGES = ["/", "/outxide", "/enjoy"] as const;
 // Pasado el final real (dom 1-nov 05:30) la tarjeta ya no sale por defecto.
 const EVENT_OVER = Date.now() >= AFTER_FROM;
+// Hora (exclusiva) a la que /empresas retira su fin de temporada: lun 9-nov a las
+// 00:00 (+01:00). Desde ahí la tarjeta de empresas dice solo «Navidad».
+const SEASON_CUT = Date.parse("2026-11-09T00:00:00+01:00");
+/** Línea de la tarjeta de empresas que toca ahora con el reloj real. */
+const empresasWhenNow = (d: (typeof DICTS)[Locale]["promos"]) =>
+  isEndOfSeasonLive(Date.now()) ? d.empresasWhen : d.empresasWhenChristmas;
 
 /** Muro +18 y cookies ya decididos (como el resto de specs), salvo que se pida lo contrario. */
 async function preconfirm(context: BrowserContext, opts: { age?: boolean } = {}): Promise<void> {
@@ -96,6 +104,34 @@ test.describe("Accesos · lógica pura", () => {
     expect(promoVisibility({ now: AFTER_FROM + 365 * 86_400_000 }).empresas).toBe(true);
   });
 
+  test("empresas: «fin de temporada» hasta el dom 8-nov 23:59 y solo Navidad desde el 9-nov 00:00 (+01:00), el reloj de /empresas", () => {
+    // La misma hora que el bloque y el antetítulo de /empresas (finTemporada.visibleHasta).
+    expect(EMPRESAS_CONTENT.finTemporada?.visibleHasta).toBe("2026-11-09T00:00:00+01:00");
+    expect(SEASON_CUT).toBe(Date.parse(EMPRESAS_CONTENT.finTemporada?.visibleHasta ?? ""));
+    const at = (now: number, empresasNow?: number) => promoVisibility({ now, empresasNow }).empresasEndOfSeason;
+    expect(at(Date.parse("2026-10-20T12:00:00+02:00"))).toBe(true);
+    expect(at(Date.parse("2026-10-31T23:30:00+01:00"))).toBe(true);
+    expect(at(SEASON_CUT - 1)).toBe(true);
+    expect(at(SEASON_CUT)).toBe(false);
+    expect(at(SEASON_CUT + 30 * 86_400_000)).toBe(false);
+    // Fuera de producción, ?now= (empresasNow) manda sobre la hora real, como en /empresas.
+    expect(at(Date.parse("2026-10-20T12:00:00+02:00"), SEASON_CUT)).toBe(false);
+    expect(at(SEASON_CUT + 1, SEASON_CUT - 1)).toBe(true);
+    // Mismo resultado que /empresas a cualquier hora (nunca la tarjeta sin el bloque o al revés).
+    for (const t of [SEASON_CUT - 86_400_000, SEASON_CUT - 1, SEASON_CUT, SEASON_CUT + 1]) {
+      expect(at(t), new Date(t).toISOString()).toBe(isEndOfSeasonLive(t));
+    }
+    // Los textos: «fin de temporada» solo en la línea de antes del corte.
+    for (const loc of locales) {
+      const d = DICTS[loc].promos;
+      expect(d.empresasWhenChristmas.trim(), loc).not.toBe("");
+      expect(d.empresasWhen, loc).toContain(d.empresasWhenChristmas);
+      expect(d.empresasWhenChristmas, loc).not.toMatch(/temporada|season|saison|stagione/i);
+    }
+    expect(es.promos.empresasWhenChristmas).toBe("Navidad");
+    expect(DICTS.en.promos.empresasWhenChristmas).toBe("Christmas");
+  });
+
   test("namespace «promos»: mismas claves en los 5 idiomas, sin vacíos y justo detrás de «home»", () => {
     const esKeys = Object.keys(es.promos).sort();
     for (const loc of locales) {
@@ -124,8 +160,9 @@ test.describe("Accesos · lógica pura", () => {
       expect(hits, `${loc}: léxico vetado`).toEqual([]);
     }
     // Nunca el logotipo OUTXIDIOUS quieto (el póster del teaser es su último
-    // fotograma): foto ya publicada y el nombre en texto (F3).
-    expect(PROMO_IMAGES.outxidious).not.toMatch(/outxidious/i);
+    // fotograma, F3): desde el 20-oct, el CARTEL aprobado por Sergi, encuadrado.
+    expect(PROMO_IMAGES.outxidious).toBe("/images/outxidious/outxidious-cartel-tarjeta-16x9.jpg");
+    expect(PROMO_IMAGES.outxidious).not.toMatch(/teaser|logo/i);
     for (const loc of locales) expect(DICTS[loc].promos.outxidiousImageAlt, loc).not.toMatch(/logo/i);
     // «Tardeo» siempre con «acceso libre» en la misma frase (COPYS §0.3).
     expect(es.promos.outxidiousTardeo).toMatch(/tardeo.*acceso libre/i);
@@ -170,7 +207,7 @@ test.describe("Accesos · tarjetas visibles", () => {
         const em = card(page, "empresas");
         await expect(em).toBeVisible();
         await expect(em.getByRole("heading", { level: 3 })).toHaveText(d.empresasTitle);
-        await expect(em).toContainText(d.empresasWhen);
+        await expect(em).toContainText(empresasWhenNow(d));
         await expect(em).toContainText(d.empresasDetails);
         await expect(em.getByRole("img", { name: d.empresasImageAlt })).toBeVisible();
         const emLink = em.getByRole("link", { name: `${d.empresasCta}: ${d.empresasTitle}`, exact: true });
@@ -260,6 +297,34 @@ test.describe("Accesos · después de OUTXIDIOUS", () => {
     await expect(card(page, "empresas")).toBeVisible({ timeout: 15_000 });
     await expect(card(page, "outxidious")).toHaveCount(0);
   });
+
+  // La línea de la tarjeta de empresas sigue el reloj de /empresas (servidor;
+  // fuera de producción, ?now= como allí). La de OUTXIDIOUS no lee ?now=.
+  for (const path of ["/", "/outxide", "/en/enjoy"]) {
+    test(`${path}: la tarjeta de empresas deja de decir «fin de temporada» el 9-nov a las 00:00 (servidor, ?now=)`, async ({ page, request }) => {
+      const locale: Locale = path.startsWith("/en") ? "en" : "es";
+      const d = DICTS[locale].promos;
+      const sep = path.includes("?") ? "&" : "?";
+      // Un minuto antes del corte: fin de temporada y Navidad.
+      await page.goto(`${path}${sep}now=${encodeURIComponent("2026-11-08T23:59:00+01:00")}`);
+      await expect(card(page, "empresas")).toContainText(d.empresasWhen, { timeout: 15_000 });
+      // Desde el corte: solo Navidad, ya en el HTML del servidor (sin desajuste al hidratar).
+      const after = `${path}${sep}now=${encodeURIComponent("2026-11-09T00:00:00+01:00")}`;
+      const html = await (await request.get(after)).text();
+      // (El diccionario entero viaja en el payload RSC: se mira solo el marcado de la tarjeta.)
+      const at = html.indexOf('data-testid="promo-empresas"');
+      expect(at, "tarjeta de empresas en el HTML").toBeGreaterThan(-1);
+      const cardHtml = html.slice(at, html.indexOf("</article>", at));
+      expect(cardHtml).toContain(`>${d.empresasWhenChristmas}</p>`);
+      expect(cardHtml).not.toContain(d.empresasWhen);
+      await page.goto(after);
+      const em = card(page, "empresas");
+      await expect(em.locator("p").first()).toHaveText(d.empresasWhenChristmas, { timeout: 15_000 });
+      await expect(em).not.toContainText(/temporada|season/i);
+      await page.waitForTimeout(500);
+      await expect(em.locator("p").first()).toHaveText(d.empresasWhenChristmas);
+    });
+  }
 
   test("antes del final, ?phase=pronto o sin parámetro: la tarjeta sigue", async ({ page }) => {
     test.skip(EVENT_OVER, "OUTXIDIOUS ya terminó");

@@ -27,6 +27,18 @@
 // que OUTXIDE. Las frases del paquete que dicen que las dos partes son solo
 // para mayores de 18 (bloque 1, FAQ 1, 3 y 7) vuelven tal como vienen.
 //
+// 20-oct-2026 (noche, Sergi): es noche de DISFRACES DE HALLOWEEN. Fuera de
+// todo el sitio, en los 5 idiomas, las frases de campaña que Sergi retiró (el
+// claim, el del sábado, el dress code de color, «Cruza la X» y lo de los dos
+// «lados»: la lista exacta es RETIRED en e2e/outxidious.spec.ts, que las busca
+// en el HTML entero). Sin claim; el bloque de OUTXIDE y la FAQ 6, reescritos
+// como dato; el bloque de llegar antes de medianoche, fuera (sin esas frases no
+// había dato detrás). Dress code, sin adornos: «Dress code: disfraz de
+// Halloween.» y la FAQ 4 tal cual la dictó Sergi. Y el CARTEL APROBADO por
+// Sergi (hueco `poster`, bloque propio bajo la primera pantalla) es también la
+// imagen para compartir (hueco `ogImage`) y, encuadrado, la de la tarjeta de
+// los accesos (src/lib/promos.ts).
+//
 // OJO al rellenarlo: es la página de destino de anuncios con alcohol. Siguen
 // valiendo el léxico vetado de e2e/outxidious.spec.ts (que lo comprueba en el
 // HTML entero), la regla de que la placa «+18 · Consumo responsable» nunca
@@ -52,15 +64,16 @@ export type OutxidiousTheme = "neutro" | "campana-roja";
  * - heroMedia: vídeo/imagen de la cabecera · claim: claim y claim del día
  *   (y el subtítulo del diccionario, que es creativo) · sections: bloques bajo
  *   el hero y la FAQ · theme: el tema elegido en `theme` · ogImage: imagen
- *   para compartir.
+ *   para compartir · poster: el cartel del evento, en un bloque propio justo
+ *   debajo de la primera pantalla.
  * - index: NO es material creativo: robots index + sitemap. Decisión aparte.
  */
-export const OUTXIDIOUS_SLOTS = ["heroMedia", "claim", "sections", "theme", "ogImage", "index"] as const;
+export const OUTXIDIOUS_SLOTS = ["heroMedia", "claim", "sections", "theme", "ogImage", "poster", "index"] as const;
 export type OutxidiousSlot = (typeof OUTXIDIOUS_SLOTS)[number];
 export type OutxidiousApproval = Partial<Record<OutxidiousSlot, boolean>>;
 
 /**
- * Color de la hora de un bloque: «este lado» (tardeo) y «el otro lado»
+ * Color de la hora de un bloque: el tardeo (Enjoy Terrace) y la noche
  * (OUTXIDE). Los dos colores están PENDIENTES DE JOSE (outxidious.css).
  */
 export const OUTXIDIOUS_SECTION_TONES = ["tardeo", "noche"] as const;
@@ -71,7 +84,8 @@ export interface OutxidiousSection {
   time?: string;
   tone?: OutxidiousSectionTone;
   title: string;
-  text: string;
+  /** Texto bajo el título; sin él, el bloque es solo el título (p. ej. el dress code, un dato de una línea). */
+  text?: string;
 }
 
 /** Pregunta frecuente (va con el hueco `sections`). */
@@ -127,6 +141,18 @@ export interface OutxidiousOgImage {
 }
 
 /**
+ * Cartel del evento: bloque propio JUSTO DEBAJO de la primera pantalla (nunca
+ * dentro: no desplaza la placa +18 ni el botón). Ruta de public/; `alt`
+ * factual con lo que dice el cartel, en cada idioma.
+ */
+export interface OutxidiousPoster {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+/**
  * Huecos por idioma. Lo que FALTE en un idioma cae al español; lo que esté
  * puesto VACÍO ("" o []) significa «en este idioma, nada» y no cae: así un
  * idioma sin versión del copy creativo se queda con la página neutra en vez
@@ -143,6 +169,7 @@ export interface OutxidiousLocaleContent {
   faq?: OutxidiousFaqItem[];
   heroMedia?: OutxidiousHeroMedia;
   ogImage?: OutxidiousOgImage;
+  poster?: OutxidiousPoster;
 }
 
 export interface OutxidiousContent {
@@ -161,9 +188,12 @@ export interface OutxidiousContent {
 // entera, «CLUB» y las esquirlas de la X incluidos, comprobado en una hoja de
 // fotogramas del recorte), para que el h1, el claim, las dos partes, el
 // precio, el botón y la placa +18 quepan debajo (también el sábado, con la
-// línea «Hoy»). 20-oct (v0.4): el recorte bajo pasa de 4:1 a 5:1 porque la
-// parte de OUTXIDE gana una línea (DJ Siquiers) y a 375×667 la placa se salía
-// unos 5 px: se reduce el vídeo, nunca la placa.
+// línea «Hoy»). 20-oct (v0.4): el recorte bajo pasa de 4:1 a 5:1 porque las
+// partes ganan líneas (el line-up de cada una, event-config.ts) y a 375×667 la
+// placa se salía: se reduce el vídeo, nunca la placa. 5:1 es el mínimo que
+// enseña entera la franja que se mueve (17,9 % del alto). Sin el claim
+// (retirado por Sergi el 20-oct de noche) sobra sitio: a 375×667 el sábado,
+// con la franja de cookies, la placa acaba a unos 50 px del borde.
 // Si se recodifica, CAMBIAR EL NOMBRE del fichero: /videos va con caché
 // immutable de un año (next.config.ts).
 const TEASER = {
@@ -177,6 +207,44 @@ const TEASER = {
   shortAspect: 5,
   focusY: 45,
 } as const;
+
+/**
+ * CARTEL APROBADO por Sergi el 20-oct-2026 («ya se puede usar en la web»):
+ * halloween-2026-outxidious/09-cartel-canva/limpio/FINAL/OUTXIDIOUS-cartel-4x5.jpg,
+ * recomprimido para la web (1080×1350, JPG mozjpeg calidad 85 con el color
+ * entero, 4:4:4, para el rojo de la X y del +18: 275 KB, ≤ 300 KB para las
+ * vistas previas al compartir). Es el bloque bajo la primera pantalla, la
+ * imagen para compartir y la de la tarjeta de los accesos (src/lib/promos.ts:
+ * allí recortada a 16:9 desde arriba, con el nombre entero). /images va con
+ * caché immutable de un año (next.config.ts): si se cambia, CAMBIAR EL NOMBRE.
+ *
+ * Lo que dice el cartel: OUTXIDIOUS · TARDEO, Enjoy Terrace, 20:00–23:00,
+ * entrada libre, DJ's AGUILÓ y MARC RIPOLL · NOCHE, OUTXIDE, 23:00–05:30, DJ's
+ * PLAYING COLORS, DAVID CASTRO y SIQUIERS · Halloween · sábado 31 octubre ·
+ * Port d'Alcúdia · +18. El alt lo cuenta en cada idioma con el léxico de la
+ * página («acceso libre»: aquí «entrada» es solo la de OUTXIDE) y los nombres
+ * tal cual (los mismos que OUTXIDIOUS_LINEUP, event-config.ts; lo comprueba el
+ * e2e). Las horas van escritas porque describen la imagen, no el panel.
+ */
+export const OUTXIDIOUS_CARTEL = {
+  src: "/images/outxidious/outxidious-cartel-4x5.jpg",
+  width: 1080,
+  height: 1350,
+  alt: {
+    es: "Cartel de OUTXIDIOUS, Halloween, sábado 31 de octubre, Port d'Alcúdia, +18. Tardeo en Enjoy Terrace de 20:00 a 23:00, de acceso libre, con los DJ AGUILÓ y MARC RIPOLL. Noche en OUTXIDE de 23:00 a 05:30 con los DJ PLAYING COLORS, DAVID CASTRO y SIQUIERS.",
+    en: "OUTXIDIOUS poster, Halloween, Saturday 31 October, Port d'Alcúdia, 18+. Free-entry early party at Enjoy Terrace from 20:00 to 23:00 with DJs AGUILÓ and MARC RIPOLL. Night at OUTXIDE from 23:00 to 05:30 with DJs PLAYING COLORS, DAVID CASTRO and SIQUIERS.",
+    de: "Plakat von OUTXIDIOUS, Halloween, Samstag, 31. Oktober, Port d'Alcúdia, ab 18. Early Party auf der Enjoy Terrace von 20:00 bis 23:00 Uhr, Eintritt frei, mit den DJs AGUILÓ und MARC RIPOLL. Nacht im OUTXIDE von 23:00 bis 05:30 Uhr mit den DJs PLAYING COLORS, DAVID CASTRO und SIQUIERS.",
+    fr: "Affiche d'OUTXIDIOUS, Halloween, samedi 31 octobre, Port d'Alcúdia, 18+. Début de soirée à l'Enjoy Terrace de 20h00 à 23h00, en accès libre, avec les DJ AGUILÓ et MARC RIPOLL. Nuit à l'OUTXIDE de 23h00 à 05h30 avec les DJ PLAYING COLORS, DAVID CASTRO et SIQUIERS.",
+    it: "Locandina di OUTXIDIOUS, Halloween, sabato 31 ottobre, Port d'Alcúdia, 18+. Festa in terrazza all'Enjoy Terrace dalle 20:00 alle 23:00, a ingresso libero, con i DJ AGUILÓ e MARC RIPOLL. Notte all'OUTXIDE dalle 23:00 alle 05:30 con i DJ PLAYING COLORS, DAVID CASTRO e SIQUIERS.",
+  } satisfies Record<Locale, string>,
+} as const;
+
+/** El cartel como bloque de la página y como imagen para compartir, en un idioma. */
+function cartelFor(locale: Locale): Pick<OutxidiousLocaleContent, "poster" | "ogImage"> {
+  const { src, width, height } = OUTXIDIOUS_CARTEL;
+  const alt = OUTXIDIOUS_CARTEL.alt[locale];
+  return { poster: { src, width, height, alt }, ogImage: { url: src, width, height, alt } };
+}
 
 /** Huecos de texto vacíos A PROPÓSITO: «en este idioma, sin copy creativo» (no cae al español). */
 const NO_CREATIVE_COPY = { claim: "", claimToday: "", sections: [], faq: [] } satisfies OutxidiousLocaleContent;
@@ -195,19 +263,25 @@ const NO_CREATIVE_COPY = { claim: "", claimToday: "", sections: [], faq: [] } sa
  *   («¿Necesito algo para entrar al tardeo?») y «Es una noche para mayores de
  *   18» en la 7 (revisión F4: la FAQ de /empresas ya decía «las dos partes»,
  *   y esta página daba a entender que el tardeo admitía menores).
+ * - 20-oct (noche, Sergi; prevalece sobre el paquete): sin claim ni claim del
+ *   sábado (vacíos a propósito: el hueco `claim` sigue encendido por el
+ *   subtítulo del diccionario, ya sin «lados»); el bloque 2 cuenta OUTXIDE como
+ *   dato; el 3 es el dress code en una línea («Dress code: disfraz de
+ *   Halloween.»); el 4 (llegar antes de las 00:00) fuera; la FAQ 4, la de
+ *   Sergi tal cual, y la 6 sin la coletilla de medianoche.
  * - FAQ: con [CONFIRMAR] sin dato se borra la frase entera, nunca solo la
  *   marca. La 1 va con la respuesta por defecto del paquete (§4.3: la regla
  *   de puerta que ya publica la web en faq.outxideA1, «DNI o pasaporte», para
  *   las dos partes), porque Jose no ha confirmado la lista ampliada de
- *   documentos (DNI, NIE, pasaporte o permiso de conducir), las fotocopias ni
- *   el control con disfraz. La lista ampliada solo entra con su OK, a la vez
- *   aquí y en la FAQ 3 de /empresas (paquete de empresas v0.5, §7 punto 7).
- *   La 4 sin las normas de disfraz; la 5 sin por dónde se entra a cada local
- *   ni si se pasa por dentro.
+ *   documentos (DNI, NIE, pasaporte o permiso de conducir) ni las fotocopias.
+ *   La lista ampliada solo entra con su OK, a la vez aquí y en la FAQ 3 de
+ *   /empresas (paquete de empresas v0.5, §7 punto 7). La 5 sin por dónde se
+ *   entra a cada local ni si se pasa por dentro.
  * - Horas con huecos ({start} {end} de Fourvenues; {tardeoStart} {tardeoEnd}).
  * - DE, FR e IT: sin versión del copy creativo (no se traduce): claim,
  *   secciones y FAQ VACÍOS para que no caigan al español; esos idiomas siguen
- *   con la página neutra (con el tema rojo y el teaser, que no son texto).
+ *   con la página neutra (con el tema rojo, el teaser y el cartel, que no son
+ *   texto: el cartel lleva su alt en cada idioma).
  * Los datos de prueba de los huecos viven SOLO en e2e/outxidious.spec.ts.
  */
 export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
@@ -216,8 +290,9 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
     claim: true,
     sections: true,
     theme: true,
-    // Sin imagen OG en el paquete: sigue la foto de la cabina (nunca el logo fijo).
-    ogImage: false,
+    // El cartel aprobado por Sergi (20-oct), en vez de la foto de la cabina.
+    ogImage: true,
+    poster: true,
     // Fuera de buscadores hasta nueva orden.
     index: false,
   },
@@ -226,29 +301,23 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
   // lector de pantalla; no es copy de campaña: describe lo que se ve).
   locales: {
     es: {
-      claim: "Algo cruzó contigo.",
-      claimToday: "{start} se abre. 00:00 se rompe.",
+      // Sin claim (retirado por Sergi el 20-oct): vacíos a propósito.
+      claim: "",
+      claimToday: "",
       sections: [
         {
           time: "{tardeoStart}–{tardeoEnd}",
           tone: "tardeo",
           title: "Tardeo de acceso libre en Enjoy Terrace",
-          text: "Empezamos antes, en Enjoy Terrace, con acceso libre y gratuito.\nSolo mayores de\u00a018: trae tu documento.",
+          text: "Empezamos antes, en Enjoy Terrace, con acceso libre y gratuito.\nSolo mayores de 18: trae tu documento.",
         },
         {
           time: "{start}–{end}",
           tone: "noche",
           title: "OUTXIDE",
-          text: "A las {start} se abre. A las 00:00 se rompe. Y la noche sigue al otro lado hasta las {end}.\nCon entrada para OUTXIDE, solo mayores de\u00a018.", // espacio duro: el «18» no se queda solo en otra línea
+          text: "Después, la noche sigue en OUTXIDE, de {start} a {end}.\nCon entrada para OUTXIDE, solo mayores de 18.", // espacio duro: el «18» no se queda solo en otra línea
         },
-        {
-          title: "Dress code: negro",
-          text: "Ven de negro y trae una grieta roja: un trazo de maquillaje, una cinta, un pañuelo, unos cordones. Lo que quieras, mientras se vea rojo.",
-        },
-        {
-          title: "Llega antes de las 00:00",
-          text: "A medianoche se rompe, y se rompe una sola vez. Que te pille dentro.",
-        },
+        { title: "Dress code: disfraz de Halloween." },
       ],
       faq: [
         {
@@ -263,9 +332,10 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           q: "¿Necesito algo para entrar al tardeo?",
           a: "Solo tu documento: es de acceso libre y para mayores de 18. La entrada solo hace falta para seguir en OUTXIDE a partir de las {start}.",
         },
+        // Tal cual la dictó Sergi (20-oct).
         {
-          q: "¿Cuál es el dress code?",
-          a: "Negro. Y una grieta roja: un detalle rojo que se vea, como un trazo de maquillaje, una cinta o un pañuelo.",
+          q: "¿Hay dress code?",
+          a: "Disfraz de Halloween. En la puerta se pide el DNI con la cara descubierta.",
         },
         {
           q: "¿Cómo llego a cada sitio?",
@@ -273,7 +343,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         },
         {
           q: "¿A qué hora cierra?",
-          a: "El tardeo de acceso libre de Enjoy Terrace termina a las {tardeoEnd}. OUTXIDE abre a las {start} y cierra a las {end}. Llega antes de las 00:00: es cuando se rompe.",
+          a: "El tardeo de acceso libre de Enjoy Terrace termina a las {tardeoEnd}. OUTXIDE abre a las {start} y cierra a las {end}.",
         },
         {
           q: "¿Y el consumo responsable?",
@@ -284,10 +354,11 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         ...TEASER,
         label: "Animación sin sonido: el logotipo de OUTXIDE Club se transforma en OUTXIDIOUS y su X se rompe en esquirlas iluminadas de rojo.",
       },
+      ...cartelFor("es"),
     },
     en: {
-      claim: "Something crossed over with you.",
-      claimToday: "Opens {start}. Breaks 00:00.",
+      claim: "",
+      claimToday: "",
       sections: [
         {
           time: "{tardeoStart}–{tardeoEnd}",
@@ -299,16 +370,9 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           time: "{start}–{end}",
           tone: "noche",
           title: "OUTXIDE",
-          text: "It opens at {start}. It breaks at 00:00. And on the other side, the night goes on until {end}.\nOUTXIDE ticket required, 18+ only.",
+          text: "Then the night carries on at OUTXIDE, from {start} to {end}.\nOUTXIDE ticket required, 18+ only.",
         },
-        {
-          title: "Dress code: black",
-          text: "Wear black and bring a red crack: a stroke of make-up, a ribbon, a scarf, a pair of laces. Anything, as long as it shows red.",
-        },
-        {
-          title: "Get in before 00:00",
-          text: "At midnight it breaks, and it only breaks once. Be inside when it does.",
-        },
+        { title: "Dress code: Halloween costume." },
       ],
       faq: [
         {
@@ -323,9 +387,10 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           q: "Do I need anything to get into the early party?",
           a: "Just your ID: it's free entry and 18+ only. You only need a ticket to carry on at OUTXIDE from {start}.",
         },
+        // As dictated by Sergi (20-oct).
         {
-          q: "What's the dress code?",
-          a: "Black. Plus a red crack: a red detail that shows, like a stroke of make-up, a ribbon or a scarf.",
+          q: "Is there a dress code?",
+          a: "Halloween costume. At the door we ask for ID with your face uncovered.",
         },
         {
           q: "How do I get to each place?",
@@ -333,7 +398,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         },
         {
           q: "What time does it close?",
-          a: "The free-entry early party at Enjoy Terrace ends at {tardeoEnd}. OUTXIDE opens at {start} and closes at {end}. Get in before 00:00: that's when it breaks.",
+          a: "The free-entry early party at Enjoy Terrace ends at {tardeoEnd}. OUTXIDE opens at {start} and closes at {end}.",
         },
         {
           q: "What about drinking responsibly?",
@@ -344,15 +409,18 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         ...TEASER,
         label: "Silent animation: the OUTXIDE Club logo turns into OUTXIDIOUS and its X breaks into shards lit in red.",
       },
+      ...cartelFor("en"),
     },
     // Sin copy creativo en estos idiomas (no se traduce): vacíos a propósito
-    // para que no caigan al español. Solo la descripción accesible del vídeo.
+    // para que no caigan al español. La descripción accesible del vídeo y el
+    // cartel (con su alt en el idioma), que no son copy.
     de: {
       ...NO_CREATIVE_COPY,
       heroMedia: {
         ...TEASER,
         label: "Animation ohne Ton: Das Logo von OUTXIDE Club verwandelt sich in OUTXIDIOUS, und sein X zerbricht in rot leuchtende Splitter.",
       },
+      ...cartelFor("de"),
     },
     fr: {
       ...NO_CREATIVE_COPY,
@@ -360,6 +428,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         ...TEASER,
         label: "Animation sans son : le logo d'OUTXIDE Club se transforme en OUTXIDIOUS et son X se brise en éclats éclairés en rouge.",
       },
+      ...cartelFor("fr"),
     },
     it: {
       ...NO_CREATIVE_COPY,
@@ -367,6 +436,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         ...TEASER,
         label: "Animazione senza audio: il logo di OUTXIDE Club si trasforma in OUTXIDIOUS e la sua X si rompe in schegge illuminate di rosso.",
       },
+      ...cartelFor("it"),
     },
   },
 };
@@ -380,6 +450,7 @@ export interface ResolvedOutxidiousContent {
   faq: OutxidiousFaqItem[];
   heroMedia: OutxidiousHeroMedia | null;
   ogImage: OutxidiousOgImage | null;
+  poster: OutxidiousPoster | null;
 }
 
 const text = (v: string | undefined): string | null => (typeof v === "string" && v.trim() ? v.trim() : null);
@@ -408,11 +479,13 @@ export function resolveOutxidiousContent(content: OutxidiousContent, locale: Loc
         ? (text(own.claimToday) ?? text(own.claim))
         : (text(base.claimToday) ?? text(base.claim))
       : null,
-    sections: ok("sections") ? (pick("sections") ?? []).filter((s) => text(s.title) && text(s.text)) : [],
+    // Un bloque necesita título; el texto es opcional (el dress code va en una línea).
+    sections: ok("sections") ? (pick("sections") ?? []).filter((s) => text(s.title)) : [],
     // La FAQ va con el hueco `sections` (es contenido bajo el hero).
     faq: ok("sections") ? (pick("faq") ?? []).filter((f) => text(f.q) && text(f.a)) : [],
     heroMedia: ok("heroMedia") ? (pick("heroMedia") ?? null) : null,
     ogImage: ok("ogImage") ? (pick("ogImage") ?? null) : null,
+    poster: ok("poster") ? (pick("poster") ?? null) : null,
   };
 }
 
@@ -469,12 +542,12 @@ function parseLocaleContent(v: unknown): OutxidiousLocaleContent | undefined {
   if (isStr(v.claimToday)) out.claimToday = v.claimToday;
   if (Array.isArray(v.sections)) {
     out.sections = v.sections
-      .filter((s): s is Record<string, unknown> => isRecord(s) && isStr(s.title) && isStr(s.text))
+      .filter((s): s is Record<string, unknown> => isRecord(s) && isStr(s.title))
       .map((s) => ({
         ...(isStr(s.time) ? { time: s.time } : {}),
         ...(isTone(s.tone) ? { tone: s.tone } : {}),
         title: s.title as string,
-        text: s.text as string,
+        ...(isStr(s.text) ? { text: s.text } : {}),
       }));
   }
   if (Array.isArray(v.faq)) {
@@ -487,6 +560,10 @@ function parseLocaleContent(v: unknown): OutxidiousLocaleContent | undefined {
   const og = v.ogImage;
   if (isRecord(og) && isPublicPath(og.url) && isSize(og.width) && isSize(og.height) && isStr(og.alt)) {
     out.ogImage = { url: og.url, width: og.width, height: og.height, alt: og.alt };
+  }
+  const poster = v.poster;
+  if (isRecord(poster) && isPublicPath(poster.src) && isSize(poster.width) && isSize(poster.height) && isStr(poster.alt)) {
+    out.poster = { src: poster.src, width: poster.width, height: poster.height, alt: poster.alt };
   }
   return out;
 }

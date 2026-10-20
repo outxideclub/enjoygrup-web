@@ -24,7 +24,7 @@
         PENDIENTES DE JOSE: no salen de los vectores ni del manual.
       - botón pulsado y placa legal: #A0070E, el rojo de la X de los vectores
         (#FFFFFF encima 8,30:1; #F8F8F8 7,81:1).
-      - hora del tardeo («este lado»): dorado #C9A977 del manual (9,04:1),
+      - hora del tardeo: dorado #C9A977 del manual (9,04:1),
         solo la etiqueta y la hora, nunca junto al rojo en la misma línea.
         PENDIENTE DE JOSE: choca con /empresas (allí el dorado es OUTXIDE y el
         rosa, Enjoy Terrace); hace falta un solo código tarde/noche para las
@@ -114,6 +114,16 @@
 }
 .ox-legal {
   color: var(--ox-legal);
+}
+/* Artistas de cada parte (page.tsx): una línea corta bajo la hora, en el color
+   del texto (AA de sobra sobre el fondo) y más pequeña que la parte, para que
+   las dos partes con sus nombres quepan en la primera pantalla de móvil. */
+.ox-artists {
+  color: var(--ox-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
 }
 .ox-link {
   color: var(--ox-accent-text);

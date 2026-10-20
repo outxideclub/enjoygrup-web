@@ -13,17 +13,21 @@ export const EMPRESAS_PATH = "/empresas";
 
 /**
  * Imágenes de las tarjetas (rutas de public/).
- * - OUTXIDIOUS: la foto YA publicada de la cabina de OUTXIDE (la misma que la
- *   imagen para compartir de la landing), con OUTXIDIOUS solo en el texto de
- *   la tarjeta. Hasta el 20-oct era el póster del teaser, que es el último
- *   fotograma: el logotipo OUTXIDIOUS completo y QUIETO, y el logo fijo está
- *   prohibido (solo el teaser aprobado y el nombre en texto; revisión F3).
+ * - OUTXIDIOUS: el CARTEL aprobado por Sergi el 20-oct-2026 («ya se puede usar
+ *   en la web»), encuadrado a 16:9 desde arriba para que el nombre salga
+ *   entero (el nombre, los murciélagos y la calabaza; sin cortar ningún texto
+ *   del cartel). Recorte de OUTXIDIOUS-cartel-A4.png de la carpeta FINAL, la
+ *   misma pieza que el 4:5 de la landing, para que la tarjeta no se vea blanda
+ *   en pantallas de alta densidad (1280×720, 107 KB). Hasta entonces era la
+ *   foto de la cabina: el póster del teaser (el logotipo quieto) estaba
+ *   prohibido y lo sigue estando (revisión F3); el cartel es otra pieza, con el
+ *   OK de Sergi. /images va con caché immutable: si cambia, CAMBIAR EL NOMBRE.
  * - Empresas: O01 de CREATIVO-LANDING-EMPRESAS.md §5, la fachada de noche con
  *   los rótulos de OUTXIDE y Enjoy (ya publicada; es la primera pantalla de
  *   /empresas). Sin nadie bebiendo, sin botellas, sin marcas de bebida y sin
  *   shisha.
  */
 export const PROMO_IMAGES = {
-  outxidious: "/images/outxide/DSCF8103-9.jpg",
+  outxidious: "/images/outxidious/outxidious-cartel-tarjeta-16x9.jpg",
   empresas: "/images/outxide/668998962_1705308414205492_561026873108522450_n.jpg",
 } as const;

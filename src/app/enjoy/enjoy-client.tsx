@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUp, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { ArrowLeft, Clock, MapPin, ArrowRight, Phone, BookOpen, Star } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -37,10 +37,18 @@ export interface EnjoyClientProps {
   galleryImages: GalleryImage[];
   /** Tarjeta de OUTXIDIOUS en el bloque de accesos: la decide el servidor (page.tsx). */
   showOutxidiousPromo: boolean;
+  /** Línea «fin de temporada» de la tarjeta de empresas: también del servidor. */
+  empresasEndOfSeasonPromo: boolean;
 }
 
 
-export function EnjoyClient({ drinkSections, shishaSections, galleryImages, showOutxidiousPromo }: EnjoyClientProps) {
+export function EnjoyClient({
+  drinkSections,
+  shishaSections,
+  galleryImages,
+  showOutxidiousPromo,
+  empresasEndOfSeasonPromo,
+}: EnjoyClientProps) {
   const t = useT();
   const locale = useLocale();
   const [videoReady, setVideoReady] = useState(false);
@@ -55,6 +63,9 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages, show
   }, []);
 
   useEffect(() => {
+    // Marca de «ya montado» (las animaciones del primer pintado van sin
+    // transición): solo puede saberse en un efecto (igual que la portada).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsFirstMount(false);
     document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
   }, []);
@@ -242,7 +253,12 @@ export function EnjoyClient({ drinkSections, shishaSections, galleryImages, show
           acento rosa de Enjoy. Las dos pasan por aquí: el tardeo de OUTXIDIOUS
           es en Enjoy Terrace (y es la que caduca, por eso va primero) y las
           celebraciones de empresa incluyen la tarde en Enjoy. */}
-      <PromoAccesos showOutxidious={showOutxidiousPromo} tone="enjoy" className="pt-10 sm:pt-12" />
+      <PromoAccesos
+        showOutxidious={showOutxidiousPromo}
+        empresasEndOfSeason={empresasEndOfSeasonPromo}
+        tone="enjoy"
+        className="pt-10 sm:pt-12"
+      />
 
       {/* About — branded SEO content */}
       <section className="relative z-20 py-16 sm:py-20">

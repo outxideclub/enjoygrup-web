@@ -106,9 +106,15 @@ export const es = {
     outxidiousTardeo: "Tardeo en Enjoy Terrace de 20:00 a 23:00 (acceso libre)",
     outxidiousNight: "OUTXIDE de 23:00 a 05:30",
     outxidiousCta: "Ver el evento",
-    outxidiousImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
+    // La tarjeta lleva el cartel aprobado por Sergi (20-oct), encuadrado en la
+    // parte de arriba: el nombre, los murciélagos y la calabaza.
+    outxidiousImageAlt: "Cartel de OUTXIDIOUS: el nombre del evento y una calabaza de Halloween",
     empresasTitle: "Celebraciones de empresa",
     empresasWhen: "Fin de temporada y Navidad",
+    // Desde el lun 9-nov a las 00:00 (+01:00), cuando /empresas retira su fin
+    // de temporada: la tarjeta deja de decirlo y solo queda Navidad (mismo reloj
+    // de servidor, src/lib/promos-visibility.ts).
+    empresasWhenChristmas: "Navidad",
     // Como la landing y EMP-2-S (COPYS v1.4): la tarde solo si es comida (revisión F9).
     empresasDetails: "La noche en OUTXIDE; si es comida, antes la tarde en Enjoy Terrace",
     empresasCta: "Pedir presupuesto",
@@ -304,8 +310,9 @@ export const es = {
     metaDescription: "Halloween en Port d'Alcúdia, sáb 31 oct: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd}. Después, OUTXIDE de {start} a {end}, con entrada. +18.",
     keywords: "OUTXIDIOUS, Halloween 2026, Halloween Alcúdia, Halloween Port d'Alcúdia, Halloween Mallorca, Enjoy Terrace, OUTXIDE Club",
     ogTitle: "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE",
-    // Creativa (§6.3b), sin precio: la caché de Meta no se entera de los cambios.
-    ogDescription: "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE hasta las {end}. +18.",
+    // La FACTUAL del paquete (§4.5): la creativa abría con el claim que Sergi
+    // retiró el 20-oct. Sin precio: la caché de Meta no se entera de los cambios.
+    ogDescription: "Sáb 31·10 · Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE de {start} a {end}. +18.",
     ogImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
     eyebrow: "Halloween 2026 · Enjoy + OUTXIDE",
     h1Name: "OUTXIDIOUS",
@@ -318,17 +325,14 @@ export const es = {
     partTardeoDetail: "{tardeoStart}–{tardeoEnd} · acceso libre",
     partOutxide: "OUTXIDE",
     partOutxideDetail: "{start}–{end} · entrada",
-    // Confirmado por Sergi (20-oct) para la noche en la sala. Solo el nombre,
-    // tal cual en los 5 idiomas: dato, no claim (Fourvenues no tiene campo de
-    // artistas, así que no va como performer en el JSON-LD).
-    partOutxideDj: "DJ Siquiers",
     priceFrom: "Entradas para OUTXIDE desde {price} (gastos incluidos)",
     buy: "Comprar entradas",
     // Bajo el botón: deja claro que la entrada es solo de OUTXIDE.
     buyNote: "Entrada para OUTXIDE, de {start} a {end}. El tardeo en Enjoy Terrace es de acceso libre.",
     legalPlate: "+18 · Consumo responsable",
     // Creativo (§6.3b): solo se pinta con el hueco `claim` encendido.
-    subtitle: "La noche de Halloween se parte en dos: empieza en Enjoy Terrace y sigue al otro lado, en OUTXIDE.",
+    // Sin «lados» (frases retiradas por Sergi el 20-oct).
+    subtitle: "La noche de Halloween se parte en dos: empieza en Enjoy Terrace y sigue en OUTXIDE.",
     // «Pronto» sale siempre que no hay tarifa vendible (antes de la venta, con
     // todo completo o con Fourvenues caído): nada de «muy pronto».
     soonTitle: "Entradas para OUTXIDE",
@@ -336,8 +340,10 @@ export const es = {
     // Sábado 31 sin venta online (isSalesClosedToday): la noche sigue en pie; sin puerta ni precio.
     closedTodayText: "La venta online de entradas para OUTXIDE no está abierta ahora. OUTXIDE abre hoy a las {start}, y el tardeo en Enjoy Terrace, de {tardeoStart} a {tardeoEnd}, es de acceso libre.",
     alertsText: "Si quieres, te avisamos por email de los próximos eventos.",
-    afterTitle: "OUTXIDIOUS ya cruzó",
-    afterText: "Fue el sábado 31 de octubre de 2026. Gracias por venir.",
+    // La versión factual del paquete (§4.6): la creativa jugaba con «cruzar»,
+    // de la familia de frases que Sergi retiró el 20-oct.
+    afterTitle: "Gracias por venir",
+    afterText: "OUTXIDIOUS se celebró el sábado 31 de octubre de 2026.",
     afterLink: "Ver los próximos eventos de OUTXIDE",
     directionsTitle: "Cómo llegar",
     address: "Av. Tucán 1, 07400 Port d'Alcúdia (Mallorca)",

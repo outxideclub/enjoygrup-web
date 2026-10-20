@@ -19,7 +19,7 @@ import {
 import { getOutxidiousContent } from "@/lib/outxidious/content.server";
 import { loadOutxidiousTimes, loadOutxidiousView } from "@/lib/outxidious/landing.server";
 import { buildOutxidiousEventJsonLd } from "@/lib/outxidious/jsonld";
-import { TARDEO_END_TIME, TARDEO_START_TIME } from "@/lib/outxidious/event-config";
+import { OUTXIDIOUS_LINEUP, TARDEO_END_TIME, TARDEO_START_TIME } from "@/lib/outxidious/event-config";
 import { OutxidiousAlertsForm } from "./alerts-form";
 import { HeroVideo } from "./hero-video";
 import "./outxidious.css";
@@ -49,11 +49,15 @@ import "./outxidious.css";
 // Lo creativo entra por src/lib/outxidious/content.ts con aprobación POR HUECO.
 // 20-oct (tarde): encendidos como PROVISIONAL (paquete v0.2 de META ADS,
 // autorizado por Sergi, pendiente del OK de Jose) el teaser, el claim, los
-// bloques con la FAQ y el tema rojo; la imagen OG y el index, no.
-// - Después del evento («despues») no se pintan los bloques, la FAQ ni el
-//   subtítulo: «Empezamos antes…» y «Llega antes de las 00:00» ya no son verdad.
-// - DJ Siquiers (confirmado por Sergi, 20-oct) va en la parte de OUTXIDE de la
-//   primera pantalla, como dato y sin claim, en los 5 idiomas.
+// bloques con la FAQ y el tema rojo; el index, no. 20-oct (noche): Sergi retira
+// el claim y las frases de campaña (content.ts) y aprueba el CARTEL: bloque
+// propio justo debajo de la primera pantalla e imagen para compartir.
+// - Después del evento («despues») no se pintan los bloques, la FAQ, el
+//   subtítulo ni el cartel: «Empezamos antes…» ya no es verdad.
+// - Line-up (confirmado por Sergi, 20-oct; event-config.ts): cada grupo en su
+//   parte de la noche (AGUILÓ · MARC RIPOLL en el tardeo; PLAYING COLORS ·
+//   DAVID CASTRO · SIQUIERS en OUTXIDE), como dato y sin claim, tal cual en los
+//   5 idiomas.
 // El muro +18 lo hereda del layout de /outxide (no se toca ni se degrada): es la
 // fila 0 de la primera pantalla (paquete v0.3, §3.1), un diálogo fijo encima de
 // todo, y al confirmarlo la placa sigue en la primera pantalla (lo prueba el e2e
@@ -72,7 +76,28 @@ function fill(text: string, vars: Record<string, string>): string {
   return text.replace(/\{(\w+)\}/g, (match, key: string) => vars[key] ?? match);
 }
 
-/** Color de la hora de cada bloque: tardeo («este lado») y OUTXIDE («el otro lado»). */
+/**
+ * Artistas de una parte (OUTXIDIOUS_LINEUP), en su propia línea debajo de la
+ * hora: cada nombre entero (el corte, si hace falta, cae tras un «·», nunca a
+ * mitad). Solo los nombres, sin rótulo: «line-up» sigue en el léxico vetado
+ * del paquete (§5, «promesas sin confirmar») y el e2e lo busca en el HTML
+ * entero, clases y data-testid incluidos.
+ */
+function PartArtists({ names, testId }: { names: readonly string[]; testId: string }) {
+  if (names.length === 0) return null;
+  return (
+    <span data-testid={testId} className="ox-artists block">
+      {names.map((name, i) => (
+        <span key={name}>
+          {i > 0 && " · "}
+          <span className="whitespace-nowrap">{name}</span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/** Color de la hora de cada bloque: el tardeo y OUTXIDE. */
 const TONE_CLASS: Record<OutxidiousSectionTone, string> = { tardeo: "ox-tardeo", noche: "ox-accent" };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -134,9 +159,8 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
   const subtitle = isSlotApproved(raw, "claim") && !afterEvent ? t("outxidious.subtitle").trim() : "";
   const sections = afterEvent ? [] : content.sections;
   const faq = afterEvent ? [] : content.faq;
+  const poster = afterEvent ? null : content.poster;
   const outxideHref = localizedPath("/outxide", locale);
-  // Artista de la noche en la sala (vacío = no se pinta).
-  const partDj = t("outxidious.partOutxideDj").trim();
   // Sin multimedia aprobada todo va centrado (una columna); con ella, en móvil
   // el vídeo/imagen va ENCIMA del texto (recortado para que el h1 y la placa
   // quepan en la primera pantalla) y en escritorio a la derecha.
@@ -228,23 +252,14 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                 <li data-testid="outxidious-part-tardeo">
                   <span className="ox-title font-semibold">{t("outxidious.partTardeo")}</span>{" "}
                   <span className="whitespace-nowrap">{fill(t("outxidious.partTardeoDetail"), vars)}</span>
+                  {" "}
+                  <PartArtists names={OUTXIDIOUS_LINEUP.tardeo} testId="outxidious-artists-tardeo" />
                 </li>
                 <li data-testid="outxidious-part-outxide">
-                  {/* «OUTXIDE · DJ Siquiers» en la primera línea y la hora en la
-                      segunda, igual que el tardeo («Tardeo · Enjoy Terrace» y su
-                      hora): en móvil las dos partes ocupan dos líneas cada una. */}
-                  <span className="ox-title font-semibold">
-                    {t("outxidious.partOutxide")}
-                    {partDj && (
-                      <>
-                        {" · "}
-                        <span data-testid="outxidious-part-dj" className="whitespace-nowrap">
-                          {partDj}
-                        </span>
-                      </>
-                    )}
-                  </span>{" "}
+                  <span className="ox-title font-semibold">{t("outxidious.partOutxide")}</span>{" "}
                   <span className="whitespace-nowrap">{fill(t("outxidious.partOutxideDetail"), vars)}</span>
+                  {" "}
+                  <PartArtists names={OUTXIDIOUS_LINEUP.outxide} testId="outxidious-artists-outxide" />
                 </li>
               </ul>
 
@@ -348,6 +363,26 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
           </div>
         </section>
 
+        {/* Cartel aprobado por Sergi (20-oct): bloque propio JUSTO DEBAJO de la
+            primera pantalla, fuera del hero (no mueve la placa +18 ni el botón).
+            Carga diferida (no es el LCP: lo es el póster del teaser) y next/image
+            sirve el ancho que toca: 448 px como mucho (max-w-md) o la pantalla
+            menos el margen. El alt cuenta lo que dice el cartel. */}
+        {poster && (
+          <section data-testid="outxidious-poster" className="ox-rule border-t">
+            <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+              <Image
+                src={poster.src}
+                alt={poster.alt}
+                width={poster.width}
+                height={poster.height}
+                sizes="(min-width: 480px) 448px, calc(100vw - 32px)"
+                className="mx-auto h-auto w-full max-w-md rounded-xl"
+              />
+            </div>
+          </section>
+        )}
+
         {/* Bloques del paquete creativo. Los dos primeros (tardeo y OUTXIDE) van
             uno al lado del otro en escritorio, cada uno con su hora en su color
             (en móvil, uno debajo del otro: los dos colores nunca en la misma línea). */}
@@ -367,9 +402,11 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                     )}
                     {fill(s.title, vars)}
                   </h2>
-                  <p className="ox-body mt-2 max-w-prose whitespace-pre-line text-[15px] leading-relaxed sm:text-base">
-                    {fill(s.text, vars)}
-                  </p>
+                  {s.text?.trim() && (
+                    <p className="ox-body mt-2 max-w-prose whitespace-pre-line text-[15px] leading-relaxed sm:text-base">
+                      {fill(s.text, vars)}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

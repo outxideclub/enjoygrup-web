@@ -63,11 +63,14 @@ export function OutxideClient({
   initialEvents,
   galleryImages,
   showOutxidiousPromo,
+  empresasEndOfSeasonPromo,
 }: {
   initialEvents: FVEvent[];
   galleryImages: GalleryImage[];
   /** Tarjeta de OUTXIDIOUS en el bloque de accesos: la decide el servidor (page.tsx). */
   showOutxidiousPromo: boolean;
+  /** Línea «fin de temporada» de la tarjeta de empresas: también del servidor. */
+  empresasEndOfSeasonPromo: boolean;
 }) {
   const t = useT();
   const locale = useLocale();
@@ -83,6 +86,9 @@ export function OutxideClient({
   }, []);
 
   useEffect(() => {
+    // Marca de «ya montado» (las animaciones del primer pintado van sin
+    // transición): solo puede saberse en un efecto (igual que la portada).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsFirstMount(false);
     document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));
   }, []);
@@ -260,7 +266,12 @@ export function OutxideClient({
 
       {/* Accesos a las landings de octubre, bajo la barra de datos del club:
           primero OUTXIDIOUS (es en OUTXIDE), con el acento cian del club. */}
-      <PromoAccesos showOutxidious={showOutxidiousPromo} tone="outxide" className="pt-12 sm:pt-16" />
+      <PromoAccesos
+        showOutxidious={showOutxidiousPromo}
+        empresasEndOfSeason={empresasEndOfSeasonPromo}
+        tone="outxide"
+        className="pt-12 sm:pt-16"
+      />
 
       {/* About — branded SEO content */}
       <section className="relative z-20 py-16 sm:py-20">
