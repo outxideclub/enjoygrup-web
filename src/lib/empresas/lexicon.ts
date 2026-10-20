@@ -23,6 +23,24 @@ const FORBIDDEN_PATTERNS: readonly RegExp[] = [
   /\bquedan\b/,
   /\bshisha\b/,
   /\bcachimbas?\b/,
+  // «Qué NO poner» del paquete creativo (CREATIVO-LANDING-EMPRESAS.md §6,
+  // 20-oct-2026): la bebida como gancho (la web usa «cóctel» y «mixología» en
+  // Enjoy, aquí no), cenas en nuestras salas («menú»: la empresa come o cena
+  // donde quiere), conducción, urgencia o cupo, léxico vetado en destinos de
+  // pago («oficial») y la campaña de Halloween (otra identidad).
+  /\bcocteles?\b/,
+  /\bcocktails?\b/,
+  /\bmixologia\b/,
+  /\bfree bar\b/,
+  /\bmenus?\b/,
+  /\bcoche\b/,
+  /\btaxis?\b/,
+  /\bse llenan\b/,
+  /\bultimas\b/,
+  /\bagotad[oa]s?\b/,
+  /\boficial(?:es)?\b/,
+  /\binsidious\b/,
+  /\bpuerta roja\b/,
   // Equivalentes en los otros idiomas de la web.
   /\bopen bar\b/,
   /\bfree drinks?\b/,

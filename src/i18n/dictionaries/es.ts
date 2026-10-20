@@ -122,9 +122,11 @@ export const es = {
     viewMenu: "Ver carta",
   },
   empresas: {
-    // Landing /empresas (celebraciones de empresa). Textos NEUTROS y factuales:
-    // el contenido creativo de la campaña aún no está aprobado (19-oct-2026).
-    // Los textos aprobados se cargan en src/lib/empresas/content.ts (apagado).
+    // Landing /empresas (celebraciones de empresa). Textos NEUTROS y factuales.
+    // Desde el 20-oct-2026 el texto CREATIVO (paquete provisional de la sesión
+    // META ADS, solo ES y EN) vive en src/lib/empresas/content.ts y manda sobre
+    // estos en es/en; en de/fr/it la página sigue con estos textos (el paquete
+    // no trae esos idiomas y el copy creativo no se traduce por nuestra cuenta).
     metaTitle: "Celebraciones de empresa en Alcúdia · Grupo Enjoy",
     metaDescription: "Celebraciones de empresa en Port d'Alcúdia: la empresa come o cena donde quiera y la celebración sigue por la tarde en Enjoy Terrace y por la noche en OUTXIDE. Solicitud de presupuesto.",
     breadcrumb: "Celebraciones de empresa",
@@ -142,7 +144,7 @@ export const es = {
     nightText: "Cenáis donde queráis (en un restaurante, en un hotel o en el vuestro) y la celebración sigue por la noche en OUTXIDE, la discoteca de Grupo Enjoy en Port d'Alcúdia.",
     nightStepDinner: "Cena donde queráis",
     nightStepClub: "Noche en OUTXIDE",
-    nightImageAlt: "DJ en la cabina de OUTXIDE, iluminada con neones rojos, con dos personas al lado",
+    nightImageAlt: "Manos de un DJ en la mesa de mezclas de OUTXIDE",
     dayLabel: "Comida, tarde y noche",
     dayTitle: "La tarde en Enjoy Terrace y la noche en OUTXIDE",
     dayText: "Coméis donde queráis; la celebración sigue por la tarde en Enjoy Terrace y por la noche en OUTXIDE, en el mismo edificio.",
@@ -152,16 +154,6 @@ export const es = {
     dayImageAlt: "Rótulo iluminado de Enjoy sobre la terraza, de noche, con luces entre los árboles",
     sameAddress: "Enjoy Terrace y OUTXIDE están en la misma dirección: Av. Tucán 1, Port d'Alcúdia.",
     hoursNote: "Horario general de OUTXIDE: de jueves a sábado, de 23:00 a 05:30. La fecha y el horario de cada celebración se concretan en la propuesta.",
-    stepsEyebrow: "Cómo funciona",
-    stepsTitle: "Tres pasos",
-    step1Title: "Nos enviáis la solicitud",
-    step1Text: "Con la fecha, el número de personas y el formato.",
-    step2Title: "Os enviamos una propuesta",
-    step2Text: "Preparada para vuestro grupo y sin compromiso.",
-    step3Title: "Confirmáis la fecha",
-    step3Text: "Si la propuesta os encaja, la confirmáis y reservamos la fecha para el grupo.",
-    spaceImageAlt: "Pista de OUTXIDE con una columna de luz en el centro y la X del club en las pantallas",
-    spaceCaption: "La sala de OUTXIDE, en Port d'Alcúdia.",
     offerEyebrow: "Propuesta para grupos",
     offerCustom: "Os preparamos una propuesta a medida: contadnos fecha, número de personas y formato.",
     offerIncludes: "Qué incluye",

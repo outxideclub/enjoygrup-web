@@ -20,12 +20,20 @@ import {
   type LeadSource,
 } from "@/lib/empresas/lead";
 import { siteContact, telHref } from "@/lib/site";
+import type { EmpresasFormCopy, EmpresasFormCopyKey } from "@/lib/empresas/content";
 import { cn } from "@/lib/utils";
 
 // Formulario de solicitud de /empresas. Accesible a propósito (WCAG 2.2):
 // etiqueta visible en cada campo, error con TEXTO (no solo color) enlazado con
 // aria-describedby, resumen anunciado y foco al PRIMER campo con error. La
 // validación es la misma función que usa el servidor (src/lib/empresas/lead.ts).
+//
+// Textos: `copy` trae, ya resueltos en el servidor, los del paquete creativo
+// (CREATIVO-LANDING-EMPRESAS.md §4.8) para el idioma de la página; lo que no
+// venga en `copy` sale del diccionario (textos neutros, y en DE/FR/IT todos).
+// Marcadores de posición y ayudas SOLO existen en el paquete: sin `copy`, no
+// se pintan. La casilla y la información de privacidad son siempre las del
+// diccionario (versión legal de la web, no la del paquete).
 
 type Values = Record<LeadField, string>;
 type FormErrors = LeadErrors & { consent?: true };
@@ -43,22 +51,65 @@ const EMPTY: Values = {
   comments: "",
 };
 
-const FORMAT_LABEL: Record<LeadFormat, string> = {
-  after_dinner: "empresas.formatAfterDinner",
-  lunch_afternoon_night: "empresas.formatLunch",
-  undecided: "empresas.formatUndecided",
+const FORMAT_LABEL: Record<LeadFormat, EmpresasFormCopyKey> = {
+  after_dinner: "formatAfterDinner",
+  lunch_afternoon_night: "formatLunch",
+  undecided: "formatUndecided",
 };
 
-const SOURCE_LABEL: Record<LeadSource, string> = {
-  instagram: "empresas.sourceInstagram",
-  facebook: "empresas.sourceFacebook",
-  google: "empresas.sourceGoogle",
-  referral: "empresas.sourceReferral",
-  already_knew: "empresas.sourceAlreadyKnew",
-  other: "empresas.sourceOther",
+const SOURCE_LABEL: Record<LeadSource, EmpresasFormCopyKey> = {
+  instagram: "sourceInstagram",
+  facebook: "sourceFacebook",
+  google: "sourceGoogle",
+  referral: "sourceReferral",
+  already_knew: "sourceAlreadyKnew",
+  other: "sourceOther",
+};
+
+/** Ayuda bajo el campo (solo con texto del paquete). */
+const HELP_KEY: Partial<Record<LeadField, EmpresasFormCopyKey>> = {
+  name: "helpName",
+  phone: "helpPhone",
+  date: "helpDate",
+  people: "helpPeople",
+};
+
+/** Marcador de posición (solo con texto del paquete). */
+const PLACEHOLDER_KEY: Partial<Record<LeadField, EmpresasFormCopyKey>> = {
+  company: "phCompany",
+  name: "phName",
+  email: "phEmail",
+  comments: "phComments",
 };
 
 const fieldId = (f: LeadField | "consent") => `empresas-${f}`;
+
+/**
+ * Texto del paquete para un error, si lo trae: el obligatorio de cada campo y
+ * los de teléfono, correo y listas. Los demás (fecha pasada, rango de
+ * personas, longitud) siguen con el texto neutro, más concreto.
+ */
+function copyErrorKey(field: LeadField, code: LeadErrorCode): EmpresasFormCopyKey | null {
+  switch (field) {
+    case "company":
+      return code === "required" ? "errCompany" : null;
+    case "name":
+      return code === "required" ? "errName" : null;
+    case "phone":
+      return code === "required" || code === "invalid" ? "errPhone" : null;
+    case "email":
+      return code === "required" || code === "invalid" ? "errEmail" : null;
+    case "date":
+      return code === "required" ? "errDateRequired" : null;
+    case "people":
+      return code === "required" ? "errPeopleRequired" : null;
+    case "format":
+    case "source":
+      return "errSelect";
+    default:
+      return null;
+  }
+}
 
 /** Clave del diccionario con el texto de error de cada campo y código. */
 function errorKey(field: LeadField, code: LeadErrorCode): string {
@@ -114,14 +165,15 @@ function whatsappHref(number: string): string | null {
   return digits ? `https://wa.me/${digits}` : null;
 }
 
-// Foco: borde blanco al 70 % + anillo al 40 % (≥ 3:1 sobre el fondo oscuro,
-// WCAG 2.4.11/1.4.11). Con borde 40 % y anillo 20 % apenas se distinguía.
-const INPUT =
-  "w-full min-w-0 rounded-xl border bg-white/5 px-4 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white/70 focus:ring-2 focus:ring-white/40 disabled:opacity-60 [color-scheme:dark]";
+// Campos con los tokens del paquete (empresas.css): borde #737373 (≥ 3:1 sobre
+// el fondo del campo), foco rosa y, con aria-invalid, borde rojo.
+const INPUT = "emp-field";
 
-export function EmpresasForm() {
+export function EmpresasForm({ copy = {} }: { copy?: EmpresasFormCopy }) {
   const t = useT();
   const locale = useLocale();
+  /** Texto del paquete o, si no viene, el del diccionario (`empresas.<clave>`). */
+  const tx = (key: EmpresasFormCopyKey) => copy[key] ?? t(`empresas.${key}`);
   const [values, setValues] = useState<Values>(EMPTY);
   const [consent, setConsent] = useState(false);
   const [website, setWebsite] = useState("");
@@ -248,62 +300,88 @@ export function EmpresasForm() {
         className="flex flex-col items-center gap-3 rounded-2xl border border-green-500/25 bg-green-500/10 p-8 text-center outline-none"
       >
         <CheckCircle2 className="h-8 w-8 text-green-400" aria-hidden />
-        <p className="font-display text-2xl font-bold uppercase text-white">{t("empresas.successTitle")}</p>
-        <p className="text-sm leading-relaxed text-green-100/90">{t("empresas.successText")}</p>
+        <p className="font-display text-2xl font-bold uppercase text-white">{tx("successTitle")}</p>
+        <p className="text-sm leading-relaxed text-green-100/90">{tx("successText")}</p>
       </div>
     );
   }
 
   const errorText = (field: LeadField) => {
     const code = errors[field];
-    return code ? t(errorKey(field, code)) : null;
+    if (!code) return null;
+    const fromCopy = copyErrorKey(field, code);
+    return (fromCopy && copy[fromCopy]) || t(errorKey(field, code));
   };
 
-  const describedBy = (field: LeadField, hintId?: string) =>
-    [errors[field] ? `${fieldId(field)}-error` : null, hintId].filter(Boolean).join(" ") || undefined;
+  const helpId = (field: LeadField) => `${fieldId(field)}-help`;
+  const helpText = (field: LeadField) => {
+    const key = HELP_KEY[field];
+    return key ? (copy[key] ?? null) : null;
+  };
+  const placeholder = (field: LeadField) => {
+    const key = PLACEHOLDER_KEY[field];
+    return key ? copy[key] : undefined;
+  };
 
-  const label = (field: LeadField, key: string) => (
-    <label htmlFor={fieldId(field)} className="mb-2 block text-sm font-medium text-white/80">
-      {t(key)}
+  // Error primero y ayuda después: el lector de pantalla anuncia lo urgente antes.
+  const describedBy = (field: LeadField, hintId?: string) =>
+    [errors[field] ? `${fieldId(field)}-error` : null, helpText(field) ? helpId(field) : null, hintId]
+      .filter(Boolean)
+      .join(" ") || undefined;
+
+  // Etiqueta SIEMPRE visible encima del campo (nunca solo como marcador).
+  const label = (field: LeadField, key: EmpresasFormCopyKey) => (
+    <label htmlFor={fieldId(field)} className="mb-2 block text-sm font-medium text-[var(--emp-text)]">
+      {tx(key)}
     </label>
   );
+
+  const fieldHelp = (field: LeadField) => {
+    const text = helpText(field);
+    return text ? (
+      <p id={helpId(field)} className="mt-1.5 text-sm leading-snug text-[var(--emp-text-2)]">
+        {text}
+      </p>
+    ) : null;
+  };
 
   const fieldError = (field: LeadField) => {
     const msg = errorText(field);
     return msg ? (
-      <p id={`${fieldId(field)}-error`} className="mt-1.5 flex items-start gap-1.5 text-sm text-red-300">
+      <p id={`${fieldId(field)}-error`} className="emp-error mt-1.5 flex items-start gap-1.5 text-sm">
         <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
         <span>{msg}</span>
       </p>
     ) : null;
   };
 
-  const border = (field: LeadField) => (errors[field] ? "border-red-400/70" : "border-white/10");
 
   const whatsapp = whatsappHref(siteContact.general.whatsapp);
-  const failureKey =
+  // 503 y 429 son avisos técnicos con salida por teléfono: texto neutro. El de
+  // red, el del paquete si lo hay.
+  const failureText =
     status === "unavailable"
-      ? "empresas.errUnavailable"
+      ? t("empresas.errUnavailable")
       : status === "rate_limited"
-        ? "empresas.errRateLimited"
+        ? t("empresas.errRateLimited")
         : status === "error"
-          ? "empresas.errGeneric"
+          ? tx("errGeneric")
           : null;
 
   return (
     <form onSubmit={handleSubmit} noValidate className="relative space-y-5" data-testid="empresas-form">
-      <p className="text-sm text-white/60">{t("empresas.requiredHint")}</p>
+      <p className="text-sm text-[var(--emp-text-2)]">{t("empresas.requiredHint")}</p>
 
       {showSummary && Object.keys(errors).some((k) => errors[k as keyof FormErrors]) && (
         <div role="alert" data-testid="empresas-error-summary" className="flex items-center gap-2 rounded-xl border border-red-500/25 bg-red-500/10 p-3 text-sm text-red-200">
           <AlertCircle className="h-4 w-4 shrink-0" aria-hidden />
-          {t("empresas.errSummary")}
+          {tx("errSummary")}
         </div>
       )}
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          {label("company", "empresas.fieldCompany")}
+          {label("company", "fieldCompany")}
           <input
             id={fieldId("company")}
             name="company"
@@ -312,16 +390,17 @@ export function EmpresasForm() {
             required
             aria-invalid={!!errors.company}
             aria-describedby={describedBy("company")}
+            placeholder={placeholder("company")}
             value={values.company}
             onChange={(e) => update("company", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, border("company"))}
+            className={INPUT}
           />
           {fieldError("company")}
         </div>
 
         <div>
-          {label("name", "empresas.fieldName")}
+          {label("name", "fieldName")}
           <input
             id={fieldId("name")}
             name="name"
@@ -330,16 +409,18 @@ export function EmpresasForm() {
             required
             aria-invalid={!!errors.name}
             aria-describedby={describedBy("name")}
+            placeholder={placeholder("name")}
             value={values.name}
             onChange={(e) => update("name", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, border("name"))}
+            className={INPUT}
           />
+          {fieldHelp("name")}
           {fieldError("name")}
         </div>
 
         <div>
-          {label("phone", "empresas.fieldPhone")}
+          {label("phone", "fieldPhone")}
           <input
             id={fieldId("phone")}
             name="phone"
@@ -352,13 +433,14 @@ export function EmpresasForm() {
             value={values.phone}
             onChange={(e) => update("phone", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, border("phone"))}
+            className={INPUT}
           />
+          {fieldHelp("phone")}
           {fieldError("phone")}
         </div>
 
         <div className="sm:col-span-2">
-          {label("email", "empresas.fieldEmail")}
+          {label("email", "fieldEmail")}
           <input
             id={fieldId("email")}
             name="email"
@@ -368,16 +450,17 @@ export function EmpresasForm() {
             required
             aria-invalid={!!errors.email}
             aria-describedby={describedBy("email")}
+            placeholder={placeholder("email")}
             value={values.email}
             onChange={(e) => update("email", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, border("email"))}
+            className={INPUT}
           />
           {fieldError("email")}
         </div>
 
         <div>
-          {label("date", "empresas.fieldDate")}
+          {label("date", "fieldDate")}
           <input
             id={fieldId("date")}
             name="date"
@@ -390,13 +473,14 @@ export function EmpresasForm() {
             value={values.date}
             onChange={(e) => update("date", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, "appearance-none", border("date"))}
+            className={cn(INPUT, "appearance-none")}
           />
+          {fieldHelp("date")}
           {fieldError("date")}
         </div>
 
         <div>
-          {label("people", "empresas.fieldPeople")}
+          {label("people", "fieldPeople")}
           <input
             id={fieldId("people")}
             name="people"
@@ -411,13 +495,14 @@ export function EmpresasForm() {
             value={values.people}
             onChange={(e) => update("people", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, border("people"))}
+            className={INPUT}
           />
+          {fieldHelp("people")}
           {fieldError("people")}
         </div>
 
         <div className="sm:col-span-2">
-          {label("format", "empresas.fieldFormat")}
+          {label("format", "fieldFormat")}
           <select
             id={fieldId("format")}
             name="format"
@@ -427,14 +512,14 @@ export function EmpresasForm() {
             value={values.format}
             onChange={(e) => update("format", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, "cursor-pointer appearance-none", border("format"))}
+            className={cn(INPUT, "cursor-pointer appearance-none")}
           >
-            <option value="" className="bg-neutral-900">
+            <option value="">
               {t("empresas.selectPlaceholder")}
             </option>
             {LEAD_FORMATS.map((f) => (
-              <option key={f} value={f} className="bg-neutral-900">
-                {t(FORMAT_LABEL[f])}
+              <option key={f} value={f}>
+                {tx(FORMAT_LABEL[f])}
               </option>
             ))}
           </select>
@@ -442,7 +527,7 @@ export function EmpresasForm() {
         </div>
 
         <div className="sm:col-span-2">
-          {label("source", "empresas.fieldSource")}
+          {label("source", "fieldSource")}
           <select
             id={fieldId("source")}
             name="source"
@@ -452,14 +537,14 @@ export function EmpresasForm() {
             value={values.source}
             onChange={(e) => update("source", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, "cursor-pointer appearance-none", border("source"))}
+            className={cn(INPUT, "cursor-pointer appearance-none")}
           >
-            <option value="" className="bg-neutral-900">
+            <option value="">
               {t("empresas.selectPlaceholder")}
             </option>
             {LEAD_SOURCES.map((s) => (
-              <option key={s} value={s} className="bg-neutral-900">
-                {t(SOURCE_LABEL[s])}
+              <option key={s} value={s}>
+                {tx(SOURCE_LABEL[s])}
               </option>
             ))}
           </select>
@@ -467,7 +552,7 @@ export function EmpresasForm() {
         </div>
 
         <div className="sm:col-span-2">
-          {label("comments", "empresas.fieldComments")}
+          {label("comments", "fieldComments")}
           <textarea
             id={fieldId("comments")}
             name="comments"
@@ -475,12 +560,13 @@ export function EmpresasForm() {
             maxLength={LEAD_LIMITS.comments}
             aria-invalid={!!errors.comments}
             aria-describedby={describedBy("comments", `${fieldId("comments")}-hint`)}
+            placeholder={placeholder("comments")}
             value={values.comments}
             onChange={(e) => update("comments", e.target.value)}
             disabled={sending}
-            className={cn(INPUT, "resize-y", border("comments"))}
+            className={cn(INPUT, "resize-y")}
           />
-          <p id={`${fieldId("comments")}-hint`} className="mt-1.5 text-xs text-white/50">
+          <p id={`${fieldId("comments")}-hint`} className="mt-1.5 text-xs text-[var(--emp-text-2)]">
             {t("empresas.commentsHint")}
           </p>
           {fieldError("comments")}
@@ -504,7 +590,7 @@ export function EmpresasForm() {
 
       {/* Consentimiento RGPD: casilla SIN marcar, obligatoria, con la
           información básica (art. 13 RGPD / 11 LOPDGDD) debajo. */}
-      <div className="space-y-3 border-t border-white/10 pt-5">
+      <div className="space-y-3 border-t border-[var(--emp-line)] pt-5">
         <div className="flex items-start gap-3">
           <input
             id={fieldId("consent")}
@@ -519,19 +605,19 @@ export function EmpresasForm() {
               if (errors.consent && e.target.checked) setErrors((prev) => ({ ...prev, consent: undefined }));
             }}
             disabled={sending}
-            className="mt-1 h-5 w-5 shrink-0 cursor-pointer accent-white"
+            className="emp-checkbox"
           />
-          <label htmlFor={fieldId("consent")} className="cursor-pointer text-sm leading-relaxed text-white/80">
+          <label htmlFor={fieldId("consent")} className="cursor-pointer text-sm leading-relaxed text-[var(--emp-text)]">
             {t("empresas.consentLabel")}
           </label>
         </div>
         {errors.consent && (
-          <p id={`${fieldId("consent")}-error`} className="flex items-start gap-1.5 pl-8 text-sm text-red-300">
+          <p id={`${fieldId("consent")}-error`} className="emp-error flex items-start gap-1.5 pl-8 text-sm">
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-            <span>{t("empresas.errConsent")}</span>
+            <span>{tx("errConsent")}</span>
           </p>
         )}
-        <p data-testid="empresas-privacy-basic" className="text-xs leading-relaxed text-white/55">
+        <p data-testid="empresas-privacy-basic" className="text-xs leading-relaxed text-[var(--emp-text-2)]">
           {t("empresas.privacyBasic")}{" "}
           <a
             href={localizedPath("/legal/privacidad", locale)}
@@ -549,13 +635,13 @@ export function EmpresasForm() {
       <button
         type="submit"
         disabled={sending}
-        className="btn-magnetic inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-semibold text-black transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
+        className="emp-btn w-full disabled:cursor-not-allowed disabled:opacity-60"
       >
         {sending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : <Send className="h-4 w-4" aria-hidden />}
-        {sending ? t("empresas.sending") : t("empresas.submit")}
+        {sending ? tx("sending") : tx("submit")}
       </button>
 
-      {failureKey && (
+      {failureText && (
         <div
           ref={alertRef}
           tabIndex={-1}
@@ -565,7 +651,7 @@ export function EmpresasForm() {
         >
           <p className="flex items-start gap-2 text-sm text-red-200">
             <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-            <span>{t(failureKey)}</span>
+            <span>{failureText}</span>
           </p>
           <div className="flex flex-wrap gap-2">
             <a
