@@ -1,6 +1,6 @@
 import { test, expect, type APIRequestContext, type Page } from "@playwright/test";
 import type { FVEvent, FVTicketRate } from "../src/lib/fourvenues/types";
-import { saleOpensAt } from "../src/lib/checkout/validation";
+import { SALE_OPEN_GRACE_MS, pendingSaleOpening, saleOpensAt } from "../src/lib/checkout/validation";
 import { ageNotice, fill, withoutLollipop } from "../src/app/taquilla/native/format";
 import { formatEventDate, formatEventTime } from "../src/lib/events";
 import { es } from "../src/i18n/dictionaries/es";
@@ -317,6 +317,25 @@ test.describe("Taquilla: reglas puras de cumplimiento", () => {
     for (const raw of [undefined, null, "", "mañana", 1761127200000, {}]) {
       expect(saleOpensAt(raw, now)).toBeNull();
     }
+  });
+
+  test("pendingSaleOpening: con valid_from futuro siempre; ya abierta, solo 2 min y sin precio vigente", () => {
+    const open = "2026-10-22T10:00:00.000Z";
+    const at = Date.parse(open);
+    expect(SALE_OPEN_GRACE_MS).toBe(2 * 60 * 1000);
+    // Antes de abrir, con o sin precio adelantado por Fourvenues.
+    expect(pendingSaleOpening(open, false, at - 1)).toBe(open);
+    expect(pendingSaleOpening(open, true, at - 1)).toBe(open);
+    // Ya abierta y con precio vigente: se vende con normalidad.
+    expect(pendingSaleOpening(open, true, at)).toBeNull();
+    expect(pendingSaleOpening(open, true, at + 1_000)).toBeNull();
+    // Recién abierta sin precio (caché de 30 s / Fourvenues publicando): sigue
+    // «A la venta el…» en vez de un «Agotado» falso…
+    expect(pendingSaleOpening(open, false, at)).toBe(open);
+    expect(pendingSaleOpening(open, false, at + SALE_OPEN_GRACE_MS - 1)).toBe(open);
+    // …y pasado el margen, lo de siempre (Fourvenues decide si está agotada).
+    expect(pendingSaleOpening(open, false, at + SALE_OPEN_GRACE_MS)).toBeNull();
+    for (const raw of [undefined, null, "", "mañana"]) expect(pendingSaleOpening(raw, false, at)).toBeNull();
   });
 
   test("«A la venta el…» sale en hora de Madrid a ambos lados del cambio de hora del 25-oct", () => {

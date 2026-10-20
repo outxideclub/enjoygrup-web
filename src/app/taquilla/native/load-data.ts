@@ -9,7 +9,7 @@ import type {
   FVTicketPrice,
   FVTicketRate,
 } from "@/lib/fourvenues/types";
-import { hasUnknownRequiredField, saleOpensAt } from "@/lib/checkout/validation";
+import { hasUnknownRequiredField, pendingSaleOpening } from "@/lib/checkout/validation";
 import { getUpcomingOutxideEvents } from "@/lib/events.server";
 import { withoutLollipop } from "./format";
 import type {
@@ -92,24 +92,6 @@ export function toClientRate(r: FVTicketRate): ClientTicketRate {
 }
 
 /**
- * Margen tras la hora de apertura en el que una tarifa SIN `current_price`
- * sigue tratándose como «a punto de abrir» y no como agotada: las tarifas se
- * cachean 30 s (revalidate de getTicketRates) y Fourvenues puede tardar un
- * poco en publicar el precio vigente. Sin este margen, quien entra desde un
- * anuncio justo a la hora de apertura vería «Agotado», un dato de
- * disponibilidad falso (regla del dueño).
- */
-const SALE_OPEN_GRACE_MS = 2 * 60 * 1000;
-
-/** Inicio de venta a mostrar (ISO) o null si la tarifa ya se vende con normalidad. */
-function pendingOpening(rate: FVTicketRate, now: number): string | null {
-  return (
-    saleOpensAt(rate.valid_from, now) ??
-    (rate.current_price ? null : saleOpensAt(rate.valid_from, now - SALE_OPEN_GRACE_MS))
-  );
-}
-
-/**
  * Tarifas vendibles desde la taquilla pública (ver cabecera del fichero). Las
  * que tienen un inicio de venta programado (`valid_from` futuro según el reloj
  * del SERVIDOR) se proyectan con `opens_at` para pintar «A la venta el…» en
@@ -127,7 +109,8 @@ export function sellableTicketRates(rates: FVTicketRate[], now: number = Date.no
       });
       continue;
     }
-    const opensAt = pendingOpening(rate, now);
+    // Margen de 2 min tras la apertura sin precio vigente: SALE_OPEN_GRACE_MS.
+    const opensAt = pendingSaleOpening(rate.valid_from, Boolean(rate.current_price), now);
     out.push(opensAt ? { ...toClientRate(rate), opens_at: opensAt } : toClientRate(rate));
   }
   return out;

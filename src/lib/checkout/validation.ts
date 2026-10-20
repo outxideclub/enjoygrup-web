@@ -73,6 +73,27 @@ export function saleOpensAt(validFrom: unknown, now: number): string | null {
   return Number.isFinite(at) && at > now ? new Date(at).toISOString() : null;
 }
 
+/**
+ * Margen tras la hora de apertura en el que una tarifa SIN `current_price`
+ * sigue tratándose como «a punto de abrir» y no como agotada: las tarifas se
+ * cachean 30 s (revalidate de getTicketRates) y Fourvenues puede tardar un
+ * poco en publicar el precio vigente. Sin este margen, quien entra desde un
+ * anuncio justo a la hora de apertura vería «Agotado», un dato de
+ * disponibilidad falso (regla del dueño).
+ */
+export const SALE_OPEN_GRACE_MS = 2 * 60 * 1000;
+
+/**
+ * Inicio de venta que la taquilla pinta como «A la venta el…» (ISO), o null si
+ * la tarifa se trata con normalidad (comprable, o agotada si Fourvenues lo
+ * dice). Con `valid_from` futuro siempre; ya pasado, solo durante
+ * SALE_OPEN_GRACE_MS y si aún no hay precio vigente. Aquí, y no en load-data
+ * (server-only), para que el e2e pruebe la regla sin servidor.
+ */
+export function pendingSaleOpening(validFrom: unknown, hasCurrentPrice: boolean, now: number): string | null {
+  return saleOpensAt(validFrom, now) ?? (hasCurrentPrice ? null : saleOpensAt(validFrom, now - SALE_OPEN_GRACE_MS));
+}
+
 export const DOCUMENT_TYPES = ["dni", "nie", "passport", "other"] as const;
 export type DocumentType = (typeof DOCUMENT_TYPES)[number];
 
