@@ -273,26 +273,37 @@ export const es = {
     tryAgain: "Intentar de nuevo",
   },
   // Landing de OUTXIDIOUS (Halloween 2026, /outxide/outxidious), destino de los
-  // anuncios de Meta. SOLO textos neutros y factuales (corrección del 19-oct-2026:
-  // el material creativo de la campaña va en src/lib/outxidious/content.ts, con
-  // aprobación por hueco, no aquí). Evento COMPARTIDO (19-oct): tardeo de acceso
-  // libre en Enjoy Terrace + OUTXIDE con entrada; el precio y el botón son solo
-  // de OUTXIDE y la edad del tardeo NO está confirmada (ningún texto la afirma:
-  // el +18 va siempre pegado a OUTXIDE). Léxico vigilado por
-  // e2e/outxidious.spec.ts: nada de alcohol, shisha, golosinas, disponibilidad ni
-  // palabras de puerta. Placeholders {start} {end} (OUTXIDE), {tardeoStart}
-  // {tardeoEnd} y {price}: los pone la página.
+  // anuncios de Meta. Evento COMPARTIDO (19-oct): tardeo de acceso libre en
+  // Enjoy Terrace + OUTXIDE con entrada; el precio y el botón son solo de
+  // OUTXIDE y la edad del tardeo NO está confirmada (ningún texto la afirma: el
+  // +18 va siempre pegado a OUTXIDE). El grueso creativo (claim, bloques, FAQ)
+  // va en src/lib/outxidious/content.ts, con aprobación por hueco.
+  // PROVISIONAL — pendiente del contenido nuevo y del OK de Jose (paquete v0.2
+  // de META ADS, 20-oct-2026, autorizado por Sergi): aquí van sus textos
+  // factuales (§6.3a) y los creativos que el paquete pone en el diccionario
+  // (§6.3b: ogDescription, subtitle, afterTitle, afterText). Ojo: el diccionario
+  // se publica al desplegar, sin mirar content.ts (el subtítulo sí se pinta
+  // solo con el hueco `claim` encendido). Cambio sobre el paquete: el «+18» de
+  // las descripciones va pegado a OUTXIDE, nunca suelto al final, para que no
+  // se lea como la edad del tardeo. Léxico vigilado por e2e/outxidious.spec.ts:
+  // nada de alcohol, shisha, golosinas, disponibilidad, palabras de puerta,
+  // «gratis», «entrada libre», «desde las 20» ni «20:00–05:30». Placeholders
+  // {start} {end} (OUTXIDE), {tardeoStart} {tardeoEnd} y {price}: los pone la
+  // página.
   outxidious: {
-    metaTitle: "OUTXIDIOUS · OUTXIDE Club · Sáb 31 oct",
-    metaDescription: "Halloween, sábado 31 de octubre en Port d'Alcúdia: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y OUTXIDE Club de {start} a {end}, con entrada (+18).",
-    keywords: "OUTXIDIOUS, OUTXIDE Club, Enjoy Terrace, Halloween 2026, Port d'Alcúdia, Alcúdia, Mallorca",
-    ogTitle: "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE Club",
-    ogDescription: "Sábado 31 de octubre en Port d'Alcúdia: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y OUTXIDE Club de {start} a {end}, con entrada (+18).",
+    metaTitle: "OUTXIDIOUS · Halloween en Enjoy y OUTXIDE · Sáb 31 oct",
+    metaDescription: "Halloween en Port d'Alcúdia, sáb 31 oct: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd}. Después, OUTXIDE de {start} a {end}, con entrada (+18).",
+    keywords: "OUTXIDIOUS, Halloween 2026, Halloween Alcúdia, Halloween Port d'Alcúdia, Halloween Mallorca, Enjoy Terrace, OUTXIDE Club",
+    ogTitle: "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE",
+    // Creativa (§6.3b), sin precio: la caché de Meta no se entera de los cambios.
+    ogDescription: "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE hasta las {end} (+18).",
     ogImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
     eyebrow: "Halloween 2026 · Enjoy + OUTXIDE",
     h1Name: "OUTXIDIOUS",
     h1Date: "sábado 31 de octubre",
-    today: "Hoy · desde las {tardeoStart}",
+    // Corta y sin horas: el sábado la primera pantalla va más llena (claim del
+    // día) y la placa +18 tiene que seguir cabiendo.
+    today: "Hoy, sábado 31",
     partsLabel: "Programa del sábado 31",
     partTardeo: "Tardeo · Enjoy Terrace",
     partTardeoDetail: "{tardeoStart}–{tardeoEnd} · acceso libre",
@@ -300,12 +311,18 @@ export const es = {
     partOutxideDetail: "{start}–{end} · entrada",
     priceFrom: "Entradas para OUTXIDE desde {price} (gastos incluidos)",
     buy: "Comprar entradas",
+    // Bajo el botón: deja claro que la entrada es solo de OUTXIDE.
+    buyNote: "Entrada para OUTXIDE, de {start} a {end}. El tardeo en Enjoy Terrace es de acceso libre.",
     legalPlate: "+18 · Consumo responsable",
-    soonTitle: "Entradas a la venta muy pronto",
-    soonText: "Las entradas para OUTXIDE estarán disponibles en esta página en breve.",
+    // Creativo (§6.3b): solo se pinta con el hueco `claim` encendido.
+    subtitle: "La noche de Halloween se parte en dos: empieza en Enjoy Terrace y sigue al otro lado, en OUTXIDE.",
+    // «Pronto» sale siempre que no hay tarifa vendible (antes de la venta, con
+    // todo completo o con Fourvenues caído): nada de «muy pronto».
+    soonTitle: "Entradas para OUTXIDE",
+    soonText: "La venta online de entradas para OUTXIDE se hace en esta página cuando está abierta. El tardeo en Enjoy Terrace, de 20:00 a 23:00, es de acceso libre.",
     alertsText: "Si quieres, te avisamos por email de los próximos eventos.",
-    afterTitle: "Gracias por venir",
-    afterText: "OUTXIDIOUS se celebró el sábado 31 de octubre de 2026.",
+    afterTitle: "OUTXIDIOUS ya cruzó",
+    afterText: "Fue el sábado 31 de octubre de 2026. Gracias por venir.",
     afterLink: "Ver los próximos eventos de OUTXIDE",
     directionsTitle: "Cómo llegar",
     address: "Av. Tucán 1, 07400 Port d'Alcúdia (Mallorca)",
@@ -316,6 +333,8 @@ export const es = {
     mapsLinkEnjoy: "Ver Enjoy Terrace en Google Maps",
     homeLabel: "OUTXIDE Club: página del club",
     organizer: "Organiza Enjoy Club 78 S.L. · NIF B75300376 · Av. Tucán 1, 07400 Alcúdia",
+    coHost: "OUTXIDIOUS es un evento de OUTXIDE Club y Enjoy Terrace.",
+    faqTitle: "Preguntas frecuentes",
     legalNav: "Información legal",
     legalSale: "Condiciones de venta",
     legalEntry: "Condiciones de entrada",

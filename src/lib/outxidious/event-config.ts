@@ -61,8 +61,14 @@ export function outxideSchedule(
 
 // Umbrales con desfase explícito: el 31-oct ya es horario de invierno en
 // Madrid (+01:00; el cambio de hora es el domingo 25-oct).
-/** Desde aquí, «hoy»: sábado 31 en Madrid hasta el final de la noche. */
+/** Desde aquí, «hoy»: sábado 31 en Madrid. */
 export const TODAY_FROM = Date.parse("2026-10-31T00:00:00+01:00");
+/**
+ * Hasta aquí, «hoy» (00:00 del domingo 1): la línea «Hoy, sábado 31» y el claim
+ * del día se apagan a medianoche, porque desde ese momento «hoy» ya es domingo
+ * (paquete creativo v0.2, §4.1). La venta sigue igual hasta AFTER_FROM.
+ */
+export const TODAY_TO = Date.parse("2026-11-01T00:00:00+01:00");
 /** Desde aquí, «después»: sin botón de compra. */
 export const AFTER_FROM = Date.parse("2026-11-01T05:30:00+01:00");
 
@@ -192,7 +198,7 @@ export interface PhaseInput {
 
 export interface PhaseResult {
   phase: LandingPhase;
-  /** Sábado 31 en Madrid, antes del final: línea «Hoy». */
+  /** Sábado 31 en Madrid (00:00–24:00): línea «Hoy» y claim del día. */
   today: boolean;
 }
 
@@ -202,7 +208,7 @@ export interface PhaseResult {
  * u «hoy» forzados sin datos caen a «pronto».
  */
 export function resolvePhase({ now, canSell, envPhase, queryPhase }: PhaseInput): PhaseResult {
-  const autoToday = now >= TODAY_FROM && now < AFTER_FROM;
+  const autoToday = now >= TODAY_FROM && now < TODAY_TO;
   const sellOrSoon: LandingPhase = canSell ? "venta" : "pronto";
 
   switch (queryPhase) {
