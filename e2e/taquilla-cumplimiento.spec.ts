@@ -17,6 +17,8 @@ import { es } from "../src/i18n/dictionaries/es";
 //   3. Red de seguridad acordada con META ADS: los nombres de tarifa y su
 //      «Incluye» se pintan sin el emoji 🍭 (tarjeta, etiquetas accesibles,
 //      resumen y payload del HTML), sin reescribir «copa» ni «chupito».
+//   4. Nada de tabaco: ni «shisha» ni «cachimba» en lo que pinta la taquilla
+//      (el pie va con `adLanding`, como en /empresas).
 //
 // Este fichero NO reinicia el mock (POST /__test/reset): checkout-native.spec.ts
 // lo reinicia en cada test y los ficheros corren en paralelo; aquí solo se leen
@@ -27,6 +29,7 @@ const EVENT_CODE = "AA6X";
 const CONSENT_KEY = "ge_cookie_consent";
 const CONSENT_VERSION = "2";
 const LOLLIPOP = "\u{1F36D}";
+const TOBACCO = /\bshisha\b|\bcachimbas?\b/i;
 
 // Navegador en español: el middleware negocia el idioma por Accept-Language
 // (ver checkout-native.spec.ts). El caso en inglés navega a /en/... a propósito.
@@ -271,6 +274,37 @@ test.describe("Taquilla: cumplimiento para anuncios", () => {
     await expect(page.getByTestId("step-summary")).toBeVisible({ timeout: 10_000 });
     await expect(page.getByTestId("summary-line").first()).toContainText(`1 × ${clean}`);
     await expect(page.getByTestId("step-summary")).not.toContainText(LOLLIPOP);
+  });
+
+  test("sin «shisha» ni «cachimba» en lo que pinta la taquilla (meta y pie con «Ver carta»), en los 5 idiomas", async ({
+    page,
+    request,
+  }) => {
+    // Marcado servido sin <script>/<style>: el diccionario entero viaja en el
+    // payload RSC de toda la web (arquitectura i18n, igual que en /empresas) y
+    // no se pinta; lo demás (description, og:/twitter:, pie…) no puede llevarlo.
+    const servedMarkup = async (path: string) => {
+      const res = await request.get(path, { headers: { "accept-language": "es-ES" } });
+      expect(res.status(), path).toBe(200);
+      return (await res.text())
+        .replace(/<script(?![^>]*application\/ld\+json)[^>]*>[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, " ");
+    };
+    for (const prefix of ["", "/en", "/de", "/fr", "/it"]) {
+      const markup = await servedMarkup(`${prefix}/taquilla?event=${fx.ref}`);
+      expect(markup, prefix || "/").not.toMatch(TOBACCO);
+      // La heredada de la web lo llevaba («Cocktails, Shisha & Club» en en/de/it).
+      expect(markup).toMatch(/<meta property="og:title" content="[^"]*\| Grupo Enjoy"/);
+    }
+    expect(await servedMarkup("/taquilla"), "/taquilla").not.toMatch(TOBACCO);
+
+    await seedCookieConsent(page);
+    for (const path of [`/taquilla?event=${fx.ref}`, "/taquilla"]) {
+      await page.goto(path);
+      await expect(page.locator("footer")).toBeVisible({ timeout: 15_000 });
+      expect(await page.locator("body").innerText(), path).not.toMatch(TOBACCO);
+      await expect(page.locator("footer")).toContainText(es.enjoy.viewMenu);
+    }
   });
 
   test("en inglés: «18+ · Drink responsibly» y «On sale … at …»", async ({ page }) => {

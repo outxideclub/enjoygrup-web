@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { ArrowLeft, ExternalLink, ShieldCheck } from "lucide-react";
@@ -60,11 +60,39 @@ function asMode(v: string | undefined): CheckoutMode {
   return v === "vip" || v === "list" ? v : "tickets";
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getServerLocale();
+export async function generateMetadata(
+  { searchParams }: { searchParams: Promise<SearchParams> },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const [locale, sp, inherited] = await Promise.all([getServerLocale(), searchParams, parent]);
   const t = getServerT(locale);
+  const title = t("purchase.checkoutTitle");
+  // Textos propios (título de la página y la nota de pago de la cabecera) en
+  // description, Open Graph y X: los heredados de la web dicen «cócteles,
+  // shisha…» («Cocktails, Shisha & Club» en en/de/it) y la taquilla es destino
+  // de anuncios (CHECKOUT-PROPIO.md §11): nada de tabaco en el marcado. La
+  // imagen, el idioma y el nombre del sitio se heredan del layout raíz.
+  const socialTitle = `${title} | Grupo Enjoy`;
+  const description = t(resolveCheckoutEngine(sp) === "native" ? "purchase.checkoutNoteNative" : "purchase.checkoutNote");
   return {
-    title: t("purchase.checkoutTitle"),
+    title,
+    description,
+    // Página fuera de buscadores: sin las palabras clave de la web («coctelería…»).
+    keywords: null,
+    openGraph: {
+      title: socialTitle,
+      description,
+      type: "website",
+      locale: inherited.openGraph?.locale,
+      siteName: inherited.openGraph?.siteName,
+      images: inherited.openGraph?.images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: socialTitle,
+      description,
+      images: inherited.twitter?.images,
+    },
     robots: { index: false, follow: false },
   };
 }
@@ -198,7 +226,10 @@ export default async function TaquillaPage({
           </div>
         </section>
       </main>
-      <Footer linkOrigin={linkOrigin} />
+      {/* adLanding: la taquilla es destino de anuncios (plan B de Meta,
+          CHECKOUT-PROPIO.md §11): el pie enlaza la carta de Enjoy como «Ver
+          carta» y no «Cocktails & Shisha» (tabaco), igual que /empresas. */}
+      <Footer linkOrigin={linkOrigin} adLanding />
     </div>
   );
 }
