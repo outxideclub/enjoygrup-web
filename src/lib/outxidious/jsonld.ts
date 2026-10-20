@@ -20,10 +20,14 @@
 //   (ni ficha ni entrada): sería un nodo Event escrito a mano.
 // - /outxide y /agenda publican este mismo evento de Fourvenues como UN Event
 //   en Outxide Club dentro de su ItemList; un segundo nodo Event (gratis, en
-//   Enjoy Terrace) para la misma noche abriría una contradicción entre páginas,
-//   y la edad del tardeo no está confirmada (no habría typicalAgeRange veraz).
+//   Enjoy Terrace) para la misma noche abriría una contradicción entre páginas.
 // - El paquete creativo de META ADS pide lo mismo: el tardeo sin offers y sin
-//   ser un evento aparte.
+//   ser un evento aparte. Desde la v0.3 la DESCRIPCIÓN presenta OUTXIDIOUS como
+//   el Halloween de Enjoy Terrace y OUTXIDE (no solo del club), y desde la v0.4
+//   el +18 vale para las dos partes (typicalAgeRange "18-" sigue siendo veraz).
+// - Sin performer: DJ Siquiers está confirmado, pero Fourvenues no tiene campo
+//   de artistas (solo una línea en la descripción del panel), y en el marcado
+//   solo va lo que trae el evento real.
 
 import { VENUE_TIMEZONE } from "@/lib/events";
 

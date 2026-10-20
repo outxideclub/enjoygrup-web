@@ -295,11 +295,12 @@ export const es = {
   // página.
   outxidious: {
     metaTitle: "OUTXIDIOUS · Halloween en Enjoy y OUTXIDE · Sáb 31 oct",
-    metaDescription: "Halloween en Port d'Alcúdia, sáb 31 oct: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd}. Después, OUTXIDE de {start} a {end}, con entrada (+18).",
+    // Paquete v0.4 (§4.5): el +18 vale para las dos partes (tardeo +18, resuelto 20-oct).
+    metaDescription: "Halloween en Port d'Alcúdia, sáb 31 oct: tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd}. Después, OUTXIDE de {start} a {end}, con entrada. +18.",
     keywords: "OUTXIDIOUS, Halloween 2026, Halloween Alcúdia, Halloween Port d'Alcúdia, Halloween Mallorca, Enjoy Terrace, OUTXIDE Club",
     ogTitle: "OUTXIDIOUS · Sáb 31·10 · Enjoy Terrace + OUTXIDE",
     // Creativa (§6.3b), sin precio: la caché de Meta no se entera de los cambios.
-    ogDescription: "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE hasta las {end} (+18).",
+    ogDescription: "Algo cruzó contigo. Tardeo de acceso libre en Enjoy Terrace de {tardeoStart} a {tardeoEnd} y, después, OUTXIDE hasta las {end}. +18.",
     ogImageAlt: "Cabina de DJ de OUTXIDE Club, Port d'Alcúdia",
     eyebrow: "Halloween 2026 · Enjoy + OUTXIDE",
     h1Name: "OUTXIDIOUS",
@@ -312,6 +313,10 @@ export const es = {
     partTardeoDetail: "{tardeoStart}–{tardeoEnd} · acceso libre",
     partOutxide: "OUTXIDE",
     partOutxideDetail: "{start}–{end} · entrada",
+    // Confirmado por Sergi (20-oct) para la noche en la sala. Solo el nombre,
+    // tal cual en los 5 idiomas: dato, no claim (Fourvenues no tiene campo de
+    // artistas, así que no va como performer en el JSON-LD).
+    partOutxideDj: "DJ Siquiers",
     priceFrom: "Entradas para OUTXIDE desde {price} (gastos incluidos)",
     buy: "Comprar entradas",
     // Bajo el botón: deja claro que la entrada es solo de OUTXIDE.
@@ -346,7 +351,9 @@ export const es = {
     videoPause: "Pausar el vídeo",
     videoPlay: "Reproducir el vídeo",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "Halloween 2026 en OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia): sábado 31 de octubre de {start} a {end}, con entrada y solo para mayores de 18 años. Antes, de {tardeoStart} a {tardeoEnd}, tardeo de acceso libre en Enjoy Terrace.",
+    // Paquete v0.3 (§4.5): OUTXIDIOUS es de Enjoy Terrace y OUTXIDE, nunca «el
+    // Halloween de OUTXIDE». El Event y sus offers siguen siendo los de OUTXIDE.
+    jsonLdDescription: "OUTXIDIOUS, el Halloween 2026 de Enjoy Terrace y OUTXIDE (Av. Tucán 1, Port d'Alcúdia), sábado 31 de octubre: OUTXIDE de {start} a {end}. Antes, de {tardeoStart} a {tardeoEnd}, tardeo de acceso libre en Enjoy Terrace. Solo mayores de 18 años.",
     backToClub: "Ir a OUTXIDE Club",
   },
   purchase: {

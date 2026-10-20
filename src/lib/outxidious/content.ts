@@ -23,12 +23,16 @@
 // la foto de la cabina hasta el OK, porque una imagen fija que circula sola
 // funciona como logo fijo) e index también (noindex, fuera del sitemap).
 //
+// 20-oct-2026 (tarde, paquete v0.4): Sergi resuelve que el TARDEO es +18, igual
+// que OUTXIDE. Las frases del paquete que dicen que las dos partes son solo
+// para mayores de 18 (bloque 1, FAQ 1, 3 y 7) vuelven tal como vienen.
+//
 // OJO al rellenarlo: es la página de destino de anuncios con alcohol. Siguen
 // valiendo el léxico vetado de e2e/outxidious.spec.ts (que lo comprueba en el
-// HTML entero), la regla de que la placa «+18 · Consumo responsable» nunca
-// va pegada al claim y la de que NINGÚN texto afirma la edad del tardeo (sin
-// confirmar: el +18 va siempre pegado a OUTXIDE). Nada con [CONFIRMAR] /
-// [CONFIRM] se publica: o llega el dato o se borra la frase entera.
+// HTML entero) y la regla de que la placa «+18 · Consumo responsable» nunca
+// va pegada al claim. La edad es +18 en las dos partes: ningún texto puede
+// dar otra. Nada con [CONFIRMAR] / [CONFIRM] se publica: o llega el dato o se
+// borra la frase entera.
 //
 // Huecos {start} {end} (OUTXIDE, de Fourvenues) y {tardeoStart} {tardeoEnd}:
 // la página los rellena en el claim, las secciones y la FAQ, así las horas
@@ -150,13 +154,15 @@ export interface OutxidiousContent {
 // Teaser OUTXIDE → OUTXIDIOUS APROBADO por el usuario (20-oct-2026): 7 s en
 // bucle, 720×720 (1:1), H.264 sin audio (159 KB) + WebM VP9 (98 KB) y póster
 // WebP (8,5 KB); sin destellos según WCAG 2.3.1 (comprobado al codificarlo).
-// Todo lo que se mueve vive en la franja central (filas 37,5–55,3 % del alto,
+// Todo lo que se mueve vive en la franja central (filas 37,5–55,4 % del alto,
 // medido fotograma a fotograma): en móvil se recorta a 5:2 y, con poca altura
-// de pantalla, a 4:1, encuadrado al 45 % (ventanas 27–67 % y 34–59 %: la franja
+// de pantalla, a 5:1, encuadrado al 45 % (ventanas 27–67 % y 36–56 %: la franja
 // entera, «CLUB» y las esquirlas de la X incluidos, comprobado en una hoja de
 // fotogramas del recorte), para que el h1, el claim, las dos partes, el
 // precio, el botón y la placa +18 quepan debajo (también el sábado, con la
-// línea «Hoy»).
+// línea «Hoy»). 20-oct (v0.4): el recorte bajo pasa de 4:1 a 5:1 porque la
+// parte de OUTXIDE gana una línea (DJ Siquiers) y a 375×667 la placa se salía
+// unos 5 px: se reduce el vídeo, nunca la placa.
 // Si se recodifica, CAMBIAR EL NOMBRE del fichero: /videos va con caché
 // immutable de un año (next.config.ts).
 const TEASER = {
@@ -167,7 +173,7 @@ const TEASER = {
   width: 720,
   height: 720,
   mobileAspect: 2.5,
-  shortAspect: 4,
+  shortAspect: 5,
   focusY: 45,
 } as const;
 
@@ -177,18 +183,18 @@ const NO_CREATIVE_COPY = { claim: "", claimToday: "", sections: [], faq: [] } sa
 /**
  * EL FICHERO QUE SE RELLENA cuando llegue material aprobado.
  *
- * PROVISIONAL — pendiente del contenido nuevo y del OK de Jose (paquete v0.2
+ * PROVISIONAL — pendiente del contenido nuevo y del OK de Jose (paquete v0.4
  * de META ADS, 20-oct-2026: meta-ads-outxide/campanas/2026-10-halloween-cenas/
- * CREATIVO-LANDING-OUTXIDIOUS.md §4.2, §4.3 y §6.1). Sergi autorizó encenderlo
- * como provisional. Cambios sobre el paquete, a propósito:
- * - Bloque 1: fuera «Solo mayores de 18: trae tu documento.» (la edad del
- *   tardeo NO está confirmada; el +18 de la página es el de OUTXIDE).
+ * CREATIVO-LANDING-OUTXIDIOUS.md §4.2, §4.3 y §6.1; la v0.4 no cambia ningún
+ * bloque para pegar respecto a la v0.2, solo resuelve la edad del tardeo).
+ * Sergi autorizó encenderlo como provisional. Cambios sobre el paquete, a
+ * propósito:
  * - FAQ: con [CONFIRMAR] sin dato se borra la frase entera, nunca solo la
- *   marca. La 1 va con la regla de puerta que ya publica la web, solo para
- *   OUTXIDE; la 3 («¿Necesito algo para entrar al tardeo?») sale entera porque
- *   su respuesta ES la edad del tardeo; la 4 sin las normas de disfraz; la 5
- *   sin por dónde se entra a cada local ni si se pasa por dentro; la 7 sin
- *   «es una noche para mayores de 18».
+ *   marca. La 1 va con la respuesta por defecto del paquete (§4.3: la regla
+ *   de puerta que ya publica la web, para las dos partes), porque Jose no ha
+ *   confirmado la lista ampliada de documentos, las fotocopias ni el control
+ *   con disfraz; la 4 sin las normas de disfraz; la 5 sin por dónde se entra
+ *   a cada local ni si se pasa por dentro.
  * - Horas con huecos ({start} {end} de Fourvenues; {tardeoStart} {tardeoEnd}).
  * - DE, FR e IT: sin versión del copy creativo (no se traduce): claim,
  *   secciones y FAQ VACÍOS para que no caigan al español; esos idiomas siguen
@@ -218,7 +224,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           time: "{tardeoStart}–{tardeoEnd}",
           tone: "tardeo",
           title: "Tardeo de acceso libre en Enjoy Terrace",
-          text: "Empezamos antes, en Enjoy Terrace, con acceso libre y gratuito.",
+          text: "Empezamos antes, en Enjoy Terrace, con acceso libre y gratuito.\nSolo mayores de\u00a018: trae tu documento.",
         },
         {
           time: "{start}–{end}",
@@ -237,12 +243,16 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       faq: [
         {
-          q: "¿Qué edad hay que tener para OUTXIDE? ¿Piden documento?",
-          a: "Para OUTXIDE: solo mayores de 18, con DNI o pasaporte. Sin documento, no se entra en OUTXIDE.",
+          q: "¿Qué edad hay que tener? ¿Piden DNI?",
+          a: "Las dos partes son solo para mayores de 18: se pide DNI o pasaporte. Sin documento, no se entra.",
         },
         {
           q: "¿El tardeo es de acceso libre?",
           a: "Sí. El tardeo en Enjoy Terrace, de {tardeoStart} a {tardeoEnd}, es de acceso libre y gratuito.",
+        },
+        {
+          q: "¿Necesito algo para entrar al tardeo?",
+          a: "Solo tu documento: es de acceso libre y para mayores de 18. La entrada solo hace falta para seguir en OUTXIDE a partir de las {start}.",
         },
         {
           q: "¿Cuál es el dress code?",
@@ -258,7 +268,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         },
         {
           q: "¿Y el consumo responsable?",
-          a: "OUTXIDE es solo para mayores de 18 y pedimos consumo responsable. Si alguien de tu grupo no se encuentra bien, avisa a cualquier persona del equipo.",
+          a: "Es una noche para mayores de 18 y pedimos consumo responsable. Si alguien de tu grupo no se encuentra bien, avisa a cualquier persona del equipo.",
         },
       ],
       heroMedia: {
@@ -274,7 +284,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
           time: "{tardeoStart}–{tardeoEnd}",
           tone: "tardeo",
           title: "Free-entry early party at Enjoy Terrace",
-          text: "We start early, at Enjoy Terrace, with free entry.",
+          text: "We start early, at Enjoy Terrace, with free entry.\n18+ only: bring your ID.",
         },
         {
           time: "{start}–{end}",
@@ -293,12 +303,16 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
       ],
       faq: [
         {
-          q: "How old do I need to be for OUTXIDE? Do you check ID?",
-          a: "For OUTXIDE: 18+ only, with ID or passport. No ID, no entry to OUTXIDE.",
+          q: "How old do I need to be? Do you check ID?",
+          a: "Both parts are 18+ only: ID or passport required. No ID, no entry.",
         },
         {
           q: "Is the early party free entry?",
           a: "Yes. The early party at Enjoy Terrace, {tardeoStart}–{tardeoEnd}, is free entry.",
+        },
+        {
+          q: "Do I need anything to get into the early party?",
+          a: "Just your ID: it's free entry and 18+ only. You only need a ticket to carry on at OUTXIDE from {start}.",
         },
         {
           q: "What's the dress code?",
@@ -314,7 +328,7 @@ export const OUTXIDIOUS_CONTENT: OutxidiousContent = {
         },
         {
           q: "What about drinking responsibly?",
-          a: "OUTXIDE is 18+ only and we ask everyone to drink responsibly. If someone in your group isn't feeling well, tell any member of staff.",
+          a: "It's an 18+ night and we ask everyone to drink responsibly. If someone in your group isn't feeling well, tell any member of staff.",
         },
       ],
       heroMedia: {
@@ -414,8 +428,8 @@ const isSize = (v: unknown): v is number => typeof v === "number" && Number.isIn
 const isTone = (v: unknown): v is OutxidiousSectionTone =>
   isStr(v) && (OUTXIDIOUS_SECTION_TONES as readonly string[]).includes(v);
 const isPercent = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= 100;
-/** Proporción de recorte razonable (de 1:2 a 4:1). */
-const isAspect = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v) && v >= 0.5 && v <= 4;
+/** Proporción de recorte razonable (de 1:2 a 5:1: el recorte bajo del teaser es 5:1). */
+const isAspect = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v) && v >= 0.5 && v <= 5;
 
 function parseMedia(v: unknown): OutxidiousHeroMedia | undefined {
   if (!isRecord(v)) return undefined;

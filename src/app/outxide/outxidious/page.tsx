@@ -39,8 +39,11 @@ import "./outxidious.css";
 //   taquilla con el evento abierto, para que CampaignLinkTracker le añada utm_*
 //   y fbclid. El tardeo no lleva botón, precio ni formulario.
 // - Precio «desde» con gastos sacado de Fourvenues, nunca escrito a mano.
-// - La edad del tardeo NO está confirmada: la placa +18 es la de la noche de
-//   OUTXIDE y ningún texto afirma la edad del tardeo.
+// - Sin cartel (flyer) subido al evento de Fourvenues no hay botón ni precio:
+//   getUpcomingOutxideEvents solo devuelve eventos con flyer, así que la página
+//   no encuentra el evento y sale «pronto» (paquete v0.3, §1.3 y §4.6).
+// - +18 en las DOS partes (el tardeo también: resuelto por Sergi el 20-oct,
+//   paquete v0.4): la placa vale para toda la página y ningún texto da otra edad.
 // - Página de SERVIDOR (rápida en el navegador de Instagram): en cliente solo
 //   el formulario de avisos y el vídeo.
 // Lo creativo entra por src/lib/outxidious/content.ts con aprobación POR HUECO.
@@ -49,7 +52,12 @@ import "./outxidious.css";
 // bloques con la FAQ y el tema rojo; la imagen OG y el index, no.
 // - Después del evento («despues») no se pintan los bloques, la FAQ ni el
 //   subtítulo: «Empezamos antes…» y «Llega antes de las 00:00» ya no son verdad.
-// El muro +18 lo hereda del layout de /outxide (no se toca).
+// - DJ Siquiers (confirmado por Sergi, 20-oct) va en la parte de OUTXIDE de la
+//   primera pantalla, como dato y sin claim, en los 5 idiomas.
+// El muro +18 lo hereda del layout de /outxide (no se toca ni se degrada): es la
+// fila 0 de la primera pantalla (paquete v0.3, §3.1), un diálogo fijo encima de
+// todo, y al confirmarlo la placa sigue en la primera pantalla (lo prueba el e2e
+// a 375×600 con ?phase=hoy).
 
 const SITE = "https://www.grupoenjoy.es";
 const ogLocaleMap: Record<string, string> = { es: "es_ES", en: "en_GB", de: "de_DE", fr: "fr_FR", it: "it_IT" };
@@ -127,6 +135,8 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
   const sections = afterEvent ? [] : content.sections;
   const faq = afterEvent ? [] : content.faq;
   const outxideHref = localizedPath("/outxide", locale);
+  // Artista de la noche en la sala (vacío = no se pinta).
+  const partDj = t("outxidious.partOutxideDj").trim();
   // Sin multimedia aprobada todo va centrado (una columna); con ella, en móvil
   // el vídeo/imagen va ENCIMA del texto (recortado para que el h1 y la placa
   // quepan en la primera pantalla) y en escritorio a la derecha.
@@ -219,7 +229,20 @@ export default async function OutxidiousPage({ searchParams }: { searchParams: P
                   <span className="whitespace-nowrap">{fill(t("outxidious.partTardeoDetail"), vars)}</span>
                 </li>
                 <li data-testid="outxidious-part-outxide">
-                  <span className="ox-title font-semibold">{t("outxidious.partOutxide")}</span>{" "}
+                  {/* «OUTXIDE · DJ Siquiers» en la primera línea y la hora en la
+                      segunda, igual que el tardeo («Tardeo · Enjoy Terrace» y su
+                      hora): en móvil las dos partes ocupan dos líneas cada una. */}
+                  <span className="ox-title font-semibold">
+                    {t("outxidious.partOutxide")}
+                    {partDj && (
+                      <>
+                        {" · "}
+                        <span data-testid="outxidious-part-dj" className="whitespace-nowrap">
+                          {partDj}
+                        </span>
+                      </>
+                    )}
+                  </span>{" "}
                   <span className="whitespace-nowrap">{fill(t("outxidious.partOutxideDetail"), vars)}</span>
                 </li>
               </ul>

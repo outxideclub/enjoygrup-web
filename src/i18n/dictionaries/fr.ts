@@ -287,6 +287,7 @@ export const fr: Dictionary = {
     partTardeoDetail: "{tardeoStart}–{tardeoEnd} · entrée libre",
     partOutxide: "OUTXIDE",
     partOutxideDetail: "{start}–{end} · sur billet",
+    partOutxideDj: "DJ Siquiers",
     priceFrom: "Billets pour l'OUTXIDE à partir de {price} (frais inclus)",
     buy: "Acheter des billets",
     buyNote: "Billet pour l'OUTXIDE, de {start} à {end}. Le début de soirée à l'Enjoy Terrace est en entrée libre.",
@@ -318,7 +319,7 @@ export const fr: Dictionary = {
     videoPause: "Mettre la vidéo en pause",
     videoPlay: "Lire la vidéo",
     jsonLdName: "OUTXIDIOUS · Halloween 2026",
-    jsonLdDescription: "Halloween 2026 à l'OUTXIDE Club (Av. Tucán 1, Port d'Alcúdia) : samedi 31 octobre, de {start} à {end}, sur billet, réservé aux 18 ans et plus. Avant, de {tardeoStart} à {tardeoEnd}, début de soirée en entrée libre à l'Enjoy Terrace.",
+    jsonLdDescription: "OUTXIDIOUS, le Halloween 2026 de l'Enjoy Terrace et de l'OUTXIDE (Av. Tucán 1, Port d'Alcúdia), samedi 31 octobre : OUTXIDE de {start} à {end}. Avant, de {tardeoStart} à {tardeoEnd}, début de soirée en entrée libre à l'Enjoy Terrace. Réservé aux 18 ans et plus.",
     backToClub: "Aller à l'OUTXIDE Club",
   },
   purchase: {
