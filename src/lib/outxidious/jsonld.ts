@@ -7,6 +7,23 @@
 // disponibilidad InStock (nunca LimitedAvailability: regla del dueño, jamás se
 // comunica stock). Es el ÚNICO marcado de la página: el ItemList con todos los
 // eventos del club vive en /outxide (page.tsx), no en su layout.
+//
+// Evento COMPARTIDO (19-oct-2026): el Event a la venta es el de OUTXIDE
+// (23:00–05:30, con la oferta de Fourvenues). El TARDEO de acceso libre en
+// Enjoy Terrace (20:00–23:00) va SOLO en la descripción, NO como subEvent ni
+// como Event aparte, por coherencia:
+// - schema.org define subEvent como una parte del evento; el tardeo empieza
+//   antes que OUTXIDE y en otro local, así que colgarlo del Event de OUTXIDE
+//   afirmaría algo falso (un subEvent fuera del horario de su evento).
+// - Principio del repo (src/lib/event-jsonld.ts): en el marcado solo eventos
+//   REALES de Fourvenues, nunca sintéticos. El tardeo no existe en Fourvenues
+//   (ni ficha ni entrada): sería un nodo Event escrito a mano.
+// - /outxide y /agenda publican este mismo evento de Fourvenues como UN Event
+//   en Outxide Club dentro de su ItemList; un segundo nodo Event (gratis, en
+//   Enjoy Terrace) para la misma noche abriría una contradicción entre páginas,
+//   y la edad del tardeo no está confirmada (no habría typicalAgeRange veraz).
+// - El paquete creativo de META ADS pide lo mismo: el tardeo sin offers y sin
+//   ser un evento aparte.
 
 import { VENUE_TIMEZONE } from "@/lib/events";
 

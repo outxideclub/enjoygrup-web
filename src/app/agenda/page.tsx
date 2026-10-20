@@ -18,6 +18,8 @@ import {
 import { getServerLocale, getServerT } from "@/i18n/server";
 import { siteContact, telHref } from "@/lib/site";
 import { localizedPath } from "@/i18n/config";
+import { findOutxidiousEvent } from "@/lib/outxidious/event-config";
+import { OUTXIDIOUS_PATH } from "@/lib/outxidious/content";
 
 // Los eventos reales de Outxide se obtienen en servidor (revalidate 60): la
 // agenda queda en el HTML inicial (crawlable) y sin spinner.
@@ -29,6 +31,11 @@ export default async function AgendaPage() {
   const locale = await getServerLocale();
   const t = getServerT(locale);
   const events = await getUpcomingOutxideEvents();
+  // OUTXIDIOUS (Halloween 2026, evento compartido Enjoy + OUTXIDE) tiene landing
+  // propia con las dos partes de la noche, el precio con gastos y el +18: su
+  // tarjeta lleva allí en vez de a la taquilla directa. Misma detección que la
+  // landing (OUTXIDIOUS_EVENT_REF o nombre + noche del 31).
+  const outxidiousId = findOutxidiousEvent(events, process.env.OUTXIDIOUS_EVENT_REF)?._id ?? null;
 
   // Programa semanal veraz de los 3 locales (horarios reales; sin inventar noches).
   const venues = [
@@ -170,7 +177,12 @@ export default async function AgendaPage() {
                         </p>
                         <div className="mt-auto flex flex-col gap-3">
                           <Link
-                            href={eventCheckoutUrl(event, locale)}
+                            href={
+                              event._id === outxidiousId
+                                ? localizedPath(OUTXIDIOUS_PATH, locale)
+                                : eventCheckoutUrl(event, locale)
+                            }
+                            data-testid={event._id === outxidiousId ? "agenda-outxidious-card" : undefined}
                             className="btn-magnetic inline-flex w-full items-center justify-center rounded-lg bg-outxide px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-outxide/90"
                           >
                             <Ticket className="mr-2 h-4 w-4" />

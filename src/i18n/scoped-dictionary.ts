@@ -6,7 +6,11 @@ import type { Dictionary } from "./dictionaries/es";
 // que viaja ENTERO, serializado en el payload RSC, en el HTML de cada página.
 // En la landing de un anuncio con alcohol eso es un problema: Meta revisa la
 // página y el diccionario completo lleva textos de otros locales y eventos
-// («Hiru», «Enjoy Terrace», «copas», «Agotado», «oficiales»…). En estas rutas
+// («Hiru», «cócteles», «shisha», «copas», «Agotado», «oficiales»…). Desde el
+// 19-oct OUTXIDIOUS es un evento compartido y la landing SÍ nombra «Enjoy
+// Terrace» y el «tardeo», pero con sus propias claves del namespace outxidious
+// (que viaja entero), nunca con las de enjoy.*, que hablan de cócteles y
+// shisha. En estas rutas
 // solo viajan las claves que piden sus componentes CLIENTE; el resto de textos
 // se pinta en servidor con getServerT (solo la cadena final llega al HTML).
 //

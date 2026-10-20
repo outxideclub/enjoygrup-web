@@ -8,11 +8,10 @@ import { eventCheckoutUrl, formatEventTime } from "@/lib/events";
 import { formatEur } from "@/lib/fourvenues/pricing";
 import type { Locale } from "@/i18n/config";
 import {
-  DEFAULT_END_TIME,
-  DEFAULT_START_TIME,
   asEnvPhase,
   asQueryPhase,
   findOutxidiousEvent,
+  outxideSchedule,
   priceFromWithFees,
   resolvePhase,
   sellableRates,
@@ -39,10 +38,16 @@ export interface OutxidiousView {
   priceFromLabel: string | null;
   /** Mismo precio como número (JSON-LD). Solo en «venta». */
   priceFromValue: number | null;
-  /** Horario en Madrid ("23:00"): del evento si existe, si no el de los anuncios. */
+  /**
+   * Horario de la parte OUTXIDE en Madrid ("23:00"): del evento si es coherente
+   * con OUTXIDE, si no el de los anuncios (outxideSchedule). Nunca el del tardeo.
+   */
   startTime: string;
   endTime: string;
-  /** Lo mínimo del evento real para el JSON-LD; null mientras no exista. */
+  /**
+   * Lo mínimo del evento real para el JSON-LD (fechas = las de OUTXIDE, no las
+   * del panel si este empieza a las 20:00 por el tardeo); null mientras no exista.
+   */
   event: { startDate: string; endDate: string; ticketUrl: string; validFrom: string | null } | null;
 }
 
@@ -73,13 +78,17 @@ const loadEventData = cache(async () => {
   return { now, event, priceFrom: priceFromWithFees(sellable), validFrom };
 });
 
-/** Horario mostrado: el del evento real en Madrid o, si aún no existe, el de los anuncios. */
+/**
+ * Horario de OUTXIDE mostrado: el del evento real en Madrid si es coherente con
+ * OUTXIDE o, si aún no existe o empieza a la hora del tardeo, el de los anuncios.
+ */
 export async function loadOutxidiousTimes(): Promise<{ startTime: string; endTime: string }> {
   const { event } = await loadEventData();
+  const { startIso, endIso } = outxideSchedule(event);
   return {
     // es-ES con hora de 2 dígitos: "23:00" / "05:30" en todos los idiomas.
-    startTime: event ? formatEventTime(event.start_date, "es") : DEFAULT_START_TIME,
-    endTime: event ? formatEventTime(event.end_date, "es") : DEFAULT_END_TIME,
+    startTime: formatEventTime(startIso, "es"),
+    endTime: formatEventTime(endIso, "es"),
   };
 }
 
@@ -101,6 +110,7 @@ export async function loadOutxidiousView(opts: {
   const checkoutUrl = event ? eventCheckoutUrl(event, opts.locale) : null;
   const selling = phase === "venta" && checkoutUrl !== null && priceFrom !== null;
   const { startTime, endTime } = await loadOutxidiousTimes();
+  const schedule = outxideSchedule(event);
 
   return {
     phase,
@@ -112,7 +122,7 @@ export async function loadOutxidiousView(opts: {
     endTime,
     event:
       event && checkoutUrl
-        ? { startDate: event.start_date, endDate: event.end_date, ticketUrl: checkoutUrl, validFrom }
+        ? { startDate: schedule.startIso, endDate: schedule.endIso, ticketUrl: checkoutUrl, validFrom }
         : null,
   };
 }

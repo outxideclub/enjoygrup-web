@@ -13,12 +13,51 @@ import type { FVEvent, FVTicketRate } from "@/lib/fourvenues/types";
 import { roundCents, ticketFee } from "@/lib/fourvenues/pricing";
 import { hasUnknownRequiredField } from "@/lib/checkout/validation";
 
+// OUTXIDIOUS es un evento COMPARTIDO de Enjoy y OUTXIDE (orden de Sergi vía
+// META ADS, 19-oct-2026), en dos partes:
+//   1) TARDEO en Enjoy Terrace, 20:00–23:00, ACCESO LIBRE: gratis, sin venta
+//      anticipada ni lista. No está en Fourvenues ni se compra: horario fijo.
+//   2) OUTXIDE, 23:00–05:30, con entrada de Fourvenues. El precio «desde» y el
+//      botón de compra de la landing son SOLO de esta parte.
+
+/** Tardeo en Enjoy Terrace (acceso libre). Horario fijo: no viene de Fourvenues. */
+export const TARDEO_START_TIME = "20:00";
+export const TARDEO_END_TIME = "23:00";
+
 /**
- * Horario de los anuncios. Solo se pinta mientras el evento no exista en
- * Fourvenues; en cuanto existe, la hora sale de su start_date/end_date.
+ * Horario de OUTXIDE de los anuncios (Madrid; el 31-oct ya es +01:00). Se usa
+ * mientras el evento no exista en Fourvenues y cuando su horario no es el de
+ * OUTXIDE (ver outxideSchedule).
  */
-export const DEFAULT_START_TIME = "23:00";
-export const DEFAULT_END_TIME = "05:30";
+export const OUTXIDE_START_ISO = "2026-10-31T23:00:00+01:00";
+export const OUTXIDE_END_ISO = "2026-11-01T05:30:00+01:00";
+
+// Hora de inicio del evento de Fourvenues que se acepta como la de OUTXIDE: de
+// las 22:00 del 31 a las 06:00 del 1 (por si en el panel se abre pasada la
+// medianoche). Si la sesión de Fourvenues crea UN solo evento para toda la
+// noche, con inicio a las 20:00 por incluir el tardeo, esa hora NO es la de
+// OUTXIDE: la línea de OUTXIDE y el JSON-LD siguen diciendo 23:00.
+const OUTXIDE_START_FROM = Date.parse("2026-10-31T22:00:00+01:00");
+const OUTXIDE_START_TO = Date.parse("2026-11-01T06:00:00+01:00");
+// Fin aceptable: después del inicio y no más tarde del mediodía del domingo.
+const OUTXIDE_END_TO = Date.parse("2026-11-01T12:00:00+01:00");
+
+/**
+ * Horario de la parte OUTXIDE: el del evento de Fourvenues SOLO si es coherente
+ * con OUTXIDE (inicio ≥ 22:00 del 31; fin posterior y esa misma noche); si no,
+ * el de la constante. Inicio y fin se deciden por separado: un evento de toda
+ * la noche (20:00–05:30) conserva su fin real.
+ */
+export function outxideSchedule(
+  event: { start_date?: unknown; end_date?: unknown } | null | undefined,
+): { startIso: string; endIso: string } {
+  const start = typeof event?.start_date === "string" ? Date.parse(event.start_date) : NaN;
+  const startOk = !Number.isNaN(start) && start >= OUTXIDE_START_FROM && start <= OUTXIDE_START_TO;
+  const startIso = startOk ? (event!.start_date as string) : OUTXIDE_START_ISO;
+  const end = typeof event?.end_date === "string" ? Date.parse(event.end_date) : NaN;
+  const endOk = !Number.isNaN(end) && end > Date.parse(startIso) && end <= OUTXIDE_END_TO;
+  return { startIso, endIso: endOk ? (event!.end_date as string) : OUTXIDE_END_ISO };
+}
 
 // Umbrales con desfase explícito: el 31-oct ya es horario de invierno en
 // Madrid (+01:00; el cambio de hora es el domingo 25-oct).
@@ -28,8 +67,9 @@ export const TODAY_FROM = Date.parse("2026-10-31T00:00:00+01:00");
 export const AFTER_FROM = Date.parse("2026-11-01T05:30:00+01:00");
 
 // Dónde tiene que empezar el evento para reconocerlo por el nombre: el día 31
-// en Madrid, o la noche del 31 al 1 (por si en el panel se crea con inicio
-// pasada la medianoche).
+// en Madrid (a las 20:00 si el evento del panel incluye el tardeo, a las 23:00
+// si es solo OUTXIDE), o la noche del 31 al 1 (por si en el panel se crea con
+// inicio pasada la medianoche).
 const START_WINDOWS: ReadonlyArray<readonly [number, number]> = [
   [Date.parse("2026-10-31T00:00:00+01:00"), Date.parse("2026-11-01T00:00:00+01:00")],
   [Date.parse("2026-10-31T12:00:00+01:00"), Date.parse("2026-11-01T06:00:00+01:00")],

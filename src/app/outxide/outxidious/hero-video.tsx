@@ -1,19 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Pause, Play } from "lucide-react";
 import { useT } from "@/i18n";
 
 // Vídeo de cabecera de la landing, alimentado por src/lib/outxidious/content.ts
-// (hoy no hay ninguno aprobado: este componente no se monta). Decisiones:
+// (hueco heroMedia; hoy, el teaser OUTXIDE → OUTXIDIOUS aprobado el 20-oct).
+// Decisiones:
 // - El póster es el LCP: la página lo precarga con prioridad alta y aquí se
-//   reserva su caja exacta con width/height (CLS 0).
-// - El HTML de servidor NO lleva autoplay: con prefers-reduced-motion o ahorro
-//   de datos (Save-Data) solo se ve el póster, también antes de hidratar. La
-//   reproducción (muted, playsInline, loop) arranca en cliente si ambas cosas
-//   lo permiten; preload="metadata" mientras tanto, para no competir con el
-//   póster por la red.
+//   reserva su caja exacta con aspect-ratio en CSS desde el HTML de servidor
+//   (CLS 0). En móvil la caja puede ir recortada (mobileAspect) para que el h1
+//   y la placa +18 quepan debajo en la primera pantalla; el vídeo se encuadra
+//   con object-cover centrado.
+// - El HTML de servidor NO lleva el atributo autoplay a propósito: con
+//   prefers-reduced-motion o ahorro de datos (Save-Data) solo se ve el póster,
+//   también antes de hidratar. La reproducción automática (muted, playsInline,
+//   loop) la arranca el cliente si ambas cosas lo permiten.
+// - preload="metadata" (y "none" con Save-Data, que la página lee de la
+//   cabecera): el vídeo no compite con el póster ni bloquea la carga.
 // - Botón visible de pausa/reproducción (WCAG 2.2.2: movimiento de más de 5 s).
+//   Con movimiento reducido el botón ofrece «Reproducir»: decide la persona.
 // - Antes de publicar un vídeo: ≤ 3 destellos por segundo (WCAG 2.3.1).
 
 type NavigatorWithConnection = Navigator & { connection?: { saveData?: boolean } };
@@ -24,10 +30,14 @@ export interface HeroVideoProps {
   poster: string;
   width: number;
   height: number;
+  /** Proporción ancho/alto de la caja en móvil (< 768 px); sin ella, la del vídeo. */
+  mobileAspect?: number;
   label: string;
+  /** La petición traía Save-Data: on (solo póster, sin precarga). */
+  saveData?: boolean;
 }
 
-export function HeroVideo({ src, webmSrc, poster, width, height, label }: HeroVideoProps) {
+export function HeroVideo({ src, webmSrc, poster, width, height, mobileAspect, label, saveData = false }: HeroVideoProps) {
   const t = useT();
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -39,15 +49,15 @@ export function HeroVideo({ src, webmSrc, poster, width, height, label }: HeroVi
     } catch {
       /* navegador sin matchMedia: se trata como sin preferencia */
     }
-    const saveData = (navigator as NavigatorWithConnection).connection?.saveData === true;
-    if (reduce || saveData) return;
+    const clientSaveData = (navigator as NavigatorWithConnection).connection?.saveData === true;
+    if (reduce || saveData || clientSaveData) return;
     const video = ref.current;
     if (!video) return;
     video.muted = true; // requisito de autoplay en iOS/Android (por si React no lo reflejó)
     video.play().catch(() => {
       // Autoplay bloqueado (ahorro de batería, navegador interno…): queda el póster.
     });
-  }, []);
+  }, [saveData]);
 
   const toggle = () => {
     const video = ref.current;
@@ -60,11 +70,15 @@ export function HeroVideo({ src, webmSrc, poster, width, height, label }: HeroVi
     }
   };
 
+  // Caja reservada por CSS (outxidious.css, .ox-media): proporción del vídeo en
+  // escritorio y la recortada en móvil.
+  const box = {
+    "--ox-media-ar": `${width} / ${height}`,
+    ...(mobileAspect ? { "--ox-media-ar-sm": String(mobileAspect) } : {}),
+  } as CSSProperties;
+
   return (
-    <div
-      className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl"
-      style={{ aspectRatio: `${width} / ${height}` }}
-    >
+    <div data-testid="outxidious-hero-media" className="ox-media relative mx-auto w-full max-w-md overflow-hidden rounded-2xl" style={box}>
       <video
         ref={ref}
         data-testid="outxidious-hero-video"
@@ -72,7 +86,7 @@ export function HeroVideo({ src, webmSrc, poster, width, height, label }: HeroVi
         muted
         playsInline
         loop
-        preload="metadata"
+        preload={saveData ? "none" : "metadata"}
         poster={poster}
         width={width}
         height={height}
