@@ -17,9 +17,10 @@ import type { Dictionary } from "./dictionaries/es";
 // Salir de una de estas páginas por navegación suave dejaría la siguiente con
 // el diccionario parcial (el layout raíz no se vuelve a renderizar): por eso el
 // layout raíz monta ScopedNavigationGuard en estas rutas, que convierte esas
-// salidas en cargas completas. e2e/outxidious.spec.ts prueba las dos cosas: el
-// resto del sitio sigue recibiendo el diccionario entero y con navegación
-// suave, y salir de la landing no deja claves sin traducir.
+// salidas en cargas completas. e2e/outxidious.spec.ts y e2e/empresas.spec.ts
+// prueban las dos cosas: el resto del sitio sigue recibiendo el diccionario
+// entero y con navegación suave, y salir de la landing no deja claves sin
+// traducir.
 //
 // Si un componente cliente nuevo de estas rutas pide otra clave, AÑADIRLA aquí
 // (el e2e busca claves crudas pintadas en la página).
@@ -45,6 +46,61 @@ const SCOPES: Record<string, readonly string[]> = {
     "agenda.alertsError",
     "agenda.alertsPrivacyRequired",
     "agenda.alertsInfoLayer",
+  ],
+  // /empresas (20-oct-2026): destino de los anuncios de empresas. A diferencia
+  // de la landing de OUTXIDIOUS, aquí van la cabecera y el pie GENERALES de la
+  // web (componentes cliente), así que el recorte lleva sus claves una a una.
+  // Lo que NO viaja: «footer.enjoyCocktails» («Cocktails & Shisha»: con
+  // adLanding el pie usa «enjoy.viewMenu») y el resto de namespaces de otras
+  // páginas (cócteles, shisha, botellas, horarios de mayo-octubre…).
+  "/empresas": [
+    // Formulario (textos neutros y claves de error dinámicas «empresas.<x>»).
+    // El namespace entero está limpio: lo comprueba e2e/empresas.spec.ts.
+    "empresas",
+    // Muro +18 (usa también cookieBanner.and), banner de cookies y su botón del pie.
+    "ageVerification",
+    "cookieBanner",
+    // Navbar: menú, aria-labels de los locales y botón de reserva.
+    "nav",
+    "agenda.title",
+    "cta.navReserve",
+    "cta.navTickets",
+    // Selector de idioma de la cabecera y columnas del pie.
+    "common.language",
+    "common.discover",
+    "common.events",
+    // Pie (Footer con adLanding), sin «footer.enjoyCocktails».
+    "footer.tagline",
+    "footer.enjoyTerrace",
+    "enjoy.viewMenu",
+    "cta.hiruFarewell",
+    "footer.company",
+    "footer.aboutUs",
+    "footer.blog",
+    "footer.contactUs",
+    "footer.faqShort",
+    "footer.legal",
+    "footer.avisoLegal",
+    "footer.privacy",
+    "footer.cookies",
+    "footer.salesConditions",
+    "footer.email",
+    // Enlace del torneo del pie: solo se pinta con EVENT_PHASE activo, pero si
+    // alguien lo enciende no puede salir la clave cruda.
+    "mundial.navLabel",
+    // Boletín del pie.
+    "footer.newsletterTagline",
+    "footer.newsletterPlaceholder",
+    "footer.newsletterSubmit",
+    "footer.newsletterSuccess",
+    "footer.newsletterError",
+    "footer.newsletterPrivacy",
+    "footer.newsletterPrivacyLink",
+    "footer.newsletterInfoLayer",
+    "footer.newsletterPrivacyRequired",
+    // error.tsx y not-found.tsx raíz (cliente), por si se pintan en esta ruta.
+    "error",
+    "notFound",
   ],
 };
 

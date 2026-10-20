@@ -31,9 +31,24 @@
 //   TARDE]» del paso 2 del formato 2, que queda como «La tarde, en Enjoy
 //   Terrace», el mismo titular E3-T2 de COPYS.md).
 // - Las condiciones [SI-…] que la página sabe resolver están en `condiciones`
-//   (todas en false hasta que Jose confirme). Las que solo afectan a versiones
-//   con datos ([SI-ZONA], [SI-CONTACTO], [SI-OTRO-DÍA]) no tienen interruptor:
-//   esas versiones no están montadas.
+//   (en false hasta que se confirmen; hoy solo [SI-DICIEMBRE], ver abajo). Las
+//   que solo afectan a versiones con datos ([SI-ZONA], [SI-CONTACTO],
+//   [SI-OTRO-DÍA]) no tienen interruptor: esas versiones no están montadas.
+//
+// Ajustes del 20-oct-2026 (tarde), por encargo de Sergi:
+// - CARTEL del anuncio de empresas (aprobado por Sergi): «CELEBRA TU FIN DE
+//   TEMPORADA EN OUTXIDE CLUB · LA CENA, DONDE QUERÁIS · LA FIESTA, CON
+//   NOSOTROS». Quien llega del anuncio tiene que reconocer el mensaje en la
+//   primera pantalla, así que el antetítulo y el H1 dicen LO MISMO que el
+//   cartel (ES y EN; DE/FR/IT siguen con el neutro). El antetítulo de fin de
+//   temporada se retira a la misma hora que el bloque de fin de temporada
+//   (finTemporada.visibleHasta) y vuelve el neutro; el H1 se queda. La foto
+//   del cartel NO se usa: es stock de Canva con licencia solo dentro del diseño.
+// - APERTURA confirmada por Sergi: OUTXIDE y Enjoy abren todos los días hasta
+//   mediados de noviembre; después, solo fin de semana o bajo reserva de grupo.
+//   Eso es [SI-DICIEMBRE] (versión A de Navidad, sin días concretos) y la
+//   respuesta de la FAQ 2. [SI-TERRAZA-DIC] sigue sin confirmar: la tarde en
+//   Enjoy Terrace no se promete en diciembre.
 //
 // Red de seguridad: un texto de aquí que contenga léxico prohibido (lexicon.ts)
 // NO se pinta: se queda el neutro (o el bloque desaparece) y se avisa en log.
@@ -138,7 +153,14 @@ export interface EmpresasContent {
     siVentaOnline: boolean;
   };
   hero: {
+    /** Antetítulo neutro (el de siempre; manda desde que se retira el de fin de temporada). */
     eyebrow: LocalizedText;
+    /**
+     * Antetítulo del cartel del anuncio. Vive mientras viva el bloque de fin de
+     * temporada (misma hora, finTemporada.visibleHasta): en noviembre la
+     * palabra «temporada» no puede seguir en la página.
+     */
+    eyebrowFinTemporada: LocalizedText;
     /** H1 en dos líneas, separadas por "\n". */
     titular: LocalizedText;
     entradilla: LocalizedText;
@@ -228,15 +250,27 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
   // Jose aún no la ha visto: sin su OK, nunca index aunque se publique la oferta.
   approved: false,
   condiciones: {
-    siDiciembre: false,
+    // Confirmado por Sergi (20-oct-2026): abren todos los días hasta mediados
+    // de noviembre y después fines de semana o bajo reserva de grupo. Enciende
+    // la versión A de Navidad y la descripción con «Navidad».
+    siDiciembre: true,
+    // Sin confirmar: en Navidad no se ofrece la tarde en Enjoy Terrace.
     siTerrazaDic: false,
     siGrupos31: false,
     siVentaOnline: false,
   },
-  // §4.2 — H1 versión A (la del anuncio).
+  // §4.2, con el antetítulo y el H1 del CARTEL del anuncio (20-oct-2026, ver
+  // cabecera): quien llega del anuncio lee aquí las mismas palabras.
   hero: {
     eyebrow: { es: "Celebraciones de empresa · Port d'Alcúdia", en: "Company celebrations · Port d'Alcúdia" },
-    titular: { es: "Cenad donde queráis.\nLa fiesta, aquí.", en: "Dine wherever you like.\nThe party's here." },
+    eyebrowFinTemporada: {
+      es: "Celebra tu fin de temporada en OUTXIDE Club",
+      en: "Celebrate your end of season at OUTXIDE Club",
+    },
+    titular: {
+      es: "La cena, donde queráis.\nLa fiesta, con nosotros.",
+      en: "Dinner, wherever you like.\nThe party, with us.",
+    },
     entradilla: {
       es: "La celebración sigue con nosotros. La comida o la cena de empresa, donde os apetezca: en vuestro hotel, en vuestro restaurante de siempre. Después, la noche en OUTXIDE y, si es comida, la tarde antes en Enjoy Terrace (según fechas). Los dos, en la Av. Tucán 1 de Port d'Alcúdia.",
       en: "The celebration carries on with us. Your company lunch or dinner, wherever suits you: at your own hotel or your favourite restaurant. Afterwards, the night at OUTXIDE and, if it's a lunch, the afternoon first at Enjoy Terrace (on some dates). Both at Av. Tucán 1, Port d'Alcúdia.",
@@ -304,7 +338,8 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
     },
     boton: PEDIR_PRESUPUESTO,
   },
-  // §4.5 — visible desde el primer día. Sin [SI-DICIEMBRE] va la versión B.
+  // §4.5 — visible desde el primer día. Con [SI-DICIEMBRE] (confirmado el
+  // 20-oct) va la versión A; sin él, la B.
   navidad: {
     eyebrow: { es: "Navidad 2026", en: "Christmas 2026" },
     boton: PEDIR_PRESUPUESTO,
@@ -328,9 +363,12 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
         es: "Y si es comida, la tarde sigue antes en Enjoy Terrace.",
         en: "And if it's a lunch, the afternoon carries on first at Enjoy Terrace.",
       },
-      fechas: { es: "Fechas de diciembre: {fechas}.", en: "December dates: {fechas}." },
+      // La línea de fechas que pidió Sergi (20-oct): «En diciembre, fines de
+      // semana o bajo reserva para grupos.», sin días concretos (no los hay
+      // confirmados y la página sigue viva hasta el 8-nov).
+      fechas: { es: "En diciembre, {fechas}.", en: "In December, {fechas}." },
     },
-    fechasDiciembre: null,
+    fechasDiciembre: { es: "fines de semana o bajo reserva para grupos", en: "weekends or by group booking" },
   },
   // §4.6
   propuesta: {
@@ -433,9 +471,11 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
       },
       {
         pregunta: { es: "¿Qué días se puede?", en: "Which days are available?" },
+        // Apertura confirmada por Sergi (20-oct-2026). Sin «jueves a sábado»
+        // ni «mayo-octubre» (lo que dice el resto de la web ya no vale aquí).
         respuesta: {
-          es: "Contadnos qué día tenéis en mente y os decimos si podemos.",
-          en: "Tell us which day you have in mind and we'll let you know if we can.",
+          es: "Hasta mediados de noviembre, cualquier día; después, fines de semana o bajo reserva para grupos.",
+          en: "Until mid-November, any day; after that, weekends or by group booking.",
         },
       },
       {
@@ -500,21 +540,29 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
     confirm: { es: "Sí, soy mayor de 18 años", en: "Yes, I'm 18 or over" },
     deny: { es: "No, soy menor de edad", en: "No, I'm under 18" },
   },
-  // §4.11 — metadatos PROPIOS (nada de «Cócteles, Shisha» heredado).
+  // §4.11 — metadatos PROPIOS (nada de «Cócteles, Shisha» heredado). Desde el
+  // 20-oct, con las palabras del cartel en vez del titular viejo («Cenad donde
+  // queráis. La fiesta, aquí»): la tarjeta al compartir dice lo mismo que el
+  // anuncio. La descripción sigue sin «temporada» (vale también en noviembre).
   meta: {
     title: {
       es: "Celebraciones de empresa en Port d'Alcúdia · Grupo Enjoy",
       en: "Company celebrations in Port d'Alcúdia · Grupo Enjoy",
     },
     description: {
-      es: "Cenad donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa. Pide presupuesto. +18.",
-      en: "Dine wherever you like: the party carries on at OUTXIDE and, on some dates, at Enjoy Terrace. Port d'Alcúdia. Team parties. Request a quote. 18+.",
+      es: "La cena, donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa. Pide presupuesto. +18.",
+      en: "Dinner, wherever you like: the party carries on at OUTXIDE and, on some dates, at Enjoy Terrace. Port d'Alcúdia. Team parties. Request a quote. 18+.",
     },
+    // La que se pinta hoy ([SI-DICIEMBRE] confirmado). En inglés, «Get a quote»
+    // como en la v0.3 del paquete, para no alargarla más.
     descriptionDiciembre: {
-      es: "Cenad donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa y de Navidad. Pide presupuesto. +18.",
-      en: "Dine wherever you like: the party carries on at OUTXIDE and, on some dates, Enjoy Terrace. Port d'Alcúdia. Team and Christmas parties. Request a quote. 18+.",
+      es: "La cena, donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa y de Navidad. Pide presupuesto. +18.",
+      en: "Dinner, wherever you like: the party carries on at OUTXIDE and, on some dates, at Enjoy Terrace. Port d'Alcúdia. Team and Christmas parties. Get a quote. 18+.",
     },
-    ogTitle: { es: "Cenad donde queráis. La fiesta, aquí.", en: "Dine wherever you like. The party's here." },
+    ogTitle: {
+      es: "La cena, donde queráis. La fiesta, con nosotros.",
+      en: "Dinner, wherever you like. The party, with us.",
+    },
     ogDescription: {
       es: "La noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace (según fechas). Port d'Alcúdia. Pide presupuesto.",
       en: "The night at OUTXIDE and, if it's a lunch, the afternoon first at Enjoy Terrace (on some dates). Port d'Alcúdia. Request a quote.",

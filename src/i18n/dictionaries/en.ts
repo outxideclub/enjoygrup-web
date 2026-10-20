@@ -169,7 +169,7 @@ export const en: Dictionary = {
     dayStepClub: "Night at OUTXIDE",
     dayImageAlt: "Illuminated Enjoy sign above the terrace at night, with fairy lights among the trees",
     sameAddress: "Enjoy Terrace and OUTXIDE are at the same address: Av. Tucán 1, Port d'Alcúdia.",
-    hoursNote: "OUTXIDE's general opening hours: Thursday to Saturday, 23:00 to 05:30. The date and times of each celebration are set out in the proposal.",
+    hoursNote: "OUTXIDE's general opening hours: 23:00 to 05:30. Open every day until mid-November; after that, weekends or by group booking. The date and times of each celebration are set out in the proposal.",
     offerEyebrow: "Group proposal",
     offerCustom: "We'll prepare a tailored proposal for you: tell us the date, number of people and format.",
     offerIncludes: "What's included",
