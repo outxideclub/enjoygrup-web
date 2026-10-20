@@ -190,7 +190,12 @@ test.describe("Accesos · tarjetas visibles", () => {
   });
 
   test("el bloque va cerca de arriba: justo bajo el hero (portada) o bajo la barra de datos (locales)", async ({ page }) => {
+    // El HTML llega en streaming (loading.tsx) y React puede revelar el
+    // contenido un instante después del evento load: se espera a que el bloque
+    // esté ya colgado de <main> antes de contar (si no, la prueba era intermitente).
+    const promoInMain = page.locator('main > section[data-testid="promo-accesos"]');
     await page.goto("/");
+    await expect(promoInMain).toHaveCount(1);
     // En la portada, primera sección tras el hero.
     const homeIdx = await page.evaluate(() => {
       const sections = Array.from(document.querySelectorAll("main > section"));
@@ -199,6 +204,7 @@ test.describe("Accesos · tarjetas visibles", () => {
     expect(homeIdx).toBe(1);
     for (const path of ["/outxide", "/enjoy"]) {
       await page.goto(path);
+      await expect(promoInMain).toHaveCount(1);
       const idx = await page.evaluate(() => {
         const sections = Array.from(document.querySelectorAll("main > section"));
         return sections.findIndex((s) => s.getAttribute("data-testid") === "promo-accesos");
@@ -309,7 +315,8 @@ test.describe("Accesos · llegada a las landings", () => {
     await page.waitForURL(new RegExp(`/en${OUTXIDIOUS_PATH}$`));
     await expect(page.getByTestId("outxidious-page")).toBeVisible({ timeout: 15_000 });
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
-    await expect(page.getByTestId("outxidious-facts")).toBeVisible();
+    // Las dos partes de la noche (tardeo + OUTXIDE): el bloque de datos de la landing.
+    await expect(page.getByTestId("outxidious-parts")).toBeVisible();
     await expectNoRawKeys(page, "/en landing OUTXIDIOUS");
   });
 
@@ -319,13 +326,16 @@ test.describe("Accesos · llegada a las landings", () => {
     await card(page, "empresas").click({ position: { x: 40, y: 40 } });
     await page.waitForURL(/\/empresas$/);
     await expect(page.locator("h1")).toHaveCount(1);
-    await expect(page.locator("h1")).toContainText(es.empresas.h1, { timeout: 15_000 });
+    // El h1 de ES/EN es el del paquete creativo de /empresas (no empresas.h1, que
+    // es el neutro de DE/FR/IT): basta con que sea la landing, traducida.
+    await expect(page.getByTestId("empresas-hero").locator("h1")).toBeVisible({ timeout: 15_000 });
     await expectNoRawKeys(page, "/empresas desde la portada");
 
     await page.goto("/en/outxide");
     await cardLink(page, "empresas").click();
     await page.waitForURL(/\/en\/empresas$/);
-    await expect(page.locator("h1")).toContainText(en.empresas.h1, { timeout: 15_000 });
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.getByTestId("empresas-hero").locator("h1")).toBeVisible({ timeout: 15_000 });
     await expectNoRawKeys(page, "/en/empresas desde /en/outxide");
   });
 });
