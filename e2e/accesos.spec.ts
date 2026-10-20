@@ -309,7 +309,8 @@ test.describe("Accesos · llegada a las landings", () => {
     await page.waitForURL(new RegExp(`/en${OUTXIDIOUS_PATH}$`));
     await expect(page.getByTestId("outxidious-page")).toBeVisible({ timeout: 15_000 });
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
-    await expect(page.getByTestId("outxidious-facts")).toBeVisible();
+    // Las dos partes de la noche (tardeo + OUTXIDE): el bloque de datos de la landing.
+    await expect(page.getByTestId("outxidious-parts")).toBeVisible();
     await expectNoRawKeys(page, "/en landing OUTXIDIOUS");
   });
 
@@ -319,13 +320,16 @@ test.describe("Accesos · llegada a las landings", () => {
     await card(page, "empresas").click({ position: { x: 40, y: 40 } });
     await page.waitForURL(/\/empresas$/);
     await expect(page.locator("h1")).toHaveCount(1);
-    await expect(page.locator("h1")).toContainText(es.empresas.h1, { timeout: 15_000 });
+    // El h1 de ES/EN es el del paquete creativo de /empresas (no empresas.h1, que
+    // es el neutro de DE/FR/IT): basta con que sea la landing, traducida.
+    await expect(page.getByTestId("empresas-hero").locator("h1")).toBeVisible({ timeout: 15_000 });
     await expectNoRawKeys(page, "/empresas desde la portada");
 
     await page.goto("/en/outxide");
     await cardLink(page, "empresas").click();
     await page.waitForURL(/\/en\/empresas$/);
-    await expect(page.locator("h1")).toContainText(en.empresas.h1, { timeout: 15_000 });
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.getByTestId("empresas-hero").locator("h1")).toBeVisible({ timeout: 15_000 });
     await expectNoRawKeys(page, "/en/empresas desde /en/outxide");
   });
 });

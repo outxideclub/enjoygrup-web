@@ -1,6 +1,10 @@
 import { test, expect, type APIRequestContext, type BrowserContext, type Page } from "@playwright/test";
 import { es } from "../src/i18n/dictionaries/es";
+import { en } from "../src/i18n/dictionaries/en";
 import { de } from "../src/i18n/dictionaries/de";
+import { fr } from "../src/i18n/dictionaries/fr";
+import { it as itDict } from "../src/i18n/dictionaries/it";
+import { dictionaryScopeFor, pickDictionary } from "../src/i18n/scoped-dictionary";
 import { EMPRESAS_CONTENT, isEmpresasIndexable, type EmpresasContent } from "../src/lib/empresas/content";
 import { hasForbiddenLexicon } from "../src/lib/empresas/lexicon";
 import { EMPRESAS_OFFER, isOfferPublished } from "../src/lib/empresas/offer";
@@ -12,6 +16,13 @@ import { isEndOfSeasonLive, resolveEmpresasMeta, resolveEmpresasView } from "../
 // PROVISIONAL del paquete CREATIVO-LANDING-EMPRESAS.md v0.2 (ES y EN) en
 // src/lib/empresas/content.ts; DE/FR/IT siguen con los textos neutros. La
 // oferta (offer.ts) sigue vacía, así que la página sigue en NOINDEX.
+//
+// Ajustes del 20-oct-2026 (tarde): antetítulo y H1 del CARTEL del anuncio
+// (el antetítulo de fin de temporada se retira a las 18:00 del sáb 31, como el
+// bloque), Navidad A con «En diciembre, fines de semana o bajo reserva para
+// grupos.», FAQ 2 con la apertura confirmada por Sergi, diccionario RECORTADO
+// (src/i18n/scoped-dictionary.ts: ni shisha ni cócteles en el HTML, scripts
+// incluidos) con su guarda de navegación, y muro +18 sin la foto rota.
 //
 // Comprueba: primera pantalla en 375×550 con la placa +18, muro +18 (el mismo
 // componente de /outxide, con su texto propio), bloque de fin de temporada que
@@ -45,9 +56,20 @@ const EXPECTED_CAMPAIGN = {
 const AGE_KEY = "ge_age_verified";
 const CONSENT_KEY = "ge_cookie_consent";
 
-// Textos del paquete (§4.2) que la página tiene que pintar tal cual.
-const H1_LINES_ES = ["Cenad donde queráis.", "La fiesta, aquí."];
-const H1_LINES_EN = ["Dine wherever you like.", "The party's here."];
+// Textos del CARTEL del anuncio (antetítulo y H1) y del paquete (§4.2) que la
+// página tiene que pintar tal cual.
+const H1_LINES_ES = ["La cena, donde queráis.", "La fiesta, con nosotros."];
+const H1_LINES_EN = ["Dinner, wherever you like.", "The party, with us."];
+const EYEBROW_SEASON_ES = "Celebra tu fin de temporada en OUTXIDE Club";
+const EYEBROW_SEASON_EN = "Celebrate your end of season at OUTXIDE Club";
+const EYEBROW_NEUTRAL_ES = "Celebraciones de empresa · Port d'Alcúdia";
+const EYEBROW_NEUTRAL_EN = "Company celebrations · Port d'Alcúdia";
+// Navidad A y FAQ 2 con la apertura confirmada por Sergi (20-oct-2026).
+const XMAS_TITLE_ES = "La cena de Navidad, donde queráis. La fiesta de después, con nosotros.";
+const XMAS_DATES_ES = "En diciembre, fines de semana o bajo reserva para grupos.";
+const XMAS_DATES_EN = "In December, weekends or by group booking.";
+const FAQ2_ES = "Hasta mediados de noviembre, cualquier día; después, fines de semana o bajo reserva para grupos.";
+const FAQ2_EN = "Until mid-November, any day; after that, weekends or by group booking.";
 const PLATE_ES = "+18 · Consumo responsable";
 const PLATE_EN = "18+ · Drink responsibly";
 const CTA_ES = "Pedir presupuesto";
@@ -103,12 +125,91 @@ function forbiddenFound(text: string): string[] {
   return FORBIDDEN.filter((re) => re.test(t)).map((re) => `${re} → «${t.match(re)?.[0]}»`);
 }
 
-/** Marcado servido sin los <script> del runtime (el payload RSC lleva el diccionario entero de la web). */
-function servedMarkup(html: string): string {
-  return html
-    .replace(/<script(?![^>]*application\/ld\+json)[^>]*>[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, " ");
+// Lo que NO puede viajar en el HTML de /empresas, scripts incluidos (payload
+// RSC con el diccionario): tabaco, bebida como gancho y el emoji 🍭 de otras
+// piezas. «chicha» es la shisha en el diccionario francés. Sin acentos.
+const HTML_FORBIDDEN: readonly RegExp[] = [
+  /shisha/,
+  /chicha/,
+  /cachimba/,
+  /coctel/,
+  /cocktail/,
+  /\bcopas?\b/,
+  /botella/,
+  /barra libre/,
+  /chupito/,
+  /\u{1F36D}/u,
+];
+
+// Horarios que ya no valen (apertura confirmada por Sergi el 20-oct-2026):
+// «jueves a sábado» y «mayo-octubre», en cualquiera de los 5 idiomas.
+const OLD_HOURS =
+  /jueves a sabado|de jueves|mayo.{0,3}octubre|may.{0,3}oct\b|thursday to saturday|donnerstag bis samstag|du jeudi au samedi|dal giovedi al sabato/;
+
+function htmlForbiddenFound(html: string): string[] {
+  const t = normalize(html);
+  return HTML_FORBIDDEN.filter((re) => re.test(t)).map((re) => {
+    const m = re.exec(t)!;
+    return `${re} → …${t.slice(Math.max(0, m.index - 60), m.index + 40)}…`;
+  });
 }
+
+const DICTS = { es, en, de, fr, it: itDict } as const;
+
+/** Todas las claves hoja del diccionario ("ns.clave"): sirven para cazar claves crudas pintadas. */
+function leafKeys(obj: unknown, prefix = ""): string[] {
+  if (typeof obj !== "object" || obj === null) return [prefix];
+  return Object.entries(obj as Record<string, unknown>).flatMap(([k, v]) => leafKeys(v, prefix ? `${prefix}.${k}` : k));
+}
+const ALL_KEYS = leafKeys(es);
+
+/**
+ * Claves sin traducir en la página: texto visible Y atributos (aria-label,
+ * placeholder, title, alt…), porque la cabecera pone sus claves en aria-label
+ * y esas no salen en innerText.
+ */
+async function rawKeysOnPage(page: Page): Promise<string[]> {
+  const text = await page.evaluate(() => {
+    const skip = new Set(["class", "style", "href", "src", "srcset", "sizes", "d", "id", "for", "viewbox", "data-testid"]);
+    const parts = [document.body.innerText];
+    for (const el of document.body.querySelectorAll("*")) {
+      for (const a of Array.from(el.attributes)) if (!skip.has(a.name.toLowerCase())) parts.push(a.value);
+    }
+    return parts.join("\n");
+  });
+  return ALL_KEYS.filter((k) => text.includes(k));
+}
+
+async function expectNoRawKeys(page: Page, where: string): Promise<void> {
+  expect(await rawKeysOnPage(page), `${where}: claves sin traducir`).toEqual([]);
+}
+
+/** Marca el documento: si sigue tras navegar, la navegación fue suave (sin carga completa). */
+async function markDocument(page: Page): Promise<void> {
+  await page.evaluate(() => ((window as unknown as { __empMarker: number }).__empMarker = 1));
+}
+async function documentWasReplaced(page: Page): Promise<boolean> {
+  // Mientras recarga, evaluate puede fallar (contexto destruido): se reintenta.
+  for (let i = 0; i < 20; i++) {
+    try {
+      return await page.evaluate(() => (window as unknown as { __empMarker?: number }).__empMarker === undefined);
+    } catch {
+      await page.waitForTimeout(250);
+    }
+  }
+  throw new Error("no se pudo leer el documento tras navegar");
+}
+
+// Texto del diccionario que NINGUNA página pinta en servidor: solo está en su
+// HTML si viaja el diccionario entero en el payload RSC (prefijos sin comillas
+// ni acentos, para buscarlos tal cual dentro del payload escapado).
+const SENTINELS: Record<keyof typeof DICTS, string> = {
+  es: es.purchase.thanksSubtitle.slice(0, 26),
+  en: en.purchase.thanksSubtitle.slice(0, 26),
+  de: de.purchase.thanksSubtitle.slice(0, 27),
+  fr: fr.purchase.thanksSubtitle.slice(0, 22),
+  it: itDict.purchase.thanksSubtitle.slice(0, 15),
+};
 
 /** YYYY-MM-DD a `days` días de hoy (hora local del runner, con margen de sobra). */
 function isoInDays(days: number): string {
@@ -216,47 +317,88 @@ test.describe("/empresas · reglas puras", () => {
 
     const vBefore = resolveEmpresasView({ locale: "es", now: before, t, outxidiousHref: href });
     expect(vBefore.endOfSeason?.title).toBe("Toda la temporada cuidando de los demás. Ahora os toca a vosotros.");
+    // Antetítulo del cartel del anuncio mientras vive el bloque…
+    expect(vBefore.hero.eyebrow).toBe(EYEBROW_SEASON_ES);
+    expect(vBefore.hero.h1Lines).toEqual(H1_LINES_ES);
     const vAt = resolveEmpresasView({ locale: "es", now: at, t, outxidiousHref: href });
     expect(vAt.endOfSeason).toBeNull();
+    // …y a la misma hora vuelve el neutro del paquete; el H1 del cartel se queda.
+    expect(vAt.hero.eyebrow).toBe(EYEBROW_NEUTRAL_ES);
+    expect(vAt.hero.h1Lines).toEqual(H1_LINES_ES);
+    expect(resolveEmpresasView({ locale: "en", now: before, t: tFrom({}), outxidiousHref: href }).hero.eyebrow).toBe(EYEBROW_SEASON_EN);
     // En noviembre, «temporada» no puede seguir viva en ningún texto de la página.
     expect(allText(vAt)).not.toContain("temporada");
     const enAt = resolveEmpresasView({ locale: "en", now: at, t: tFrom({}), outxidiousHref: href });
     expect(allText(enAt)).not.toContain("season");
+    expect(enAt.hero.eyebrow).toBe(EYEBROW_NEUTRAL_EN);
+    expect(enAt.hero.h1Lines).toEqual(H1_LINES_EN);
 
     // DE (sin paquete): la línea neutra de ocasiones habla de fin de temporada → se retira a la misma hora.
     const deT = tFrom(de);
     expect(resolveEmpresasView({ locale: "de", now: before, t: deT, outxidiousHref: href }).hero.occasions).toBe(de.empresas.occasions);
     expect(resolveEmpresasView({ locale: "de", now: at, t: deT, outxidiousHref: href }).hero.occasions).toBeNull();
+    // DE/FR/IT siguen con el antetítulo neutro antes y después (el cartel no se traduce).
+    expect(resolveEmpresasView({ locale: "de", now: before, t: deT, outxidiousHref: href }).hero.eyebrow).toBe(de.empresas.heroEyebrow);
+    expect(resolveEmpresasView({ locale: "de", now: at, t: deT, outxidiousHref: href }).hero.eyebrow).toBe(de.empresas.heroEyebrow);
   });
 
-  test("Navidad sin [SI-DICIEMBRE]: versión B, sin fechas ni promesa de OUTXIDE; con él, versión A y fechas", () => {
+  test("Navidad con [SI-DICIEMBRE] (confirmado): versión A con la línea de fechas y sin la terraza; sin él, versión B", () => {
     const now = Date.parse("2026-10-25T12:00:00+01:00");
-    const b = resolveEmpresasView({ locale: "es", now, t, outxidiousHref: href }).christmas;
-    expect(b).toEqual({
+    expect(EMPRESAS_CONTENT.condiciones.siDiciembre).toBe(true);
+    expect(EMPRESAS_CONTENT.condiciones.siTerrazaDic).toBe(false);
+    const a = resolveEmpresasView({ locale: "es", now, t, outxidiousHref: href }).christmas;
+    expect(a).toEqual({
+      eyebrow: "Navidad 2026",
+      title: XMAS_TITLE_ES,
+      text: "Si la cena de empresa es en diciembre, la fiesta de después se organiza ahora. Vosotros elegís el restaurante; la noche la ponemos nosotros en OUTXIDE.",
+      dates: XMAS_DATES_ES,
+      cta: CTA_ES,
+    });
+    // Sin días concretos.
+    expect(a!.dates).not.toMatch(/\d/);
+    const aEn = resolveEmpresasView({ locale: "en", now, t: tFrom({}), outxidiousHref: href }).christmas;
+    expect(aEn?.title).toBe("Your Christmas dinner, wherever you like. The party afterwards, with us.");
+    expect(aEn?.dates).toBe(XMAS_DATES_EN);
+    // Sin [SI-TERRAZA-DIC], la tarde en Enjoy Terrace no se promete en diciembre.
+    expect(a!.text).not.toContain("Enjoy");
+    expect(aEn!.text).not.toContain("Enjoy");
+    // La descripción con «Navidad» ya está encendida (la condiciona [SI-DICIEMBRE]).
+    expect(resolveEmpresasMeta("es", t).description).toBe(
+      "La cena, donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa y de Navidad. Pide presupuesto. +18.",
+    );
+    expect(resolveEmpresasMeta("en", tFrom({})).description).toContain("Team and Christmas parties");
+
+    // Sin [SI-DICIEMBRE]: versión B, sin fechas ni promesa de OUTXIDE, y sin «Navidad» en la descripción.
+    const unconfirmed: EmpresasContent = {
+      ...EMPRESAS_CONTENT,
+      condiciones: { ...EMPRESAS_CONTENT.condiciones, siDiciembre: false },
+    };
+    expect(resolveEmpresasView({ locale: "es", now, t, outxidiousHref: href, content: unconfirmed }).christmas).toEqual({
       eyebrow: "Navidad 2026",
       title: "¿La cena de Navidad es en diciembre?",
       text: "Contadnos la fecha y cuántos seréis, y os decimos qué podemos montar para la fiesta de después.",
       dates: null,
       cta: CTA_ES,
     });
-    // Y la descripción no dice «Navidad» hasta [SI-DICIEMBRE] (la caché de Meta no se refresca).
-    expect(resolveEmpresasMeta("es", t).description.toLowerCase()).not.toContain("navidad");
-
-    const confirmed: EmpresasContent = {
+    expect(resolveEmpresasMeta("es", t, unconfirmed).description.toLowerCase()).not.toContain("navidad");
+    // Con [SI-TERRAZA-DIC] (aún no), entraría la frase de la terraza.
+    const terrace: EmpresasContent = {
       ...EMPRESAS_CONTENT,
-      condiciones: { ...EMPRESAS_CONTENT.condiciones, siDiciembre: true },
-      navidad: { ...EMPRESAS_CONTENT.navidad!, fechasDiciembre: { es: "viernes y sábados de diciembre" } },
+      condiciones: { ...EMPRESAS_CONTENT.condiciones, siTerrazaDic: true },
     };
-    const a = resolveEmpresasView({ locale: "es", now, t, outxidiousHref: href, content: confirmed }).christmas;
-    expect(a?.title).toBe("La cena de Navidad, donde queráis. La fiesta de después, con nosotros.");
-    expect(a?.text).not.toContain("Enjoy Terrace"); // sin [SI-TERRAZA-DIC]
-    expect(a?.dates).toBe("Fechas de diciembre: viernes y sábados de diciembre.");
-    expect(resolveEmpresasMeta("es", t, confirmed).description).toContain("Fiestas de empresa y de Navidad");
+    expect(resolveEmpresasView({ locale: "es", now, t, outxidiousHref: href, content: terrace }).christmas?.text).toContain(
+      "Y si es comida, la tarde sigue antes en Enjoy Terrace.",
+    );
   });
 
   test("FAQ: seis preguntas; la de Halloween hasta las 23:00 del 31 y después la de vestimenta", () => {
     const early = resolveEmpresasView({ locale: "es", now: Date.parse(BEFORE_CUTOFF), t, outxidiousHref: href });
     expect(early.faq).toHaveLength(6);
+    // FAQ 2 con la apertura confirmada por Sergi, sin días de la semana ni meses de temporada.
+    expect(early.faq![1]).toEqual({ question: "¿Qué días se puede?", answer: FAQ2_ES });
+    const earlyEn = resolveEmpresasView({ locale: "en", now: Date.parse(BEFORE_CUTOFF), t: tFrom({}), outxidiousHref: href });
+    expect(earlyEn.faq![1]).toEqual({ question: "Which days are available?", answer: FAQ2_EN });
+    for (const v of [early, earlyEn]) expect(normalize(allText(v))).not.toMatch(OLD_HOURS);
     const halloween = early.faq![5];
     expect(halloween.question).toBe("¿Y si queremos celebrarlo en Halloween?");
     // Sin [SI-GRUPOS-31] ni [SI-VENTA-ONLINE]: ni oferta de grupo ni frase de entradas.
@@ -298,7 +440,14 @@ test.describe("/empresas · reglas puras", () => {
     expect(deView.faq).toBeNull();
     expect(deView.hero.facts).toBeNull();
     // Nunca español en la página alemana.
-    expect(JSON.stringify(deView)).not.toContain("Cenad donde queráis");
+    expect(JSON.stringify(deView)).not.toContain("La cena, donde queráis");
+    expect(JSON.stringify(deView)).not.toContain("Celebra tu fin de temporada");
+    // La nota neutra de horario (solo DE/FR/IT) ya no dice «jueves a sábado».
+    for (const [loc, dict] of [["de", de], ["fr", fr], ["it", itDict]] as const) {
+      const v = resolveEmpresasView({ locale: loc, now, t: tFrom(dict), outxidiousHref: href });
+      expect(v.formats.notes).toContain(dict.empresas.hoursNote);
+      expect(normalize(allText(v)), loc).not.toMatch(OLD_HOURS);
+    }
   });
 
   test("ningún texto del paquete cae por el léxico prohibido, sin corchetes ni emojis, y la página sigue en noindex", () => {
@@ -344,6 +493,36 @@ test.describe("/empresas · reglas puras", () => {
     expect(isEmpresasIndexable(EMPRESAS_CONTENT, fullOffer)).toBe(false);
     expect(isEmpresasIndexable({ ...EMPRESAS_CONTENT, approved: true }, fullOffer)).toBe(true);
   });
+
+  test("diccionario recortado: /empresas lleva solo lo de sus componentes cliente, limpio en los 5 idiomas", () => {
+    const scope = dictionaryScopeFor("/empresas");
+    expect(scope).not.toBeNull();
+    expect(dictionaryScopeFor("/empresas/")).toEqual(scope);
+    // Solo esa ruta: el resto de la web sigue con el diccionario entero.
+    for (const p of ["/empresasx", "/empresas/otra", "/", "/outxide", "/enjoy", "/agenda", null]) {
+      expect(dictionaryScopeFor(p), String(p)).toBeNull();
+    }
+    for (const [loc, dict] of Object.entries(DICTS)) {
+      const picked = pickDictionary(dict, scope!) as unknown as Record<string, Record<string, string>>;
+      expect(Object.keys(picked).sort(), loc).toEqual(
+        ["ageVerification", "agenda", "common", "cookieBanner", "cta", "empresas", "enjoy", "error", "footer", "mundial", "nav", "notFound"].sort(),
+      );
+      // La columna «Cocktails & Shisha» del pie NO viaja (con adLanding el pie usa «Ver carta»).
+      expect(picked.footer.enjoyCocktails, loc).toBeUndefined();
+      expect(Object.keys(picked.enjoy), loc).toEqual(["viewMenu"]);
+      expect(Object.keys(picked.agenda), loc).toEqual(["title"]);
+      // Cada clave pedida existe en ese idioma: una errata dejaría la clave cruda en pantalla.
+      for (const path of scope!) {
+        const value = path.split(".").reduce<unknown>((o, k) => (o && typeof o === "object" ? (o as Record<string, unknown>)[k] : undefined), dict);
+        expect(value, `${loc}: ${path}`).toBeDefined();
+      }
+      // Lo que viaja en el payload RSC: ni léxico vetado ni horarios viejos.
+      const json = JSON.stringify(picked);
+      expect(htmlForbiddenFound(json), loc).toEqual([]);
+      expect(forbiddenFound(json), loc).toEqual([]);
+      expect(normalize(json), loc).not.toMatch(OLD_HOURS);
+    }
+  });
 });
 
 // ===========================================================================
@@ -354,10 +533,20 @@ test.describe("/empresas · primera pantalla 375×550", () => {
   test.use({ viewport: { width: 375, height: 550 } });
   test.beforeEach(async ({ context }) => preconfirm(context));
 
-  for (const lang of ["es", "en"] as const) {
-    test(`${lang}: H1 en dos líneas, subtítulo, botón al formulario y placa +18 sin desplazar`, async ({ page }) => {
+  // Las dos horas que importan: el día que arrancan los anuncios (antetítulo
+  // del cartel) y después de las 18:00 del sáb 31 (antetítulo neutro): la
+  // primera pantalla tiene que caber igual con los dos.
+  const MOMENTS = [
+    { name: "con el antetítulo del cartel", now: "2026-10-22T12:00:00+02:00", es: EYEBROW_SEASON_ES, en: EYEBROW_SEASON_EN },
+    { name: "tras las 18:00 del 31", now: AT_CUTOFF, es: EYEBROW_NEUTRAL_ES, en: EYEBROW_NEUTRAL_EN },
+  ];
+  for (const lang of ["es", "en"] as const) for (const moment of MOMENTS) {
+    test(`${lang} ${moment.name}: antetítulo, H1 del cartel en dos líneas, subtítulo, botón y placa +18 sin desplazar`, async ({ page }) => {
       const path = lang === "es" ? "/empresas" : "/en/empresas";
-      await page.goto(path);
+      await page.goto(withNow(path, moment.now));
+      const eyebrow = page.getByTestId("empresas-hero").locator(".emp-eyebrow");
+      await expect(eyebrow).toHaveText(moment[lang]);
+      await expect(eyebrow).toBeInViewport({ ratio: 1 });
       const h1 = page.locator("h1");
       await expect(h1).toHaveCount(1);
       const lines = h1.locator("span");
@@ -471,6 +660,32 @@ test.describe("/empresas · muro +18", () => {
     await page.goto("/en/empresas");
     await expect(page.getByRole("dialog")).toContainText("This page is about a terrace bar and a nightclub, for over-18s only.");
   });
+
+  test("sin la foto de fondo rota (hero-poster.webp daba 404): ningún 404 de imagen y el mismo muro en /empresas y /outxide", async ({ page, context }) => {
+    await preconfirm(context, { age: false });
+    const broken: string[] = [];
+    page.on("response", (res) => {
+      const url = new URL(res.url());
+      if (res.status() >= 400 && (url.pathname.startsWith("/images/") || url.pathname.startsWith("/videos/"))) broken.push(`${res.status()} ${url.pathname}`);
+    });
+    for (const path of ["/empresas", "/outxide"]) {
+      await page.goto(path);
+      const dialog = page.getByRole("dialog");
+      await expect(dialog).toBeVisible();
+      // La capa del muro (padre del diálogo) no pide ninguna imagen de fondo.
+      const backgrounds = await page.evaluate(() => {
+        const wall = document.querySelector('[role="dialog"]')?.parentElement;
+        return wall ? [wall, ...Array.from(wall.querySelectorAll("*"))].map((el) => getComputedStyle(el).backgroundImage).filter((b) => b.includes("url(")) : ["sin muro"];
+      });
+      expect(backgrounds, path).toEqual([]);
+      // Comportamiento intacto: bloqueante, foco en «Sí» y la capa negra encima.
+      await expect(dialog.getByRole("button", { name: path === "/empresas" ? "Sí, soy mayor de 18 años" : es.ageVerification.confirm })).toBeFocused();
+      await page.waitForLoadState("networkidle");
+    }
+    expect(page.url()).toContain("/outxide");
+    expect(broken).toEqual([]);
+    expect(await page.content()).not.toContain("hero-poster.webp");
+  });
 });
 
 test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
@@ -491,13 +706,23 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
     });
     expect(order).toBe(true);
 
+    const eyebrow = page.getByTestId("empresas-hero").locator(".emp-eyebrow");
+    await expect(eyebrow).toHaveText(EYEBROW_SEASON_ES);
+
     await page.goto(withNow("/empresas", AT_CUTOFF));
     await expect(page.getByTestId("empresas-christmas")).toBeVisible();
     await expect(page.getByTestId("empresas-end-of-season")).toHaveCount(0);
+    // El antetítulo del cartel se va a la misma hora que el bloque; el H1 se queda.
+    await expect(eyebrow).toHaveText(EYEBROW_NEUTRAL_ES);
+    await expect(page.locator("h1 span")).toHaveText(H1_LINES_ES);
     expect(normalize(await page.locator("main").innerText())).not.toContain("temporada");
 
+    await page.goto(withNow("/en/empresas", BEFORE_CUTOFF));
+    await expect(eyebrow).toHaveText(EYEBROW_SEASON_EN);
     await page.goto(withNow("/en/empresas", AT_CUTOFF));
     await expect(page.getByTestId("empresas-end-of-season")).toHaveCount(0);
+    await expect(eyebrow).toHaveText(EYEBROW_NEUTRAL_EN);
+    await expect(page.locator("h1 span")).toHaveText(H1_LINES_EN);
     expect(normalize(await page.locator("main").innerText())).not.toContain("season");
   });
 
@@ -516,7 +741,7 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
 test.describe("/empresas · contenido", () => {
   test.beforeEach(async ({ context }) => preconfirm(context));
 
-  test("orden del paquete, Navidad sin fechas, sin oferta ni precio, y +18 en formulario y pie", async ({ page }) => {
+  test("orden del paquete, Navidad A con su línea de fechas, FAQ 2, sin oferta ni precio, y +18 en formulario y pie", async ({ page }) => {
     await page.goto(withNow("/empresas", "2026-10-25T12:00:00+01:00"));
     // Orden (§3): primera pantalla · formatos · fin de temporada y Navidad · propuesta · formulario · FAQ.
     const ids = [
@@ -542,12 +767,20 @@ test.describe("/empresas · contenido", () => {
       else expect(tops[i], msg).toBeGreaterThan(tops[i - 1]);
     }
 
+    // Navidad, versión A ([SI-DICIEMBRE] confirmado por Sergi): la noche en
+    // OUTXIDE y la línea de fechas sin días concretos; sin la terraza.
     const christmas = page.getByTestId("empresas-christmas");
-    await expect(christmas.locator("h2")).toHaveText("¿La cena de Navidad es en diciembre?");
-    await expect(christmas).not.toContainText("Fechas");
-    await expect(christmas).not.toContainText("OUTXIDE");
-    // Sin fechas de diciembre: el único número del bloque es el año del antetítulo.
+    await expect(christmas.locator("h2")).toHaveText(XMAS_TITLE_ES);
+    await expect(christmas).toContainText("la noche la ponemos nosotros en OUTXIDE");
+    await expect(christmas.locator("p", { hasText: XMAS_DATES_ES })).toHaveText(XMAS_DATES_ES);
+    await expect(christmas).not.toContainText("Enjoy");
+    // Sin días concretos: el único número del bloque es el año del antetítulo.
     expect((await christmas.innerText()).match(/\d+/g)).toEqual(["2026"]);
+    // FAQ 2 con la apertura confirmada, y ningún horario viejo en la página.
+    const faq2 = page.getByTestId("empresas-faq-item").nth(1);
+    await expect(faq2.locator("dt")).toHaveText("¿Qué días se puede?");
+    await expect(faq2.locator("dd")).toHaveText(FAQ2_ES);
+    expect(normalize(await page.locator("body").innerText())).not.toMatch(OLD_HOURS);
 
     // Dos formatos con su recorrido y firmas (inglés también en español).
     await expect(page.getByTestId("empresas-format-night").locator("h3")).toHaveText("La noche, en OUTXIDE");
@@ -577,11 +810,13 @@ test.describe("/empresas · contenido", () => {
     await page.goto("/empresas");
     await expect(page).toHaveTitle("Celebraciones de empresa en Port d'Alcúdia · Grupo Enjoy");
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    // Con [SI-DICIEMBRE], la descripción con Navidad; y las palabras del cartel, no el titular viejo.
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
       "content",
-      "Cenad donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa. Pide presupuesto. +18.",
+      "La cena, donde queráis: la fiesta sigue en OUTXIDE y, según fechas, en Enjoy Terrace. Port d'Alcúdia. Fiestas de empresa y de Navidad. Pide presupuesto. +18.",
     );
-    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "Cenad donde queráis. La fiesta, aquí.");
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "La cena, donde queráis. La fiesta, con nosotros.");
+    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", "La cena, donde queráis. La fiesta, con nosotros.");
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
       "content",
       "La noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace (según fechas). Port d'Alcúdia. Pide presupuesto.",
@@ -596,6 +831,12 @@ test.describe("/empresas · contenido", () => {
 
     const head = await (await request.get("/en/empresas")).text();
     expect(head).toContain("<title>Company celebrations in Port d&#x27;Alcúdia · Grupo Enjoy</title>");
+    expect(head).toContain('<meta property="og:title" content="Dinner, wherever you like. The party, with us."/>');
+    // Ni rastro del titular viejo en ningún idioma.
+    for (const path of ["/empresas", "/en/empresas"]) {
+      const html = await (await request.get(path)).text();
+      expect(html, path).not.toMatch(/Cenad donde|La fiesta, aquí|Dine wherever|party&#x27;s here|party's here/);
+    }
     const metas = (head.match(/<meta[^>]+>/g) ?? []).join("\n");
     expect(forbiddenFound(metas)).toEqual([]);
     expect(normalize(metas)).not.toMatch(/shisha|cocteles|cocktails/);
@@ -661,7 +902,8 @@ test.describe("/empresas · contenido", () => {
     await expect(page.getByTestId("empresas-end-of-season")).toHaveCount(0);
     await expect(page.getByTestId("empresas-christmas")).toHaveCount(0);
     await expect(page.getByTestId("empresas-adult-hero")).toHaveText(de.empresas.adultNotice);
-    expect(await page.locator("main").innerText()).not.toContain("Cenad");
+    expect(await page.locator("main").innerText()).not.toContain("La cena, donde");
+    await expect(page.getByTestId("empresas-hero").locator(".emp-eyebrow")).toHaveText(de.empresas.heroEyebrow);
   });
 });
 
@@ -669,19 +911,224 @@ test.describe("/empresas · léxico prohibido", () => {
   test.beforeEach(async ({ context }) => preconfirm(context));
 
   for (const path of ["/empresas", "/en/empresas", "/de/empresas", "/fr/empresas", "/it/empresas"]) {
-    test(`${path}: ni en el marcado ni en el texto visible`, async ({ page, request }) => {
-      // Marcado servido (metadatos, alt, textos, JSON-LD). Fuera los <script>
-      // del runtime: el payload de React lleva el diccionario completo del
-      // idioma (arquitectura de toda la web) y no se pinta.
-      const res = await request.get(path, { headers: { "accept-language": "es-ES" } });
-      expect(res.status()).toBe(200);
-      expect(forbiddenFound(servedMarkup(await res.text()))).toEqual([]);
+    test(`${path}: ni en el HTML completo (scripts y payload RSC incluidos) ni en el texto visible`, async ({ page, request }) => {
+      // HTML ENTERO: metadatos, alt, textos, JSON-LD y también los <script>.
+      // Desde el diccionario recortado (src/i18n/scoped-dictionary.ts) el
+      // payload RSC ya no lleva los textos del resto de la web.
+      for (const now of ["2026-10-22T12:00:00+02:00", AT_CUTOFF]) {
+        const res = await request.get(withNow(path, now), { headers: { "accept-language": "es-ES" } });
+        expect(res.status()).toBe(200);
+        const html = await res.text();
+        expect(htmlForbiddenFound(html), `${path} @ ${now}`).toEqual([]);
+        expect(forbiddenFound(html), `${path} @ ${now}`).toEqual([]);
+        expect(normalize(html), `${path} @ ${now}: horario viejo`).not.toMatch(OLD_HOURS);
+      }
 
       await page.goto(path);
       await expect(page.locator("h1")).toHaveCount(1);
-      expect(forbiddenFound(await page.locator("body").innerText())).toEqual([]);
+      const visible = await page.locator("body").innerText();
+      expect(forbiddenFound(visible)).toEqual([]);
+      expect(htmlForbiddenFound(visible)).toEqual([]);
     });
   }
+});
+
+// ===========================================================================
+// 3. Diccionario recortado (src/i18n/scoped-dictionary.ts) y guarda de
+//    navegación: sin textos de otras páginas en el HTML, sin claves crudas en
+//    nada de lo que pintan los componentes cliente, y salidas con carga completa.
+// ===========================================================================
+
+const LOCALE_PREFIX: Record<keyof typeof DICTS, string> = { es: "", en: "/en", de: "/de", fr: "/fr", it: "/it" };
+
+test.describe("/empresas · diccionario recortado", () => {
+  test("el HTML de /empresas no lleva el diccionario entero; el resto de la web sí", async ({ playwright, baseURL }) => {
+    // Contexto NUEVO por petición: visitar /it/… fija la cookie de idioma y una
+    // ruta sin prefijo pedida después redirigiría a la de ese idioma.
+    const fresh = async (path: string) => {
+      const ctx = await playwright.request.newContext({ baseURL });
+      try {
+        const res = await ctx.get(path);
+        expect(new URL(res.url()).pathname, `${path} sin redirección`).toBe(path);
+        return await res.text();
+      } finally {
+        await ctx.dispose();
+      }
+    };
+    for (const [loc, prefix] of Object.entries(LOCALE_PREFIX) as [keyof typeof DICTS, string][]) {
+      const html = await fresh(`${prefix}/empresas`);
+      expect(html.includes(SENTINELS[loc]), `${prefix}/empresas: diccionario recortado`).toBe(false);
+      // Y sí lleva las claves que piden sus componentes cliente (p. ej. el botón de cookies del pie).
+      expect(html.includes(DICTS[loc].cookieBanner.settingsButton), `${prefix}/empresas: botón de cookies`).toBe(true);
+    }
+    for (const [path, loc] of [
+      ["/", "es"],
+      ["/outxide", "es"],
+      ["/enjoy", "es"],
+      ["/agenda", "es"],
+      ["/en/outxide", "en"],
+      ["/de/enjoy", "de"],
+      ["/fr/outxide", "fr"],
+      ["/it", "it"],
+    ] as const) {
+      const html = await fresh(path);
+      expect(html.includes(SENTINELS[loc]), `${path}: diccionario entero`).toBe(true);
+    }
+  });
+
+  for (const [loc, prefix] of Object.entries(LOCALE_PREFIX) as [keyof typeof DICTS, string][]) {
+    test(`${loc}: ninguna clave cruda en muro, cookies (y su panel), menú móvil, pie y formulario`, async ({ page, context }) => {
+      await preconfirm(context, { age: false, cookies: false });
+      await page.setViewportSize({ width: 375, height: 740 });
+      const d = DICTS[loc];
+      await page.goto(`${prefix}/empresas`);
+
+      // Muro +18 y banner de cookies a la vez (el muro va encima).
+      const dialog = page.getByRole("dialog");
+      await expect(dialog).toBeVisible();
+      const banner = page.getByRole("region", { name: d.cookieBanner.title });
+      await expect(banner).toBeVisible({ timeout: 10_000 });
+      await expectNoRawKeys(page, `${loc}: muro + banner`);
+      await dialog.getByRole("button").first().click();
+      await expect(dialog).toHaveCount(0);
+
+      // Panel de configurar cookies.
+      await banner.getByRole("button", { name: d.cookieBanner.configure }).click();
+      await expect(banner.getByText(d.cookieBanner.configureTitle)).toBeVisible();
+      await expect(banner.getByText(d.cookieBanner.marketingDesc)).toBeVisible();
+      await expectNoRawKeys(page, `${loc}: panel de cookies`);
+      await banner.getByRole("button", { name: d.cookieBanner.savePreferences }).click();
+      await expect(banner).toHaveCount(0);
+
+      // Menú móvil abierto (enlaces del menú y aria-label del botón de cerrar).
+      await page.getByRole("button", { name: d.nav.openMenu }).click();
+      const menu = page.locator("#nav-mobile-menu");
+      await expect(menu).toBeVisible();
+      await expect(menu.getByRole("link", { name: d.agenda.title })).toBeVisible();
+      await expect(page.getByRole("button", { name: d.nav.closeMenu })).toBeVisible();
+      await expectNoRawKeys(page, `${loc}: menú móvil`);
+      await page.keyboard.press("Escape");
+      await expect(menu).toHaveCount(0);
+
+      // Selector de idioma abierto.
+      await page.getByRole("button", { name: new RegExp(`^${d.common.language} `) }).first().click();
+      await expectNoRawKeys(page, `${loc}: selector de idioma`);
+      await page.keyboard.press("Escape");
+
+      // Pie (columnas, boletín, botón de cookies) con su error del boletín.
+      const footer = page.locator("footer");
+      await footer.scrollIntoViewIfNeeded();
+      await expect(footer.getByRole("button", { name: d.cookieBanner.settingsButton })).toBeVisible();
+      await expect(footer.getByRole("link", { name: d.enjoy.viewMenu })).toBeVisible();
+      await footer.getByRole("button", { name: d.footer.newsletterSubmit }).click();
+      await expect(footer.getByText(d.footer.newsletterPrivacyRequired)).toBeVisible();
+
+      // Formulario enviado vacío: todos los errores (claves dinámicas «empresas.err…»).
+      const form = page.getByTestId("empresas-form");
+      await form.getByRole("button", { name: d.empresas.submit }).click();
+      await expect(page.getByTestId("empresas-error-summary")).toBeVisible();
+      await expectNoRawKeys(page, `${loc}: pie y formulario con errores`);
+
+      // Y el aviso de envío fallido (503), que usa otra clave del diccionario.
+      await page.route("**/api/empresas", (route) =>
+        route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ ok: false, error: "unavailable" }) }),
+      );
+      await form.locator("#empresas-company").fill("Hotel Prueba");
+      await form.locator("#empresas-name").fill("Ana");
+      await form.locator("#empresas-phone").fill("+34 600 123 456");
+      await form.locator("#empresas-email").fill("ana@example.com");
+      await form.locator("#empresas-date").fill(isoInDays(20));
+      await form.locator("#empresas-people").fill("20");
+      await form.locator("#empresas-format").selectOption("after_dinner");
+      await form.locator("#empresas-source").selectOption("google");
+      await page.locator("#empresas-consent").check();
+      await form.getByRole("button", { name: d.empresas.submit }).click();
+      await expect(page.getByTestId("empresas-send-error")).toContainText(d.empresas.errUnavailable);
+      await expectNoRawKeys(page, `${loc}: aviso de envío fallido`);
+    });
+  }
+
+  test("fuera de /empresas la navegación suave sigue siendo suave (sin guarda)", async ({ page, context }) => {
+    await preconfirm(context);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/enjoy");
+    await markDocument(page);
+    await page.locator('header a[href="/agenda"]').first().click();
+    await page.waitForURL(/\/agenda$/);
+    await expect(page.locator("h1")).toBeVisible();
+    expect(await documentWasReplaced(page)).toBe(false);
+    await expectNoRawKeys(page, "/agenda tras navegación suave desde /enjoy");
+  });
+
+  test("salir por el logo: carga completa y la portada con el diccionario entero", async ({ page, context }) => {
+    await preconfirm(context);
+    await page.goto("/empresas");
+    await markDocument(page);
+    await page.locator('header a[href="/"]').first().click();
+    await page.waitForURL((url) => url.pathname === "/");
+    expect(await documentWasReplaced(page)).toBe(true);
+    // El pie de la portada pinta una clave que /empresas no lleva: prueba de diccionario entero.
+    await expect(page.locator("footer").getByText(es.footer.enjoyCocktails)).toBeAttached({ timeout: 15_000 });
+    await expectNoRawKeys(page, "portada tras salir de /empresas por el logo");
+  });
+
+  test("salir por el menú móvil: carga completa y página traducida", async ({ page, context }) => {
+    await preconfirm(context);
+    await page.setViewportSize({ width: 375, height: 740 });
+    await page.goto("/empresas");
+    await markDocument(page);
+    await page.getByRole("button", { name: es.nav.openMenu }).click();
+    await page.locator("#nav-mobile-menu").getByRole("link", { name: "Outxide Club" }).click();
+    await page.waitForURL(/\/outxide$/);
+    expect(await documentWasReplaced(page)).toBe(true);
+    await expect(page.getByText(es.outxide.tagline).first()).toBeVisible({ timeout: 15_000 });
+    await expectNoRawKeys(page, "/outxide tras salir de /empresas por el menú móvil");
+  });
+
+  test("salir por el menú de escritorio y por un enlace del pie: carga completa y sin claves crudas", async ({ page, context }) => {
+    await preconfirm(context);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/empresas");
+    await markDocument(page);
+    await page.locator('header a[href="/agenda"]').first().click();
+    await page.waitForURL(/\/agenda$/);
+    expect(await documentWasReplaced(page)).toBe(true);
+    await expect(page.locator("footer").getByText(es.footer.enjoyCocktails)).toBeAttached({ timeout: 15_000 });
+    await expectNoRawKeys(page, "/agenda tras salir de /empresas por el menú");
+
+    await page.goto("/en/empresas");
+    await markDocument(page);
+    const link = page.locator('footer a[href="/en/nosotros"]');
+    await link.scrollIntoViewIfNeeded();
+    await link.click();
+    await page.waitForURL(/\/en\/nosotros$/);
+    expect(await documentWasReplaced(page)).toBe(true);
+    await expect(page.locator("footer").getByText(en.footer.enjoyCocktails)).toBeAttached({ timeout: 15_000 });
+    await expectNoRawKeys(page, "/en/nosotros tras salir de /en/empresas por el pie");
+  });
+
+  test("salir por un <Link> del banner de cookies también recarga", async ({ page, context }) => {
+    await preconfirm(context, { cookies: false });
+    await page.goto("/empresas");
+    await markDocument(page);
+    const banner = page.getByRole("region", { name: es.cookieBanner.title });
+    await expect(banner).toBeVisible({ timeout: 10_000 });
+    await banner.getByRole("link", { name: es.cookieBanner.moreInfo }).click();
+    await page.waitForURL(/\/legal\/cookies$/);
+    await page.waitForLoadState("load");
+    expect(await documentWasReplaced(page)).toBe(true);
+    await expectNoRawKeys(page, "/legal/cookies tras salir de /empresas");
+  });
+
+  test("dentro de /empresas el botón al formulario no recarga (ancla en la misma ruta)", async ({ page, context }) => {
+    await preconfirm(context);
+    await page.goto("/empresas");
+    await markDocument(page);
+    await page.getByTestId("empresas-hero-cta").click();
+    await expect(page).toHaveURL(/#solicitud$/);
+    await page.waitForTimeout(500);
+    expect(await documentWasReplaced(page)).toBe(false);
+  });
 });
 
 test.describe("/empresas · formulario", () => {
