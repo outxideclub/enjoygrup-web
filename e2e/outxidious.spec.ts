@@ -58,6 +58,8 @@ const CONSENT_KEY = "ge_cookie_consent";
 const AGE_KEY = "ge_age_verified";
 const TEST_CONTENT_HEADER = "x-test-outxidious-content";
 
+const FBCLID_REAL =
+  "IwZXh0bgNhZW0CMTEAAR2x9Qm0aZr7Lk3Yh8P_cX1nWq5TtB2sUe4VdRgFjHkL6MoNpQrS3uVwXyZaB_aem_AbCdEfGhIjKlMnOpQrStUvWxYz0123456789AbCdEfGhIjKlMnOpQrStUvWxYz012345678901";
 // La campaña real del 22-oct (parámetros de URL de los anuncios).
 const CAMPAIGN = {
   utm_source: "meta",
@@ -65,12 +67,14 @@ const CAMPAIGN = {
   utm_campaign: "OUTXIDE | 20261022 | TRAFICO",
   utm_term: "OUTXIDE | 20261031 | VENTA",
   utm_content: "OUTXIDE | 20261031 | VENTA-916-H1",
-  fbclid: "PRUEBA123",
+  // fbclid con la forma y la longitud reales de Meta (IwZXh0…_aem_…, 172
+  // caracteres): el checkout lo recortaba a 100 en la metadata (revisión C8).
+  fbclid: FBCLID_REAL,
 } as const;
 const CAMPAIGN_QUERY =
   "utm_source=meta&utm_medium=paid_social&utm_campaign=OUTXIDE%20%7C%2020261022%20%7C%20TRAFICO" +
   "&utm_term=OUTXIDE%20%7C%2020261031%20%7C%20VENTA&utm_content=OUTXIDE%20%7C%2020261031%20%7C%20VENTA-916-H1" +
-  "&fbclid=PRUEBA123";
+  `&fbclid=${FBCLID_REAL}`;
 
 // Tras la noche del 31 el doble deja de devolver el evento (terminado) y la
 // página pasa sola a «después»: los casos de venta ya no tienen sentido.
@@ -1385,6 +1389,9 @@ test.describe("OUTXIDIOUS · landing", () => {
       .toBe(true);
     expect(checkout!.ticket_rate_id).toBe(cheapest._id);
     expect(checkout!.metadata).toMatchObject({ source: "grupoenjoy-native", locale: "es", ...CAMPAIGN });
+    // El fbclid llega ENTERO a Fourvenues (conciliación de ventas, C8).
+    expect(FBCLID_REAL.length).toBeGreaterThan(150);
+    expect((checkout!.metadata as Record<string, string>).fbclid).toBe(FBCLID_REAL);
     expect(new URL(checkout!.redirect_url).searchParams.get("event")).toBe(OX_REF);
 
     // 4) El pago en el doble termina en /gracias.

@@ -34,6 +34,12 @@ export const MAX_EMAIL = 254;
 
 const MAX_METADATA_BYTES = 1024;
 const CAMPAIGN_VALUE_MAX = 100;
+// Identificadores de clic (fbclid/gclid/ttclid): los de Meta ya pasan de 150
+// caracteres (IwZXh0…_aem_…) y con 100 llegaban cortados a la metadata de
+// Fourvenues, que los usa para conciliar ventas (revisión C8). 255 cabe de
+// sobra en el KB de metadata: buildMetadata recorta clave a clave si no.
+const CLICK_ID_MAX = 255;
+const CLICK_ID_KEYS: ReadonlySet<string> = new Set(["fbclid", "gclid", "ttclid"]);
 const ID_RE = /^[A-Za-z0-9_-]{1,64}$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const RL_WINDOW_MS = 10 * 60 * 1000;
@@ -225,14 +231,14 @@ export function parseLocale(value: unknown): Locale {
     : "es";
 }
 
-/** Solo fbclid/ttclid/gclid/utm_* (CAMPAIGN_KEYS), como texto y ≤100 chars. */
+/** Solo fbclid/ttclid/gclid/utm_* (CAMPAIGN_KEYS), como texto: ≤255 chars los ids de clic, ≤100 los utm_*. */
 export function parseCampaign(value: unknown): Record<string, string> {
   const out: Record<string, string> = {};
   if (!isRecord(value)) return out;
   for (const key of CAMPAIGN_KEYS) {
     const v = value[key];
     if (typeof v !== "string") continue;
-    const clean = sanitizeText(v, CAMPAIGN_VALUE_MAX);
+    const clean = sanitizeText(v, CLICK_ID_KEYS.has(key) ? CLICK_ID_MAX : CAMPAIGN_VALUE_MAX);
     if (clean) out[key] = clean;
   }
   return out;
