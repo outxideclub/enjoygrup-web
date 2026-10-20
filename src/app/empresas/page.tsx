@@ -304,6 +304,7 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
                   <p className="emp-eyebrow">{view.endOfSeason.eyebrow}</p>
                   <h2 className="emp-h2 mt-3">{view.endOfSeason.title}</h2>
                   <p className="emp-body mt-4 text-[var(--emp-text-2)]">{view.endOfSeason.text}</p>
+                  {view.endOfSeason.dates && <p className="emp-body mt-3">{view.endOfSeason.dates}</p>}
                   <QuoteLink text={view.endOfSeason.cta} className="mt-6 w-full self-start sm:w-auto" />
                 </article>
               )}

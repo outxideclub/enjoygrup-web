@@ -30,10 +30,11 @@
 //   las frases que dependen de un hueco sin versión sin datos se quitan
 //   enteras («[QUÉ INCLUYE].» de los formatos; «desde las [HORA TARDE]» del
 //   paso 2 del formato 2, que queda como «La tarde, en Enjoy Terrace», el mismo
-//   titular E3-T2 de COPYS.md; la línea «Fechas: [FECHAS].» del fin de
-//   temporada, que el paquete no rellena).
+//   titular E3-T2 de COPYS.md).
 // - [FECHAS], [FECHAS DICIEMBRE] y [SI-OTRO-DÍA] los resolvió Sergi (abajo): la
-//   FAQ 2 va en su versión CON datos.
+//   FAQ 2 va en su versión CON datos y el bloque de fin de temporada lleva su
+//   línea «Fechas: [FECHAS].» (v0.5 §4.1: «noviembre entra en el bloque de fin
+//   de temporada y en la FAQ 2»), con el MISMO valor en los dos sitios.
 // - Las condiciones [SI-…] que la página sabe resolver están en `condiciones`.
 //   Las que solo afectan a versiones con datos ([SI-ZONA], [SI-CONTACTO]) no
 //   tienen interruptor: esas versiones no están montadas.
@@ -207,6 +208,10 @@ export interface EmpresasContent {
     eyebrow: LocalizedText;
     titulo: LocalizedText;
     texto: LocalizedText;
+    /** «Fechas: {fechas}.» — se pinta solo si hay fechasGrupos. */
+    fechas: LocalizedText;
+    /** [FECHAS] — sin dato, la línea «Fechas: …» se borra entera (§4.4). */
+    fechasGrupos: LocalizedText | null;
     boton: LocalizedText;
   } | null;
   navidad: {
@@ -365,10 +370,16 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
       es: "Toda la temporada cuidando de los demás. Ahora os toca a vosotros.",
       en: "A whole season looking after everyone else. Now it's your turn.",
     },
-    // Sin la línea «Fechas: [FECHAS].» (hueco sin datos: se borra entera).
     texto: {
       es: "Para hoteles, restaurantes y comercios que cierran temporada: la cena de despedida del equipo, donde queráis; la celebración, con nosotros. Todo el grupo, mayor de 18.",
       en: "For hotels, restaurants and shops closing for the season: your team's farewell dinner, wherever you like; the celebration, with us. Everyone in the group must be 18 or over.",
+    },
+    // Línea «Fechas: [FECHAS].» del §4.4. [FECHAS] lo resolvió Sergi (v0.5
+    // §4.1) y es el mismo valor que la FAQ 2: si cambia, cambia en los dos.
+    fechas: { es: "Fechas: {fechas}.", en: "Dates: {fechas}." },
+    fechasGrupos: {
+      es: "todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo",
+      en: "every day until mid-November; after that, weekends, or for groups by reservation",
     },
     boton: PEDIR_PRESUPUESTO,
   },

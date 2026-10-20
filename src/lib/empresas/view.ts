@@ -58,7 +58,7 @@ export interface EmpresasView {
     /** Notas neutras bajo las tarjetas (solo idiomas sin paquete). */
     notes: string[];
   };
-  endOfSeason: { eyebrow: string; title: string; text: string; cta: string } | null;
+  endOfSeason: { eyebrow: string; title: string; text: string; dates: string | null; cta: string } | null;
   christmas: { eyebrow: string; title: string; text: string; dates: string | null; cta: string } | null;
   proposal: {
     /** Sin oferta publicada: título (solo paquete) y texto. */
@@ -207,9 +207,15 @@ export function resolveEmpresasView({
   const endOfSeasonParts = seasonLive
     ? { eyebrow: pick(fs?.eyebrow), title: pick(fs?.titulo), text: pick(fs?.texto), cta: pick(fs?.boton) }
     : null;
+  // Línea «Fechas: [FECHAS].» (§4.4): sin [FECHAS], se borra entera.
+  const seasonDatesValue = seasonLive ? pick(fs?.fechasGrupos) : null;
+  const seasonDatesLine = seasonLive ? pick(fs?.fechas) : null;
   const endOfSeason =
     endOfSeasonParts && endOfSeasonParts.eyebrow && endOfSeasonParts.title && endOfSeasonParts.text && endOfSeasonParts.cta
-      ? (endOfSeasonParts as { eyebrow: string; title: string; text: string; cta: string })
+      ? {
+          ...(endOfSeasonParts as { eyebrow: string; title: string; text: string; cta: string }),
+          dates: seasonDatesValue && seasonDatesLine ? seasonDatesLine.replace("{fechas}", seasonDatesValue) : null,
+        }
       : null;
 
   const nv = c.navidad;

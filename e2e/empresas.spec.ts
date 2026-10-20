@@ -75,6 +75,12 @@ const XMAS_TEXT_ES =
   "Si la cena de empresa es en diciembre, la fiesta de después se organiza ahora. Vosotros elegís el restaurante; la noche la ponemos nosotros en OUTXIDE. Y si es comida, antes de la noche, la tarde en Enjoy Terrace.";
 const XMAS_DATES_ES = "En diciembre, fines de semana o bajo reserva para grupos.";
 const XMAS_DATES_EN = "In December, weekends, or for groups by reservation.";
+// Línea «Fechas: [FECHAS].» del bloque de fin de temporada (paquete v0.5 §4.1
+// y §4.4): el MISMO [FECHAS] que la FAQ 2.
+const FECHAS_ES = "todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo";
+const FECHAS_EN = "every day until mid-November; after that, weekends, or for groups by reservation";
+const SEASON_DATES_ES = `Fechas: ${FECHAS_ES}.`;
+const SEASON_DATES_EN = `Dates: ${FECHAS_EN}.`;
 const FAQ2_ES =
   "La noche en OUTXIDE empieza a las 23:00. Fechas para grupos: todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo. En diciembre: fines de semana o bajo reserva para grupos. Si os encaja mejor otro día, decídnoslo en la solicitud y lo miramos.";
 const FAQ2_EN =
@@ -371,6 +377,8 @@ test.describe("/empresas · reglas puras", () => {
       expect(isEndOfSeasonLive(at(now)), now).toBe(true);
       const v = viewEs(now);
       expect(v.endOfSeason?.title, now).toBe("Toda la temporada cuidando de los demás. Ahora os toca a vosotros.");
+      expect(v.endOfSeason?.dates, now).toBe(SEASON_DATES_ES);
+      expect(viewEn(now).endOfSeason?.dates, now).toBe(SEASON_DATES_EN);
       // Navidad convive con él desde el primer día.
       expect(v.christmas?.title, now).toBe(XMAS_TITLE_ES);
       expect(v.hero.eyebrow, now).toBe(EYEBROW_SEASON_ES);
@@ -495,6 +503,9 @@ test.describe("/empresas · reglas puras", () => {
     expect(early.faq).toHaveLength(6);
     // FAQ 2 con los datos de Sergi, sin días de la semana ni meses de temporada.
     expect(early.faq![1]).toEqual({ question: "¿Qué días se puede?", answer: FAQ2_ES });
+    // Mismo [FECHAS] en la FAQ 2 y en el bloque de fin de temporada.
+    expect(FAQ2_ES).toContain(`Fechas para grupos: ${FECHAS_ES}.`);
+    expect(FAQ2_EN).toContain(`Dates for groups: ${FECHAS_EN}.`);
     // FAQ 3 con la regla de puerta que publica la web (lista ampliada pendiente de Jose).
     expect(early.faq![2].answer).toBe(FAQ3_ES);
     expect(early.faq![5]).toEqual({ question: DRESS_Q_ES, answer: DRESS_A_ES });
@@ -829,6 +840,7 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
       await expect(block, now).toBeVisible();
       await expect(block.locator("h2")).toHaveText("Toda la temporada cuidando de los demás. Ahora os toca a vosotros.");
       await expect(block).toContainText("Todo el grupo, mayor de 18.");
+      await expect(block.locator("p", { hasText: SEASON_DATES_ES })).toHaveText(SEASON_DATES_ES);
       await expect(block.locator('a[href="#solicitud"]')).toHaveText(CTA_ES);
       await expect(eyebrow, now).toHaveText(EYEBROW_SEASON_ES);
       // Va primero y Navidad convive con él.
@@ -851,6 +863,7 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
 
     await page.goto(withNow("/en/empresas", SEASON_LAST));
     await expect(block).toBeVisible();
+    await expect(block.locator("p", { hasText: SEASON_DATES_EN })).toHaveText(SEASON_DATES_EN);
     await expect(eyebrow).toHaveText(EYEBROW_SEASON_EN);
     await page.goto(withNow("/en/empresas", SEASON_END));
     await expect(block).toHaveCount(0);
