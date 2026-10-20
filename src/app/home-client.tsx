@@ -74,6 +74,9 @@ export function HomeClient({ showOutxidiousPromo, saveData = false }: { showOutx
   // Fase del banner de competición (se degrada a "off" pasada la fecha del campeón).
   const [phase, setPhase] = useState(EVENT_PHASE);
   useEffect(() => {
+    // La fecha se lee tras hidratar a propósito: en el render inicial daría un
+    // HTML distinto del del servidor (desajuste de hidratación).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPhase(effectivePhase(Date.now()));
   }, []);
   const [index, setIndex] = useState(0);
@@ -90,6 +93,9 @@ export function HomeClient({ showOutxidiousPromo, saveData = false }: { showOutx
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
+    // Marca de «ya montado» (las animaciones del primer pintado van sin
+    // transición): solo puede saberse en un efecto.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsFirstMount(false);
     // Remove data-hero so CSS override stops and Framer Motion controls animations
     document.querySelectorAll('[data-hero]').forEach(el => el.removeAttribute('data-hero'));

@@ -56,8 +56,11 @@ export function CookieBanner() {
   });
 
   useEffect(() => {
+    // localStorage solo existe en el navegador: se lee tras hidratar (el banner
+    // nunca se pinta en servidor), así que el setState va en el efecto.
     const stored = getStoredConsent();
     if (stored) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setConsent(stored);
       pushConsentToGtag(stored);
     } else {
