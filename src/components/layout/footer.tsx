@@ -55,7 +55,7 @@ function NewsletterForm({ linkOrigin }: { linkOrigin: string }) {
           onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
           placeholder={t("footer.newsletterPlaceholder")}
           aria-label={t("footer.newsletterPlaceholder")}
-          className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none focus:border-white/25 transition-colors"
+          className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none focus:border-white/25 focus-visible:ring-2 focus-visible:ring-white/70 transition-colors"
         />
         <button
           type="submit"
@@ -82,7 +82,7 @@ function NewsletterForm({ linkOrigin }: { linkOrigin: string }) {
         </span>
       </label>
       {/* Información básica de primera capa (art. 11 LOPDGDD) */}
-      <p className="max-w-sm text-left text-[10px] leading-relaxed text-white/45">
+      <p className="max-w-sm text-left text-[10px] leading-relaxed text-white/60">
         {t("footer.newsletterInfoLayer")}
       </p>
       <div aria-live="polite" role="status">
@@ -208,9 +208,9 @@ export function Footer({
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Company (títulos de columna a white/60: con /40 daban 3,65:1, PA-4) */}
           <div>
-            <p className="text-sm font-semibold text-white/40 uppercase tracking-wider">
+            <p className="text-sm font-semibold text-white/60 uppercase tracking-wider">
               {t("footer.company")}
             </p>
             <ul className="mt-4 space-y-3">
@@ -264,7 +264,7 @@ export function Footer({
 
           {/* Legal */}
           <div>
-            <p className="text-sm font-semibold text-white/40 uppercase tracking-wider">
+            <p className="text-sm font-semibold text-white/60 uppercase tracking-wider">
               {t("footer.legal")}
             </p>
             <ul className="mt-4 space-y-3">

@@ -1362,6 +1362,30 @@ test.describe("/empresas · banner de cookies abierto en la primera pantalla", (
   }
 });
 
+// PA-4: pie compartido con contraste AA (títulos y texto legal del boletín a
+// white/60 o más) y foco visible en el campo del boletín.
+test("/empresas · pie: textos a white/60 o más y foco visible en el boletín", async ({ page, context }) => {
+  await preconfirm(context);
+  await page.goto("/empresas");
+  const alphas = await page.locator("footer p").evaluateAll((els) =>
+    els
+      .map((e) => getComputedStyle(e).color)
+      .map((c) => {
+        const m = c.match(/rgba?\(([^)]+)\)/);
+        const parts = m ? m[1].split(/[ ,/]+/).filter(Boolean).map(Number) : [];
+        return parts.length === 4 ? parts[3] : 1;
+      }),
+  );
+  expect(alphas.length).toBeGreaterThan(0);
+  for (const a of alphas) expect(a).toBeGreaterThanOrEqual(0.6);
+  const input = page.locator('footer input[type="email"]');
+  await input.focus();
+  await page.keyboard.press("Shift+Tab");
+  await page.keyboard.press("Tab");
+  const shadow = await input.evaluate((el) => getComputedStyle(el).boxShadow);
+  expect(shadow).not.toBe("none");
+});
+
 test.describe("/api/empresas · defensas", () => {
   /** IP distinta por petición: el rate limit por IP no contamina otras pruebas. */
   const ip = () => `10.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}`;
