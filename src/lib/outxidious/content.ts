@@ -211,8 +211,10 @@ const TEASER = {
 /**
  * CARTEL APROBADO por Sergi el 20-oct-2026 («ya se puede usar en la web»):
  * halloween-2026-outxidious/09-cartel-canva/limpio/FINAL/OUTXIDIOUS-cartel-4x5.jpg,
- * 23-oct: «david castro no viene» → el alt ya va sin él; el cartel lo rehace
- * META ADS en FINAL y se cambia aquí (con NOMBRE NUEVO) cuando lo dé por bueno.
+ * REHECHO el 23-oct por META ADS sin DAVID CASTRO («david castro no viene»;
+ * solo cambia el bloque de DJs de la noche, x 574–749 · y 735–805; el de
+ * antes, en FINAL/_antes-de-quitar-david-castro-23oct/) y publicado con
+ * NOMBRE NUEVO (-23oct) por la caché immutable.
  * recomprimido para la web (1080×1350, JPG mozjpeg calidad 85 con el color
  * entero, 4:4:4, para el rojo de la X y del +18: 275 KB, ≤ 300 KB para las
  * vistas previas al compartir). Es el bloque bajo la primera pantalla, la
@@ -229,7 +231,7 @@ const TEASER = {
  * e2e). Las horas van escritas porque describen la imagen, no el panel.
  */
 export const OUTXIDIOUS_CARTEL = {
-  src: "/images/outxidious/outxidious-cartel-4x5.jpg",
+  src: "/images/outxidious/outxidious-cartel-4x5-23oct.jpg",
   width: 1080,
   height: 1350,
   alt: {

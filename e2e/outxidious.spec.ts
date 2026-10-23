@@ -1,4 +1,4 @@
-import { readFileSync, statSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { test, expect, type APIRequestContext, type BrowserContext, type Page } from "@playwright/test";
 import type { FVEvent, FVTicketRate, FVTicketsCheckoutRequest } from "../src/lib/fourvenues/types";
 import { es } from "../src/i18n/dictionaries/es";
@@ -592,7 +592,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     }
   });
 
-  test("DAVID CASTRO no viene (23-oct): ni en el line-up, ni en el alt del cartel, ni en el HTML, en los 5 idiomas", async ({ request }) => {
+  test("DAVID CASTRO no viene (23-oct): ni en el line-up, ni en el cartel ni en su alt, ni en el HTML, en los 5 idiomas", async ({ request }) => {
     const GONE = /david\s*castro/i;
     expect(OUTXIDIOUS_LINEUP.outxide).toEqual(["PLAYING COLORS", "SIQUIERS"]);
     for (const loc of LOCALES) {
@@ -601,12 +601,19 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
       expect(OUTXIDIOUS_CARTEL.alt[loc], loc).toContain("SIQUIERS");
     }
     expect(JSON.stringify(OUTXIDIOUS_CONTENT)).not.toMatch(GONE);
+    // El nombre va DENTRO del JPG: el cartel rehecho lleva nombre nuevo (caché
+    // immutable de /images) y el viejo, con DAVID CASTRO, ya no se sirve.
+    expect(OUTXIDIOUS_CARTEL.src).toBe("/images/outxidious/outxidious-cartel-4x5-23oct.jpg");
+    expect(existsSync("public/images/outxidious/outxidious-cartel-4x5.jpg")).toBe(false);
+    expect((await request.get("/images/outxidious/outxidious-cartel-4x5.jpg")).status()).toBe(404);
     for (const loc of LOCALES) {
       for (const p of [localePath(loc), localePath(loc, "?phase=venta"), localePath(loc, "?phase=hoy")]) {
         const res = await request.get(p);
         expect(res.status(), p).toBe(200);
         const html = await res.text();
         expect(html, p).not.toMatch(GONE);
+        expect(html, p).not.toContain("outxidious-cartel-4x5.jpg");
+        expect(html, p).toContain("outxidious-cartel-4x5-23oct.jpg");
       }
     }
   });
