@@ -54,10 +54,10 @@ import "./outxidious.css";
 // propio justo debajo de la primera pantalla e imagen para compartir.
 // - Después del evento («despues») no se pintan los bloques, la FAQ, el
 //   subtítulo ni el cartel: «Empezamos antes…» ya no es verdad.
-// - Line-up (confirmado por Sergi, 20-oct; event-config.ts): cada grupo en su
-//   parte de la noche (AGUILÓ · MARC RIPOLL en el tardeo; PLAYING COLORS ·
-//   DAVID CASTRO · SIQUIERS en OUTXIDE), como dato y sin claim, tal cual en los
-//   5 idiomas.
+// - Line-up (confirmado por Sergi, 20-oct, y corregido el 23-oct: DAVID
+//   CASTRO no viene; event-config.ts): cada grupo en su parte de la noche
+//   (AGUILÓ · MARC RIPOLL en el tardeo; PLAYING COLORS · SIQUIERS en OUTXIDE),
+//   como dato y sin claim, tal cual en los 5 idiomas.
 // El muro +18 lo hereda del layout de /outxide (no se toca ni se degrada): es la
 // fila 0 de la primera pantalla (paquete v0.3, §3.1), un diálogo fijo encima de
 // todo, y al confirmarlo la placa sigue en la primera pantalla (lo prueba el e2e

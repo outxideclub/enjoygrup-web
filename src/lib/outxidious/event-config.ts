@@ -25,7 +25,8 @@ export const TARDEO_START_TIME = "20:00";
 export const TARDEO_END_TIME = "23:00";
 
 /**
- * Line-up CONFIRMADO por Sergi (20-oct-2026), cada grupo en su parte de la
+ * Line-up CONFIRMADO por Sergi (20-oct-2026; el 23-oct «david castro no
+ * viene»: OUTXIDE queda con PLAYING COLORS y SIQUIERS), cada grupo en su parte de la
  * noche. Es un DATO, no copy: los nombres van tal cual (mayúsculas incluidas)
  * en los 5 idiomas, sin «DJ» delante y sin claim, por eso viven aquí y no en
  * el diccionario. No van como performer en el JSON-LD: Fourvenues no tiene
@@ -33,7 +34,7 @@ export const TARDEO_END_TIME = "23:00";
  */
 export const OUTXIDIOUS_LINEUP: { readonly tardeo: readonly string[]; readonly outxide: readonly string[] } = {
   tardeo: ["AGUILÓ", "MARC RIPOLL"],
-  outxide: ["PLAYING COLORS", "DAVID CASTRO", "SIQUIERS"],
+  outxide: ["PLAYING COLORS", "SIQUIERS"],
 };
 
 /**

@@ -211,6 +211,8 @@ const TEASER = {
 /**
  * CARTEL APROBADO por Sergi el 20-oct-2026 («ya se puede usar en la web»):
  * halloween-2026-outxidious/09-cartel-canva/limpio/FINAL/OUTXIDIOUS-cartel-4x5.jpg,
+ * 23-oct: «david castro no viene» → el alt ya va sin él; el cartel lo rehace
+ * META ADS en FINAL y se cambia aquí (con NOMBRE NUEVO) cuando lo dé por bueno.
  * recomprimido para la web (1080×1350, JPG mozjpeg calidad 85 con el color
  * entero, 4:4:4, para el rojo de la X y del +18: 275 KB, ≤ 300 KB para las
  * vistas previas al compartir). Es el bloque bajo la primera pantalla, la
@@ -220,7 +222,7 @@ const TEASER = {
  *
  * Lo que dice el cartel: OUTXIDIOUS · TARDEO, Enjoy Terrace, 20:00–23:00,
  * entrada libre, DJ's AGUILÓ y MARC RIPOLL · NOCHE, OUTXIDE, 23:00–05:30, DJ's
- * PLAYING COLORS, DAVID CASTRO y SIQUIERS · Halloween · sábado 31 octubre ·
+ * PLAYING COLORS y SIQUIERS · Halloween · sábado 31 octubre ·
  * Port d'Alcúdia · +18. El alt lo cuenta en cada idioma con el léxico de la
  * página («acceso libre»: aquí «entrada» es solo la de OUTXIDE) y los nombres
  * tal cual (los mismos que OUTXIDIOUS_LINEUP, event-config.ts; lo comprueba el
@@ -231,11 +233,11 @@ export const OUTXIDIOUS_CARTEL = {
   width: 1080,
   height: 1350,
   alt: {
-    es: "Cartel de OUTXIDIOUS, Halloween, sábado 31 de octubre, Port d'Alcúdia, +18. Tardeo en Enjoy Terrace de 20:00 a 23:00, de acceso libre, con los DJ AGUILÓ y MARC RIPOLL. Noche en OUTXIDE de 23:00 a 05:30 con los DJ PLAYING COLORS, DAVID CASTRO y SIQUIERS.",
-    en: "OUTXIDIOUS poster, Halloween, Saturday 31 October, Port d'Alcúdia, 18+. Free-entry early party at Enjoy Terrace from 20:00 to 23:00 with DJs AGUILÓ and MARC RIPOLL. Night at OUTXIDE from 23:00 to 05:30 with DJs PLAYING COLORS, DAVID CASTRO and SIQUIERS.",
-    de: "Plakat von OUTXIDIOUS, Halloween, Samstag, 31. Oktober, Port d'Alcúdia, ab 18. Early Party auf der Enjoy Terrace von 20:00 bis 23:00 Uhr, Eintritt frei, mit den DJs AGUILÓ und MARC RIPOLL. Nacht im OUTXIDE von 23:00 bis 05:30 Uhr mit den DJs PLAYING COLORS, DAVID CASTRO und SIQUIERS.",
-    fr: "Affiche d'OUTXIDIOUS, Halloween, samedi 31 octobre, Port d'Alcúdia, 18+. Début de soirée à l'Enjoy Terrace de 20h00 à 23h00, en accès libre, avec les DJ AGUILÓ et MARC RIPOLL. Nuit à l'OUTXIDE de 23h00 à 05h30 avec les DJ PLAYING COLORS, DAVID CASTRO et SIQUIERS.",
-    it: "Locandina di OUTXIDIOUS, Halloween, sabato 31 ottobre, Port d'Alcúdia, 18+. Festa in terrazza all'Enjoy Terrace dalle 20:00 alle 23:00, a ingresso libero, con i DJ AGUILÓ e MARC RIPOLL. Notte all'OUTXIDE dalle 23:00 alle 05:30 con i DJ PLAYING COLORS, DAVID CASTRO e SIQUIERS.",
+    es: "Cartel de OUTXIDIOUS, Halloween, sábado 31 de octubre, Port d'Alcúdia, +18. Tardeo en Enjoy Terrace de 20:00 a 23:00, de acceso libre, con los DJ AGUILÓ y MARC RIPOLL. Noche en OUTXIDE de 23:00 a 05:30 con los DJ PLAYING COLORS y SIQUIERS.",
+    en: "OUTXIDIOUS poster, Halloween, Saturday 31 October, Port d'Alcúdia, 18+. Free-entry early party at Enjoy Terrace from 20:00 to 23:00 with DJs AGUILÓ and MARC RIPOLL. Night at OUTXIDE from 23:00 to 05:30 with DJs PLAYING COLORS and SIQUIERS.",
+    de: "Plakat von OUTXIDIOUS, Halloween, Samstag, 31. Oktober, Port d'Alcúdia, ab 18. Early Party auf der Enjoy Terrace von 20:00 bis 23:00 Uhr, Eintritt frei, mit den DJs AGUILÓ und MARC RIPOLL. Nacht im OUTXIDE von 23:00 bis 05:30 Uhr mit den DJs PLAYING COLORS und SIQUIERS.",
+    fr: "Affiche d'OUTXIDIOUS, Halloween, samedi 31 octobre, Port d'Alcúdia, 18+. Début de soirée à l'Enjoy Terrace de 20h00 à 23h00, en accès libre, avec les DJ AGUILÓ et MARC RIPOLL. Nuit à l'OUTXIDE de 23h00 à 05h30 avec les DJ PLAYING COLORS et SIQUIERS.",
+    it: "Locandina di OUTXIDIOUS, Halloween, sabato 31 ottobre, Port d'Alcúdia, 18+. Festa in terrazza all'Enjoy Terrace dalle 20:00 alle 23:00, a ingresso libero, con i DJ AGUILÓ e MARC RIPOLL. Notte all'OUTXIDE dalle 23:00 alle 05:30 con i DJ PLAYING COLORS e SIQUIERS.",
   } satisfies Record<Locale, string>,
 } as const;
 

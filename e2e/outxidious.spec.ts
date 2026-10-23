@@ -56,8 +56,8 @@ import { PROMO_IMAGES } from "../src/lib/promos";
 // cabecera del doble de pruebas (solo la atiende `next dev`).
 // 20-oct (paquete v0.4, hechos de Sergi): el tardeo es +18 como OUTXIDE (las
 // frases del paquete que lo dicen vuelven), el line-up confirmado en su parte
-// de la noche (AGUILÓ · MARC RIPOLL en el tardeo; PLAYING COLORS · DAVID
-// CASTRO · SIQUIERS en OUTXIDE; 5 idiomas, sin performer en el JSON-LD), meta
+// de la noche (AGUILÓ · MARC RIPOLL en el tardeo; PLAYING COLORS · SIQUIERS
+// en OUTXIDE —DAVID CASTRO no viene, 23-oct—; 5 idiomas, sin performer en el JSON-LD), meta
 // description en inglés con
 // «free-entry», descripción del JSON-LD de Enjoy Terrace y OUTXIDE, y el muro
 // +18 como fila 0 de la primera pantalla (375×600 con ?phase=hoy).
@@ -580,7 +580,7 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
   test("line-up confirmado (20-oct): cada grupo en su parte, nombres tal cual y sin «DJ»", () => {
     expect(OUTXIDIOUS_LINEUP).toEqual({
       tardeo: ["AGUILÓ", "MARC RIPOLL"],
-      outxide: ["PLAYING COLORS", "DAVID CASTRO", "SIQUIERS"],
+      outxide: ["PLAYING COLORS", "SIQUIERS"],
     });
     for (const name of [...OUTXIDIOUS_LINEUP.tardeo, ...OUTXIDIOUS_LINEUP.outxide]) {
       expect(name, name).not.toMatch(/\bdj\b/i);
@@ -589,6 +589,25 @@ test.describe("OUTXIDIOUS · lógica pura", () => {
     // Es un dato, no copy: no vive en los diccionarios (no se traduce).
     for (const loc of LOCALES) {
       expect(JSON.stringify(DICTS[loc].outxidious), loc).not.toMatch(/siquiers|ripoll|aguil|playing colors|david castro/i);
+    }
+  });
+
+  test("DAVID CASTRO no viene (23-oct): ni en el line-up, ni en el alt del cartel, ni en el HTML, en los 5 idiomas", async ({ request }) => {
+    const GONE = /david\s*castro/i;
+    expect(OUTXIDIOUS_LINEUP.outxide).toEqual(["PLAYING COLORS", "SIQUIERS"]);
+    for (const loc of LOCALES) {
+      expect(OUTXIDIOUS_CARTEL.alt[loc], loc).not.toMatch(GONE);
+      expect(OUTXIDIOUS_CARTEL.alt[loc], loc).toContain("PLAYING COLORS");
+      expect(OUTXIDIOUS_CARTEL.alt[loc], loc).toContain("SIQUIERS");
+    }
+    expect(JSON.stringify(OUTXIDIOUS_CONTENT)).not.toMatch(GONE);
+    for (const loc of LOCALES) {
+      for (const p of [localePath(loc), localePath(loc, "?phase=venta"), localePath(loc, "?phase=hoy")]) {
+        const res = await request.get(p);
+        expect(res.status(), p).toBe(200);
+        const html = await res.text();
+        expect(html, p).not.toMatch(GONE);
+      }
     }
   });
 
@@ -918,9 +937,9 @@ test.describe("OUTXIDIOUS · landing", () => {
     // Las DOS partes de la noche, con sus horas, lugares y el line-up confirmado
     // por Sergi (20-oct), cada grupo en su parte, como dato y sin «DJ».
     await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Tardeo · Enjoy Terrace 20:00–23:00 · acceso libre AGUILÓ · MARC RIPOLL");
-    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada PLAYING COLORS · SIQUIERS");
     await expect(page.getByTestId("outxidious-artists-tardeo")).toHaveText("AGUILÓ · MARC RIPOLL");
-    await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText("PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+    await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText("PLAYING COLORS · SIQUIERS");
     await expect(page.getByTestId("outxidious-part-tardeo")).not.toContainText(/SIQUIERS|PLAYING COLORS|DAVID CASTRO/);
     await expect(page.getByTestId("outxidious-part-outxide")).not.toContainText(/AGUIL|RIPOLL/);
     await expect(page.locator("main")).not.toContainText(/\bDJ\b/);
@@ -1241,7 +1260,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     test.skip(CAMPAIGN_OVER, "la noche ya pasó");
     await page.goto(`${OUTXIDIOUS_PATH}?phase=hoy`);
     await expect(page.getByTestId("outxidious-today")).toHaveText("Hoy, sábado 31");
-    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · entrada PLAYING COLORS · SIQUIERS");
     await expect(buyLinks(page)).toHaveCount(1);
     await expect(page.getByTestId("outxidious-claim")).toHaveCount(0);
     await page.goto(`/en${OUTXIDIOUS_PATH}?phase=hoy`);
@@ -1279,7 +1298,7 @@ test.describe("OUTXIDIOUS · landing", () => {
     await expect(page.getByTestId("outxidious-buy")).toHaveAttribute("href", `https://entradas.grupoenjoy.es/?event=${OX_REF}&lang=en`);
     await expect(page.getByTestId("outxidious-price")).toHaveText("OUTXIDE tickets from €12.96 (fees included)");
     await expect(page.getByTestId("outxidious-part-tardeo")).toHaveText("Early party · Enjoy Terrace 20:00–23:00 · free entry AGUILÓ · MARC RIPOLL");
-    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · ticket required PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+    await expect(page.getByTestId("outxidious-part-outxide")).toHaveText("OUTXIDE 23:00–05:30 · ticket required PLAYING COLORS · SIQUIERS");
     // Descripción accesible del vídeo en inglés.
     await expect(page.getByTestId("outxidious-hero-video")).toHaveAttribute("aria-label", /^Silent animation/);
     await expect(page.getByTestId("outxidious-legal-plate")).toHaveText("18+ · Drink responsibly");
@@ -1310,7 +1329,7 @@ test.describe("OUTXIDIOUS · landing", () => {
       await expect(page.getByTestId("outxidious-legal-plate")).toHaveText(DICTS[loc].outxidious.legalPlate);
       // El line-up es un dato (no copy creativo): también en DE, FR e IT, tal cual.
       await expect(page.getByTestId("outxidious-artists-tardeo")).toHaveText("AGUILÓ · MARC RIPOLL");
-      await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText("PLAYING COLORS · DAVID CASTRO · SIQUIERS");
+      await expect(page.getByTestId("outxidious-artists-outxide")).toHaveText("PLAYING COLORS · SIQUIERS");
       // El cartel (imagen, no copy) también, con el alt en su idioma.
       await expect(page.getByTestId("outxidious-poster").getByRole("img", { name: OUTXIDIOUS_CARTEL.alt[loc] })).toHaveCount(1);
       const text = await page.locator("main").innerText();
