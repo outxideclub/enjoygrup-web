@@ -20,19 +20,19 @@ import { isEndOfSeasonLive, resolveEmpresasMeta, resolveEmpresasView } from "../
 // v0.5 (20-oct-2026, hechos resueltos por Sergi): antetítulo y H1 del CARTEL
 // del anuncio; bloque de fin de temporada Y antetítulo del cartel hasta el dom
 // 8-nov a las 23:59:59 (orden de META ADS, manda sobre el corte del sáb 31);
-// la noche en OUTXIDE sin «según fechas» (y la tarde tampoco, con la terraza
-// confirmada en diciembre); línea de datos tarde → noche; formato 1 sin «pista
+// la noche en OUTXIDE sin «según fechas»; línea de datos tarde → noche; formato 1 sin «pista
 // para todo el equipo»; FAQ 2 con las fechas de Sergi, FAQ 3 con «DNI o
 // pasaporte» y FAQ 6 = vestimenta desde el primer día, oculta de las 23:00 del
 // sáb 31 a las 05:30 del dom 1; NI Halloween, NI OUTXIDIOUS, NI tardeo en
-// /empresas (5 idiomas, HTML entero); Navidad A con la frase de la terraza;
+// /empresas (5 idiomas, HTML entero); SIN Navidad ni diciembre desde el
+// 23-oct (orden de Sergi) y sin ningún aviso de cierre;
 // diccionario RECORTADO (src/i18n/scoped-dictionary.ts: ni shisha ni cócteles
 // en el HTML, scripts incluidos) con su guarda de navegación, y muro +18 sin
 // la foto rota.
 //
 // Comprueba: primera pantalla en 375×550 con la placa +18, muro +18 (el mismo
 // componente de /outxide, con su texto propio), bloques con fecha (?now= solo
-// fuera de producción), Navidad SIN días concretos, solo fotos permitidas,
+// fuera de producción), ni Navidad ni diciembre, solo fotos permitidas,
 // léxico prohibido ausente (también en metadatos), formulario accesible,
 // campaña (utm_* + fbclid) hasta la solicitud y defensas de la API.
 //
@@ -69,12 +69,13 @@ const EYEBROW_SEASON_ES = "Celebra tu fin de temporada en OUTXIDE Club";
 const EYEBROW_SEASON_EN = "Celebrate your end of season at OUTXIDE Club";
 const EYEBROW_NEUTRAL_ES = "Celebraciones de empresa · Port d'Alcúdia";
 const EYEBROW_NEUTRAL_EN = "Company celebrations · Port d'Alcúdia";
-// Navidad A y FAQ 2 con la apertura confirmada por Sergi (20-oct-2026).
-const XMAS_TITLE_ES = "La cena de Navidad, donde queráis. La fiesta de después, con nosotros.";
-const XMAS_TEXT_ES =
-  "Si la cena de empresa es en diciembre, la fiesta de después se organiza ahora. Vosotros elegís el restaurante; la noche la ponemos nosotros en OUTXIDE. Y si es comida, antes de la noche, la tarde en Enjoy Terrace.";
-const XMAS_DATES_ES = "En diciembre, fines de semana o bajo reserva para grupos.";
-const XMAS_DATES_EN = "In December, weekends, or for groups by reservation.";
+// Sin Navidad ni diciembre en nada de empresas (orden de Sergi, 23-oct-2026:
+// «quita la opción de navidad»), en ningún idioma, y sin aviso de cierre.
+const CHRISTMAS = /navidad|christmas|weihnacht|no[eë]l|natal|diciembre|december|dezember|d[ée]cembre|dicembre/i;
+// (Sin «cerrad» ni «cerramos» sueltos: «presupuesto cerrado» y «lo cerramos
+// contigo» sí valen.)
+const CLOSURE =
+  /cerramos por|cerramos en|estaremos cerrad|estar[áa] cerrad|cerrado por|vacaciones|volvemos|we(?:'|’)re closed|closed for|holiday|we(?:'|’)re back|geschlossen|betriebsferien|urlaub|ferm[ée] pour|fermeture|vacances|chiuso|chiusura|ferie/i;
 // Línea «Fechas: [FECHAS].» del bloque de fin de temporada (paquete v0.5 §4.1
 // y §4.4): el MISMO [FECHAS] que la FAQ 2.
 const FECHAS_ES = "todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo";
@@ -82,9 +83,9 @@ const FECHAS_EN = "every day until mid-November; after that, weekends, or for gr
 const SEASON_DATES_ES = `Fechas: ${FECHAS_ES}.`;
 const SEASON_DATES_EN = `Dates: ${FECHAS_EN}.`;
 const FAQ2_ES =
-  "La noche en OUTXIDE empieza a las 23:00. Fechas para grupos: todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo. En diciembre: fines de semana o bajo reserva para grupos. Si os encaja mejor otro día, decídnoslo en la solicitud y lo miramos.";
+  "La noche en OUTXIDE empieza a las 23:00. Fechas para grupos: todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo. Si os encaja mejor otro día, decídnoslo en la solicitud y lo miramos.";
 const FAQ2_EN =
-  "The night at OUTXIDE starts at 23:00. Dates for groups: every day until mid-November; after that, weekends, or for groups by reservation. In December: weekends, or for groups by reservation. If another day suits you better, tell us in your request and we'll look into it.";
+  "The night at OUTXIDE starts at 23:00. Dates for groups: every day until mid-November; after that, weekends, or for groups by reservation. If another day suits you better, tell us in your request and we'll look into it.";
 // Textos «confirmado» del paquete (§4.2, §4.3, §4.10): la noche sin «según
 // fechas», la tarde solo si es comida y sin «según fechas» (terraza confirmada).
 const SUBTITLE_ES =
@@ -104,9 +105,9 @@ const DRESS_A_EN = "At OUTXIDE: smart casual. Beachwear and flip-flops are not p
 const NIGHT_TEXT_ES = "Cenáis donde queráis y, cuando acabéis, la noche sigue en OUTXIDE: cabina, luces y pista.";
 const NIGHT_TEXT_EN = "Have dinner wherever you like and, once you're done, the night carries on at OUTXIDE: DJ booth, lights and dance floor.";
 const META_DESC_ES =
-  "Cenad o comed donde queráis: la noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace (según fechas). Fiestas de empresa y de Navidad. +18.";
+  "Cenad o comed donde queráis: la noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace. Port d'Alcúdia. Pide presupuesto. +18.";
 const META_DESC_EN =
-  "Lunch or dinner wherever you like: the night at OUTXIDE and, after lunch, Enjoy Terrace first (on some dates). Team and Christmas parties. 18+.";
+  "Lunch or dinner wherever you like: the night at OUTXIDE and, after lunch, Enjoy Terrace first. Port d'Alcúdia. Request a quote. 18+.";
 const PLATE_ES = "+18 · Consumo responsable";
 const PLATE_EN = "18+ · Drink responsibly";
 const CTA_ES = "Pedir presupuesto";
@@ -379,8 +380,7 @@ test.describe("/empresas · reglas puras", () => {
       expect(v.endOfSeason?.title, now).toBe("Toda la temporada cuidando de los demás. Ahora os toca a vosotros.");
       expect(v.endOfSeason?.dates, now).toBe(SEASON_DATES_ES);
       expect(viewEn(now).endOfSeason?.dates, now).toBe(SEASON_DATES_EN);
-      // Navidad convive con él desde el primer día.
-      expect(v.christmas?.title, now).toBe(XMAS_TITLE_ES);
+      expect(allText(v), now).not.toMatch(CHRISTMAS);
       expect(v.hero.eyebrow, now).toBe(EYEBROW_SEASON_ES);
       expect(v.hero.h1Lines, now).toEqual(H1_LINES_ES);
       expect(viewEn(now).hero.eyebrow, now).toBe(EYEBROW_SEASON_EN);
@@ -388,7 +388,7 @@ test.describe("/empresas · reglas puras", () => {
     expect(isEndOfSeasonLive(at(SEASON_END))).toBe(false);
     const vEnd = viewEs(SEASON_END);
     expect(vEnd.endOfSeason).toBeNull();
-    expect(vEnd.christmas?.title).toBe(XMAS_TITLE_ES);
+    expect(allText(vEnd)).not.toMatch(CHRISTMAS);
     // A la misma hora vuelve el antetítulo neutro del paquete; el H1 del cartel se queda.
     expect(vEnd.hero.eyebrow).toBe(EYEBROW_NEUTRAL_ES);
     expect(vEnd.hero.h1Lines).toEqual(H1_LINES_ES);
@@ -403,17 +403,18 @@ test.describe("/empresas · reglas puras", () => {
     const deView = (now: string) => resolveEmpresasView({ locale: "de", now: at(now), t: deT });
     expect(deView(OLD_CUTOFF).hero.occasions).toBe(de.empresas.occasions);
     expect(deView(SEASON_LAST).hero.occasions).toBe(de.empresas.occasions);
-    // Desde el 9-nov la línea sigue, solo con la Navidad (sin «Saison»).
-    expect(deView(SEASON_END).hero.occasions).toBe(de.empresas.occasionsChristmas);
+    // Desde el 9-nov la línea sigue, neutra: sin temporada, sin fechas y sin Navidad.
+    expect(deView(SEASON_END).hero.occasions).toBe(de.empresas.occasionsNeutral);
     expect(deView(SEASON_END).hero.occasions).not.toMatch(/saison/i);
-    expect(deView(SEASON_END).hero.occasions).toMatch(/weihnacht/i);
+    expect(deView(SEASON_END).hero.occasions).not.toMatch(CHRISTMAS);
+    expect(deView(OLD_CUTOFF).hero.occasions).not.toMatch(CHRISTMAS);
     // DE/FR/IT siguen con el antetítulo neutro antes y después (el cartel no se traduce).
     expect(deView(OLD_CUTOFF).hero.eyebrow).toBe(de.empresas.heroEyebrow);
     expect(deView(SEASON_END).hero.eyebrow).toBe(de.empresas.heroEyebrow);
   });
 
   test("textos «confirmado»: la noche en OUTXIDE sin «según fechas», tarde → noche y la tarde solo si es comida", () => {
-    expect(EMPRESAS_CONTENT.condiciones).toEqual({ siDiciembre: true, siTerrazaDic: true });
+    expect(EMPRESAS_CONTENT.condiciones).toEqual({ siTerrazaDic: true });
     const v = viewEs(LAUNCH);
     expect(v.hero.subtitle).toBe(SUBTITLE_ES);
     expect(v.hero.facts).toBe(FACTS_ES);
@@ -451,7 +452,7 @@ test.describe("/empresas · reglas puras", () => {
     // (La coletilla de la opción de comida del formulario va al final de toda la
     // opción, tarde y noche juntas, como en el paquete §4.8: fuera de esta comprobación.)
     for (const view of [v, vEn, nt]) {
-      const blocks = allText([view.hero, view.formats, view.endOfSeason, view.christmas, view.faq]);
+      const blocks = allText([view.hero, view.formats, view.endOfSeason, view.faq]);
       expect(normalize(blocks)).not.toMatch(/noche en outxide[^.·]{0,30}segun fechas|segun fechas,? la noche/);
       expect(blocks).not.toMatch(/night at outxide[^.·]{0,30}on some dates|on some dates,? the night/);
     }
@@ -469,36 +470,23 @@ test.describe("/empresas · reglas puras", () => {
     }
   });
 
-  test("Navidad A con la frase de la terraza y la línea de fechas; sin [SI-DICIEMBRE], versión B", () => {
-    const a = viewEs("2026-10-25T12:00:00+01:00").christmas;
-    expect(a).toEqual({ eyebrow: "Navidad 2026", title: XMAS_TITLE_ES, text: XMAS_TEXT_ES, dates: XMAS_DATES_ES, cta: CTA_ES });
-    // Sin días concretos.
-    expect(a!.dates).not.toMatch(/\d/);
-    const aEn = viewEn("2026-10-25T12:00:00+01:00").christmas;
-    expect(aEn?.title).toBe("Your Christmas dinner, wherever you like. The party afterwards, with us.");
-    expect(aEn?.text).toContain("And if it's a lunch, the afternoon at Enjoy Terrace comes first.");
-    expect(aEn?.dates).toBe(XMAS_DATES_EN);
-    expect(resolveEmpresasMeta("en", tEn).description).toContain("Team and Christmas parties");
-
-    // Sin [SI-TERRAZA-DIC], la tarde no se promete en diciembre.
-    const noTerrace: EmpresasContent = {
-      ...EMPRESAS_CONTENT,
-      condiciones: { ...EMPRESAS_CONTENT.condiciones, siTerrazaDic: false },
-    };
-    expect(viewEs("2026-10-25T12:00:00+01:00", noTerrace).christmas?.text).not.toContain("Enjoy");
-    // Sin [SI-DICIEMBRE]: versión B (H2 de la v0.3), sin fechas ni promesa de OUTXIDE, y sin «Navidad» en la descripción.
-    const unconfirmed: EmpresasContent = {
-      ...EMPRESAS_CONTENT,
-      condiciones: { ...EMPRESAS_CONTENT.condiciones, siDiciembre: false },
-    };
-    expect(viewEs("2026-10-25T12:00:00+01:00", unconfirmed).christmas).toEqual({
-      eyebrow: "Navidad 2026",
-      title: "¿Ya tenéis fecha para la cena de Navidad?",
-      text: "Contadnos la fecha y cuántos seréis, y os decimos qué podemos montar para la fiesta de después.",
-      dates: null,
-      cta: CTA_ES,
-    });
-    expect(resolveEmpresasMeta("es", t, unconfirmed).description.toLowerCase()).not.toContain("navidad");
+  test("sin Navidad ni diciembre (23-oct): ni bloque, ni FAQ, ni metadatos, ni ocasiones, en los 5 idiomas, y sin aviso de cierre", () => {
+    expect("navidad" in EMPRESAS_CONTENT).toBe(false);
+    expect(JSON.stringify(EMPRESAS_CONTENT)).not.toMatch(CHRISTMAS);
+    for (const now of [LAUNCH, "2026-10-25T12:00:00+01:00", SEASON_LAST, SEASON_END, "2026-12-15T12:00:00+01:00"]) {
+      for (const [loc, d] of Object.entries(DICTS) as [keyof typeof DICTS, unknown][]) {
+        const view = resolveEmpresasView({ locale: loc, now: at(now), t: tFrom(d) });
+        expect(JSON.stringify(view), `${loc} ${now}`).not.toMatch(CHRISTMAS);
+        expect(JSON.stringify(view), `${loc} ${now}`).not.toMatch(CLOSURE);
+        const meta = resolveEmpresasMeta(loc, tFrom(d));
+        expect(JSON.stringify(meta), `${loc} meta`).not.toMatch(CHRISTMAS);
+      }
+    }
+    for (const d of [es, en, de, fr, itDict]) {
+      expect(JSON.stringify(d.empresas)).not.toMatch(CHRISTMAS);
+      expect(JSON.stringify(d.promos)).not.toMatch(CHRISTMAS);
+      expect("occasionsChristmas" in d.empresas).toBe(false);
+    }
   });
 
   test("FAQ: seis desde el primer día; la 6 es la de vestimenta y se oculta de las 23:00 del sáb 31 a las 05:30 del dom 1", () => {
@@ -570,7 +558,6 @@ test.describe("/empresas · reglas puras", () => {
     expect(deView.creative).toBe(false);
     expect(deView.hero.h1Lines).toEqual([de.empresas.h1]);
     expect(deView.endOfSeason).toBeNull();
-    expect(deView.christmas).toBeNull();
     expect(deView.faq).toBeNull();
     expect(deView.hero.facts).toBeNull();
     // Nunca español en la página alemana.
@@ -866,7 +853,7 @@ test.describe("/empresas · muro +18", () => {
 test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
   test.beforeEach(async ({ context }) => preconfirm(context));
 
-  test("fin de temporada y antetítulo del cartel visibles hasta el dom 8-nov 23:59:59, con Navidad; retirados el lun 9", async ({ page }) => {
+  test("fin de temporada y antetítulo del cartel visibles hasta el dom 8-nov 23:59:59, sin Navidad; retirados el lun 9", async ({ page }) => {
     const block = page.getByTestId("empresas-end-of-season");
     const eyebrow = page.getByTestId("empresas-hero").locator(".emp-eyebrow");
     // El corte viejo del sáb 31 (18:00) ya no retira nada, y sigue el último segundo del domingo 8.
@@ -878,19 +865,17 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
       await expect(block.locator("p", { hasText: SEASON_DATES_ES })).toHaveText(SEASON_DATES_ES);
       await expect(block.locator('a[href="#solicitud"]')).toHaveText(CTA_ES);
       await expect(eyebrow, now).toHaveText(EYEBROW_SEASON_ES);
-      // Va primero y Navidad convive con él.
-      await expect(page.getByTestId("empresas-christmas")).toBeVisible();
-      const order = await page.evaluate(() => {
-        const a = document.querySelector('[data-testid="empresas-end-of-season"]');
-        const b = document.querySelector('[data-testid="empresas-christmas"]');
-        return !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);
-      });
-      expect(order, now).toBe(true);
+      await expect(page.getByTestId("empresas-christmas")).toHaveCount(0);
+      expect(await page.locator("main").innerText(), now).not.toMatch(CHRISTMAS);
     }
 
     await page.goto(withNow("/empresas", SEASON_END));
-    await expect(page.getByTestId("empresas-christmas")).toBeVisible();
+    await expect(page.getByTestId("empresas-christmas")).toHaveCount(0);
     await expect(block).toHaveCount(0);
+    // Desde el 9-nov: sin temporada, sin Navidad y sin aviso de cierre; el formulario sigue.
+    expect(await page.locator("main").innerText()).not.toMatch(CHRISTMAS);
+    expect(await page.locator("main").innerText()).not.toMatch(CLOSURE);
+    await expect(page.getByTestId("empresas-form")).toBeVisible();
     // El antetítulo del cartel se va a la misma hora que el bloque; el H1 se queda.
     await expect(eyebrow).toHaveText(EYEBROW_NEUTRAL_ES);
     await expect(page.locator("h1 span")).toHaveText(H1_LINES_ES);
@@ -932,15 +917,14 @@ test.describe("/empresas · bloques con fecha (reloj de servidor)", () => {
 test.describe("/empresas · contenido", () => {
   test.beforeEach(async ({ context }) => preconfirm(context));
 
-  test("orden del paquete, Navidad A con la terraza y su línea de fechas, FAQ 1-3, formatos, sin oferta ni precio, y +18 en formulario y pie", async ({ page }) => {
+  test("orden del paquete, sin Navidad, FAQ 1-3, formatos, sin oferta ni precio, y +18 en formulario y pie", async ({ page }) => {
     await page.goto(withNow("/empresas", "2026-10-25T12:00:00+01:00"));
-    // Orden (§3): primera pantalla · formatos · fin de temporada y Navidad · propuesta · formulario · FAQ.
+    // Orden (§3): primera pantalla · formatos · fin de temporada · propuesta · formulario · FAQ.
     const ids = [
       "empresas-hero",
       "empresas-format-night",
       "empresas-format-day",
       "empresas-end-of-season",
-      "empresas-christmas",
       "empresas-offer-custom",
       "empresas-form",
       "empresas-faq",
@@ -950,23 +934,17 @@ test.describe("/empresas · contenido", () => {
       ids,
     );
     expect(tops.every((v) => Number.isFinite(v))).toBe(true);
-    // En escritorio la tarde va en la fila de la noche y Navidad en la del fin de temporada.
-    const sameRow = new Set(["empresas-format-day", "empresas-christmas"]);
+    // En escritorio la tarde va en la fila de la noche.
+    const sameRow = new Set(["empresas-format-day"]);
     for (let i = 1; i < tops.length; i++) {
       const msg = `${ids[i]} después de ${ids[i - 1]}`;
       if (sameRow.has(ids[i])) expect(tops[i], msg).toBeGreaterThanOrEqual(tops[i - 1]);
       else expect(tops[i], msg).toBeGreaterThan(tops[i - 1]);
     }
 
-    // Navidad, versión A ([SI-DICIEMBRE] y [SI-TERRAZA-DIC] confirmados por
-    // Sergi): la noche en OUTXIDE, la tarde si es comida y la línea de fechas
-    // sin días concretos.
-    const christmas = page.getByTestId("empresas-christmas");
-    await expect(christmas.locator("h2")).toHaveText(XMAS_TITLE_ES);
-    await expect(christmas.locator("p", { hasText: "la noche la ponemos nosotros en OUTXIDE" })).toHaveText(XMAS_TEXT_ES);
-    await expect(christmas.locator("p", { hasText: XMAS_DATES_ES })).toHaveText(XMAS_DATES_ES);
-    // Sin días concretos: el único número del bloque es el año del antetítulo.
-    expect((await christmas.innerText()).match(/\d+/g)).toEqual(["2026"]);
+    // Sin Navidad ni diciembre en ningún sitio de la página (23-oct).
+    await expect(page.getByTestId("empresas-christmas")).toHaveCount(0);
+    expect(await page.locator("body").innerText()).not.toMatch(CHRISTMAS);
     // FAQ 1-3 con los textos «confirmado» y la regla de puerta de la web, y ningún horario viejo en la página.
     const faqItems = page.getByTestId("empresas-faq-item");
     await expect(faqItems.nth(0).locator("dd")).toHaveText(FAQ1_ES);
@@ -1009,8 +987,8 @@ test.describe("/empresas · contenido", () => {
     await page.goto("/empresas");
     await expect(page).toHaveTitle("Celebraciones de empresa en Port d'Alcúdia · Grupo Enjoy");
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-    // Con [SI-DICIEMBRE], la descripción con Navidad de la v0.4/v0.5: la tarde
-    // solo si es comida y la noche sin «según fechas».
+    // Descripción sin Navidad (23-oct): la tarde solo si es comida y la noche
+    // sin «según fechas».
     await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", META_DESC_ES);
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "La cena, donde queráis. La fiesta, con nosotros.");
     await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", "La cena, donde queráis. La fiesta, con nosotros.");
@@ -1029,7 +1007,7 @@ test.describe("/empresas · contenido", () => {
     const head = await (await request.get("/en/empresas")).text();
     expect(head).toContain("<title>Company celebrations in Port d&#x27;Alcúdia · Grupo Enjoy</title>");
     expect(head).toContain('<meta property="og:title" content="Dinner, wherever you like. The party, with us."/>');
-    expect(head).toContain(`<meta name="description" content="${META_DESC_EN}"/>`);
+    expect(head).toContain(`<meta name="description" content="${META_DESC_EN.replace(/'/g, "&#x27;")}"/>`);
     // Ni rastro del titular viejo en ningún idioma.
     for (const path of ["/empresas", "/en/empresas"]) {
       const html = await (await request.get(path)).text();

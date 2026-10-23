@@ -15,7 +15,7 @@
 // propósito (no se traduce el copy creativo por nuestra cuenta): en esos
 // idiomas la página sigue con los textos NEUTROS del diccionario (namespace
 // `empresas`) y los bloques que no tienen versión neutra (fin de temporada,
-// Navidad, FAQ, línea de datos) no se pintan.
+// FAQ, línea de datos) no se pintan.
 //
 // Dos interruptores, a propósito separados:
 // - `activo` enciende los TEXTOS en la página (hoy: la creatividad provisional).
@@ -31,7 +31,8 @@
 //   enteras («[QUÉ INCLUYE].» de los formatos; «desde las [HORA TARDE]» del
 //   paso 2 del formato 2, que queda como «La tarde, en Enjoy Terrace», el mismo
 //   titular E3-T2 de COPYS.md).
-// - [FECHAS], [FECHAS DICIEMBRE] y [SI-OTRO-DÍA] los resolvió Sergi (abajo): la
+// - [FECHAS] y [SI-OTRO-DÍA] los resolvió Sergi (abajo; [FECHAS DICIEMBRE] salió
+//   con la Navidad el 23-oct): la
 //   FAQ 2 va en su versión CON datos y el bloque de fin de temporada lleva su
 //   línea «Fechas: [FECHAS].» (v0.5 §4.1: «noviembre entra en el bloque de fin
 //   de temporada y en la FAQ 2»), con el MISMO valor en los dos sitios.
@@ -42,11 +43,14 @@
 // Hechos resueltos por Sergi (20-oct-2026, tarde; paquete v0.5):
 // - APERTURA: OUTXIDE y Enjoy (Enjoy Terrace) abren todos los días hasta
 //   mediados de noviembre; después, solo fines de semana o bajo reserva de
-//   grupo, también en diciembre. Se cumplen [SI-NOCHES-NOV-DIC] (la noche en
-//   OUTXIDE ya no va «según fechas»: textos «confirmado» del paquete),
-//   [SI-DICIEMBRE] (versión A de Navidad y descripción con «Navidad») y
-//   [SI-TERRAZA-DIC] (la tarde pierde el «(según fechas)» del hero, la FAQ 1 y
-//   la opción de comida del formulario, y Navidad lleva la frase de la terraza).
+//   grupo. Se cumplen [SI-NOCHES-NOV-DIC] (la noche en OUTXIDE ya no va «según
+//   fechas»: textos «confirmado» del paquete) y [SI-TERRAZA-DIC] (la tarde
+//   pierde el «(según fechas)» del hero, la FAQ 1 y la opción de comida del
+//   formulario).
+// - SIN NAVIDAD (orden de Sergi, 23-oct-2026: «quita la opción de navidad»):
+//   ni bloque, ni descripción, ni ocasiones de Navidad, y NINGÚN aviso de
+//   cierre, vacaciones ni «volvemos en…». Desde el lun 9-nov la página queda
+//   sin temporada ni fechas y el formulario sigue recibiendo solicitudes.
 // - CARTEL del anuncio de empresas (aprobado por Sergi): «CELEBRA TU FIN DE
 //   TEMPORADA EN OUTXIDE CLUB · LA CENA, DONDE QUERÁIS · LA FIESTA, CON
 //   NOSOTROS». Quien llega del anuncio tiene que reconocer el mensaje en la
@@ -57,7 +61,7 @@
 //   dom 8-nov a las 23:59:59 (orden de META ADS por Sergi; luego vuelve el
 //   antetítulo neutro y el H1 se queda): el anuncio con ese
 //   cartel corre hasta el 8-nov y, con el club abierto a diario hasta mediados
-//   de noviembre, sigue siendo verdad. Navidad convive con él desde ya.
+//   de noviembre, sigue siendo verdad.
 //
 // Lo que ya NO está en /empresas (paquete v0.3, COPYS.md §3.0 y §5.4: «Halloween
 // no se mezcla con empresas»): ni Halloween, ni OUTXIDIOUS, ni el tardeo, ni un
@@ -164,13 +168,10 @@ export interface EmpresasContent {
    * explica en el presupuesto, no en la página.
    */
   condiciones: {
-    /** [SI-DICIEMBRE] OUTXIDE abre en diciembre para grupos. */
-    siDiciembre: boolean;
     /**
-     * [SI-TERRAZA-DIC] Enjoy Terrace abre en las fechas de diciembre. Sin ella,
+     * [SI-TERRAZA-DIC] Enjoy Terrace abre en las fechas de grupo. Sin ella,
      * la tarde va «(según fechas)» (token {segunFechasTarde} del hero, la línea
-     * de datos y la FAQ 1, y coletilla de la opción de comida del formulario) y
-     * Navidad no lleva la frase de la terraza.
+     * de datos y la FAQ 1, y coletilla de la opción de comida del formulario).
      */
     siTerrazaDic: boolean;
   };
@@ -215,23 +216,6 @@ export interface EmpresasContent {
     fechasGrupos: LocalizedText | null;
     boton: LocalizedText;
   } | null;
-  navidad: {
-    eyebrow: LocalizedText;
-    boton: LocalizedText;
-    /** Versión B (§4.5): mientras Jose no confirme diciembre. No promete nada. */
-    sinDiciembre: { titulo: LocalizedText; texto: LocalizedText };
-    /** Versión A (§4.5): solo con condiciones.siDiciembre. */
-    conDiciembre: {
-      titulo: LocalizedText;
-      texto: LocalizedText;
-      /** Frase extra solo con condiciones.siTerrazaDic. */
-      terraza: LocalizedText;
-      /** «Fechas de diciembre: {fechas}.» — se pinta solo si hay fechasDiciembre. */
-      fechas: LocalizedText;
-    };
-    /** [FECHAS DICIEMBRE] — sin dato, la línea de fechas no se pinta. */
-    fechasDiciembre: LocalizedText | null;
-  } | null;
   propuesta: {
     /** Versión de hoy (§4.6, sin datos de Jose). */
     sinDatos: { titulo: LocalizedText; texto: LocalizedText };
@@ -259,10 +243,7 @@ export interface EmpresasContent {
   muroEdad: { title: LocalizedText; description: LocalizedText; confirm: LocalizedText; deny: LocalizedText } | null;
   meta: {
     title: LocalizedText;
-    /** Mientras no haya siDiciembre (sin «Navidad»). */
     description: LocalizedText;
-    /** Solo con siDiciembre. */
-    descriptionDiciembre: LocalizedText;
     ogTitle: LocalizedText;
     ogDescription: LocalizedText;
     ogImageAlt: LocalizedText;
@@ -282,12 +263,9 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
   // Jose aún no la ha visto: sin su OK, nunca index aunque se publique la oferta.
   approved: false,
   condiciones: {
-    // Resueltas por Sergi (20-oct-2026, paquete v0.5 §4.1): OUTXIDE y Enjoy
-    // abren todos los días hasta mediados de noviembre y después fines de
-    // semana o bajo reserva de grupo, también en diciembre. siDiciembre enciende
-    // la versión A de Navidad y la descripción con «Navidad»; siTerrazaDic quita
-    // el «(según fechas)» de la tarde y añade la frase de la terraza en Navidad.
-    siDiciembre: true,
+    // Resuelta por Sergi (20-oct-2026, paquete v0.5 §4.1): quita el «(según
+    // fechas)» de la tarde. La Navidad salió de /empresas el 23-oct (orden de
+    // Sergi: «quita la opción de navidad»; sin anunciar ningún cierre).
     siTerrazaDic: true,
   },
   segunFechas: { es: "(según fechas)", en: "(on some dates)" },
@@ -387,42 +365,6 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
     },
     boton: PEDIR_PRESUPUESTO,
   },
-  // §4.5 — visible desde el primer día. Con [SI-DICIEMBRE] (confirmado el
-  // 20-oct) va la versión A; sin él, la B.
-  navidad: {
-    eyebrow: { es: "Navidad 2026", en: "Christmas 2026" },
-    boton: PEDIR_PRESUPUESTO,
-    // Versión B, de reserva desde el 20-oct (diciembre resuelto); H2 de la v0.3.
-    sinDiciembre: {
-      titulo: { es: "¿Ya tenéis fecha para la cena de Navidad?", en: "Got a date for your Christmas dinner?" },
-      texto: {
-        es: "Contadnos la fecha y cuántos seréis, y os decimos qué podemos montar para la fiesta de después.",
-        en: "Tell us the date and how many of you there will be, and we'll tell you what we can put together for the party afterwards.",
-      },
-    },
-    conDiciembre: {
-      titulo: {
-        es: "La cena de Navidad, donde queráis. La fiesta de después, con nosotros.",
-        en: "Your Christmas dinner, wherever you like. The party afterwards, with us.",
-      },
-      texto: {
-        es: "Si la cena de empresa es en diciembre, la fiesta de después se organiza ahora. Vosotros elegís el restaurante; la noche la ponemos nosotros en OUTXIDE.",
-        en: "If your company dinner is in December, now is the time to plan the party afterwards. You choose the restaurant; we take care of the night at OUTXIDE.",
-      },
-      // Frase [SI-TERRAZA-DIC] de la v0.3 (entra sin la etiqueta: resuelta).
-      terraza: {
-        es: "Y si es comida, antes de la noche, la tarde en Enjoy Terrace.",
-        en: "And if it's a lunch, the afternoon at Enjoy Terrace comes first.",
-      },
-      // La línea de fechas con la formulación de Sergi (20-oct; paquete v0.5):
-      // «en diciembre, fines de semana o bajo reserva para grupos», sin días
-      // concretos (no los hay confirmados y la página sigue viva hasta el 8-nov).
-      fechas: { es: "En diciembre, {fechas}.", en: "In December, {fechas}." },
-    },
-    // [FECHAS DICIEMBRE] (§4.1, resuelto el 20-oct).
-    fechasDiciembre: { es: "fines de semana o bajo reserva para grupos", en: "weekends, or for groups by reservation" },
-  },
-  // §4.6
   propuesta: {
     sinDatos: {
       titulo: { es: "Cada equipo es distinto", en: "Every team is different" },
@@ -524,12 +466,13 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
       },
       {
         pregunta: { es: "¿Qué días se puede?", en: "Which days are available?" },
-        // Versión con datos (§4.10): [FECHAS] y [FECHAS DICIEMBRE] con la
-        // formulación de Sergi (§4.1) y la frase [SI-OTRO-DÍA], que se mantiene.
+        // Versión con datos (§4.10): [FECHAS] con la formulación de Sergi (§4.1)
+        // y la frase [SI-OTRO-DÍA], que se mantiene. Sin diciembre desde el
+        // 23-oct (orden de Sergi: fuera la Navidad, sin anunciar ningún cierre).
         // Sin «jueves a sábado» ni «mayo-octubre» (la web está desfasada).
         respuesta: {
-          es: "La noche en OUTXIDE empieza a las 23:00. Fechas para grupos: todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo. En diciembre: fines de semana o bajo reserva para grupos. Si os encaja mejor otro día, decídnoslo en la solicitud y lo miramos.",
-          en: "The night at OUTXIDE starts at 23:00. Dates for groups: every day until mid-November; after that, weekends, or for groups by reservation. In December: weekends, or for groups by reservation. If another day suits you better, tell us in your request and we'll look into it.",
+          es: "La noche en OUTXIDE empieza a las 23:00. Fechas para grupos: todos los días hasta mediados de noviembre; después, fines de semana o bajo reserva de grupo. Si os encaja mejor otro día, decídnoslo en la solicitud y lo miramos.",
+          en: "The night at OUTXIDE starts at 23:00. Dates for groups: every day until mid-November; after that, weekends, or for groups by reservation. If another day suits you better, tell us in your request and we'll look into it.",
         },
       },
       {
@@ -594,23 +537,18 @@ export const EMPRESAS_CONTENT: EmpresasContent = {
       es: "Celebraciones de empresa en Port d'Alcúdia · Grupo Enjoy",
       en: "Company celebrations in Port d'Alcúdia · Grupo Enjoy",
     },
-    // De reserva: solo sin [SI-DICIEMBRE] (sin «Navidad»).
+    // Sin Navidad (23-oct, orden de Sergi) ni «temporada» ni precio: la caché
+    // de Meta no se refresca. La noche sin «según fechas» (noches confirmadas).
     description: {
-      es: "Cenad o comed donde queráis: según fechas, la noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace. Port d'Alcúdia. Pide presupuesto. +18.",
-      en: "Lunch or dinner wherever you like. On some dates, the night at OUTXIDE and, after lunch, Enjoy Terrace first. Port d'Alcúdia. Request a quote. 18+.",
-    },
-    // La que se pinta hoy ([SI-DICIEMBRE] confirmado, con noches de diciembre en
-    // OUTXIDE): la noche sin «según fechas». 151 y 143 caracteres.
-    descriptionDiciembre: {
-      es: "Cenad o comed donde queráis: la noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace (según fechas). Fiestas de empresa y de Navidad. +18.",
-      en: "Lunch or dinner wherever you like: the night at OUTXIDE and, after lunch, Enjoy Terrace first (on some dates). Team and Christmas parties. 18+.",
+      es: "Cenad o comed donde queráis: la noche en OUTXIDE y, si es comida, antes la tarde en Enjoy Terrace. Port d'Alcúdia. Pide presupuesto. +18.",
+      en: "Lunch or dinner wherever you like: the night at OUTXIDE and, after lunch, Enjoy Terrace first. Port d'Alcúdia. Request a quote. 18+.",
     },
     ogTitle: {
       es: "La cena, donde queráis. La fiesta, con nosotros.",
       en: "Dinner, wherever you like. The party, with us.",
     },
     // Con [SI-NOCHES-NOV-DIC] la noche va sin «según fechas» delante (como la
-    // descripción con Navidad); la tarde lo conserva: el paquete deja los
+    // descripción); la tarde lo conserva: el paquete deja los
     // metadatos tal cual al confirmarse la terraza, porque siguen siendo verdad
     // y es el texto que Meta guarda en caché (§4.1 y §4.11).
     ogDescription: {

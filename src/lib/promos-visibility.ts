@@ -10,11 +10,12 @@
 // - OUTXIDIOUS_PHASE=pronto: sigue (la landing sigue viva, sin botón);
 // - ?phase= (solo fuera de producción): el mismo override que la landing.
 //
-// La de celebraciones de empresa no caduca (/empresas sirve para fin de
-// temporada y Navidad), pero su línea «Fin de temporada y Navidad» sí: deja de
-// decir «fin de temporada» a la misma hora que /empresas retira su bloque y su
-// antetítulo (finTemporada.visibleHasta, lun 9-nov a las 00:00 +01:00: mismo
-// reloj, isEndOfSeasonLive) y desde ahí solo dice Navidad.
+// La de celebraciones de empresa no caduca (el formulario de /empresas sigue
+// recibiendo solicitudes), pero su línea «Fin de temporada» sí: desaparece a la
+// misma hora que /empresas retira su bloque y su antetítulo
+// (finTemporada.visibleHasta, lun 9-nov a las 00:00 +01:00: mismo reloj,
+// isEndOfSeasonLive). Sin Navidad desde el 23-oct (orden de Sergi) y sin
+// ningún aviso de cierre: desde ahí la tarjeta no habla de temporada ni fechas.
 
 import { isEndOfSeasonLive } from "@/lib/empresas/view";
 import { asEnvPhase, asQueryPhase, resolvePhase } from "@/lib/outxidious/event-config";
@@ -36,7 +37,7 @@ export interface PromoVisibilityInput {
 export interface PromoVisibility {
   outxidious: boolean;
   empresas: boolean;
-  /** ¿La tarjeta de empresas dice todavía «fin de temporada»? (si no, solo Navidad). */
+  /** ¿La tarjeta de empresas dice todavía «fin de temporada»? (si no, sin línea de temporada). */
   empresasEndOfSeason: boolean;
 }
 
@@ -56,7 +57,7 @@ export function promoVisibility(input: PromoVisibilityInput): PromoVisibility {
   return {
     outxidious: isOutxidiousPromoVisible(input),
     empresas: true,
-    // Falla cerrado como /empresas: con la fecha mal escrita, solo Navidad.
+    // Falla cerrado como /empresas: con la fecha mal escrita, sin temporada.
     empresasEndOfSeason: isEndOfSeasonLive(input.empresasNow ?? input.now),
   };
 }

@@ -23,7 +23,7 @@ import { getEmpresasGames, getEmpresasPhoto, type ResolvedPhoto } from "./photos
 // Qué se pinta en cada idioma y a cada hora lo decide src/lib/empresas/view.ts.
 //
 // Orden (paquete §3): primera pantalla · los dos formatos · fin de temporada
-// (hasta el dom 8-nov) y Navidad · qué incluye · formulario · preguntas
+// (hasta el dom 8-nov) · qué incluye · formulario · preguntas
 // frecuentes · pie con la placa +18. Halloween, OUTXIDIOUS y el tardeo no se
 // nombran aquí (paquete v0.3): es otra campaña.
 //
@@ -214,7 +214,6 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
   const night = getEmpresasPhoto("night", locale, t);
   const day = getEmpresasPhoto("day", locale, t);
   const games = getEmpresasGames(locale, t);
-  const seasonal = [view.endOfSeason, view.christmas].filter(Boolean).length;
 
   return (
     <div className="relative">
@@ -295,10 +294,10 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
         </section>
 
         {/* 3 · Fin de temporada (hasta el dom 8-nov a las 23:59:59, lo decide
-            el servidor) y Navidad (desde el primer día). */}
-        {seasonal > 0 && (
+            el servidor). Sin Navidad desde el 23-oct (orden de Sergi). */}
+        {view.endOfSeason && (
           <section className="relative border-y border-[var(--emp-line)] py-16 md:py-20">
-            <div className={cn("mx-auto grid grid-cols-1 gap-6 px-4 sm:px-6", seasonal === 2 ? "max-w-6xl md:grid-cols-2" : "max-w-3xl")}>
+            <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 px-4 sm:px-6">
               {view.endOfSeason && (
                 <article data-testid="empresas-end-of-season" className="emp-card flex flex-col rounded-2xl p-6 sm:p-8">
                   <p className="emp-eyebrow">{view.endOfSeason.eyebrow}</p>
@@ -306,16 +305,6 @@ export default async function EmpresasPage({ searchParams }: { searchParams: Pro
                   <p className="emp-body mt-4 text-[var(--emp-text-2)]">{view.endOfSeason.text}</p>
                   {view.endOfSeason.dates && <p className="emp-body mt-3">{view.endOfSeason.dates}</p>}
                   <QuoteLink text={view.endOfSeason.cta} className="mt-6 w-full self-start sm:w-auto" />
-                </article>
-              )}
-              {view.christmas && (
-                <article data-testid="empresas-christmas" className="emp-card flex flex-col overflow-hidden rounded-2xl p-6 sm:p-8">
-                  <div className="-mx-6 -mt-6 mb-6 h-1 emp-accent-gold sm:-mx-8 sm:-mt-8" aria-hidden />
-                  <p className="emp-eyebrow emp-eyebrow--gold">{view.christmas.eyebrow}</p>
-                  <h2 className="emp-h2 mt-3">{view.christmas.title}</h2>
-                  <p className="emp-body mt-4 text-[var(--emp-text-2)]">{view.christmas.text}</p>
-                  {view.christmas.dates && <p className="emp-body mt-3">{view.christmas.dates}</p>}
-                  <QuoteLink text={view.christmas.cta} className="mt-6 w-full self-start sm:w-auto" />
                 </article>
               )}
             </div>

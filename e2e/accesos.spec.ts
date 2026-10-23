@@ -28,11 +28,14 @@ const PAGES = ["/", "/outxide", "/enjoy"] as const;
 // Pasado el final real (dom 1-nov 05:30) la tarjeta ya no sale por defecto.
 const EVENT_OVER = Date.now() >= AFTER_FROM;
 // Hora (exclusiva) a la que /empresas retira su fin de temporada: lun 9-nov a las
-// 00:00 (+01:00). Desde ahí la tarjeta de empresas dice solo «Navidad».
+// 00:00 (+01:00). Desde ahí la tarjeta de empresas no lleva línea de temporada
+// ni fechas (sin Navidad desde el 23-oct: orden de Sergi).
 const SEASON_CUT = Date.parse("2026-11-09T00:00:00+01:00");
-/** Línea de la tarjeta de empresas que toca ahora con el reloj real. */
+/** Línea de la tarjeta de empresas que toca ahora con el reloj real (null = sin línea). */
 const empresasWhenNow = (d: (typeof DICTS)[Locale]["promos"]) =>
-  isEndOfSeasonLive(Date.now()) ? d.empresasWhen : d.empresasWhenChristmas;
+  isEndOfSeasonLive(Date.now()) ? d.empresasWhen : null;
+/** Navidad en los 5 idiomas (no puede aparecer en nada de empresas desde el 23-oct). */
+const CHRISTMAS = /navidad|christmas|weihnacht|no[eë]l|natal|diciembre|december|dezember|d[ée]cembre|dicembre/i;
 
 /** Muro +18 y cookies ya decididos (como el resto de specs), salvo que se pida lo contrario. */
 async function preconfirm(context: BrowserContext, opts: { age?: boolean } = {}): Promise<void> {
@@ -104,7 +107,7 @@ test.describe("Accesos · lógica pura", () => {
     expect(promoVisibility({ now: AFTER_FROM + 365 * 86_400_000 }).empresas).toBe(true);
   });
 
-  test("empresas: «fin de temporada» hasta el dom 8-nov 23:59 y solo Navidad desde el 9-nov 00:00 (+01:00), el reloj de /empresas", () => {
+  test("empresas: «fin de temporada» hasta el dom 8-nov 23:59 y sin línea de temporada desde el 9-nov 00:00 (+01:00), el reloj de /empresas", () => {
     // La misma hora que el bloque y el antetítulo de /empresas (finTemporada.visibleHasta).
     expect(EMPRESAS_CONTENT.finTemporada?.visibleHasta).toBe("2026-11-09T00:00:00+01:00");
     expect(SEASON_CUT).toBe(Date.parse(EMPRESAS_CONTENT.finTemporada?.visibleHasta ?? ""));
@@ -121,15 +124,16 @@ test.describe("Accesos · lógica pura", () => {
     for (const t of [SEASON_CUT - 86_400_000, SEASON_CUT - 1, SEASON_CUT, SEASON_CUT + 1]) {
       expect(at(t), new Date(t).toISOString()).toBe(isEndOfSeasonLive(t));
     }
-    // Los textos: «fin de temporada» solo en la línea de antes del corte.
+    // Los textos: solo «fin de temporada», sin Navidad ni diciembre (23-oct), y
+    // ninguna clave de Navidad en la tarjeta.
     for (const loc of locales) {
       const d = DICTS[loc].promos;
-      expect(d.empresasWhenChristmas.trim(), loc).not.toBe("");
-      expect(d.empresasWhen, loc).toContain(d.empresasWhenChristmas);
-      expect(d.empresasWhenChristmas, loc).not.toMatch(/temporada|season|saison|stagione/i);
+      expect(d.empresasWhen, loc).toMatch(/temporada|season|saison|stagione/i);
+      expect(JSON.stringify(d), loc).not.toMatch(CHRISTMAS);
+      expect("empresasWhenChristmas" in d, loc).toBe(false);
     }
-    expect(es.promos.empresasWhenChristmas).toBe("Navidad");
-    expect(DICTS.en.promos.empresasWhenChristmas).toBe("Christmas");
+    expect(es.promos.empresasWhen).toBe("Fin de temporada");
+    expect(DICTS.en.promos.empresasWhen).toBe("End of season");
   });
 
   test("namespace «promos»: mismas claves en los 5 idiomas, sin vacíos y justo detrás de «home»", () => {
@@ -207,7 +211,10 @@ test.describe("Accesos · tarjetas visibles", () => {
         const em = card(page, "empresas");
         await expect(em).toBeVisible();
         await expect(em.getByRole("heading", { level: 3 })).toHaveText(d.empresasTitle);
-        await expect(em).toContainText(empresasWhenNow(d));
+        const when = empresasWhenNow(d);
+        if (when) await expect(em).toContainText(when);
+        else await expect(em).not.toContainText(/temporada|season|saison|stagione/i);
+        await expect(em).not.toContainText(CHRISTMAS);
         await expect(em).toContainText(d.empresasDetails);
         await expect(em.getByRole("img", { name: d.empresasImageAlt })).toBeVisible();
         const emLink = em.getByRole("link", { name: `${d.empresasCta}: ${d.empresasTitle}`, exact: true });
@@ -305,24 +312,29 @@ test.describe("Accesos · después de OUTXIDIOUS", () => {
       const locale: Locale = path.startsWith("/en") ? "en" : "es";
       const d = DICTS[locale].promos;
       const sep = path.includes("?") ? "&" : "?";
-      // Un minuto antes del corte: fin de temporada y Navidad.
+      // Un minuto antes del corte: fin de temporada (sin Navidad).
       await page.goto(`${path}${sep}now=${encodeURIComponent("2026-11-08T23:59:00+01:00")}`);
       await expect(card(page, "empresas")).toContainText(d.empresasWhen, { timeout: 15_000 });
-      // Desde el corte: solo Navidad, ya en el HTML del servidor (sin desajuste al hidratar).
+      await expect(card(page, "empresas")).not.toContainText(CHRISTMAS);
+      // Desde el corte: sin línea de temporada ni fechas, ya en el HTML del
+      // servidor (sin desajuste al hidratar); la tarjeta sigue llevando al formulario.
       const after = `${path}${sep}now=${encodeURIComponent("2026-11-09T00:00:00+01:00")}`;
       const html = await (await request.get(after)).text();
       // (El diccionario entero viaja en el payload RSC: se mira solo el marcado de la tarjeta.)
       const at = html.indexOf('data-testid="promo-empresas"');
       expect(at, "tarjeta de empresas en el HTML").toBeGreaterThan(-1);
       const cardHtml = html.slice(at, html.indexOf("</article>", at));
-      expect(cardHtml).toContain(`>${d.empresasWhenChristmas}</p>`);
       expect(cardHtml).not.toContain(d.empresasWhen);
+      expect(cardHtml).not.toMatch(CHRISTMAS);
+      // (React escapa el apóstrofo del inglés: «if it&#x27;s lunch».)
+      expect(cardHtml).toContain(d.empresasDetails.replace(/'/g, "&#x27;"));
       await page.goto(after);
       const em = card(page, "empresas");
-      await expect(em.locator("p").first()).toHaveText(d.empresasWhenChristmas, { timeout: 15_000 });
+      await expect(em).toContainText(d.empresasTitle, { timeout: 15_000 });
       await expect(em).not.toContainText(/temporada|season/i);
+      await expect(em).not.toContainText(CHRISTMAS);
       await page.waitForTimeout(500);
-      await expect(em.locator("p").first()).toHaveText(d.empresasWhenChristmas);
+      await expect(em).not.toContainText(/temporada|season/i);
     });
   }
 

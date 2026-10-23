@@ -34,9 +34,10 @@ interface PromoAccesosProps {
   /** Calculado en servidor (getPromoVisibility). */
   showOutxidious: boolean;
   /**
-   * También del servidor: la tarjeta de empresas dice «Fin de temporada y
-   * Navidad» hasta que /empresas retira su fin de temporada (lun 9-nov a las
-   * 00:00) y desde ahí solo Navidad.
+   * También del servidor: la tarjeta de empresas dice «Fin de temporada»
+   * hasta que /empresas retira su fin de temporada (lun 9-nov a las 00:00) y
+   * desde ahí no lleva línea de temporada ni fechas (sin Navidad desde el
+   * 23-oct, orden de Sergi, y sin anunciar ningún cierre).
    */
   empresasEndOfSeason: boolean;
   /** Acento de la página: portada (neutro), OUTXIDE (cian) o Enjoy (rosa). */
@@ -71,7 +72,8 @@ interface CardData {
   image: string;
   imageAlt: string;
   title: string;
-  when: string;
+  /** Línea de fecha o temporada; sin ella, la tarjeta no la pinta. */
+  when: string | null;
   details: string[];
   cta: string;
 }
@@ -105,7 +107,7 @@ export function PromoAccesos({ showOutxidious, empresasEndOfSeason, tone = "grou
       image: PROMO_IMAGES.empresas,
       imageAlt: t("promos.empresasImageAlt"),
       title: t("promos.empresasTitle"),
-      when: t(empresasEndOfSeason ? "promos.empresasWhen" : "promos.empresasWhenChristmas"),
+      when: empresasEndOfSeason ? t("promos.empresasWhen") : null,
       details: [t("promos.empresasDetails")],
       cta: t("promos.empresasCta"),
     },
@@ -180,7 +182,7 @@ function PromoCard({
         <h3 id={titleId} className="font-display text-2xl font-bold uppercase leading-tight tracking-tight text-white">
           {card.title}
         </h3>
-        <p className={cn("mt-2 text-sm font-semibold", styles.accent)}>{card.when}</p>
+        {card.when && <p className={cn("mt-2 text-sm font-semibold", styles.accent)}>{card.when}</p>}
         <ul role="list" className="mt-3 space-y-1 text-sm leading-relaxed text-white/70">
           {card.details.map((line) => (
             <li key={line}>{line}</li>

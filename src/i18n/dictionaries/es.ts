@@ -110,11 +110,7 @@ export const es = {
     // parte de arriba: el nombre, los murciélagos y la calabaza.
     outxidiousImageAlt: "Cartel de OUTXIDIOUS: el nombre del evento y una calabaza de Halloween",
     empresasTitle: "Celebraciones de empresa",
-    empresasWhen: "Fin de temporada y Navidad",
-    // Desde el lun 9-nov a las 00:00 (+01:00), cuando /empresas retira su fin
-    // de temporada: la tarjeta deja de decirlo y solo queda Navidad (mismo reloj
-    // de servidor, src/lib/promos-visibility.ts).
-    empresasWhenChristmas: "Navidad",
+    empresasWhen: "Fin de temporada",
     // Como la landing y EMP-2-S (COPYS v1.4): la tarde solo si es comida (revisión F9).
     empresasDetails: "La noche en OUTXIDE; si es comida, antes la tarde en Enjoy Terrace",
     empresasCta: "Pedir presupuesto",
@@ -160,9 +156,9 @@ export const es = {
     heroEyebrow: "Grupo Enjoy · Port d'Alcúdia",
     h1: "Celebraciones de empresa en Port d'Alcúdia",
     subtitle: "Vuestra empresa come o cena donde quiera y la celebración sigue con nosotros: por la noche en OUTXIDE y, si es comida, antes por la tarde en Enjoy Terrace.",
-    occasions: "Atendemos solicitudes para las fiestas de fin de temporada de las plantillas y para las celebraciones de Navidad, que ya se pueden reservar.",
-    // Tras el fin de temporada (desde el lun 9-nov): solo Navidad.
-    occasionsChristmas: "Atendemos solicitudes para las celebraciones de Navidad, que ya se pueden reservar.",
+    occasions: "Atendemos solicitudes para las fiestas de fin de temporada de las plantillas.",
+    // Tras el fin de temporada (desde el lun 9-nov): sin temporada ni fechas.
+    occasionsNeutral: "Atendemos solicitudes para celebraciones de empresa.",
     cta: "Pedir presupuesto",
     // Botón de la cabecera en /empresas (al formulario): corto, cabe en 375 px.
     navCta: "Presupuesto",

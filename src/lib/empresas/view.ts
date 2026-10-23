@@ -6,7 +6,7 @@
 // Reglas de resolución:
 // - Texto del paquete (content.ts) en ese idioma si lo hay; si no, el NEUTRO
 //   del diccionario cuando existe; si no existe versión neutra, el bloque no se
-//   pinta (DE/FR/IT no tienen fin de temporada, Navidad, FAQ ni línea de datos).
+//   pinta (DE/FR/IT no tienen fin de temporada, FAQ ni línea de datos).
 // - Lo que caduca se decide con `now` (schedule.ts), calculado en el servidor.
 // - El token {segunFechasTarde} de los textos se resuelve aquí según
 //   condiciones.siTerrazaDic: nunca llega una llave al público.
@@ -59,7 +59,6 @@ export interface EmpresasView {
     notes: string[];
   };
   endOfSeason: { eyebrow: string; title: string; text: string; dates: string | null; cta: string } | null;
-  christmas: { eyebrow: string; title: string; text: string; dates: string | null; cta: string } | null;
   proposal: {
     /** Sin oferta publicada: título (solo paquete) y texto. */
     custom: { title: string | null; text: string } | null;
@@ -160,10 +159,10 @@ export function resolveEmpresasView({
     eyebrow: seasonEyebrow ?? pick(c.hero?.eyebrow) ?? t("empresas.heroEyebrow"),
     h1Lines: h1 ? h1.split("\n").map((s) => s.trim()).filter(Boolean) : [t("empresas.h1")],
     subtitle: pick(c.hero?.entradilla) ?? t("empresas.subtitle"),
-    // La línea neutra habla de las fiestas de fin de temporada: a la misma
-    // hora que el bloque del paquete pasa a hablar solo de Navidad (DE/FR/IT
-    // no tienen bloque de Navidad: sin esta línea, la Navidad desaparecería).
-    occasions: creative ? null : seasonLive ? t("empresas.occasions") : t("empresas.occasionsChristmas"),
+    // La línea neutra habla de las fiestas de fin de temporada mientras viva
+    // ese bloque (hasta el dom 8-nov); después, una línea sin temporada ni
+    // fechas (sin Navidad desde el 23-oct y sin anunciar ningún cierre).
+    occasions: creative ? null : seasonLive ? t("empresas.occasions") : t("empresas.occasionsNeutral"),
     facts: pick(c.hero?.datos),
     cta: pick(c.hero?.boton) ?? t("empresas.cta"),
     plate,
@@ -203,7 +202,7 @@ export function resolveEmpresasView({
     notes: creative ? [] : [t("empresas.sameAddress"), t("empresas.hoursNote")],
   };
 
-  // --- 3. Fin de temporada (hasta el dom 8-nov) y Navidad (desde ya) -------
+  // --- 3. Fin de temporada (hasta el dom 8-nov) ----------------------------
   const fs = c.finTemporada;
   const endOfSeasonParts = seasonLive
     ? { eyebrow: pick(fs?.eyebrow), title: pick(fs?.titulo), text: pick(fs?.texto), cta: pick(fs?.boton) }
@@ -219,30 +218,6 @@ export function resolveEmpresasView({
         }
       : null;
 
-  const nv = c.navidad;
-  let christmas: EmpresasView["christmas"] = null;
-  if (nv) {
-    const eyebrow = pick(nv.eyebrow);
-    const cta = pick(nv.boton);
-    let title: string | null;
-    let text: string | null;
-    let dates: string | null = null;
-    if (cond.siDiciembre) {
-      // Versión A: promete la noche de diciembre en OUTXIDE (solo con el sí de Jose).
-      title = pick(nv.conDiciembre.titulo);
-      const base = pick(nv.conDiciembre.texto);
-      const terrace = cond.siTerrazaDic ? pick(nv.conDiciembre.terraza) : null;
-      text = base ? [base, terrace].filter(Boolean).join(" ") : null;
-      const fechas = pick(nv.fechasDiciembre);
-      const line = pick(nv.conDiciembre.fechas);
-      dates = fechas && line ? line.replace("{fechas}", fechas) : null;
-    } else {
-      // Versión B: sin fechas ni promesas de diciembre.
-      title = pick(nv.sinDiciembre.titulo);
-      text = pick(nv.sinDiciembre.texto);
-    }
-    if (eyebrow && cta && title && text) christmas = { eyebrow, title, text, dates, cta };
-  }
 
   // --- 4. Qué incluye · precio · mínimo ------------------------------------
   const offer = getPublishedOffer(locale, offerConfig);
@@ -271,7 +246,7 @@ export function resolveEmpresasView({
     const value = pick(c.formulario?.campos[key]);
     if (value) copy[key] = value;
   }
-  // Sin el sí a la tarde en diciembre, la opción de comida lleva «(según fechas)».
+  // Sin el sí a la tarde (siTerrazaDic), la opción de comida lleva «(según fechas)».
   if (copy.formatLunch && segunFechas) copy.formatLunch = `${copy.formatLunch} ${segunFechas}`;
   const form = {
     eyebrow: pick(c.formulario?.eyebrow) ?? t("empresas.formEyebrow"),
@@ -306,7 +281,6 @@ export function resolveEmpresasView({
     hero,
     formats,
     endOfSeason,
-    christmas,
     proposal,
     form,
     faq,
@@ -323,10 +297,7 @@ export function resolveEmpresasMeta(
   const pick = (value: Parameters<typeof contentText>[0]) => contentText(value, locale, content);
   const m = content.meta;
   const title = pick(m?.title) ?? t("empresas.metaTitle");
-  // «Navidad» no entra en la descripción hasta [SI-DICIEMBRE] (la caché de Meta no se refresca).
-  const description =
-    (content.condiciones.siDiciembre ? pick(m?.descriptionDiciembre) : pick(m?.description)) ??
-    t("empresas.metaDescription");
+  const description = pick(m?.description) ?? t("empresas.metaDescription");
   return {
     title,
     description,
